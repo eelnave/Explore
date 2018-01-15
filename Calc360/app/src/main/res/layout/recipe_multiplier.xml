@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	compat:columnCount="2">
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/multIn"
+		android:text="@string/origAmount"/>
+
+	<EditText
+		android:id="@+id/multIn"
+		style="@style/UnsignedDecimal"
+		android:ems="8"
+		android:hint="@string/amountHint">
+
+		<requestFocus/>
+	</EditText>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/multType"
+		android:text="@string/recipeMult"/>
+
+	<Spinner
+		android:id="@+id/multType"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:entries="@array/recipeRatio"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="10dp"
+		android:text="@string/result"/>
+
+	<TextView
+		android:id="@+id/multOut"
+		style="@style/TextLabel"
+		android:layout_marginTop="10dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="30dp"
+		android:text="@string/volumeConvert"
+		android:textStyle="bold"
+		compat:layout_columnSpan="2"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/startAmount"
+		android:text="@string/startAmount"/>
+
+	<EditText
+		android:id="@+id/startAmount"
+		style="@style/UnsignedDecimal"
+		android:ems="8"
+		android:imeOptions="actionDone"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="10dp"
+		android:text="@string/startUnits"/>
+
+	<Spinner
+		android:id="@+id/startUnit"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="10dp"
+		android:text="@string/endUnits"/>
+
+	<Spinner
+		android:id="@+id/endUnit"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="10dp"
+		android:text="@string/result"/>
+
+	<TextView
+		android:id="@+id/endAmount"
+		style="@style/TextLabel"
+		android:layout_marginTop="10dp"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="2"/>
+</android.support.v7.widget.GridLayout>

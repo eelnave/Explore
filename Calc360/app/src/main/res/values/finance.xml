@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="compoundInterest">Compound Interest</string>
+	<string name="Deposit">Deposit</string>
+	<string name="Interest">Interest</string>
+	<string name="Years">Years</string>
+	<string name="depositHint">ex: 300.50</string>
+	<string name="interestHint">ex: 6.5</string>
+	<string name="yearsHint">ex: 7</string>
+	<string name="radioMonthly">Monthly</string>
+	<string name="radioQuarterly">Quarterly</string>
+	<string name="radioAnnually">Annually</string>
+
+	<string name="invest">Investment</string>
+	<string name="pv">Principal</string>
+	<string name="periodPay">Periodic Payment</string>
+	<string name="annRate">Annual Rate</string>
+	<string name="annRateHint">ex: 4.875</string>
+	<string name="years">Number of Years</string>
+	<string name="ppy">Periods per Year</string>
+	<integer-array name="possiblePPY" translatable="false">
+		<item>1</item>
+		<item>2</item>
+		<item>4</item>
+		<item>6</item>
+		<item>12</item>
+	</integer-array>
+	<string name="fv">Future Value</string>
+
+	<string name="loan">Loan</string>
+	<string name="amt">Amount Borrowed</string>
+	<string name="loanPPY">Payments per Year</string>
+	<string name="Payment">Payment</string>
+	<string name="Balance">Balance</string>
+	<string name="ptd">Payments Paid to Date</string>
+	<string name="Principal">Principal</string>
+	<string name="Period">Period</string>
+
+	<string name="laborCost">Labor Cost</string>
+	<string name="laborExplain">This calculator converts the cost of an item into the amount of your labor in time. In other words, how much of your labor does an item cost?</string>
+	<string name="laborWage">Your Wage per Hour</string>
+	<string name="laborOR">OR</string>
+	<string name="laborSalary">Your Annual Salary</string>
+</resources>

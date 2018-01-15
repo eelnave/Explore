@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="counter">Counter</string>
+	<string name="plusOne" translatable="false">+1</string>
+	<string name="plusTwo" translatable="false">+2</string>
+	<string name="plusThree" translatable="false">+3</string>
+	<string name="plusFive" translatable="false">+5</string>
+
+	<string name="queueTime">Queue Time</string>
+	<string name="people">Number of People</string>
+	<string name="next">Next Person</string>
+	<string name="person">Average Time per Person</string>
+	<string name="remain">Estimated Time Remaining</string>
+	<string name="served">Estimated Time Served</string>
+
+	<string name="dateArith">Date Arithmetic</string>
+	<string name="dateDiff">Date Difference</string>
+	<string name="startDate">Start Date</string>
+	<string name="endDate">End Date</string>
+	<string name="duration">Duration</string>
+	<string name="difference">Difference</string>
+	<string name="today">Today</string>
+	<string-array name="durationChoices" translatable="false">
+		<item>day</item>
+		<item>week</item>
+		<item>month</item>
+		<item>year</item>
+	</string-array>
+</resources>

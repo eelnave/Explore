@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_margin="3dp"
+	compat:columnCount="3"
+	compat:rowCount="4"
+	tools:context="edu.byui.cit360.kindness.MainActivity">
+
+	<Button
+		android:id="@+id/btnDriving"
+		style="@style/Category"
+		android:background="@mipmap/driving"
+		android:text="@string/driving"/>
+
+	<Button
+		android:id="@+id/btnOnline"
+		style="@style/Category"
+		android:background="@mipmap/online"
+		android:text="@string/online"/>
+
+	<Button
+		android:id="@+id/btnSports"
+		style="@style/Category"
+		android:background="@mipmap/ic_launcher"
+		android:text="@string/sports"/>
+
+	<Button
+		android:id="@+id/btnFamily"
+		style="@style/Category"
+		android:background="@mipmap/ic_launcher"
+		android:text="@string/family"/>
+
+	<TextView style="@style/Category"/>
+
+	<TextView style="@style/Category"/>
+
+	<TextView style="@style/Category"/>
+
+	<TextView style="@style/Category"/>
+
+	<TextView style="@style/Category"/>
+
+	<TextView style="@style/Category"/>
+
+	<TextView style="@style/Category"/>
+
+	<TextView style="@style/Category"/>
+</android.support.v7.widget.GridLayout>

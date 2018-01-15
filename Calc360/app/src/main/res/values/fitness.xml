@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="basketball">Basketball</string>
+	<string name="make">Make</string>
+	<string name="miss">Miss</string>
+	<string name="freeThrow" translatable="false">FT</string>
+	<string name="threePoint" translatable="false">3PT</string>
+	<string name="fieldGoal" translatable="false">FG</string>
+	<string name="threePointPercent" translatable="false">3PT%</string>
+	<string name="fieldGoalPercent" translatable="false">FG%</string>
+	<string name="freeThrowPercent" translatable="false">FT%</string>
+
+	<string name="bodyMassIndex">BMI</string>
+	<string name="yourBmi">Your BMI is:</string>
+	<string name="bmiHigh">Your BMI is high</string>
+	<string name="bmiNormal">Your BMI is normal</string>
+	<string name="bmiLow">Your BMI is low</string>
+
+	<string name="caloriesBurned">Calories Burned</string>
+	<string name="weightLift">Weight Lifting</string>
+	<string name="swimming">Swimming</string>
+	<string name="walking">Walking</string>
+	<string name="running">Running</string>
+	<string name="calories">calories</string>
+	<string name="invalidN">Number not valid</string>
+	<string-array name="cbMassUnits">
+		<item>pound</item>
+		<item>kilogram</item>
+	</string-array>
+
+	<string name="Weight">Weight</string>
+	<string name="bodyWeight">Body Weight</string>
+</resources>

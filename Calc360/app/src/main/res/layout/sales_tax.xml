@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	compat:columnCount="4">
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/itemPrice"
+		compat:layout_columnSpan="3"/>
+
+	<EditText
+		android:id="@+id/curPrice"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:hint="@string/priceHint">
+
+		<requestFocus/>
+	</EditText>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decTaxRate"
+		android:text="@string/tax"/>
+
+	<EditText
+		android:id="@+id/decTaxRate"
+		style="@style/UnsignedDecimal"
+		android:ems="3"
+		android:hint="@string/salesTaxHint"
+		android:imeOptions="actionDone"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginEnd="20dp"
+		android:text="@string/perc"/>
+
+	<TextView
+		android:id="@+id/curTaxAmt"
+		style="@style/TextResult"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/total"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		android:id="@+id/curTotal"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="4"/>
+</android.support.v7.widget.GridLayout>

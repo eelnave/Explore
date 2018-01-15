@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="tempConvert">Conversor de Temperatura</string>
+	<string name="lengthConvert">Conversor de Comprimento</string>
+	<string name="areaConvert">Conversor de Área</string>
+	<string name="volumeConvert">Conversor de Volume</string>
+
+	<string name="recipeMult">Multiplicador de Receita</string>
+	<string name="origAmount">Quantidade Original</string>
+	<string name="amountHint">(e.g. 3/4 cup = 0.75)</string>
+	<string name="startAmount">Valor Inicial</string>
+	<string name="startUnits">Unidades Iniciais</string>
+	<string name="endUnits">Unidades Finais</string>
+</resources>

@@ -1,0 +1,26 @@
+LinkedIn, 2017 Oct & Nov
+The BYU-Idaho students in CIT 360 Object Oriented Development released their first version of an Android app today. The app is named OmniCalc, and you can install it from the Google Play Store. The app is a collection of calculators designed for specific tasks, such as compound interest, shopping, computing a dining tip, calculating basketball stats, etc. This is the first time that these students have written an Android app, so there are many things that need to be improved. If you would like to help these students, please install the app (OmniCalc), try one or two of the calculators and give us feedback by rating the app or replying here.
+
+(Nov 3, 2017) After a flurry of activity during the last two weeks, we released a new version of OmniCalc today. Although it is still a student project and definitely needs more work, you will find that this new version is a big improvement in nearly every way, including usability, functionality, and reliability. Thanks to all of you who gave us feedback. Feel free to give us more either by rating the app or replying here.
+
+LinkedIn, 2017 Dec
+This Christmas, give the gift of free computing. OmniCalc is a free Android app available in the Google Play store. OmniCalc is a collection of useful calculators that can help in everyday tasks. OmniCalc is free in every sense. It costs no money to install and use. It has no advertisements. It collects no data. It is simply a free app built by students at BYU-Idaho. Forward this link to your family, friends, and acquaintances that use an Android phone and give them the gift of free computing.
+
+BYU-Idaho, The Feed, 2017 Dec
+Android Calculator App Developed by Students
+This Christmas, the students of BYU-Idaho CIT 360 have developed an Android app named OmniCalc for you. OmniCalc is a collection of useful calculators that can help in everyday tasks. It has no advertisements. It collects no data. It is available in the Google Play Store at no cost. Use this link to install it:  http://play.google.com/store/apps/details?id=edu.byui.cit360.omnicalc
+
+
+BYU-Idaho, The Feed, 2018 Jan
+Android Calculator App Developed by Students
+The students of BYU-Idaho CIT 360 have developed an Android app named OmniCalc for you. OmniCalc is a collection of useful calculators that can help in everyday tasks. It has no advertisements. It collects no data. It is available in the Google Play Store at no cost. Use this link to install it: http://play.google.com/store/apps/details?id=edu.byui.cit360.omnicalc
+
+East Idaho News, 2018 Jan
+During fall 2017 semester, students in the Computer Information Technology Department at BYU-Idaho developed a free Android app named OmniCalc that is available in the Google Play Store at http://play.google.com/store/apps/details?id=edu.byui.cit360.omnicalc
+During this semester, students are continuing to improve OmniCalc and are also developing a new Android app, tentatively named FindKindness, to help the world see the kind acts that happen everyday around us. Are you interested in writing a news story about either or both of these apps and the students that wrote them?
+
+Rexburg Standard Journal, BYU-Idaho News & Notes, BYU-Idaho Scroll, 2018 Jan
+During fall 2017 semester, students at BYU-Idaho in the Computer Information Technology Department learned some of the latest computer programming technology by designing and writing an Android app. Their goal was to write a simple app that was small, fast, and useful in everyday situations. While writing the app, the students learned how to work as a team in a single shared source code base. They also learned about user interfaces, usability, and unit and system testing.
+
+The students developed a free Android app named OmniCalc which is a collection of specific, useful calculators, including sales tax, price comparison, fuel efficiency, compound interest, and many more. One unique calculator that many users like is the labor cost calculator that was designed by Yura Vasiuk who is a student from Ukraine. The user enters the price of an item and his hourly wage or annual salary and the labor cost calculator computes the amount of time that the user will have to work to earn the money to purchase the item. OmniCalc contains no advertisements, collects no data, and is available for free in the Google Play Store at http://play.google.com/store/apps/details?id=edu.byui.cit360.omnicalc
+

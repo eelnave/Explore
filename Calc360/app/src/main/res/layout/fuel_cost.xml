@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	compat:columnCount="4">
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decDist"
+		android:text="@string/Distance"/>
+
+	<EditText
+		android:id="@+id/decDist"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:nextFocusDown="@+id/decEffic"
+		android:nextFocusForward="@+id/decEffic">
+
+		<requestFocus/>
+	</EditText>
+
+	<Spinner
+		android:id="@+id/spinDistUnits"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		compat:layout_columnSpan="2"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decEffic"
+		android:text="@string/vehicleEfficiency"/>
+
+	<EditText
+		android:id="@+id/decEffic"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:nextFocusDown="@+id/curPrice"
+		android:nextFocusForward="@+id/curPrice"
+		android:nextFocusUp="@id/decDist"/>
+
+	<Spinner
+		android:id="@+id/spinEfficUnits"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		compat:layout_columnSpan="2"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/curPrice"
+		android:text="@string/fuelPrice"/>
+
+	<EditText
+		android:id="@+id/curPrice"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:imeOptions="actionDone"
+		android:nextFocusUp="@id/decEffic"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/per"/>
+
+	<Spinner
+		android:id="@+id/spinVolUnits"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:labelFor="@+id/curFuelCost"
+		android:text="@string/fuelCost"/>
+
+	<TextView
+		android:id="@+id/curFuelCost"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<Space/>
+
+	<Space/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="4"/>
+</android.support.v7.widget.GridLayout>

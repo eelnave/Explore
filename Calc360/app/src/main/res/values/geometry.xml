@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="quadratic">Quadratic Equation</string>
+	<string name="quadExplain1">Given a quadratic equation in this form</string>
+	<string name="quadExplain2" translatable="false"><i>y</i> = a<i>x</i>\u00b2 + b<i>x</i> + c</string>
+	<string name="quadExplain3">we can find the roots of the equation using the quadratic formula</string>
+	<string name="quadExplain4">the quadratic formula which is</string>
+	<string name="quadA" translatable="false">a</string>
+	<string name="quadB" translatable="false">b</string>
+	<string name="quadC" translatable="false">c</string>
+	<string name="roots">roots</string>
+	<string name="noRoots">There are no real roots.</string>
+
+	<string name="radius">radius</string>
+	<string name="majorRadius">major radius</string>
+	<string name="minorRadius">minor radius</string>
+	<string name="innerRadius">inner radius</string>
+	<string name="outerRadius">outer radius</string>
+	<string name="width">width</string>
+	<string name="height">height</string>
+	<string name="diagonal">diagonal</string>
+	<string name="hypotenuse">hypotenuse</string>
+	<string name="sideLength">side length</string>
+	<string name="perimeter">perimeter</string>
+	<string name="surfaceArea">surface area</string>
+
+	<string name="Height">Height</string>
+	<string name="Diagonal">Diagonal</string>
+	<string name="SideLength">Side Length</string>
+	<string name="Perimeter">Perimeter</string>
+	<string name="SurfaceArea">Surface Area</string>
+
+	<string name="rightTriangle">Right Triangle</string>
+	<string name="triHyp" translatable="false">hyp</string>
+	<string name="tri90" translatable="false">90</string>
+	<string name="rtDiagram">Diagram of a right triangle</string>
+
+	<string name="triangle">Triangle</string>
+	<string name="triSides">Sides</string>
+	<string name="triAngles">Angles</string>
+	<string name="triA" translatable="false">a</string>
+	<string name="triB" translatable="false">b</string>
+	<string name="triC" translatable="false">c</string>
+	<string name="triAlpha" translatable="false">\u03b1</string>
+	<string name="triBeta" translatable="false">\u03b2</string>
+	<string name="triGamma" translatable="false">\u03b3</string>
+	<string name="triDiagram">Diagram of a triangle</string>
+	<string name="triPerim" translatable="false">Perim</string>
+	<string-array name="triUnits" translatable="false">
+		<item>degree</item>
+		<item>radian</item>
+		<item>gradian</item>
+	</string-array>
+
+	<string name="rectangle">Rectangle</string>
+	<string name="rectWid" translatable="false">w</string>
+	<string name="rectHei" translatable="false">h</string>
+	<string name="rectDiagFormula">Diagonal  d = \u221a(w\u00b2 + h\u00b2)</string>
+	<string name="rectDiag" translatable="false">d</string>
+	<string name="rectPerimFormula">Perimeter  P = 2(w + h)</string>
+	<string name="rectPerim" translatable="false">P</string>
+	<string name="rectAreaFormula">Area  A = w * h</string>
+	<string name="rectArea" translatable="false">A</string>
+
+	<string name="sphere">Sphere</string>
+	<string name="sphSurfAreaFormula" translatable="false">A = 4\u03c0r\u00b2</string>
+	<string name="sphVolumeFormula" translatable="false">V = 4\u03c0r\u00b3 / 3</string>
+	<string name="sphRad" translatable="false">r</string>
+	<string name="sphSurf" translatable="false">A</string>
+	<string name="sphVol" translatable="false">V</string>
+
+	<string name="torus">Torus</string>
+	<string name="torInnerFormula" translatable="false">i = R - r</string>
+	<string name="torOuterFormula" translatable="false">t = R + r</string>
+	<string name="torSurfAreaFormula" translatable="false">A = 4\u03c0\u00b2Rr = \u03c0\u00b2(t+i)(t-i)</string>
+	<string name="torVolumeFormula" translatable="false">V = 2\u03c0\u00b2Rr\u00b2 = \u03c0\u00b2(t+i)(t-i)\u00b2 / 4</string>
+	<string name="torMajor" translatable="false">R</string>
+	<string name="torMinor" translatable="false">r</string>
+	<string name="torInner" translatable="false">i</string>
+	<string name="torOuter" translatable="false">t</string>
+	<string name="torSurf" translatable="false">A</string>
+	<string name="torVol" translatable="false">V</string>
+	<string name="torDiagram">Diagram of a torus</string>
+
+	<string name="cylinder">Cylinder</string>
+	<string name="cylAreaFormula" translatable="false">A = 2\u03c0r(r + h)</string>
+	<string name="cylVolumeFormula" translatable="false">V = \u03c0r\u00b2h</string>
+	<string name="cylRad" translatable="false">r</string>
+	<string name="cylHei" translatable="false">h</string>
+	<string name="cylSurf" translatable="false">A</string>
+	<string name="cylVol" translatable="false">V</string>
+
+	<string name="cone">Cone</string>
+	<string name="coneSideFormula" translatable="false">s = \u221a(r\u00b2 + h\u00b2)</string>
+	<string name="coneAreaFormula" translatable="false">A = \u03c0r(r + \u221a(r\u00b2 + h\u00b2))</string>
+	<string name="coneVolumeFormula" translatable="false">V = \u03c0r\u00b2h / 3</string>
+	<string name="coneRad" translatable="false">r</string>
+	<string name="coneHei" translatable="false">h</string>
+	<string name="coneSide" translatable="false">s</string>
+	<string name="coneSurf" translatable="false">A</string>
+	<string name="coneVol" translatable="false">V</string>
+
+	<string name="rectPrism">Rectangular Prism</string>
+	<string name="rpAreaFormula" translatable="false">A = 2(wg + wh + gh)</string>
+	<string name="rpVolumeFormula" translatable="false">V = w * g * h</string>
+	<string name="rpWid" translatable="false">w</string>
+	<string name="rpLen" translatable="false">g</string>
+	<string name="rpHei" translatable="false">h</string>
+	<string name="rpSurf" translatable="false">A</string>
+	<string name="rpVol" translatable="false">V</string>
+
+	<string name="pyramid">Pyramid</string>
+	<string name="pyrVolumeFormula" translatable="false">V = wgh / 3</string>
+	<string name="pyrVol" translatable="false">V</string>
+	<string name="pyrWid" translatable="false">w</string>
+	<string name="pyrLen" translatable="false">g</string>
+	<string name="pyrHei" translatable="false">h</string>
+</resources>

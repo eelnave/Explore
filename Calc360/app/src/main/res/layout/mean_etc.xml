@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="horizontal">
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_marginBottom="3dp"
+		android:layout_marginEnd="3dp"
+		android:layout_marginStart="3dp"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/lblData"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:labelFor="@+id/decData"
+			android:text="@string/data"
+			android:textAlignment="center"/>
+
+		<EditText
+			android:id="@+id/decData"
+			android:layout_width="wrap_content"
+			android:layout_height="0dp"
+			android:layout_weight="1"
+			android:allowUndo="true"
+			android:background="@drawable/multi_line_edit_text"
+			android:digits="01234567890.,- \n"
+			android:gravity="top|end"
+			android:inputType="textMultiLine|numberSigned|numberDecimal"
+			android:maxEms="15"
+			android:maxLines="20"
+			android:minEms="7"
+			android:paddingEnd="3dp"
+			android:paddingStart="3dp">
+
+			<requestFocus/>
+		</EditText>
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:layout_marginStart="7dp"
+		android:orientation="vertical">
+
+		<android.support.v7.widget.GridLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			compat:columnCount="2">
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/intCount"
+				android:text="@string/count"/>
+
+			<TextView
+				android:id="@+id/intCount"
+				style="@style/TextResultOld"/>
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/decMin"
+				android:text="@string/min"/>
+
+			<TextView
+				android:id="@+id/decMin"
+				style="@style/TextResultOld"/>
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/decFirst"
+				android:text="@string/first"/>
+
+			<TextView
+				android:id="@+id/decFirst"
+				style="@style/TextResultOld"/>
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/decSecond"
+				android:text="@string/second"/>
+
+			<TextView
+				android:id="@+id/decSecond"
+				style="@style/TextResultOld"/>
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/decThird"
+				android:text="@string/third"/>
+
+			<TextView
+				android:id="@+id/decThird"
+				style="@style/TextResultOld"/>
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/decMax"
+				android:text="@string/max"/>
+
+			<TextView
+				android:id="@+id/decMax"
+				style="@style/TextResultOld"/>
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/decSum"
+				android:text="@string/sum"/>
+
+			<TextView
+				android:id="@+id/decSum"
+				style="@style/TextResultOld"/>
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/decMean"
+				android:text="@string/mean"/>
+
+			<TextView
+				android:id="@+id/decMean"
+				style="@style/TextResultOld"/>
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/decVar"
+				android:text="@string/var"/>
+
+			<TextView
+				android:id="@+id/decVar"
+				style="@style/TextResultOld"/>
+
+			<TextView
+				style="@style/MeanLabel"
+				android:labelFor="@+id/decStdDev"
+				android:text="@string/stdDev"/>
+
+			<TextView
+				android:id="@+id/decStdDev"
+				style="@style/TextResultOld"/>
+		</android.support.v7.widget.GridLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<Button
+				android:id="@+id/btnCompute"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/compute"/>
+
+			<Button
+				android:id="@+id/btnClear"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/clear"/>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>

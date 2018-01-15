@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- Calc360 Color Palette -->
+	<color name="silverChalice">#ffb5aaaa</color>
+	<color name="redMunsell">#fff3072f</color>
+	<color name="carrotOrange">#ffde911b</color>
+	<color name="darkRaspberry">#ff7c274e</color>
+	<color name="charcoal">#ff323852</color>
+
+	<!-- Accent color used by ComparePrices calculator -->
+	<color name="best">#ffb0ff00</color>
+</resources>

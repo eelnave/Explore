@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	compat:columnCount="3">
+
+	<ImageView
+		android:layout_width="120dp"
+		android:layout_height="wrap_content"
+		android:adjustViewBounds="true"
+		android:contentDescription="@string/hmFormula"
+		android:src="@drawable/formula_harmonic_motion"
+		compat:layout_columnSpan="2"
+		compat:layout_gravity="center_horizontal"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decTime"
+		android:text="@string/hmTime"/>
+
+	<EditText
+		android:id="@+id/decTime"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/time">
+
+		<requestFocus/>
+	</EditText>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/seconds"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/eq"
+		compat:layout_columnSpan="2"
+		compat:layout_gravity="center_horizontal"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decMass"
+		android:text="@string/hmMass"/>
+
+	<EditText
+		android:id="@+id/decMass"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/mass"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/kilograms"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decSpring"
+		android:text="@string/hmSpringConst"/>
+
+	<EditText
+		android:id="@+id/decSpring"
+		style="@style/UnsignedDecimal"
+		android:ems="7"
+		android:hint="@string/hmSpringConstHint"
+		android:imeOptions="actionDone"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/kg_s2"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="3"/>
+</android.support.v7.widget.GridLayout>

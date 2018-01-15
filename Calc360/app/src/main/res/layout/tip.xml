@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	compat:columnCount="4">
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/curCost"
+		android:text="@string/costBeforeTax"
+		compat:layout_columnSpan="3"/>
+
+	<EditText
+		android:id="@+id/curCost"
+		style="@style/UnsignedDecimal"
+		android:ems="4">
+
+		<requestFocus/>
+	</EditText>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/curTaxAmt"
+		android:text="@string/taxAmt"
+		compat:layout_columnSpan="3"/>
+
+	<EditText
+		android:id="@+id/curTaxAmt"
+		style="@style/UnsignedDecimal"
+		android:ems="4"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/curTipAmt"
+		android:text="@string/tip"/>
+
+	<EditText
+		android:id="@+id/percTipRate"
+		style="@style/UnsignedInteger"
+		android:layout_marginStart="20dp"
+		android:ems="2"
+		android:text="@string/standardTip"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/percTipRate"
+		android:text="@string/perc"/>
+
+	<EditText
+		android:id="@+id/curTipAmt"
+		style="@style/UnsignedDecimal"
+		android:ems="4"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/curTotal"
+		android:text="@string/total"
+		compat:layout_columnSpan="3"/>
+
+	<EditText
+		android:id="@+id/curTotal"
+		style="@style/UnsignedDecimal"
+		android:ems="4"
+		android:imeOptions="actionDone"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="3"/>
+</android.support.v7.widget.GridLayout>

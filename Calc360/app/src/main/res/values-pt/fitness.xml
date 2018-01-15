@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="basketball">Basquetebol</string>
+	<string name="make">Make</string>
+	<string name="miss">Miss</string>
+
+	<string name="bodyMassIndex">BMI</string>
+	<string name="yourBmi">Your BMI is:</string>
+	<string name="bmiHigh">Your BMI is high</string>
+	<string name="bmiNormal">Your BMI is normal</string>
+	<string name="bmiLow">Your BMI is low</string>
+
+	<string name="caloriesBurned">Calories Burned</string>
+	<string name="weightLift">Weight Lifting</string>
+	<string name="swimming">Natação</string>
+	<string name="walking">Caminhando</string>
+	<string name="running">Corrida</string>
+	<string name="calories">calorias</string>
+	<string name="invalidN">Número não é válido</string>
+	<string-array name="cbMassUnits">
+		<item>pound</item>
+		<item>kilogram</item>
+	</string-array>
+
+	<string name="Weight">Peso</string>
+	<string name="bodyWeight">Peso Corporal</string>
+</resources>

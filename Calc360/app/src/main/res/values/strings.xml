@@ -1,0 +1,42 @@
+<resources>
+	<string name="appName">Calc360</string>
+
+	<string name="about">About</string>
+	<string name="contribs">Contributors</string>
+
+	<string name="appDescr">A collection of easy to use specific calculators designed, written, and maintained by students at Brigham Young University - Idaho</string>
+	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
+	<string name="logoCredit">We created the logo and icons for Calc360 using the free tools at <a href="logomakr.com">logomakr.com</a></string>
+	<string name="fall2017">Fall 2017</string>
+	<string name="winter2018">Winter 2018</string>
+
+	<string name="mistake">Well, this is embarrassing. Something is wrong with this calculator, and it isn\'t working. We apologize.</string>
+
+	<string name="currencyCredit">The currency exchange rates are courtesy of the European Central Bank.</string>
+
+	<!-- Calculator Categories -->
+	<string name="basic">Basic</string>
+	<string name="computing">Computing</string>
+	<string name="cooking">Cooking</string>
+	<string name="data">Data</string>
+	<string name="events">Events</string>
+	<string name="finance">Finance</string>
+	<string name="general">General</string>
+	<string name="geometry">Geometry</string>
+	<string name="mathematics">Math</string>
+	<string name="science">Science</string>
+	<string name="shopping">Shopping</string>
+	<string name="sports">Sports</string>
+	<string name="stats">Statistics</string>
+	<string name="travel">Travel</string>
+
+	<string name="simple">Simple</string>
+
+	<string name="result">Result</string>
+	<string name="results">Results</string>
+
+	<string name="compute">Compute</string>
+	<string name="clear">Clear</string>
+
+	<string name="unitConvert">Unit Conversion</string>
+</resources>

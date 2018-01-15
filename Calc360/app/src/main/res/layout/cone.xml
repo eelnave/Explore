@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		compat:columnCount="3">
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decRadius"
+			android:text="@string/coneRad"/>
+
+		<EditText
+			android:id="@+id/decRadius"
+			style="@style/UnsignedDecimal"
+			android:ems="6"
+			android:hint="@string/radius">
+
+			<requestFocus/>
+		</EditText>
+
+		<ImageView
+			android:id="@+id/imageView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:adjustViewBounds="true"
+			android:contentDescription="@string/cone"
+			compat:layout_gravity="fill_horizontal"
+			compat:layout_rowSpan="6"
+			compat:srcCompat="@drawable/cone"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decHeight"
+			android:text="@string/coneHei"/>
+
+		<EditText
+			android:id="@+id/decHeight"
+			style="@style/UnsignedDecimal"
+			android:ems="6"
+			android:hint="@string/height"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="15dp"
+			android:text="@string/SideLength"
+			compat:layout_columnSpan="2"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/coneSideFormula"
+			compat:layout_columnSpan="2"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decSide"
+			android:text="@string/coneSide"/>
+
+		<EditText
+			android:id="@+id/decSide"
+			style="@style/UnsignedDecimal"
+			android:ems="6"
+			android:hint="@string/sideLength"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="15dp"
+			android:text="@string/SurfaceArea"
+			compat:layout_columnSpan="2"
+			compat:layout_gravity="bottom"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/coneAreaFormula"
+			compat:layout_columnSpan="3"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decSurfArea"
+			android:text="@string/coneSurf"/>
+
+		<EditText
+			android:id="@+id/decSurfArea"
+			style="@style/UnsignedDecimal"
+			android:ems="7"
+			android:hint="@string/surfaceArea"
+			compat:layout_columnSpan="2"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="15dp"
+			android:text="@string/Volume"
+			compat:layout_columnSpan="3"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/coneVolumeFormula"
+			compat:layout_columnSpan="3"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decVolume"
+			android:text="@string/coneVol"/>
+
+		<EditText
+			android:id="@+id/decVolume"
+			style="@style/UnsignedDecimal"
+			android:ems="7"
+			android:hint="@string/volume"
+			android:imeOptions="actionDone"
+			compat:layout_columnSpan="2"/>
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:text="@string/clear"
+			compat:layout_columnSpan="3"/>
+	</android.support.v7.widget.GridLayout>
+</ScrollView>

@@ -1,0 +1,8 @@
+<resources>
+	<string name="appName">Find Kindness</string>
+
+	<string name="driving">Driving</string>
+	<string name="family">Family</string>
+	<string name="online">Online</string>
+	<string name="sports">Sports</string>
+</resources>

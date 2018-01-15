@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	compat:columnCount="3">
+
+	<TextView
+		style="@style/TextLabel"
+		android:paddingBottom="5dp"
+		android:paddingTop="5dp"
+		android:text="@string/EinsteinsLaw"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decEnergy"
+		android:text="@string/relEnergy"/>
+
+	<EditText
+		android:id="@+id/decEnergy"
+		style="@style/ScientificNumber"
+		android:ems="8"
+		android:hint="@string/energy">
+
+		<requestFocus/>
+	</EditText>
+
+
+	<TextView android:text="@string/joules"/>
+
+	<TextView
+		style="@style/TextLabelCenter"
+		android:text="@string/eq"
+		compat:layout_columnSpan="2"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decMass"
+		android:text="@string/relMass"/>
+
+	<EditText
+		android:id="@+id/decMass"
+		style="@style/ScientificNumber"
+		android:ems="6"
+		android:hint="@string/mass"
+		android:imeOptions="actionDone"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/kilograms"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/relLightspeed"/>
+
+	<TextView
+		style="@style/TextLabelCenter"
+		android:layout_marginTop="15dp"
+		android:text="@string/lightSpeed"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/m_s"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="3"/>
+</android.support.v7.widget.GridLayout>

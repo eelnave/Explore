@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="counter">Contador</string>
+
+	<string name="queueTime">Tempo de Fila</string>
+	<string name="people">Número de Pessoas</string>
+	<string name="next">Pessoa Próxima</string>
+	<string name="person">Tempo Médio por Pessoa</string>
+	<string name="remain">Tempo Estimado Restante</string>
+	<string name="served">Tempo Estimado até Ser Servido</string>
+
+	<string name="dateArith">Data Aritmética</string>
+	<string name="dateDiff">Data Diferença</string>
+	<string name="startDate">Data de Início</string>
+	<string name="endDate">Data Final</string>
+	<string name="duration">Duração</string>
+	<string name="difference">Diferença</string>
+	<string name="today">Hoje</string>
+</resources>

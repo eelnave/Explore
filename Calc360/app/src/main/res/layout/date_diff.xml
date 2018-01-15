@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/startDate"/>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<DatePicker
+				android:id="@+id/datePicker1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:calendarViewShown="false"
+				android:datePickerMode="spinner"/>
+
+			<Button
+				android:id="@+id/btnToday1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:text="@string/today"/>
+		</LinearLayout>
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/endDate"/>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<DatePicker
+				android:id="@+id/datePicker2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:calendarViewShown="false"
+				android:datePickerMode="spinner"/>
+
+			<Button
+				android:id="@+id/btnToday2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:text="@string/today"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				style="@style/TextLabel"
+				android:text="@string/difference"/>
+
+			<TextView
+				android:id="@+id/decDiff"
+				style="@style/TextResult"
+				android:ems="5"
+				android:textAlignment="textEnd"/>
+
+			<Spinner
+				android:id="@+id/spinDuration"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+		</LinearLayout>
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:text="@string/clear"/>
+	</LinearLayout>
+</ScrollView>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:baselineAligned="false"
+	android:orientation="horizontal">
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="0dp"
+		android:layout_height="match_parent"
+		android:layout_weight="1"
+		compat:columnCount="2">
+
+		<TextView
+			style="@style/CorrelLabel"
+			android:labelFor="@+id/decSamp1"
+			android:text="@string/sample1"/>
+
+		<TextView
+			style="@style/CorrelLabel"
+			android:labelFor="@+id/decSamp2"
+			android:text="@string/sample2"/>
+
+		<EditText
+			android:id="@+id/decSamp1"
+			style="@style/CorrelMultiLine">
+
+			<requestFocus/>
+		</EditText>
+
+		<EditText
+			android:id="@+id/decSamp2"
+			style="@style/CorrelMultiLine"/>
+	</android.support.v7.widget.GridLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<Button
+				android:id="@+id/btnCorrel"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/correl"/>
+
+			<TextView
+				android:id="@+id/decCorrel"
+				style="@style/TextResultOld"
+				android:ems="5"/>
+		</LinearLayout>
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/clear"/>
+	</LinearLayout>
+</LinearLayout>

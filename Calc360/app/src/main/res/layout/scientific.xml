@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<RelativeLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/lblDRG"
+			style="@style/StatusLabel"
+			android:text="deg"/>
+
+		<TextView
+			android:id="@+id/lblFSE"
+			style="@style/StatusLabel"/>
+	</RelativeLayout>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:ems="10"
+		android:lines="3"
+		android:textAlignment="textEnd"
+		android:textIsSelectable="true"/>
+	<!--
+	<EditText
+		android:id="@+id/decDisplay"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:ems="10"
+		android:inputType="none"
+		android:textAlignment="textEnd"
+		android:textIsSelectable="true"/>
+-->
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		compat:columnCount="6"
+		compat:rowCount="4">
+
+		<TextView style="@style/ScClearLabel"/>
+
+		<TextView
+			android:id="@+id/shFSE"
+			style="@style/ScFuncLabel"
+			android:text="@string/FSE"/>
+
+		<TextView
+			android:id="@+id/lblEuler"
+			style="@style/ScFuncLabel"
+			android:text="@string/euler"/>
+
+		<TextView
+			android:id="@+id/lblTenX"
+			style="@style/ScFuncLabel"
+			android:text="@string/tenx"/>
+
+		<TextView
+			android:id="@+id/lblGet"
+			style="@style/ScClearLabel"
+			android:text="@string/get"/>
+
+		<TextView
+			android:id="@+id/lblOptions"
+			style="@style/ScientificLabel"
+			android:text="@string/options"/>
+
+		<Button
+			android:id="@+id/btnShift"
+			style="@style/ScShiftButton"
+			android:text="@string/shift"/>
+
+		<Button
+			android:id="@+id/btnDRG"
+			style="@style/ScFuncButton"
+			android:text="@string/DRG"/>
+
+		<Button
+			android:id="@+id/btnLn"
+			style="@style/ScFuncButton"
+			android:text="@string/ln"/>
+
+		<Button
+			android:id="@+id/btnLog"
+			style="@style/ScFuncButton"
+			android:text="@string/log"/>
+
+		<Button
+			android:id="@+id/btnSwap"
+			style="@style/ScClearButton"
+			android:text="@string/swap"/>
+
+		<Button
+			android:id="@+id/btnDrop"
+			style="@style/ScClearButton"
+			android:text="@string/drop"/>
+
+		<TextView
+			android:id="@+id/lblArcHyp"
+			style="@style/ScFuncLabel"
+			android:text="@string/archyp"/>
+
+		<TextView
+			android:id="@+id/lblArcSin"
+			style="@style/ScFuncLabel"
+			android:text="@string/arcsin"/>
+
+		<TextView
+			android:id="@+id/lblArcCos"
+			style="@style/ScFuncLabel"
+			android:text="@string/arccos"/>
+
+		<TextView
+			android:id="@+id/lblArcTan"
+			style="@style/ScFuncLabel"
+			android:text="@string/arctan"/>
+
+		<TextView
+			android:id="@+id/lblMod"
+			style="@style/ScFuncLabel"
+			android:text="@string/mod"/>
+
+		<TextView
+			android:id="@+id/lblClear"
+			style="@style/ScClearLabel"
+			android:text="@string/clst"/>
+
+		<Button
+			android:id="@+id/btnHyp"
+			style="@style/ScFuncButton"
+			android:text="@string/hyp"/>
+
+		<Button
+			android:id="@+id/btnSin"
+			style="@style/ScFuncButton"
+			android:text="@string/sin"/>
+
+		<Button
+			android:id="@+id/btnCos"
+			style="@style/ScFuncButton"
+			android:text="@string/cos"/>
+
+		<Button
+			android:id="@+id/btnTan"
+			style="@style/ScFuncButton"
+			android:text="@string/tan"/>
+
+		<Button
+			android:id="@+id/btnInv"
+			style="@style/ScFuncButton"
+			android:text="@string/inv"/>
+
+		<Button
+			android:id="@+id/btnBack"
+			style="@style/ScClearButton"
+			android:text="@string/back"/>
+	</android.support.v7.widget.GridLayout>
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		compat:columnCount="5"
+		compat:rowCount="5">
+
+		<TextView style="@style/ScFuncLabel"/>
+
+		<TextView style="@style/ScFuncLabel"/>
+
+		<TextView style="@style/ScFuncLabel"/>
+
+		<TextView
+			android:id="@+id/lblNPow"
+			style="@style/ScFuncLabel"
+			android:text="@string/npow"/>
+
+		<TextView
+			android:id="@+id/lblNRoot"
+			style="@style/ScFuncLabel"
+			android:text="@string/nroot"/>
+
+		<Button
+			android:id="@+id/btn7"
+			style="@style/ScDigitButton"
+			android:text="@string/seven"/>
+
+		<Button
+			android:id="@+id/btn8"
+			style="@style/ScDigitButton"
+			android:text="@string/eight"/>
+
+		<Button
+			android:id="@+id/btn9"
+			style="@style/ScDigitButton"
+			android:text="@string/nine"/>
+
+		<Button
+			android:id="@+id/btnSq"
+			style="@style/ScFuncButton"
+			android:text="@string/sq"/>
+
+		<Button
+			android:id="@+id/btnSqrt"
+			style="@style/ScFuncButton"
+			android:text="@string/sqrt"/>
+
+		<Button
+			android:id="@+id/btn4"
+			style="@style/ScDigitButton"
+			android:text="@string/four"/>
+
+		<Button
+			android:id="@+id/btn5"
+			style="@style/ScDigitButton"
+			android:text="@string/five"/>
+
+		<Button
+			android:id="@+id/btn6"
+			style="@style/ScDigitButton"
+			android:text="@string/six"/>
+
+		<Button
+			android:id="@+id/btnMult"
+			style="@style/ScFuncButton"
+			android:text="@string/mult"/>
+
+		<Button
+			android:id="@+id/btnDiv"
+			style="@style/ScFuncButton"
+			android:text="@string/div"/>
+
+		<Button
+			android:id="@+id/btn1"
+			style="@style/ScDigitButton"
+			android:text="@string/one"/>
+
+		<Button
+			android:id="@+id/btn2"
+			style="@style/ScDigitButton"
+			android:text="@string/two"/>
+
+		<Button
+			android:id="@+id/btn3"
+			style="@style/ScDigitButton"
+			android:text="@string/three"/>
+
+		<Button
+			android:id="@+id/btnAdd"
+			style="@style/ScFuncButton"
+			android:text="@string/add"/>
+
+		<Button
+			android:id="@+id/btnSub"
+			style="@style/ScFuncButton"
+			android:text="@string/subt"/>
+
+		<Button
+			android:id="@+id/btnNeg"
+			style="@style/ScFuncButton"
+			android:text="@string/neg"/>
+
+		<Button
+			android:id="@+id/btn0"
+			style="@style/ScDigitButton"
+			android:text="@string/zero"/>
+
+		<Button
+			android:id="@+id/btnDec"
+			style="@style/ScDigitButton"
+			android:text="@string/dec"/>
+
+		<Button
+			android:id="@+id/btnEnter"
+			style="@style/ScFuncButton"
+			android:text="@string/enter"
+			compat:layout_columnSpan="2"/>
+	</android.support.v7.widget.GridLayout>
+</LinearLayout>

@@ -1,0 +1,309 @@
+<resources
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools">
+	<!-- AppCompat attributes should not have a namespace. For example,
+	compat:layout_gravity should be written as just layout_gravity in a
+	style. -->
+
+	<style name="CalcTheme" parent="Theme.AppCompat.Light.NoActionBar">
+		<item name="android:buttonStyle">@style/CalcButton</item>
+		<item name="android:datePickerStyle">@style/CalcDatePicker</item>
+		<item name="android:editTextStyle">@style/CalcEditText</item>
+		<item name="android:radioButtonStyle">@style/CalcRadioButton</item>
+		<item name="android:spinnerStyle">@style/CalcSpinner</item>
+		<item name="android:spinnerItemStyle">@style/CalcSpinnerItem</item>
+		<item name="android:spinnerDropDownItemStyle">@style/CalcSpinnerDropDownItem</item>
+		<item name="android:dropDownItemStyle">@style/CalcDropDownItem</item>
+		<item name="android:dropDownListViewStyle">@style/CalcDropDownListView</item>
+		<item name="android:dropDownSpinnerStyle">@style/CalcDropDownSpinner</item>
+		<item name="android:absListViewStyle">@style/CalcAbsListView</item>
+		<item name="android:listViewStyle">@style/CalcListView</item>
+		<item name="android:textViewStyle">@style/CalcTextView</item>
+		<!--
+		<item name="android:textSize">8.5pt</item>
+		-->
+	</style>
+
+	<style name="CalcButton" parent="@android:style/Widget.Material.Button">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Large
+		</item>
+	</style>
+
+	<style name="CalcDatePicker" parent="@android:style/Widget.Material.DatePicker">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcEditText" parent="@android:style/Widget.Material.EditText">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcRadioButton" parent="@android:style/Widget.Material.CompoundButton.RadioButton">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcSpinner" parent="@android:style/Widget.Material.Spinner">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcSpinnerItem" parent="@android:style/Widget.Material.TextView.SpinnerItem">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcSpinnerDropDownItem" parent="@android:style/Widget.Material.DropDownItem.Spinner">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcListView" parent="@android:style/Widget.Material.ListView">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcAbsListView" parent="@android:style/Widget.AbsListView">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcDropDownItem" parent="@android:style/Widget.Material.DropDownItem">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcDropDownListView" parent="@android:style/Widget.Material.ListView.DropDown">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcDropDownSpinner" parent="@android:style/Widget.Material.DropDownItem">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+	<style name="CalcTextView" parent="@android:style/Widget.Material.TextView">
+		<item name="android:textAppearance">
+			@android:style/TextAppearance.Material.Medium
+		</item>
+	</style>
+
+
+	<!-- Styles for TextViews -->
+	<style name="TextLabel" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
+
+	<style name="TextLabelCenter" parent="TextLabel">
+		<item name="layout_gravity">center_horizontal</item>
+	</style>
+
+	<style name="TextLabelEnd" parent="TextLabel">
+		<item name="layout_gravity">end</item>
+	</style>
+
+	<style name="TextResult" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:focusable">true</item>
+		<item name="android:longClickable">true</item>
+		<item name="android:selectAllOnFocus">true</item>
+		<item name="android:textIsSelectable">true</item>
+		<item name="android:inputType">none</item>
+		<item name="layout_gravity">end</item>
+	</style>
+
+	<style name="TextResultOld" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:focusable">true</item>
+		<item name="android:longClickable">true</item>
+		<item name="android:selectAllOnFocus">true</item>
+		<item name="android:textAlignment">textEnd</item>
+		<item name="android:textIsSelectable">true</item>
+	</style>
+
+
+	<!-- Styles for EditTexts -->
+	<style name="NoEditNumber" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:focusable">false</item>
+		<item name="android:imeOptions">actionNone</item>
+		<item name="android:inputType">none</item>
+		<item name="android:textAlignment">textEnd</item>
+	</style>
+
+	<style name="EditNumber" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:imeOptions">actionNext</item>
+		<item name="android:textAlignment">textEnd</item>
+	</style>
+
+	<style name="SignedInteger" parent="EditNumber">
+		<item name="android:inputType">numberSigned</item>
+	</style>
+
+	<style name="UnsignedInteger" parent="EditNumber">
+		<item name="android:inputType">number</item>
+	</style>
+
+	<style name="SignedDecimal" parent="EditNumber">
+		<item name="android:inputType">numberSigned|numberDecimal</item>
+	</style>
+
+	<style name="UnsignedDecimal" parent="EditNumber">
+		<item name="android:inputType">numberDecimal</item>
+	</style>
+
+	<style name="ScientificNumber" parent="EditNumber">
+		<item name="android:inputType">text</item>
+		<item name="android:digits">0123456789.,Ee-+</item>
+	</style>
+
+
+	<style name="CounterButton" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_height">160sp</item>
+		<item name="android:layout_width">0dp</item>
+		<item name="android:textSize">60sp</item>
+		<item name="layout_columnWeight">1</item>
+		<item name="layout_gravity">fill_horizontal</item>
+	</style>
+
+	<style name="QueueLabel" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:textSize">20sp</item>
+	</style>
+
+
+	<style name="CorrelLabel" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textAlignment">center</item>
+		<item name="layout_columnWeight">1</item>
+	</style>
+
+	<style name="CorrelMultiLine" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">0dp</item>
+		<item name="android:allowUndo" tools:targetApi="23">true</item>
+		<item name="android:background">@drawable/multi_line_edit_text</item>
+		<item name="android:digits">01234567890.,-\n</item>
+		<item name="android:gravity">top|end</item>
+		<item name="android:inputType">
+			textMultiLine|numberSigned|numberDecimal
+		</item>
+		<item name="android:layout_marginStart">3dp</item>
+		<item name="android:layout_marginEnd">3dp</item>
+		<item name="android:paddingStart">3dp</item>
+		<item name="android:paddingEnd">3dp</item>
+		<item name="layout_columnWeight">1</item>
+		<item name="layout_rowWeight">1</item>
+	</style>
+
+	<style name="MeanLabel" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginEnd">5dp</item>
+	</style>
+
+	<!--
+	<style name="MeanResult" parent="TextResultOld">
+		<item name="layout_gravity">end</item>
+	</style>
+
+	<style name="QueueResult" parent="TextResultOld">
+		<item name="android:layout_marginStart">10dp</item>
+	</style>
+	-->
+
+	<!-- Styles used by the five function calculator -->
+	<style name="FiveFuncButton">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">0dp</item>
+		<item name="android:layout_margin">3dp</item>
+		<item name="android:textSize">16pt</item>
+		<item name="layout_columnWeight">1</item>
+		<item name="layout_rowWeight">1</item>
+		<item name="layout_gravity">fill_horizontal</item>
+	</style>
+
+	<style name="ClearButton" parent="FiveFuncButton">
+		<item name="android:background">@drawable/clear_button</item>
+	</style>
+
+	<style name="DigitButton" parent="FiveFuncButton">
+		<item name="android:background">@drawable/digit_button</item>
+	</style>
+
+	<style name="FuncButton" parent="FiveFuncButton">
+		<item name="android:background">@drawable/func_button</item>
+	</style>
+
+	<!-- Styles used by the scientific calculator -->
+	<style name="ScientificButton">
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_margin">2dp</item>
+		<item name="android:textAllCaps">false</item>
+		<item name="android:textSize">11pt</item>
+		<item name="layout_columnWeight">1</item>
+		<item name="layout_rowWeight">1</item>
+		<item name="layout_gravity">fill_horizontal</item>
+	</style>
+
+	<style name="ScShiftButton" parent="ScientificButton">
+		<item name="android:background">@drawable/shift_button</item>
+	</style>
+
+	<style name="ScFuncButton" parent="ScientificButton">
+		<item name="android:background">@drawable/func_button</item>
+	</style>
+
+	<style name="ScClearButton" parent="ScientificButton">
+		<item name="android:background">@drawable/clear_button</item>
+	</style>
+
+	<style name="ScDigitButton" parent="ScientificButton">
+		<item name="android:background">@drawable/digit_button</item>
+	</style>
+
+	<style name="StatusLabel">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_margin">1dp</item>
+		<item name="android:ems">4</item>
+	</style>
+
+	<style name="ScientificLabel">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_margin">1dp</item>
+		<item name="android:textAlignment">center</item>
+		<item name="android:textAllCaps">false</item>
+		<item name="android:textColor">@color/carrotOrange</item>
+		<item name="android:textSize">10pt</item>
+		<item name="layout_columnWeight">1</item>
+	</style>
+
+	<style name="ScFuncLabel" parent="ScientificLabel"></style>
+
+	<style name="ScClearLabel" parent="ScientificLabel">
+		<item name="android:textColor">@color/redMunsell</item>
+	</style>
+</resources>

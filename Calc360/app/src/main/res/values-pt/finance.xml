@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="compoundInterest">Juros Compostos</string>
+	<string name="Deposit">Depósito</string>
+	<string name="Interest">Juros</string>
+	<string name="Years">Anos</string>
+	<string name="depositHint">ex: 300,50</string>
+	<string name="interestHint">ex: 6,5</string>
+	<string name="yearsHint">ex: 7</string>
+	<string name="radioMonthly">Por Mês</string>
+	<string name="radioQuarterly">Trimestral</string>
+	<string name="radioAnnually">Anualmente</string>
+
+	<string name="invest">Investimento</string>
+	<string name="pv">Principal</string>
+	<string name="periodPay">Pagamento Periódico</string>
+	<string name="annRate">Taxa Anual</string>
+	<string name="annRateHint">ex: 4,875</string>
+	<string name="years">Número de Anos</string>
+	<string name="ppy">Períodos por Ano</string>
+	<string name="fv">Valor Futuro</string>
+
+	<string name="loan">Empréstimo</string>
+	<string name="amt">Montante Contratado</string>
+	<string name="loanPPY">Pagamentos por Ano</string>
+	<string name="Payment">Pagamento</string>
+	<string name="Balance">Balance</string>
+	<string name="ptd">Pagamentos Pagos Até a Data</string>
+	<string name="Principal">Principal</string>
+	<string name="Period">Period</string>
+
+	<string name="laborCost">Custo do Trabalho</string>
+	<string name="laborExplain">Esta calculadora converte o custo de um item para quantidade do seu trabalho no tempo. Em outras palavras, quanto de seu trabalho um item custa?</string>
+	<string name="laborWage">Seu Salário por Hora</string>
+	<string name="laborOR">OU</string>
+	<string name="laborSalary">Seu Salário Anual</string>
+</resources>

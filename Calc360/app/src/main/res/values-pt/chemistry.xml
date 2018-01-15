@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="idealGas">Gás Ideal</string>
+
+	<string name="gasEnergy">Energia do Gás</string>
+
+	<string name="gasVelocity">Velocidade do Gás</string>
+</resources>

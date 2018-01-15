@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="FuelEffic">Eficiência do Combustível</string>
+	<string name="odometer">Odómetro</string>
+	<string name="start">começar</string>
+	<string name="end">fim</string>
+	<string name="fuel">Combustível</string>
+
+	<string name="foreignFuel">Combustível Estrangeiro</string>
+	<string name="ffExplain">Se você deve comprar gasolina em um país estrangeiro, esta calculadora converterá o valor e o custo da gasolina da medida e moeda estrangeira para sua medida e moeda nativa.</string>
+
+	<string name="fuelCost">Custo de Combustível</string>
+	<string name="vehicleEfficiency">Eficiência\\ndo Veículo</string>
+	<string name="fuelPrice">Preço do Combustível</string>
+
+	<string name="currencyExch">Câmbio Monetário</string>
+</resources>

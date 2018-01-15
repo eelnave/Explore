@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="appName">Calc360</string>
+
+	<string name="about">Sobre</string>
+	<string name="contribs">Colaboradores</string>
+
+	<string name="appDescr">Uma coleção calculadoras específicas que são fácil de usar e são projetadas, escritas e mantidas por estudantes da Brigham Young Universidade - Idaho</string>
+	<string name="eula">Na medida máxima permitida por lei, este software vem sem garantia, expressa ou implícita. Ao instalar e / ou usar este software, você aceita isentar Brigham Young Universidade - Idaho e seus patrocinadores, funcionários e estudantes.</string>
+	<string name="logoCredit">Criamos o logotipo e os ícones do Calc360
+usando as ferramentas gratuitas em <a href="logomakr.com"> logomakr.com </a></string>
+	<string name="fall2017">Outono 2017</string>
+	<string name="winter2018">Inverno 2018</string>
+
+	<string name="mistake">Bem, isso é constrangedor. Algo está errado
+com esta calculadora, e não está funcionando. Nós pedimos desculpas.</string>
+
+	<string name="currencyCredit">As taxas de câmbio são cortesia do Banco Central da Europa.</string>
+
+	<string name="basic">Básico</string>
+	<string name="computing">Computing</string>
+	<string name="cooking">Cozinha</string>
+	<string name="data">Dados</string>
+	<string name="events">Eventos</string>
+	<string name="finance">Finança</string>
+	<string name="general">Geral</string>
+	<string name="geometry">Geometria</string>
+	<string name="mathematics">Matemática</string>
+	<string name="science">Ciência</string>
+	<string name="shopping">Compras</string>
+	<string name="sports">Esportes</string>
+	<string name="stats">Estatisticas</string>
+	<string name="travel">Viagem</string>
+
+	<string name="simple">Simples</string>
+
+	<string name="result">Resultado</string>
+	<string name="results">Resultados</string>
+
+	<string name="compute">Calcular</string>
+	<string name="clear">Clar</string>
+
+	<string name="unitConvert">Conversão de Unidades</string>
+</resources>

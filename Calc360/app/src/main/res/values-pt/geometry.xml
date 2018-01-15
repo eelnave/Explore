@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="quadratic">Equação Quadrática</string>
+	<string name="quadExplain1">Dada uma equação quadrática nesta forma</string>
+	<string name="quadExplain3">podemos encontrar as raízes da equação usando a fórmula quadrática</string>
+	<string name="quadExplain4">a fórmula quadrática que é</string>
+	<string name="roots">raízes</string>
+	<string name="noRoots">Não existem raízes reais.</string>
+
+	<string name="radius">raio</string>
+	<string name="majorRadius">raio maior</string>
+	<string name="minorRadius">raio menor</string>
+	<string name="innerRadius">raio interno</string>
+	<string name="outerRadius">raio externo</string>
+	<string name="width">largura</string>
+	<string name="height">altura</string>
+	<string name="diagonal">diagonal</string>
+	<string name="hypotenuse">hipotenusa</string>
+	<string name="sideLength">comprimento lateral</string>
+	<string name="perimeter">perímetro</string>
+	<string name="surfaceArea">área de superfície</string>
+
+	<string name="Height">Altura</string>
+	<string name="Diagonal">Diagonal</string>
+	<string name="SideLength">Comprimento Lateral</string>
+	<string name="Perimeter">Perímetro</string>
+	<string name="SurfaceArea">Superfície</string>
+
+	<string name="rightTriangle">Triângulo Direito</string>
+	<string name="rtDiagram">Diagrama de um triângulo direito</string>
+
+	<string name="triangle">Triângulo</string>
+	<string name="triSides">Lados</string>
+	<string name="triAngles">Ângulos</string>
+	<string name="triDiagram">Diagrama de um triângulo</string>
+
+	<string name="rectangle">Retângulo</string>
+	<string name="rectDiagFormula">Diagonal  d = \u221a(w\u00b2 + h\u00b2)</string>
+	<string name="rectPerimFormula">Perímetro  P = 2(w + h)</string>
+	<string name="rectAreaFormula">Área  A = w * h</string>
+
+	<string name="sphere">Esfera</string>
+
+	<string name="torus">Toro</string>
+
+	<string name="torDiagram">Diagrama de um toro</string>
+
+	<string name="cylinder">Cilindro</string>
+
+	<string name="cone">Cone</string>
+
+	<string name="rectPrism">Prisma Retângular</string>
+
+	<string name="pyramid">Pirâmide</string>
+</resources>

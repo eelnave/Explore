@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="tempConvert">Temperatur Converter</string>
+	<string name="lengthConvert">Length Converter</string>
+	<string name="areaConvert">Area Converter</string>
+	<string name="volumeConvert">Volume Converter</string>
+
+	<string name="recipeMult">Recipe Multiplier</string>
+	<string name="origAmount">Original Amount</string>
+	<string name="amountHint">(e.g. 3/4 cup = 0.75)</string>
+	<string name="startAmount">Starting Amount</string>
+	<string name="startUnits">Starting Units</string>
+	<string name="endUnits">Ending Units</string>
+	<string-array name="recipeRatio" translatable="false">
+		<item>1/4</item>
+		<item>1/2</item>
+		<item>2X</item>
+		<item>3X</item>
+	</string-array>
+
+	<!-- Length units used in the kitchen -->
+	<string-array name="kitchenLength" translatable="false">
+		<item>inch</item>
+		<item>foot</item>
+		<item>yard</item>
+		<item>millimeter</item>
+		<item>centimeter</item>
+		<item>meter</item>
+	</string-array>
+
+	<!-- Area units used in the kitchen -->
+	<string-array name="kitchenArea" translatable="false">
+		<item>squareInch</item>
+		<item>squareFoot</item>
+		<item>squareCentimeter</item>
+	</string-array>
+
+	<!-- Volume units used in the kitchen -->
+	<string-array name="kitchenVolume" translatable="false">
+		<item>teaspoon</item>
+		<item>tablespoon</item>
+		<item>ounce</item>
+		<item>cup</item>
+		<item>pint</item>
+		<item>quart</item>
+		<item>gallon</item>
+		<item>milliliter</item>
+		<item>liter</item>
+	</string-array>
+
+	<!-- Temperature units used in the kitchen -->
+	<string-array name="kitchenTemperature" translatable="false">
+		<item>Fahrenheit</item>
+		<item>Celsius</item>
+	</string-array>
+</resources>
