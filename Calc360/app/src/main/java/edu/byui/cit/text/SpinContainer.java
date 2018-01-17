@@ -90,52 +90,17 @@ abstract class SpinContainer<P extends Named> extends SpinWrapper {
 	}
 
 
-	/** Creates a spinner adapter from a container. */
-//	public ArrayAdapter<P> makeAdapter(Context ctx, Container<P> cont) {
-//		ArrayAdapter<P> adapter;
-//
-//		try {
-//			String name = cont.getName();
-//
-//			// Using the container's name, find a string array
-//			// that lists the container's desired children.
-//			Field field = R.array.class.getDeclaredField(name);
-//			int arrayID = field.getInt(null);
-//
-//			adapter = makeAdapter(ctx, cont, arrayID);
-//		}
-//		catch (NoSuchFieldException | IllegalAccessException ex) {
-//			List<P> list = cont.getAll();
-//			adapter = makeAdapter(ctx, list);
-//		}
-//		return adapter;
-//	}
-//
-//	/** Creates a spinner adapter from all the items within a container. */
-//	private ArrayAdapter<P> makeAdapter(Context ctx, Container<P> cont) {
-//		return makeAdapter(ctx, cont.getAll());
-//		ArrayAdapter<P> adapter = new ArrayAdapter<>(ctx,
-//				android.R.layout.simple_spinner_item, cont.getAll());
-//		adapter.setDropDownViewResource(
-//				android.R.layout.simple_spinner_dropdown_item);
-//		return adapter;
-//	}
-//
-//	/** Creates a spinner adapter from a container and the
-//	 * array ID of a list of the container's children.
-//	 */
-//	private ArrayAdapter<P> makeAdapter(
-//			Context ctx, Container<P> cont, int arrayID) {
-//		Resources res = ctx.getResources();
-//		String[] childNames = res.getStringArray(arrayID);
-//		ArrayAdapter<P> adapter = new ArrayAdapter<>(ctx,
-//				android.R.layout.simple_spinner_item,
-//				cont.getByName(childNames));
-//		adapter.setDropDownViewResource(
-//				android.R.layout.simple_spinner_dropdown_item);
-//		return adapter;
-//	}
+	/** Creates a spinner adapter from a container and the
+	 * array ID of a list of the container's children.
+	 */
+	public ArrayAdapter<P> makeAdapter(
+			Context ctx, Container<P> cont, int arrayID) {
+		Resources res = ctx.getResources();
+		String[] childNames = res.getStringArray(arrayID);
+		return makeAdapter(ctx, cont.getByName(childNames));
+	}
 
+	/** Creates a spinner adapter from a container. */
 	public ArrayAdapter<P> makeAdapter(Context ctx, Container<P> cont) {
 		return makeAdapter(ctx, cont.getAll());
 	}

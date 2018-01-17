@@ -1,48 +1,59 @@
 package edu.byui.cit.calculators;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.ItemSelectedHandler;
+import edu.byui.cit.text.SpinProperty;
 import edu.byui.cit.text.SpinString;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.units.Volume;
+import edu.byui.cit.units.Property;
+import edu.byui.cit.units.Unit;
 
 
 public class RecipeMultiplier extends CalcFragment {
 	private static final String
-			KEY_MULT = "RecipeMult.mult",
-			KEY_VOL_UNITS_FROM = "RecipeMult.volUnitsFrom",
-			KEY_VOL_UNITS_TO = "RecipeMult.volUnitsTo";
+			KEY_PREFIX = "RecipeMult",
+			KEY_MULT = KEY_PREFIX + ".mult",
+			KEY_PROP = KEY_PREFIX + ".prop",
+			KEY_START = "start",
+			KEY_END = "end";
 
-	private final Volume volume = Volume.getInstance();
+	private static final int[] unitArrayIDs = {
+			R.array.kitchenLength, R.array.kitchenArea,
+			R.array.kitchenVolume, R.array.kitchenMass
+	};
+	private static final float[] ratios = { 0.25F, 0.5F, 2, 3, 4 };
+
 	private final NumberFormat fmtrDec;
-	private EditDec multIn, startAmount;
-	private SpinString multType;
-	private TextWrapper multOut, endAmount;
-	private SpinUnit startUnits, endUnits;
-
+	private SpinProperty spinProp;
+	private Property propCurrent;
+	private SpinUnit spinStart, spinEnd;
+	private EditDec decOrigAmt;
+	private SpinString spinMult;
+	private TextWrapper decResult;
 
 	public RecipeMultiplier() {
 		super();
 		fmtrDec = NumberFormat.getInstance();
 		fmtrDec.setMaximumFractionDigits(2);
 	}
+
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
@@ -51,17 +62,16 @@ public class RecipeMultiplier extends CalcFragment {
 		View view = inflater.inflate(R.layout.recipe_multiplier, container,
 				false);
 
-		multIn = new EditDec(view, R.id.multIn, this);
-		multType = new SpinString(view, R.id.multType, KEY_MULT, this);
-		multOut = new TextWrapper(view, R.id.multOut);
-
 		Activity act = getActivity();
-		startUnits = new SpinUnit(act, view, R.id.startUnit, volume,
-				R.array.kitchenVolume, KEY_VOL_UNITS_FROM, this);
-		endUnits = new SpinUnit(act, view, R.id.endUnit, volume,
-				R.array.kitchenVolume, KEY_VOL_UNITS_TO, this);
-		startAmount = new EditDec(view, R.id.startAmount, this);
-		endAmount = new TextWrapper(view, R.id.endAmount);
+		spinProp = new SpinProperty(act, view, R.id.spinProp,
+				R.array.kitchenProperties, KEY_PROP,
+				new ChangeProperty());
+		spinStart = new SpinUnit(view, R.id.spinStart, this);
+		spinEnd = new SpinUnit(view, R.id.spinEnd, this);
+
+		decOrigAmt = new EditDec(view, R.id.decOrigAmt, this);
+		spinMult = new SpinString(view, R.id.spinMult, KEY_MULT, this);
+		decResult = new TextWrapper(view, R.id.decResult);
 
 		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
 		return view;
@@ -70,83 +80,87 @@ public class RecipeMultiplier extends CalcFragment {
 
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
-		// Restore units that were previously selected by the user.
-		multType.restore(prefs, multType.getItemAtPosition(0));
-		startUnits.restore(prefs, Volume.tsp);
-		endUnits.restore(prefs, Volume.tbsp);
+		// Restore the property that the user was
+		// using during the most recent session.
+		int deflt = spinProp.getItemAtPosition(0).getID();
+		spinProp.restore(prefs, deflt);
+		initUnits();
+		restoreUnits(prefs);
+
+		spinMult.restore(prefs, 2);
 	}
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Save the ID of the units chosen by
-		// the user into the preferences file.
-		multType.save(editor);
-		startUnits.save(editor);
-		endUnits.save(editor);
+		// Write the user selected property into the preferences file.
+		spinProp.save(editor);
+
+		// Write the user selected units into the preference file.
+		saveUnits(editor);
+
+		spinMult.save(editor);
 	}
 
 
-	@Override
-	public void afterTextChanged(Editable editable) {
-		if (multIn.hasFocus() && multIn.notEmpty()) {
+	private final class ChangeProperty extends ItemSelectedHandler {
+		@Override
+		public void itemSelected(
+				AdapterView<?> parent, View view, int pos, long id) {
+			Activity act = getActivity();
+			SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = prefs.edit();
+			saveUnits(editor);
+			editor.apply();
+			initUnits();
+			restoreUnits(prefs);
 			callCompute();
-			startAmount.clear();
-			endAmount.clear();
-		}
-		else if (startAmount.hasFocus() && startAmount.notEmpty()) {
-			compute2();
-			multIn.clear();
-			multOut.clear();
 		}
 	}
 
-	@Override
-	public void itemSelected(
-			AdapterView<?> adapterView, View view, int i, long l) {
-		if (multIn.notEmpty()) {
-			callCompute();
-			startAmount.clear();
-			endAmount.clear();
-		}
-		else if (startAmount.notEmpty()) {
-			compute2();
-			multIn.clear();
-			multOut.clear();
-		}
+
+	private void saveUnits(SharedPreferences.Editor editor) {
+		// Write into the preferences file the user selected
+		// units in both the top and bottom unit spinners.
+		String name = propCurrent.getName();
+		String key = KEY_PREFIX + '.' + name + '.';
+		editor.putInt(key + KEY_START, spinStart.getSelectedItem().getID());
+		editor.putInt(key + KEY_END, spinEnd.getSelectedItem().getID());
 	}
+
+	private void initUnits() {
+		Activity act = getActivity();
+		propCurrent = spinProp.getSelectedItem();
+		int index = spinProp.getSelectedItemPosition();
+		ArrayAdapter<Unit> adapter =
+				spinStart.makeAdapter(act, propCurrent, unitArrayIDs[index]);
+		spinStart.setAdapter(adapter);
+		spinEnd.setAdapter(adapter);
+	}
+
+	private void restoreUnits(SharedPreferences prefs) {
+		String name = propCurrent.getName();
+		String key = KEY_PREFIX + '.' + name + '.';
+		int deflt = spinStart.getItemAtPosition(0).getID();
+		int id = prefs.getInt(key + KEY_START, deflt);
+		spinStart.setSelectedID(id);
+		deflt = spinEnd.getItemAtPosition(1).getID();
+		id = prefs.getInt(key + KEY_END, deflt);
+		spinEnd.setSelectedID(id);
+	}
+
 
 	@Override
 	protected void compute() {
-		double output;
-		if (multType.getSelectedItem().equals("1/4")) {
-			output = multIn.getDec() * 0.25;
-		}
-		else if (multType.getSelectedItem().equals("1/2")) {
-			output = multIn.getDec() * 0.5;
-		}
-		else if (multType.getSelectedItem().equals("2X")) {
-			output = multIn.getDec() * 2;
-		}
-		else {
-			output = multIn.getDec() * 3;
-		}
-		multOut.setText(fmtrDec.format(output));
-	}
+		double origAmt = decOrigAmt.getDec();
+		int index = spinMult.getSelectedItemPosition();
+		double ratio = ratios[index];
+		double result = origAmt * ratio;
 
-	private void compute2() {
-		try {
-			int fromUnit = startUnits.getSelectedItem().getID();
-			int toUnit = endUnits.getSelectedItem().getID();
-			double orig = startAmount.getDec();
-			double output = volume.convert(toUnit, orig, fromUnit);
-			endAmount.setText(fmtrDec.format(output));
-		}
-		catch (NumberFormatException ex) {
-			// Do nothing
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
-		}
+		Unit unitStart = spinStart.getSelectedItem();
+		Unit unitEnd = spinEnd.getSelectedItem();
+		result = propCurrent.convert(unitEnd, result, unitStart);
+
+		decResult.setText(fmtrDec.format(result));
 	}
 
 
@@ -154,15 +168,9 @@ public class RecipeMultiplier extends CalcFragment {
 	private final class ClearHandler implements OnClickListener {
 		@Override
 		public void onClick(View button) {
-			multIn.clear();
-			multOut.clear();
-			multIn.requestFocus();
-			multType.setSelection(2);
-			startAmount.clear();
-			startUnits.setSelection(0);
-			endUnits.setSelection(0);
-			endAmount.clear();
-			multIn.requestFocus();
+			decOrigAmt.clear();
+			decResult.clear();
+			decOrigAmt.requestFocus();
 		}
 	}
 }

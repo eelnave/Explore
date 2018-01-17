@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
-public class IndexArrayTest {
+public class OrderedIndexArrayTest {
 	private static final byte P = 1, V = 2, n = 3, R = 4, T = 5;
 
 	@Test

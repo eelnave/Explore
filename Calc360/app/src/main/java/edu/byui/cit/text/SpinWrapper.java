@@ -71,17 +71,20 @@ abstract class SpinWrapper extends Input {
 	 * in the Spinner class, but they didn't.
 	 */
 	public int getSelectedItemPosition() {
-		Object select = spinner.getSelectedItem();
-		int index = -1;
+		return positionOf(spinner.getSelectedItem());
+	}
+
+	public int positionOf(Object key) {
+		int pos = -1;
 		SpinnerAdapter adapter = spinner.getAdapter();
-		for (int i = 0, len = adapter.getCount(); i < len; ++i) {
+		for (int i = 0, len = adapter.getCount();  i < len;  ++i) {
 			Object item = adapter.getItem(i);
-			if (item == select) {
-				index = i;
+			if (item.equals(key)) {
+				pos = i;
 				break;
 			}
 		}
-		return index;
+		return pos;
 	}
 
 	public Spinner getSpinner() {

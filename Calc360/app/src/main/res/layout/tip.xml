@@ -38,7 +38,7 @@
 
 	<EditText
 		android:id="@+id/percTipRate"
-		style="@style/UnsignedInteger"
+		style="@style/UnsignedDecimal"
 		android:layout_marginStart="20dp"
 		android:ems="2"
 		android:text="@string/standardTip"/>

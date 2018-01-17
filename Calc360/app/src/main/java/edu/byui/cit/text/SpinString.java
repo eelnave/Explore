@@ -17,15 +17,16 @@ public final class SpinString extends SpinWrapper {
 		editor.putString(prefsKey, getSelectedItem());
 	}
 
+	public void restore(SharedPreferences prefs, int defltPos) {
+		String deflt = spinner.getItemAtPosition(defltPos).toString();
+		restore(prefs, deflt);
+	}
+
 	public void restore(SharedPreferences prefs, String deflt) {
 		String preferred = prefs.getString(prefsKey, deflt);
-		SpinnerAdapter adapter = spinner.getAdapter();
-		for (int i = 0, len = adapter.getCount();  i < len;  ++i) {
-			String item = adapter.getItem(i).toString();
-			if (item.equals(preferred)) {
-				setSelection(i);
-				break;
-			}
+		int pos = positionOf(preferred);
+		if (pos != -1) {
+			setSelection(pos);
 		}
 	}
 

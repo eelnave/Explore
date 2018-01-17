@@ -18,7 +18,6 @@ import static edu.byui.cit.model.Consumer.Rate.*;
 
 
 public final class Percent extends CalcFragment {
-
 	private final NumberFormat fmtrDec = NumberFormat.getNumberInstance();
 	private EditDec decPerc1, decPerc2, decPerc3, decPerc4, decPerc5, decPerc6;
 	private TextWrapper percResult1, percResult2, percResult3;

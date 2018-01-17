@@ -35,6 +35,7 @@ final class Descriptors {
 			new GroupDescriptor(311,R.string.cooking, R.drawable.folder_cooking, new CalcDescriptor[]{
 				new CalcDescriptor(1052, R.string.recipeMult, R.drawable.recipe_book, RecipeMultiplier.class),
 				new CalcDescriptor(1048, R.string.tempConvert, R.drawable.temperature, TemperatureConvert.class),
+				new CalcDescriptor(1049, R.string.massConvert, R.drawable.scale, MassConvert.class),
 				new CalcDescriptor(1053, R.string.lengthConvert, R.drawable.ruler, LengthConvert.class),
 				new CalcDescriptor(1054, R.string.areaConvert, R.drawable.baking_sheet, AreaConvert.class),
 				new CalcDescriptor(1055, R.string.volumeConvert, R.drawable.volume, VolumeConvert.class),
