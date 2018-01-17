@@ -9,9 +9,9 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSome;
+import edu.byui.cit.text.Control;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.Input;
-import edu.byui.cit.text.Control;
 
 import static edu.byui.cit.model.Geometry.Sphere.*;
 
@@ -29,10 +29,11 @@ public final class Sphere extends SolveSome {
 		decRad = new EditDec(view, R.id.decRad, this);
 		decSur = new EditDec(view, R.id.decSur, this);
 		decVol = new EditDec(view, R.id.decVol, this);
-		Control[] toClear = { decRad, decSur, decVol };
+		Input[] inputs = { decRad, decSur, decVol };
 
 		Solver[] solvers = new Solver[]{
-				new Solver(new Input[]{ decVol }) {
+				new Solver(new Input[]{ decVol },
+						new Control[]{ decRad, decSur }) {
 					@Override
 					public void solve() {
 						double v = decVol.getDec();
@@ -42,7 +43,8 @@ public final class Sphere extends SolveSome {
 						decSur.setText(fmtrStandard.format(s));
 					}
 				},
-				new Solver(new Input[]{ decSur }) {
+				new Solver(new Input[]{ decSur },
+						new Control[]{ decRad, decVol }) {
 					@Override
 					public void solve() {
 						double s = decSur.getDec();
@@ -52,7 +54,8 @@ public final class Sphere extends SolveSome {
 						decVol.setText(fmtrStandard.format(v));
 					}
 				},
-				new Solver(new Input[]{ decRad }) {
+				new Solver(new Input[]{ decRad },
+						new Control[]{ decSur, decVol }) {
 					@Override
 					public void solve() {
 						double r = decRad.getDec();
@@ -64,7 +67,7 @@ public final class Sphere extends SolveSome {
 				}
 		};
 
-		initialize(view, R.id.btnClear, toClear, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 }

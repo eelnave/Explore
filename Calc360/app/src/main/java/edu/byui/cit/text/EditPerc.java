@@ -6,7 +6,7 @@ import android.view.View;
 
 public final class EditPerc extends EditWrapper {
 	public EditPerc(View parent, int resID, TextWatcher watcher) {
-		super(parent, resID, watcher);
+		super(parent, resID, null, watcher);
 	}
 
 	@Override

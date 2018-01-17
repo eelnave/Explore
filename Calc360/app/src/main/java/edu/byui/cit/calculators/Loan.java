@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -67,9 +66,6 @@ public final class Loan extends SolveSome {
 		Activity act = getActivity();
 		spinPPY = new SpinInt(act, view, R.id.spinPPY,
 				R.array.possiblePPY, KEY_PPY, this);
-		SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
-		int deflt = (Integer)spinPPY.getItemAtPosition(spinPPY.getCount() - 1);
-		spinPPY.restore(prefs, deflt);
 
 		curPay = new EditCur(view, R.id.curPay, this);
 		intPTD = new EditInt(view, R.id.intPTD, this);
@@ -82,10 +78,12 @@ public final class Loan extends SolveSome {
 				curAmt, decAR, decYears, curPay, intPTD, curBal,
 				txtPeriod, txtInter, txtPrinc, txtBal
 		};
+		Input[] inputs = { curAmt, decAR, decYears, curPay, intPTD };
 
 		Solver[] solvers = new Solver[]{
 				// Solve for the loan amount.
-				new Solver(new Input[]{ decAR, decYears, curPay }) {
+				new Solver(new Input[]{ decAR, decYears, curPay },
+						new Control[]{ curAmt, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeAmount();
@@ -94,7 +92,8 @@ public final class Loan extends SolveSome {
 				},
 
 				// Solve for the annual rate.
-				new Solver(new Input[]{ curAmt, decYears, curPay }) {
+				new Solver(new Input[]{ curAmt, decYears, curPay },
+						new Control[]{ decAR, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeAnnualRate();
@@ -103,7 +102,8 @@ public final class Loan extends SolveSome {
 				},
 
 				// Solve for the number of years.
-				new Solver(new Input[]{ curAmt, decAR, curPay }) {
+				new Solver(new Input[]{ curAmt, decAR, curPay },
+						new Control[]{ decYears, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeYears();
@@ -112,7 +112,8 @@ public final class Loan extends SolveSome {
 				},
 
 				// Solve for the payment amount.
-				new Solver(new Input[]{ curAmt, decAR, decYears }) {
+				new Solver(new Input[]{ curAmt, decAR, decYears },
+						new Control[]{ curPay, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computePayment();
@@ -121,7 +122,9 @@ public final class Loan extends SolveSome {
 				},
 
 				// Solve for the remaining balance.
-				new Solver(new Input[]{ decAR, decYears, curPay, intPTD }) {
+				new Solver(new Input[]{ decAR, decYears, curPay, intPTD },
+						new Control[]{ curAmt, curBal,
+								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeAmount();
@@ -129,7 +132,9 @@ public final class Loan extends SolveSome {
 						amortTable();
 					}
 				},
-				new Solver(new Input[]{ curAmt, decYears, curPay, intPTD }) {
+				new Solver(new Input[]{ curAmt, decYears, curPay, intPTD },
+						new Control[]{ decAR, curBal,
+								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeAnnualRate();
@@ -137,7 +142,9 @@ public final class Loan extends SolveSome {
 						amortTable();
 					}
 				},
-				new Solver(new Input[]{ curAmt, decAR, curPay, intPTD }) {
+				new Solver(new Input[]{ curAmt, decAR, curPay, intPTD },
+						new Control[]{ decYears, curBal,
+								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeYears();
@@ -145,7 +152,9 @@ public final class Loan extends SolveSome {
 						amortTable();
 					}
 				},
-				new Solver(new Input[]{ curAmt, decAR, decYears, intPTD }) {
+				new Solver(new Input[]{ curAmt, decAR, decYears, intPTD },
+						new Control[]{ curPay, curBal,
+								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computePayment();
@@ -155,8 +164,7 @@ public final class Loan extends SolveSome {
 				}
 		};
 
-//		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
-		initialize(view, R.id.btnClear, toClear, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear, toClear);
 		return view;
 	}
 
@@ -241,6 +249,14 @@ public final class Loan extends SolveSome {
 		txtInter.setText(sbInter.toString());
 		txtPrinc.setText(sbPrinc.toString());
 		txtBal.setText(sbBal.toString());
+	}
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
+		int last = spinPPY.getCount() - 1;
+		int deflt = (Integer)spinPPY.getItemAtPosition(last);
+		spinPPY.restore(prefs, deflt);
 	}
 
 	@Override

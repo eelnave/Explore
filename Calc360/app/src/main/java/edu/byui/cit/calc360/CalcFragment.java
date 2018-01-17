@@ -1,7 +1,5 @@
 package edu.byui.cit.calc360;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -86,37 +84,5 @@ public abstract class CalcFragment extends OmniFragment implements TextWatcher,
 	}
 
 	protected void compute() {
-	}
-
-
-	// When this calculator is stopped by the Android system, save
-	// the units chosen by the user into the preferences file.
-	@Override
-	public void onStop() {
-		try {
-			// Open the Android system preferences file for Calc360.
-			SharedPreferences prefs = getActivity().getPreferences(
-					Context.MODE_PRIVATE);
-
-			// Get an editor for the preferences files
-			// so that we can write values into that file.
-			SharedPreferences.Editor editor = prefs.edit();
-
-			// Call savePrefs which will be
-			// overridden in the individual calculators.
-			savePrefs(editor);
-
-			// Make the changes permanent.
-			editor.apply();
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
-		}
-		finally {
-			super.onStop();
-		}
-	}
-
-	protected void savePrefs(SharedPreferences.Editor editor) {
 	}
 }

@@ -32,12 +32,14 @@ public final class Cone extends SolveSome {
 		decSide = new EditDec(view, R.id.decSide, this);
 		decSurfArea = new EditDec(view, R.id.decSurfArea, this);
 		decVolume = new EditDec(view, R.id.decVolume, this);
-		Control[] toClear = new Control[] {
+
+		Input[] inputs = new Input[]{
 				decRadius, decHeight, decSide, decSurfArea, decVolume
 		};
 
-		Solver[] solvers = new Solver[] {
-				new Solver(new Input[] { decRadius, decHeight }) {
+		Solver[] solvers = new Solver[]{
+				new Solver(new Input[]{ decRadius, decHeight },
+						new Control[]{ decSide, decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -47,7 +49,8 @@ public final class Cone extends SolveSome {
 						decVolume.setText(fmtrDec.format(volume(r, h)));
 					}
 				},
-				new Solver(new Input[] { decRadius, decSide }) {
+				new Solver(new Input[]{ decRadius, decSide },
+						new Control[]{ decHeight, decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -58,7 +61,8 @@ public final class Cone extends SolveSome {
 						decVolume.setText(fmtrDec.format(volume(r, h)));
 					}
 				},
-				new Solver(new Input[] { decHeight, decSide }) {
+				new Solver(new Input[]{ decHeight, decSide },
+						new Control[]{ decRadius, decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();
@@ -69,7 +73,8 @@ public final class Cone extends SolveSome {
 						decVolume.setText(fmtrDec.format(volume(r, h)));
 					}
 				},
-				new Solver(new Input[] { decRadius, decSurfArea}) {
+				new Solver(new Input[]{ decRadius, decSurfArea },
+						new Control[]{ decHeight, decSide, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -80,7 +85,8 @@ public final class Cone extends SolveSome {
 						decVolume.setText(fmtrDec.format(volume(r, h)));
 					}
 				},
-				new Solver(new Input[] { decRadius, decVolume }) {
+				new Solver(new Input[]{ decRadius, decVolume },
+						new Control[]{ decHeight, decSide, decSurfArea }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -91,7 +97,8 @@ public final class Cone extends SolveSome {
 						decSurfArea.setText(fmtrDec.format(surfArea(r, h)));
 					}
 				},
-				new Solver(new Input[] { decHeight, decSurfArea}) {
+				new Solver(new Input[]{ decHeight, decSurfArea },
+						new Control[]{ decRadius, decSide, decVolume }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();
@@ -102,7 +109,8 @@ public final class Cone extends SolveSome {
 						decVolume.setText(fmtrDec.format(volume(r, h)));
 					}
 				},
-				new Solver(new Input[] { decHeight, decVolume }) {
+				new Solver(new Input[]{ decHeight, decVolume },
+						new Control[]{ decRadius, decSide, decSurfArea }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();
@@ -115,7 +123,7 @@ public final class Cone extends SolveSome {
 				}
 		};
 
-		initialize(view, R.id.btnClear, toClear, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 }

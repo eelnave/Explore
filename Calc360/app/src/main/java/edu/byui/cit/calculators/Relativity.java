@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -27,10 +28,11 @@ public final class Relativity extends SolveSome {
 		View view = inflater.inflate(R.layout.relativity, container, false);
 		decEnergy = new EditDec(view, R.id.decEnergy, this);
 		decMass = new EditDec(view, R.id.decMass, this);
-		Control[] toClear = { decEnergy, decMass };
 
-		Solver[] solvers = new Solver[] {
-				new Solver(new Input[] { decMass }) {
+		Input[] inputs = { decEnergy, decMass };
+
+		Solver[] solvers = new Solver[]{
+				new Solver(new Input[]{ decMass }, new Control[]{ decEnergy }) {
 					@Override
 					public void solve() {
 						double m = decMass.getDec();
@@ -38,7 +40,7 @@ public final class Relativity extends SolveSome {
 						decEnergy.setText(format(e));
 					}
 				},
-				new Solver(new Input[] { decEnergy }) {
+				new Solver(new Input[]{ decEnergy }, new Control[]{ decMass }) {
 					@Override
 					public void solve() {
 						double e = decEnergy.getDec();
@@ -48,7 +50,7 @@ public final class Relativity extends SolveSome {
 				}
 		};
 
-		initialize(view, R.id.btnClear, toClear, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 

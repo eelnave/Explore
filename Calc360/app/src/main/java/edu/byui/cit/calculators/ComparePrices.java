@@ -73,17 +73,31 @@ public final class ComparePrices extends CalcFragment {
 			Log.e(Calc360.TAG, "exception", ex);
 		}
 
+		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		return view;
+	}
+
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
 		// Restore the property that the user was
 		// using during the most recent session.
-		SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
 		int deflt = spinProp.getItemAtPosition(0).getID();
 		spinProp.restore(prefs, deflt);
 
 		initUnits();
 		restoreUnits(prefs);
+	}
 
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
-		return view;
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		// Write the user selected property into the preferences file.
+		Property prop = spinProp.getSelectedItem();
+		editor.putInt(KEY_PROP, prop.getID());
+
+		// Write the user selected units into the preference file.
+		saveUnits(editor);
 	}
 
 
@@ -246,17 +260,6 @@ public final class ComparePrices extends CalcFragment {
 
 			best.curPer.getView().setBackgroundColor(color);
 		}
-	}
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Write the user selected property into the preferences file.
-		Property prop = spinProp.getSelectedItem();
-		editor.putInt(KEY_PROP, prop.getID());
-
-		// Write the user selected units into the preference file.
-		saveUnits(editor);
 	}
 
 

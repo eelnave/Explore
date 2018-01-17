@@ -3,6 +3,7 @@ package edu.byui.cit.calc360;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -42,11 +43,15 @@ public abstract class OmniFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
+		super.onCreateView(inflater, container, savedInstState);
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onCreateView(" +
 // (savedInstState == null ? "null" : savedInstState.size()) + ")");
 		View view;
 		try {
 			view = createView(inflater, container, savedInstState);
+			Activity act = getActivity();
+			SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
+			restorePrefs(prefs);
 		}
 		catch (Exception ex) {
 			Log.e(Calc360.TAG, "exception", ex);
@@ -57,6 +62,9 @@ public abstract class OmniFragment extends Fragment {
 
 	protected abstract View createView(LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstState);
+
+	protected void restorePrefs(SharedPreferences prefs) {
+	}
 
 //	@Override
 //	public void onActivityCreated(Bundle savedInstState) {
@@ -112,12 +120,40 @@ public abstract class OmniFragment extends Fragment {
 		savedInstState.putInt(descripIDKey, descriptor.getID());
 	}
 
-//	@Override
-//	public void onStop() {
-//		super.onStop();
+
+	// When this calculator is stopped by the Android system, save
+	// the units chosen by the user into the preferences file.
+	@Override
+	public void onStop() {
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onStop()");
-//	}
-//
+		try {
+			// Open the Android system preferences file for Calc360.
+			SharedPreferences prefs = getActivity().getPreferences(
+					Context.MODE_PRIVATE);
+
+			// Get an editor for the preferences files
+			// so that we can write values into that file.
+			SharedPreferences.Editor editor = prefs.edit();
+
+			// Call savePrefs which will be
+			// overridden in the individual calculators.
+			savePrefs(editor);
+
+			// Make the changes permanent.
+			editor.apply();
+		}
+		catch (Exception ex) {
+			Log.e(Calc360.TAG, "exception", ex);
+		}
+		finally {
+			super.onStop();
+		}
+	}
+
+	protected void savePrefs(SharedPreferences.Editor editor) {
+	}
+
+
 //	@Override
 //	public void onDestroyView() {
 //		super.onDestroyView();

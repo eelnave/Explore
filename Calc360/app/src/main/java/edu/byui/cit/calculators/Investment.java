@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -57,9 +56,6 @@ public final class Investment extends SolveAll {
 		Activity act = getActivity();
 		spinPPY = new SpinInt(act, view, R.id.spinPPY,
 				R.array.possiblePPY, KEY_PPY, this);
-		SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
-		int deflt = (Integer)spinPPY.getItemAtPosition(spinPPY.getCount() - 1);
-		spinPPY.restore(prefs, deflt);
 
 		curFV = new EditCur(view, R.id.curFV, this);
 		Input[] inputs = { curPV, curPay, decAR, decYears, curFV };
@@ -116,7 +112,6 @@ public final class Investment extends SolveAll {
 
 				// Never compute periods per year because
 				// the user must always select it.
-//				null,
 
 				new Solver() {
 					@Override
@@ -136,6 +131,13 @@ public final class Investment extends SolveAll {
 		return view;
 	}
 
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
+		int last = spinPPY.getCount() - 1;
+		int deflt = (Integer)spinPPY.getItemAtPosition(last);
+		spinPPY.restore(prefs, deflt);
+	}
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {

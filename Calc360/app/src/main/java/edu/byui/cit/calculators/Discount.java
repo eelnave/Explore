@@ -1,6 +1,5 @@
 package edu.byui.cit.calculators;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -55,21 +54,32 @@ public final class Discount extends CalcFragment {
 		decDiscRate = new EditDec(view, R.id.decDiscRate, this);
 		curDiscAmt = new EditCur(view, R.id.curDiscAmt, this);
 		curDiscPrice = new TextWrapper(view, R.id.curDiscPrice);
-		decTaxRate = new EditDec(view, R.id.decTaxRate, this);
+		decTaxRate = new EditDec(view, R.id.decTaxRate,
+				Calc360.KEY_SALES_TAX_RATE, this);
 		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 		curSaved = new TextWrapper(view, R.id.curSaved);
-
-		// Restore the user enter sales tax rate if it exists.
-		SharedPreferences prefs = getActivity().getPreferences(
-				Context.MODE_PRIVATE);
-		float taxRate = prefs.getFloat(Calc360.KEY_SALES_TAX_RATE, 0);
-		decTaxRate.setText(fmtrDec.format(taxRate));
 
 		// Add a button click listener to the Clear button.
 		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
 
 		return view;
+	}
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
+		// Restore the user entered sales tax rate if it exists.
+//		float taxRate = prefs.getFloat(Calc360.KEY_SALES_TAX_RATE, 0);
+//		decTaxRate.setText(fmtrDec.format(taxRate));
+		decTaxRate.restore(prefs, fmtrDec);
+	}
+
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+//		float rate = (float)decTaxRate.getDec();
+//		editor.putFloat(Calc360.KEY_SALES_TAX_RATE, rate);
+		decTaxRate.save(editor);
 	}
 
 
@@ -128,13 +138,6 @@ public final class Discount extends CalcFragment {
 		catch (Exception ex) {
 			Log.e(Calc360.TAG, "exception", ex);
 		}
-	}
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		float rate = (float)decTaxRate.getDec();
-		editor.putFloat(Calc360.KEY_SALES_TAX_RATE, rate);
 	}
 
 

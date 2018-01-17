@@ -1,28 +1,24 @@
 package edu.byui.cit.calculators;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.Calc360;
-import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.calc360.SolveSome;
+import edu.byui.cit.text.Control;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.TextChangedHandler;
+import edu.byui.cit.text.Input;
 import edu.byui.cit.text.TextWrapper;
 
 
-public class LaborCost extends CalcFragment {
+public class LaborCost extends SolveSome {
 	private static final String
 			KEY_WAGE = "LaborCost.wage",
 			KEY_SALARY = "LaborCost.salary";
@@ -49,252 +45,215 @@ public class LaborCost extends CalcFragment {
 
 		curPrice = new EditCur(view, R.id.curPrice, this);
 		decSalesTaxRate = new EditDec(view, R.id.decSalesTaxRate,
-				new SalesTaxRateHandler());
-		curSalesTaxAmt = new EditCur(view, R.id.curSalesTaxAmt,
-				new SalesTaxAmountHandler());
-		curWage = new EditCur(view, R.id.curWage, new WageHandler());
-		curSalary = new EditCur(view, R.id.curSalary, new SalaryHandler());
+				Calc360.KEY_SALES_TAX_RATE,  this);
+		curSalesTaxAmt = new EditCur(view, R.id.curSalesTaxAmt, this);
+		curWage = new EditCur(view, R.id.curWage, KEY_WAGE, this);
+		curSalary = new EditCur(view, R.id.curSalary, KEY_SALARY, this);
 		txtOutput = new TextWrapper(view, R.id.output);
-		restorePrefs();
 
-		// Set this calculator as the click listener for the clear button.
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		Input[] inputs = {
+			curPrice, decSalesTaxRate, curSalesTaxAmt, curWage, curSalary
+		};
+		Input[][] groups = {
+				{ decSalesTaxRate, curSalesTaxAmt },
+				{ curWage, curSalary }
+		};
+		Control[] toClear = { curPrice, curSalesTaxAmt, txtOutput };
 
+		Solver[] solvers = new Solver[]{
+			new Solver(new Input[]{ curPrice, decSalesTaxRate },
+					new Control[]{ curSalesTaxAmt }) {
+				@Override
+				public void solve() {
+					double price = curPrice.getCur();
+					double total = totalWithTaxRate(price);
+					laborCost(total);
+				}
+			},
+			new Solver(new Input[]{ curPrice, curSalesTaxAmt },
+					new Control[]{ decSalesTaxRate }) {
+				@Override
+				public void solve() {
+					double price = curPrice.getCur();
+					double total = totalWithTaxAmt(price);
+					laborCost(total);
+				}
+			},
+
+			new Solver(new Input[]{ curPrice, curSalary },
+					new Control[]{ txtOutput }) {
+				@Override
+				public void solve() {
+					double price = curPrice.getCur();
+					laborCostWithSalary(price);
+				}
+			},
+			new Solver(new Input[]{ curPrice, curWage },
+					new Control[]{ txtOutput }) {
+				@Override
+				public void solve() {
+					double price = curPrice.getCur();
+					double wage = curWage.getCur();
+					laborCostWithWage(price, wage);
+				}
+			},
+
+			new Solver(new Input[]{ curPrice, decSalesTaxRate, curSalary },
+					new Control[]{ curSalesTaxAmt, txtOutput }) {
+				@Override
+				public void solve() {
+					double price = curPrice.getCur();
+					double total = totalWithTaxRate(price);
+					laborCostWithSalary(total);
+				}
+			},
+			new Solver(new Input[]{ curPrice, decSalesTaxRate, curWage },
+					new Control[]{ curSalesTaxAmt, txtOutput }) {
+				@Override
+				public void solve() {
+					double price = curPrice.getCur();
+					double total = totalWithTaxRate(price);
+					double wage = curWage.getCur();
+					laborCostWithWage(total, wage);
+				}
+			},
+
+			new Solver(new Input[]{ curPrice, curSalesTaxAmt, curSalary },
+					new Control[]{ decSalesTaxRate, txtOutput }) {
+				@Override
+				public void solve() {
+					double price = curPrice.getCur();
+					double total = totalWithTaxAmt(price);
+					laborCostWithSalary(total);
+				}
+			},
+			new Solver(new Input[]{ curPrice, curSalesTaxAmt, curWage },
+					new Control[]{ decSalesTaxRate, txtOutput }) {
+				@Override
+				public void solve() {
+					double price = curPrice.getCur();
+					double total = totalWithTaxAmt(price);
+					double wage = curWage.getCur();
+					laborCostWithWage(total, wage);
+				}
+			}
+		};
+
+		initialize(view, inputs, groups, solvers, R.id.btnClear, toClear);
 		return view;
 	}
 
 
-	private final class SalesTaxRateHandler extends TextChangedHandler {
-		@Override
-		public void afterTextChanged(Editable editable) {
-			try {
-				String strTaxAmt = "";
-				if (curPrice.notEmpty() && decSalesTaxRate.notEmpty()) {
-					double price = curPrice.getCur();
-					double taxRate = decSalesTaxRate.getDec() / 100.0;
-					double taxAmt = price * taxRate;
-					strTaxAmt = fmtrCur.format(taxAmt);
-				}
-				curSalesTaxAmt.setText(strTaxAmt);
-				compute();
-			}
-			catch (NumberFormatException ex) {
-				// Do nothing
-			}
-			catch (Exception ex) {
-				Log.e(Calc360.TAG, "exception", ex);
-			}
-		}
-	}
-
-
-	private final class SalesTaxAmountHandler extends TextChangedHandler {
-		@Override
-		public void afterTextChanged(Editable editable) {
-			try {
-				String strTaxRate = "";
-				if (curPrice.notEmpty() && curSalesTaxAmt.notEmpty()) {
-					double price = curPrice.getCur();
-					double taxAmt = curSalesTaxAmt.getCur();
-					double taxRate = taxAmt / price * 100.0;
-					strTaxRate = fmtrRate.format(taxRate);
-				}
-				decSalesTaxRate.getEdit().setText(strTaxRate);
-				compute();
-			}
-			catch (NumberFormatException ex) {
-				// Do nothing
-			}
-			catch (Exception ex) {
-				Log.e(Calc360.TAG, "exception", ex);
-			}
-		}
-	}
-
-
-	private final class WageHandler extends TextChangedHandler {
-		@Override
-		public void afterTextChanged(Editable editable) {
-			try {
-				if (curWage.notEmpty()) {
-					curSalary.clear();
-				}
-				compute();
-			}
-			catch (NumberFormatException ex) {
-				// Do nothing
-			}
-			catch (Exception ex) {
-				Log.e(Calc360.TAG, "exception", ex);
-			}
-		}
-	}
-
-
-	private final class SalaryHandler extends TextChangedHandler {
-		@Override
-		public void afterTextChanged(Editable editable) {
-			try {
-				if (curSalary.notEmpty()) {
-					curWage.clear();
-				}
-				compute();
-			}
-			catch (NumberFormatException ex) {
-				// Do nothing
-			}
-			catch (Exception ex) {
-				Log.e(Calc360.TAG, "exception", ex);
-			}
-		}
-	}
-
-
+	/**
+	 * Restores the value for sales tax rate and wage or salary,
+	 * if the user previously entered them.
+	 */
 	@Override
-	protected void compute() {
-		double price = 0;
-		if (curPrice.notEmpty()) {
-			price = curPrice.getCur();
-		}
+	protected void restorePrefs(SharedPreferences prefs) {
+		decSalesTaxRate.restore(prefs, fmtrRate);
+		curWage.restore(prefs, fmtrCur);
+		curSalary.restore(prefs, fmtrCur);
+	}
 
+	/** Saves the sales tax rate and wage or salary to preferences. */
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		decSalesTaxRate.save(editor);
+		curWage.save(editor);
+		curSalary.save(editor);
+	}
+
+
+	private double totalWithTaxRate(double price) {
 		double taxAmt = 0;
-		String output = "";
-		if (curPrice.notEmpty() && decSalesTaxRate.notEmpty()) {
-			double taxRate = decSalesTaxRate.getDec() / 100.0;
+		double taxRate = decSalesTaxRate.getDec() / 100.0;
+		if (taxRate > 0) {
 			taxAmt = price * taxRate;
-			output = fmtrCur.format(taxAmt);
+			curSalesTaxAmt.setText(fmtrCur.format(taxAmt));
 		}
-		curSalesTaxAmt.setText(output);
+		return price + taxAmt;
+	}
 
-		double total = price + taxAmt;
-		output = "";
-		if (curPrice.notEmpty() && (curWage.notEmpty() || curSalary.notEmpty()
-		)) {
-			final int maxFractDigits = 2;
-			final int multiplier = (int)Math.pow(10, maxFractDigits);
+	private double totalWithTaxAmt(double price) {
+		double taxAmt = curSalesTaxAmt.getCur();
+		double taxRate = taxAmt / price * 100.0;
+		decSalesTaxRate.setText(fmtrRate.format(taxRate));
+		return price + taxAmt;
+	}
 
-			final int workWeeksPerYear = 48;
-			final int workDaysPerWeek = 5;
-			final int workHoursPerDay = 8;
-			final int workHoursPerYear = workWeeksPerYear * workDaysPerWeek *
-					workHoursPerDay;
-			final int minutesPerHour = 60;
 
-			double wage;
-			if (curWage.notEmpty()) {
-				wage = curWage.getCur();
-			}
-			else {
-				wage = curSalary.getCur() / workHoursPerYear;
-			}
+	private static final int workWeeksPerYear = 48;
+	private static final int workDaysPerWeek = 5;
+	private static final int workHoursPerDay = 8;
+	private static final int workHoursPerYear =
+			workWeeksPerYear * workDaysPerWeek * workHoursPerDay;
+	private static final int minutesPerHour = 60;
 
-			int hours = (int)Math.floor(total / wage);
-			double remainTotal = total - hours * wage;
 
-			final int years = hours / workHoursPerYear;
-			int remainHours = hours - years * workHoursPerYear;
-			final int days = remainHours / workHoursPerDay;
-			hours = remainHours - days * workHoursPerDay;
+	private void laborCost(double total) {
+		if (curSalary.notEmpty()) {
+			laborCostWithSalary(total);
+		}
+		else if (curWage.notEmpty()) {
+			double wage = curWage.getCur();
+			laborCostWithWage(total, wage);
+		}
+	}
 
-			double wagePerMinute = wage / minutesPerHour;
-			final int minutes = (int)Math.floor(remainTotal / wagePerMinute);
+	private void laborCostWithSalary(double total) {
+		double wage = curSalary.getCur() / workHoursPerYear;
+		laborCostWithWage(total, wage);
+	}
 
-			remainTotal = total -
-					((years * workHoursPerYear + days * workHoursPerDay +
-							hours) * wage +
-							minutes * wagePerMinute);
-			final int cents = (int)Math.ceil(remainTotal * multiplier);
 
-			output = "You must work for";
-			String sep = " ";
-			if (years > 0) {
-				output += sep + fmtrInt.format(years) + " years";
-				sep = ", ";
-			}
-			if (days > 0) {
-				output += sep + fmtrInt.format(days) + " days";
-				sep = ", ";
-			}
-			if (hours > 0) {
-				output += sep + fmtrInt.format(hours) + " hours";
-				sep = ", ";
-			}
-			if (minutes > 0) {
-				output += sep + fmtrInt.format(minutes) + " minutes";
-			}
-			if (cents > 0) {
-				output += ", and you must get " + cents + " cents from " +
-						"somewhere";
-			}
-			output += ".";
+	private void laborCostWithWage(double total, double wage) {
+		int hours = (int)Math.floor(total / wage);
+		double remainTotal = total - hours * wage;
 
-			// Code to check the results.
+		final int years = hours / workHoursPerYear;
+		int remainHours = hours - years * workHoursPerYear;
+		final int days = remainHours / workHoursPerDay;
+		hours = remainHours - days * workHoursPerDay;
+
+		double wagePerMinute = wage / minutesPerHour;
+		final int minutes = (int)Math.floor(remainTotal / wagePerMinute);
+
+		final int maxFractDigits = fmtrCur.getMaximumFractionDigits();
+		final int multiplier = (int)Math.pow(10, maxFractDigits);
+		remainTotal = total -
+			((years * workHoursPerYear + days * workHoursPerDay + hours) * wage +
+				minutes * wagePerMinute);
+		final int cents = (int)Math.ceil(remainTotal * multiplier);
+
+		String output = "You must work for";
+		String sep = " ";
+		if (years > 0) {
+			output += sep + fmtrInt.format(years) + " years";
+			sep = ", ";
+		}
+		if (days > 0) {
+			output += sep + fmtrInt.format(days) + " days";
+			sep = ", ";
+		}
+		if (hours > 0) {
+			output += sep + fmtrInt.format(hours) + " hours";
+			sep = ", ";
+		}
+		if (minutes > 0) {
+			output += sep + fmtrInt.format(minutes) + " minutes";
+		}
+		if (cents > 0) {
+			output += ", and you must get " + cents + " cents from " +
+				"somewhere";
+		}
+		output += ".";
+
+		// Code to check the results.
 //				double total = (years * workHoursPerYear + days *
 // workHoursPerDay + hours) * wage;
 //				total += minutes * wagePerMinute;
 //				total += (double)cents / multiplier;
 //				output += "\n" + total;
-
-		}
 		txtOutput.setText(output);
-	}
-
-
-	/** Saves the wage or salary to preferences. */
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		if (decSalesTaxRate.notEmpty()) {
-			float taxRate = (float)decSalesTaxRate.getDec();
-			editor.putFloat(Calc360.KEY_SALES_TAX_RATE, taxRate);
-		}
-
-		if (curWage.notEmpty()) {
-			float wage = (float)curWage.getCur();
-			editor.putFloat(KEY_WAGE, wage);
-			editor.remove(KEY_SALARY);
-		}
-		else if (curSalary.notEmpty()) {
-			float salary = (float)curSalary.getCur();
-			editor.putFloat(KEY_SALARY, salary);
-			editor.remove(KEY_WAGE);
-		}
-		else {
-			editor.remove(KEY_WAGE);
-			editor.remove(KEY_SALARY);
-		}
-	}
-
-	/**
-	 * Restores the value for wage or salary
-	 * if the user previously entered them.
-	 */
-	private void restorePrefs() {
-		SharedPreferences prefs = getActivity().getPreferences(
-				Context.MODE_PRIVATE);
-		float taxRate = prefs.getFloat(Calc360.KEY_SALES_TAX_RATE, 0);
-		decSalesTaxRate.setText(fmtrRate.format(taxRate));
-
-		float wage = prefs.getFloat(KEY_WAGE, 0);
-		if (wage > 0) {
-			curWage.setText(fmtrCur.format(wage));
-		}
-		else {
-			float salary = prefs.getFloat(KEY_SALARY, 0);
-			if (salary > 0) {
-				curSalary.setText(fmtrCur.format(salary));
-			}
-		}
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
-		@Override
-		public void onClick(View button) {
-			curPrice.clear();
-			curSalesTaxAmt.clear();
-			txtOutput.clear();
-			curPrice.requestFocus();
-		}
 	}
 }

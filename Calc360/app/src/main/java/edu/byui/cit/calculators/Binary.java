@@ -34,9 +34,10 @@ public final class Binary extends SolveSome {
 		binary = new EditInt(view, R.id.binary, this);
 		hexadecimal = new EditInt(view, R.id.hexadecimal, this);
 
-		Control[] toClear = new Control[]{ decimal, binary, hexadecimal };
+		Input[] inputs = new Input[]{ decimal, binary, hexadecimal };
 		Solver[] solvers = new Solver[]{
-				new Solver(new Input[]{ decimal }) {
+				new Solver(new Input[]{ decimal },
+						new Control[]{ binary, hexadecimal }) {
 					@Override
 					public void solve() {
 						double num = decimal.getDec();
@@ -56,7 +57,8 @@ public final class Binary extends SolveSome {
 						hexadecimal.setText(hexStr);
 					}
 				},
-				new Solver(new Input[]{ binary }) {
+				new Solver(new Input[]{ binary },
+						new Control[]{ hexadecimal, decimal }) {
 					@Override
 					public void solve() {
 						int num = binary.getBin();
@@ -66,7 +68,8 @@ public final class Binary extends SolveSome {
 						hexadecimal.setText(hexStr);
 					}
 				},
-				new Solver(new Input[]{ hexadecimal }) {
+				new Solver(new Input[]{ hexadecimal },
+						new Control[]{ decimal, binary }) {
 					@Override
 					public void solve() {
 						int num = hexadecimal.getHex();
@@ -78,7 +81,7 @@ public final class Binary extends SolveSome {
 				}
 		};
 
-		initialize(view, R.id.btnClear, toClear, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 

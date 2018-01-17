@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -81,16 +80,27 @@ public final class FuelEfficiency extends CalcFragment {
 				FuelEffic.getInstance(), R.array.feEfficUnits,
 				KEY_EFFIC_UNITS, this);
 
-		// Open the Android system preferences file for Calc360.
-		SharedPreferences prefs = act.getPreferences(
-				Context.MODE_PRIVATE);
-		spinDistUnits.restore(prefs, Length.mile);
-		spinVolUnits.restore(prefs, Volume.gallon);
-		spinEfficUnits.restore(prefs, FuelEffic.mpg);
-
 		decEffic = new TextWrapper(view, R.id.decEffic);
 		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
 		return view;
+	}
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
+		spinDistUnits.restore(prefs, Length.mile);
+		spinVolUnits.restore(prefs, Volume.gallon);
+		spinEfficUnits.restore(prefs, FuelEffic.mpg);
+	}
+
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		// Write the IDs of the units chosen by
+		// the user into the preferences file.
+		// Get from the spinners, the units chosen by the user.
+		spinDistUnits.save(editor);
+		spinVolUnits.save(editor);
+		spinEfficUnits.save(editor);
 	}
 
 
@@ -169,17 +179,6 @@ public final class FuelEfficiency extends CalcFragment {
 		else {
 			decEffic.clear();
 		}
-	}
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Write the IDs of the units chosen by
-		// the user into the preferences file.
-		// Get from the spinners, the units chosen by the user.
-		spinDistUnits.save(editor);
-		spinVolUnits.save(editor);
-		spinEfficUnits.save(editor);
 	}
 
 

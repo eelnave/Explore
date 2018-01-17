@@ -2,7 +2,7 @@ package edu.byui.cit.calc360;
 
 import org.junit.Test;
 
-import edu.byui.cit.model.IndexArray;
+import edu.byui.cit.model.OrderedIndexArray;
 
 import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
@@ -14,7 +14,7 @@ public class IndexArrayTest {
 
 	@Test
 	public void testAdd() {
-		IndexArray list = new IndexArray(4);
+		OrderedIndexArray list = new OrderedIndexArray(4, 6);
 		assertFalse(list.contains((byte)0));
 		assertFalse(list.contains(P));
 		assertEquals(0x0, list.bitset());
@@ -63,7 +63,7 @@ public class IndexArrayTest {
 
 	@Test
 	public void testRemove() {
-		IndexArray list = new IndexArray(4);
+		OrderedIndexArray list = new OrderedIndexArray(4, 6);
 		list.remove(P);
 		assertFalse(list.contains(P));
 		assertEquals(0x0, list.bitset());

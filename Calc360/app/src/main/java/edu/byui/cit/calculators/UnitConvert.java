@@ -84,17 +84,29 @@ public final class UnitConvert extends CalcFragment {
 		spinTop = new SpinUnit(view, R.id.spinTop, this);
 		spinBottom = new SpinUnit(view, R.id.spinBottom, this);
 
+		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		return view;
+	}
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
 		// Restore the property that the user was
 		// using during the most recent session.
-		SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
 		int deflt = spinProp.getItemAtPosition(0).getID();
 		spinProp.restore(prefs, deflt);
 
 		initUnits();
 		restoreUnits(prefs);
+	}
 
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
-		return view;
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		// Write the user selected property into the preferences file.
+		spinProp.save(editor);
+
+		// Write the user selected units into the preference file.
+		saveUnits(editor);
 	}
 
 
@@ -172,16 +184,6 @@ public final class UnitConvert extends CalcFragment {
 		catch (Exception ex) {
 			Log.e(Calc360.TAG, "exception", ex);
 		}
-	}
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Write the user selected property into the preferences file.
-		spinProp.save(editor);
-
-		// Write the user selected units into the preference filel
-		saveUnits(editor);
 	}
 
 

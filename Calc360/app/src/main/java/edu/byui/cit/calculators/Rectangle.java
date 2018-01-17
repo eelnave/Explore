@@ -33,13 +33,13 @@ public final class Rectangle extends SolveSome {
 		decDiag = new EditDec(view, R.id.decDiag, this);
 		decPerim = new EditDec(view, R.id.decPerim, this);
 		decArea = new EditDec(view, R.id.decArea, this);
-		Control[] toClear = new Control[]{
-				decWidth, decHeight, decDiag, decPerim, decArea
-		};
+
+		Input[] inputs = { decWidth, decHeight, decDiag, decPerim, decArea };
 
 		Solver[] solvers = new Solver[]{
 				// width && (height || diag || perim || area)
-				new Solver(new Input[]{ decWidth, decHeight }) {
+				new Solver(new Input[]{ decWidth, decHeight },
+						new Control[]{ decDiag, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						double width = decWidth.getDec();
@@ -52,89 +52,54 @@ public final class Rectangle extends SolveSome {
 						decArea.setText(fmtrDec.format(area));
 					}
 				},
-				new Solver(new Input[]{ decWidth, decDiag }) {
+				new Solver(new Input[]{ decWidth, decDiag },
+						new Control[]{ decHeight, decPerim, decArea }) {
 					@Override
 					public void solve() {
-						double width = decWidth.getDec();
-						double diag = decDiag.getDec();
-						double height = sideSD(width, diag);
-						double perim = perimeter(width, height);
-						double area = area(width, height);
-						decHeight.setText(fmtrDec.format(height));
-						decPerim.setText(fmtrDec.format(perim));
-						decArea.setText(fmtrDec.format(area));
+						solveSideDiag(decWidth, decHeight);
 					}
 				},
-				new Solver(new Input[]{ decWidth, decPerim }) {
+				new Solver(new Input[]{ decWidth, decPerim },
+						new Control[]{ decHeight, decDiag, decArea }) {
 					@Override
 					public void solve() {
-						double width = decWidth.getDec();
-						double perim = decPerim.getDec();
-						double height = sideSP(width, perim);
-						double diag = diagonal(width, height);
-						double area = area(width, height);
-						decHeight.setText(fmtrDec.format(height));
-						decDiag.setText(fmtrDec.format(diag));
-						decArea.setText(fmtrDec.format(area));
+						solveSidePerim(decWidth, decHeight);
 					}
 				},
-				new Solver(new Input[]{ decWidth, decArea }) {
+				new Solver(new Input[]{ decWidth, decArea },
+						new Control[]{ decHeight, decDiag, decPerim }) {
 					@Override
 					public void solve() {
-						double width = decWidth.getDec();
-						double area = decArea.getDec();
-						double height = sideSA(width, area);
-						double diag = diagonal(width, height);
-						double perim = perimeter(width, height);
-						decHeight.setText(fmtrDec.format(height));
-						decDiag.setText(fmtrDec.format(diag));
-						decPerim.setText(fmtrDec.format(perim));
+						solveSideArea(decWidth, decHeight);
 					}
 				},
 
 				// height && (diag || perim || area)
-				new Solver(new Input[]{ decHeight, decDiag }) {
+				new Solver(new Input[]{ decHeight, decDiag },
+						new Control[]{ decWidth, decPerim, decArea }) {
 					@Override
 					public void solve() {
-						double height = decHeight.getDec();
-						double diag = decDiag.getDec();
-						double width = sideSD(height, diag);
-						double perim = perimeter(width, height);
-						double area = area(width, height);
-						decWidth.setText(fmtrDec.format(width));
-						decPerim.setText(fmtrDec.format(perim));
-						decArea.setText(fmtrDec.format(area));
+						solveSideDiag(decHeight, decWidth);
 					}
 				},
-				new Solver(new Input[]{ decHeight, decPerim }) {
+				new Solver(new Input[]{ decHeight, decPerim },
+						new Control[]{ decWidth, decDiag, decArea }) {
 					@Override
 					public void solve() {
-						double height = decHeight.getDec();
-						double perim = decPerim.getDec();
-						double width = sideSP(height, perim);
-						double diag = diagonal(width, height);
-						double area = area(width, height);
-						decWidth.setText(fmtrDec.format(width));
-						decDiag.setText(fmtrDec.format(diag));
-						decArea.setText(fmtrDec.format(area));
+						solveSidePerim(decHeight, decWidth);
 					}
 				},
-				new Solver(new Input[]{ decHeight, decArea }) {
+				new Solver(new Input[]{ decHeight, decArea },
+						new Control[]{ decWidth, decDiag, decPerim }) {
 					@Override
 					public void solve() {
-						double height = decHeight.getDec();
-						double area = decArea.getDec();
-						double width = sideSA(height, area);
-						double diag = diagonal(width, height);
-						double perim = perimeter(width, height);
-						decWidth.setText(fmtrDec.format(width));
-						decDiag.setText(fmtrDec.format(diag));
-						decPerim.setText(fmtrDec.format(perim));
+						solveSideArea(decHeight, decWidth);
 					}
 				},
 
 				// diag && (perim || area)
-				new Solver(new Input[]{ decDiag, decPerim }) {
+				new Solver(new Input[]{ decDiag, decPerim },
+						new Control[]{ decWidth, decHeight, decArea }) {
 					@Override
 					public void solve() {
 						double diag = decDiag.getDec();
@@ -147,7 +112,8 @@ public final class Rectangle extends SolveSome {
 						decArea.setText(fmtrDec.format(area));
 					}
 				},
-				new Solver(new Input[]{ decDiag, decArea }) {
+				new Solver(new Input[]{ decDiag, decArea },
+						new Control[]{ decWidth, decHeight, decPerim }) {
 					@Override
 					public void solve() {
 						double diag = decDiag.getDec();
@@ -162,7 +128,8 @@ public final class Rectangle extends SolveSome {
 				},
 
 				// perim && area
-				new Solver(new Input[]{ decPerim, decArea }) {
+				new Solver(new Input[]{ decPerim, decArea },
+						new Control[]{ decWidth, decHeight, decDiag }) {
 					@Override
 					public void solve() {
 						double perim = decPerim.getDec();
@@ -177,7 +144,40 @@ public final class Rectangle extends SolveSome {
 				}
 		};
 
-		initialize(view, R.id.btnClear, toClear, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
+	}
+
+	private void solveSideDiag(EditDec decSide1, EditDec decSide2) {
+		double side1 = decSide1.getDec();
+		double diag = decDiag.getDec();
+		double side2 = sideSD(side1, diag);
+		double perim = perimeter(side1, side2);
+		double area = area(side1, side2);
+		decSide2.setText(fmtrDec.format(side2));
+		decPerim.setText(fmtrDec.format(perim));
+		decArea.setText(fmtrDec.format(area));
+	}
+
+	private void solveSidePerim(EditDec decSide1, EditDec decSide2) {
+		double side1 = decSide1.getDec();
+		double perim = decPerim.getDec();
+		double side2 = sideSP(side1, perim);
+		double diag = diagonal(side1, side2);
+		double area = area(side1, side2);
+		decSide2.setText(fmtrDec.format(side2));
+		decDiag.setText(fmtrDec.format(diag));
+		decArea.setText(fmtrDec.format(area));
+	}
+
+	private void solveSideArea(EditDec decSide1, EditDec decSide2) {
+		double side1 = decSide1.getDec();
+		double area = decArea.getDec();
+		double side2 = sideSA(side1, area);
+		double diag = diagonal(side1, side2);
+		double perim = perimeter(side1, side2);
+		decSide2.setText(fmtrDec.format(side2));
+		decDiag.setText(fmtrDec.format(diag));
+		decPerim.setText(fmtrDec.format(perim));
 	}
 }

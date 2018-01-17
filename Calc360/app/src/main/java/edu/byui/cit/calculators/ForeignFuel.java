@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -69,17 +68,6 @@ public final class ForeignFuel extends CalcFragment {
 		unitsVolTo = new SpinUnit(act, view, R.id.unitsVolTo,
 				volume, R.array.feVolUnits, KEY_UNITS_VOL_TO, this);
 
-		// Open the Android system preferences file for Calc360.
-		SharedPreferences prefs = act.getPreferences(
-				Context.MODE_PRIVATE);
-
-		// Get the user's preferred units from the system
-		// preferences file and initialize each spinner.
-		unitsCostFrom.restore(prefs, Money.CAD);
-		unitsVolFrom.restore(prefs, Volume.liter);
-		unitsCostTo.restore(prefs, Money.USD);
-		unitsVolTo.restore(prefs, Volume.gallon);
-
 		// Create a wrapper object for each EditText
 		// that appears in this calculator's layout.
 		curCostFrom = new EditCur(view, R.id.curCostFrom, this);
@@ -94,6 +82,27 @@ public final class ForeignFuel extends CalcFragment {
 
 		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
 		return view;
+	}
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
+		// Get the user's preferred units from the system
+		// preferences file and initialize each spinner.
+		unitsCostFrom.restore(prefs, Money.CAD);
+		unitsVolFrom.restore(prefs, Volume.liter);
+		unitsCostTo.restore(prefs, Money.USD);
+		unitsVolTo.restore(prefs, Volume.gallon);
+	}
+
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		// Write the IDs of the units chosen by
+		// the user into the preferences file.
+		unitsCostFrom.save(editor);
+		unitsVolFrom.save(editor);
+		unitsCostTo.save(editor);
+		unitsVolTo.save(editor);
 	}
 
 
@@ -143,21 +152,6 @@ public final class ForeignFuel extends CalcFragment {
 			decRatioTo.setText(fmtrCost.format(ratioTo));
 			unitsRatioTo.setText(unitsTo);
 		}
-	}
-
-
-	// When this calculator is stopped by the Android system, save
-	// the units chosen by the user into the preferences file.
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Write the IDs of the units chosen by
-		// the user into the preferences file.
-		unitsCostFrom.save(editor);
-		unitsVolFrom.save(editor);
-		unitsCostTo.save(editor);
-		unitsVolTo.save(editor);
 	}
 
 

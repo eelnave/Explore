@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -64,15 +63,26 @@ public final class FuelCost extends CalcFragment {
 				Volume.getInstance(), R.array.feVolUnits,
 				KEY_VOL_UNITS, this);
 
-		// Restore the user selected units from the preferences file.
-		SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
-		spinDistUnits.restore(prefs, spinDistUnits.getItemAtPosition(0).getID());
-		spinEfficUnits.restore(prefs, spinEfficUnits.getItemAtPosition(0).getID());
-		spinVolUnits.restore(prefs, spinVolUnits.getItemAtPosition(0).getID());
-
 		curFuelCost = new TextWrapper(view, R.id.curFuelCost);
 		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
 		return view;
+	}
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
+		// Restore the user selected units from the preferences file.
+		spinDistUnits.restore(prefs, spinDistUnits.getItemAtPosition(0).getID());
+		spinEfficUnits.restore(prefs, spinEfficUnits.getItemAtPosition(0).getID());
+		spinVolUnits.restore(prefs, spinVolUnits.getItemAtPosition(0).getID());
+	}
+
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		// Write the user selected units into the preferences file.
+		spinDistUnits.save(editor);
+		spinEfficUnits.save(editor);
+		spinVolUnits.save(editor);
 	}
 
 
@@ -93,15 +103,6 @@ public final class FuelCost extends CalcFragment {
 			output = fmtrCur.format(cost);
 		}
 		curFuelCost.setText(output);
-	}
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Write the user selected units into the preferences file.
-		spinDistUnits.save(editor);
-		spinEfficUnits.save(editor);
-		spinVolUnits.save(editor);
 	}
 
 

@@ -41,10 +41,12 @@ public final class Quadratic extends SolveSome {
 		decRoot1 = new TextWrapper(view, R.id.decRoot1);
 		decRoot2 = new TextWrapper(view, R.id.decRoot2);
 
-		Control[] toClear = new Control[] {decA, decB, decC, decRoot1, decRoot2};
+		Input[] inputs = { decA, decB, decC };
+		Control[] toClear = { decA, decB, decC, decRoot1, decRoot2 };
 
 		Solver[] solvers = new Solver[] {
-				new Solver(new Input[] { decA, decB, decC }) {
+				new Solver(new Input[]{ decA, decB, decC },
+						new Control[]{ decRoot1, decRoot2 }) {
 					@Override
 					public void solve() {
 						double a = decA.getDec();
@@ -82,7 +84,7 @@ public final class Quadratic extends SolveSome {
 				}
 		};
 
-		initialize(view, R.id.btnClear, toClear, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear, toClear);
 		return view;
 	}
 }

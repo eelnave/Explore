@@ -7,7 +7,7 @@ import android.widget.EditText;
 
 public final class EditFrac extends EditWrapper {
 	public EditFrac(View parent, int resID, TextWatcher watcher) {
-		super(parent, resID, watcher);
+		super(parent, resID, null, watcher);
 	}
 
 	@Override

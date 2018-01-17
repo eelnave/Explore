@@ -1,6 +1,5 @@
 package edu.byui.cit.calculators;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -50,9 +49,6 @@ public final class CaloriesBurned extends CalcFragment {
 
 		spinMass = new SpinUnit(getActivity(), view, R.id.spinMassUnits,
 				Mass.getInstance(), R.array.cbMassUnits, KEY_MASS_UNITS, this);
-		SharedPreferences prefs = getActivity().getPreferences(
-				Context.MODE_PRIVATE);
-		spinMass.restore(prefs, Mass.pound);
 
 		decWeight = new EditDec(view, R.id.decWeight, this);
 		intTime = new EditInt(view, R.id.intTime, this);
@@ -66,6 +62,19 @@ public final class CaloriesBurned extends CalcFragment {
 		txtResult = new TextWrapper(view, R.id.txtResult);
 		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
 		return view;
+	}
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
+		spinMass.restore(prefs, Mass.pound);
+	}
+
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		// Save the ID of the units chosen by
+		// the user into the preferences file.
+		spinMass.save(editor);
 	}
 
 
@@ -129,14 +138,6 @@ public final class CaloriesBurned extends CalcFragment {
 		catch (Exception ex) {
 			txtResult.setText(getResources().getString(R.string.invalidN));
 		}
-	}
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Save the ID of the units chosen by
-		// the user into the preferences file.
-		spinMass.save(editor);
 	}
 
 

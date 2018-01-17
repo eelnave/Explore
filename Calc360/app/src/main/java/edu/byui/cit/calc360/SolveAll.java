@@ -2,6 +2,7 @@ package edu.byui.cit.calc360;
 
 import android.view.View;
 
+import edu.byui.cit.text.Control;
 import edu.byui.cit.text.Input;
 
 
@@ -11,21 +12,22 @@ public abstract class SolveAll extends SolveSome {
 
 		// Create the list of inputs for each solver.
 		int inLen = all.length - 1;
-		for (int i = 0; i < all.length; ++i) {
+		for (int i = 0;  i < all.length;  ++i) {
 			Solver solver = solvers[i];
 			Input[] inputs = new Input[inLen];
 			System.arraycopy(all, 0, inputs, 0, i);
+			Control[] outputs = { all[i] };
 			System.arraycopy(all, i + 1, inputs, i, inputs.length - i);
-			solver.init(inputs);
+			solver.init(inputs, outputs);
 		}
 
-		super.initialize(view, btnClearID, all, solvers);
+		super.initialize(view, all, solvers, btnClearID, all);
 	}
 
 
 	public static abstract class Solver extends SolveSome.Solver {
 		protected Solver() {
-			super(null);
+			super(null, null);
 		}
 	}
 }

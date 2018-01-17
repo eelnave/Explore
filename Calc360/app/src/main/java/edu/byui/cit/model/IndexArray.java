@@ -1,91 +1,50 @@
 package edu.byui.cit.model;
 
-import java.util.Arrays;
+public class IndexArray {
+	private long array;
+	private final int max;
 
-
-public final class IndexArray {
-	private final byte[] array;
-//	private int next, size;
-	private int size;
-
-	public IndexArray(int cap) {
-		array = new byte[cap];
-//		next = 0;
-		size = 0;
+	public IndexArray(int max) {
+		checkIndex(max, 64);
+		this.array = 0L;
+		this.max = max;
 	}
 
 	public void clear() {
-//		next = 0;
-		size = 0;
+		array = 0L;
 	}
 
 	public int size() {
-		return size;
+		return Long.bitCount(array);
 	}
 
 	public void add(int b) {
-		if (b < 0 || 63 < b) {
-			throw new IllegalArgumentException(Integer.toString(b));
-		}
-		if (! contains(b)) {
-			if (size == array.length) {
-				--size;
-				for (int i = 0;  i < size;  ++i) {
-					array[i] = array[i+1];
-				}
-			}
-			array[size++] = (byte)b;
-//			array[next] = (byte)b;
-//			if (++next == array.length) {
-//				next = 0;
-//			}
-//			if (size < array.length) {
-//				++size;
-//			}
-		}
+		checkIndex(b, max);
+		array |= (1L << b);
 	}
 
 	public void remove(int b) {
-		int index = indexOf(b);
-		if (index != -1) {
-			--size;
-			for (int i = index;  i < size;  ++i) {
-				array[i] = array[i+1];
-			}
-//			next = size;
-		}
+		checkIndex(b, max);
+		array &= ~(1L << b);
 	}
 
-	public boolean contains(int key) {
-		return indexOf(key) != -1;
+	public boolean contains(int b) {
+		checkIndex(b, max);
+		return (array & (1L << b)) != 0;
 	}
 
-	private int indexOf(int key) {
-		int index = -1;
-		for (int i = 0;  i < size;  ++i) {
-			if (array[i] == key) {
-				index = i;
-				break;
-			}
+	private static void checkIndex(int index, int limit) {
+		if (index < 0 || limit <= index) {
+			throw new IllegalArgumentException(Integer.toString(index));
 		}
-		return index;
 	}
 
 	public long bitset() {
-		long bits = 0;
-		for (int i = 0;  i < size;  ++i) {
-			bits |= bitFromIndex(array[i]);
-		}
-		return bits;
-	}
-
-	// I believe there is a faster way to do this written in
-	public static long bitFromIndex(int b) {
-		return 1 << b;
+		return array;
 	}
 
 	@Override
 	public String toString() {
-		return size + /*" " + next +*/ " " + Arrays.toString(array) + " " + bitset();
+		return Long.bitCount(array) + " " + Long.toBinaryString(array);
 	}
 }

@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -61,10 +60,6 @@ public final class DateArith extends CalcFragment
 		Activity act = getActivity();
 		spinDuration = new SpinUnit(act, view, R.id.spinDuration, Time.getInstance(), R.array.durationChoices, KEY_UNITS, this);
 
-		// Get the saved value for the spinner, if there is one
-		SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
-		spinDuration.restore(prefs, Time.day);
-
 		dateResult = new TextWrapper(view, R.id.dateResult);
 
 		new ButtonWrapper(view, R.id.btnClear,
@@ -79,6 +74,17 @@ public final class DateArith extends CalcFragment
 		);
 
 		return view;
+	}
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
+		spinDuration.restore(prefs, Time.day);
+	}
+
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		spinDuration.save(editor);
 	}
 
 
@@ -140,11 +146,5 @@ public final class DateArith extends CalcFragment
 		catch (Exception ex) {
 			Log.e(Calc360.TAG, "exception", ex);
 		}
-	}
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		spinDuration.save(editor);
 	}
 }

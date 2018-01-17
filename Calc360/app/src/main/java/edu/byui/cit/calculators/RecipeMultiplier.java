@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -64,16 +63,28 @@ public class RecipeMultiplier extends CalcFragment {
 		startAmount = new EditDec(view, R.id.startAmount, this);
 		endAmount = new TextWrapper(view, R.id.endAmount);
 
-		// Restore units that were previously selected by the user.
-		SharedPreferences prefs = getActivity().getPreferences(
-				Context.MODE_PRIVATE);
-		multType.restore(prefs, multType.getItemAtPosition(0));
-		startUnits.restore(prefs, Volume.tsp);
-		endUnits.restore(prefs, Volume.tbsp);
-
 		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
 		return view;
 	}
+
+
+	@Override
+	protected void restorePrefs(SharedPreferences prefs) {
+		// Restore units that were previously selected by the user.
+		multType.restore(prefs, multType.getItemAtPosition(0));
+		startUnits.restore(prefs, Volume.tsp);
+		endUnits.restore(prefs, Volume.tbsp);
+	}
+
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		// Save the ID of the units chosen by
+		// the user into the preferences file.
+		multType.save(editor);
+		startUnits.save(editor);
+		endUnits.save(editor);
+	}
+
 
 	@Override
 	public void afterTextChanged(Editable editable) {
@@ -153,15 +164,5 @@ public class RecipeMultiplier extends CalcFragment {
 			endAmount.clear();
 			multIn.requestFocus();
 		}
-	}
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Save the ID of the units chosen by
-		// the user into the preferences file.
-		multType.save(editor);
-		startUnits.save(editor);
-		endUnits.save(editor);
 	}
 }
