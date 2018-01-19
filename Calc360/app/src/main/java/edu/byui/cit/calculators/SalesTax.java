@@ -17,7 +17,7 @@ import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.TextWrapper;
 
-import static edu.byui.cit.model.Consumer.Rate.*;
+import static edu.byui.cit.model.Consumer.Ratio.*;
 
 
 public final class SalesTax extends CalcFragment {
@@ -66,8 +66,6 @@ public final class SalesTax extends CalcFragment {
 		// Write into the preferences file
 		// the tax rate entered by the user.
 		decTaxRate.save(editor);
-		float taxRate = (float)decTaxRate.getDec();
-		editor.putFloat(Calc360.KEY_SALES_TAX_RATE, taxRate);
 	}
 
 
@@ -77,8 +75,8 @@ public final class SalesTax extends CalcFragment {
 		if (curPrice.notEmpty() && decTaxRate.notEmpty()) {
 			double price = curPrice.getCur();
 			double taxRate = decTaxRate.getDec() / 100.0;
-			double taxAmt = amount(price, taxRate);
-			double total = total(price, taxRate);
+			double taxAmt = amount(taxRate, price);
+			double total = total(taxRate, price);
 			curTaxAmt.setText(fmtrCur.format(taxAmt));
 			curTotal.setText(fmtrCur.format(total));
 		}

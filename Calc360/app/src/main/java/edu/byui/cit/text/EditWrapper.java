@@ -1,29 +1,64 @@
 package edu.byui.cit.text;
 
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+
+import edu.byui.cit.calc360.CalcFragment;
 
 
 /** A wrapper class that contains both an EditText and a corresponding
  * TextWatcher. Objects from this class remove the TextWatcher before
  * writing to or clearing the EditText. */
-public abstract class EditWrapper extends Input {
+public abstract class EditWrapper extends Input implements TextWatcher {
 	private final EditText edit;
 	final String prefsKey;
 	private final TextWatcher watcher;
+	private final CalcFragment calculator;
+	private boolean userInput;
 
 	EditWrapper(View parent, int resID, String prefsKey, TextWatcher watcher) {
 		super(parent, resID);
 		this.edit = parent.findViewById(resID);
 		this.prefsKey = prefsKey;
 		this.watcher = watcher;
+		this.calculator = null;
+		this.userInput = false;
 		edit.setSelectAllOnFocus(true);
 		edit.addTextChangedListener(watcher);
 	}
 
+	EditWrapper(View parent, int resID, String prefsKey, boolean place, CalcFragment calculator) {
+		super(parent, resID, calculator);
+		this.edit = parent.findViewById(resID);
+		this.prefsKey = prefsKey;
+		this.watcher = null;
+		this.calculator = calculator;
+		this.userInput = false;
+		edit.setSelectAllOnFocus(true);
+		edit.addTextChangedListener(this);
+	}
+
 	public EditText getEdit() {
 		return edit;
+	}
+
+
+	@Override
+	public void beforeTextChanged(
+			CharSequence s, int start, int count, int after) {
+	}
+
+	@Override
+	public void onTextChanged(
+			CharSequence s, int start, int before, int count) {
+	}
+
+	@Override
+	public void afterTextChanged(Editable edit) {
+		userInput = true;
+		calculator.callCompute(this);
 	}
 
 	// These functions should be moved to a EditString
@@ -81,6 +116,14 @@ public abstract class EditWrapper extends Input {
 		return edit.length() == 0;
 	}
 
+	public boolean hasUserInput() {
+		return userInput;
+	}
+
+	public void setUserInput(boolean user) {
+		this.userInput = user;
+	}
+
 	/** Sets the text in this EditText as if the user had entered it. In
 	 * other words, sets the text in this EditText as it were user input. */
 	public void setInput(CharSequence text) {
@@ -101,6 +144,7 @@ public abstract class EditWrapper extends Input {
 		edit.removeTextChangedListener(watcher);
 		edit.setText(text);
 		edit.addTextChangedListener(watcher);
+		userInput = false;
 	}
 
 	@Override
@@ -108,5 +152,6 @@ public abstract class EditWrapper extends Input {
 		edit.removeTextChangedListener(watcher);
 		edit.getText().clear();
 		edit.addTextChangedListener(watcher);
+		userInput = false;
 	}
 }

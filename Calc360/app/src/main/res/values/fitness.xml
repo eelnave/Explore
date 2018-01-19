@@ -11,10 +11,21 @@
 	<string name="freeThrowPercent" translatable="false">FT%</string>
 
 	<string name="bodyMassIndex">BMI</string>
-	<string name="yourBmi">Your BMI is:</string>
-	<string name="bmiHigh">Your BMI is high</string>
-	<string name="bmiNormal">Your BMI is normal</string>
-	<string name="bmiLow">Your BMI is low</string>
+	<string name="bmi">BMI</string>
+	<string name="category">Category</string>
+	<integer-array name="bmiRanges">
+		<item>19</item>
+		<item>25</item>
+		<item>30</item>
+		<item>40</item>
+	</integer-array>
+	<string-array name="bmiCategories">
+		<item>low</item>
+		<item>normal</item>
+		<item>overweight</item>
+		<item>obese</item>
+		<item>extremely obese</item>
+	</string-array>
 
 	<string name="caloriesBurned">Calories Burned</string>
 	<string name="weightLift">Weight Lifting</string>

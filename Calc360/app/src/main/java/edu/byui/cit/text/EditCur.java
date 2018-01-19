@@ -6,6 +6,8 @@ import android.view.View;
 
 import java.text.NumberFormat;
 
+import edu.byui.cit.calc360.CalcFragment;
+
 
 public class EditCur extends EditWrapper {
 	public EditCur(View parent, int resID, TextWatcher watcher) {
@@ -15,6 +17,15 @@ public class EditCur extends EditWrapper {
 	public EditCur(
 			View parent, int resID, String prefsKey, TextWatcher watcher) {
 		super(parent, resID, prefsKey, watcher);
+	}
+
+	public EditCur(View parent, int resID, boolean place, CalcFragment calculator) {
+		super(parent, resID, null, place, calculator);
+	}
+
+	public EditCur(View parent, int resID, String prefsKey,
+			boolean place, CalcFragment calculator) {
+		super(parent, resID, prefsKey, place, calculator);
 	}
 
 	public void save(SharedPreferences.Editor editor) {

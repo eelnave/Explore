@@ -1,6 +1,6 @@
-package edu.byui.cit.model;
+package edu.byui.cit.calc360;
 
-public class IndexArray {
+final class IndexArray {
 	private long array;
 	private final int max;
 

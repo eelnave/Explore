@@ -1,9 +1,9 @@
-package edu.byui.cit.model;
+package edu.byui.cit.calc360;
 
 import java.util.Arrays;
 
 
-public final class OrderedIndexArray {
+final class OrderedIndexArray {
 	private final byte[] array;
 	private final int max;
 	private int size;

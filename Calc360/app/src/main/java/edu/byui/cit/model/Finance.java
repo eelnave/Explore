@@ -5,6 +5,7 @@ public final class Finance {
 	private Finance() {
 	}
 
+
 	public static double computeROI(double netProfit, double totalInvestment) {
 		return netProfit / totalInvestment * 100.0;
 	}
@@ -22,7 +23,7 @@ public final class Finance {
 			double pay, int ppy, double ar, double y, double fv) {
 		double i = ar / 100.0 / ppy;
 		int n = (int)Math.ceil(y * ppy);
-		return Invest.A(pay, i, n, fv);
+		return Investment.A(pay, i, n, fv);
 	}
 
 	public static double investPayment(
@@ -30,19 +31,19 @@ public final class Finance {
 		// Compute periodic payment.
 		double i = ar / 100.0 / ppy;
 		int n = (int)Math.ceil(y * ppy);
-		return Invest.P(pv, i, n, fv);
+		return Investment.P(pv, i, n, fv);
 	}
 
 	public static double investAnnualRate(
 			double pv, double pay, int ppy, double y, double fv) {
 		int n = (int)Math.ceil(y * ppy);
-		return Invest.i(pv, pay, n, fv) * ppy * 100.0;
+		return Investment.i(pv, pay, n, fv) * ppy * 100.0;
 	}
 
 	public static double investYears(
 			double pv, double pay, int ppy, double ar, double fv) {
 		double i = ar / 100.0 / ppy;
-		return Invest.N(pv, pay, i, fv) / ppy;
+		return Investment.N(pv, pay, i, fv) / ppy;
 	}
 
 	// Never compute periods per year because
@@ -52,11 +53,11 @@ public final class Finance {
 			double pv, double pay, int ppy, double ar, double y) {
 		double i = ar / 100.0 / ppy;
 		int n = (int)Math.ceil(y * ppy);
-		return Invest.F(pv, pay,  i, n);
+		return Investment.F(pv, pay,  i, n);
 	}
 
-	private static final class Invest {
-		private Invest() {
+	private static final class Investment {
+		private Investment() {
 		}
 
 		/* A = principal, or in other words beginning lump sum

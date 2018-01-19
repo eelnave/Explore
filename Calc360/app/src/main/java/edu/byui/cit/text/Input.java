@@ -4,6 +4,8 @@ import android.view.View;
 
 import java.text.NumberFormat;
 
+import edu.byui.cit.calc360.CalcFragment;
+
 
 public abstract class Input extends Control {
 	// These formatters are used for parsing numbers.
@@ -12,9 +14,16 @@ public abstract class Input extends Control {
 			decFmtr = NumberFormat.getInstance(),
 			perFmtr = NumberFormat.getPercentInstance(),
 			curFmtr = NumberFormat.getCurrencyInstance();
+	final CalcFragment calculator;
 
-	protected Input(View parent, int resID) {
+	Input(View parent, int resID) {
 		super(parent, resID);
+		calculator = null;
+	}
+
+	Input(View parent, int resID, CalcFragment calculator) {
+		super(parent, resID);
+		this.calculator = calculator;
 	}
 
 	public abstract boolean isEmpty();

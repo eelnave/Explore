@@ -15,8 +15,8 @@ public final class ConsumerTest {
 		double x = 48;
 		double y = 50;
 		double z = 52;
-		assertEquals(0.04, Rate.rateChange(y, z), delta);
-		assertEquals(-0.04, Rate.rateChange(y, x), delta);
+		assertEquals(0.04, Ratio.rateChange(y, z), delta);
+		assertEquals(-0.04, Ratio.rateChange(y, x), delta);
 	}
 
 	@Test
@@ -25,8 +25,8 @@ public final class ConsumerTest {
 		double taxRate = 0.0825;
 		double taxAmt = price * taxRate;
 		double total = price + taxAmt;
-		assertEquals(taxAmt, Rate.amount(price, taxRate), delta);
-		assertEquals(total, Rate.total(price, taxRate), delta);
+		assertEquals(taxAmt, Ratio.amount(taxRate, price), delta);
+		assertEquals(total, Ratio.total(taxRate, price), delta);
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public final class ConsumerTest {
 		double discTotal = discPrice * (1 + taxRate);
 		double origTotal = price * (1 + taxRate);
 		double saved = origTotal - discTotal;
-		assertEquals(discAmt, Discount.discountAmount(price, discRate), delta);
+		assertEquals(discAmt, Ratio.amount(discRate, price), delta);
 		assertEquals(saved, Discount.amountSaved(price, discRate, taxRate), delta);
 	}
 
@@ -54,9 +54,9 @@ public final class ConsumerTest {
 		double tipRate = 0.20;
 		double tipAmt = cost * tipRate;
 		double total = cost + taxAmt + tipAmt;
-		assertEquals(tipAmt, Tip.computeTipAmount(cost, tipRate), delta);
-		assertEquals(total, Tip.computeTotal(cost, taxAmt, tipAmt), delta);
-		assertEquals(tipRate, Tip.computeTipRate(tipAmt, cost), delta);
-		assertEquals(tipAmt, Tip.computeTipAmount(cost, taxAmt, total), delta);
+		assertEquals(tipAmt, Ratio.amount(tipRate, cost), delta);
+		assertEquals(tipAmt, Tip.tipAmount(cost, taxAmt, total), delta);
+		assertEquals(tipRate, Ratio.rate(tipAmt, cost), delta);
+		assertEquals(total, Tip.total(cost, taxAmt, tipAmt), delta);
 	}
 }

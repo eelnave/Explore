@@ -14,7 +14,7 @@ import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.TextWrapper;
 
-import static edu.byui.cit.model.Consumer.Rate.*;
+import static edu.byui.cit.model.Consumer.Ratio.*;
 
 
 public final class Percent extends CalcFragment {

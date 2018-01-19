@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,10 +10,10 @@ import android.widget.RadioButton;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.Control;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.Input;
 import edu.byui.cit.text.RadioWrapper;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Length;
@@ -24,18 +23,20 @@ import edu.byui.cit.units.Mass;
 
 
 public final class BodyMassIndex extends CalcFragment {
-	private EditDec decWeight, decHeight;
-	private TextWrapper textResult, textAdvice, textHeightUnit, textWeightUnit;
 	private RadioWrapper radImperial;
-	private final NumberFormat fmtrBMI;
+	private EditDec decWeight, decHeight;
+	private TextWrapper txtHeightUnit, txtWeightUnit, txtBMI, txtCategory;
+	private int[] ranges;
+	private String[] categories;
+	private final NumberFormat fmtrDec;
 
 	public BodyMassIndex() {
-		// Call the parent constructor
+		// Call the constructor in the parent class.
 		super();
 
-		fmtrBMI = NumberFormat.getInstance();
-		fmtrBMI.setMinimumFractionDigits(0);
-		fmtrBMI.setMaximumFractionDigits(1);
+		fmtrDec = NumberFormat.getInstance();
+		fmtrDec.setMinimumFractionDigits(0);
+		fmtrDec.setMaximumFractionDigits(1);
 	}
 
 
@@ -48,24 +49,28 @@ public final class BodyMassIndex extends CalcFragment {
 
 		decHeight = new EditDec(view, R.id.decHeight, this);
 		decWeight = new EditDec(view, R.id.decWeight, this);
-		textResult = new TextWrapper(view, R.id.result);
-		textAdvice = new TextWrapper(view, R.id.advice);
-		textHeightUnit = new TextWrapper(view, R.id.heightUnit);
-		textWeightUnit = new TextWrapper(view, R.id.weightUnit);
+		txtHeightUnit = new TextWrapper(view, R.id.heightUnit);
+		txtWeightUnit = new TextWrapper(view, R.id.weightUnit);
+		txtBMI = new TextWrapper(view, R.id.decBMI);
+		txtCategory = new TextWrapper(view, R.id.txtCategory);
+
+		ranges = getResources().getIntArray(R.array.bmiRanges);
+		categories = getResources().getStringArray(R.array.bmiCategories);
 
 		RadioClick listener = new RadioClick();
 		radImperial = new RadioWrapper(view, R.id.radImperial, listener);
 		new RadioWrapper(view, R.id.radMetric, listener);
 		radImperial.performClick();
 
-		// Set this calculator as the click listener for the clear button.
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		Input[] inputs = { decHeight, decWeight };
+		Control[] outputs = { txtBMI, txtCategory };
+		initialize(view, inputs, outputs, R.id.btnClear);
 		return view;
 	}
 
 
 	private final class RadioClick implements OnClickListener {
-		//handles radio button clicks
+		@Override
 		public void onClick(View button) {
 			Property length = Length.getInstance();
 			Property mass = Mass.getInstance();
@@ -73,7 +78,6 @@ public final class BodyMassIndex extends CalcFragment {
 			if (selected) {
 				Unit unitLength, unitMass;
 				switch (button.getId()) {
-					//Radio Button Check Logic
 					case R.id.radImperial:
 						unitLength = length.get(Length.inch);
 						unitMass = mass.get(Mass.pound);
@@ -83,77 +87,46 @@ public final class BodyMassIndex extends CalcFragment {
 						unitMass = mass.get(Mass.kilogram);
 						break;
 				}
-				textHeightUnit.setText(unitLength.getName());
-				textWeightUnit.setText(unitMass.getName());
+				txtHeightUnit.setText(unitLength.getLocalName());
+				txtWeightUnit.setText(unitMass.getLocalName());
 			}
-			compute();
+			callCompute();
 		}
 	}
 
 
 	@Override
 	protected void compute() {
-		try {
-			if (decHeight.notEmpty() && decWeight.notEmpty()) {
-				double height, weight;
-				if (radImperial.isChecked()) {
-					Property length = Length.getInstance();
-					Property mass = Mass.getInstance();
-
-					//covert inches to meters for the needed math
-					height = length.convert(Length.m, decHeight.getDec(),
-							Length.inch);
-					weight = mass.convert(Mass.kilogram, decWeight
-									.getDec(),
-							Mass.pound);
-				}
-				else {
-					height = decHeight.getDec();
-					weight = decWeight.getDec();
-				}
-
-				//Do the math to calculate the bmi
-				double bmi = weight / Math.pow(height, 2);
-				String strBMI = fmtrBMI.format(bmi);
-
-				//display the results to the user
-				String bmiLabel = getString(
-						R.string.yourBmi) + " " + strBMI;
-				textResult.setText(bmiLabel);
-				// This if statement will show you if
-				// your BMI is low, normal, or high
-				int advice;
-				if (bmi < 18) {
-					advice = R.string.bmiLow;
-				}
-				else if (bmi < 24) {
-					advice = R.string.bmiNormal;
-				}
-				else {
-					advice = R.string.bmiHigh;
-				}
-				textAdvice.setText(getString(advice));
+		if (decHeight.notEmpty() && decWeight.notEmpty()) {
+			double height = decHeight.getDec();
+			double weight = decWeight.getDec();
+			if (radImperial.isChecked()) {
+				// Convert inches to meters and pounds to kilograms
+				// before calculating the BMI.
+				height = Length.getInstance().convert(
+						Length.m, height, Length.inch);
+				weight = Mass.getInstance().convert(
+						Mass.kilogram, weight, Mass.pound);
 			}
-			else {
-				textResult.clear();
-				textAdvice.clear();
+
+			// Calculate the BMI.
+			double bmi = weight / (height * height);
+
+			// Find the category that includes the user's BMI.
+			String category = categories[categories.length - 1];
+			for (int i = 0;  i < ranges.length;  ++i) {
+				if (bmi < ranges[i]) {
+					category = categories[i];
+					break;
+				}
 			}
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception");
-		}
-	}
 
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
-		@Override
-		public void onClick(View button) {
-			decHeight.clear();
-			decWeight.clear();
-			textResult.clear();
-			textAdvice.clear();
-			decHeight.requestFocus();
+			// Display the results to the user.
+			txtBMI.setText(fmtrDec.format(bmi));
+			txtCategory.setText(category);
+		}
+		else {
+			clearOutputs();
 		}
 	}
 }

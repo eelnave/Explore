@@ -2,10 +2,8 @@ package edu.byui.cit.calculators;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import java.text.NumberFormat;
@@ -13,14 +11,12 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.model.Consumer.Ratio;
+import edu.byui.cit.text.Control;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.Input;
 import edu.byui.cit.text.TextWrapper;
-
-import static edu.byui.cit.model.Consumer.Discount.*;
-import static edu.byui.cit.model.Consumer.Rate.*;
-import static edu.byui.cit.text.EditWrapper.anyNotEmpty;
 
 
 public final class Discount extends CalcFragment {
@@ -43,6 +39,7 @@ public final class Discount extends CalcFragment {
 		fmtrDec.setMaximumFractionDigits(2);
 	}
 
+
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -60,9 +57,9 @@ public final class Discount extends CalcFragment {
 		curTotal = new TextWrapper(view, R.id.curTotal);
 		curSaved = new TextWrapper(view, R.id.curSaved);
 
-		// Add a button click listener to the Clear button.
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
-
+		Input[] inputs = { curPrice, decDiscRate, curDiscAmt, decTaxRate };
+		Control[] outputs = { curDiscPrice, curTaxAmt, curTotal, curSaved };
+		initialize(view, inputs, outputs, R.id.btnClear);
 		return view;
 	}
 
@@ -70,93 +67,52 @@ public final class Discount extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		// Restore the user entered sales tax rate if it exists.
-//		float taxRate = prefs.getFloat(Calc360.KEY_SALES_TAX_RATE, 0);
-//		decTaxRate.setText(fmtrDec.format(taxRate));
 		decTaxRate.restore(prefs, fmtrDec);
 	}
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
-//		float rate = (float)decTaxRate.getDec();
-//		editor.putFloat(Calc360.KEY_SALES_TAX_RATE, rate);
 		decTaxRate.save(editor);
 	}
 
 
 	@Override
 	protected void compute() {
-		try {
-			clearResults();
+		clearOutputs();
+		if (userInput(curPrice)) {
+			double price = curPrice.getCur();
 
-			if (curPrice.notEmpty() &&
-					anyNotEmpty(decDiscRate, curDiscAmt, decTaxRate)) {
-				double price = curPrice.getCur();
-
-				double discRate, discPrice;
-				if (decDiscRate.notEmpty() && curDiscAmt.notFocus()) {
-					discRate = decDiscRate.getDec() / 100.0;
-					double discAmt = discountAmount(price, discRate);
-					discPrice = discountedPrice(price, discRate);
-					curDiscAmt.setText(fmtrCur.format(discAmt));
-					curDiscPrice.setText(fmtrCur.format(discPrice));
-				}
-				else if (decDiscRate.notFocus() && curDiscAmt.notEmpty()) {
-					double discAmt = curDiscAmt.getCur();
-					discRate = rate(discAmt, price);
-					discPrice = price - discAmt;
-					decDiscRate.setText(fmtrDec.format(discRate * 100.0));
-					curDiscPrice.setText(fmtrCur.format(discPrice));
-				}
-				else {
-					discRate = 0;
-					discPrice = price;
-					decDiscRate.clear();
-					curDiscAmt.clear();
-				}
-
-				double taxRate;
-				if (decTaxRate.notEmpty()) {
-					taxRate = decTaxRate.getDec() / 100.0;
-					double taxAmt = amount(discPrice, taxRate);
-					curTaxAmt.setText(fmtrCur.format(taxAmt));
-					double total = total(discPrice, taxRate);
-					curTotal.setText(fmtrCur.format(total));
-				}
-				else {
-					taxRate = 0;
-				}
-
-				if (discRate > 0) {
-					double saved = amountSaved(price, discRate, taxRate);
-					curSaved.setText(fmtrCur.format(saved));
-				}
+			// Compute the discount amount or discount rate.
+			// Also, compute the discounted price.
+			double discAmt = 0;
+			if (userInput(decDiscRate)) {
+				double discRate = decDiscRate.getDec() / 100.0;
+				discAmt = Ratio.amount(discRate, price);
+				curDiscAmt.setText(fmtrCur.format(discAmt));
 			}
-		}
-		catch (NumberFormatException ex) {
-			// Do nothing
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
-		}
-	}
+			else if (userInput(curDiscAmt)) {
+				discAmt = curDiscAmt.getCur();
+				double discRate = Ratio.rate(discAmt, price);
+				decDiscRate.setText(fmtrDec.format(discRate * 100.0));
+			}
+			double discPrice = price - discAmt;
+			curDiscPrice.setText(fmtrCur.format(discPrice));
 
+			// Compute the sales tax amount and the total.
+			double taxRate = 0;
+			double taxAmt = 0;
+			if (userInput(decTaxRate)) {
+				taxRate = decTaxRate.getDec() / 100.0;
+				taxAmt = Ratio.amount(taxRate, discPrice);
+				curTaxAmt.setText(fmtrCur.format(taxAmt));
+			}
+			double discTotal = discPrice + taxAmt;
+			curTotal.setText(fmtrCur.format(discTotal));
 
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
-		@Override
-		public void onClick(View button) {
-			curPrice.clear();
-			decDiscRate.clear();
-			curDiscAmt.clear();
-			clearResults();
-			curPrice.requestFocus();
+			// Compute the amount saved.
+			double origTotal = Ratio.total(taxRate, price);
+			double saved = origTotal - discTotal;
+			curSaved.setText(fmtrCur.format(saved));
 		}
-	}
-
-	private void clearResults() {
-		curDiscPrice.clear();
-		curTaxAmt.clear();
-		curTotal.clear();
-		curSaved.clear();
 	}
 }

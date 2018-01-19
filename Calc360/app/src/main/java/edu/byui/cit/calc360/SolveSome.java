@@ -1,5 +1,8 @@
 package edu.byui.cit.calc360;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -9,7 +12,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 import java.util.HashMap;
 
-import edu.byui.cit.model.OrderedIndexArray;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.Control;
 import edu.byui.cit.text.EditWrapper;
@@ -74,8 +76,8 @@ public abstract class SolveSome extends CalcFragment
 			}
 		}
 		else {
-			// Find the group of the EditText that was changed.
 			if (groups != null) {
+				// Find the group of the EditText that was changed.
 				Input input = inputs[index];
 				Input[] group = findGroup(groups, input);
 				if (group != null) {
@@ -139,7 +141,7 @@ public abstract class SolveSome extends CalcFragment
 				solver.solve();
 			}
 			else {
-				clearOutputs();
+				clearNonInputs();
 			}
 		}
 		catch (NumberFormatException ex) {
@@ -151,7 +153,13 @@ public abstract class SolveSome extends CalcFragment
 	}
 
 
-	private void clearOutputs() {
+	protected boolean userInput(Input input) {
+		int index = indexOf(inputs, input);
+		return indicesOfGivens.contains(index);
+	}
+
+
+	private void clearNonInputs() {
 		for (Control ctrl : toClear) {
 			int index = indexOf(inputs, ctrl);
 			if (! indicesOfGivens.contains(index)) {
@@ -182,19 +190,6 @@ public abstract class SolveSome extends CalcFragment
 			}
 		}
 		return index;
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
-		@Override
-		public void onClick(View button) {
-			for (Control ctrl : toClear) {
-				ctrl.clear();
-			}
-			indicesOfGivens.clear();
-			inputs[0].requestFocus();
-		}
 	}
 
 

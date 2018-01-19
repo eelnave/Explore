@@ -8,6 +8,8 @@ import android.widget.EditText;
 import java.text.NumberFormat;
 import java.util.Arrays;
 
+import edu.byui.cit.calc360.CalcFragment;
+
 
 public class EditDec extends EditWrapper {
 	public EditDec(View parent, int resID, TextWatcher watcher) {
@@ -17,6 +19,15 @@ public class EditDec extends EditWrapper {
 	public EditDec(
 			View parent, int resID, String prefsKey, TextWatcher watcher) {
 		super(parent, resID, prefsKey, watcher);
+	}
+
+	public EditDec(View parent, int resID, boolean place, CalcFragment calculator) {
+		super(parent, resID, null, place, calculator);
+	}
+
+	public EditDec(View parent, int resID, String prefsKey,
+			boolean place, CalcFragment calculator) {
+		super(parent, resID, prefsKey, place, calculator);
 	}
 
 	public void save(SharedPreferences.Editor editor) {

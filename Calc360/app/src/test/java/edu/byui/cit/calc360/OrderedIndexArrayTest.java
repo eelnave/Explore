@@ -2,8 +2,6 @@ package edu.byui.cit.calc360;
 
 import org.junit.Test;
 
-import edu.byui.cit.model.OrderedIndexArray;
-
 import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

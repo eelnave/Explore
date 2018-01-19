@@ -10,6 +10,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSome;
+import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.Control;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
@@ -58,7 +59,8 @@ public final class Tip extends SolveSome {
 		Input[] inputs = {
 				curCost, curTaxAmt, percTipRate, curTipAmt, curTotal
 		};
-		Input[][] groups = {{ percTipRate, curTipAmt }};
+		Input[][] groups = {{ percTipRate, curTipAmt, curTotal }};
+//		Input[] toClear = { curCost, curTaxAmt, curTipAmt, curTotal };
 
 		Solver[] solvers = {
 				new Solver(new Input[]{ curCost, curTaxAmt },
@@ -72,7 +74,7 @@ public final class Tip extends SolveSome {
 						double taxAmt = curTaxAmt.getCur();
 
 						// Compute and display the total.
-						double total = cost + taxAmt;
+						double total = Consumer.Tip.total(cost, taxAmt, 0);
 						curTotal.setText(fmtrCur.format(total));
 					}
 				},
@@ -82,8 +84,8 @@ public final class Tip extends SolveSome {
 					public void solve() {
 						double cost = curCost.getCur();
 						double tipRate = percTipRate.getDec() / 100.0;
-						double tipAmt = cost * tipRate;
-						double total = cost + tipAmt;
+						double tipAmt = Consumer.Ratio.amount(tipRate, cost);
+						double total = Consumer.Tip.total(cost, 0, tipAmt);
 						curTipAmt.setText(fmtrCur.format(tipAmt));
 						curTotal.setText(fmtrCur.format(total));
 					}
@@ -94,8 +96,8 @@ public final class Tip extends SolveSome {
 					public void solve() {
 						double cost = curCost.getCur();
 						double tipAmt = curTipAmt.getCur();
-						double tipRate = tipAmt / cost;
-						double total = cost + tipAmt;
+						double tipRate = Consumer.Ratio.rate(tipAmt, cost);
+						double total = Consumer.Tip.total(cost, 0, tipAmt);
 						percTipRate.setText(fmtrPerc.format(tipRate * 100.0));
 						curTotal.setText(fmtrCur.format(total));
 					}
@@ -114,8 +116,8 @@ public final class Tip extends SolveSome {
 						double cost = curCost.getCur();
 						double taxAmt = curTaxAmt.getCur();
 						double tipRate = percTipRate.getDec() / 100.0;
-						double tipAmt = cost * tipRate;
-						double total = cost + taxAmt + tipAmt;
+						double tipAmt = Consumer.Ratio.amount(tipRate, cost);
+						double total = Consumer.Tip.total(cost, taxAmt, tipAmt);
 						curTipAmt.setText(fmtrCur.format(tipAmt));
 						curTotal.setText(fmtrCur.format(total));
 					}
@@ -134,8 +136,8 @@ public final class Tip extends SolveSome {
 						double cost = curCost.getCur();
 						double taxAmt = curTaxAmt.getCur();
 						double tipAmt = curTipAmt.getCur();
-						double tipRate = tipAmt / cost;
-						double total = cost + taxAmt + tipAmt;
+						double tipRate = Consumer.Ratio.rate(tipAmt, cost);
+						double total = Consumer.Tip.total(cost, taxAmt, tipAmt);
 						percTipRate.setText(fmtrPerc.format(tipRate * 100.0));
 						curTotal.setText(fmtrCur.format(total));
 					}
@@ -147,8 +149,8 @@ public final class Tip extends SolveSome {
 					public void solve() {
 						double cost = curCost.getCur();
 						double total = curTotal.getCur();
-						double tipAmt = total - cost;
-						double tipRate = tipAmt / cost;
+						double tipAmt = Consumer.Tip.tipAmount(cost, 0, total);
+						double tipRate = Consumer.Ratio.rate(tipAmt, cost);
 						percTipRate.setText(fmtrPerc.format(tipRate * 100.0));
 						curTipAmt.setText(fmtrCur.format(tipAmt));
 					}
@@ -168,8 +170,8 @@ public final class Tip extends SolveSome {
 						double cost = curCost.getCur();
 						double taxAmt = curTaxAmt.getCur();
 						double total = curTotal.getCur();
-						double tipAmt = total - taxAmt - cost;
-						double tipRate = tipAmt / cost;
+						double tipAmt = Consumer.Tip.tipAmount(cost, taxAmt, total);
+						double tipRate = Consumer.Ratio.rate(tipAmt, cost);
 						percTipRate.setText(fmtrPerc.format(tipRate * 100.0));
 						curTipAmt.setText(fmtrCur.format(tipAmt));
 					}
