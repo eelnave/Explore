@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.NewtonsSecond.*;
 
 
-public final class NewtonsSecond extends SolveAll {
+public final class NewtonsSecond extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decForce, decMass, decAccel;
 
@@ -29,7 +29,7 @@ public final class NewtonsSecond extends SolveAll {
 		decForce = new EditDec(view, R.id.decForce, this);
 		decMass = new EditDec(view, R.id.decMass, this);
 		decAccel = new EditDec(view, R.id.decAccel, this);
-		Input[] inputs = { decForce, decMass, decAccel };
+		EditWrapper[] inputs = { decForce, decMass, decAccel };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -61,7 +61,7 @@ public final class NewtonsSecond extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

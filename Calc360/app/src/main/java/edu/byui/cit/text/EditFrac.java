@@ -1,18 +1,33 @@
 package edu.byui.cit.text;
 
+import android.content.SharedPreferences;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 
+import java.text.NumberFormat;
+
+import edu.byui.cit.calc360.CalcFragment;
+
 
 public final class EditFrac extends EditWrapper {
-	public EditFrac(View parent, int resID, TextWatcher watcher) {
-		super(parent, resID, null, watcher);
+	public EditFrac(View parent, int resID, CalcFragment calculator) {
+		super(parent, resID, null, calculator);
 	}
 
 	@Override
-	public Number getValue() {
-		return getDec();
+	public void save(SharedPreferences.Editor editor) {
+		if (isEmpty()) {
+			editor.remove(prefsKey);
+		}
+		else {
+			// ToDo
+		}
+	}
+
+	@Override
+	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
+		// ToDo
 	}
 
 	public double getDec() throws NumberFormatException {

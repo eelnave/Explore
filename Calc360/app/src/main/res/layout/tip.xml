@@ -15,7 +15,7 @@
 	<EditText
 		android:id="@+id/curCost"
 		style="@style/UnsignedDecimal"
-		android:ems="4">
+		android:ems="5">
 
 		<requestFocus/>
 	</EditText>
@@ -29,7 +29,7 @@
 	<EditText
 		android:id="@+id/curTaxAmt"
 		style="@style/UnsignedDecimal"
-		android:ems="4"/>
+		android:ems="5"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -39,8 +39,8 @@
 	<EditText
 		android:id="@+id/percTipRate"
 		style="@style/UnsignedDecimal"
-		android:layout_marginStart="20dp"
-		android:ems="2"/>
+		android:layout_marginStart="10dp"
+		android:ems="3"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -50,7 +50,7 @@
 	<EditText
 		android:id="@+id/curTipAmt"
 		style="@style/UnsignedDecimal"
-		android:ems="4"/>
+		android:ems="5"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -61,7 +61,7 @@
 	<EditText
 		android:id="@+id/curTotal"
 		style="@style/UnsignedDecimal"
-		android:ems="4"
+		android:ems="5"
 		android:imeOptions="actionDone"/>
 
 	<Button

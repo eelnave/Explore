@@ -7,16 +7,16 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.SolveSome;
+import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.RectangularPrism.*;
 
 
-public final class RectangularPrism extends SolveSome {
+public final class RectangularPrism extends SolveSeries {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decWidth, decHeight, decLength, decSurfArea, decVolume;
 
@@ -33,13 +33,13 @@ public final class RectangularPrism extends SolveSome {
 		decLength = new EditDec(view, R.id.decLength, this);
 		decSurfArea = new EditDec(view, R.id.decSurfArea, this);
 		decVolume = new EditDec(view, R.id.decVolume, this);
-		Input[] inputs = new Input[]{
+		EditWrapper[] inputs = new EditWrapper[]{
 				decWidth, decHeight, decLength, decSurfArea, decVolume
 		};
 
 		Solver[] solvers = new Solver[]{
-				new Solver(new Input[]{ decWidth, decHeight, decLength },
-						new Control[]{ decSurfArea, decVolume }) {
+				new Solver(new EditWrapper[]{ decWidth, decHeight, decLength },
+						new ControlWrapper[]{ decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double w = decWidth.getDec();
@@ -49,66 +49,66 @@ public final class RectangularPrism extends SolveSome {
 						decVolume.setText(fmtrDec.format(volume(w, h, g)));
 					}
 				},
-				new Solver(new Input[]{ decWidth, decHeight, decSurfArea },
-						new Control[]{ decLength, decVolume }) {
+				new Solver(new EditWrapper[]{ decWidth, decHeight, decSurfArea },
+						new ControlWrapper[]{ decLength, decVolume }) {
 					@Override
 					public void solve() {
 						solveSSA(decWidth, decHeight, decLength);
 					}
 				},
-				new Solver(new Input[]{ decWidth, decHeight, decVolume },
-						new Control[]{ decLength, decSurfArea }) {
+				new Solver(new EditWrapper[]{ decWidth, decHeight, decVolume },
+						new ControlWrapper[]{ decLength, decSurfArea }) {
 					@Override
 					public void solve() {
 						solveSSV(decWidth, decHeight, decLength);
 					}
 				},
-				new Solver(new Input[]{ decWidth, decLength, decSurfArea },
-						new Control[]{ decHeight, decVolume }) {
+				new Solver(new EditWrapper[]{ decWidth, decLength, decSurfArea },
+						new ControlWrapper[]{ decHeight, decVolume }) {
 					@Override
 					public void solve() {
 						solveSSA(decWidth, decLength, decHeight);
 					}
 				},
-				new Solver(new Input[]{ decWidth, decLength, decVolume },
-						new Control[]{ decHeight, decSurfArea }) {
+				new Solver(new EditWrapper[]{ decWidth, decLength, decVolume },
+						new ControlWrapper[]{ decHeight, decSurfArea }) {
 					@Override
 					public void solve() {
 						solveSSV(decWidth, decLength, decHeight);
 					}
 				},
-				new Solver(new Input[]{ decWidth, decSurfArea, decVolume },
-						new Control[]{ decHeight, decLength }) {
+				new Solver(new EditWrapper[]{ decWidth, decSurfArea, decVolume },
+						new ControlWrapper[]{ decHeight, decLength }) {
 					@Override
 					public void solve() {
 						solveSAV(decWidth, decHeight, decLength);
 					}
 				},
 
-				new Solver(new Input[]{ decHeight, decLength, decSurfArea },
-						new Control[]{ decWidth, decVolume }) {
+				new Solver(new EditWrapper[]{ decHeight, decLength, decSurfArea },
+						new ControlWrapper[]{ decWidth, decVolume }) {
 					@Override
 					public void solve() {
 						solveSSA(decHeight, decLength, decWidth);
 					}
 				},
-				new Solver(new Input[]{ decHeight, decLength, decVolume },
-						new Control[]{ decWidth, decSurfArea }) {
+				new Solver(new EditWrapper[]{ decHeight, decLength, decVolume },
+						new ControlWrapper[]{ decWidth, decSurfArea }) {
 					@Override
 					public void solve() {
 						solveSSV(decHeight, decLength, decWidth);
 					}
 				},
-				new Solver(new Input[]{ decHeight, decSurfArea, decVolume },
-						new Control[]{ decWidth, decLength }) {
+				new Solver(new EditWrapper[]{ decHeight, decSurfArea, decVolume },
+						new ControlWrapper[]{ decWidth, decLength }) {
 					@Override
 					public void solve() {
 						solveSAV(decHeight, decWidth, decLength);
 					}
 				},
 
-				new Solver(new Input[]{ decLength, decSurfArea, decVolume },
-						new Control[]{ decWidth, decHeight }) {
+				new Solver(new EditWrapper[]{ decLength, decSurfArea, decVolume },
+						new ControlWrapper[]{ decWidth, decHeight }) {
 					@Override
 					public void solve() {
 						solveSAV(decLength, decWidth, decHeight);
@@ -116,7 +116,7 @@ public final class RectangularPrism extends SolveSome {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, inputs);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 

@@ -3,13 +3,13 @@ package edu.byui.cit.calculators;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -22,6 +22,7 @@ import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.ItemSelectedHandler;
@@ -137,13 +138,6 @@ public final class ComparePrices extends CalcFragment {
 
 	private final class ChangeProperty extends ItemSelectedHandler {
 		@Override
-		public void onNothingSelected(AdapterView<?> parent) {
-			for (Product prod : products) {
-				prod.curPer.getView().setText(R.string.noSelection);
-			}
-		}
-
-		@Override
 		public void itemSelected(
 				AdapterView<?> parent, View view, int pos, long id) {
 			Activity act = getActivity();
@@ -223,6 +217,7 @@ public final class ComparePrices extends CalcFragment {
 		Product best = null;
 		double min = Double.MAX_VALUE;
 		String per = getResources().getString(R.string.per);
+		Resources res = getResources();
 		for (Product prod : products) {
 			if (prod.curPrice.notEmpty() && prod.decQuant.notEmpty()) {
 				double price = prod.curPrice.getCur();
@@ -238,7 +233,9 @@ public final class ComparePrices extends CalcFragment {
 				}
 				String output = fmtrCur.format(ratio);
 				if (general != null) {
-					output += " " + per + " " + general;
+					String singular = res.getQuantityString(
+							general.getPluralsID(), 1);
+					output += " " + per + " " + singular;
 				}
 				prod.curPer.setText(output);
 			}
@@ -251,8 +248,8 @@ public final class ComparePrices extends CalcFragment {
 			// true);
 			// @ColorInt int color = val.data;
 
-			@ColorInt int color = ContextCompat.getColor(getActivity(),
-					R.color.best);
+			@ColorInt int color =
+					ContextCompat.getColor(getActivity(), R.color.best);
 
 			// For use with API 23 and beyond
 			// @ColorInt int color = getResources().getColor(R.color
@@ -264,9 +261,9 @@ public final class ComparePrices extends CalcFragment {
 
 
 	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
+	private final class ClearHandler implements ClickListener {
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			String physName = spinProp.getSelectedItem().toString();
 			boolean hasUnits = !physName.equals("");
 			for (Product prod : products) {

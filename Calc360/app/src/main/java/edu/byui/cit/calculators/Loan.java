@@ -11,17 +11,17 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.model.Finance;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveSome;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.EditInt;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinInt;
 import edu.byui.cit.text.TextWrapper;
 
 
-public final class Loan extends SolveSome {
+public final class Loan extends SolveSeries {
 	private static final String KEY_PPY = "Loan.ppy";
 
 	private final NumberFormat fmtrCur, fmtrRate, fmtrYears, fmtrInt, fmtrDec;
@@ -74,16 +74,15 @@ public final class Loan extends SolveSome {
 		txtInter = new TextWrapper(view, R.id.txtInter);
 		txtPrinc = new TextWrapper(view, R.id.txtPrinc);
 		txtBal = new TextWrapper(view, R.id.txtBal);
-		Control[] toClear = {
-				curAmt, decAR, decYears, curPay, intPTD, curBal,
-				txtPeriod, txtInter, txtPrinc, txtBal
+		EditWrapper[] inputs = { curAmt, decAR, decYears, curPay, intPTD };
+		TextWrapper[] outputs = {
+				curBal, txtPeriod, txtInter, txtPrinc, txtBal
 		};
-		Input[] inputs = { curAmt, decAR, decYears, curPay, intPTD };
 
 		Solver[] solvers = new Solver[]{
 				// Solve for the loan amount.
-				new Solver(new Input[]{ decAR, decYears, curPay },
-						new Control[]{ curAmt, txtPeriod, txtInter, txtPrinc, txtBal }) {
+				new Solver(new EditWrapper[]{ decAR, decYears, curPay },
+						new ControlWrapper[]{ curAmt, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeAmount();
@@ -92,8 +91,8 @@ public final class Loan extends SolveSome {
 				},
 
 				// Solve for the annual rate.
-				new Solver(new Input[]{ curAmt, decYears, curPay },
-						new Control[]{ decAR, txtPeriod, txtInter, txtPrinc, txtBal }) {
+				new Solver(new EditWrapper[]{ curAmt, decYears, curPay },
+						new ControlWrapper[]{ decAR, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeAnnualRate();
@@ -102,8 +101,8 @@ public final class Loan extends SolveSome {
 				},
 
 				// Solve for the number of years.
-				new Solver(new Input[]{ curAmt, decAR, curPay },
-						new Control[]{ decYears, txtPeriod, txtInter, txtPrinc, txtBal }) {
+				new Solver(new EditWrapper[]{ curAmt, decAR, curPay },
+						new ControlWrapper[]{ decYears, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeYears();
@@ -112,8 +111,8 @@ public final class Loan extends SolveSome {
 				},
 
 				// Solve for the payment amount.
-				new Solver(new Input[]{ curAmt, decAR, decYears },
-						new Control[]{ curPay, txtPeriod, txtInter, txtPrinc, txtBal }) {
+				new Solver(new EditWrapper[]{ curAmt, decAR, decYears },
+						new ControlWrapper[]{ curPay, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computePayment();
@@ -122,8 +121,8 @@ public final class Loan extends SolveSome {
 				},
 
 				// Solve for the remaining balance.
-				new Solver(new Input[]{ decAR, decYears, curPay, intPTD },
-						new Control[]{ curAmt, curBal,
+				new Solver(new EditWrapper[]{ decAR, decYears, curPay, intPTD },
+						new ControlWrapper[]{ curAmt, curBal,
 								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
@@ -132,8 +131,8 @@ public final class Loan extends SolveSome {
 						amortTable();
 					}
 				},
-				new Solver(new Input[]{ curAmt, decYears, curPay, intPTD },
-						new Control[]{ decAR, curBal,
+				new Solver(new EditWrapper[]{ curAmt, decYears, curPay, intPTD },
+						new ControlWrapper[]{ decAR, curBal,
 								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
@@ -142,8 +141,8 @@ public final class Loan extends SolveSome {
 						amortTable();
 					}
 				},
-				new Solver(new Input[]{ curAmt, decAR, curPay, intPTD },
-						new Control[]{ decYears, curBal,
+				new Solver(new EditWrapper[]{ curAmt, decAR, curPay, intPTD },
+						new ControlWrapper[]{ decYears, curBal,
 								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
@@ -152,8 +151,8 @@ public final class Loan extends SolveSome {
 						amortTable();
 					}
 				},
-				new Solver(new Input[]{ curAmt, decAR, decYears, intPTD },
-						new Control[]{ curPay, curBal,
+				new Solver(new EditWrapper[]{ curAmt, decAR, decYears, intPTD },
+						new ControlWrapper[]{ curPay, curBal,
 								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
@@ -164,7 +163,7 @@ public final class Loan extends SolveSome {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, toClear);
+		initialize(view, inputs, outputs, solvers, R.id.btnClear);
 		return view;
 	}
 

@@ -1,9 +1,12 @@
 package edu.byui.cit.text;
 
+import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+
+import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 
@@ -11,55 +14,32 @@ import edu.byui.cit.calc360.CalcFragment;
 /** A wrapper class that contains both an EditText and a corresponding
  * TextWatcher. Objects from this class remove the TextWatcher before
  * writing to or clearing the EditText. */
-public abstract class EditWrapper extends Input implements TextWatcher {
+public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	private final EditText edit;
-	final String prefsKey;
-	private final TextWatcher watcher;
-	private final CalcFragment calculator;
+	private final TextChangeListener listener;
 	private boolean userInput;
 
-	EditWrapper(View parent, int resID, String prefsKey, TextWatcher watcher) {
-		super(parent, resID);
-		this.edit = parent.findViewById(resID);
-		this.prefsKey = prefsKey;
-		this.watcher = watcher;
-		this.calculator = null;
-		this.userInput = false;
-		edit.setSelectAllOnFocus(true);
-		edit.addTextChangedListener(watcher);
+	EditWrapper(View parent, int resID,
+			String prefsKey, CalcFragment calculator) {
+		this(parent, resID, prefsKey, calculator, null);
 	}
 
-	EditWrapper(View parent, int resID, String prefsKey, boolean place, CalcFragment calculator) {
-		super(parent, resID, calculator);
+	EditWrapper(View parent, int resID,
+			String prefsKey, TextChangeListener listener) {
+		this(parent, resID, prefsKey, null, listener);
+	}
+
+	private EditWrapper(View parent, int resID, String prefsKey,
+			CalcFragment calculator, TextChangeListener listener) {
+		super(parent, resID, prefsKey, calculator);
 		this.edit = parent.findViewById(resID);
-		this.prefsKey = prefsKey;
-		this.watcher = null;
-		this.calculator = calculator;
+		this.listener = listener;
 		this.userInput = false;
 		edit.setSelectAllOnFocus(true);
 		edit.addTextChangedListener(this);
 	}
 
-	public EditText getEdit() {
-		return edit;
-	}
-
-
-	@Override
-	public void beforeTextChanged(
-			CharSequence s, int start, int count, int after) {
-	}
-
-	@Override
-	public void onTextChanged(
-			CharSequence s, int start, int before, int count) {
-	}
-
-	@Override
-	public void afterTextChanged(Editable edit) {
-		userInput = true;
-		calculator.callCompute(this);
-	}
+	public abstract void restore(SharedPreferences prefs, NumberFormat fmtr);
 
 	// These functions should be moved to a EditString
 	// class if we ever need to make one.
@@ -94,6 +74,7 @@ public abstract class EditWrapper extends Input implements TextWatcher {
 		return edit.hasFocus();
 	}
 
+
 	@Override
 	public void requestFocus() {
 		if (edit.hasFocus()) {
@@ -111,17 +92,50 @@ public abstract class EditWrapper extends Input implements TextWatcher {
 		}
 	}
 
+
+	@Override
+	public final void beforeTextChanged(
+			CharSequence s, int start, int count, int after) {
+	}
+
+	@Override
+	public final void onTextChanged(
+			CharSequence s, int start, int before, int count) {
+	}
+
+	@Override
+	public final void afterTextChanged(Editable edit) {
+		if (isProgrammatic()) {
+			userInput = false;
+		}
+		else {
+			userInput = notEmpty();
+			if (listener == null) {
+				calculator.callCompute(this);
+			}
+			else {
+				listener.afterChanged(edit);
+			}
+		}
+	}
+
+	@Override
+	public boolean hasUserInput() {
+		return userInput;
+	}
+
+
+	public EditText getEdit() {
+		return edit;
+	}
+
 	@Override
 	public boolean isEmpty() {
 		return edit.length() == 0;
 	}
 
-	public boolean hasUserInput() {
-		return userInput;
-	}
-
-	public void setUserInput(boolean user) {
-		this.userInput = user;
+	public String getText() {
+		return edit.getText().toString();
 	}
 
 	/** Sets the text in this EditText as if the user had entered it. In
@@ -130,28 +144,26 @@ public abstract class EditWrapper extends Input implements TextWatcher {
 		edit.setText(text);
 	}
 
+	/** Sets the text in this EditText as output. */
+	public void setText(CharSequence text) {
+//		edit.removeTextChangedListener(this);
+		nextIsProgrammatic();
+		edit.setText(text);
+		userInput = false;
+//		edit.addTextChangedListener(this);
+	}
+
 	/** Clears the text in this EditText as if the user had cleared it. */
 	public void clearInput() {
 		edit.getText().clear();
 	}
 
-	public String getText() {
-		return edit.getText().toString();
-	}
-
-	/** Sets the text in this EditText as output. */
-	public void setText(CharSequence text) {
-		edit.removeTextChangedListener(watcher);
-		edit.setText(text);
-		edit.addTextChangedListener(watcher);
-		userInput = false;
-	}
-
 	@Override
 	public void clear() {
-		edit.removeTextChangedListener(watcher);
+//		edit.removeTextChangedListener(this);
+		nextIsProgrammatic();
 		edit.getText().clear();
-		edit.addTextChangedListener(watcher);
-		userInput = false;
+//		userInput = false;
+//		edit.addTextChangedListener(this);
 	}
 }

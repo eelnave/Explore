@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.HarmonicMotion.*;
 
 
-public final class HarmonicMotion extends SolveAll {
+public final class HarmonicMotion extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decTime, decMass, decSpring;
 
@@ -27,7 +27,7 @@ public final class HarmonicMotion extends SolveAll {
 		decTime = new EditDec(view, R.id.decTime, this);
 		decMass = new EditDec(view, R.id.decMass, this);
 		decSpring = new EditDec(view, R.id.decSpring, this);
-		Input[] inputs = { decTime, decMass, decSpring };
+		EditWrapper[] inputs = { decTime, decMass, decSpring };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -59,7 +59,7 @@ public final class HarmonicMotion extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

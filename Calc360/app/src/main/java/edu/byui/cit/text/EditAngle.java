@@ -1,10 +1,10 @@
 package edu.byui.cit.text;
 
-import android.text.TextWatcher;
 import android.view.View;
 
 import java.text.NumberFormat;
 
+import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.units.Angle;
 import edu.byui.cit.units.Unit;
 
@@ -12,8 +12,8 @@ import edu.byui.cit.units.Unit;
 public final class EditAngle extends EditDec {
 	private double rad;
 
-	public EditAngle(View parent, int resID, TextWatcher watcher) {
-		super(parent, resID, watcher);
+	public EditAngle(View parent, int resID, CalcFragment calculator) {
+		super(parent, resID, calculator);
 	}
 
 	public double getRad(Unit user) {

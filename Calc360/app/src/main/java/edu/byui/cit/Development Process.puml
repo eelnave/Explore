@@ -1,0 +1,37 @@
+@startuml
+package "Your Computer" as your {
+	[your-branch ]
+	note top of [your-branch ]
+		1. Create a new branch
+		2. Write and test code on your-branch
+		3. Commit code to local your-branch
+	end note
+}
+
+package "Remote Computer\n(origin)\nbitbucket.org" as origin {
+	[your-branch]
+	[your-branch ] -> [your-branch] : 4. push
+}
+
+package "Partner's Computer" as partner {
+	[ your-branch]
+	[your-branch] -> [ your-branch] : 5. pull
+	[your-branch] <- [ your-branch] : 8. push
+	note top of [ your-branch]
+		6. Write and test code on your-branch
+		7. Commit code to local your-branch
+	end note
+}
+
+' Make the legend colors the same as the note colors.
+skinparam {
+	LegendBackgroundColor #fbfb77
+	LegendBorderColor #a80036
+}
+
+legend
+	9. Repeat steps 2 - 8 until your code is ready
+	10. Create a pull request at bitbucket.org
+	11. Your instructor or T.A. will merge your code into the master branch
+end legend
+@enduml

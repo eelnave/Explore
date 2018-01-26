@@ -7,15 +7,19 @@ import android.view.View;
 import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
 
+import edu.byui.cit.calc360.CalcFragment;
 
-public abstract class Control implements OnFocusChangeListener {
+
+public abstract class ControlWrapper implements OnFocusChangeListener {
 	private final InputMethodManager imm;
+	final CalcFragment calculator;
 
-	protected Control(View parent, int resID) {
+	ControlWrapper(View parent, int resID, CalcFragment calculator) {
 		Activity act = findActivity(parent);
 		imm = (InputMethodManager)act
 				.getSystemService(Context.INPUT_METHOD_SERVICE);
 		parent.findViewById(resID).setOnFocusChangeListener(this);
+		this.calculator = calculator;
 	}
 
 	private Activity findActivity(View view) {
@@ -38,6 +42,13 @@ public abstract class Control implements OnFocusChangeListener {
 	}
 	public abstract void requestFocus();
 
+	@Override
+	public void onFocusChange(View view, boolean hasFocus) {
+		if (hasFocus) {
+			hideKeyboard(view);
+		}
+	}
+
 	void showKeyboard(View view) {
 		imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
 	}
@@ -47,10 +58,11 @@ public abstract class Control implements OnFocusChangeListener {
 				InputMethodManager.HIDE_NOT_ALWAYS);
 	}
 
-	public abstract void clear();
+	public void clear() {
+	}
 
 
-	public static int indexOfFocus(Control... controls) {
+	public static int indexOfFocus(ControlWrapper... controls) {
 		int focus = -1;
 		for (int i = 0; i < controls.length; ++i) {
 			if (controls[i].hasFocus()) {

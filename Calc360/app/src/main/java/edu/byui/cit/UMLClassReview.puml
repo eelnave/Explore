@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+title A Small Review of UML Class Diagrams
+package package {
+	interface Interface
+	abstract class "Abstract Class"
+	class "Concrete Class"
+
+	Interface <|.. "Concrete Class" : realizes\nimplements
+	"Abstract Class" <|-- "Concrete Class" : inherits\nextends
+
+	note right of "Abstract Class"
+	Super Class
+	Parent Class
+	end note
+
+	note right of "Concrete Class"
+	Sub Class
+	Child Class
+	end note
+
+	class "Whole Class"
+	class "Part Class"
+	class "Shared Part"
+
+	"Whole Class" "1" *-- "*" "Part Class" : contains
+	"Whole Class" o-- "Shared Part" : contains
+
+	class "Needed Class"
+	class "Needy Class"
+
+	"Needed Class" <.. "Needy Class" : dependency\nuses
+
+	note right of "Needy Class" : Dependent Class
+
+	class Class1 {
+		- attribute1
+		- attribute2
+		+ method1()
+		+ method2(param1, param2, ... paramN)
+	}
+	class Class2
+
+	Class1 -- Class2 : association
+}
+@enduml

@@ -7,15 +7,15 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.Pendulum.*;
 
 
-public class Pendulum extends SolveAll {
+public class Pendulum extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decTime, decLength, decGravity;
 
@@ -27,7 +27,7 @@ public class Pendulum extends SolveAll {
 		decTime = new EditDec(view, R.id.decTime, this);
 		decLength = new EditDec(view, R.id.decLength, this);
 		decGravity = new EditDec(view, R.id.decGravity, this);
-		Input[] inputs = { decTime, decLength, decGravity };
+		EditWrapper[] inputs = { decTime, decLength, decGravity };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -59,7 +59,7 @@ public class Pendulum extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

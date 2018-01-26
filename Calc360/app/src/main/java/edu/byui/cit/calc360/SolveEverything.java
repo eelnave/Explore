@@ -1,40 +1,37 @@
 package edu.byui.cit.calc360;
 
-import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 import java.text.NumberFormat;
 
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.InputWrapper;
 
 
-public abstract class SolveEverything extends CalcFragment
-		implements TextWatcher, OnItemSelectedListener, OnClickListener {
+public abstract class SolveEverything extends CalcFragment {
 	public interface Solver {
 		Number solve(Number[] values);
 	}
 
 	private static final int NONE = -1;
 
-	private Input[] inputs;
+	private InputWrapper[] inputs;
 	private Solver[] solvers;
 	private int mostDesired, secondDesired;
 	private NumberFormat[] fmtrs;
 	private int toSolve;
 
 
-	public void initialize(View view, Input[] inputs,
+	public void initialize(View view, InputWrapper[] inputs,
 			Solver[] solvers, NumberFormat[] fmtrs, int btnClearID) {
 		initialize(view, inputs, solvers, 0, 1, fmtrs, btnClearID);
 	}
 
 
-	public void initialize(View view, Input[] inputs,
+	public void initialize(View view, InputWrapper[] inputs,
 			Solver[] solvers, int mostDesired, int secondDesired,
 			NumberFormat[] fmtrs, int btnClearID) {
 		this.inputs = inputs;
@@ -54,13 +51,13 @@ public abstract class SolveEverything extends CalcFragment
 
 			// Determine which value should be computed.
 			boolean canSolve = true;
-			int empty = Input.countEmpty(inputs);
+			int empty = InputWrapper.countEmpty(inputs);
 			if (empty > 1) {
 				canSolve = false;
 				toSolve = NONE;
 			}
 			else if (empty == 1) {
-				empty = Input.indexOfEmpty(inputs);
+				empty = InputWrapper.indexOfEmpty(inputs);
 				if (inputs[empty].hasFocus()) {
 					// don't solve and don't change toSolve
 					canSolve = false;
@@ -70,7 +67,7 @@ public abstract class SolveEverything extends CalcFragment
 				}
 			}
 			else {  // empty == 0
-				int focus = Input.indexOfFocus(inputs);
+				int focus = InputWrapper.indexOfFocus(inputs);
 				if (focus == toSolve) {
 					toSolve = (focus == mostDesired ?
 							secondDesired : mostDesired);
@@ -81,11 +78,11 @@ public abstract class SolveEverything extends CalcFragment
 				// Get the user input.
 				Number[] givens = new Number[inputs.length];
 				for (int i = 0; i < toSolve; ++i) {
-					givens[i] = inputs[i].getValue();
+//					givens[i] = inputs[i].getValue();
 				}
 				givens[toSolve] = Double.NaN;
 				for (int i = toSolve + 1; i < givens.length; ++i) {
-					givens[i] = inputs[i].getValue();
+//					givens[i] = inputs[i].getValue();
 				}
 
 				// Compute and display a value.
@@ -115,10 +112,10 @@ public abstract class SolveEverything extends CalcFragment
 
 
 	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
+	private final class ClearHandler implements ClickListener {
 		@Override
-		public void onClick(View button) {
-			for (Input in : inputs) {
+		public void clicked(View button) {
+			for (InputWrapper in : inputs) {
 				in.clear();
 			}
 			inputs[0].requestFocus();

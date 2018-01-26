@@ -3,7 +3,6 @@ package edu.byui.cit.calculators;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import java.text.NumberFormat;
@@ -11,6 +10,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.OmniFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.TextWrapper;
 
 
@@ -39,7 +39,7 @@ public final class Counter extends OmniFragment {
 	}
 
 
-	private final class Plus implements OnClickListener {
+	private final class Plus implements ClickListener {
 		private final int quant;
 
 		Plus(int quant) {
@@ -47,7 +47,7 @@ public final class Counter extends OmniFragment {
 		}
 
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			count += quant;
 			intCount.setText(fmtrInt.format(count));
 		}
@@ -55,9 +55,9 @@ public final class Counter extends OmniFragment {
 
 
 	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
+	private final class ClearHandler implements ClickListener {
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			count = 0;
 			intCount.setText(fmtrInt.format(count));
 		}

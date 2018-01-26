@@ -12,11 +12,12 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveSome;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditAngle;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.units.Angle;
@@ -25,7 +26,7 @@ import edu.byui.cit.units.Unit;
 import static edu.byui.cit.model.Geometry.RightTriangle.*;
 
 
-public class RightTriangle extends SolveSome {
+public class RightTriangle extends SolveSeries {
 	private final NumberFormat fmtrDec, fmtrAngle;
 	private EditDec decA, decB, decHyp;
 	private EditAngle decAlpha, decBeta;
@@ -51,7 +52,7 @@ public class RightTriangle extends SolveSome {
 		Activity act = getActivity();
 		spinner = new SpinUnit(act, view, R.id.spinner,
 				Angle.getInstance(), R.array.triUnits,
-				Calc360.KEY_ANGLE_UNITS, this);
+				Calc360.KEY_ANGLE_UNITS, new AngleUnits());
 
 		decA = new EditDec(view, R.id.decSideA, this);
 		decB = new EditDec(view, R.id.decSideB, this);
@@ -66,16 +67,13 @@ public class RightTriangle extends SolveSome {
 		// Call getRad to initialize the double radians value inside decGamma.
 		decGamma.getRad(Angle.getInstance().get(Angle.deg));
 
-		Input[] inputs = { decA, decB, decHyp, decAlpha, decBeta };
-		Control[] toClear = {
-				decA, decB, decHyp, decAlpha, decBeta,
-				decPerim, decArea
-		};
+		EditWrapper[] inputs = { decA, decB, decHyp, decAlpha, decBeta };
+		TextWrapper[] outputs = { decPerim, decArea };
 
 		Solver[] solvers = new Solver[]{
 				// side1 && side2
-				new Solver(new Input[]{ decA, decB },
-						new Control[]{ decHyp, decAlpha, decBeta, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decA, decB },
+						new ControlWrapper[]{ decHyp, decAlpha, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSS();
@@ -83,15 +81,15 @@ public class RightTriangle extends SolveSome {
 				},
 
 				// side && hypotenuse
-				new Solver(new Input[]{ decA, decHyp },
-						new Control[]{ decB, decAlpha, decBeta, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decA, decHyp },
+						new ControlWrapper[]{ decB, decAlpha, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSH(decA, decAlpha, decB, decBeta);
 					}
 				},
-				new Solver(new Input[]{ decB, decHyp },
-						new Control[]{ decA, decAlpha, decBeta, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decB, decHyp },
+						new ControlWrapper[]{ decA, decAlpha, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSH(decB, decBeta, decA, decAlpha);
@@ -99,15 +97,15 @@ public class RightTriangle extends SolveSome {
 				},
 
 				// side && opposite angle
-				new Solver(new Input[]{ decA, decAlpha },
-						new Control[]{ decB, decHyp, decBeta, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decA, decAlpha },
+						new ControlWrapper[]{ decB, decHyp, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSO(decA, decAlpha, decB, decBeta);
 					}
 				},
-				new Solver(new Input[]{ decB, decBeta },
-						new Control[]{ decA, decHyp, decAlpha, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decB, decBeta },
+						new ControlWrapper[]{ decA, decHyp, decAlpha, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSO(decB, decBeta, decA, decAlpha);
@@ -115,15 +113,15 @@ public class RightTriangle extends SolveSome {
 				},
 
 				// side && adjacent angle
-				new Solver(new Input[]{ decA, decBeta },
-						new Control[]{ decB, decHyp, decAlpha, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decA, decBeta },
+						new ControlWrapper[]{ decB, decHyp, decAlpha, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSA(decA, decBeta, decB, decAlpha);
 					}
 				},
-				new Solver(new Input[]{ decB, decAlpha },
-						new Control[]{ decA, decHyp, decBeta, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decB, decAlpha },
+						new ControlWrapper[]{ decA, decHyp, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSA(decB, decAlpha, decA, decBeta);
@@ -131,15 +129,15 @@ public class RightTriangle extends SolveSome {
 				},
 
 				// hypotenuse && angle
-				new Solver(new Input[]{ decHyp, decAlpha },
-						new Control[]{ decA, decB, decBeta, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decHyp, decAlpha },
+						new ControlWrapper[]{ decA, decB, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveHA(decAlpha, decA, decB, decBeta);
 					}
 				},
-				new Solver(new Input[]{ decHyp, decBeta },
-						new Control[]{ decA, decB, decAlpha, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decHyp, decBeta },
+						new ControlWrapper[]{ decA, decB, decAlpha, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveHA(decBeta, decB, decA, decAlpha);
@@ -147,15 +145,15 @@ public class RightTriangle extends SolveSome {
 				},
 
 				// one angle only
-				new Solver(new Input[]{ decAlpha },
-						new Control[]{ decBeta }) {
+				new Solver(new EditWrapper[]{ decAlpha },
+						new ControlWrapper[]{ decBeta }) {
 					@Override
 					public void solve() {
 						solveA(decAlpha, decBeta);
 					}
 				},
-				new Solver(new Input[]{ decBeta },
-						new Control[]{ decAlpha }) {
+				new Solver(new EditWrapper[]{ decBeta },
+						new ControlWrapper[]{ decAlpha }) {
 					@Override
 					public void solve() {
 						solveA(decBeta, decAlpha);
@@ -163,7 +161,7 @@ public class RightTriangle extends SolveSome {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, toClear);
+		initialize(view, inputs, outputs, solvers, R.id.btnClear);
 		return view;
 	}
 
@@ -253,18 +251,6 @@ public class RightTriangle extends SolveSome {
 
 
 	@Override
-	public void itemSelected(
-			AdapterView<?> parent, View view, int pos, long id) {
-		Unit user = spinner.getSelectedItem();
-		for (EditAngle edit : angles) {
-			if (edit.notEmpty()) {
-				edit.setText(fmtrAngle, user);
-			}
-		}
-	}
-
-
-	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinner.restore(prefs, Angle.deg);
 	}
@@ -273,5 +259,19 @@ public class RightTriangle extends SolveSome {
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
 		spinner.save(editor);
+	}
+
+
+	private final class AngleUnits extends ItemSelectedHandler {
+		@Override
+		public void itemSelected(
+				AdapterView<?> parent, View view, int pos, long id) {
+			Unit user = spinner.getSelectedItem();
+			for (EditAngle edit : angles) {
+				if (edit.notEmpty()) {
+					edit.setText(fmtrAngle, user);
+				}
+			}
+		}
 	}
 }

@@ -8,11 +8,14 @@ import android.widget.SpinnerAdapter;
 
 import java.util.ArrayList;
 
+import edu.byui.cit.calc360.CalcFragment;
+
 
 public final class SpinInt extends SpinWrapper {
+
 	public SpinInt(Context ctx, View parent, int spinID, int arrayID,
-			String prefsKey, ItemSelectedListener listener) {
-		super(parent, spinID, prefsKey, listener);
+			String prefsKey, CalcFragment calculator) {
+		super(parent, spinID, prefsKey, calculator);
 
 		int[] array = ctx.getResources().getIntArray(arrayID);
 		ArrayList<Integer> list = new ArrayList<>(array.length);
@@ -25,12 +28,7 @@ public final class SpinInt extends SpinWrapper {
 				android.R.layout.simple_spinner_dropdown_item);
 		spinner.setAdapter(adapter);
 
-		spinner.setOnItemSelectedListener(listener);
-	}
-
-	@Override
-	public Number getValue() {
-		return getInt();
+		spinner.setOnItemSelectedListener(this);
 	}
 
 	@Override

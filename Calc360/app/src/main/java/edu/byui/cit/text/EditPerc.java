@@ -1,17 +1,32 @@
 package edu.byui.cit.text;
 
+import android.content.SharedPreferences;
 import android.text.TextWatcher;
 import android.view.View;
 
+import java.text.NumberFormat;
+
+import edu.byui.cit.calc360.CalcFragment;
+
 
 public final class EditPerc extends EditWrapper {
-	public EditPerc(View parent, int resID, TextWatcher watcher) {
-		super(parent, resID, null, watcher);
+	public EditPerc(View parent, int resID, CalcFragment calculator) {
+		super(parent, resID, null, calculator);
 	}
 
 	@Override
-	public Number getValue() {
-		return getPerc();
+	public void save(SharedPreferences.Editor editor) {
+		if (isEmpty()) {
+			editor.remove(prefsKey);
+		}
+		else {
+			// ToDo
+		}
+	}
+
+	@Override
+	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
+		// ToDo
 	}
 
 	public double getPerc() throws NumberFormatException {

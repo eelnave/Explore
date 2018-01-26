@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Chemistry.GasEnergy.*;
 
 
-public final class GasEnergy extends SolveAll {
+public final class GasEnergy extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decEnergy, decMoles, decGasConst, decTemp;
 
@@ -29,7 +29,7 @@ public final class GasEnergy extends SolveAll {
 		decMoles = new EditDec(view, R.id.decMoles, this);
 		decGasConst = new EditDec(view, R.id.decGasConst, this);
 		decTemp = new EditDec(view, R.id.decTemp, this);
-		Input[] inputs = { decEnergy, decMoles, decGasConst, decTemp };
+		EditWrapper[] inputs = { decEnergy, decMoles, decGasConst, decTemp };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -74,7 +74,7 @@ public final class GasEnergy extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

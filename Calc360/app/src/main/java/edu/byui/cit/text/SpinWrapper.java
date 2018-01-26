@@ -1,21 +1,34 @@
 package edu.byui.cit.text;
 
-import android.content.SharedPreferences;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
+import edu.byui.cit.calc360.CalcFragment;
 
-abstract class SpinWrapper extends Input {
+
+abstract class SpinWrapper extends InputWrapper
+		implements OnItemSelectedListener {
 	final Spinner spinner;
-	final String prefsKey;
 	private final ItemSelectedListener listener;
 
-	SpinWrapper(View parent, int spinID, String prefsKey,
-			ItemSelectedListener listener) {
-		super(parent, spinID);
+	SpinWrapper(View parent, int spinID,
+			String prefsKey, CalcFragment calculator) {
+		this(parent, spinID, prefsKey, calculator, null);
+	}
+
+	SpinWrapper(View parent, int spinID,
+			String prefsKey, ItemSelectedListener listener) {
+		this(parent, spinID, prefsKey, null, listener);
+	}
+
+
+	private SpinWrapper(View parent, int spinID, String prefsKey,
+			CalcFragment calculator, ItemSelectedListener listener) {
+		super(parent, spinID, prefsKey, calculator);
 		this.spinner = parent.findViewById(spinID);
-		this.prefsKey = prefsKey;
 		this.listener = listener;
 	}
 
@@ -46,12 +59,38 @@ abstract class SpinWrapper extends Input {
 		}
 	}
 
+
+	@Override
+	public final void onItemSelected(
+			AdapterView<?> parent, View view, int pos, long id) {
+		if (! isProgrammatic()) {
+			if (listener == null) {
+				calculator.callCompute();
+			}
+			else {
+				listener.itemSelected(parent, view, pos, id);
+			}
+		}
+	}
+
+	@Override
+	public final void onNothingSelected(AdapterView<?> adapterView) {
+	}
+
+
+	public Spinner getSpinner() {
+		return spinner;
+	}
+
 	@Override
 	public boolean isEmpty() {
 		return spinner.getSelectedItem() == null;
 	}
 
-	public abstract void save(SharedPreferences.Editor editor);
+	@Override
+	public boolean hasUserInput() {
+		return spinner.getSelectedItem() == null;
+	}
 
 	public int getCount() {
 		return spinner.getCount();
@@ -87,19 +126,15 @@ abstract class SpinWrapper extends Input {
 		return pos;
 	}
 
-	public Spinner getSpinner() {
-		return spinner;
-	}
-
 	public void setAdapter(SpinnerAdapter adapter) {
 		spinner.setAdapter(adapter);
 	}
 
 	public void setSelection(int index) {
-		spinner.setOnItemSelectedListener(null);
-		listener.nextIsProgrammatic();
+//		spinner.setOnItemSelectedListener(null);
+		nextIsProgrammatic();
 		spinner.setSelection(index);
-		spinner.setOnItemSelectedListener(listener);
+//		spinner.setOnItemSelectedListener(this);
 	}
 
 	@Override

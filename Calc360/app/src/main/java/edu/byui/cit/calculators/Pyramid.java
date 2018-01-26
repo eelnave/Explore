@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Pyramid.*;
 
 
-public final class Pyramid extends SolveAll {
+public final class Pyramid extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decVol, decWid, decLen, decHei;
 
@@ -29,7 +29,7 @@ public final class Pyramid extends SolveAll {
 		decWid = new EditDec(view, R.id.decWid, this);
 		decLen = new EditDec(view, R.id.decLen, this);
 		decHei = new EditDec(view, R.id.decHei, this);
-		Input[] inputs = { decVol, decWid, decLen, decHei };
+		EditWrapper[] inputs = { decVol, decWid, decLen, decHei };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -74,7 +74,7 @@ public final class Pyramid extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

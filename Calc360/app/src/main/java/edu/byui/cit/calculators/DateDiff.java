@@ -6,10 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.DatePicker;
-import android.widget.DatePicker.OnDateChangedListener;
 
 import java.text.NumberFormat;
 
@@ -19,17 +16,18 @@ import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
+import edu.byui.cit.text.DateWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Time;
 
 
-public final class DateDiff extends CalcFragment
-		implements OnDateChangedListener {
+public final class DateDiff extends CalcFragment {
 	private static final String KEY_UNITS = "DateDiff.durationType";
 	private final NumberFormat fmtrDec;
 
-	private DatePicker picker1, picker2;
+	private DateWrapper picker1, picker2;
 	private SpinUnit spinDuration;
 	private TextWrapper decDiff;
 
@@ -46,18 +44,8 @@ public final class DateDiff extends CalcFragment
 		View view = inflater.inflate(R.layout.date_diff, container, false);
 
 		Calendar calendar = Calendar.getInstance();
-		picker1 = view.findViewById(R.id.datePicker1);
-		picker2 = view.findViewById(R.id.datePicker2);
-		picker1.init(
-				calendar.get(Calendar.YEAR),
-				calendar.get(Calendar.MONTH),
-				calendar.get(Calendar.DATE),
-				this);
-		picker2.init(
-				calendar.get(Calendar.YEAR),
-				calendar.get(Calendar.MONTH),
-				calendar.get(Calendar.DATE),
-				this);
+		picker1 = new DateWrapper(view, R.id.datePicker1, calendar, this);
+		picker2 = new DateWrapper(view, R.id.datePicker2, calendar, this);
 
 		new ButtonWrapper(view, R.id.btnToday1, new Today(picker1));
 		new ButtonWrapper(view, R.id.btnToday2, new Today(picker2));
@@ -69,9 +57,9 @@ public final class DateDiff extends CalcFragment
 		decDiff = new TextWrapper(view, R.id.decDiff);
 
 		new ButtonWrapper(view, R.id.btnClear,
-				new OnClickListener() {
+				new ClickListener() {
 					@Override
-					public void onClick(View button) {
+					public void clicked(View button) {
 						decDiff.clear();
 					}
 				}
@@ -93,15 +81,15 @@ public final class DateDiff extends CalcFragment
 
 
 	/** Handles a click on a Today button. */
-	private final class Today implements OnClickListener {
-		private final DatePicker picker;
+	private final class Today implements ClickListener {
+		private final DateWrapper picker;
 
-		Today(DatePicker picker) {
+		Today(DateWrapper picker) {
 			this.picker = picker;
 		}
 
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			// Get today's date.
 			Calendar calendar = Calendar.getInstance();
 			// Set the datePicker to the current date
@@ -110,12 +98,6 @@ public final class DateDiff extends CalcFragment
 					calendar.get(Calendar.MONTH),
 					calendar.get(Calendar.DATE));
 		}
-	}
-
-	@Override
-	public void onDateChanged(
-			DatePicker datePicker, int year, int month, int dayOfMonth) {
-		callCompute();
 	}
 
 

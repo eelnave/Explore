@@ -4,12 +4,14 @@ import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.SpinnerAdapter;
 
+import edu.byui.cit.calc360.CalcFragment;
+
 
 public final class SpinString extends SpinWrapper {
 	public SpinString(View parent, int spinID, String prefsKey,
-			ItemSelectedListener listener) {
-		super(parent, spinID, prefsKey, listener);
-		spinner.setOnItemSelectedListener(listener);
+			CalcFragment calculator) {
+		super(parent, spinID, prefsKey, calculator);
+		spinner.setOnItemSelectedListener(this);
 	}
 
 	@Override
@@ -28,11 +30,6 @@ public final class SpinString extends SpinWrapper {
 		if (pos != -1) {
 			setSelection(pos);
 		}
-	}
-
-	@Override
-	public Number getValue() {
-		return null;
 	}
 
 	@Override

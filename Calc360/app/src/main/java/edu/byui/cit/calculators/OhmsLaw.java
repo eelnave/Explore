@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 
 /**
  * In Physics, Ohm's Law tells how the current flowing through
  * a circuit is related to the voltage and resistance:  V = IR
  */
-public final class OhmsLaw extends SolveAll {
+public final class OhmsLaw extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decVolt, decCur, decRes;
 
@@ -33,7 +33,7 @@ public final class OhmsLaw extends SolveAll {
 		decRes = new EditDec(view, R.id.decRes, this);
 
 		// An array of all the inputs for this calculator.
-		Input[] inputs = { decVolt, decCur, decRes };
+		EditWrapper[] inputs = { decVolt, decCur, decRes };
 
 		Solver[] solvers = new Solver[]{
 				new Solver() {
@@ -68,8 +68,8 @@ public final class OhmsLaw extends SolveAll {
 				}
 		};
 
-		// Initialize the code in the parent class SolveAll.
-		initialize(view, R.id.btnClear, inputs, solvers);
+		// Initialize the code in the parent class SolveEquation.
+		initialize(view, inputs, solvers, R.id.btnClear);
 
 		return view;
 	}

@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveSome;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.EditInt;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 
-public final class Binary extends SolveSome {
+public final class Binary extends SolveSeries {
 	private final NumberFormat fmtrInt = NumberFormat.getIntegerInstance();
 
 	private EditDec decimal;
@@ -34,10 +34,10 @@ public final class Binary extends SolveSome {
 		binary = new EditInt(view, R.id.binary, this);
 		hexadecimal = new EditInt(view, R.id.hexadecimal, this);
 
-		Input[] inputs = new Input[]{ decimal, binary, hexadecimal };
+		EditWrapper[] inputs = { decimal, binary, hexadecimal };
 		Solver[] solvers = new Solver[]{
-				new Solver(new Input[]{ decimal },
-						new Control[]{ binary, hexadecimal }) {
+				new Solver(new EditWrapper[]{ decimal },
+						new ControlWrapper[]{ binary, hexadecimal }) {
 					@Override
 					public void solve() {
 						double num = decimal.getDec();
@@ -57,8 +57,8 @@ public final class Binary extends SolveSome {
 						hexadecimal.setText(hexStr);
 					}
 				},
-				new Solver(new Input[]{ binary },
-						new Control[]{ hexadecimal, decimal }) {
+				new Solver(new EditWrapper[]{ binary },
+						new ControlWrapper[]{ hexadecimal, decimal }) {
 					@Override
 					public void solve() {
 						int num = binary.getBin();
@@ -68,8 +68,8 @@ public final class Binary extends SolveSome {
 						hexadecimal.setText(hexStr);
 					}
 				},
-				new Solver(new Input[]{ hexadecimal },
-						new Control[]{ decimal, binary }) {
+				new Solver(new EditWrapper[]{ hexadecimal },
+						new ControlWrapper[]{ decimal, binary }) {
 					@Override
 					public void solve() {
 						int num = hexadecimal.getHex();
@@ -81,7 +81,7 @@ public final class Binary extends SolveSome {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, inputs);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 

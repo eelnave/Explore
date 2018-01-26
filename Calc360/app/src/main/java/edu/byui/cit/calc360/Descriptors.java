@@ -13,7 +13,6 @@ final class Descriptors {
 				new CalcDescriptor(1017, R.string.salesTax, R.drawable.sales_tax, SalesTax.class),
 				new CalcDescriptor(1014, R.string.discount, R.drawable.discount, Discount.class),
 				new CalcDescriptor(1001, R.string.cmpPrices, R.drawable.balance, ComparePrices.class),
-				new CalcDescriptor(1002, R.string.tip, R.drawable.tip, Tip.class),
 			}),
 			new GroupDescriptor(308, R.string.sports, R.drawable.folder_sports, new CalcDescriptor[]{
 				new CalcDescriptor(1011, R.string.basketball, R.drawable.basketball, Basketball.class),
@@ -25,6 +24,7 @@ final class Descriptors {
 				new CalcDescriptor(1031, R.string.fuelCost, R.drawable.fuel_cost, FuelCost.class),
 				new CalcDescriptor(1026, R.string.foreignFuel, R.drawable.fuel_pump, ForeignFuel.class),
 				new CalcDescriptor(1036, R.string.currencyExch, R.drawable.currency_exchange, CurrencyExchange.class),
+				new CalcDescriptor(1002, R.string.tip, R.drawable.tip, Tip.class),
 			}),
 			new GroupDescriptor(303, R.string.finance, R.drawable.folder_finance, new CalcDescriptor[]{
 				new CalcDescriptor(1013, R.string.compoundInterest, R.drawable.compound_interest, CompoundInterest.class),

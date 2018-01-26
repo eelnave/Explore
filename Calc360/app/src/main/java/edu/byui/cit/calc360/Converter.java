@@ -8,21 +8,23 @@ import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 
 import java.text.NumberFormat;
 
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextChangedHandler;
+import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 
 
-public abstract class Converter extends CalcFragment {
+public abstract class Converter extends CalcFragment
+		implements OnItemSelectedListener {
 	private final String KEY_TOP, KEY_BOTTOM;
 	private final Property property;
 	private final int arrayID;
@@ -45,23 +47,23 @@ public abstract class Converter extends CalcFragment {
 		View view = inflater.inflate(R.layout.converter, container, false);
 
 		Activity act = getActivity();
-		decTop = new EditDec(view, R.id.decTop, new TextChangedHandler() {
+		decTop = new EditDec(view, R.id.decTop, new TextChangeHandler() {
 			@Override
-			public void afterTextChanged(Editable editable) {
+			public void afterChanged(Editable editable) {
 				compute(spinBottom, decBottom, spinTop, decTop);
 			}
 		});
 
-		decBottom = new EditDec(view, R.id.decBottom, new TextChangedHandler() {
+		decBottom = new EditDec(view, R.id.decBottom, new TextChangeHandler() {
 			@Override
-			public void afterTextChanged(Editable editable) {
+			public void afterChanged(Editable editable) {
 				compute(spinTop, decTop, spinBottom, decBottom);
 			}
 		});
 
-		new ButtonWrapper(view, R.id.btnSwap, new OnClickListener() {
+		new ButtonWrapper(view, R.id.btnSwap, new ClickListener() {
 			@Override
-			public void onClick(View button) {
+			public void clicked(View button) {
 				int posTop = spinTop.getSelectedItemPosition();
 				String txtTop = decTop.getText();
 				spinTop.setSelection(spinBottom.getSelectedItemPosition());
@@ -90,9 +92,13 @@ public abstract class Converter extends CalcFragment {
 
 
 	@Override
-	public void itemSelected(
+	public void onItemSelected(
 			AdapterView<?> parent, View view, int position, long id) {
 		compute(spinBottom, decBottom, spinTop, decTop);
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> parent) {
 	}
 
 
@@ -130,9 +136,9 @@ public abstract class Converter extends CalcFragment {
 
 
 	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
+	private final class ClearHandler implements ClickListener {
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			decTop.clear();
 			decBottom.clear();
 			decTop.requestFocus();

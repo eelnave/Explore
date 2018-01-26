@@ -4,52 +4,65 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RadioButton;
 
+import edu.byui.cit.calc360.CalcFragment;
 
-public final class RadioWrapper extends Control {
+
+public final class RadioWrapper extends ControlWrapper implements OnClickListener {
 	private final RadioButton radio;
+	private final ClickListener listener;
 
-	public RadioWrapper(View parent, int resID, OnClickListener listener) {
-		super(parent, resID);
-		radio = parent.findViewById(resID);
-		radio.setOnClickListener(listener);
+
+	public RadioWrapper(View parent, int resID, CalcFragment calculator) {
+		this(parent, resID, calculator, null);
 	}
 
-	public boolean isChecked() {
+	public RadioWrapper(View parent, int resID, ClickListener listener) {
+		this(parent, resID, null, listener);
+	}
+
+	private RadioWrapper(View parent, int resID,
+			CalcFragment calculator, ClickListener listener) {
+		super(parent, resID, calculator);
+		this.radio = parent.findViewById(resID);
+		this.listener = listener;
+		radio.setOnClickListener(this);
+	}
+
+	public final boolean isChecked() {
 		return radio.isChecked();
 	}
 
-	public boolean performClick() {
+	public final boolean performClick() {
 		return radio.performClick();
 	}
 
 	@Override
-	public boolean isEnabled() {
+	public final boolean isEnabled() {
 		return radio.isEnabled();
 	}
 
 	@Override
-	public void setEnabled(boolean enabled) {
+	public final void setEnabled(boolean enabled) {
 		radio.setEnabled(enabled);
 	}
 
 	@Override
-	public boolean hasFocus() {
+	public final boolean hasFocus() {
 		return radio.hasFocus();
 	}
 
 	@Override
-	public void requestFocus() {
+	public final void requestFocus() {
 		radio.requestFocus();
 	}
 
 	@Override
-	public void onFocusChange(View view, boolean hasFocus) {
-		if (hasFocus) {
-			hideKeyboard(view);
+	public final void onClick(View button) {
+		if (listener == null) {
+			calculator.callCompute();
 		}
-	}
-
-	@Override
-	public void clear() {
+		else {
+			listener.clicked(button);
+		}
 	}
 }

@@ -4,21 +4,18 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextChangedHandler;
+import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.FuelEffic;
 import edu.byui.cit.units.Length;
@@ -58,13 +55,13 @@ public final class FuelEfficiency extends CalcFragment {
 		View view = inflater.inflate(R.layout.fuel_efficiency, container,
 				false);
 
-		ComputeDist dist = new ComputeDist();
+		OdometerChanged dist = new OdometerChanged();
 
 		// Create a wrapper object for each EditText
 		// that appears in this calculator's layout.
 		decBegin = new EditDec(view, R.id.decBegin, dist);
 		decEnd = new EditDec(view, R.id.decEnd, dist);
-		decDist = new EditDec(view, R.id.decDist, this);
+		decDist = new EditDec(view, R.id.decDist, new DistanceChanged());
 		decVol = new EditDec(view, R.id.decVol, this);
 
 		// Get the user's preferred units from the system
@@ -81,7 +78,10 @@ public final class FuelEfficiency extends CalcFragment {
 				KEY_EFFIC_UNITS, this);
 
 		decEffic = new TextWrapper(view, R.id.decEffic);
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+
+		EditWrapper[] inputs = { decBegin, decEnd, decDist, decVol };
+		TextWrapper[] outputs = { decEffic };
+		initialize(view, inputs, outputs, R.id.btnClear);
 		return view;
 	}
 
@@ -104,50 +104,49 @@ public final class FuelEfficiency extends CalcFragment {
 	}
 
 
-	private final class ComputeDist extends TextChangedHandler {
+	private final class OdometerChanged extends TextChangeHandler {
 		@Override
-		public void afterTextChanged(Editable s) {
-			try {
-				String output;
-				if (decBegin.notEmpty() && decEnd.notEmpty()) {
-					double begin = decBegin.getDec();
-					double end = decEnd.getDec();
-					double dist = Math.abs(end - begin);
-					output = fmtrDist.format(dist);
-				}
-				else {
-					output = "";
-				}
+		public void afterChanged(Editable s) {
+			if (decBegin.notEmpty() || decEnd.notEmpty()) {
+				decDist.clear();
+			}
+			callCompute();
+		}
+	}
 
-				// Normally, when the computer changes a value in an EditText,
-				// we don't want the text changed event to occur. However,
-				// this is an unusual case. Because the user entered both the
-				// starting and ending odometer readings, we want the computer
-				// to now try to compute the fuel efficiency. Therefore, we
-				// call getEdit and then setText instead of calling just
-				// setText so that the text changed event will fire.
-				decDist.getEdit().setText(output);
+
+	private final class DistanceChanged extends TextChangeHandler {
+		@Override
+		public void afterChanged(Editable s) {
+			if (decDist.notEmpty()) {
+				decBegin.clear();
+				decEnd.clear();
 			}
-			catch (NumberFormatException ex) {
-				// Do nothing
-			}
-			catch (Exception ex) {
-				Log.e(Calc360.TAG, "exception", ex);
-			}
+			callCompute();
 		}
 	}
 
 
 	@Override
 	protected void compute() {
-		if (decDist.notEmpty() && decVol.notEmpty()) {
-			double dist = decDist.getDec();
-			double fuel = decVol.getDec();
+		double dist = 0;
+		if (decBegin.notEmpty() && decEnd.notEmpty()) {
+			double begin = decBegin.getDec();
+			double end = decEnd.getDec();
+			dist = Math.abs(end - begin);
+			decDist.setText(fmtrDist.format(dist));
+		}
+		else if (decDist.notEmpty()) {
+			dist = decDist.getDec();
+		}
+
+		if (dist > 0 && decVol.notEmpty()) {
+			double vol = decVol.getDec();
 
 			// Get from the spinners, the units that the user chose
 			// for inputting the distance and the volume of fuel.
 			Unit distUnits = spinDistUnits.getSelectedItem();
-			Unit fuelUnits = spinVolUnits.getSelectedItem();
+			Unit volUnits = spinVolUnits.getSelectedItem();
 
 			// Get the length and volume properties so that they can
 			// be used to convert values from one unit to another.
@@ -162,7 +161,7 @@ public final class FuelEfficiency extends CalcFragment {
 			// of fuel entered by the user into miles and gallons.
 			if (unit.getID() == FuelEffic.mpg) {
 				dist = length.convert(Length.mile, dist, distUnits);
-				fuel = volume.convert(Volume.gallon, fuel, fuelUnits);
+				vol = volume.convert(Volume.gallon, vol, volUnits);
 			}
 
 			// If the user wants the results in kilometers per liter,
@@ -170,28 +169,14 @@ public final class FuelEfficiency extends CalcFragment {
 			// fuel entered by the user into kilometers and liters.
 			else if (unit.getID() == FuelEffic.kpl) {
 				dist = length.convert(Length.km, dist, distUnits);
-				fuel = volume.convert(Volume.liter, fuel, fuelUnits);
+				vol = volume.convert(Volume.liter, vol, volUnits);
 			}
 
-			double effic = dist / fuel;
+			double effic = dist / vol;
 			decEffic.setText(fmtrEffic.format(effic));
 		}
 		else {
 			decEffic.clear();
-		}
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
-		@Override
-		public void onClick(View button) {
-			decBegin.clear();
-			decEnd.clear();
-			decDist.clear();
-			decVol.clear();
-			decEffic.clear();
-			decBegin.requestFocus();
 		}
 	}
 }

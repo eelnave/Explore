@@ -4,51 +4,48 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public final class TextWrapper extends Control {
+public final class TextWrapper extends ControlWrapper {
 	private final TextView view;
 
 	public TextWrapper(View parent, int resID) {
-		super(parent, resID);
+		super(parent, resID, null);
 		this.view = parent.findViewById(resID);
 	}
 
-	public TextView getView() {
+	public final TextView getView() {
 		return view;
 	}
 
 	@Override
-	public boolean isEnabled() {
+	public final boolean isEnabled() {
 		return view.isEnabled();
 	}
 
 	@Override
-	public void setEnabled(boolean enabled) {
+	public final void setEnabled(boolean enabled) {
 		view.setEnabled(enabled);
 	}
 
 	@Override
-	public boolean hasFocus() {
+	public final boolean hasFocus() {
 		return view.hasFocus();
 	}
 
 	@Override
-	public void requestFocus() {
+	public final void requestFocus() {
 		view.requestFocus();
 	}
 
-	@Override
-	public void onFocusChange(View view, boolean hasFocus) {
-		if (hasFocus) {
-			hideKeyboard(view);
-		}
-	}
-
-	public void setText(CharSequence str) {
+	public final void setText(CharSequence str) {
 		view.setText(str);
 	}
 
+	public final void setText(int resID) {
+		view.setText(resID);
+	}
+
 	@Override
-	public void clear() {
+	public final void clear() {
 		view.setText(null);
 	}
 }

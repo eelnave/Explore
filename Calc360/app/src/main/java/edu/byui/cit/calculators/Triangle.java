@@ -12,12 +12,13 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveSome;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditAngle;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.text.Input;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.units.Angle;
 import edu.byui.cit.units.Unit;
@@ -25,7 +26,7 @@ import edu.byui.cit.units.Unit;
 import static edu.byui.cit.model.Geometry.Triangle.*;
 
 
-public final class Triangle extends SolveSome {
+public final class Triangle extends SolveSeries {
 	private final NumberFormat fmtrDec, fmtrAngle;
 	private EditDec decA, decB, decC;
 	private EditAngle decAlpha, decBeta, decGamma;
@@ -49,7 +50,7 @@ public final class Triangle extends SolveSome {
 		Activity act = getActivity();
 		spinner = new SpinUnit(act, view, R.id.spinner,
 				Angle.getInstance(), R.array.triUnits,
-				Calc360.KEY_ANGLE_UNITS, this);
+				Calc360.KEY_ANGLE_UNITS, new AngleUnits());
 
 		decA = new EditDec(view, R.id.decSideA, this);
 		decB = new EditDec(view, R.id.decSideB, this);
@@ -61,18 +62,13 @@ public final class Triangle extends SolveSome {
 		decArea = new TextWrapper(view, R.id.decArea);
 		angles = new EditAngle[]{ decAlpha, decBeta, decGamma };
 
-		Input[] inputs = {
-				decA, decB, decC, decAlpha, decBeta, decGamma
-		};
-		Control[] toClear = {
-				decA, decB, decC, decAlpha, decBeta, decGamma,
-				decPerim, decArea
-		};
+		EditWrapper[] inputs = { decA, decB, decC, decAlpha, decBeta, decGamma };
+		TextWrapper[] outputs = { decPerim, decArea };
 
 		Solver[] solvers = new Solver[]{
 				// side, side, side
-				new Solver(new Input[]{ decA, decB, decC },
-						new Control[]{ decAlpha, decBeta, decGamma, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decA, decB, decC },
+						new ControlWrapper[]{ decAlpha, decBeta, decGamma, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						// Let's label the length of the three sides as
@@ -107,22 +103,22 @@ public final class Triangle extends SolveSome {
 				},
 
 				// side, angle, side
-				new Solver(new Input[]{ decA, decGamma, decB },
-						new Control[]{ decC, decAlpha, decBeta, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decA, decGamma, decB },
+						new ControlWrapper[]{ decC, decAlpha, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSAS(decA, decGamma, decB, decC, decAlpha, decBeta);
 					}
 				},
-				new Solver(new Input[]{ decB, decAlpha, decC },
-						new Control[]{ decA, decBeta, decGamma, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decB, decAlpha, decC },
+						new ControlWrapper[]{ decA, decBeta, decGamma, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSAS(decB, decAlpha, decC, decA, decBeta, decGamma);
 					}
 				},
-				new Solver(new Input[]{ decC, decBeta, decA },
-						new Control[]{ decB, decGamma, decAlpha, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decC, decBeta, decA },
+						new ControlWrapper[]{ decB, decGamma, decAlpha, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSAS(decC, decBeta, decA, decB, decGamma, decAlpha);
@@ -130,43 +126,43 @@ public final class Triangle extends SolveSome {
 				},
 
 				// side, side, angle
-				new Solver(new Input[]{ decA, decB, decAlpha },
-						new Control[]{ decBeta, decGamma, decC, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decA, decB, decAlpha },
+						new ControlWrapper[]{ decBeta, decGamma, decC, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSSA(decA, decB, decAlpha, decBeta, decGamma, decC);
 					}
 				},
-				new Solver(new Input[]{ decB, decC, decBeta },
-						new Control[]{ decGamma, decAlpha, decA, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decB, decC, decBeta },
+						new ControlWrapper[]{ decGamma, decAlpha, decA, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSSA(decB, decC, decBeta, decGamma, decAlpha, decA);
 					}
 				},
-				new Solver(new Input[]{ decC, decA, decGamma },
-						new Control[]{ decAlpha, decBeta, decB, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decC, decA, decGamma },
+						new ControlWrapper[]{ decAlpha, decBeta, decB, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSSA(decC, decA, decGamma, decAlpha, decBeta, decB);
 					}
 				},
-				new Solver(new Input[]{ decA, decC, decAlpha },
-						new Control[]{ decGamma, decBeta, decB, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decA, decC, decAlpha },
+						new ControlWrapper[]{ decGamma, decBeta, decB, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSSA(decA, decC, decAlpha, decGamma, decBeta, decB);
 					}
 				},
-				new Solver(new Input[]{ decB, decA, decBeta },
-						new Control[]{ decAlpha, decGamma, decC, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decB, decA, decBeta },
+						new ControlWrapper[]{ decAlpha, decGamma, decC, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSSA(decB, decA, decBeta, decAlpha, decGamma, decC);
 					}
 				},
-				new Solver(new Input[]{ decC, decB, decGamma },
-						new Control[]{ decBeta, decAlpha, decA, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decC, decB, decGamma },
+						new ControlWrapper[]{ decBeta, decAlpha, decA, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSSA(decC, decB, decGamma, decBeta, decAlpha, decA);
@@ -174,43 +170,43 @@ public final class Triangle extends SolveSome {
 				},
 
 				// angle, angle, side
-				new Solver(new Input[]{ decAlpha, decBeta, decA },
-						new Control[]{ decB, decGamma, decC, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decAlpha, decBeta, decA },
+						new ControlWrapper[]{ decB, decGamma, decC, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveAAS(decAlpha, decBeta, decA, decB, decGamma, decC);
 					}
 				},
-				new Solver(new Input[]{ decBeta, decGamma, decB },
-						new Control[]{ decC, decAlpha, decA, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decBeta, decGamma, decB },
+						new ControlWrapper[]{ decC, decAlpha, decA, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveAAS(decBeta, decGamma, decB, decC, decAlpha, decA);
 					}
 				},
-				new Solver(new Input[]{ decGamma, decAlpha, decC },
-						new Control[]{ decA, decBeta, decB, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decGamma, decAlpha, decC },
+						new ControlWrapper[]{ decA, decBeta, decB, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveAAS(decGamma, decAlpha, decC, decA, decBeta, decB);
 					}
 				},
-				new Solver(new Input[]{ decAlpha, decGamma, decA },
-						new Control[]{ decC, decBeta, decB, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decAlpha, decGamma, decA },
+						new ControlWrapper[]{ decC, decBeta, decB, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveAAS(decAlpha, decGamma, decA, decC, decBeta, decB);
 					}
 				},
-				new Solver(new Input[]{ decBeta, decAlpha, decB },
-						new Control[]{ decA, decGamma, decC, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decBeta, decAlpha, decB },
+						new ControlWrapper[]{ decA, decGamma, decC, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveAAS(decBeta, decAlpha, decB, decA, decGamma, decC);
 					}
 				},
-				new Solver(new Input[]{ decGamma, decBeta, decC },
-						new Control[]{ decB, decAlpha, decA, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decGamma, decBeta, decC },
+						new ControlWrapper[]{ decB, decAlpha, decA, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveAAS(decGamma, decBeta, decC, decB, decAlpha, decA);
@@ -218,22 +214,22 @@ public final class Triangle extends SolveSome {
 				},
 
 				// ASA
-				new Solver(new Input[]{ decAlpha, decC, decBeta },
-						new Control[]{ decGamma, decA, decB, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decAlpha, decC, decBeta },
+						new ControlWrapper[]{ decGamma, decA, decB, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveASA(decAlpha, decC, decBeta, decGamma, decA, decB);
 					}
 				},
-				new Solver(new Input[]{ decBeta, decA, decGamma },
-						new Control[]{ decAlpha, decB, decC, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decBeta, decA, decGamma },
+						new ControlWrapper[]{ decAlpha, decB, decC, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveASA(decBeta, decA, decGamma, decAlpha, decB, decC);
 					}
 				},
-				new Solver(new Input[]{ decGamma, decB, decAlpha },
-						new Control[]{ decBeta, decC, decA, decPerim, decArea }) {
+				new Solver(new EditWrapper[]{ decGamma, decB, decAlpha },
+						new ControlWrapper[]{ decBeta, decC, decA, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveASA(decGamma, decB, decAlpha, decBeta, decC, decA);
@@ -241,22 +237,22 @@ public final class Triangle extends SolveSome {
 				},
 
 				// angle, angle
-				new Solver(new Input[]{ decAlpha, decBeta },
-						new Control[]{ decGamma }) {
+				new Solver(new EditWrapper[]{ decAlpha, decBeta },
+						new ControlWrapper[]{ decGamma }) {
 					@Override
 					public void solve() {
 						solveAA(decAlpha, decBeta, decGamma);
 					}
 				},
-				new Solver(new Input[]{ decBeta, decGamma },
-						new Control[]{ decAlpha }) {
+				new Solver(new EditWrapper[]{ decBeta, decGamma },
+						new ControlWrapper[]{ decAlpha }) {
 					@Override
 					public void solve() {
 						solveAA(decBeta, decGamma, decAlpha);
 					}
 				},
-				new Solver(new Input[]{ decGamma, decAlpha },
-						new Control[]{ decBeta }) {
+				new Solver(new EditWrapper[]{ decGamma, decAlpha },
+						new ControlWrapper[]{ decBeta }) {
 					@Override
 					public void solve() {
 						solveAA(decGamma, decAlpha, decBeta);
@@ -264,7 +260,7 @@ public final class Triangle extends SolveSome {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, toClear);
+		initialize(view, inputs, outputs, solvers, R.id.btnClear);
 		return view;
 	}
 
@@ -368,18 +364,6 @@ public final class Triangle extends SolveSome {
 
 
 	@Override
-	public void itemSelected(
-			AdapterView<?> parent, View view, int pos, long id) {
-		Unit user = spinner.getSelectedItem();
-		for (EditAngle edit : angles) {
-			if (edit.notEmpty()) {
-				edit.setText(fmtrAngle, user);
-			}
-		}
-	}
-
-
-	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinner.restore(prefs, Angle.deg);
 	}
@@ -387,5 +371,19 @@ public final class Triangle extends SolveSome {
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
 		spinner.save(editor);
+	}
+
+
+	private final class AngleUnits extends ItemSelectedHandler {
+		@Override
+		public void itemSelected(
+				AdapterView<?> parent, View view, int pos, long id) {
+			Unit user = spinner.getSelectedItem();
+			for (EditAngle edit : angles) {
+				if (edit.notEmpty()) {
+					edit.setText(fmtrAngle, user);
+				}
+			}
+		}
 	}
 }

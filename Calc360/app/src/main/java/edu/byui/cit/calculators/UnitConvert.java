@@ -2,10 +2,8 @@ package edu.byui.cit.calculators;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
-import android.text.Editable;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -17,11 +15,12 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.SpinProperty;
 import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextChangedHandler;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 
@@ -50,23 +49,12 @@ public final class UnitConvert extends CalcFragment {
 		View view = inflater.inflate(R.layout.unit_convert, container,
 				false);
 
-		decTop = new EditDec(view, R.id.decTop, new TextChangedHandler() {
-			@Override
-			public void afterTextChanged(Editable editable) {
-				compute(decBottom, spinBottom, decTop, spinTop);
-			}
-		});
+		decTop = new EditDec(view, R.id.decTop, this);
+		decBottom = new EditDec(view, R.id.decBottom, this);
 
-		decBottom = new EditDec(view, R.id.decBottom, new TextChangedHandler() {
+		new ButtonWrapper(view, R.id.btnSwap, new ClickListener() {
 			@Override
-			public void afterTextChanged(Editable editable) {
-				compute(decTop, spinTop, decBottom, spinBottom);
-			}
-		});
-
-		new ButtonWrapper(view, R.id.btnSwap, new OnClickListener() {
-			@Override
-			public void onClick(View button) {
+			public void clicked(View button) {
 				int posTop = spinTop.getSelectedItemPosition();
 				String txtTop = decTop.getText();
 				spinTop.setSelection(spinBottom.getSelectedItemPosition());
@@ -81,10 +69,19 @@ public final class UnitConvert extends CalcFragment {
 				R.array.supportedProperties, KEY_PROP,
 				new ChangeProperty());
 
-		spinTop = new SpinUnit(view, R.id.spinTop, this);
-		spinBottom = new SpinUnit(view, R.id.spinBottom, this);
+		ItemSelectedHandler listener = new ItemSelectedHandler() {
+			@Override
+			public void itemSelected(AdapterView<?> parent, View view,
+					int pos, long id) {
+				compute(decBottom, spinBottom, decTop, spinTop);
+			}
+		};
+		spinTop = new SpinUnit(view, R.id.spinTop, listener);
+		spinBottom = new SpinUnit(view, R.id.spinBottom, listener);
 
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		EditWrapper[] inputs = { decTop, decBottom };
+		EditWrapper[][] groups = {{ decTop, decBottom }};
+		initialize(view, inputs, groups, inputs, R.id.btnClear);
 		return view;
 	}
 
@@ -155,13 +152,6 @@ public final class UnitConvert extends CalcFragment {
 	}
 
 
-	@Override
-	public void itemSelected(
-			AdapterView<?> parent, View view, int pos, long id) {
-		compute(decBottom, spinBottom, decTop, spinTop);
-	}
-
-
 	// Overload not override so try, catch is necessary.
 	private void compute(EditDec decTo, SpinUnit spinTo,
 			EditDec decFrom, SpinUnit spinFrom) {
@@ -183,17 +173,6 @@ public final class UnitConvert extends CalcFragment {
 		}
 		catch (Exception ex) {
 			Log.e(Calc360.TAG, "exception", ex);
-		}
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements OnClickListener {
-		@Override
-		public void onClick(View button) {
-			decTop.clear();
-			decBottom.clear();
-			decTop.requestFocus();
 		}
 	}
 }

@@ -3,7 +3,6 @@ package edu.byui.cit.calculators;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
@@ -14,6 +13,7 @@ import java.util.Map;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditDec;
 
 
@@ -81,9 +81,9 @@ public final class ShoeSize extends CalcFragment {
 		}
 	}
 
-	private final class ClearHandler implements OnClickListener {
+	private final class ClearHandler implements ClickListener {
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			decUSA.getText().clear();
 			decMetric.getText().clear();
 		}

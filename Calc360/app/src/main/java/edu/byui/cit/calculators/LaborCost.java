@@ -10,15 +10,15 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveSome;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
-public class LaborCost extends SolveSome {
+public class LaborCost extends SolveSeries {
 	private static final String
 			KEY_WAGE = "LaborCost.wage",
 			KEY_SALARY = "LaborCost.salary";
@@ -51,18 +51,18 @@ public class LaborCost extends SolveSome {
 		curSalary = new EditCur(view, R.id.curSalary, KEY_SALARY, this);
 		txtOutput = new TextWrapper(view, R.id.output);
 
-		Input[] inputs = {
+		EditWrapper[] inputs = {
 			curPrice, decSalesTaxRate, curSalesTaxAmt, curWage, curSalary
 		};
-		Input[][] groups = {
+		EditWrapper[][] groups = {
 				{ decSalesTaxRate, curSalesTaxAmt },
 				{ curWage, curSalary }
 		};
-		Control[] toClear = { curPrice, curSalesTaxAmt, txtOutput };
+		TextWrapper[] outputs = { txtOutput };
 
 		Solver[] solvers = new Solver[]{
-			new Solver(new Input[]{ curPrice, decSalesTaxRate },
-					new Control[]{ curSalesTaxAmt }) {
+			new Solver(new EditWrapper[]{ curPrice, decSalesTaxRate },
+					new ControlWrapper[]{ curSalesTaxAmt }) {
 				@Override
 				public void solve() {
 					double price = curPrice.getCur();
@@ -70,8 +70,8 @@ public class LaborCost extends SolveSome {
 					laborCost(total);
 				}
 			},
-			new Solver(new Input[]{ curPrice, curSalesTaxAmt },
-					new Control[]{ decSalesTaxRate }) {
+			new Solver(new EditWrapper[]{ curPrice, curSalesTaxAmt },
+					new ControlWrapper[]{ decSalesTaxRate }) {
 				@Override
 				public void solve() {
 					double price = curPrice.getCur();
@@ -80,16 +80,16 @@ public class LaborCost extends SolveSome {
 				}
 			},
 
-			new Solver(new Input[]{ curPrice, curSalary },
-					new Control[]{ txtOutput }) {
+			new Solver(new EditWrapper[]{ curPrice, curSalary },
+					new ControlWrapper[]{ txtOutput }) {
 				@Override
 				public void solve() {
 					double price = curPrice.getCur();
 					laborCostWithSalary(price);
 				}
 			},
-			new Solver(new Input[]{ curPrice, curWage },
-					new Control[]{ txtOutput }) {
+			new Solver(new EditWrapper[]{ curPrice, curWage },
+					new ControlWrapper[]{ txtOutput }) {
 				@Override
 				public void solve() {
 					double price = curPrice.getCur();
@@ -98,8 +98,8 @@ public class LaborCost extends SolveSome {
 				}
 			},
 
-			new Solver(new Input[]{ curPrice, decSalesTaxRate, curSalary },
-					new Control[]{ curSalesTaxAmt, txtOutput }) {
+			new Solver(new EditWrapper[]{ curPrice, decSalesTaxRate, curSalary },
+					new ControlWrapper[]{ curSalesTaxAmt, txtOutput }) {
 				@Override
 				public void solve() {
 					double price = curPrice.getCur();
@@ -107,8 +107,8 @@ public class LaborCost extends SolveSome {
 					laborCostWithSalary(total);
 				}
 			},
-			new Solver(new Input[]{ curPrice, decSalesTaxRate, curWage },
-					new Control[]{ curSalesTaxAmt, txtOutput }) {
+			new Solver(new EditWrapper[]{ curPrice, decSalesTaxRate, curWage },
+					new ControlWrapper[]{ curSalesTaxAmt, txtOutput }) {
 				@Override
 				public void solve() {
 					double price = curPrice.getCur();
@@ -118,8 +118,8 @@ public class LaborCost extends SolveSome {
 				}
 			},
 
-			new Solver(new Input[]{ curPrice, curSalesTaxAmt, curSalary },
-					new Control[]{ decSalesTaxRate, txtOutput }) {
+			new Solver(new EditWrapper[]{ curPrice, curSalesTaxAmt, curSalary },
+					new ControlWrapper[]{ decSalesTaxRate, txtOutput }) {
 				@Override
 				public void solve() {
 					double price = curPrice.getCur();
@@ -127,8 +127,8 @@ public class LaborCost extends SolveSome {
 					laborCostWithSalary(total);
 				}
 			},
-			new Solver(new Input[]{ curPrice, curSalesTaxAmt, curWage },
-					new Control[]{ decSalesTaxRate, txtOutput }) {
+			new Solver(new EditWrapper[]{ curPrice, curSalesTaxAmt, curWage },
+					new ControlWrapper[]{ decSalesTaxRate, txtOutput }) {
 				@Override
 				public void solve() {
 					double price = curPrice.getCur();
@@ -139,7 +139,7 @@ public class LaborCost extends SolveSome {
 			}
 		};
 
-		initialize(view, inputs, groups, solvers, R.id.btnClear, toClear);
+		initialize(view, inputs, groups, outputs, solvers, R.id.btnClear);
 		return view;
 	}
 

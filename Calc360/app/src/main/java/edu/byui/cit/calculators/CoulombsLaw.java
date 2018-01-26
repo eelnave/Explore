@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.CoulombsLaw.*;
 
 
-public final class CoulombsLaw extends SolveAll {
+public final class CoulombsLaw extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decForce, decQ1, decQ2, decDist;
 
@@ -27,7 +27,7 @@ public final class CoulombsLaw extends SolveAll {
 		decQ1 = new EditDec(view, R.id.decQ1, this);
 		decQ2 = new EditDec(view, R.id.decQ2, this);
 		decDist = new EditDec(view, R.id.decDist, this);
-		Input[] inputs = { decForce, decQ1, decQ2, decDist};
+		EditWrapper[] inputs = { decForce, decQ1, decQ2, decDist};
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -72,7 +72,7 @@ public final class CoulombsLaw extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

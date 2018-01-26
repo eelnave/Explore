@@ -3,7 +3,6 @@ package edu.byui.cit.calculators;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import java.text.NumberFormat;
@@ -11,6 +10,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.TextWrapper;
 
@@ -101,9 +101,9 @@ public final class Percent extends CalcFragment {
 
 
 	/** Handles a click on the clear button. */
-	private final class ClearHandler1 implements OnClickListener {
+	private final class ClearHandler1 implements ClickListener {
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			decPerc1.clear();
 			decPerc2.clear();
 			percResult1.clear();
@@ -111,9 +111,9 @@ public final class Percent extends CalcFragment {
 		}
 	}
 
-	private final class ClearHandler2 implements OnClickListener {
+	private final class ClearHandler2 implements ClickListener {
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			decPerc3.clear();
 			decPerc4.clear();
 			percResult2.clear();
@@ -121,9 +121,9 @@ public final class Percent extends CalcFragment {
 		}
 	}
 
-	private final class ClearHandler3 implements OnClickListener {
+	private final class ClearHandler3 implements ClickListener {
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			decPerc5.clear();
 			decPerc6.clear();
 			percResult3.clear();

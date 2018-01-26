@@ -1,7 +1,6 @@
 package edu.byui.cit.text;
 
 import android.content.SharedPreferences;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 
@@ -12,24 +11,25 @@ import edu.byui.cit.calc360.CalcFragment;
 
 
 public class EditDec extends EditWrapper {
-	public EditDec(View parent, int resID, TextWatcher watcher) {
-		super(parent, resID, null, watcher);
+	public EditDec(View parent, int resID, CalcFragment calculator) {
+		super(parent, resID, null, calculator);
 	}
 
 	public EditDec(
-			View parent, int resID, String prefsKey, TextWatcher watcher) {
-		super(parent, resID, prefsKey, watcher);
+			View parent, int resID, String prefsKey, CalcFragment calculator) {
+		super(parent, resID, prefsKey, calculator);
 	}
 
-	public EditDec(View parent, int resID, boolean place, CalcFragment calculator) {
-		super(parent, resID, null, place, calculator);
+	public EditDec(View parent, int resID, TextChangeListener listener) {
+		super(parent, resID, null, listener);
 	}
 
-	public EditDec(View parent, int resID, String prefsKey,
-			boolean place, CalcFragment calculator) {
-		super(parent, resID, prefsKey, place, calculator);
+	public EditDec(
+			View parent, int resID, String prefsKey, TextChangeListener listener) {
+		super(parent, resID, prefsKey, listener);
 	}
 
+	@Override
 	public void save(SharedPreferences.Editor editor) {
 		if (isEmpty()) {
 			editor.remove(prefsKey);
@@ -40,16 +40,12 @@ public class EditDec extends EditWrapper {
 		}
 	}
 
+	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
 		if (prefs.contains(prefsKey)) {
 			float val = prefs.getFloat(prefsKey, 0);
 			setInput(fmtr.format(val));
 		}
-	}
-
-	@Override
-	public Number getValue() {
-		return getDec();
 	}
 
 	public double getDec() throws NumberFormatException {

@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.Torque.*;
 
 
-public class Torque extends SolveAll {
+public class Torque extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decTorque, decForce, decRadius, decTheta;
 
@@ -27,7 +27,7 @@ public class Torque extends SolveAll {
 		decForce = new EditDec(view, R.id.decForce, this);
 		decRadius = new EditDec(view, R.id.decRadius, this);
 		decTheta = new EditDec(view, R.id.decTheta, this);
-		Input[] inputs = { decTorque, decForce, decRadius, decTheta };
+		EditWrapper[] inputs = { decTorque, decForce, decRadius, decTheta };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -72,7 +72,7 @@ public class Torque extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

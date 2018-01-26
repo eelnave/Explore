@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Chemistry.GasVelocity.*;
 
 
-public final class GasVelocity extends SolveAll {
+public final class GasVelocity extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decVeloc, decGasConst, decTemp, decMass;
 
@@ -29,7 +29,7 @@ public final class GasVelocity extends SolveAll {
 		decGasConst = new EditDec(view, R.id.decR, this);
 		decTemp = new EditDec(view, R.id.decT, this);
 		decMass = new EditDec(view, R.id.decM, this);
-		Input[] inputs = { decVeloc, decGasConst, decTemp, decMass };
+		EditWrapper[] inputs = { decVeloc, decGasConst, decTemp, decMass };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -74,7 +74,7 @@ public final class GasVelocity extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

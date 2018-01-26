@@ -7,17 +7,17 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.SolveSome;
+import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 import static edu.byui.cit.model.Geometry.Quadratic.*;
 
 
-public final class Quadratic extends SolveSome {
+public final class Quadratic extends SolveSeries {
 	private final NumberFormat fmtrDec;
 	private EditDec decA, decB, decC;
 	private TextWrapper decRoot1, decRoot2;
@@ -41,12 +41,12 @@ public final class Quadratic extends SolveSome {
 		decRoot1 = new TextWrapper(view, R.id.decRoot1);
 		decRoot2 = new TextWrapper(view, R.id.decRoot2);
 
-		Input[] inputs = { decA, decB, decC };
-		Control[] toClear = { decA, decB, decC, decRoot1, decRoot2 };
+		EditWrapper[] inputs = { decA, decB, decC };
+		TextWrapper[] outputs = { decRoot1, decRoot2 };
 
 		Solver[] solvers = new Solver[] {
-				new Solver(new Input[]{ decA, decB, decC },
-						new Control[]{ decRoot1, decRoot2 }) {
+				new Solver(new EditWrapper[]{ decA, decB, decC },
+						new ControlWrapper[]{ decRoot1, decRoot2 }) {
 					@Override
 					public void solve() {
 						double a = decA.getDec();
@@ -84,7 +84,7 @@ public final class Quadratic extends SolveSome {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, toClear);
+		initialize(view, inputs, outputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

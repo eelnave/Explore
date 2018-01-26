@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.SolveSome;
+import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.MassEnergy.*;
 
 
-public final class Relativity extends SolveSome {
+public final class Relativity extends SolveSeries {
 	private final DecimalFormat fmtrScientific = new DecimalFormat("0.000E0");
 	private final NumberFormat fmtrStandard = NumberFormat.getInstance();
 	private EditDec decEnergy, decMass;
@@ -29,10 +29,10 @@ public final class Relativity extends SolveSome {
 		decEnergy = new EditDec(view, R.id.decEnergy, this);
 		decMass = new EditDec(view, R.id.decMass, this);
 
-		Input[] inputs = { decEnergy, decMass };
+		EditWrapper[] inputs = { decEnergy, decMass };
 
 		Solver[] solvers = new Solver[]{
-				new Solver(new Input[]{ decMass }, new Control[]{ decEnergy }) {
+				new Solver(new EditWrapper[]{ decMass }, new ControlWrapper[]{ decEnergy }) {
 					@Override
 					public void solve() {
 						double m = decMass.getDec();
@@ -40,7 +40,7 @@ public final class Relativity extends SolveSome {
 						decEnergy.setText(format(e));
 					}
 				},
-				new Solver(new Input[]{ decEnergy }, new Control[]{ decMass }) {
+				new Solver(new EditWrapper[]{ decEnergy }, new ControlWrapper[]{ decMass }) {
 					@Override
 					public void solve() {
 						double e = decEnergy.getDec();
@@ -50,7 +50,7 @@ public final class Relativity extends SolveSome {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, inputs);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 

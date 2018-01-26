@@ -5,7 +5,6 @@ import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 
 import java.text.DateFormat;
@@ -17,7 +16,9 @@ import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditInt;
+import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
 
 
@@ -44,7 +45,7 @@ public final class QueueTime extends CalcFragment {
 		// Inflate the layout for this fragment.
 		View view = inflater.inflate(R.layout.queue_time, container, false);
 
-		intPeople = new EditInt(view, R.id.intPeople, this);
+		intPeople = new EditInt(view, R.id.intPeople, new PeopleHandler());
 		timAvg = new TextWrapper(view, R.id.timAvg);
 		timRemain = new TextWrapper(view, R.id.timRemain);
 		timServed = new TextWrapper(view, R.id.timServed);
@@ -55,28 +56,30 @@ public final class QueueTime extends CalcFragment {
 	}
 
 
-	@Override
-	public void afterTextChanged(Editable s) {
-		try {
-			prevClick = System.currentTimeMillis();
-			sum = 0;
-			count = 0;
-			people = 0;
-			if (intPeople.notEmpty()) {
-				people = intPeople.getInt();
-				if (people > 0) {
-					btnNext.setEnabled(true);
+	private final class PeopleHandler extends TextChangeHandler {
+		@Override
+		public void afterChanged(Editable s) {
+			try {
+				prevClick = System.currentTimeMillis();
+				sum = 0;
+				count = 0;
+				people = 0;
+				if (intPeople.notEmpty()) {
+					people = intPeople.getInt();
+					if (people > 0) {
+						btnNext.setEnabled(true);
+					}
+				}
+				if (people == 0) {
+					clearResults();
 				}
 			}
-			if (people == 0) {
-				clearResults();
+			catch (NumberFormatException ex) {
+				// Do nothing
 			}
-		}
-		catch (NumberFormatException ex) {
-			// Do nothing
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
+			catch (Exception ex) {
+				Log.e(Calc360.TAG, "exception", ex);
+			}
 		}
 	}
 
@@ -118,9 +121,9 @@ public final class QueueTime extends CalcFragment {
 	}
 
 
-	private final class ClearHandler implements OnClickListener {
+	private final class ClearHandler implements ClickListener {
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			prevClick = 0;
 			people = 0;
 			count = 0;

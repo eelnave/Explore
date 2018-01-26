@@ -12,10 +12,10 @@ import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer.Ratio;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
@@ -46,7 +46,7 @@ public final class Discount extends CalcFragment {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.discount, container, false);
 
-		//Attach all the fields to an EditDec or EditCur object
+		// Attach all the fields to an EditDec or EditCur object
 		curPrice = new EditCur(view, R.id.curPrice, this);
 		decDiscRate = new EditDec(view, R.id.decDiscRate, this);
 		curDiscAmt = new EditCur(view, R.id.curDiscAmt, this);
@@ -57,40 +57,44 @@ public final class Discount extends CalcFragment {
 		curTotal = new TextWrapper(view, R.id.curTotal);
 		curSaved = new TextWrapper(view, R.id.curSaved);
 
-		Input[] inputs = { curPrice, decDiscRate, curDiscAmt, decTaxRate };
-		Control[] outputs = { curDiscPrice, curTaxAmt, curTotal, curSaved };
-		initialize(view, inputs, outputs, R.id.btnClear);
+		EditWrapper[] inputs = { curPrice, decDiscRate, curDiscAmt, decTaxRate };
+		EditWrapper[][] groups = {{ decDiscRate, curDiscAmt }};
+		ControlWrapper[] toClear = {
+				curPrice, decDiscRate, curDiscAmt,
+				curDiscPrice, curTaxAmt, curTotal, curSaved
+		};
+		initialize(view, inputs, groups, toClear, R.id.btnClear);
 		return view;
 	}
 
 
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
-		// Restore the user entered sales tax rate if it exists.
+		// Get the previous sales tax rate entered by the user if it exits.
 		decTaxRate.restore(prefs, fmtrDec);
 	}
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
+		// Write the tax rate entered by the user into the preferences file.
 		decTaxRate.save(editor);
 	}
 
 
 	@Override
 	protected void compute() {
-		clearOutputs();
-		if (userInput(curPrice)) {
+		if (curPrice.hasUserInput()) {
 			double price = curPrice.getCur();
 
 			// Compute the discount amount or discount rate.
 			// Also, compute the discounted price.
 			double discAmt = 0;
-			if (userInput(decDiscRate)) {
+			if (decDiscRate.hasUserInput()) {
 				double discRate = decDiscRate.getDec() / 100.0;
 				discAmt = Ratio.amount(discRate, price);
 				curDiscAmt.setText(fmtrCur.format(discAmt));
 			}
-			else if (userInput(curDiscAmt)) {
+			else if (curDiscAmt.hasUserInput()) {
 				discAmt = curDiscAmt.getCur();
 				double discRate = Ratio.rate(discAmt, price);
 				decDiscRate.setText(fmtrDec.format(discRate * 100.0));
@@ -101,7 +105,7 @@ public final class Discount extends CalcFragment {
 			// Compute the sales tax amount and the total.
 			double taxRate = 0;
 			double taxAmt = 0;
-			if (userInput(decTaxRate)) {
+			if (decTaxRate.hasUserInput()) {
 				taxRate = decTaxRate.getDec() / 100.0;
 				taxAmt = Ratio.amount(taxRate, discPrice);
 				curTaxAmt.setText(fmtrCur.format(taxAmt));
@@ -113,6 +117,12 @@ public final class Discount extends CalcFragment {
 			double origTotal = Ratio.total(taxRate, price);
 			double saved = origTotal - discTotal;
 			curSaved.setText(fmtrCur.format(saved));
+		}
+		else {
+			curDiscPrice.clear();
+			curTaxAmt.clear();
+			curTotal.clear();
+			curSaved.clear();
 		}
 	}
 }

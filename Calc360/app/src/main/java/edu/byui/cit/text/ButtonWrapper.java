@@ -4,44 +4,56 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import edu.byui.cit.calc360.CalcFragment;
 
-public final class ButtonWrapper extends Control {
+
+public final class ButtonWrapper extends ControlWrapper implements OnClickListener {
 	private final Button button;
+	private final ClickListener listener;
 
-	public ButtonWrapper(View parent, int resID, OnClickListener listener) {
-		super(parent, resID);
-		button = parent.findViewById(resID);
-		button.setOnClickListener(listener);
+	public ButtonWrapper(View parent, int resID, CalcFragment calculator) {
+		this(parent, resID, calculator, null);
+	}
+
+	public ButtonWrapper(View parent, int resID, ClickListener listener) {
+		this(parent, resID, null, listener);
+	}
+
+	private ButtonWrapper(View parent, int resID,
+			CalcFragment calculator, ClickListener listener) {
+		super(parent, resID, calculator);
+		this.button = parent.findViewById(resID);
+		this.listener = listener;
+		button.setOnClickListener(this);
 	}
 
 	@Override
-	public boolean isEnabled() {
+	public final boolean isEnabled() {
 		return button.isEnabled();
 	}
 
 	@Override
-	public void setEnabled(boolean enabled) {
+	public final void setEnabled(boolean enabled) {
 		button.setEnabled(enabled);
 	}
 
 	@Override
-	public boolean hasFocus() {
+	public final boolean hasFocus() {
 		return button.hasFocus();
 	}
 
 	@Override
-	public void requestFocus() {
+	public final void requestFocus() {
 		button.requestFocus();
 	}
 
 	@Override
-	public void onFocusChange(View view, boolean hasFocus) {
-		if (hasFocus) {
-			hideKeyboard(view);
+	public final void onClick(View button) {
+		if (listener == null) {
+			calculator.callCompute();
 		}
-	}
-
-	@Override
-	public void clear() {
+		else {
+			listener.clicked(button);
+		}
 	}
 }

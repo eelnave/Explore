@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinInt;
 
 import static edu.byui.cit.model.Finance.investPresentValue;
@@ -23,7 +23,7 @@ import static edu.byui.cit.model.Finance.investYears;
 import static edu.byui.cit.model.Finance.investFutureValue;
 
 
-public final class Investment extends SolveAll {
+public final class Investment extends SolveEquation {
 	private static final String KEY_PPY = "Invest.ppy";
 	private final NumberFormat fmtrCur, fmtrRate, fmtrYears;
 	private EditCur curPV, curPay;
@@ -58,7 +58,7 @@ public final class Investment extends SolveAll {
 				R.array.possiblePPY, KEY_PPY, this);
 
 		curFV = new EditCur(view, R.id.curFV, this);
-		Input[] inputs = { curPV, curPay, decAR, decYears, curFV };
+		EditWrapper[] inputs = { curPV, curPay, decAR, decYears, curFV };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -127,7 +127,7 @@ public final class Investment extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 

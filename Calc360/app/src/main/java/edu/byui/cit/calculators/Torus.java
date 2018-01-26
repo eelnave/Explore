@@ -9,14 +9,14 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.model.Geometry;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveSome;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditAngle;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 
-public final class Torus extends SolveSome {
+public final class Torus extends SolveSeries {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decMajor, decMinor, decInner, decOuter, decArea, decVolume;
 
@@ -32,11 +32,11 @@ public final class Torus extends SolveSome {
 		decOuter = new EditAngle(view, R.id.decOuter, this);
 		decArea = new EditAngle(view, R.id.decSurfArea, this);
 		decVolume = new EditAngle(view, R.id.decVolume, this);
-		Input[] inputs = {
+		EditWrapper[] inputs = {
 				decMajor, decMinor, decInner, decOuter, decArea, decVolume
 		};
 
-		initialize(view, inputs, new Solver[]{
+		initialize(view, inputs, null, null, new Solver[]{
 				new MajorMinor(),
 				new MajorInner(),
 				new MajorOuter(),
@@ -53,7 +53,7 @@ public final class Torus extends SolveSome {
 				new InnerVolume(),
 				new OuterArea(),
 				new OuterVolume()
-		}, R.id.btnClear, inputs);
+		}, R.id.btnClear);
 
 		return view;
 	}
@@ -61,8 +61,8 @@ public final class Torus extends SolveSome {
 
 	private final class MajorMinor extends Solver {
 		MajorMinor() {
-			super(new Input[]{ decMajor, decMinor },
-					new Control[]{ decInner, decOuter, decArea, decVolume });
+			super(new EditWrapper[]{ decMajor, decMinor },
+					new ControlWrapper[]{ decInner, decOuter, decArea, decVolume });
 		}
 
 		@Override
@@ -82,8 +82,8 @@ public final class Torus extends SolveSome {
 
 	private final class MajorInner extends Solver {
 		MajorInner() {
-			super(new Input[]{ decMajor, decInner },
-					new Control[]{ decMinor, decOuter, decArea, decVolume });
+			super(new EditWrapper[]{ decMajor, decInner },
+					new ControlWrapper[]{ decMinor, decOuter, decArea, decVolume });
 		}
 
 		@Override
@@ -103,8 +103,8 @@ public final class Torus extends SolveSome {
 
 	private final class MajorOuter extends Solver {
 		MajorOuter() {
-			super(new Input[]{ decMajor, decOuter },
-					new Control[]{ decMinor, decInner, decArea, decVolume });
+			super(new EditWrapper[]{ decMajor, decOuter },
+					new ControlWrapper[]{ decMinor, decInner, decArea, decVolume });
 		}
 
 		@Override
@@ -124,8 +124,8 @@ public final class Torus extends SolveSome {
 
 	private final class MajorArea extends Solver {
 		MajorArea() {
-			super(new Input[]{ decMajor, decArea },
-					new Control[]{ decMinor, decInner, decOuter, decVolume });
+			super(new EditWrapper[]{ decMajor, decArea },
+					new ControlWrapper[]{ decMinor, decInner, decOuter, decVolume });
 		}
 
 		@Override
@@ -145,8 +145,8 @@ public final class Torus extends SolveSome {
 
 	private final class MajorVolume extends Solver {
 		MajorVolume() {
-			super(new Input[]{ decMajor, decVolume },
-					new Control[]{ decMinor, decInner, decOuter, decArea });
+			super(new EditWrapper[]{ decMajor, decVolume },
+					new ControlWrapper[]{ decMinor, decInner, decOuter, decArea });
 		}
 
 		@Override
@@ -166,8 +166,8 @@ public final class Torus extends SolveSome {
 
 	private final class MinorInner extends Solver {
 		MinorInner() {
-			super(new Input[]{ decMinor, decInner },
-					new Control[]{ decMajor, decOuter, decArea, decVolume });
+			super(new EditWrapper[]{ decMinor, decInner },
+					new ControlWrapper[]{ decMajor, decOuter, decArea, decVolume });
 		}
 
 		@Override
@@ -187,8 +187,8 @@ public final class Torus extends SolveSome {
 
 	private final class MinorOuter extends Solver {
 		MinorOuter() {
-			super(new Input[]{ decMinor, decOuter },
-					new Control[]{ decMajor, decInner, decArea, decVolume });
+			super(new EditWrapper[]{ decMinor, decOuter },
+					new ControlWrapper[]{ decMajor, decInner, decArea, decVolume });
 		}
 
 		@Override
@@ -208,8 +208,8 @@ public final class Torus extends SolveSome {
 
 	private final class MinorArea extends Solver {
 		MinorArea() {
-			super(new Input[]{ decMinor, decArea },
-					new Control[]{ decMajor, decInner, decOuter, decVolume });
+			super(new EditWrapper[]{ decMinor, decArea },
+					new ControlWrapper[]{ decMajor, decInner, decOuter, decVolume });
 		}
 
 		@Override
@@ -229,8 +229,8 @@ public final class Torus extends SolveSome {
 
 	private final class MinorVolume extends Solver {
 		MinorVolume() {
-			super(new Input[]{ decMinor, decVolume },
-					new Control[]{ decMajor, decInner, decOuter, decArea });
+			super(new EditWrapper[]{ decMinor, decVolume },
+					new ControlWrapper[]{ decMajor, decInner, decOuter, decArea });
 		}
 
 		@Override
@@ -250,8 +250,8 @@ public final class Torus extends SolveSome {
 
 	private final class InnerOuter extends Solver {
 		InnerOuter() {
-			super(new Input[]{ decInner, decOuter },
-					new Control[]{ decMajor, decMinor, decArea, decVolume });
+			super(new EditWrapper[]{ decInner, decOuter },
+					new ControlWrapper[]{ decMajor, decMinor, decArea, decVolume });
 		}
 
 		@Override
@@ -271,8 +271,8 @@ public final class Torus extends SolveSome {
 
 	private final class InnerArea extends Solver {
 		InnerArea() {
-			super(new Input[]{ decInner, decArea },
-					new Control[]{ decMajor, decMinor, decOuter, decVolume });
+			super(new EditWrapper[]{ decInner, decArea },
+					new ControlWrapper[]{ decMajor, decMinor, decOuter, decVolume });
 		}
 
 		@Override
@@ -292,8 +292,8 @@ public final class Torus extends SolveSome {
 
 	private final class InnerVolume extends Solver {
 		InnerVolume() {
-			super(new Input[]{ decInner, decVolume },
-					new Control[]{ decMajor, decMinor, decOuter, decArea });
+			super(new EditWrapper[]{ decInner, decVolume },
+					new ControlWrapper[]{ decMajor, decMinor, decOuter, decArea });
 		}
 
 		@Override
@@ -313,8 +313,8 @@ public final class Torus extends SolveSome {
 
 	private final class OuterArea extends Solver {
 		OuterArea() {
-			super(new Input[]{ decOuter, decArea },
-					new Control[]{ decMajor, decMinor, decInner, decVolume });
+			super(new EditWrapper[]{ decOuter, decArea },
+					new ControlWrapper[]{ decMajor, decMinor, decInner, decVolume });
 		}
 
 		@Override
@@ -334,8 +334,8 @@ public final class Torus extends SolveSome {
 
 	private final class OuterVolume extends Solver {
 		OuterVolume() {
-			super(new Input[]{ decOuter, decVolume },
-					new Control[]{ decMajor, decMinor, decInner, decArea });
+			super(new EditWrapper[]{ decOuter, decVolume },
+					new ControlWrapper[]{ decMajor, decMinor, decInner, decArea });
 		}
 
 		@Override

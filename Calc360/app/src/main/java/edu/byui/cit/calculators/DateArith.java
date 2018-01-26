@@ -3,33 +3,29 @@ package edu.byui.cit.calculators;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.DatePicker;
-import android.widget.DatePicker.OnDateChangedListener;
 
 import java.text.DateFormat;
 import java.util.Calendar;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
+import edu.byui.cit.text.DateWrapper;
 import edu.byui.cit.text.EditInt;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Time;
 
 
-public final class DateArith extends CalcFragment
-		implements OnDateChangedListener {
+public final class DateArith extends CalcFragment {
 	private static final String KEY_UNITS = "DateArith.durationType";
 	private final DateFormat fmtrDate;
 
-	private DatePicker datePicker;
+	private DateWrapper datePicker;
 	private EditInt intDuration;
 	private SpinUnit spinDuration;
 	private TextWrapper dateResult;
@@ -45,15 +41,10 @@ public final class DateArith extends CalcFragment
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.date_arith, container, false);
 
-		datePicker = view.findViewById(R.id.datePicker);
 		Calendar calendar = Calendar.getInstance();
-		datePicker.init(
-				calendar.get(Calendar.YEAR),
-				calendar.get(Calendar.MONTH),
-				calendar.get(Calendar.DATE),
-				this);
+		datePicker = new DateWrapper(view, R.id.datePicker, calendar, this);
 
-		new ButtonWrapper(view, R.id.btnToday, this);
+		new ButtonWrapper(view, R.id.btnToday, new TodayHandler());
 		intDuration = new EditInt(view, R.id.intDuration, this);
 
 		// Set up the spinner to show the right values
@@ -63,9 +54,9 @@ public final class DateArith extends CalcFragment
 		dateResult = new TextWrapper(view, R.id.dateResult);
 
 		new ButtonWrapper(view, R.id.btnClear,
-				new OnClickListener() {
+				new ClickListener() {
 					@Override
-					public void onClick(View button) {
+					public void clicked(View button) {
 						intDuration.clear();
 						dateResult.clear();
 						intDuration.requestFocus();
@@ -88,63 +79,54 @@ public final class DateArith extends CalcFragment
 	}
 
 
-	@Override
-	public void onDateChanged(
-			DatePicker datePicker, int year, int month, int dayOfMonth) {
-		callCompute();
-	}
-
-	/** Handles a click on the Today button. */
-	@Override
-	public void onClick(View button) {
-		// Get today's date.
-		Calendar calendar = Calendar.getInstance();
-		// Set the datePicker to the current date
-		datePicker.updateDate(
-				calendar.get(Calendar.YEAR),
-				calendar.get(Calendar.MONTH),
-				calendar.get(Calendar.DATE)
-		);
+	private final class TodayHandler implements ClickListener {
+		/** Handles a click on the Today button. */
+		@Override
+		public void clicked(View button) {
+			// Get today's date.
+			Calendar calendar = Calendar.getInstance();
+			// Set the datePicker to the current date
+			datePicker.updateDate(
+					calendar.get(Calendar.YEAR),
+					calendar.get(Calendar.MONTH),
+					calendar.get(Calendar.DATE)
+			);
+		}
 	}
 
 	@Override
 	protected void compute() {
-		try {
-			if (intDuration.notEmpty()) {
-				// Reset the date
-				Calendar calendar = Calendar.getInstance();
-				// Set the date to what the user has selected
-				calendar.set(datePicker.getYear(), datePicker.getMonth(),
-						datePicker.getDayOfMonth());
+		if (intDuration.notEmpty()) {
+			// Reset the date
+			Calendar calendar = Calendar.getInstance();
+			// Set the date to what the user has selected
+			calendar.set(datePicker.getYear(), datePicker.getMonth(),
+					datePicker.getDayOfMonth());
 
-				// Find out what unit we are using and add it
-				int units = spinDuration.getSelectedItem().getID();
-				int durat = intDuration.getInt();
-				int interval;
-				switch (units) {
-					case Time.year:
-						interval = Calendar.YEAR;
-						break;
-					case Time.month:
-						interval = Calendar.MONTH;
-						break;
-					case Time.week:
-						interval = Calendar.DATE;
-						durat *= 7;
-						break;
-					default:  // day
-						interval = Calendar.DATE;
-						break;
-				}
-				calendar.add(interval, durat);
-				// Format our new date
-				String str = fmtrDate.format(calendar.getTime());
-				// Set the new date in the view
-				dateResult.setText(str);
+			// Find out what unit we are using and add it
+			int units = spinDuration.getSelectedItem().getID();
+			int durat = intDuration.getInt();
+			int interval;
+			switch (units) {
+				case Time.year:
+					interval = Calendar.YEAR;
+					break;
+				case Time.month:
+					interval = Calendar.MONTH;
+					break;
+				case Time.week:
+					interval = Calendar.DATE;
+					durat *= 7;
+					break;
+				default:  // day
+					interval = Calendar.DATE;
+					break;
 			}
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
+			calendar.add(interval, durat);
+			// Format our new date
+			String str = fmtrDate.format(calendar.getTime());
+			// Set the new date in the view
+			dateResult.setText(str);
 		}
 	}
 }

@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveSome;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Sphere.*;
 
 
-public final class Sphere extends SolveSome {
+public final class Sphere extends SolveSeries {
 	private final NumberFormat fmtrStandard = NumberFormat.getInstance();
 	private EditDec decVol, decRad, decSur;
 
@@ -29,11 +29,11 @@ public final class Sphere extends SolveSome {
 		decRad = new EditDec(view, R.id.decRad, this);
 		decSur = new EditDec(view, R.id.decSur, this);
 		decVol = new EditDec(view, R.id.decVol, this);
-		Input[] inputs = { decRad, decSur, decVol };
+		EditWrapper[] inputs = { decRad, decSur, decVol };
 
 		Solver[] solvers = new Solver[]{
-				new Solver(new Input[]{ decVol },
-						new Control[]{ decRad, decSur }) {
+				new Solver(new EditWrapper[]{ decVol },
+						new ControlWrapper[]{ decRad, decSur }) {
 					@Override
 					public void solve() {
 						double v = decVol.getDec();
@@ -43,8 +43,8 @@ public final class Sphere extends SolveSome {
 						decSur.setText(fmtrStandard.format(s));
 					}
 				},
-				new Solver(new Input[]{ decSur },
-						new Control[]{ decRad, decVol }) {
+				new Solver(new EditWrapper[]{ decSur },
+						new ControlWrapper[]{ decRad, decVol }) {
 					@Override
 					public void solve() {
 						double s = decSur.getDec();
@@ -54,8 +54,8 @@ public final class Sphere extends SolveSome {
 						decVol.setText(fmtrStandard.format(v));
 					}
 				},
-				new Solver(new Input[]{ decRad },
-						new Control[]{ decSur, decVol }) {
+				new Solver(new EditWrapper[]{ decRad },
+						new ControlWrapper[]{ decSur, decVol }) {
 					@Override
 					public void solve() {
 						double r = decRad.getDec();
@@ -67,7 +67,7 @@ public final class Sphere extends SolveSome {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, inputs);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

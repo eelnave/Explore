@@ -3,7 +3,6 @@ package edu.byui.cit.calculators;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 
@@ -11,9 +10,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.text.ClickListener;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.RadioWrapper;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Length;
@@ -62,16 +62,18 @@ public final class BodyMassIndex extends CalcFragment {
 		new RadioWrapper(view, R.id.radMetric, listener);
 		radImperial.performClick();
 
-		Input[] inputs = { decHeight, decWeight };
-		Control[] outputs = { txtBMI, txtCategory };
-		initialize(view, inputs, outputs, R.id.btnClear);
+		EditWrapper[] inputs = { decHeight, decWeight };
+		ControlWrapper[] toClear = {
+				decHeight, decWeight, txtBMI, txtCategory
+		};
+		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
 
 
-	private final class RadioClick implements OnClickListener {
+	private final class RadioClick implements ClickListener {
 		@Override
-		public void onClick(View button) {
+		public void clicked(View button) {
 			Property length = Length.getInstance();
 			Property mass = Mass.getInstance();
 			boolean selected = ((RadioButton)button).isChecked();
@@ -126,7 +128,8 @@ public final class BodyMassIndex extends CalcFragment {
 			txtCategory.setText(category);
 		}
 		else {
-			clearOutputs();
+			txtBMI.clear();
+			txtCategory.clear();
 		}
 	}
 }

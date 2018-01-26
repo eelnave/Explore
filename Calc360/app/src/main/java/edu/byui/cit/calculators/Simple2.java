@@ -7,15 +7,15 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.SolveSome;
+import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
-public final class Simple2 extends SolveSome {
+public final class Simple2 extends SolveSeries {
 	private final NumberFormat fmtrDec;
 
 	public Simple2() {
@@ -39,12 +39,12 @@ public final class Simple2 extends SolveSome {
 		final EditDec decimal2 = new EditDec(view, R.id.decimal2, this);
 		final TextWrapper result = new TextWrapper(view, R.id.result);
 
-		Input[] inputs = { decimal1, decimal2 };
-		Control[] toClear = { decimal1, decimal2, result };
+		EditWrapper[] inputs = { decimal1, decimal2 };
+		TextWrapper[] outputs = { result };
 
 		Solver[] solvers = new Solver[]{
-				new Solver(new Input[]{ decimal1, decimal2 },
-						new Control[]{ result }) {
+				new Solver(new EditWrapper[]{ decimal1, decimal2 },
+						new ControlWrapper[]{ result }) {
 					@Override
 					public void solve() {
 						double num1 = decimal1.getDec();
@@ -56,7 +56,7 @@ public final class Simple2 extends SolveSome {
 		};
 
 		// Call initialize in the parent class.
-		initialize(view, inputs, solvers, R.id.btnClear, toClear);
+		initialize(view, inputs, outputs, solvers, R.id.btnClear);
 
 		return view;
 	}

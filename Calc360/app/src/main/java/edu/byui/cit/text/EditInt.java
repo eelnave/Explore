@@ -1,22 +1,33 @@
 package edu.byui.cit.text;
 
 import android.content.SharedPreferences;
-import android.text.TextWatcher;
 import android.view.View;
 
 import java.text.NumberFormat;
 
+import edu.byui.cit.calc360.CalcFragment;
+
 
 public class EditInt extends EditWrapper {
-	public EditInt(View parent, int resID, TextWatcher watcher) {
-		super(parent, resID, null, watcher);
+	public EditInt(View parent, int resID, CalcFragment calculator) {
+		super(parent, resID, null, calculator);
 	}
 
 	public EditInt(
-			View parent, int resID, String prefsKey, TextWatcher watcher) {
-		super(parent, resID, prefsKey, watcher);
+			View parent, int resID, String prefsKey, CalcFragment calculator) {
+		super(parent, resID, prefsKey, calculator);
 	}
 
+	public EditInt(View parent, int resID, TextChangeListener listener) {
+		super(parent, resID, null, listener);
+	}
+
+	public EditInt(View parent, int resID,
+			String prefsKey, TextChangeListener listener) {
+		super(parent, resID, prefsKey, listener);
+	}
+
+	@Override
 	public void save(SharedPreferences.Editor editor) {
 		if (isEmpty()) {
 			editor.remove(prefsKey);
@@ -26,16 +37,12 @@ public class EditInt extends EditWrapper {
 		}
 	}
 
+	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
 		if (prefs.contains(prefsKey)) {
 			int val = prefs.getInt(prefsKey, 0);
 			setInput(fmtr.format(val));
 		}
-	}
-
-	@Override
-	public Number getValue() {
-		return getInt();
 	}
 
 	public int getInt() throws NumberFormatException {

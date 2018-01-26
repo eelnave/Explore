@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 
-public final class Ratio extends SolveAll {
+public final class Ratio extends SolveEquation {
 	// Create a number formatter object that
 	// will format numbers for the user to see.
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
@@ -29,7 +29,7 @@ public final class Ratio extends SolveAll {
 		decB = new EditDec(view, R.id.decB, this);
 		decX = new EditDec(view, R.id.decX, this);
 		decY = new EditDec(view, R.id.decY, this);
-		Input[] inputs = { decA, decB, decX, decY };
+		EditWrapper[] inputs = { decA, decB, decX, decY };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -74,7 +74,7 @@ public final class Ratio extends SolveAll {
 				}
 		};
 
-		initialize(view, R.id.btnClear, inputs, solvers);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

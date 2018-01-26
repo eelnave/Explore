@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveSome;
-import edu.byui.cit.text.Control;
+import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Cylinder.*;
 
 
-public class Cylinder extends SolveSome {
+public class Cylinder extends SolveSeries {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decRadius, decHeight, decSurfArea, decVolume;
 
@@ -30,11 +30,11 @@ public class Cylinder extends SolveSome {
 		decSurfArea = new EditDec(view, R.id.decSurfArea, this);
 		decVolume = new EditDec(view, R.id.decVolume, this);
 
-		Input[] inputs = { decRadius, decHeight, decSurfArea, decVolume };
+		EditWrapper[] inputs = { decRadius, decHeight, decSurfArea, decVolume };
 
 		Solver[] solvers = new Solver[]{
-				new Solver(new Input[]{ decRadius, decHeight },
-						new Control[]{ decSurfArea, decVolume }) {
+				new Solver(new EditWrapper[]{ decRadius, decHeight },
+						new ControlWrapper[]{ decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -45,8 +45,8 @@ public class Cylinder extends SolveSome {
 						decVolume.setText(fmtrDec.format(v));
 					}
 				},
-				new Solver(new Input[]{ decRadius, decSurfArea },
-						new Control[]{ decHeight, decVolume }) {
+				new Solver(new EditWrapper[]{ decRadius, decSurfArea },
+						new ControlWrapper[]{ decHeight, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -57,8 +57,8 @@ public class Cylinder extends SolveSome {
 						decVolume.setText(fmtrDec.format(v));
 					}
 				},
-				new Solver(new Input[]{ decRadius, decVolume },
-						new Control[]{ decHeight, decSurfArea }) {
+				new Solver(new EditWrapper[]{ decRadius, decVolume },
+						new ControlWrapper[]{ decHeight, decSurfArea }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -69,8 +69,8 @@ public class Cylinder extends SolveSome {
 						decSurfArea.setText(fmtrDec.format(a));
 					}
 				},
-				new Solver(new Input[]{ decHeight, decSurfArea },
-						new Control[]{ decRadius, decVolume }) {
+				new Solver(new EditWrapper[]{ decHeight, decSurfArea },
+						new ControlWrapper[]{ decRadius, decVolume }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();
@@ -81,8 +81,8 @@ public class Cylinder extends SolveSome {
 						decVolume.setText(fmtrDec.format(v));
 					}
 				},
-				new Solver(new Input[]{ decHeight, decVolume },
-						new Control[]{ decRadius, decSurfArea }) {
+				new Solver(new EditWrapper[]{ decHeight, decVolume },
+						new ControlWrapper[]{ decRadius, decSurfArea }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();
@@ -95,7 +95,7 @@ public class Cylinder extends SolveSome {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, inputs);
+		initialize(view, inputs, solvers, R.id.btnClear);
 		return view;
 	}
 }

@@ -9,13 +9,13 @@ import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
 
 
-public class Property extends Container<Unit> {
+public abstract class Property extends Container<Unit> {
 	public Property(int id, String name, Unit[] units) {
 		super(id, null, name, units);
 	}
 
 
-	void initialize(Resources res) {
+	final void initialize(Resources res) {
 		Property prop = this;
 		try {
 			String name = prop.getName();
@@ -28,10 +28,7 @@ public class Property extends Container<Unit> {
 			List<Unit> units = prop.getByName(unitsNames);
 			for (Unit unit : units) {
 				try {
-					name = unit.getName();
-					localName = res.getQuantityString(
-							Calc360.getID(R.plurals.class, name), Integer.MAX_VALUE);
-					unit.setLocalName(localName);
+					unit.initialize(res);
 				}
 				catch (Exception ex) {
 					Log.e(Calc360.TAG, "exception", ex);

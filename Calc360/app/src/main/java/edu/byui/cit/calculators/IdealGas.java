@@ -9,14 +9,14 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveAll;
+import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.Input;
+import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Chemistry.IdealGas.*;
 
 
-public final class IdealGas extends SolveAll {
+public final class IdealGas extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDec decP, decV, decN, decR, decT;
 
@@ -34,7 +34,7 @@ public final class IdealGas extends SolveAll {
 		decT = new EditDec(view, R.id.decT, this);
 
 		// An array of all the inputs for this calculator.
-		Input[] inputs = { decP, decV, decN, decR, decT };
+		EditWrapper[] inputs = { decP, decV, decN, decR, decT };
 
 		Solver[] solvers = new Solver[] {
 				new Solver() {
@@ -94,8 +94,8 @@ public final class IdealGas extends SolveAll {
 				}
 		};
 
-		// Initialize the code in the parent class SolveAll.
-		initialize(view, R.id.btnClear, inputs, solvers);
+		// Initialize the code in the parent class SolveEquation.
+		initialize(view, inputs, solvers, R.id.btnClear);
 
 		return view;
 	}
