@@ -28,7 +28,7 @@ public final class MilesDriven extends CalcFragment {
 
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
-	private EditCur curPrice; //Represents first input
+	private EditCur milesDriven; //Represents first input
 	private EditDec decTaxRate; //Represents second input
 	private TextWrapper curTaxAmt, curTotal; // Represents output
 
@@ -48,14 +48,14 @@ public final class MilesDriven extends CalcFragment {
 		View view = inflater.inflate(R.layout.sales_tax, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
-		curPrice = new EditCur(view, R.id.curPrice, this); //The R.id.curPrice is what connects this to the xml document
+		milesDriven = new EditCur(view, R.id.curPrice, this); //The R.id.curPrice is what connects this to the xml document
 		decTaxRate = new EditDec(view, R.id.decTaxRate,
 				Calc360.KEY_SALES_TAX_RATE, this);
 		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
-		EditWrapper[] inputs = { curPrice, decTaxRate };
-		ControlWrapper[] toClear = { curPrice, curTaxAmt, curTotal };
+		EditWrapper[] inputs = { milesDriven, decTaxRate };
+		ControlWrapper[] toClear = { milesDriven, curTaxAmt, curTotal };
 		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
@@ -76,8 +76,8 @@ public final class MilesDriven extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		if (curPrice.notEmpty() && decTaxRate.notEmpty()) {
-			double price = curPrice.getCur();
+		if (milesDriven.notEmpty() && decTaxRate.notEmpty()) {
+			double price = milesDriven.getCur();
 			double taxRate = decTaxRate.getDec() / 100.0;
 			double taxAmt = Consumer.Ratio.amount(taxRate, price);
 			double total = Consumer.Ratio.total(taxRate, price);

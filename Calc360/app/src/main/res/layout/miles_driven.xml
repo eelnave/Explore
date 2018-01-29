@@ -14,7 +14,7 @@
 		tools:text="Miles Driven: "/>
 
 	<EditText
-		android:id="@+id/curPrice"
+		android:id="@+id/milesDriven"
 		style="@style/UnsignedDecimal"
 
 		compat:layout_rowSpan="1"
