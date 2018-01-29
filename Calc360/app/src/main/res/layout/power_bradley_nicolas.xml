@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent" android:layout_height="match_parent">
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	compat:columnCount="2">
 
-</android.support.constraint.ConstraintLayout>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="Item Amount:"
+		tools:ignore="InvalidId"/>
+
+	<EditText
+		android:id="@+id/itemAmt"
+		style="@style/UnsignedDecimal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="5"
+		android:inputType="numberDecimal"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Sales Tax:"/>
+
+	<EditText
+		android:id="@+id/tax"
+		style="@style/UnsignedDecimal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="5"
+		android:inputType="numberDecimal"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Total:"/>
+
+	<EditText
+		android:id="@+id/totalAmt"
+		style="@style/UnsignedDecimal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="5"
+		android:inputType="numberDecimal"/>
+
+	<Button
+		android:id="@+id/button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Clear"/>
+
+</android.support.v7.widget.GridLayout>
