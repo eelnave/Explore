@@ -24,9 +24,9 @@ public final class SalesTax extends CalcFragment {
 
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
-	private EditCur curPrice;
-	private EditDec decTaxRate;
-	private TextWrapper curTaxAmt, curTotal;
+	private EditCur curPrice; //Represents first input
+	private EditDec decTaxRate; //Represents second input
+	private TextWrapper curTaxAmt, curTotal; // Represents output
 
 
 	public SalesTax() {
@@ -44,7 +44,7 @@ public final class SalesTax extends CalcFragment {
 		View view = inflater.inflate(R.layout.sales_tax, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
-		curPrice = new EditCur(view, R.id.curPrice, this);
+		curPrice = new EditCur(view, R.id.curPrice, this); //The R.id.curPrice is what connects this to the xml document
 		decTaxRate = new EditDec(view, R.id.decTaxRate,
 				Calc360.KEY_SALES_TAX_RATE, this);
 		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);

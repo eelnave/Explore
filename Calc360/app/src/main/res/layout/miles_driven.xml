@@ -2,6 +2,7 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	compat:columnCount="4">
@@ -9,13 +10,15 @@
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/itemPrice"
-		compat:layout_columnSpan="3"/>
+		compat:layout_columnSpan="3"
+		tools:text="Miles Driven: "/>
 
 	<EditText
 		android:id="@+id/curPrice"
 		style="@style/UnsignedDecimal"
-		android:ems="5"
-		android:hint="@string/priceHint">
+		android:ems="4"
+		android:hint="@string/priceHint"
+		tools:text="ex: 10 ">
 
 		<requestFocus/>
 	</EditText>
@@ -23,14 +26,16 @@
 	<TextView
 		style="@style/TextLabel"
 		android:labelFor="@+id/decTaxRate"
-		android:text="@string/tax"/>
+		android:text="@string/tax"
+		tools:text="Reinbursement Rate: "/>
 
 	<EditText
 		android:id="@+id/decTaxRate"
 		style="@style/UnsignedDecimal"
-		android:ems="3"
+		android:ems="4"
 		android:hint="@string/salesTaxHint"
-		android:imeOptions="actionDone"/>
+		android:imeOptions="actionDone"
+		tools:text="ex: 0.58 "/>
 
 	<TextView
 		style="@style/TextLabel"
