@@ -10,12 +10,14 @@
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/itemPrice"
-		compat:layout_columnSpan="3"
+		compat:layout_columnSpan="2"
 		tools:text="Miles Driven: "/>
 
 	<EditText
 		android:id="@+id/curPrice"
 		style="@style/UnsignedDecimal"
+
+		compat:layout_rowSpan="1"
 		android:ems="4"
 		android:hint="@string/priceHint"
 		tools:text="ex: 10 ">
@@ -26,6 +28,7 @@
 	<TextView
 		style="@style/TextLabel"
 		android:labelFor="@+id/decTaxRate"
+		compat:layout_columnSpan="2"
 		android:text="@string/tax"
 		tools:text="Reinbursement Rate: "/>
 
@@ -36,11 +39,6 @@
 		android:hint="@string/salesTaxHint"
 		android:imeOptions="actionDone"
 		tools:text="ex: 0.58 "/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginEnd="20dp"
-		android:text="@string/perc"/>
 
 	<TextView
 		android:id="@+id/curTaxAmt"
