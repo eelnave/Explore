@@ -29,7 +29,7 @@ public final class MilesDriven extends CalcFragment {
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
 	private EditCur milesDriven; //Represents first input
-	private EditDec decTaxRate; //Represents second input
+	private EditDec reimburse; //Represents second input
 	private TextWrapper curTaxAmt, curTotal; // Represents output
 
 

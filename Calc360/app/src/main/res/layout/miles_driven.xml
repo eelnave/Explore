@@ -16,7 +16,6 @@
 	<EditText
 		android:id="@+id/milesDriven"
 		style="@style/UnsignedDecimal"
-
 		compat:layout_rowSpan="1"
 		android:ems="4"
 		android:hint="@string/priceHint"
