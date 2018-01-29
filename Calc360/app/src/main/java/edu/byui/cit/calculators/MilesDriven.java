@@ -29,7 +29,7 @@ public final class MilesDriven extends CalcFragment {
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
 	private EditCur milesDriven; //Represents first input
-	private EditDec reimburse; //Represents second input
+	private EditDec rate; //Represents second input
 	private TextWrapper curTaxAmt, curTotal; // Represents output
 
 
@@ -45,16 +45,16 @@ public final class MilesDriven extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this calculator.
-		View view = inflater.inflate(R.layout.sales_tax, container, false);
+		View view = inflater.inflate(R.layout.miles_driven, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
-		milesDriven = new EditCur(view, R.id.curPrice, this); //The R.id.curPrice is what connects this to the xml document
-		decTaxRate = new EditDec(view, R.id.decTaxRate,
+		milesDriven = new EditCur(view, R.id.milesDriven, this); //The R.id.curPrice is what connects this to the xml document
+		rate = new EditDec(view, R.id.rate,
 				Calc360.KEY_SALES_TAX_RATE, this);
 		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
-		EditWrapper[] inputs = { milesDriven, decTaxRate };
+		EditWrapper[] inputs = { milesDriven, rate };
 		ControlWrapper[] toClear = { milesDriven, curTaxAmt, curTotal };
 		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
@@ -64,21 +64,21 @@ public final class MilesDriven extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		// Get the previous sales tax rate entered by the user if it exits.
-		decTaxRate.restore(prefs, fmtrDec);
+		rate.restore(prefs, fmtrDec);
 	}
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
 		// Write the tax rate entered by the user into the preferences file.
-		decTaxRate.save(editor);
+		rate.save(editor);
 	}
 
 
 	@Override
 	protected void compute() {
-		if (milesDriven.notEmpty() && decTaxRate.notEmpty()) {
+		if (milesDriven.notEmpty() && rate.notEmpty()) {
 			double price = milesDriven.getCur();
-			double taxRate = decTaxRate.getDec() / 100.0;
+			double taxRate = rate.getDec() / 100.0;
 			double taxAmt = Consumer.Ratio.amount(taxRate, price);
 			double total = Consumer.Ratio.total(taxRate, price);
 			curTaxAmt.setText(fmtrCur.format(taxAmt));

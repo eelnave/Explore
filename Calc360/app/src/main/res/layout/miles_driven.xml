@@ -32,7 +32,7 @@
 		tools:text="Reinbursement Rate: "/>
 
 	<EditText
-		android:id="@+id/decTaxRate"
+		android:id="@+id/rate"
 		style="@style/UnsignedDecimal"
 		android:ems="4"
 		android:hint="@string/salesTaxHint"
