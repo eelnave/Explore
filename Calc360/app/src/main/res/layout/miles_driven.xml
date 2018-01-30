@@ -26,7 +26,7 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/decTaxRate"
+		android:labelFor="@+id/rate"
 		compat:layout_columnSpan="2"
 		android:text="@string/tax"
 		tools:text="Reinbursement Rate: "/>
@@ -40,7 +40,7 @@
 		tools:text="ex: 0.58 "/>
 
 	<TextView
-		android:id="@+id/curTaxAmt"
+		android:id="@+id/curRate"
 		style="@style/TextResult"/>
 
 	<TextView

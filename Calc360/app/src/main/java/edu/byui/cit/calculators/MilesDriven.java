@@ -30,7 +30,7 @@ public final class MilesDriven extends CalcFragment {
 	// one of the text fields in this calculator.
 	private EditCur milesDriven; //Represents first input
 	private EditDec rate; //Represents second input
-	private TextWrapper curTaxAmt, curTotal; // Represents output
+	private TextWrapper curRate, curTotal; // Represents output
 
 
 	public MilesDriven() {
@@ -51,11 +51,11 @@ public final class MilesDriven extends CalcFragment {
 		milesDriven = new EditCur(view, R.id.milesDriven, this); //The R.id.curPrice is what connects this to the xml document
 		rate = new EditDec(view, R.id.rate,
 				Calc360.KEY_SALES_TAX_RATE, this);
-		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
+		curRate = new TextWrapper(view, R.id.curRate);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
 		EditWrapper[] inputs = { milesDriven, rate };
-		ControlWrapper[] toClear = { milesDriven, curTaxAmt, curTotal };
+		ControlWrapper[] toClear = { milesDriven, curRate, curTotal };
 		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
@@ -77,15 +77,15 @@ public final class MilesDriven extends CalcFragment {
 	@Override
 	protected void compute() {
 		if (milesDriven.notEmpty() && rate.notEmpty()) {
-			double price = milesDriven.getCur();
+			double miles = milesDriven.getCur();
 			double taxRate = rate.getDec() / 100.0;
-			double taxAmt = Consumer.Ratio.amount(taxRate, price);
-			double total = Consumer.Ratio.total(taxRate, price);
-			curTaxAmt.setText(fmtrCur.format(taxAmt));
+			double taxAmt = Consumer.Ratio.amount(taxRate, miles);
+			double total = Consumer.Ratio.total(taxRate, miles);
+			curRate.setText(fmtrCur.format(taxAmt));
 			curTotal.setText(fmtrCur.format(total));
 		}
 		else {
-			curTaxAmt.clear();
+			curRate.clear();
 			curTotal.clear();
 		}
 	}
