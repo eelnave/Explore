@@ -45,9 +45,11 @@
 
 	<TextView
 		style="@style/TextLabel"
+		tools:text="Total Reinbursement: "/>
 		android:layout_marginTop="15dp"
 		android:text="@string/total"
 		compat:layout_columnSpan="3"/>
+
 
 	<TextView
 		android:id="@+id/curTotal"
