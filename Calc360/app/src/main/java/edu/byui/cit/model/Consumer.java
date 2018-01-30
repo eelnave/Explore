@@ -21,6 +21,8 @@ public final class Consumer {
 			return total * (1.0 + rate);
 		}
 
+
+
 		/** Calculates the rate of change between two numbers.
 		 * Ex: from 20 to 100, there is an increase of 400%. */
 		public static double rateChange(double from, double to) {

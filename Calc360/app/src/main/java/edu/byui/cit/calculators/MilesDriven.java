@@ -78,15 +78,12 @@ public final class MilesDriven extends CalcFragment {
 	protected void compute() {
 		if (milesDriven.notEmpty() && rate.notEmpty()) {
 			double miles = milesDriven.getCur();
-			double taxRate = rate.getDec() / 100.0;
-			double taxAmt = Consumer.Ratio.amount(taxRate, miles);
-			double total = Consumer.Ratio.total(taxRate, miles);
-			curRate.setText(fmtrCur.format(taxAmt));
-			curTotal.setText(fmtrCur.format(total));
+			double reRate = rate.getDec() / 100.0;
+			double rateAmt = Consumer.Ratio.amount(reRate, miles);
+			curRate.setText(fmtrCur.format(rateAmt));
 		}
 		else {
 			curRate.clear();
-			curTotal.clear();
 		}
 	}
 }
