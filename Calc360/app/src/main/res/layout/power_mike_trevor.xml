@@ -3,8 +3,10 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="wrap_content"
+	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
+	android:layout_marginLeft="20dp"
+	android:layout_marginTop="@dimen/default_gap"
 	compat:columnCount="4">
 
 	<TextView
@@ -16,10 +18,11 @@
 	<EditText
 		android:id="@+id/milesDriven"
 		style="@style/UnsignedDecimal"
-		compat:layout_rowSpan="1"
 		android:ems="4"
+		android:hint="ex. 10"
+		compat:layout_rowSpan="1"
+		android:layout_marginLeft="@dimen/default_gap">
 		android:hint="@string/priceHint"
-		tools:text="ex: 10 ">
 
 		<requestFocus/>
 	</EditText>
@@ -27,17 +30,18 @@
 	<TextView
 		style="@style/TextLabel"
 		android:labelFor="@+id/rate"
-		compat:layout_columnSpan="2"
 		android:text="@string/tax"
-		tools:text="Reinbursement Rate: "/>
+		compat:layout_columnSpan="2"
+		tools:text="Reimbursement Rate: "/>
 
 	<EditText
 		android:id="@+id/rate"
 		style="@style/UnsignedDecimal"
 		android:ems="4"
-		android:hint="@string/salesTaxHint"
+		android:hint="ex. 5.8"
 		android:imeOptions="actionDone"
-		tools:text="ex: 0.58 "/>
+		android:layout_marginLeft="@dimen/default_gap"/>
+		android:hint="@string/salesTaxHint"
 
 	<TextView
 		android:id="@+id/curRate"
@@ -45,10 +49,11 @@
 
 	<TextView
 		style="@style/TextLabel"
-		tools:text="Total Reinbursement: "/>
+		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"
 		android:text="@string/total"
-		compat:layout_columnSpan="3"/>
+		compat:layout_columnSpan="3"
+		tools:text="Total Reimbursement: "/>
 
 
 	<TextView

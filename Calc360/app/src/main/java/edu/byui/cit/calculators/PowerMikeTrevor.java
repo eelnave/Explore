@@ -23,7 +23,7 @@ import edu.byui.cit.text.TextWrapper;
  * Created by michaelvance on 1/29/18.
  */
 
-public final class MilesDriven extends CalcFragment {
+public final class PowerMikeTrevor extends CalcFragment {
 	private final NumberFormat fmtrDec, fmtrCur;
 
 	// Each of these variables is a reference to
@@ -33,7 +33,7 @@ public final class MilesDriven extends CalcFragment {
 	private TextWrapper curRate, curTotal; // Represents output
 
 
-	public MilesDriven() {
+	public PowerMikeTrevor() {
 		// Call the constructor in the parent class.
 		super();
 
@@ -45,7 +45,7 @@ public final class MilesDriven extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this calculator.
-		View view = inflater.inflate(R.layout.miles_driven, container, false);
+		View view = inflater.inflate(R.layout.power_mike_trevor, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
 		milesDriven = new EditCur(view, R.id.milesDriven, this); //The R.id.curPrice is what connects this to the xml document
