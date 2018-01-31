@@ -45,7 +45,6 @@ public abstract class Converter extends CalcFragment {
 			Bundle savedInstState) {
 		View view = inflater.inflate(R.layout.converter, container, false);
 
-		Activity act = getActivity();
 		decTop = new EditDec(view, R.id.decTop, new TextChangeHandler() {
 			@Override
 			public void afterChanged(Editable editable) {
@@ -72,6 +71,7 @@ public abstract class Converter extends CalcFragment {
 			}
 		});
 
+		Activity act = getActivity();
 		ItemSelectedHandler handler = new ItemSelectedHandler() {
 			@Override
 			public void itemSelected(AdapterView<?> parent,

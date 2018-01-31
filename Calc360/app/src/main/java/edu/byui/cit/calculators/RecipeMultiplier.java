@@ -14,9 +14,9 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.SpinProperty;
 import edu.byui.cit.text.SpinString;
@@ -62,10 +62,8 @@ public class RecipeMultiplier extends CalcFragment {
 		View view = inflater.inflate(R.layout.recipe_multiplier, container,
 				false);
 
-		Activity act = getActivity();
-		spinProp = new SpinProperty(act, view, R.id.spinProp,
-				R.array.kitchenProperties, KEY_PROP,
-				new ChangeProperty());
+		spinProp = new SpinProperty(getActivity(), view, R.id.spinProp,
+				R.array.kitchenProperties, KEY_PROP, new ChangeProperty());
 		spinStart = new SpinUnit(view, R.id.spinStart, this);
 		spinEnd = new SpinUnit(view, R.id.spinEnd, this);
 
@@ -73,7 +71,9 @@ public class RecipeMultiplier extends CalcFragment {
 		spinMult = new SpinString(view, R.id.spinMult, KEY_MULT, this);
 		decResult = new TextWrapper(view, R.id.decResult);
 
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		EditWrapper[] inputs = { decOrigAmt };
+		ControlWrapper[] toClear = { decOrigAmt, decResult };
+		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
 
@@ -161,16 +161,5 @@ public class RecipeMultiplier extends CalcFragment {
 		result = propCurrent.convert(unitEnd, result, unitStart);
 
 		decResult.setText(fmtrDec.format(result));
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			decOrigAmt.clear();
-			decResult.clear();
-			decOrigAmt.requestFocus();
-		}
 	}
 }

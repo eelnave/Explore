@@ -1,9 +1,7 @@
 package edu.byui.cit.calculators;
 
-import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,11 +10,11 @@ import java.text.NumberFormat;
 
 import java.util.Calendar;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.DateWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
@@ -27,7 +25,7 @@ public final class DateDiff extends CalcFragment {
 	private static final String KEY_UNITS = "DateDiff.durationType";
 	private final NumberFormat fmtrDec;
 
-	private DateWrapper picker1, picker2;
+	private DateWrapper pickStart, pickEnd;
 	private SpinUnit spinDuration;
 	private TextWrapper decDiff;
 
@@ -44,27 +42,21 @@ public final class DateDiff extends CalcFragment {
 		View view = inflater.inflate(R.layout.date_diff, container, false);
 
 		Calendar calendar = Calendar.getInstance();
-		picker1 = new DateWrapper(view, R.id.datePicker1, calendar, this);
-		picker2 = new DateWrapper(view, R.id.datePicker2, calendar, this);
+		pickStart = new DateWrapper(view, R.id.datePicker1, calendar, this);
+		pickEnd = new DateWrapper(view, R.id.datePicker2, calendar, this);
 
-		new ButtonWrapper(view, R.id.btnToday1, new Today(picker1));
-		new ButtonWrapper(view, R.id.btnToday2, new Today(picker2));
+		new ButtonWrapper(view, R.id.btnToday1, new TodayHandler(pickStart));
+		new ButtonWrapper(view, R.id.btnToday2, new TodayHandler(pickEnd));
 
 		// Set up the spinner to show the right values
-		Activity act = getActivity();
-		spinDuration = new SpinUnit(act, view, R.id.spinDuration, Time.getInstance(), R.array.durationChoices, KEY_UNITS, this);
+		spinDuration = new SpinUnit(getActivity(), view, R.id.spinDuration,
+				Time.getInstance(), R.array.durationChoices, KEY_UNITS,
+				this);
 
 		decDiff = new TextWrapper(view, R.id.decDiff);
 
-		new ButtonWrapper(view, R.id.btnClear,
-				new ClickListener() {
-					@Override
-					public void clicked(View button) {
-						decDiff.clear();
-					}
-				}
-		);
-
+		ControlWrapper[] toClear = { decDiff };
+		initialize(view, null, toClear, R.id.btnClear);
 		return view;
 	}
 
@@ -81,10 +73,10 @@ public final class DateDiff extends CalcFragment {
 
 
 	/** Handles a click on a Today button. */
-	private final class Today implements ClickListener {
+	private final class TodayHandler implements ClickListener {
 		private final DateWrapper picker;
 
-		Today(DateWrapper picker) {
+		TodayHandler(DateWrapper picker) {
 			this.picker = picker;
 		}
 
@@ -103,42 +95,34 @@ public final class DateDiff extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		try {
-			// Set the date to what the user has selected
-			Calendar from = Calendar.getInstance();
-			from.set(picker1.getYear(), picker1.getMonth(),
-					picker1.getDayOfMonth());
+		// Set the date to what the user has selected
+		Calendar start = Calendar.getInstance();
+		start.set(pickStart.getYear(), pickStart.getMonth(),
+				pickStart.getDayOfMonth());
 
-			// Set the date to what the user has selected
-			Calendar to = Calendar.getInstance();
-			to.set(picker2.getYear(), picker2.getMonth(),
-					picker2.getDayOfMonth());
+		// Set the date to what the user has selected
+		Calendar end = Calendar.getInstance();
+		end.set(pickEnd.getYear(), pickEnd.getMonth(),
+				pickEnd.getDayOfMonth());
 
-			long millis = Math.abs(
-					from.getTimeInMillis() - to.getTimeInMillis());
-			double factor;
-
-			// Find out what unit we are using and add it
-			int units = spinDuration.getSelectedItem().getID();
-			switch (units) {
-				case Time.year:
-					factor = 1000 * 60 * 60 * 24 * 365.25;
-					break;
-				case Time.month:
-					factor = 1000.0 * 60 * 60 * 24 * 30;
-					break;
-				case Time.week:
-					factor = 1000 * 60 * 60 * 24 * 7;
-					break;
-				default:  // day
-					factor = 1000 * 60 * 60 * 24;
-			}
-
-			double duration = millis / factor;
-			decDiff.setText(fmtrDec.format(duration));
+		long millis = end.getTimeInMillis() - start.getTimeInMillis();
+		int units = spinDuration.getSelectedItem().getID();
+		double factor;
+		switch (units) {
+			case Time.year:
+				factor = 1000 * 60 * 60 * 24 * 365.25;
+				break;
+			case Time.month:
+				factor = 1000.0 * 60 * 60 * 24 * 30;
+				break;
+			case Time.week:
+				factor = 1000 * 60 * 60 * 24 * 7;
+				break;
+			default:  // day
+				factor = 1000 * 60 * 60 * 24;
 		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
-		}
+
+		double duration = millis / factor;
+		decDiff.setText(fmtrDec.format(duration));
 	}
 }

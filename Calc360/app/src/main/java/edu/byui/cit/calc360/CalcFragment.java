@@ -95,7 +95,9 @@ public abstract class CalcFragment extends OmniFragment {
 			if (toClear != null) {
 				clearAll(toClear);
 			}
-			inputs[0].requestFocus();
+			if (inputs != null && inputs.length > 0) {
+				inputs[0].requestFocus();
+			}
 		}
 	}
 
