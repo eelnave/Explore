@@ -44,7 +44,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_weight=".2"
-		android:text="Subtract:"
+		android:text="@string/subtraction"
 		android:gravity="right"/>
 
 	<EditText
@@ -139,6 +139,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_weight=".2"
+		android:layout_marginTop="15dp"
 		android:text="Total:"
 		android:gravity="right"/>
 
