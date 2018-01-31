@@ -23,8 +23,6 @@
 	<string name="prod2">Product 2</string>
 	<string name="prod3">Product 3</string>
 	<string name="noSelection">nothing selected</string>
-	<!-- Following are used in four_function.xml-->
-
 
 	<!-- Properties used in the Compare Prices Calculator -->
 	<string-array name="cmpPricesProps" translatable="false">
@@ -60,5 +58,10 @@
 	<string name="to">to</string>
 	<string name="percentIsXofY">What % is x of y?</string>
 	<string name="percentChange">What is the percent change from x to y?</string>
-	<string name="subtraction">Subtract: </string>
+
+	<!-- Following is for four_function.xml-->
+	<string name="multiplication">Multi: </string>
+	<string name="totaled">Total: </string>
+	<string name="x">x: </string>
+
 </resources>
