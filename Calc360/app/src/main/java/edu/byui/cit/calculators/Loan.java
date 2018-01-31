@@ -75,7 +75,8 @@ public final class Loan extends SolveSeries {
 		txtPrinc = new TextWrapper(view, R.id.txtPrinc);
 		txtBal = new TextWrapper(view, R.id.txtBal);
 		EditWrapper[] inputs = { curAmt, decAR, decYears, curPay, intPTD };
-		TextWrapper[] outputs = {
+		ControlWrapper[] toClear = {
+				curAmt, decAR, decYears, curPay, intPTD,
 				curBal, txtPeriod, txtInter, txtPrinc, txtBal
 		};
 
@@ -163,7 +164,7 @@ public final class Loan extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, outputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, toClear);
 		return view;
 	}
 

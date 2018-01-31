@@ -56,7 +56,7 @@ public final class Simple2 extends SolveSeries {
 		};
 
 		// Call initialize in the parent class.
-		initialize(view, inputs, outputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, outputs);
 
 		return view;
 	}

@@ -216,8 +216,8 @@ public final class ComparePrices extends CalcFragment {
 
 		Product best = null;
 		double min = Double.MAX_VALUE;
-		String per = getResources().getString(R.string.per);
 		Resources res = getResources();
+		String per = res.getString(R.string.per);
 		for (Product prod : products) {
 			if (prod.curPrice.notEmpty() && prod.decQuant.notEmpty()) {
 				double price = prod.curPrice.getCur();

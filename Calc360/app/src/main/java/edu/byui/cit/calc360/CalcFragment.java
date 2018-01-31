@@ -7,6 +7,7 @@ import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.text.InputWrapper;
 
 
 public abstract class CalcFragment extends OmniFragment {
@@ -31,9 +32,28 @@ public abstract class CalcFragment extends OmniFragment {
 	}
 
 
-	/** Contains try and catch so that individual calculators are not
+	public void clearGroup(EditWrapper input) {
+		if (groups != null) {
+			// Find the group of the EditText that was changed.
+			EditWrapper[] group = findGroup(groups, input);
+			if (group != null) {
+				int i;
+				for (i = 0;  group[i] != input;  ++i) {
+					group[i].clear();
+				}
+				while (++i < group.length) {
+					group[i].clear();
+				}
+			}
+		}
+	}
+
+
+	/**
+	 * Contains try and catch so that individual calculators are not
 	 * required to include try and catch. Called from Controls that do
-	 * not extend EditWrapper. */
+	 * not extend EditWrapper.
+	 */
 	public void callCompute() {
 		try {
 			compute();
@@ -47,32 +67,13 @@ public abstract class CalcFragment extends OmniFragment {
 	}
 
 
-	/** Contains try and catch so that individual calculators are not
+	/**
+	 * Contains try and catch so that individual calculators are not
 	 * required to include try and catch. Called from Controls that
-	 * extend EditWrapper. */
+	 * extend EditWrapper.
+	 */
 	public void callCompute(EditWrapper input) {
 		try {
-//			if (input.isEmpty()) {
-//				clearUnusedInputs();
-//				clearOutputs();
-//			}
-//			else {
-//				if (groups != null) {
-//					// Find the group of the EditText that was changed.
-//					EditWrapper[] group = findGroup(groups, input);
-//					if (group != null) {
-//						clearExcept(group, input);
-//					}
-//				}
-//				compute();
-//			}
-			if (groups != null) {
-				// Find the group of the EditText that was changed.
-				EditWrapper[] group = findGroup(groups, input);
-				if (group != null) {
-					clearExcept(group, input);
-				}
-			}
 			compute();
 		}
 		catch (NumberFormatException ex) {
@@ -87,62 +88,42 @@ public abstract class CalcFragment extends OmniFragment {
 	}
 
 
-	final void clearExcept(EditWrapper[] group, EditWrapper key) {
-		int i;
-		for (i = 0;  group[i] != key;  ++i) {
-			clearExceptHelper(group[i]);
-		}
-		for (++i;  i < group.length;  ++i) {
-			clearExceptHelper(group[i]);
-		}
-	}
-
-	void clearExceptHelper(EditWrapper input) {
-		input.clear();
-	}
-
-
 	/** Handles a click on the clear button. */
 	class ClearHandler implements ClickListener {
 		@Override
 		public void clicked(View button) {
-			for (ControlWrapper ctrl : toClear) {
-				ctrl.clear();
+			if (toClear != null) {
+				clearAll(toClear);
 			}
 			inputs[0].requestFocus();
 		}
 	}
 
-//	protected final void clearInputs() {
-//		if (inputs != null) {
-//			for (ControlWrapper ctrl : inputs) {
-//				ctrl.clear();
-//			}
-//		}
-//	}
+	protected final void clearAll(ControlWrapper[] controls) {
+		for (ControlWrapper ctrl : controls) {
+			ctrl.clear();
+		}
+	}
 
-	protected final void clearUnusedInputs() {
-		if (inputs != null) {
-			for (EditWrapper in : inputs) {
-				if (!in.hasUserInput()) {
-					in.clear();
-				}
+	protected final void clearOutput() {
+		if (toClear != null) {
+			clearOutput(toClear);
+		}
+	}
+
+	protected final void clearOutput(ControlWrapper[] controls) {
+		for (ControlWrapper ctrl : controls) {
+			if (!(ctrl instanceof InputWrapper &&
+					((InputWrapper)ctrl).hasUserInput())) {
+				ctrl.clear();
 			}
 		}
 	}
 
-//	protected final void clearOutputs() {
-//		if (toClear != null) {
-//			for (ControlWrapper ctrl : toClear) {
-//				ctrl.clear();
-//			}
-//		}
-//	}
-
 
 	static int indexOf(ControlWrapper[] controls, ControlWrapper key) {
 		int index = -1;
-		for (int i = 0;  i < controls.length;  ++i) {
+		for (int i = 0; i < controls.length; ++i) {
 			if (controls[i] == key) {
 				index = i;
 				break;

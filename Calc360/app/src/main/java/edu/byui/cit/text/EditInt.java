@@ -39,8 +39,12 @@ public class EditInt extends EditWrapper {
 
 	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
+		restore(prefs, fmtr, 0);
+	}
+
+	public void restore(SharedPreferences prefs, NumberFormat fmtr, int deflt) {
 		if (prefs.contains(prefsKey)) {
-			int val = prefs.getInt(prefsKey, 0);
+			int val = prefs.getInt(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}
 	}

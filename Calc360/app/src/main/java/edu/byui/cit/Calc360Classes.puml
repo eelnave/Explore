@@ -165,7 +165,7 @@ package edu.byui.cit.units {
 
 	Named <|-- Container
 	Container <|-- World
-	World *-left- Property
+	World *-right- Property
 	Property *-right- Unit
 	Container <|-- Property
 	Property <|-- Angle

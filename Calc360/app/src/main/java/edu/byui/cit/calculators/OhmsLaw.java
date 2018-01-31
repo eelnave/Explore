@@ -69,7 +69,7 @@ public final class OhmsLaw extends SolveEquation {
 		};
 
 		// Initialize the code in the parent class SolveEquation.
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 
 		return view;
 	}

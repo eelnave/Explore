@@ -35,6 +35,8 @@ public final class Binary extends SolveSeries {
 		hexadecimal = new EditInt(view, R.id.hexadecimal, this);
 
 		EditWrapper[] inputs = { decimal, binary, hexadecimal };
+		EditWrapper[][] groups = { inputs };
+
 		Solver[] solvers = new Solver[]{
 				new Solver(new EditWrapper[]{ decimal },
 						new ControlWrapper[]{ binary, hexadecimal }) {
@@ -42,8 +44,7 @@ public final class Binary extends SolveSeries {
 					public void solve() {
 						double num = decimal.getDec();
 						String binStr, hexStr;
-						boolean decCheck = decimalCheck(num);
-						if (decCheck) {
+						if (isDecimal(num)) {
 							long longBits = Double.doubleToLongBits(num);
 							binStr = Long.toBinaryString(longBits);
 							hexStr = Long.toHexString(longBits);
@@ -81,11 +82,11 @@ public final class Binary extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, groups, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 
-	private static boolean decimalCheck(double s) {
+	private static boolean isDecimal(double s) {
 		return s % 1 > 0;
 	}
 }

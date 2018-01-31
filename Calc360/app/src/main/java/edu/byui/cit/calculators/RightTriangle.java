@@ -161,7 +161,7 @@ public class RightTriangle extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, outputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, outputs);
 		return view;
 	}
 

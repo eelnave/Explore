@@ -58,7 +58,9 @@ public class LaborCost extends SolveSeries {
 				{ decSalesTaxRate, curSalesTaxAmt },
 				{ curWage, curSalary }
 		};
-		TextWrapper[] outputs = { txtOutput };
+		ControlWrapper[] outputs = { curPrice,
+				decSalesTaxRate, curSalesTaxAmt, curWage, curSalary, txtOutput
+		};
 
 		Solver[] solvers = new Solver[]{
 			new Solver(new EditWrapper[]{ curPrice, decSalesTaxRate },
@@ -139,7 +141,7 @@ public class LaborCost extends SolveSeries {
 			}
 		};
 
-		initialize(view, inputs, groups, outputs, solvers, R.id.btnClear);
+		initialize(view, inputs, groups, solvers, R.id.btnClear, outputs);
 		return view;
 	}
 

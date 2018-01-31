@@ -11,10 +11,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.FuelEffic;
@@ -40,7 +40,6 @@ public final class FuelCost extends CalcFragment {
 	private TextWrapper curFuelCost;
 
 
-	//create view and initialize interface
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -64,7 +63,11 @@ public final class FuelCost extends CalcFragment {
 				KEY_VOL_UNITS, this);
 
 		curFuelCost = new TextWrapper(view, R.id.curFuelCost);
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+
+		EditWrapper[] inputs = { decDist, decEffic, curPrice };
+		ControlWrapper[] toClear = { decDist, decEffic, curPrice, curFuelCost };
+
+		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
 
@@ -103,18 +106,5 @@ public final class FuelCost extends CalcFragment {
 			output = fmtrCur.format(cost);
 		}
 		curFuelCost.setText(output);
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			decDist.clear();
-			decEffic.clear();
-			curPrice.clear();
-			curFuelCost.clear();
-			decDist.requestFocus();
-		}
 	}
 }

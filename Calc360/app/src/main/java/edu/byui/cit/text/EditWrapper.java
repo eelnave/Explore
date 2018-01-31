@@ -96,6 +96,9 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	@Override
 	public final void beforeTextChanged(
 			CharSequence s, int start, int count, int after) {
+		if (calculator != null) {
+			calculator.clearGroup(this);
+		}
 	}
 
 	@Override
@@ -105,17 +108,12 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 
 	@Override
 	public final void afterTextChanged(Editable edit) {
-		if (isProgrammatic()) {
-			userInput = false;
+		userInput = notEmpty();
+		if (calculator != null) {
+			calculator.callCompute(this);
 		}
 		else {
-			userInput = notEmpty();
-			if (listener == null) {
-				calculator.callCompute(this);
-			}
-			else {
-				listener.afterChanged(edit);
-			}
+			listener.afterChanged(edit);
 		}
 	}
 
@@ -123,7 +121,6 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	public boolean hasUserInput() {
 		return userInput;
 	}
-
 
 	public EditText getEdit() {
 		return edit;
@@ -146,24 +143,29 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 
 	/** Sets the text in this EditText as output. */
 	public void setText(CharSequence text) {
-//		edit.removeTextChangedListener(this);
-		nextIsProgrammatic();
+		edit.removeTextChangedListener(this);
 		edit.setText(text);
 		userInput = false;
-//		edit.addTextChangedListener(this);
+		edit.addTextChangedListener(this);
 	}
 
 	/** Clears the text in this EditText as if the user had cleared it. */
-	public void clearInput() {
-		edit.getText().clear();
-	}
+//	public void clearInput() {
+//		if (hasUserInput()) {
+//			edit.getText().clear();
+//		}
+//		else {
+//			clear();
+//		}
+//	}
 
 	@Override
 	public void clear() {
-//		edit.removeTextChangedListener(this);
-		nextIsProgrammatic();
-		edit.getText().clear();
-//		userInput = false;
-//		edit.addTextChangedListener(this);
+		if (notEmpty()) {
+			edit.removeTextChangedListener(this);
+			edit.getText().clear();
+			userInput = false;
+			edit.addTextChangedListener(this);
+		}
 	}
 }

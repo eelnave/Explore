@@ -1,7 +1,6 @@
 package edu.byui.cit.calc360;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
@@ -10,21 +9,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 import java.text.NumberFormat;
 
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 
 
-public abstract class Converter extends CalcFragment
-		implements OnItemSelectedListener {
+public abstract class Converter extends CalcFragment {
 	private final String KEY_TOP, KEY_BOTTOM;
 	private final Property property;
 	private final int arrayID;
@@ -73,32 +72,36 @@ public abstract class Converter extends CalcFragment
 			}
 		});
 
+		ItemSelectedHandler handler = new ItemSelectedHandler() {
+			@Override
+			public void itemSelected(AdapterView<?> parent,
+					View view, int pos, long id) {
+				compute(spinBottom, decBottom, spinTop, decTop);
+			}
+		};
 		spinTop = new SpinUnit(act, view, R.id.spinTop,
-				property, arrayID, KEY_TOP, this);
+				property, arrayID, KEY_TOP, handler);
 		spinBottom = new SpinUnit(act, view, R.id.spinBottom,
-				property, arrayID, KEY_BOTTOM, this);
+				property, arrayID, KEY_BOTTOM, handler);
 
-		// Open the Android system preferences file for Calc360.
-		SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
-
-		// Restore the units chosen by the
-		// user when she last used this calculator.
-		spinTop.restore(prefs, spinTop.getItemAtPosition(0).getID());
-		spinBottom.restore(prefs, spinBottom.getItemAtPosition(1).getID());
-
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		EditWrapper[] inputs = { decTop, decBottom };
+		initialize(view, inputs, inputs, R.id.btnClear);
 		return view;
 	}
 
 
 	@Override
-	public void onItemSelected(
-			AdapterView<?> parent, View view, int position, long id) {
-		compute(spinBottom, decBottom, spinTop, decTop);
+	protected void restorePrefs(SharedPreferences prefs) {
+		spinTop.restore(prefs, spinTop.getItemAtPosition(0).getID());
+		spinBottom.restore(prefs, spinBottom.getItemAtPosition(1).getID());
 	}
 
 	@Override
-	public void onNothingSelected(AdapterView<?> parent) {
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		// Write into the preferences file
+		// the currencies chosen by the user.
+		spinTop.save(editor);
+		spinBottom.save(editor);
 	}
 
 
@@ -122,26 +125,6 @@ public abstract class Converter extends CalcFragment
 		}
 		catch (Exception ex) {
 			Log.e(Calc360.TAG, "exception", ex);
-		}
-	}
-
-
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Write into the preferences file
-		// the currencies chosen by the user.
-		spinTop.save(editor);
-		spinBottom.save(editor);
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			decTop.clear();
-			decBottom.clear();
-			decTop.requestFocus();
 		}
 	}
 }

@@ -12,6 +12,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
@@ -80,7 +81,9 @@ public final class FuelEfficiency extends CalcFragment {
 		decEffic = new TextWrapper(view, R.id.decEffic);
 
 		EditWrapper[] inputs = { decBegin, decEnd, decDist, decVol };
-		TextWrapper[] outputs = { decEffic };
+		ControlWrapper[] outputs = {
+				decBegin, decEnd, decDist, decVol, decEffic
+		};
 		initialize(view, inputs, outputs, R.id.btnClear);
 		return view;
 	}

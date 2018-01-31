@@ -11,6 +11,7 @@ import edu.byui.cit.calc360.CalcFragment;
 
 abstract class SpinWrapper extends InputWrapper
 		implements OnItemSelectedListener {
+	private final Handler handler;
 	final Spinner spinner;
 	private final ItemSelectedListener listener;
 
@@ -28,6 +29,7 @@ abstract class SpinWrapper extends InputWrapper
 	private SpinWrapper(View parent, int spinID, String prefsKey,
 			CalcFragment calculator, ItemSelectedListener listener) {
 		super(parent, spinID, prefsKey, calculator);
+		this.handler = new Handler();
 		this.spinner = parent.findViewById(spinID);
 		this.listener = listener;
 	}
@@ -59,12 +61,20 @@ abstract class SpinWrapper extends InputWrapper
 		}
 	}
 
+	private void nextIsProgrammatic() {
+		handler.nextIsProgrammatic();
+	}
+
+	private boolean isProgrammatic() {
+		return handler.isProgrammatic();
+	}
+
 
 	@Override
 	public final void onItemSelected(
 			AdapterView<?> parent, View view, int pos, long id) {
 		if (! isProgrammatic()) {
-			if (listener == null) {
+			if (calculator != null) {
 				calculator.callCompute();
 			}
 			else {
@@ -131,10 +141,8 @@ abstract class SpinWrapper extends InputWrapper
 	}
 
 	public void setSelection(int index) {
-//		spinner.setOnItemSelectedListener(null);
 		nextIsProgrammatic();
 		spinner.setSelection(index);
-//		spinner.setOnItemSelectedListener(this);
 	}
 
 	@Override

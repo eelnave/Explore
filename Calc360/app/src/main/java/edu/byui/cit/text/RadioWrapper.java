@@ -58,7 +58,7 @@ public final class RadioWrapper extends ControlWrapper implements OnClickListene
 
 	@Override
 	public final void onClick(View button) {
-		if (listener == null) {
+		if (calculator != null) {
 			calculator.callCompute();
 		}
 		else {

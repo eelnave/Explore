@@ -119,10 +119,7 @@ public final class Discount extends CalcFragment {
 			curSaved.setText(fmtrCur.format(saved));
 		}
 		else {
-			curDiscPrice.clear();
-			curTaxAmt.clear();
-			curTotal.clear();
-			curSaved.clear();
+			clearOutput();
 		}
 	}
 }

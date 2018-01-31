@@ -15,12 +15,10 @@ public abstract class InputWrapper extends ControlWrapper {
 			decFmtr = NumberFormat.getInstance(),
 			perFmtr = NumberFormat.getPercentInstance(),
 			curFmtr = NumberFormat.getCurrencyInstance();
-	private final Handler handler;
 	final String prefsKey;
 
 	InputWrapper(View parent, int resID, String prefsKey, CalcFragment calculator) {
 		super(parent, resID, calculator);
-		this.handler = new Handler();
 		this.prefsKey = prefsKey;
 	}
 
@@ -33,14 +31,6 @@ public abstract class InputWrapper extends ControlWrapper {
 	}
 
 	public abstract boolean hasUserInput();
-
-	final void nextIsProgrammatic() {
-		handler.nextIsProgrammatic();
-	}
-
-	final boolean isProgrammatic() {
-		return handler.isProgrammatic();
-	}
 
 
 	public static int countEmpty(InputWrapper... inputs) {

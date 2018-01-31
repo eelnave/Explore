@@ -12,6 +12,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.model.Fitness;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.EditInt;
 import edu.byui.cit.text.EditWrapper;
@@ -61,7 +62,8 @@ public final class CaloriesBurned extends CalcFragment {
 		txtResult = new TextWrapper(view, R.id.txtResult);
 
 		EditWrapper[] inputs = { decWeight, intTime };
-		initialize(view, inputs, inputs, R.id.btnClear);
+		ControlWrapper[] toClear = { decWeight, intTime, txtResult };
+		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
 
@@ -130,6 +132,9 @@ public final class CaloriesBurned extends CalcFragment {
 			String result = fmtrDec.format(calories) + " " + getString(
 					R.string.calories);
 			txtResult.setText(result);
+		}
+		else {
+			clearOutput();
 		}
 	}
 }

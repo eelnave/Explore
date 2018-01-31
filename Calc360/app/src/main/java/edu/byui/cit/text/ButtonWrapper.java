@@ -49,7 +49,7 @@ public final class ButtonWrapper extends ControlWrapper implements OnClickListen
 
 	@Override
 	public final void onClick(View button) {
-		if (listener == null) {
+		if (calculator != null) {
 			calculator.callCompute();
 		}
 		else {

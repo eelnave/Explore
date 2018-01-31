@@ -40,8 +40,13 @@ public class EditCur extends EditWrapper {
 
 	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
+		restore(prefs, fmtr, 0);
+	}
+
+	public void restore(
+			SharedPreferences prefs, NumberFormat fmtr, float deflt) {
 		if (prefs.contains(prefsKey)) {
-			float val = prefs.getFloat(prefsKey, 0);
+			float val = prefs.getFloat(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}
 	}

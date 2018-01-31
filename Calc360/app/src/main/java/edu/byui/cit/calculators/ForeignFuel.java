@@ -2,6 +2,7 @@ package edu.byui.cit.calculators;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,10 +12,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Money;
@@ -80,7 +81,13 @@ public final class ForeignFuel extends CalcFragment {
 		decRatioTo = new TextWrapper(view, R.id.decRatioTo);
 		unitsRatioTo = new TextWrapper(view, R.id.unitsRatioTo);
 
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		EditWrapper[] inputs = { curCostFrom, decVolFrom };
+		ControlWrapper[] toClear = {
+				curCostFrom, decVolFrom, decRatioFrom, unitsRatioFrom,
+				curCostTo, decVolTo, decRatioTo, unitsRatioTo
+		};
+
+		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
 
@@ -108,7 +115,7 @@ public final class ForeignFuel extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		clearResults();
+		clearOutput();
 
 		double costFrom = 0;
 		double costTo = 0;
@@ -142,36 +149,20 @@ public final class ForeignFuel extends CalcFragment {
 			double ratioTo = costTo / volTo;
 
 			// Display the results for the user to see.
-			String unitsFrom = unCostFrom.getLocalName() + " " +
-					getString(
-							R.string.per) + " " + unVolFrom.getLocalName();
-			String unitsTo = unCostTo.getLocalName() + " " +
-					getString(R.string.per) + " " + unVolTo.getLocalName();
+			Resources res = getResources();
+			String per = res.getString(R.string.per);
+			String unitsFrom =
+					res.getQuantityString(unCostFrom.getPluralsID(), Integer.MAX_VALUE)
+					+ " " + per + " " +
+					res.getQuantityString(unVolFrom.getPluralsID(), 1);
+			String unitsTo =
+				res.getQuantityString(unCostTo.getPluralsID(), Integer.MAX_VALUE)
+					+ " " + per + " " +
+					res.getQuantityString(unVolTo.getPluralsID(), 1);
 			decRatioFrom.setText(fmtrCost.format(ratioFrom));
 			unitsRatioFrom.setText(unitsFrom);
 			decRatioTo.setText(fmtrCost.format(ratioTo));
 			unitsRatioTo.setText(unitsTo);
 		}
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			curCostFrom.clear();
-			decVolFrom.clear();
-			clearResults();
-			curCostFrom.requestFocus();
-		}
-	}
-
-	private void clearResults() {
-		decRatioFrom.clear();
-		unitsRatioFrom.clear();
-		curCostTo.clear();
-		decVolTo.clear();
-		decRatioTo.clear();
-		unitsRatioTo.clear();
 	}
 }
