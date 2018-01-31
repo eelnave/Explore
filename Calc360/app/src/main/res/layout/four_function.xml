@@ -10,8 +10,7 @@
 		android:id="@+id/textView"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_wight=".2"
-		android:gravity="right"
+		android:layout_weight=".2"
 		android:text="Multi:"/>
 
 	<EditText
@@ -42,16 +41,16 @@
 		android:layout_height="wrap_content"
 		android:layout_weight=".2"
 		android:text="Total:"
-		android:gravity="right"/>
+		/>
 
 	<TextView
 		android:id="@+id/intTotal"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_weight=".2"
-		android:gravity="right"/>
+		/>
 
-	//Button
+
 
 	<Button
 		android:id="@+id/btnClear"
