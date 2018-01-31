@@ -63,7 +63,9 @@ public final class Triangle extends SolveSeries {
 		angles = new EditAngle[]{ decAlpha, decBeta, decGamma };
 
 		EditWrapper[] inputs = { decA, decB, decC, decAlpha, decBeta, decGamma };
-		TextWrapper[] outputs = { decPerim, decArea };
+		ControlWrapper[] toClear = { decA, decB, decC,
+				decAlpha, decBeta, decGamma, decPerim, decArea
+		};
 
 		Solver[] solvers = new Solver[]{
 				// side, side, side
@@ -260,7 +262,7 @@ public final class Triangle extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, outputs);
+		initialize(view, inputs, solvers, R.id.btnClear, toClear);
 		return view;
 	}
 

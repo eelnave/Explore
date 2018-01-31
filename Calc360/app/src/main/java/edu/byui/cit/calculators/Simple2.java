@@ -40,7 +40,7 @@ public final class Simple2 extends SolveSeries {
 		final TextWrapper result = new TextWrapper(view, R.id.result);
 
 		EditWrapper[] inputs = { decimal1, decimal2 };
-		TextWrapper[] outputs = { result };
+		ControlWrapper[] toClear = { decimal1, decimal2, result };
 
 		Solver[] solvers = new Solver[]{
 				new Solver(new EditWrapper[]{ decimal1, decimal2 },
@@ -56,7 +56,7 @@ public final class Simple2 extends SolveSeries {
 		};
 
 		// Call initialize in the parent class.
-		initialize(view, inputs, solvers, R.id.btnClear, outputs);
+		initialize(view, inputs, solvers, R.id.btnClear, toClear);
 
 		return view;
 	}

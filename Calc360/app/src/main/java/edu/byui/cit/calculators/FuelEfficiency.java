@@ -81,10 +81,10 @@ public final class FuelEfficiency extends CalcFragment {
 		decEffic = new TextWrapper(view, R.id.decEffic);
 
 		EditWrapper[] inputs = { decBegin, decEnd, decDist, decVol };
-		ControlWrapper[] outputs = {
+		ControlWrapper[] toClear = {
 				decBegin, decEnd, decDist, decVol, decEffic
 		};
-		initialize(view, inputs, outputs, R.id.btnClear);
+		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
 

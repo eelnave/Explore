@@ -68,7 +68,9 @@ public class RightTriangle extends SolveSeries {
 		decGamma.getRad(Angle.getInstance().get(Angle.deg));
 
 		EditWrapper[] inputs = { decA, decB, decHyp, decAlpha, decBeta };
-		TextWrapper[] outputs = { decPerim, decArea };
+		ControlWrapper[] toClear = {
+				decA, decB, decHyp, decAlpha, decBeta, decPerim, decArea
+		};
 
 		Solver[] solvers = new Solver[]{
 				// side1 && side2
@@ -161,7 +163,7 @@ public class RightTriangle extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, outputs);
+		initialize(view, inputs, solvers, R.id.btnClear, toClear);
 		return view;
 	}
 

@@ -42,7 +42,7 @@ public final class Quadratic extends SolveSeries {
 		decRoot2 = new TextWrapper(view, R.id.decRoot2);
 
 		EditWrapper[] inputs = { decA, decB, decC };
-		TextWrapper[] outputs = { decRoot1, decRoot2 };
+		ControlWrapper[] toClear = { decA, decB, decC, decRoot1, decRoot2 };
 
 		Solver[] solvers = new Solver[] {
 				new Solver(new EditWrapper[]{ decA, decB, decC },
@@ -84,7 +84,7 @@ public final class Quadratic extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear, outputs);
+		initialize(view, inputs, solvers, R.id.btnClear, toClear);
 		return view;
 	}
 }
