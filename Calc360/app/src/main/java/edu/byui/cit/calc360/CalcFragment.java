@@ -17,12 +17,26 @@ public abstract class CalcFragment extends OmniFragment {
 
 
 	protected void initialize(View view, EditWrapper[] inputs,
-			ControlWrapper[] toClear, int btnClearID) {
-		this.initialize(view, inputs, null, toClear, btnClearID);
+			int btnClearID, ControlWrapper[] toClear) {
+		this.initialize(view, inputs, null, btnClearID, toClear);
 	}
 
+	/**
+	 * Initializes the internal parts of this cacluator that keep track of user
+	 * input.
+	 * @param view       The view for this calculator that was inflated from an
+	 *                   xml file.
+	 * @param inputs     An array of all the EditTexts in this calculator.
+	 * @param groups     An array of arrays where each array is a group of
+	 *                   mutually exclusive EditTexts.
+	 * @param btnClearID The ID from R.id for the clear button of this
+	 *                   calculator.
+	 * @param toClear    An array of all EditTexts and TextViews that should be
+	 *                   cleared when the user clicks the clear button on this
+	 *                   calculator.
+	 */
 	protected void initialize(View view, EditWrapper[] inputs,
-			EditWrapper[][] groups, ControlWrapper[] toClear, int btnClearID) {
+			EditWrapper[][] groups, int btnClearID, ControlWrapper[] toClear) {
 		this.inputs = inputs;
 		this.groups = groups;
 		this.toClear = toClear;

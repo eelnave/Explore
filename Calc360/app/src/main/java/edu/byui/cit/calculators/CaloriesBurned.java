@@ -63,7 +63,7 @@ public final class CaloriesBurned extends CalcFragment {
 
 		EditWrapper[] inputs = { decWeight, intTime };
 		ControlWrapper[] toClear = { decWeight, intTime, txtResult };
-		initialize(view, inputs, toClear, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 

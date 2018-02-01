@@ -62,7 +62,7 @@ public final class Tip extends CalcFragment {
 		};
 		EditWrapper[][] groups = {{ percTipRate, curTipAmt, curTotal }};
 		ControlWrapper[] toClear = { curCost, curTaxAmt, curTipAmt, curTotal };
-		initialize(view, inputs, groups, toClear, R.id.btnClear);
+		initialize(view, inputs, groups, R.id.btnClear, toClear);
 		return view;
 	}
 

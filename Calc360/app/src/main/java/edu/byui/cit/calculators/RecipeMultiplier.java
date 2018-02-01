@@ -73,7 +73,7 @@ public class RecipeMultiplier extends CalcFragment {
 
 		EditWrapper[] inputs = { decOrigAmt };
 		ControlWrapper[] toClear = { decOrigAmt, decResult };
-		initialize(view, inputs, toClear, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 

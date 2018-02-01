@@ -57,7 +57,7 @@ public final class DateArith extends CalcFragment {
 
 		EditWrapper[] inputs = { intDuration };
 		ControlWrapper[] toClear = { intDuration, dateResult };
-		initialize(view, inputs, toClear, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 

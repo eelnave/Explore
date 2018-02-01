@@ -2,7 +2,7 @@
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
+	android:layout_height="wrap_content"
 	android:orientation="vertical">
 
 	<LinearLayout
@@ -22,7 +22,10 @@
 			<EditText
 				android:id="@+id/decPerc1"
 				style="@style/SignedDecimal"
-				android:ems="5"/>
+				android:ems="5">
+
+				<requestFocus/>
+			</EditText>
 
 			<TextView
 				style="@style/TextLabel"
@@ -32,11 +35,11 @@
 			<EditText
 				android:id="@+id/decPerc2"
 				style="@style/SignedDecimal"
-				android:ems="5"
-				android:imeOptions="actionDone"/>
+				android:ems="5"/>
 
 			<TextView
 				style="@style/TextLabel"
+				android:layout_marginEnd="5dp"
 				android:labelFor="@+id/decPerc2"
 				android:text="@string/is"/>
 
@@ -80,11 +83,11 @@
 			<EditText
 				android:id="@+id/decPerc4"
 				style="@style/SignedDecimal"
-				android:ems="5"
-				android:imeOptions="actionDone"/>
+				android:ems="5"/>
 
 			<TextView
 				style="@style/TextLabel"
+				android:layout_marginEnd="5dp"
 				android:labelFor="@+id/decPerc4"
 				android:text="@string/is"/>
 
@@ -133,6 +136,7 @@
 
 			<TextView
 				style="@style/TextLabel"
+				android:layout_marginEnd="5dp"
 				android:labelFor="@+id/decPerc6"
 				android:text="@string/is"/>
 

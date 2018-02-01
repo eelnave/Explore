@@ -63,7 +63,7 @@ public final class Discount extends CalcFragment {
 				curPrice, decDiscRate, curDiscAmt,
 				curDiscPrice, curTaxAmt, curTotal, curSaved
 		};
-		initialize(view, inputs, groups, toClear, R.id.btnClear);
+		initialize(view, inputs, groups, R.id.btnClear, toClear);
 		return view;
 	}
 

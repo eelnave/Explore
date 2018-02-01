@@ -66,7 +66,7 @@ public final class BodyMassIndex extends CalcFragment {
 		ControlWrapper[] toClear = {
 				decHeight, decWeight, txtBMI, txtCategory
 		};
-		initialize(view, inputs, toClear, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 

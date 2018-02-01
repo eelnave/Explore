@@ -87,7 +87,7 @@ public final class ForeignFuel extends CalcFragment {
 				curCostTo, decVolTo, decRatioTo, unitsRatioTo
 		};
 
-		initialize(view, inputs, toClear, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 

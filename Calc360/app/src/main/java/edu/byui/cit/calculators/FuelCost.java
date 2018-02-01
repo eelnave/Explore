@@ -67,7 +67,7 @@ public final class FuelCost extends CalcFragment {
 		EditWrapper[] inputs = { decDist, decEffic, curPrice };
 		ControlWrapper[] toClear = { decDist, decEffic, curPrice, curFuelCost };
 
-		initialize(view, inputs, toClear, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 

@@ -56,7 +56,7 @@ public final class DateDiff extends CalcFragment {
 		decDiff = new TextWrapper(view, R.id.decDiff);
 
 		ControlWrapper[] toClear = { decDiff };
-		initialize(view, null, toClear, R.id.btnClear);
+		initialize(view, null, R.id.btnClear, toClear);
 		return view;
 	}
 

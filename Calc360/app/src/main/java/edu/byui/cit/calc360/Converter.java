@@ -85,7 +85,7 @@ public abstract class Converter extends CalcFragment {
 				property, arrayID, KEY_BOTTOM, handler);
 
 		EditWrapper[] inputs = { decTop, decBottom };
-		initialize(view, inputs, inputs, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, inputs);
 		return view;
 	}
 

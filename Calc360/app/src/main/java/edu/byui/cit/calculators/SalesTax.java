@@ -52,7 +52,7 @@ public final class SalesTax extends CalcFragment {
 
 		EditWrapper[] inputs = { curPrice, decTaxRate };
 		ControlWrapper[] toClear = { curPrice, curTaxAmt, curTotal };
-		initialize(view, inputs, toClear, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 

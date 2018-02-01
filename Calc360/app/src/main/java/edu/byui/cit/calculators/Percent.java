@@ -69,28 +69,28 @@ public final class Percent extends CalcFragment {
 				percResult1.clear();
 			}
 		}
-		if (decPerc3.hasFocus() || decPerc4.hasFocus()) {
+		else if (decPerc3.hasFocus() || decPerc4.hasFocus()) {
 			if (decPerc3.notEmpty() && decPerc4.notEmpty()) {
 				// Calculates what percent a given number is
 				// of another number. Ex: 20 of 100 is 20%
 				double x = decPerc3.getDec();
 				double y = decPerc4.getDec();
-				double perc = x / y * 100.0;
-				String result = fmtrDec.format(perc) + "%";
+				double perc = x / y;
+				String result = fmtrDec.format(perc * 100.0) + "%";
 				percResult2.setText(result);
 			}
 			else {
 				percResult2.clear();
 			}
 		}
-		if (decPerc5.hasFocus() || decPerc6.hasFocus()) {
+		else if (decPerc5.hasFocus() || decPerc6.hasFocus()) {
 			if (decPerc5.notEmpty() && decPerc6.notEmpty()) {
 				// Calculates the percentage change between two numbers.
 				// Ex: from 20 to 100, there is an increase of 400%.
 				double x = decPerc5.getDec();
 				double y = decPerc6.getDec();
-				double perc = rateChange(x, y) * 100.0;
-				String result = fmtrDec.format(perc) + "%";
+				double perc = rateChange(x, y);
+				String result = fmtrDec.format(perc * 100.0) + "%";
 				percResult3.setText(result);
 			}
 			else {

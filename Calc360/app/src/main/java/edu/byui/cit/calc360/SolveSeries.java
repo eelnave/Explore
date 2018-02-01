@@ -22,7 +22,7 @@ public abstract class SolveSeries extends CalcFragment {
 	protected void initialize(View view, EditWrapper[] inputs,
 			EditWrapper[][] groups,
 			Solver[] solvers, int btnClearID, ControlWrapper[] toClear) {
-		super.initialize(view, inputs, groups, toClear, btnClearID);
+		super.initialize(view, inputs, groups, btnClearID, toClear);
 		int maxInputs = -1;
 		int len = inputs.length;
 		OrderedIndexArray indexArray = new OrderedIndexArray(len, len);

@@ -61,7 +61,7 @@ public class LaborCost extends CalcFragment {
 		};
 		ControlWrapper[] toClear = { curPrice, curSalesTaxAmt, txtOutput };
 
-		initialize(view, inputs, groups, toClear, R.id.btnClear);
+		initialize(view, inputs, groups, R.id.btnClear, toClear);
 		return view;
 	}
 

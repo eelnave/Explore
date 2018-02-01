@@ -81,7 +81,7 @@ public final class UnitConvert extends CalcFragment {
 
 		EditWrapper[] inputs = { decTop, decBottom };
 		EditWrapper[][] groups = {{ decTop, decBottom }};
-		initialize(view, inputs, groups, inputs, R.id.btnClear);
+		initialize(view, inputs, groups, R.id.btnClear, inputs);
 		return view;
 	}
 

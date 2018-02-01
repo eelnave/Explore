@@ -58,7 +58,7 @@ public final class Ratio extends SolveEquation {
 						double a = decA.getDec();
 						double b = decB.getDec();
 						double y = decY.getDec();
-						double x = a * y / b;
+						double x = y * a / b;
 						decX.setText(fmtrDec.format(x));
 					}
 				},
@@ -68,7 +68,7 @@ public final class Ratio extends SolveEquation {
 						double a = decA.getDec();
 						double b = decB.getDec();
 						double x = decX.getDec();
-						double y = b * x / a;
+						double y = x * b / a;
 						decY.setText(fmtrDec.format(y));
 					}
 				}
