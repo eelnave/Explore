@@ -19,21 +19,17 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
-/**
- * Created by michaelvance on 1/29/18.
- */
-
-public final class PowerMikeTrevor extends CalcFragment {
+public final class MilesDriven extends CalcFragment {
 	private final NumberFormat fmtrDec, fmtrCur;
 
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
 	private EditCur milesDriven; //Represents first input
 	private EditDec rate; //Represents second input
-	private TextWrapper curRate, curTotal; // Represents output
+	private TextWrapper curTotal; // Represents output
 
 
-	public PowerMikeTrevor() {
+	public MilesDriven() {
 		// Call the constructor in the parent class.
 		super();
 
@@ -45,17 +41,17 @@ public final class PowerMikeTrevor extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this calculator.
-		View view = inflater.inflate(R.layout.power_mike_trevor, container, false);
+		View view = inflater.inflate(R.layout.miles_driven, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
 		milesDriven = new EditCur(view, R.id.milesDriven, this); //The R.id.curPrice is what connects this to the xml document
 		rate = new EditDec(view, R.id.rate,
 				Calc360.KEY_SALES_TAX_RATE, this);
-		curRate = new TextWrapper(view, R.id.curRate);
+		//curRate = new TextWrapper(view, R.id.curRate);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
 		EditWrapper[] inputs = { milesDriven, rate };
-		ControlWrapper[] toClear = { milesDriven, curRate, curTotal };
+		ControlWrapper[] toClear = { milesDriven, rate, curTotal };
 		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
@@ -78,12 +74,12 @@ public final class PowerMikeTrevor extends CalcFragment {
 	protected void compute() {
 		if (milesDriven.notEmpty() && rate.notEmpty()) {
 			double miles = milesDriven.getCur();
-			double reRate = rate.getDec() / 100.0;
+			double reRate = rate.getDec();
 			double rateAmt = Consumer.Ratio.amount(reRate, miles);
-			curRate.setText(fmtrCur.format(rateAmt));
+			curTotal.setText(fmtrCur.format(rateAmt));
 		}
 		else {
-			curRate.clear();
+			curTotal.clear();
 		}
 	}
 }

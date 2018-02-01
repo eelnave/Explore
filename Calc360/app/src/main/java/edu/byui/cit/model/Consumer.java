@@ -16,7 +16,6 @@ public final class Consumer {
 		public static double amount(double rate, double total) {
 			return total * rate;
 		}
-
 		public static double total(double rate, double total) {
 			return total * (1.0 + rate);
 		}
