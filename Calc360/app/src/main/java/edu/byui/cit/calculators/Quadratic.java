@@ -7,17 +7,18 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.text.InputWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 import static edu.byui.cit.model.Geometry.Quadratic.*;
 
 
-public final class Quadratic extends SolveSeries {
+public final class Quadratic extends CalcFragment {
 	private final NumberFormat fmtrDec;
 	private EditDec decA, decB, decC;
 	private TextWrapper decRoot1, decRoot2;
@@ -43,48 +44,56 @@ public final class Quadratic extends SolveSeries {
 
 		EditWrapper[] inputs = { decA, decB, decC };
 		ControlWrapper[] toClear = { decA, decB, decC, decRoot1, decRoot2 };
-
-		Solver[] solvers = new Solver[] {
-				new Solver(new EditWrapper[]{ decA, decB, decC },
-						new ControlWrapper[]{ decRoot1, decRoot2 }) {
-					@Override
-					public void solve() {
-						double a = decA.getDec();
-						double b = decB.getDec();
-						double c = decC.getDec();
-						double discr = discrim(a, b, c);
-
-						// This if block checks for the number of solutions
-						// and then outputs them to the roots fields.
-						if (discr > 0) {
-							double rt1 = root1(a, b, discr);
-							double rt2 = root2(a, b, discr);
-
-							// Ensure that the lower root
-							// is always displayed first.
-							if (rt2 < rt1) {
-								double swap = rt1;
-								rt1 = rt2;
-								rt2 = swap;
-							}
-
-							decRoot1.setText(fmtrDec.format(rt1));
-							decRoot2.setText(fmtrDec.format(rt2));
-						}
-						else if (discr == 0) {
-							double rt = root(a, b);
-							decRoot1.setText(fmtrDec.format(rt));
-							decRoot2.clear();
-						}
-						else {
-							decRoot1.setText(getString(R.string.noRoots));
-							decRoot2.clear();
-						}
-					}
-				}
-		};
-
-		initialize(view, inputs, solvers, R.id.btnClear, toClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
+	}
+
+
+	@Override
+	protected void compute() {
+		if (InputWrapper.allNotEmpty(decA, decB, decC)) {
+			String s1, s2 = null;
+			double a = decA.getDec();
+			double b = decB.getDec();
+			double c = decC.getDec();
+			double discr = discrim(a, b, c);
+
+			// This if block checks for the number of solutions
+			// and then outputs them to the roots fields.
+			if (discr > 0) {
+				double rt1 = root1(a, b, discr);
+				double rt2 = root2(a, b, discr);
+
+				// Ensure that the lower root
+				// is always displayed first.
+				if (rt2 < rt1) {
+					double swap = rt1;
+					rt1 = rt2;
+					rt2 = swap;
+				}
+
+				s1 = fmtrDec.format(rt1);
+				s2 = fmtrDec.format(rt2);
+			}
+			else if (discr == 0) {
+				double rt = onlyRoot(a, b);
+				s1 = fmtrDec.format(rt);
+			}
+			else {
+				double[] rt = imaginary(a, b, discr);
+				s1 = getString(R.string.noRoots);
+				String pm = getString(R.string.neg);
+				String i = getString(R.string.imaginary);
+				s2 = fmtrDec.format(rt[0]) + ' ' + pm + ' ' +
+						fmtrDec.format(rt[1]) + ' ' + i;
+			}
+
+			decRoot1.setText(s1);
+			decRoot2.setText(s2);
+		}
+		else {
+			decRoot1.clear();
+			decRoot2.clear();
+		}
 	}
 }
