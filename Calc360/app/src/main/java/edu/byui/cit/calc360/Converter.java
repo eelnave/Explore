@@ -48,14 +48,14 @@ public abstract class Converter extends CalcFragment {
 		decTop = new EditDec(view, R.id.decTop, new TextChangeHandler() {
 			@Override
 			public void afterChanged(Editable editable) {
-				compute(spinBottom, decBottom, spinTop, decTop);
+				compute(decBottom, spinBottom, decTop, spinTop);
 			}
 		});
 
 		decBottom = new EditDec(view, R.id.decBottom, new TextChangeHandler() {
 			@Override
 			public void afterChanged(Editable editable) {
-				compute(spinTop, decTop, spinBottom, decBottom);
+				compute(decTop, spinTop, decBottom, spinBottom);
 			}
 		});
 
@@ -76,7 +76,7 @@ public abstract class Converter extends CalcFragment {
 			@Override
 			public void itemSelected(AdapterView<?> parent,
 					View view, int pos, long id) {
-				compute(spinBottom, decBottom, spinTop, decTop);
+				compute(decBottom, spinBottom, decTop, spinTop);
 			}
 		};
 		spinTop = new SpinUnit(act, view, R.id.spinTop,
@@ -106,8 +106,8 @@ public abstract class Converter extends CalcFragment {
 
 
 	// Overload not override, so try and catch is necessary.
-	private void compute(SpinUnit spinTo, EditDec decTo,
-			SpinUnit spinFrom, EditDec decFrom) {
+	private void compute(EditDec decTo, SpinUnit spinTo,
+			EditDec decFrom, SpinUnit spinFrom) {
 		try {
 			if (decFrom.notEmpty()) {
 				Unit unitFrom = spinFrom.getSelectedItem();

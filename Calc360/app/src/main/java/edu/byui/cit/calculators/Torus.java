@@ -36,7 +36,7 @@ public final class Torus extends SolveSeries {
 				decMajor, decMinor, decInner, decOuter, decArea, decVolume
 		};
 
-		initialize(view, inputs, null, new Solver[]{
+		initialize(view, inputs, new Solver[]{
 				new MajorMinor(),
 				new MajorInner(),
 				new MajorOuter(),
@@ -53,7 +53,7 @@ public final class Torus extends SolveSeries {
 				new InnerVolume(),
 				new OuterArea(),
 				new OuterVolume()
-		}, R.id.btnClear, null);
+		}, R.id.btnClear, inputs);
 
 		return view;
 	}

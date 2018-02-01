@@ -59,7 +59,7 @@ public final class Pyramid extends SolveEquation {
 						double wid = decWid.getDec();
 						double hei = decHei.getDec();
 						double len = length(wid, hei, vol);
-						decWid.setText(fmtrDec.format(len));
+						decLen.setText(fmtrDec.format(len));
 					}
 				},
 				new Solver() {

@@ -97,8 +97,9 @@
 
 		<TextView
 			android:id="@+id/output"
-			style="@style/TextLabel"
+			style="@style/TextResult"
 			android:layout_marginTop="20dp"
+			android:textAlignment="textStart"
 			android:minHeight="36pt"/>
 
 		<Button

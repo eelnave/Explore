@@ -1,6 +1,7 @@
 package edu.byui.cit.calculators;
 
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -149,26 +150,32 @@ public class LaborCost extends CalcFragment {
 				minutes * wagePerMinute);
 		final int cents = (int)Math.ceil(remainTotal * multiplier);
 
-		String output = "You must work for";
+		Resources res = getResources();
+		String output = res.getString(R.string.mustWork);
 		String sep = " ";
 		if (years > 0) {
-			output += sep + fmtrInt.format(years) + " years";
+			output += sep + fmtrInt.format(years) + ' ' +
+					res.getQuantityString(R.plurals.year, years);
 			sep = ", ";
 		}
 		if (days > 0) {
-			output += sep + fmtrInt.format(days) + " days";
+			output += sep + fmtrInt.format(days) + ' ' +
+					res.getQuantityString(R.plurals.day, days);
 			sep = ", ";
 		}
 		if (hours > 0) {
-			output += sep + fmtrInt.format(hours) + " hours";
+			output += sep + fmtrInt.format(hours) + ' ' +
+					res.getQuantityString(R.plurals.hour, hours);
 			sep = ", ";
 		}
 		if (minutes > 0) {
-			output += sep + fmtrInt.format(minutes) + " minutes";
+			output += sep + fmtrInt.format(minutes) + ' ' +
+					res.getQuantityString(R.plurals.minute, minutes);
 		}
 		if (cents > 0) {
-			output += ", and you must get " + cents + " cents from " +
-				"somewhere";
+			output += ", " + res.getString(R.string.mustGet) + ' ' +
+					cents + ' ' + res.getQuantityString(R.plurals.cent, cents) +
+					' ' + res.getString(R.string.somewhere);
 		}
 		output += ".";
 

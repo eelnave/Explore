@@ -155,7 +155,6 @@ public final class Calc360 extends AppCompatActivity {
 //		Log.v(TAG, getClass().getSimpleName() + ".onDestroy()");
 //	}
 
-
 	// Uses reflection to get an id from R.id, R.array, R.plurals, etc.
 	public static int getID(Class clss, String name)
 		throws NoSuchFieldException, IllegalAccessException {

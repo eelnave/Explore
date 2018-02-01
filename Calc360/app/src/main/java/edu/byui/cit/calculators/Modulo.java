@@ -9,9 +9,8 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
@@ -38,16 +37,15 @@ public final class Modulo extends CalcFragment {
 		// where the results will be displayed.
 		decRemain = new TextWrapper(view, R.id.decRemain);
 
-		// Set this calculator as the click listener for the clear button.
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
-
+		EditWrapper[] inputs = { decX, decY };
+		initialize(view, inputs, R.id.btnClear, inputs);
 		return view;
 	}
 
 
 	@Override
 	protected void compute() {
-		if (!decX.notEmpty() || decY.notEmpty()) {
+		if (decX.notEmpty() && decY.notEmpty()) {
 			// Get the numbers from the text fields.
 			double num1 = decX.getDec();
 			double num2 = decY.getDec();
@@ -57,17 +55,8 @@ public final class Modulo extends CalcFragment {
 			// Display the results for the user to see.
 			decRemain.setText(fmtrDec.format(mod));
 		}
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			decX.clear();
-			decY.clear();
+		else {
 			decRemain.clear();
-			decX.requestFocus();
 		}
 	}
 }

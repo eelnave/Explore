@@ -57,12 +57,12 @@ public class EditInt extends EditWrapper {
 		return getInt(getText(), deflt);
 	}
 
-	public int getBin() throws NumberFormatException {
-		return Integer.parseInt(getText(), 2);
+	public long getBin() throws NumberFormatException {
+		return Long.parseLong(getText(), 2);
 	}
 
-	public int getHex() throws NumberFormatException {
-		return Integer.parseInt(getText(), 16);
+	public long getHex() throws NumberFormatException {
+		return Long.parseLong(getText(), 16);
 	}
 
 

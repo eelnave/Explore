@@ -6,6 +6,7 @@
 	<string name="quadExplain4">a fórmula quadrática que é</string>
 	<string name="roots">raízes</string>
 	<string name="noRoots">Não existem raízes reais.</string>
+	<string name="imaginary"><i>i</i></string>
 
 	<string name="radius">raio</string>
 	<string name="majorRadius">raio maior</string>

@@ -22,7 +22,6 @@
 	<string name="prod1">Produto 1</string>
 	<string name="prod2">Produto 2</string>
 	<string name="prod3">Produto 3</string>
-	<string name="noSelection">nada selecionado</string>
 
 	<string name="tip">Gorjeta</string>
 	<string name="costBeforeTax">Custo antes de Impostos</string>

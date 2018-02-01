@@ -102,7 +102,7 @@ public final class Geometry {
 
 
 	public static final class Point2D {
-		public double x, y;
+		public final double x, y;
 
 		public Point2D(double x, double y) {
 			this.x = x;

@@ -22,7 +22,6 @@
 	<string name="prod1">Product 1</string>
 	<string name="prod2">Product 2</string>
 	<string name="prod3">Product 3</string>
-	<string name="noSelection">nothing selected</string>
 
 	<!-- Properties used in the Compare Prices Calculator -->
 	<string-array name="cmpPricesProps" translatable="false">
