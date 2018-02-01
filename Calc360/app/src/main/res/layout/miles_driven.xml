@@ -2,27 +2,24 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
+	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:layout_marginLeft="20dp"
+	android:layout_marginStart="20dp"
 	android:layout_marginTop="@dimen/default_gap"
 	compat:columnCount="4">
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/itemPrice"
 		compat:layout_columnSpan="2"
-		tools:text="Miles Driven: "/>
+		android:text="@string/miles"/>
 
 	<EditText
 		android:id="@+id/milesDriven"
 		style="@style/UnsignedDecimal"
 		android:ems="4"
-		android:hint="ex. 10"
+		android:hint="@string/milesHint"
 		compat:layout_rowSpan="1"
-		android:layout_marginLeft="@dimen/default_gap">
-		android:hint="@string/priceHint"
+		android:layout_marginStart="@dimen/default_gap">
 
 		<requestFocus/>
 	</EditText>
@@ -30,36 +27,31 @@
 	<TextView
 		style="@style/TextLabel"
 		android:labelFor="@+id/rate"
-		android:text="@string/tax"
-		compat:layout_columnSpan="2"
-		tools:text="Reimbursement Rate: "/>
+		android:text="@string/reimburseRate"
+		compat:layout_columnSpan="2"/>
 
 	<EditText
 		android:id="@+id/rate"
 		style="@style/UnsignedDecimal"
 		android:ems="4"
-		android:hint="ex. 5.8"
+		android:hint="@string/rateHint"
 		android:imeOptions="actionDone"
-		android:layout_marginLeft="@dimen/default_gap"/>
-		android:hint="@string/salesTaxHint"
+		android:layout_marginStart="@dimen/default_gap"/>
 
-	<TextView
-		android:id="@+id/curRate"
-		style="@style/TextResult"/>
 
 	<TextView
 		style="@style/TextLabel"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"
-		android:text="@string/total"
-		compat:layout_columnSpan="3"
-		tools:text="Total Reimbursement: "/>
+		android:text="@string/reimburseTotal"
+		compat:layout_columnSpan="3"/>
 
 
 	<TextView
 		android:id="@+id/curTotal"
 		style="@style/TextResult"
-		android:layout_marginTop="15dp"/>
+		android:layout_width="64dp"
+		compat:layout_row="2"/>
 
 	<Button
 		android:id="@+id/btnClear"
