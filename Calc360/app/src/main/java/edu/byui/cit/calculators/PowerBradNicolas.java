@@ -18,7 +18,6 @@ import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
-
 public final class PowerBradNicolas extends CalcFragment {
     private final NumberFormat fmtrDec, fmtrCur;
 
