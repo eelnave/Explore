@@ -13,7 +13,7 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditCur;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
@@ -25,7 +25,7 @@ public final class Simple_CO_TM extends CalcFragment {
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
 	private EditDec totalMiles;
-	private EditDec decReimRate;
+	private EditCur decReimRate;
 	private TextWrapper curTotalReim;
 
 
@@ -41,12 +41,11 @@ public final class Simple_CO_TM extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this calculator.
-		View view = inflater.inflate(R.layout.sales_tax, container, false);
+		View view = inflater.inflate(R.layout.simple_CO_TM, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
 		totalMiles = new EditDec(view, R.id.totalMiles, this);
-		decReimRate = new EditDec(view, R.id.decReimRate,
-				Calc360.KEY_SALES_TAX_RATE, this);
+		decReimRate = new EditCur(view, R.id.decReimRate,
 		curTotalReim = new TextWrapper(view, R.id.curTotalReim);
 
 		EditWrapper[] inputs = { totalMiles, decReimRate };
@@ -72,8 +71,8 @@ public final class Simple_CO_TM extends CalcFragment {
 	@Override
 	protected void compute() {
 		if (totalMiles.notEmpty() && decReimRate.notEmpty()) {
-			double miles = totalMiles.getCur();
-			double reimRate = decReimRate.getDec() / 100.0;
+			double miles = totalMiles.getDec();
+			double reimRate = decReimRate.getCur() / 100.0;
 			double reimbursement = Consumer.Ratio.amount(reimRate, miles);
 			curTotalReim.setText(fmtrCur.format(reimbursement));
 		}
