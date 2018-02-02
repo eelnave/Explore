@@ -7,8 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.text.NumberFormat;
-
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
@@ -45,7 +43,7 @@ public final class Simple_CO_TM extends CalcFragment {
 
 		// Get a reference to each of the text fields in this calculator.
 		totalMiles = new EditDec(view, R.id.totalMiles, this);
-		decReimRate = new EditCur(view, R.id.decReimRate,
+		decReimRate = new EditCur(view, R.id.decReimRate, this);
 		curTotalReim = new TextWrapper(view, R.id.curTotalReim);
 
 		EditWrapper[] inputs = { totalMiles, decReimRate };
@@ -73,6 +71,7 @@ public final class Simple_CO_TM extends CalcFragment {
 		if (totalMiles.notEmpty() && decReimRate.notEmpty()) {
 			double miles = totalMiles.getDec();
 			double reimRate = decReimRate.getCur() / 100.0;
+			//returns total * rate
 			double reimbursement = Consumer.Ratio.amount(reimRate, miles);
 			curTotalReim.setText(fmtrCur.format(reimbursement));
 		}

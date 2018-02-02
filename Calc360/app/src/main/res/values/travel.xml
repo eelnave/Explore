@@ -26,4 +26,10 @@
 	<string name="fuelPrice">Fuel Price</string>
 
 	<string name="currencyExch">Currency Exchange</string>
+
+	<string name="reimRate">Reimbursement Rate</string>
+	<string name="totalMiles">Total Miles Traveled</string>
+	<string name="totalReim">Total Reimbursement</string>
+	<string name="milesHint">ex: 150.5</string>
+	<string name="reimRateHint">ex: 54.5</string>
 </resources>

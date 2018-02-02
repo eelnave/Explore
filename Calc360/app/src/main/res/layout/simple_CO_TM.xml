@@ -8,28 +8,28 @@
 
     <TextView
         style="@style/TextLabel"
-        android:text="@string/itemPrice"
+        android:text="@string/totalMiles"
         compat:layout_columnSpan="3"/>
 
     <EditText
-        android:id="@+id/curPrice"
+        android:id="@+id/totalMiles"
         style="@style/UnsignedDecimal"
         android:ems="5"
-        android:hint="@string/priceHint">
+        android:hint="@string/milesHint">
 
         <requestFocus/>
     </EditText>
 
     <TextView
         style="@style/TextLabel"
-        android:labelFor="@+id/decTaxRate"
-        android:text="@string/tax"/>
+        android:labelFor="@+id/decReimRate"
+        android:text="@string/reimRate"/>
 
     <EditText
-        android:id="@+id/decTaxRate"
+        android:id="@+id/decReimRate"
         style="@style/UnsignedDecimal"
         android:ems="3"
-        android:hint="@string/salesTaxHint"
+        android:hint="@string/reimRateHint"
         android:imeOptions="actionDone"/>
 
     <TextView
@@ -38,17 +38,13 @@
         android:text="@string/perc"/>
 
     <TextView
-        android:id="@+id/curTaxAmt"
-        style="@style/TextResult"/>
-
-    <TextView
         style="@style/TextLabel"
         android:layout_marginTop="15dp"
-        android:text="@string/total"
+        android:text="@string/totalReim"
         compat:layout_columnSpan="3"/>
 
     <TextView
-        android:id="@+id/curTotal"
+        android:id="@+id/curTotalReim"
         style="@style/TextResult"
         android:layout_marginTop="15dp"/>
 
