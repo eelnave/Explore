@@ -498,8 +498,8 @@
 		<item quantity="other">Australian dollars</item>
 	</plurals>
 	<plurals name="BrazilianReal">
-		<item quantity="one">Brazilian real</item>
-		<item quantity="other">Brazilian reals</item>
+		<item quantity="one">Real brasileiro</item>
+		<item quantity="other">Reais brasileiros</item>
 	</plurals>
 	<plurals name="BulgarianLev">
 		<item quantity="one">Bulgarian lev</item>
