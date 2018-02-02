@@ -27,7 +27,7 @@
 
 	<string name="currencyExch">Currency Exchange</string>
 
-	<string name="fuelReimburse">Reimburse</string>
+	<string name="fuelReimburse">IRS Miles</string>
 	<string name="miles">Miles Driven: </string>
 	<string name="milesHint">ex. 10</string>
 	<string name="reimburseRate">Reimbursement Rate: </string>
