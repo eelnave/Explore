@@ -24,8 +24,8 @@ public final class MilesDriven extends CalcFragment {
 
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
-	private EditCur milesDriven; //Represents first input
-	private EditDec rate; //Represents second input
+	private EditCur rate; //Represents first input
+	private EditDec milesDriven; //Represents second input
 	private TextWrapper curTotal; // Represents output
 
 
@@ -44,14 +44,13 @@ public final class MilesDriven extends CalcFragment {
 		View view = inflater.inflate(R.layout.miles_driven, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
-		milesDriven = new EditCur(view, R.id.milesDriven, this); //The R.id.curPrice is what connects this to the xml document
-		rate = new EditDec(view, R.id.rate,
+		rate = new EditCur(view, R.id.rate, this); //The R.id.curPrice is what connects this to the xml document
+		milesDriven = new EditDec(view, R.id.milesDriven,
 				Calc360.KEY_SALES_TAX_RATE, this);
-		//curRate = new TextWrapper(view, R.id.curRate);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
-		EditWrapper[] inputs = { milesDriven, rate };
-		ControlWrapper[] toClear = { milesDriven, rate, curTotal };
+		EditWrapper[] inputs = { rate, milesDriven };
+		ControlWrapper[] toClear = { rate, milesDriven, curTotal };
 		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
@@ -60,22 +59,22 @@ public final class MilesDriven extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		// Get the previous sales tax rate entered by the user if it exits.
-		rate.restore(prefs, fmtrDec);
+		milesDriven.restore(prefs, fmtrDec);
 	}
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
 		// Write the tax rate entered by the user into the preferences file.
-		rate.save(editor);
+		milesDriven.save(editor);
 	}
 
 
 	@Override
 	protected void compute() {
-		if (milesDriven.notEmpty() && rate.notEmpty()) {
-			double miles = milesDriven.getCur();
-			double reRate = rate.getDec();
-			double rateAmt = Consumer.Ratio.amount(reRate, miles);
+		if (rate.notEmpty() && milesDriven.notEmpty()) {
+			double reRate = rate.getCur();
+			double reMiles = milesDriven.getDec();
+			double rateAmt = Consumer.Ratio.amount(reRate, reMiles);
 			curTotal.setText(fmtrCur.format(rateAmt));
 		}
 		else {
