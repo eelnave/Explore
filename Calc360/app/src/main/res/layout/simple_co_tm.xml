@@ -4,17 +4,16 @@
     xmlns:compat="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    compat:columnCount="4">
+    compat:columnCount="2">
 
     <TextView
         style="@style/TextLabel"
-        android:text="@string/totalMiles"
-        compat:layout_columnSpan="3"/>
+        android:text="@string/totalMiles"/>
 
     <EditText
         android:id="@+id/totalMiles"
         style="@style/UnsignedDecimal"
-        android:ems="5"
+        android:ems="4"
         android:hint="@string/milesHint">
 
         <requestFocus/>
@@ -28,20 +27,14 @@
     <EditText
         android:id="@+id/decReimRate"
         style="@style/UnsignedDecimal"
-        android:ems="3"
+        android:ems="4"
         android:hint="@string/reimRateHint"
         android:imeOptions="actionDone"/>
 
     <TextView
         style="@style/TextLabel"
-        android:layout_marginEnd="20dp"
-        android:text="@string/perc"/>
-
-    <TextView
-        style="@style/TextLabel"
         android:layout_marginTop="15dp"
-        android:text="@string/totalReim"
-        compat:layout_columnSpan="3"/>
+        android:text="@string/totalReim"/>
 
     <TextView
         android:id="@+id/curTotalReim"
@@ -54,5 +47,5 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="@string/clear"
-        compat:layout_columnSpan="4"/>
+        compat:layout_columnSpan="2"/>
 </android.support.v7.widget.GridLayout>

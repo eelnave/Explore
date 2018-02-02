@@ -39,7 +39,7 @@ public final class Simple_CO_TM extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this calculator.
-		View view = inflater.inflate(R.layout.simple_CO_TM, container, false);
+		View view = inflater.inflate(R.layout.simple_co_tm, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
 		totalMiles = new EditDec(view, R.id.totalMiles, this);
@@ -71,7 +71,7 @@ public final class Simple_CO_TM extends CalcFragment {
 		if (totalMiles.notEmpty() && decReimRate.notEmpty()) {
 			double miles = totalMiles.getDec();
 			double reimRate = decReimRate.getCur() / 100.0;
-			//returns total * rate
+			//returns total miles * reimbursement rate
 			double reimbursement = Consumer.Ratio.amount(reimRate, miles);
 			curTotalReim.setText(fmtrCur.format(reimbursement));
 		}
