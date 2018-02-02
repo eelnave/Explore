@@ -5,14 +5,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.NumberFormat;
+
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 public final class PowerBradNicolas extends CalcFragment {
+    private final NumberFormat fmtrDec;
+
+    public PowerBradNicolas() {
+        // Call the constructor in the parent class.
+        super();
+
+        fmtrDec = NumberFormat.getInstance();
+    }
 
     private EditDec num1;
     private EditDec num2;
@@ -33,25 +45,21 @@ public final class PowerBradNicolas extends CalcFragment {
         output = new TextWrapper(view, R.id.output);
 
         // Set this calculator as the click listener for the clear button.
-        new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
-
+        EditWrapper[] inputs = { num1, num2 };
+        ControlWrapper[] toClear = { num1, num2, output };
+        initialize(view, inputs, toClear, R.id.btnClear);
         return view;
     }
 
 
     @Override
     protected void compute() {
-        if (num1.notEmpty() && decTaxRate.notEmpty()) {
-            double price = num1.getCur();
-            double taxRate = decTaxRate.getDec() / 100.0;
-            double taxAmt = Consumer.Ratio.amount(taxRate, price);
-            double total = Consumer.Ratio.total(taxRate, price);
-            curTaxAmt.setText(fmtrCur.format(taxAmt));
-            curTotal.setText(fmtrCur.format(total));
+        if (num1.notEmpty() && num2.notEmpty()) {
+            double result = num1.getDec() + num2.getDec();
+            output.setText(fmtrDec.format(result));
         }
         else {
-            curTaxAmt.clear();
-            curTotal.clear();
+            output.clear();
         }
     }
 }
