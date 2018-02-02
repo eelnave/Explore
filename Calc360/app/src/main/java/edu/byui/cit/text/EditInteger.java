@@ -8,21 +8,21 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 
 
-public class EditInt extends EditWrapper {
-	public EditInt(View parent, int resID, CalcFragment calculator) {
+public class EditInteger extends EditWrapper {
+	public EditInteger(View parent, int resID, CalcFragment calculator) {
 		super(parent, resID, null, calculator);
 	}
 
-	public EditInt(
+	public EditInteger(
 			View parent, int resID, String prefsKey, CalcFragment calculator) {
 		super(parent, resID, prefsKey, calculator);
 	}
 
-	public EditInt(View parent, int resID, TextChangeListener listener) {
+	public EditInteger(View parent, int resID, TextChangeListener listener) {
 		super(parent, resID, null, listener);
 	}
 
-	public EditInt(View parent, int resID,
+	public EditInteger(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}

@@ -12,8 +12,8 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 
@@ -28,8 +28,8 @@ public final class Tip extends CalcFragment {
 
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
-	private EditCur curCost, curTaxAmt, curTipAmt, curTotal;
-	private EditDec percTipRate;
+	private EditCurrency curCost, curTaxAmt, curTipAmt, curTotal;
+	private EditDecimal percTipRate;
 	private EditWrapper[] inputs;
 
 
@@ -51,11 +51,11 @@ public final class Tip extends CalcFragment {
 		View view = inflater.inflate(R.layout.tip, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
-		curCost = new EditCur(view, R.id.curCost, this);
-		curTaxAmt = new EditCur(view, R.id.curTaxAmt, this);
-		percTipRate = new EditDec(view, R.id.percTipRate, KEY_TIP_RATE, this);
-		curTipAmt = new EditCur(view, R.id.curTipAmt, this);
-		curTotal = new EditCur(view, R.id.curTotal, this);
+		curCost = new EditCurrency(view, R.id.curCost, this);
+		curTaxAmt = new EditCurrency(view, R.id.curTaxAmt, this);
+		percTipRate = new EditDecimal(view, R.id.percTipRate, KEY_TIP_RATE, this);
+		curTipAmt = new EditCurrency(view, R.id.curTipAmt, this);
+		curTotal = new EditCurrency(view, R.id.curTotal, this);
 
 		inputs = new EditWrapper[]{
 				curCost, curTaxAmt, percTipRate, curTipAmt, curTotal

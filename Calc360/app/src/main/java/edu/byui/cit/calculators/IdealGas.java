@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Chemistry.IdealGas.*;
@@ -18,7 +18,7 @@ import static edu.byui.cit.model.Chemistry.IdealGas.*;
 
 public final class IdealGas extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decP, decV, decN, decR, decT;
+	private EditDecimal decP, decV, decN, decR, decT;
 
 
 	@Override
@@ -27,11 +27,11 @@ public final class IdealGas extends SolveEquation {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.ideal_gas, container, false);
 
-		decP = new EditDec(view, R.id.decP, this);
-		decV = new EditDec(view, R.id.decV, this);
-		decN = new EditDec(view, R.id.decN, this);
-		decR = new EditDec(view, R.id.decR, this);
-		decT = new EditDec(view, R.id.decT, this);
+		decP = new EditDecimal(view, R.id.decP, this);
+		decV = new EditDecimal(view, R.id.decV, this);
+		decN = new EditDecimal(view, R.id.decN, this);
+		decR = new EditDecimal(view, R.id.decR, this);
+		decT = new EditDecimal(view, R.id.decT, this);
 
 		// An array of all the inputs for this calculator.
 		EditWrapper[] inputs = { decP, decV, decN, decR, decT };

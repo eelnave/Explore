@@ -13,7 +13,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextChangeHandler;
@@ -33,7 +33,7 @@ public final class FuelEfficiency extends CalcFragment {
 			KEY_EFFIC_UNITS = "FuelEfficiency.efficUnits";
 
 	private final NumberFormat fmtrDist, fmtrEffic;
-	private EditDec decBegin, decEnd, decDist, decVol;
+	private EditDecimal decBegin, decEnd, decDist, decVol;
 	private SpinUnit spinDistUnits, spinVolUnits, spinEfficUnits;
 	private TextWrapper decEffic;
 
@@ -60,10 +60,10 @@ public final class FuelEfficiency extends CalcFragment {
 
 		// Create a wrapper object for each EditText
 		// that appears in this calculator's layout.
-		decBegin = new EditDec(view, R.id.decBegin, dist);
-		decEnd = new EditDec(view, R.id.decEnd, dist);
-		decDist = new EditDec(view, R.id.decDist, new DistanceChanged());
-		decVol = new EditDec(view, R.id.decVol, this);
+		decBegin = new EditDecimal(view, R.id.decBegin, dist);
+		decEnd = new EditDecimal(view, R.id.decEnd, dist);
+		decDist = new EditDecimal(view, R.id.decDist, new DistanceChanged());
+		decVol = new EditDecimal(view, R.id.decVol, this);
 
 		// Get the user's preferred units from the system
 		// preferences file and initialize each spinner.

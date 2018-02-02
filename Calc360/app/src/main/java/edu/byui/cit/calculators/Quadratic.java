@@ -10,9 +10,8 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.InputWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 import static edu.byui.cit.model.Geometry.Quadratic.*;
@@ -20,7 +19,7 @@ import static edu.byui.cit.model.Geometry.Quadratic.*;
 
 public final class Quadratic extends CalcFragment {
 	private final NumberFormat fmtrDec;
-	private EditDec decA, decB, decC;
+	private EditDecimal decA, decB, decC;
 	private TextWrapper decRoot1, decRoot2;
 
 	public Quadratic() {
@@ -36,9 +35,9 @@ public final class Quadratic extends CalcFragment {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.quadratic, container, false);
 
-		decA = new EditDec(view, R.id.decA, this);
-		decB = new EditDec(view, R.id.decB, this);
-		decC = new EditDec(view, R.id.decC, this);
+		decA = new EditDecimal(view, R.id.decA, this);
+		decB = new EditDecimal(view, R.id.decB, this);
+		decC = new EditDecimal(view, R.id.decC, this);
 		decRoot1 = new TextWrapper(view, R.id.decRoot1);
 		decRoot2 = new TextWrapper(view, R.id.decRoot2);
 
@@ -51,7 +50,7 @@ public final class Quadratic extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		if (InputWrapper.allNotEmpty(decA, decB, decC)) {
+		if (EditWrapper.allNotEmpty(decA, decB, decC)) {
 			String s1, s2 = null;
 			double a = decA.getDec();
 			double b = decB.getDec();

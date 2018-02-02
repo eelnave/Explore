@@ -15,7 +15,7 @@ import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditAngle;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.TextWrapper;
@@ -28,7 +28,7 @@ import static edu.byui.cit.model.Geometry.Triangle.*;
 
 public final class Triangle extends SolveSeries {
 	private final NumberFormat fmtrDec, fmtrAngle;
-	private EditDec decA, decB, decC;
+	private EditDecimal decA, decB, decC;
 	private EditAngle decAlpha, decBeta, decGamma;
 	private EditAngle[] angles;
 	private TextWrapper decPerim, decArea;
@@ -52,9 +52,9 @@ public final class Triangle extends SolveSeries {
 				Angle.getInstance(), R.array.triUnits,
 				Calc360.KEY_ANGLE_UNITS, new AngleUnits());
 
-		decA = new EditDec(view, R.id.decSideA, this);
-		decB = new EditDec(view, R.id.decSideB, this);
-		decC = new EditDec(view, R.id.decSideC, this);
+		decA = new EditDecimal(view, R.id.decSideA, this);
+		decB = new EditDecimal(view, R.id.decSideB, this);
+		decC = new EditDecimal(view, R.id.decSideC, this);
 		decAlpha = new EditAngle(view, R.id.decAlpha, this);
 		decBeta = new EditAngle(view, R.id.decBeta, this);
 		decGamma = new EditAngle(view, R.id.decGamma, this);
@@ -280,8 +280,8 @@ public final class Triangle extends SolveSeries {
 	}
 
 	private void solveSAS(
-			EditDec decSide1, EditAngle decAngle3, EditDec decSide2,
-			EditDec decSide3, EditAngle decAngle1, EditAngle decAngle2) {
+			EditDecimal decSide1, EditAngle decAngle3, EditDecimal decSide2,
+			EditDecimal decSide3, EditAngle decAngle1, EditAngle decAngle2) {
 		Unit user = spinner.getSelectedItem();
 		double side1 = decSide1.getDec();
 		double angle3 = decAngle3.getRad(user);
@@ -296,8 +296,8 @@ public final class Triangle extends SolveSeries {
 	}
 
 	private void solveSSA(
-			EditDec decSide1, EditDec decSide2, EditAngle decAngle1,
-			EditAngle decAngle2, EditAngle decAngle3, EditDec decSide3) {
+			EditDecimal decSide1, EditDecimal decSide2, EditAngle decAngle1,
+			EditAngle decAngle2, EditAngle decAngle3, EditDecimal decSide3) {
 		Unit user = spinner.getSelectedItem();
 		double side1 = decSide1.getDec();
 		double side2 = decSide2.getDec();
@@ -312,8 +312,8 @@ public final class Triangle extends SolveSeries {
 	}
 
 	private void solveAAS(
-			EditAngle decAngle1, EditAngle decAngle2, EditDec decSide1,
-			EditDec decSide2, EditAngle decAngle3, EditDec decSide3) {
+			EditAngle decAngle1, EditAngle decAngle2, EditDecimal decSide1,
+			EditDecimal decSide2, EditAngle decAngle3, EditDecimal decSide3) {
 		Unit user = spinner.getSelectedItem();
 		double angle1 = decAngle1.getRad(user);
 		double angle2 = decAngle2.getRad(user);
@@ -328,8 +328,8 @@ public final class Triangle extends SolveSeries {
 	}
 
 	private void solveASA(
-			EditAngle decAngle1, EditDec decSide3, EditAngle decAngle2,
-			EditAngle decAngle3, EditDec decSide1, EditDec decSide2) {
+			EditAngle decAngle1, EditDecimal decSide3, EditAngle decAngle2,
+			EditAngle decAngle3, EditDecimal decSide1, EditDecimal decSide2) {
 		Unit user = spinner.getSelectedItem();
 		double angle1 = decAngle1.getRad(user);
 		double side3 = decSide3.getDec();

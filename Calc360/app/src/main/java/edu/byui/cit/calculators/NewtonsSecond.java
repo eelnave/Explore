@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.NewtonsSecond.*;
@@ -18,7 +18,7 @@ import static edu.byui.cit.model.Physics.NewtonsSecond.*;
 
 public final class NewtonsSecond extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decForce, decMass, decAccel;
+	private EditDecimal decForce, decMass, decAccel;
 
 
 	@Override
@@ -26,9 +26,9 @@ public final class NewtonsSecond extends SolveEquation {
 			Bundle savedInstanceState){
 		View view = inflater.inflate(R.layout.newtons_second, container, false);
 
-		decForce = new EditDec(view, R.id.decForce, this);
-		decMass = new EditDec(view, R.id.decMass, this);
-		decAccel = new EditDec(view, R.id.decAccel, this);
+		decForce = new EditDecimal(view, R.id.decForce, this);
+		decMass = new EditDecimal(view, R.id.decMass, this);
+		decAccel = new EditDecimal(view, R.id.decAccel, this);
 		EditWrapper[] inputs = { decForce, decMass, decAccel };
 
 		Solver[] solvers = new Solver[] {

@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
@@ -35,8 +35,8 @@ public final class Simple2 extends SolveSeries {
 		View view = inflater.inflate(R.layout.simple, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
-		final EditDec decimal1 = new EditDec(view, R.id.decimal1, this);
-		final EditDec decimal2 = new EditDec(view, R.id.decimal2, this);
+		final EditDecimal decimal1 = new EditDecimal(view, R.id.decimal1, this);
+		final EditDecimal decimal2 = new EditDecimal(view, R.id.decimal2, this);
 		final TextWrapper result = new TextWrapper(view, R.id.result);
 
 		EditWrapper[] inputs = { decimal1, decimal2 };

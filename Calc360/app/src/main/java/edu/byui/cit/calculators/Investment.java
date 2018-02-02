@@ -11,10 +11,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinInt;
+import edu.byui.cit.text.SpinInteger;
 
 import static edu.byui.cit.model.Finance.investPresentValue;
 import static edu.byui.cit.model.Finance.investPayment;
@@ -26,10 +26,10 @@ import static edu.byui.cit.model.Finance.investFutureValue;
 public final class Investment extends SolveEquation {
 	private static final String KEY_PPY = "Invest.ppy";
 	private final NumberFormat fmtrCur, fmtrRate, fmtrYears;
-	private EditCur curPV, curPay;
-	private EditDec decAR, decYears;
-	private SpinInt spinPPY;
-	private EditCur curFV;
+	private EditCurrency curPV, curPay;
+	private EditDecimal decAR, decYears;
+	private SpinInteger spinPPY;
+	private EditCurrency curFV;
 
 	public Investment() {
 		super();
@@ -48,16 +48,16 @@ public final class Investment extends SolveEquation {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.investment, container, false);
 
-		curPV = new EditCur(view, R.id.curPV, this);
-		curPay = new EditCur(view, R.id.curPay, this);
-		decAR = new EditDec(view, R.id.decAR, this);
-		decYears = new EditDec(view, R.id.decYears, this);
+		curPV = new EditCurrency(view, R.id.curPV, this);
+		curPay = new EditCurrency(view, R.id.curPay, this);
+		decAR = new EditDecimal(view, R.id.decAR, this);
+		decYears = new EditDecimal(view, R.id.decYears, this);
 
 		Activity act = getActivity();
-		spinPPY = new SpinInt(act, view, R.id.spinPPY,
+		spinPPY = new SpinInteger(act, view, R.id.spinPPY,
 				R.array.possiblePPY, KEY_PPY, this);
 
-		curFV = new EditCur(view, R.id.curFV, this);
+		curFV = new EditCurrency(view, R.id.curFV, this);
 		EditWrapper[] inputs = { curPV, curPay, decAR, decYears, curFV };
 
 		Solver[] solvers = new Solver[] {

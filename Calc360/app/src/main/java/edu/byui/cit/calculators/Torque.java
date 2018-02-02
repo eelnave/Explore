@@ -9,7 +9,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.Torque.*;
@@ -17,16 +17,16 @@ import static edu.byui.cit.model.Physics.Torque.*;
 
 public class Torque extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decTorque, decForce, decRadius, decTheta;
+	private EditDecimal decTorque, decForce, decRadius, decTheta;
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.torque, container, false);
-		decTorque = new EditDec(view, R.id.decTorque, this);
-		decForce = new EditDec(view, R.id.decForce, this);
-		decRadius = new EditDec(view, R.id.decRadius, this);
-		decTheta = new EditDec(view, R.id.decTheta, this);
+		decTorque = new EditDecimal(view, R.id.decTorque, this);
+		decForce = new EditDecimal(view, R.id.decForce, this);
+		decRadius = new EditDecimal(view, R.id.decRadius, this);
+		decTheta = new EditDecimal(view, R.id.decTheta, this);
 		EditWrapper[] inputs = { decTorque, decForce, decRadius, decTheta };
 
 		Solver[] solvers = new Solver[] {

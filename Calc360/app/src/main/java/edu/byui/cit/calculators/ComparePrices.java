@@ -23,8 +23,8 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.SpinProperty;
 import edu.byui.cit.text.SpinUnit;
@@ -103,8 +103,8 @@ public final class ComparePrices extends CalcFragment {
 
 
 	private final class Product {
-		EditCur curPrice;
-		EditDec decQuant;
+		EditCurrency curPrice;
+		EditDecimal decQuant;
 		SpinUnit spinUnits;
 		TextWrapper curPer;
 
@@ -112,9 +112,9 @@ public final class ComparePrices extends CalcFragment {
 				throws NoSuchFieldException, IllegalAccessException {
 			Class clss = R.id.class;
 			ComparePrices parent = ComparePrices.this;
-			curPrice = new EditCur(view,
+			curPrice = new EditCurrency(view,
 					Calc360.getID(clss, "curPrice" + which), parent);
-			decQuant = new EditDec(view,
+			decQuant = new EditDecimal(view,
 					Calc360.getID(clss, "decQuant" + which), parent);
 			spinUnits = new SpinUnit(view,
 					Calc360.getID(clss, "spinUnits" + which), parent);

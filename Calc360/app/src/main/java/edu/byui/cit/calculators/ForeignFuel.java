@@ -13,8 +13,8 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
@@ -33,8 +33,8 @@ public final class ForeignFuel extends CalcFragment {
 			KEY_UNITS_VOL_TO = "ForeignFuel.unitsVolTo";
 
 	private final NumberFormat fmtrCost, fmtrVol;
-	private EditCur curCostFrom;
-	private EditDec decVolFrom;
+	private EditCurrency curCostFrom;
+	private EditDecimal decVolFrom;
 	private SpinUnit unitsCostFrom, unitsVolFrom, unitsCostTo, unitsVolTo;
 	private TextWrapper decRatioFrom, unitsRatioFrom,
 			curCostTo, decVolTo, decRatioTo, unitsRatioTo;
@@ -71,8 +71,8 @@ public final class ForeignFuel extends CalcFragment {
 
 		// Create a wrapper object for each EditText
 		// that appears in this calculator's layout.
-		curCostFrom = new EditCur(view, R.id.curCostFrom, this);
-		decVolFrom = new EditDec(view, R.id.decVolFrom, this);
+		curCostFrom = new EditCurrency(view, R.id.curCostFrom, this);
+		decVolFrom = new EditDecimal(view, R.id.decVolFrom, this);
 
 		decRatioFrom = new TextWrapper(view, R.id.decRatioFrom);
 		unitsRatioFrom = new TextWrapper(view, R.id.unitsRatioFrom);

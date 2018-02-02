@@ -14,8 +14,8 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
@@ -26,8 +26,8 @@ public class LaborCost extends CalcFragment {
 			KEY_SALARY = "LaborCost.salary";
 
 	private final NumberFormat fmtrRate, fmtrCur, fmtrInt;
-	private EditCur curPrice, curSalesTaxAmt, curWage, curSalary;
-	private EditDec decSalesTaxRate;
+	private EditCurrency curPrice, curSalesTaxAmt, curWage, curSalary;
+	private EditDecimal decSalesTaxRate;
 	private TextWrapper txtOutput;
 
 	public LaborCost() {
@@ -45,12 +45,12 @@ public class LaborCost extends CalcFragment {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.labor_cost, container, false);
 
-		curPrice = new EditCur(view, R.id.curPrice, this);
-		decSalesTaxRate = new EditDec(view, R.id.decSalesTaxRate,
+		curPrice = new EditCurrency(view, R.id.curPrice, this);
+		decSalesTaxRate = new EditDecimal(view, R.id.decSalesTaxRate,
 				Calc360.KEY_SALES_TAX_RATE, this);
-		curSalesTaxAmt = new EditCur(view, R.id.curSalesTaxAmt, this);
-		curWage = new EditCur(view, R.id.curWage, KEY_WAGE, this);
-		curSalary = new EditCur(view, R.id.curSalary, KEY_SALARY, this);
+		curSalesTaxAmt = new EditCurrency(view, R.id.curSalesTaxAmt, this);
+		curWage = new EditCurrency(view, R.id.curWage, KEY_WAGE, this);
+		curSalary = new EditCurrency(view, R.id.curSalary, KEY_SALARY, this);
 		txtOutput = new TextWrapper(view, R.id.output);
 
 		EditWrapper[] inputs = {

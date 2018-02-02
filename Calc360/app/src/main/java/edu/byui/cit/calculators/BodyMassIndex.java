@@ -12,7 +12,7 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.RadioWrapper;
 import edu.byui.cit.text.TextWrapper;
@@ -24,7 +24,7 @@ import edu.byui.cit.units.Mass;
 
 public final class BodyMassIndex extends CalcFragment {
 	private RadioWrapper radImperial;
-	private EditDec decWeight, decHeight;
+	private EditDecimal decWeight, decHeight;
 	private TextWrapper txtHeightUnit, txtWeightUnit, txtBMI, txtCategory;
 	private int[] ranges;
 	private String[] categories;
@@ -47,8 +47,8 @@ public final class BodyMassIndex extends CalcFragment {
 		View view = inflater.inflate(R.layout.body_mass_index, container,
 				false);
 
-		decHeight = new EditDec(view, R.id.decHeight, this);
-		decWeight = new EditDec(view, R.id.decWeight, this);
+		decHeight = new EditDecimal(view, R.id.decHeight, this);
+		decWeight = new EditDecimal(view, R.id.decWeight, this);
 		txtHeightUnit = new TextWrapper(view, R.id.heightUnit);
 		txtWeightUnit = new TextWrapper(view, R.id.weightUnit);
 		txtBMI = new TextWrapper(view, R.id.decBMI);

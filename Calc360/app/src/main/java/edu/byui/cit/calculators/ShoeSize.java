@@ -12,9 +12,7 @@ import java.util.Map;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 
 
 public final class ShoeSize extends CalcFragment {
@@ -61,8 +59,7 @@ public final class ShoeSize extends CalcFragment {
 
 		decUSA = view.findViewById(R.id.shoeDecUSA);
 		decMetric = view.findViewById(R.id.shoeDecMetric);
-		new ButtonWrapper(view, R.id.shoeBtnCompute, this);
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+
 		return view;
 	}
 
@@ -71,21 +68,13 @@ public final class ShoeSize extends CalcFragment {
 		String usa = decUSA.getText().toString();
 		String metric = decMetric.getText().toString();
 		if (usa.length() > 0) {
-			float u = (float)EditDec.getDec(decUSA);
+			float u = (float)EditDecimal.getDec(decUSA);
 			float inches = inchesFromUSA.get(u);
 			float millis = inches * 2.54F * 1.5F;
 			decMetric.setText(fmtrDec.format(millis));
 		}
 		else if (metric.length() > 0) {
 
-		}
-	}
-
-	private final class ClearHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			decUSA.getText().clear();
-			decMetric.getText().clear();
 		}
 	}
 }

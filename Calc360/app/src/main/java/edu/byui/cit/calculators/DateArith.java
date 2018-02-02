@@ -15,7 +15,7 @@ import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.DateWrapper;
-import edu.byui.cit.text.EditInt;
+import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
@@ -27,7 +27,7 @@ public final class DateArith extends CalcFragment {
 	private final DateFormat fmtrDate;
 
 	private DateWrapper datePicker;
-	private EditInt intDuration;
+	private EditInteger intDuration;
 	private SpinUnit spinDuration;
 	private TextWrapper dateResult;
 
@@ -46,7 +46,7 @@ public final class DateArith extends CalcFragment {
 		datePicker = new DateWrapper(view, R.id.datePicker, calendar, this);
 
 		new ButtonWrapper(view, R.id.btnToday, new TodayHandler());
-		intDuration = new EditInt(view, R.id.intDuration, this);
+		intDuration = new EditInteger(view, R.id.intDuration, this);
 
 		// Set up the spinner to show the right values
 		spinDuration = new SpinUnit(getActivity(), view, R.id.spinDuration,

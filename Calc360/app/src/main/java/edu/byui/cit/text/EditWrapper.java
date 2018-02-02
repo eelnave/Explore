@@ -39,6 +39,7 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 		edit.addTextChangedListener(this);
 	}
 
+
 	public abstract void restore(SharedPreferences prefs, NumberFormat fmtr);
 
 	// These functions should be moved to a EditString
@@ -117,7 +118,6 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 		}
 	}
 
-	@Override
 	public boolean hasUserInput() {
 		return userInput;
 	}
@@ -167,5 +167,60 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 			userInput = false;
 			edit.addTextChangedListener(this);
 		}
+	}
+
+
+	public static int countEmpty(EditWrapper... inputs) {
+		int n = 0;
+		for (EditWrapper in : inputs) {
+			if (in.isEmpty()) {
+				++n;
+			}
+		}
+		return n;
+	}
+
+	public static int indexOfEmpty(EditWrapper... inputs) {
+		int empty = -1;
+		for (int i = 0; i < inputs.length; ++i) {
+			if (inputs[i].isEmpty()) {
+				empty = i;
+				break;
+			}
+		}
+		return empty;
+	}
+
+//	public static boolean anyNotEmpty(EditWrapper... inputs) {
+//		boolean any = false;
+//		for (EditWrapper in : inputs) {
+//			any = in.notEmpty();
+//			if (any) {
+//				break;
+//			}
+//		}
+//		return any;
+//	}
+
+	public static boolean allNotEmpty(EditWrapper... inputs) {
+		boolean all = true;
+		for (EditWrapper in : inputs) {
+			all = in.notEmpty();
+			if (!all) {
+				break;
+			}
+		}
+		return all;
+	}
+
+	public static boolean allHaveInput(EditWrapper... inputs) {
+		boolean all = true;
+		for (EditWrapper in : inputs) {
+			all = in.hasUserInput();
+			if (!all) {
+				break;
+			}
+		}
+		return all;
 	}
 }

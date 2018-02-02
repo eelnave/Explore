@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Chemistry.GasEnergy.*;
@@ -18,17 +18,17 @@ import static edu.byui.cit.model.Chemistry.GasEnergy.*;
 
 public final class GasEnergy extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decEnergy, decMoles, decGasConst, decTemp;
+	private EditDecimal decEnergy, decMoles, decGasConst, decTemp;
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.gas_energy, container, false);
 
-		decEnergy = new EditDec(view, R.id.decEnergy, this);
-		decMoles = new EditDec(view, R.id.decMoles, this);
-		decGasConst = new EditDec(view, R.id.decGasConst, this);
-		decTemp = new EditDec(view, R.id.decTemp, this);
+		decEnergy = new EditDecimal(view, R.id.decEnergy, this);
+		decMoles = new EditDecimal(view, R.id.decMoles, this);
+		decGasConst = new EditDecimal(view, R.id.decGasConst, this);
+		decTemp = new EditDecimal(view, R.id.decTemp, this);
 		EditWrapper[] inputs = { decEnergy, decMoles, decGasConst, decTemp };
 
 		Solver[] solvers = new Solver[] {

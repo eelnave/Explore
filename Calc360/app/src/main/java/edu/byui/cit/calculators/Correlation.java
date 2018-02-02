@@ -13,7 +13,7 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.TextWrapper;
 
 
@@ -48,8 +48,8 @@ public final class Correlation extends CalcFragment {
 		String str1 = txtSamp1.getText().toString().trim();
 		String str2 = txtSamp2.getText().toString().trim();
 		if (str1.length() > 0 && str2.length() > 0) {
-			double[] samp1 = EditDec.getDecimals(txtSamp1);
-			double[] samp2 = EditDec.getDecimals(txtSamp2);
+			double[] samp1 = EditDecimal.getDecimals(txtSamp1);
+			double[] samp2 = EditDecimal.getDecimals(txtSamp2);
 			if (samp1.length != samp2.length) {
 				throw new IllegalArgumentException(
 						getString(R.string.mismatchedSamples));

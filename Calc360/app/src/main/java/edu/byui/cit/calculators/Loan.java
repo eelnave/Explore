@@ -13,11 +13,11 @@ import edu.byui.cit.model.Finance;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.EditInt;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinInt;
+import edu.byui.cit.text.SpinInteger;
 import edu.byui.cit.text.TextWrapper;
 
 
@@ -25,12 +25,12 @@ public final class Loan extends SolveSeries {
 	private static final String KEY_PPY = "Loan.ppy";
 
 	private final NumberFormat fmtrCur, fmtrRate, fmtrYears, fmtrInt, fmtrDec;
-	private EditCur curAmt;
-	private EditDec decAR;
-	private EditDec decYears;
-	private SpinInt spinPPY;
-	private EditCur curPay;
-	private EditInt intPTD;
+	private EditCurrency curAmt;
+	private EditDecimal decAR;
+	private EditDecimal decYears;
+	private SpinInteger spinPPY;
+	private EditCurrency curPay;
+	private EditInteger intPTD;
 	private TextWrapper curBal;
 	private TextWrapper txtPeriod, txtInter, txtPrinc, txtBal;
 
@@ -59,16 +59,16 @@ public final class Loan extends SolveSeries {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.loan, container, false);
 
-		curAmt = new EditCur(view, R.id.curAmt, this);
-		decAR = new EditDec(view, R.id.decAR, this);
-		decYears = new EditDec(view, R.id.decYears, this);
+		curAmt = new EditCurrency(view, R.id.curAmt, this);
+		decAR = new EditDecimal(view, R.id.decAR, this);
+		decYears = new EditDecimal(view, R.id.decYears, this);
 
 		Activity act = getActivity();
-		spinPPY = new SpinInt(act, view, R.id.spinPPY,
+		spinPPY = new SpinInteger(act, view, R.id.spinPPY,
 				R.array.possiblePPY, KEY_PPY, this);
 
-		curPay = new EditCur(view, R.id.curPay, this);
-		intPTD = new EditInt(view, R.id.intPTD, this);
+		curPay = new EditCurrency(view, R.id.curPay, this);
+		intPTD = new EditInteger(view, R.id.intPTD, this);
 		curBal = new TextWrapper(view, R.id.curBal);
 		txtPeriod = new TextWrapper(view, R.id.txtPeriod);
 		txtInter = new TextWrapper(view, R.id.txtInter);

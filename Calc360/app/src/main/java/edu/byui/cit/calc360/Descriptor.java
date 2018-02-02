@@ -8,7 +8,7 @@ import java.util.Comparator;
 /** A Descriptor is either a CalcDescriptor or a GroupDescriptor of Descriptors. */
 abstract class Descriptor {
 	private final int id, titleID, iconID;
-	private final Class<? extends OmniFragment> calcClass;
+	private final Class<? extends InfoFragment> calcClass;
 	private String title;
 
 	/**
@@ -22,7 +22,7 @@ abstract class Descriptor {
 	 *                  this descriptor
 	 */
 	Descriptor(int id, int titleID, int iconID,
-			   Class<? extends OmniFragment> calcClass) {
+			   Class<? extends InfoFragment> calcClass) {
 		this.id = id;
 		this.titleID = titleID;
 		this.iconID = iconID;
@@ -37,7 +37,7 @@ abstract class Descriptor {
 		return iconID;
 	}
 
-	Class<? extends OmniFragment> getCalcClass() {
+	Class<? extends InfoFragment> getCalcClass() {
 		return calcClass;
 	}
 

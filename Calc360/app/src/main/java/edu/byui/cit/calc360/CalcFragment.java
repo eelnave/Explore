@@ -10,7 +10,7 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.InputWrapper;
 
 
-public abstract class CalcFragment extends OmniFragment {
+public abstract class CalcFragment extends InfoFragment {
 	EditWrapper[] inputs;
 	EditWrapper[][] groups;
 	ControlWrapper[] toClear;
@@ -129,8 +129,8 @@ public abstract class CalcFragment extends OmniFragment {
 
 	protected final void clearOutput(ControlWrapper[] controls) {
 		for (ControlWrapper ctrl : controls) {
-			if (!(ctrl instanceof InputWrapper &&
-					((InputWrapper)ctrl).hasUserInput())) {
+			if (! (ctrl instanceof EditWrapper &&
+					((EditWrapper)ctrl).hasUserInput())) {
 				ctrl.clear();
 			}
 		}

@@ -15,7 +15,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.SpinProperty;
@@ -44,7 +44,7 @@ public class RecipeMultiplier extends CalcFragment {
 	private SpinProperty spinProp;
 	private Property propCurrent;
 	private SpinUnit spinStart, spinEnd;
-	private EditDec decOrigAmt;
+	private EditDecimal decOrigAmt;
 	private SpinString spinMult;
 	private TextWrapper decResult;
 
@@ -67,7 +67,7 @@ public class RecipeMultiplier extends CalcFragment {
 		spinStart = new SpinUnit(view, R.id.spinStart, this);
 		spinEnd = new SpinUnit(view, R.id.spinEnd, this);
 
-		decOrigAmt = new EditDec(view, R.id.decOrigAmt, this);
+		decOrigAmt = new EditDecimal(view, R.id.decOrigAmt, this);
 		spinMult = new SpinString(view, R.id.spinMult, KEY_MULT, this);
 		decResult = new TextWrapper(view, R.id.decResult);
 

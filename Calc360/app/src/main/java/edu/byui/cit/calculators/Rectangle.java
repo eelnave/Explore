@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Rectangle.*;
@@ -18,7 +18,7 @@ import static edu.byui.cit.model.Geometry.Rectangle.*;
 
 public final class Rectangle extends SolveSeries {
 	private final NumberFormat fmtrDec = NumberFormat.getNumberInstance();
-	private EditDec decWidth, decHeight, decDiag, decPerim, decArea;
+	private EditDecimal decWidth, decHeight, decDiag, decPerim, decArea;
 
 
 	@Override
@@ -27,12 +27,12 @@ public final class Rectangle extends SolveSeries {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.rectangle, container, false);
 
-		//Attach all the fields to an EditDec or EditCur object
-		decWidth = new EditDec(view, R.id.decWidth, this);
-		decHeight = new EditDec(view, R.id.decHeight, this);
-		decDiag = new EditDec(view, R.id.decDiag, this);
-		decPerim = new EditDec(view, R.id.decPerim, this);
-		decArea = new EditDec(view, R.id.decArea, this);
+		//Attach all the fields to an EditDecimal or EditCurrency object
+		decWidth = new EditDecimal(view, R.id.decWidth, this);
+		decHeight = new EditDecimal(view, R.id.decHeight, this);
+		decDiag = new EditDecimal(view, R.id.decDiag, this);
+		decPerim = new EditDecimal(view, R.id.decPerim, this);
+		decArea = new EditDecimal(view, R.id.decArea, this);
 
 		EditWrapper[] inputs = { decWidth, decHeight, decDiag, decPerim, decArea };
 
@@ -148,7 +148,7 @@ public final class Rectangle extends SolveSeries {
 		return view;
 	}
 
-	private void solveSideDiag(EditDec decSide1, EditDec decSide2) {
+	private void solveSideDiag(EditDecimal decSide1, EditDecimal decSide2) {
 		double side1 = decSide1.getDec();
 		double diag = decDiag.getDec();
 		double side2 = sideSD(side1, diag);
@@ -159,7 +159,7 @@ public final class Rectangle extends SolveSeries {
 		decArea.setText(fmtrDec.format(area));
 	}
 
-	private void solveSidePerim(EditDec decSide1, EditDec decSide2) {
+	private void solveSidePerim(EditDecimal decSide1, EditDecimal decSide2) {
 		double side1 = decSide1.getDec();
 		double perim = decPerim.getDec();
 		double side2 = sideSP(side1, perim);
@@ -170,7 +170,7 @@ public final class Rectangle extends SolveSeries {
 		decArea.setText(fmtrDec.format(area));
 	}
 
-	private void solveSideArea(EditDec decSide1, EditDec decSide2) {
+	private void solveSideArea(EditDecimal decSide1, EditDecimal decSide2) {
 		double side1 = decSide1.getDec();
 		double area = decArea.getDec();
 		double side2 = sideSA(side1, area);

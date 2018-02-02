@@ -8,21 +8,21 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 
 
-public class EditCur extends EditWrapper {
-	public EditCur(View parent, int resID, CalcFragment calculator) {
+public class EditCurrency extends EditWrapper {
+	public EditCurrency(View parent, int resID, CalcFragment calculator) {
 		super(parent, resID, null, calculator);
 	}
 
-	public EditCur(
+	public EditCurrency(
 			View parent, int resID, String prefsKey, CalcFragment calculator) {
 		super(parent, resID, prefsKey, calculator);
 	}
 
-	public EditCur(View parent, int resID, TextChangeListener listener) {
+	public EditCurrency(View parent, int resID, TextChangeListener listener) {
 		super(parent, resID, null, listener);
 	}
 
-	public EditCur(View parent, int resID,
+	public EditCurrency(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}

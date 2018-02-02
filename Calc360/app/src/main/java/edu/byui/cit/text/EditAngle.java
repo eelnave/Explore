@@ -9,7 +9,7 @@ import edu.byui.cit.units.Angle;
 import edu.byui.cit.units.Unit;
 
 
-public final class EditAngle extends EditDec {
+public final class EditAngle extends EditDecimal {
 	private double rad;
 
 	public EditAngle(View parent, int resID, CalcFragment calculator) {

@@ -14,7 +14,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.SpinUnit;
@@ -29,7 +29,7 @@ public abstract class Converter extends CalcFragment {
 	private final int arrayID;
 	protected final NumberFormat fmtrDec;
 	private SpinUnit spinTop, spinBottom;
-	private EditDec decTop, decBottom;
+	private EditDecimal decTop, decBottom;
 
 	protected Converter(String keyPrefix, Property property, int arrayID) {
 		this.KEY_TOP = keyPrefix + ".unitTop";
@@ -45,14 +45,14 @@ public abstract class Converter extends CalcFragment {
 			Bundle savedInstState) {
 		View view = inflater.inflate(R.layout.converter, container, false);
 
-		decTop = new EditDec(view, R.id.decTop, new TextChangeHandler() {
+		decTop = new EditDecimal(view, R.id.decTop, new TextChangeHandler() {
 			@Override
 			public void afterChanged(Editable editable) {
 				compute(decBottom, spinBottom, decTop, spinTop);
 			}
 		});
 
-		decBottom = new EditDec(view, R.id.decBottom, new TextChangeHandler() {
+		decBottom = new EditDecimal(view, R.id.decBottom, new TextChangeHandler() {
 			@Override
 			public void afterChanged(Editable editable) {
 				compute(decTop, spinTop, decBottom, spinBottom);
@@ -106,8 +106,8 @@ public abstract class Converter extends CalcFragment {
 
 
 	// Overload not override, so try and catch is necessary.
-	private void compute(EditDec decTo, SpinUnit spinTo,
-			EditDec decFrom, SpinUnit spinFrom) {
+	private void compute(EditDecimal decTo, SpinUnit spinTo,
+			EditDecimal decFrom, SpinUnit spinFrom) {
 		try {
 			if (decFrom.notEmpty()) {
 				Unit unitFrom = spinFrom.getSelectedItem();

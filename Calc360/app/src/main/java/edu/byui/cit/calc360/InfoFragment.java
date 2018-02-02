@@ -15,7 +15,7 @@ import android.widget.EditText;
 import org.jetbrains.annotations.NotNull;
 
 
-public abstract class OmniFragment extends Fragment {
+public abstract class InfoFragment extends Fragment {
 	private static final String descripIDKey = "calcID";
 
 	Descriptor descriptor;

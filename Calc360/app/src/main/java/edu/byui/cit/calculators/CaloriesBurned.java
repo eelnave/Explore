@@ -13,8 +13,8 @@ import edu.byui.cit.model.Fitness;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.EditInt;
+import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.RadioWrapper;
 import edu.byui.cit.text.SpinUnit;
@@ -28,9 +28,9 @@ public final class CaloriesBurned extends CalcFragment {
 	private static final String KEY_MASS_UNITS = "CaloriesBurned.massUnits";
 
 	private final NumberFormat fmtrDec;
-	private EditDec decWeight;
+	private EditDecimal decWeight;
 	private SpinUnit spinMass;
-	private EditInt intTime;
+	private EditInteger intTime;
 	private RadioGroup grpExercise;
 	private TextWrapper txtResult;
 
@@ -50,8 +50,8 @@ public final class CaloriesBurned extends CalcFragment {
 		spinMass = new SpinUnit(getActivity(), view, R.id.spinMassUnits,
 				Mass.getInstance(), R.array.cbMassUnits, KEY_MASS_UNITS, this);
 
-		decWeight = new EditDec(view, R.id.decWeight, this);
-		intTime = new EditInt(view, R.id.intTime, this);
+		decWeight = new EditDecimal(view, R.id.decWeight, this);
+		intTime = new EditInteger(view, R.id.intTime, this);
 
 		grpExercise = view.findViewById(R.id.grpExercise);
 		new RadioWrapper(view, R.id.radWeight, this);

@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Pyramid.*;
@@ -18,17 +18,17 @@ import static edu.byui.cit.model.Geometry.Pyramid.*;
 
 public final class Pyramid extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decVol, decWid, decLen, decHei;
+	private EditDecimal decVol, decWid, decLen, decHei;
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.pyramid, container, false);
 
-		decVol = new EditDec(view, R.id.decVol, this);
-		decWid = new EditDec(view, R.id.decWid, this);
-		decLen = new EditDec(view, R.id.decLen, this);
-		decHei = new EditDec(view, R.id.decHei, this);
+		decVol = new EditDecimal(view, R.id.decVol, this);
+		decWid = new EditDecimal(view, R.id.decWid, this);
+		decLen = new EditDecimal(view, R.id.decLen, this);
+		decHei = new EditDecimal(view, R.id.decHei, this);
 		EditWrapper[] inputs = { decVol, decWid, decLen, decHei };
 
 		Solver[] solvers = new Solver[] {

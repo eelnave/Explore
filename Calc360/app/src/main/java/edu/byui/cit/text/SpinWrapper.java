@@ -97,11 +97,6 @@ abstract class SpinWrapper extends InputWrapper
 		return spinner.getSelectedItem() == null;
 	}
 
-	@Override
-	public boolean hasUserInput() {
-		return spinner.getSelectedItem() == null;
-	}
-
 	public int getCount() {
 		return spinner.getCount();
 	}

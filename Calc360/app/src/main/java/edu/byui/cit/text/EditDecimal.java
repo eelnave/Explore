@@ -10,21 +10,21 @@ import java.util.Arrays;
 import edu.byui.cit.calc360.CalcFragment;
 
 
-public class EditDec extends EditWrapper {
-	public EditDec(View parent, int resID, CalcFragment calculator) {
+public class EditDecimal extends EditWrapper {
+	public EditDecimal(View parent, int resID, CalcFragment calculator) {
 		super(parent, resID, null, calculator);
 	}
 
-	public EditDec(
+	public EditDecimal(
 			View parent, int resID, String prefsKey, CalcFragment calculator) {
 		super(parent, resID, prefsKey, calculator);
 	}
 
-	public EditDec(View parent, int resID, TextChangeListener listener) {
+	public EditDecimal(View parent, int resID, TextChangeListener listener) {
 		super(parent, resID, null, listener);
 	}
 
-	public EditDec(
+	public EditDecimal(
 			View parent, int resID, String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}

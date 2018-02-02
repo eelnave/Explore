@@ -9,17 +9,17 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.EditInt;
+import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 
 
 public final class Binary extends CalcFragment {
 	private final NumberFormat fmtrInt = NumberFormat.getIntegerInstance();
 
-	private EditDec decimal;
-	private EditInt binary;
-	private EditInt hexadecimal;
+	private EditDecimal decimal;
+	private EditInteger binary;
+	private EditInteger hexadecimal;
 
 
 	@Override
@@ -29,9 +29,9 @@ public final class Binary extends CalcFragment {
 		View view = inflater.inflate(R.layout.binary, container,
 				false);
 
-		decimal = new EditDec(view, R.id.decimal, this);
-		binary = new EditInt(view, R.id.binary, this);
-		hexadecimal = new EditInt(view, R.id.hexadecimal, this);
+		decimal = new EditDecimal(view, R.id.decimal, this);
+		binary = new EditInteger(view, R.id.binary, this);
+		hexadecimal = new EditInteger(view, R.id.hexadecimal, this);
 
 		EditWrapper[] inputs = { decimal, binary, hexadecimal };
 		initialize(view, inputs, R.id.btnClear, inputs);

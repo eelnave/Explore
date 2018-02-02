@@ -11,7 +11,7 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.TextWrapper;
 
 import static edu.byui.cit.model.Consumer.Ratio.*;
@@ -19,7 +19,7 @@ import static edu.byui.cit.model.Consumer.Ratio.*;
 
 public final class Percent extends CalcFragment {
 	private final NumberFormat fmtrDec = NumberFormat.getNumberInstance();
-	private EditDec decPerc1, decPerc2, decPerc3, decPerc4, decPerc5, decPerc6;
+	private EditDecimal decPerc1, decPerc2, decPerc3, decPerc4, decPerc5, decPerc6;
 	private TextWrapper percResult1, percResult2, percResult3;
 
 
@@ -30,12 +30,12 @@ public final class Percent extends CalcFragment {
 		View view = inflater.inflate(R.layout.percent, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
-		decPerc1 = new EditDec(view, R.id.decPerc1, this);
-		decPerc2 = new EditDec(view, R.id.decPerc2, this);
-		decPerc3 = new EditDec(view, R.id.decPerc3, this);
-		decPerc4 = new EditDec(view, R.id.decPerc4, this);
-		decPerc5 = new EditDec(view, R.id.decPerc5, this);
-		decPerc6 = new EditDec(view, R.id.decPerc6, this);
+		decPerc1 = new EditDecimal(view, R.id.decPerc1, this);
+		decPerc2 = new EditDecimal(view, R.id.decPerc2, this);
+		decPerc3 = new EditDecimal(view, R.id.decPerc3, this);
+		decPerc4 = new EditDecimal(view, R.id.decPerc4, this);
+		decPerc5 = new EditDecimal(view, R.id.decPerc5, this);
+		decPerc6 = new EditDecimal(view, R.id.decPerc6, this);
 
 		// Get a reference to the text views
 		// where the results will be displayed.
