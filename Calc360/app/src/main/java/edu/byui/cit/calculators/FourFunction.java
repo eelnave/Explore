@@ -13,13 +13,8 @@ import edu.byui.cit.text.EditInt;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.TextWrapper;
 
-
-/**
- * Created by GavinrRook on 1/30/18.
- */
-
 public class FourFunction extends CalcFragment{
-	private NumberFormat;
+	private NumberFormat fmtrNum;
 	private EditInt intMulti1;
 	private EditInt intMulti2;
 
@@ -49,5 +44,7 @@ public class FourFunction extends CalcFragment{
 		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
 		return view;
 	}
+
+
 
 }
