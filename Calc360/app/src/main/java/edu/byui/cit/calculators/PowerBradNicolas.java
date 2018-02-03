@@ -43,8 +43,8 @@ public final class PowerBradNicolas extends CalcFragment {
         output = new TextWrapper(view, R.id.output);
 
         // Set this calculator as the click listener for the clear button.
-        EditWrapper[] inputs = { num1, num2 };
-        ControlWrapper[] toClear = { num1, num2, output };
+        EditWrapper[] inputs = {num1, num2};
+        ControlWrapper[] toClear = {num1, num2, output};
         initialize(view, inputs, toClear, R.id.btnClear);
         return view;
     }
@@ -55,8 +55,7 @@ public final class PowerBradNicolas extends CalcFragment {
         if (num1.notEmpty() && num2.notEmpty()) {
             double result = num1.getDec() + num2.getDec();
             output.setText(fmtrDec.format(result));
-        }
-        else {
+        } else {
             output.clear();
         }
     }
