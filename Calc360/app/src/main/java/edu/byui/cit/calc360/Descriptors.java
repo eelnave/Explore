@@ -98,7 +98,7 @@ final class Descriptors {
 				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
 				new CalcDescriptor(1047, R.string.subnet, R.drawable.binary2, Subnet.class),
 				new CalcDescriptor(1021, R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
-					new CalcDescriptor(1081, R.string.salesTax, R.mipmap.sales_tax1, PowerBradNicolas.class),
+					new CalcDescriptor(1081, R.string.add2, R.mipmap.sales_tax1, PowerBradNicolas.class),
 
 			}),
 		});

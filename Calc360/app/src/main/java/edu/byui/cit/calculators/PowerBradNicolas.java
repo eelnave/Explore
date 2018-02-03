@@ -9,8 +9,6 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.model.Consumer;
-import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.EditWrapper;

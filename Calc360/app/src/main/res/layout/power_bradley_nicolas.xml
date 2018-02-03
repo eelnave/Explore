@@ -11,7 +11,20 @@
 		android:layout_height="match_parent"
 		android:orientation="vertical">
 
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="horizontal">
 
+			<TextView
+				style="@style/TextLabel"
+				android:layout_width="0dp"
+				android:layout_marginEnd="0dp"
+				android:layout_weight="1"
+				android:labelFor="@+id/output"
+				android:text="@string/instruction"/>
+
+		</LinearLayout>
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
@@ -24,7 +37,7 @@
 				android:layout_marginStart="35dp"
 				android:layout_weight="1"
 				android:ems="3"
-				android:hint="@string/X"
+				android:hint="@string/num"
 				android:inputType="number|numberDecimal">
 
 				<requestFocus/>
@@ -50,7 +63,7 @@
 				android:layout_width="match_parent"
 				android:layout_weight="1"
 				android:ems="3"
-				android:hint="@string/Y"
+				android:hint="@string/num2"
 				android:imeOptions="actionDone"
 				android:inputType="number|numberDecimal"/>
 		</LinearLayout>
