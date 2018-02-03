@@ -47,7 +47,7 @@ public final class Simple_CO_TM extends CalcFragment {
 		curTotalReim = new TextWrapper(view, R.id.curTotalReim);
 
 		EditWrapper[] inputs = { totalMiles, decReimRate };
-		ControlWrapper[] toClear = { totalMiles, curTotalReim};
+		ControlWrapper[] toClear = { totalMiles, curTotalReim, decReimRate};
 		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
