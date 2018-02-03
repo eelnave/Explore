@@ -9,14 +9,21 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditInt;
-import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 public class FourFunction extends CalcFragment{
-	private NumberFormat fmtrNum;
+	private final NumberFormat fmtrNum = NumberFormat.getNumberInstance();
 	private EditInt intMulti1;
 	private EditInt intMulti2;
+	private TextWrapper intTotal;
+
+	public FourFunction() {
+		super();
+
+	}
 
 	//create view and initialize interface
 	@Override
@@ -28,21 +35,25 @@ public class FourFunction extends CalcFragment{
 		// Initialize inputs
 		intMulti1 = new EditInt(view, R.id.intMulti1, this);
 		intMulti2 = new EditInt(view, R.id.intMulti2, this);
+		intTotal = new TextWrapper(view, R.id.intTotal);
 
-		Activity act = getActivity();
-		spinDistUnits = new SpinUnit(act, view, R.id.spinDistUnits,
-				Length.getInstance(), R.array.feDistUnits,
-				KEY_DIST_UNITS, this);
-		spinEfficUnits = new SpinUnit(act, view, R.id.spinEfficUnits,
-				FuelEffic.getInstance(), R.array.feEfficUnits,
-				KEY_EFFIC_UNITS, this);
-		spinVolUnits = new SpinUnit(act, view, R.id.spinVolUnits,
-				Volume.getInstance(), R.array.feVolUnits,
-				KEY_VOL_UNITS, this);
-
-		curFuelCost = new TextWrapper(view, R.id.curFuelCost);
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		EditWrapper[] inputs = { intMulti1, intMulti2 };
+		ControlWrapper[] toClear = { intMulti1, intMulti2, intTotal };
+		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
+	}
+
+	@Override
+	protected void compute() {
+		if (intMulti1.notEmpty() && intMulti2.notEmpty()) {
+			double first = intMulti1.getInt();
+			double second = intMulti2.getInt();
+			double total = first * second;
+			intTotal.setText(fmtrNum.format(total));
+		}
+		else {
+			intTotal.clear();
+		}
 	}
 
 
