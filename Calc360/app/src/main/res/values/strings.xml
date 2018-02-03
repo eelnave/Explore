@@ -39,4 +39,10 @@
 	<string name="clear">Clear</string>
 
 	<string name="unitConvert">Unit Conversion</string>
+	<string name="instruction">Enter two numbers to be added</string>
+	<string name="num">ex: 2</string>
+	<string name="num2">ex: 4</string>
+	<string name="add2">Addition</string>
+
+
 </resources>
