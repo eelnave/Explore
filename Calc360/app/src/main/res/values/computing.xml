@@ -10,6 +10,7 @@
 
 	<string name="subnet">Subnets</string>
 	<string name="subnetHint">Enter an IP address or Network ID</string>
-	<string name="defaultMask">Default Mask</string>
+	<string name="defaultMask">Enter a Subnet Mask</string>
 	<string name="availableHosts">Available Hosts</string>
+	<string name="numberOfSubnets">Number of Subnets</string>
 </resources>
