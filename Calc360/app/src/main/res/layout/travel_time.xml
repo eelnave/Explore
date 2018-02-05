@@ -5,45 +5,9 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-	<RelativeLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="5dp">
-
-		<TextView
-			android:id="@+id/empty1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
-
-		<EditText
-			android:id="@+id/decBegin"
-			style="@style/UnsignedDecimal"
-			android:layout_alignBaseline="@+id/empty1"
-			android:layout_toEndOf="@+id/empty1"
-			android:ems="4"
-			android:hint="@string/start">
-
-			<requestFocus/>
-		</EditText>
-
-		<EditText
-			android:id="@+id/decEnd"
-			style="@style/UnsignedDecimal"
-			android:layout_alignBaseline="@+id/empty1"
-			android:layout_toEndOf="@+id/decBegin"
-			android:ems="4"
-			android:hint="@string/end"/>
-
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignEnd="@+id/decEnd"
-			android:layout_alignStart="@+id/decBegin"
-			android:layout_below="@+id/empty1"
-			android:labelFor="@+id/decBegin"
-			android:text="@string/odometer"
-			android:textAlignment="center"/>
-	</RelativeLayout>
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/ttexplain"/>
 
 	<RelativeLayout
 		android:layout_width="match_parent"
@@ -112,7 +76,7 @@
 			android:layout_alignStart="@+id/decVol"
 			android:layout_below="@+id/empty3"
 			android:labelFor="@+id/decVol"
-			android:text="@string/fuel"
+			android:text="@string/Speed"
 			android:textAlignment="center"/>
 	</RelativeLayout>
 
@@ -142,7 +106,7 @@
 			android:layout_height="wrap_content"
 			android:layout_below="@+id/decEffic"
 			android:labelFor="@+id/decEffic"
-			android:text="@string/FuelEffic"/>
+			android:text="@string/travelTime"/>
 	</RelativeLayout>
 
 	<Button

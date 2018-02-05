@@ -33,4 +33,8 @@
 	<string name="reimburseRate">Reimbursement Rate: </string>
 	<string name="rateHint">ex. 0.54¢</string>
 	<string name="reimburseTotal">Reimbursement Total: </string>
+
+	<string name="travelTime">Travel Time</string>
+	<string name="ttexplain">Calculate the travel time by entering your distrance traveled and your average speed.</string>
+	<string name="Speed">Speed</string>
 </resources>

@@ -52,7 +52,7 @@ public final class TravelTime extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment.
-		View view = inflater.inflate(R.layout.fuel_efficiency, container,
+		View view = inflater.inflate(R.layout.travel_time, container,
 				false);
 
 		OdometerChanged dist = new OdometerChanged();
