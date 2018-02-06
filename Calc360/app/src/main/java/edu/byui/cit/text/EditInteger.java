@@ -43,7 +43,7 @@ public class EditInteger extends EditWrapper {
 	}
 
 	public void restore(SharedPreferences prefs, NumberFormat fmtr, int deflt) {
-		if (prefs.contains(prefsKey)) {
+		if (!hasUserInput() && prefs.contains(prefsKey)) {
 			int val = prefs.getInt(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}

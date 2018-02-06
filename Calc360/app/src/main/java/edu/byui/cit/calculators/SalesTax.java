@@ -38,8 +38,9 @@ public final class SalesTax extends CalcFragment {
 	}
 
 
+	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+			Bundle savedInstState) {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.sales_tax, container, false);
 

@@ -47,7 +47,7 @@ public class EditDecimal extends EditWrapper {
 
 	public void restore(
 			SharedPreferences prefs, NumberFormat fmtr, float deflt) {
-		if (prefs.contains(prefsKey)) {
+		if (!hasUserInput() && prefs.contains(prefsKey)) {
 			float val = prefs.getFloat(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}

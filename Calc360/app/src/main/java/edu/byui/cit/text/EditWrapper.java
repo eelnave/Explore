@@ -97,7 +97,14 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	@Override
 	public final void beforeTextChanged(
 			CharSequence s, int start, int count, int after) {
-		if (calculator != null) {
+		/* When an Android device is rotated 90 degrees, the Android classes
+		 * automatically copy all text in text fields that have IDs. After
+		 * recreating the view, the Android classes automatically restore those
+		 * values. Strangely, the Android classes call beforeTextChanged,
+		 * onTextChanged, and afterTextChanged even for text that is being
+		 * "restored" from blank to blank. To detect this problem, we check
+		 * that either count or after is not zero. */
+		if ((count != 0 || after != 0) && calculator != null) {
 			calculator.clearGroup(this);
 		}
 	}
@@ -168,6 +175,12 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 			edit.addTextChangedListener(this);
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "input: " + hasUserInput() + "  empty: " + isEmpty() + "  text: " + getText();
+	}
+
 
 
 	public static int countEmpty(EditWrapper... inputs) {
