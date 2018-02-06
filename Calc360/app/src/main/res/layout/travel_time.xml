@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:orientation="vertical">
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:layout_marginStart="10dp"
+	android:layout_marginTop="@dimen/default_gap"
+	>
 
 	<TextView
 		style="@style/TextLabel"
@@ -55,7 +58,7 @@
 			android:layout_height="wrap_content"/>
 
 		<EditText
-			android:id="@+id/decVol"
+			android:id="@+id/decSpe"
 			style="@style/UnsignedDecimal"
 			android:layout_alignBaseline="@+id/empty3"
 			android:layout_toEndOf="@+id/empty3"
@@ -63,19 +66,19 @@
 			android:imeOptions="actionDone"/>
 
 		<Spinner
-			android:id="@+id/spinVolUnits"
+			android:id="@+id/spinSpeUnits"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_alignBaseline="@+id/empty3"
-			android:layout_toEndOf="@+id/decVol"/>
+			android:layout_toEndOf="@+id/decSpe"/>
 
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignEnd="@+id/decVol"
-			android:layout_alignStart="@+id/decVol"
+			android:layout_alignEnd="@+id/decSpe"
+			android:layout_alignStart="@+id/decSpe"
 			android:layout_below="@+id/empty3"
-			android:labelFor="@+id/decVol"
+			android:labelFor="@+id/decSpe"
 			android:text="@string/Speed"
 			android:textAlignment="center"/>
 	</RelativeLayout>
@@ -86,26 +89,20 @@
 		android:layout_marginTop="15dp">
 
 		<TextView
-			android:id="@+id/decEffic"
+			android:id="@+id/decTime"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignBaseline="@+id/spinEfficUnits"
 			android:layout_alignEnd="@+id/lblEffic"
 			android:layout_alignStart="@+id/lblEffic"
 			android:textAlignment="textEnd"/>
 
-		<Spinner
-			android:id="@+id/spinEfficUnits"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_toEndOf="@+id/decEffic"/>
 
 		<TextView
 			android:id="@+id/lblEffic"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/decEffic"
-			android:labelFor="@+id/decEffic"
+			android:layout_below="@+id/decTime"
+			android:labelFor="@+id/decTime"
 			android:text="@string/travelTime"/>
 	</RelativeLayout>
 

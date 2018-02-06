@@ -20,6 +20,7 @@ import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.FuelEffic;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Property;
+import edu.byui.cit.units.Speed;
 import edu.byui.cit.units.Unit;
 import edu.byui.cit.units.Volume;
 
@@ -28,13 +29,11 @@ public final class TravelTime extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
 			KEY_DIST_UNITS = "FuelEfficiency.distUnits",
-			KEY_VOL_UNITS = "FuelEfficiency.volUnits",
-			KEY_EFFIC_UNITS = "FuelEfficiency.efficUnits";
+			KEY_SPE_UNITS = "FuelEfficiency.volUnits",
 
 	private final NumberFormat fmtrDist, fmtrEffic;
-	private EditDec decBegin, decEnd, decDist, decVol;
-	private SpinUnit spinDistUnits, spinVolUnits, spinEfficUnits;
-	private TextWrapper decEffic;
+	private EditDec decBegin, decEnd, decDist, decSpe, decTime;
+	private SpinUnit spinDistUnits, spinSpeUnits;
 
 
 	public TravelTime() {
@@ -62,7 +61,7 @@ public final class TravelTime extends CalcFragment {
 		decBegin = new EditDec(view, R.id.decBegin, dist);
 		decEnd = new EditDec(view, R.id.decEnd, dist);
 		decDist = new EditDec(view, R.id.decDist, new DistanceChanged());
-		decVol = new EditDec(view, R.id.decVol, this);
+		decSpe = new EditDec(view, R.id.decSpe, this);
 
 		// Get the user's preferred units from the system
 		// preferences file and initialize each spinner.
@@ -70,17 +69,12 @@ public final class TravelTime extends CalcFragment {
 		spinDistUnits = new SpinUnit(act, view, R.id.spinDistUnits,
 				Length.getInstance(), R.array.feDistUnits,
 				KEY_DIST_UNITS, this);
-		spinVolUnits = new SpinUnit(act, view, R.id.spinVolUnits,
-				Volume.getInstance(), R.array.feVolUnits,
-				KEY_VOL_UNITS, this);
-		spinEfficUnits = new SpinUnit(act, view, R.id.spinEfficUnits,
-				FuelEffic.getInstance(), R.array.feEfficUnits,
-				KEY_EFFIC_UNITS, this);
+		spinSpeUnits = new SpinUnit(act, view, R.id.spinSpeUnits,
+				Speed.getInstance(), R.array.ttSpeedUnits,
+				KEY_SPE_UNITS, this);
 
-		decEffic = new TextWrapper(view, R.id.decEffic);
-
-		EditWrapper[] inputs = { decBegin, decEnd, decDist, decVol };
-		TextWrapper[] outputs = { decEffic };
+		EditWrapper[] inputs = { decBegin, decEnd, decDist, decSpe };
+		TextWrapper[] outputs = { decTime };
 		initialize(view, inputs, outputs, R.id.btnClear);
 		return view;
 	}
@@ -89,8 +83,7 @@ public final class TravelTime extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinDistUnits.restore(prefs, Length.mile);
-		spinVolUnits.restore(prefs, Volume.gallon);
-		spinEfficUnits.restore(prefs, FuelEffic.mpg);
+		spinSpeUnits.restore(prefs, Speed.mph);
 	}
 
 	@Override
@@ -99,8 +92,7 @@ public final class TravelTime extends CalcFragment {
 		// the user into the preferences file.
 		// Get from the spinners, the units chosen by the user.
 		spinDistUnits.save(editor);
-		spinVolUnits.save(editor);
-		spinEfficUnits.save(editor);
+		spinSpeUnits.save(editor);
 	}
 
 
@@ -140,18 +132,18 @@ public final class TravelTime extends CalcFragment {
 			dist = decDist.getDec();
 		}
 
-		if (dist > 0 && decVol.notEmpty()) {
-			double vol = decVol.getDec();
+		if (dist > 0 && decSpe.notEmpty()) {
+			double spe = decSpe.getDec();
 
 			// Get from the spinners, the units that the user chose
 			// for inputting the distance and the volume of fuel.
 			Unit distUnits = spinDistUnits.getSelectedItem();
-			Unit volUnits = spinVolUnits.getSelectedItem();
+			Unit speUnits = spinSpeUnits.getSelectedItem();
 
 			// Get the length and volume properties so that they can
 			// be used to convert values from one unit to another.
 			Property length = Length.getInstance();
-			Property volume = Volume.getInstance();
+			Property speed = Speed.getInstance();
 
 			// Get the units that the user wants for the results.
 			Unit unit = spinEfficUnits.getSelectedItem();
@@ -161,19 +153,19 @@ public final class TravelTime extends CalcFragment {
 			// of fuel entered by the user into miles and gallons.
 			if (unit.getID() == FuelEffic.mpg) {
 				dist = length.convert(Length.mile, dist, distUnits);
-				vol = volume.convert(Volume.gallon, vol, volUnits);
+				spe = speed.convert(Speed.mph, spe, speUnits);
 			}
 
-			// If the user wants the results in kilometers per liter,
-			// then convert, if necessary, the distance and volume of
-			// fuel entered by the user into kilometers and liters.
+			// If the user wants the results in kilometers per mile,
+			// then convert, if necessary, the distance and speed of
+			// distance entered by the user into kilometers and kmph.
 			else if (unit.getID() == FuelEffic.kpl) {
 				dist = length.convert(Length.km, dist, distUnits);
-				vol = volume.convert(Volume.liter, vol, volUnits);
+				spe = speed.convert(Speed.kmph, spe, speUnits);
 			}
 
-			double effic = dist / vol;
-			decEffic.setText(fmtrEffic.format(effic));
+			double time = dist / spe ;
+			dectime.setText(fmtrEffic.format(effic));
 		}
 		else {
 			decEffic.clear();
