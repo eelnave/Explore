@@ -29,11 +29,12 @@ public final class TravelTime extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
 			KEY_DIST_UNITS = "FuelEfficiency.distUnits",
-			KEY_SPE_UNITS = "FuelEfficiency.volUnits",
+			KEY_SPE_UNITS = "FuelEfficiency.volUnits";
 
 	private final NumberFormat fmtrDist, fmtrEffic;
-	private EditDec decBegin, decEnd, decDist, decSpe, decTime;
+	private EditDec decBegin, decEnd, decDist, decSpe;
 	private SpinUnit spinDistUnits, spinSpeUnits;
+	private TextWrapper decTime;
 
 
 	public TravelTime() {
@@ -72,6 +73,8 @@ public final class TravelTime extends CalcFragment {
 		spinSpeUnits = new SpinUnit(act, view, R.id.spinSpeUnits,
 				Speed.getInstance(), R.array.ttSpeedUnits,
 				KEY_SPE_UNITS, this);
+
+		decTime = new TextWrapper(view, R.id.decTime);
 
 		EditWrapper[] inputs = { decBegin, decEnd, decDist, decSpe };
 		TextWrapper[] outputs = { decTime };
@@ -135,6 +138,7 @@ public final class TravelTime extends CalcFragment {
 		if (dist > 0 && decSpe.notEmpty()) {
 			double spe = decSpe.getDec();
 
+			/*
 			// Get from the spinners, the units that the user chose
 			// for inputting the distance and the volume of fuel.
 			Unit distUnits = spinDistUnits.getSelectedItem();
@@ -166,9 +170,10 @@ public final class TravelTime extends CalcFragment {
 
 			double time = dist / spe ;
 			dectime.setText(fmtrEffic.format(effic));
+		*/
 		}
 		else {
-			decEffic.clear();
+			decTime.clear();
 		}
 	}
 }
