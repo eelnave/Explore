@@ -13,8 +13,8 @@ import edu.byui.cit.text.TextWrapper;
 
 
 public class Subnet extends CalcFragment {
-	private EditInteger ip1;
-	private TextWrapper availableHosts, maskText;
+	private EditInteger ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8;
+	private TextWrapper availableHosts, numberOfSubnets;
 
 
 	@Override
@@ -24,8 +24,15 @@ public class Subnet extends CalcFragment {
 		View view = inflater.inflate(R.layout.subnet, container, false);
 
 		ip1 = new EditInteger(view, R.id.ipValue1, this);
+		ip2 = new EditInteger(view, R.id.ipValue2, this);
+		ip3 = new EditInteger(view, R.id.ipValue3, this);
+		ip4 = new EditInteger(view, R.id.ipValue4, this);
+		ip5 = new EditInteger(view, R.id.ipValue5, this);
+		ip6 = new EditInteger(view, R.id.ipValue6, this);
+		ip7 = new EditInteger(view, R.id.ipValue7, this);
+		ip8 = new EditInteger(view, R.id.ipValue8, this);
 
-		maskText = new TextWrapper(view, R.id.maskText);
+		numberOfSubnets = new TextWrapper(view, R.id.numberOfSubnets);
 		availableHosts = new TextWrapper(view, R.id.availableHosts);
 
 		return view;
@@ -62,7 +69,7 @@ public class Subnet extends CalcFragment {
 				ipHosts = 254;
 			}
 		}
-		maskText.setText(mask);
+		numberOfSubnets.setText(mask);
 		availableHosts.setText(String.valueOf(ipHosts));
 	}
 }
