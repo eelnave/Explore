@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditInteger;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
@@ -34,6 +36,10 @@ public class Subnet extends CalcFragment {
 
 		numberOfSubnets = new TextWrapper(view, R.id.numberOfSubnets);
 		availableHosts = new TextWrapper(view, R.id.availableHosts);
+
+		EditWrapper[] inputs = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
+		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
+		initialize(view, inputs, R.id.btnClear, toClear);
 
 		return view;
 	}
