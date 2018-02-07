@@ -3,7 +3,6 @@ package edu.byui.cit.calculators;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -109,7 +108,7 @@ public final class FuelEfficiency extends CalcFragment {
 
 	private final class OdometerChanged extends TextChangeHandler {
 		@Override
-		public void afterChanged(Editable s) {
+		public void textChanged(CharSequence s) {
 			if (decBegin.notEmpty() || decEnd.notEmpty()) {
 				decDist.clear();
 			}
@@ -120,7 +119,7 @@ public final class FuelEfficiency extends CalcFragment {
 
 	private final class DistanceChanged extends TextChangeHandler {
 		@Override
-		public void afterChanged(Editable s) {
+		public void textChanged(CharSequence s) {
 			if (decDist.notEmpty()) {
 				decBegin.clear();
 				decEnd.clear();

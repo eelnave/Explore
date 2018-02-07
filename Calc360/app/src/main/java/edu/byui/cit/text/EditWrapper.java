@@ -97,13 +97,14 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	@Override
 	public final void beforeTextChanged(
 			CharSequence s, int start, int count, int after) {
-		/* When an Android device is rotated 90 degrees, the Android classes
-		 * automatically copy all text in text fields that have IDs. After
-		 * recreating the view, the Android classes automatically restore those
-		 * values. Strangely, the Android classes call beforeTextChanged,
-		 * onTextChanged, and afterTextChanged even for text that is being
-		 * "restored" from blank to blank. To detect this problem, we check
-		 * that either count or after is not zero. */
+		/* When an Android device is rotated 90 degrees, the Android
+		 * library automatically copies all text in text fields that
+		 * have IDs. After recreating the view, the Android library
+		 * automatically restores those values. Strangely, the Android
+		 * library calls beforeTextChanged, onTextChanged, and
+		 * afterTextChanged even for text that is being "restored"
+		 * from blank to blank. To detect this problem, we check that
+		 * either count or after is not zero. */
 		if ((count != 0 || after != 0) && calculator != null) {
 			calculator.clearGroup(this);
 		}
@@ -112,26 +113,28 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	@Override
 	public final void onTextChanged(
 			CharSequence s, int start, int before, int count) {
+		userInput = notEmpty();
+		if (before != 0 || count != 0) {
+			if (calculator != null) {
+				calculator.callCompute(this);
+			}
+			else {
+				listener.textChanged(s);
+			}
+		}
 	}
 
 	@Override
 	public final void afterTextChanged(Editable edit) {
-		userInput = notEmpty();
-		if (calculator != null) {
-			calculator.callCompute(this);
-		}
-		else {
-			listener.afterChanged(edit);
-		}
 	}
 
 	public boolean hasUserInput() {
 		return userInput;
 	}
 
-	public EditText getEdit() {
-		return edit;
-	}
+//	public EditText getEdit() {
+//		return edit;
+//	}
 
 	@Override
 	public boolean isEmpty() {
@@ -144,7 +147,7 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 
 	/** Sets the text in this EditText as if the user had entered it. In
 	 * other words, sets the text in this EditText as it were user input. */
-	public void setInput(CharSequence text) {
+	void setInput(CharSequence text) {
 		edit.setText(text);
 	}
 

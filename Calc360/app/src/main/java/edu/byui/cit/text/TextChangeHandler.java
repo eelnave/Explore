@@ -17,18 +17,20 @@ public abstract class TextChangeHandler
 	@Override
 	public final void onTextChanged(
 			CharSequence s, int start, int before, int count) {
+		if (before != 0 || count != 0) {
+			try {
+				textChanged(s);
+			}
+			catch (NumberFormatException ex) {
+				// Do nothing
+			}
+			catch (Exception ex) {
+				Log.e(Calc360.TAG, "exception", ex);
+			}
+		}
 	}
 
 	@Override
 	public final void afterTextChanged(Editable edit) {
-		try {
-			afterChanged(edit);
-		}
-		catch (NumberFormatException ex) {
-			// Do nothing
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
-		}
 	}
 }

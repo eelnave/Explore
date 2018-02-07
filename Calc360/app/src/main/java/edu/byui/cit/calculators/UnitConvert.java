@@ -53,13 +53,13 @@ public final class UnitConvert extends CalcFragment {
 
 		decTop = new EditDecimal(view, R.id.decTop, new TextChangeHandler() {
 			@Override
-			public void afterChanged(Editable editable) {
+			public void textChanged(CharSequence s) {
 				compute(decBottom, spinBottom, decTop, spinTop);
 			}
 		});
 		decBottom = new EditDecimal(view, R.id.decBottom, new TextChangeHandler() {
 			@Override
-			public void afterChanged(Editable editable) {
+			public void textChanged(CharSequence s) {
 				compute(decTop, spinTop, decBottom, spinBottom);
 			}
 		});
