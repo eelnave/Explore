@@ -38,7 +38,7 @@ public class Subnet extends CalcFragment {
 		availableHosts = new TextWrapper(view, R.id.availableHosts);
 
 		EditWrapper[] inputs = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
-		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
+		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8, availableHosts, numberOfSubnets };
 		initialize(view, inputs, R.id.btnClear, toClear);
 
 		return view;
