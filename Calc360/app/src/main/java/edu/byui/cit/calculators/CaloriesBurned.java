@@ -30,6 +30,7 @@ public final class CaloriesBurned extends CalcFragment {
 	private final NumberFormat fmtrDec;
 	private EditDecimal decWeight;
 	private SpinUnit spinMass;
+	private SpinUnit spinExercises;
 	private EditInteger intTime;
 	private RadioGroup grpExercise;
 	private TextWrapper txtResult;
@@ -58,6 +59,9 @@ public final class CaloriesBurned extends CalcFragment {
 		new RadioWrapper(view, R.id.radWalk, this);
 		new RadioWrapper(view, R.id.radRun, this);
 		new RadioWrapper(view, R.id.radSwim, this);
+
+		spinExercises = new SpinUnit(getActivity(), view, R.id.spinExercises,
+				Mass.getInstance(), R.array.cbExercises, KEY_MASS_UNITS, this);
 
 		txtResult = new TextWrapper(view, R.id.txtResult);
 
