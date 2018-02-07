@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<resources>
+	<string name="focal_length">Focal Length</string>
+	<string name="crop_factor">Crop Factor</string>
+	<string name="ex_1_5">ex 1.5</string>
+	<string name="ex_18">ex 18</string>
+	<string name="mm">mm</string>
+</resources>
