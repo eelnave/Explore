@@ -212,6 +212,8 @@ public class Subnet extends CalcFragment {
 			ip6.clear();
 			ip7.clear();
 			ip8.clear();
+			availableHosts.clear();
+			numberOfSubnets.clear();
 		}
 	}
 }
