@@ -206,7 +206,7 @@ public class Subnet extends CalcFragment {
 			numberOfSubnets.setText(fmtrInt.format(sub));
 			availableHosts.setText(fmtrInt.format(zero));
 		}
-		else {
+		/*else {
 			ip1.clear();
 			ip2.clear();
 			ip3.clear();
@@ -217,6 +217,6 @@ public class Subnet extends CalcFragment {
 			ip8.clear();
 			availableHosts.clear();
 			numberOfSubnets.clear();
-		}
+		}*/
 	}
 }
