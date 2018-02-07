@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.NumberFormat;
+
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
@@ -17,6 +19,7 @@ import edu.byui.cit.text.TextWrapper;
 public class Subnet extends CalcFragment {
 	private EditInteger ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8;
 	private TextWrapper availableHosts, numberOfSubnets;
+	private NumberFormat fmtrInt;
 
 
 	@Override
@@ -200,8 +203,8 @@ public class Subnet extends CalcFragment {
 					}
 				}
 			}
-			numberOfSubnets.setText(sub);
-			availableHosts.setText(String.valueOf(zero));
+			numberOfSubnets.setText(fmtrInt.format(sub));
+			availableHosts.setText(fmtrInt.format(zero));
 		}
 		else {
 			ip1.clear();
