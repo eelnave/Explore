@@ -40,6 +40,6 @@
 
 	<string-array name="ttSpeedUnits" translatable="false">
 		<item>mph</item>
-		<item>km/h</item>
+		<item>kmph</item>
 	</string-array>
 </resources>

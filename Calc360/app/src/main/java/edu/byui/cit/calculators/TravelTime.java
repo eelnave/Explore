@@ -29,7 +29,7 @@ public final class TravelTime extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
 			KEY_DIST_UNITS = "FuelEfficiency.distUnits",
-			KEY_SPE_UNITS = "FuelEfficiency.volUnits";
+			KEY_SPE_UNITS = "FuelEfficiency.speUnits";
 
 	private final NumberFormat fmtrDist, fmtrEffic;
 	private EditDec decBegin, decEnd, decDist, decSpe;
@@ -55,13 +55,13 @@ public final class TravelTime extends CalcFragment {
 		View view = inflater.inflate(R.layout.travel_time, container,
 				false);
 
-		OdometerChanged dist = new OdometerChanged();
+		//OdometerChanged dist = new OdometerChanged();
 
 		// Create a wrapper object for each EditText
 		// that appears in this calculator's layout.
-		decBegin = new EditDec(view, R.id.decBegin, dist);
-		decEnd = new EditDec(view, R.id.decEnd, dist);
-		decDist = new EditDec(view, R.id.decDist, new DistanceChanged());
+		//decBegin = new EditDec(view, R.id.decBegin, dist);
+		//decEnd = new EditDec(view, R.id.decEnd, dist);
+		decDist = new EditDec(view, R.id.decDist, this);
 		decSpe = new EditDec(view, R.id.decSpe, this);
 
 		// Get the user's preferred units from the system
@@ -76,7 +76,7 @@ public final class TravelTime extends CalcFragment {
 
 		decTime = new TextWrapper(view, R.id.decTime);
 
-		EditWrapper[] inputs = { decBegin, decEnd, decDist, decSpe };
+		EditWrapper[] inputs = { decDist, decSpe };
 		TextWrapper[] outputs = { decTime };
 		initialize(view, inputs, outputs, R.id.btnClear);
 		return view;
@@ -99,7 +99,7 @@ public final class TravelTime extends CalcFragment {
 	}
 
 
-	private final class OdometerChanged extends TextChangeHandler {
+	/*private final class OdometerChanged extends TextChangeHandler {
 		@Override
 		public void afterChanged(Editable s) {
 			if (decBegin.notEmpty() || decEnd.notEmpty()) {
@@ -120,18 +120,12 @@ public final class TravelTime extends CalcFragment {
 			callCompute();
 		}
 	}
-
+*/
 
 	@Override
 	protected void compute() {
 		double dist = 0;
-		if (decBegin.notEmpty() && decEnd.notEmpty()) {
-			double begin = decBegin.getDec();
-			double end = decEnd.getDec();
-			dist = Math.abs(end - begin);
-			decDist.setText(fmtrDist.format(dist));
-		}
-		else if (decDist.notEmpty()) {
+		if (decDist.notEmpty()) {
 			dist = decDist.getDec();
 		}
 
@@ -167,10 +161,10 @@ public final class TravelTime extends CalcFragment {
 				dist = length.convert(Length.km, dist, distUnits);
 				spe = speed.convert(Speed.kmph, spe, speUnits);
 			}
-
+*/
 			double time = dist / spe ;
-			dectime.setText(fmtrEffic.format(effic));
-		*/
+			decTime.setText(fmtrEffic.format(time));
+
 		}
 		else {
 			decTime.clear();
