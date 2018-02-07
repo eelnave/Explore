@@ -2,57 +2,62 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
-	android:layout_width="match_parent"
+	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	compat:columnCount="5">
+	compat:columnCount="2">
 
-	<Spinner
-		android:id="@+id/spinBeatsPerMeas"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/totalMeasures"/>
 
 	<EditText
-		android:id="@+id/intBeatsPerMin"
-		style="@style/UnsignedInteger"
-		android:ems="4">
+		android:id="@+id/totalMeasures"
+		style="@style/UnsignedDecimal"
+		android:ems="4"
+		android:hint="@string/measuresHint">
 
 		<requestFocus/>
 	</EditText>
 
-	<EditText
-		android:id="@+id/intNumMeas"
-		style="@style/UnsignedInteger"
-		android:ems="4"/>
-
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/eq"/>
+		android:labelFor="@+id/tempo"
+		android:text="@string/tempo"/>
 
 	<EditText
-		android:id="@+id/timDuration"
-		style="@style/UnsignedInteger"
-		android:ems="5"
+		android:id="@+id/tempo"
+		style="@style/UnsignedDecimal"
+		android:ems="4"
+		android:hint="@string/tempoHint"
 		android:imeOptions="actionDone"/>
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="Beats per\nMeasure"/>
+		android:labelFor="@+id/timeSignature"
+		android:text="@string/timeSignature"/>
+
+	<EditText
+		android:id="@+id/timeSignature"
+		style="@style/UnsignedDecimal"
+		android:ems="4"
+		android:hint="@string/timeSignatureHint"
+		android:imeOptions="actionDone"/>
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="Beats per\nMinute"/>
+		android:layout_marginTop="15dp"
+		android:text="@string/songDuration"/>
 
 	<TextView
-		style="@style/TextLabel"
-		android:text="Number of\nMeasures"/>
-
-	<Space/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:text="Duration"/>
+		android:id="@+id/songDuration"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
 
 	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
 		android:text="@string/clear"
-		compat:layout_columnSpan="5"/>
+		compat:layout_columnSpan="2"/>
 </android.support.v7.widget.GridLayout>
