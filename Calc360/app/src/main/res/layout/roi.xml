@@ -6,13 +6,15 @@
 	android:layout_height="wrap_content"
 	compat:columnCount="4">
 
+
+	//Investment box.
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/itemPrice"
+		android:text="@string/invest"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
-		android:id="@+id/curPrice"
+		android:id="@+id/startInvestment"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
 		android:hint="@string/priceHint">
@@ -20,33 +22,36 @@
 		<requestFocus/>
 	</EditText>
 
+	// total investment box.
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/decTaxRate"
-		android:text="@string/tax"/>
+		android:text="@string/totalInvest"
+		compat:layout_columnSpan="3"/>
 
 	<EditText
-		android:id="@+id/decTaxRate"
+		android:id="@+id/allTheMoney"
 		style="@style/UnsignedDecimal"
-		android:ems="3"
-		android:hint="@string/salesTaxHint"
-		android:imeOptions="actionDone"/>
+		android:ems="5"
+		android:hint="@string/priceHint">
 
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginEnd="20dp"
-		android:text="@string/perc"/>
+		<requestFocus/>
+	</EditText>
 
+
+
+	//dont know what this is right now.
 	<TextView
 		android:id="@+id/curTaxAmt"
 		style="@style/TextResult"/>
 
+
+	// ROI
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
-		android:text="@string/total"
+		android:text="@string/roi"
 		compat:layout_columnSpan="3"/>
-
+//dont know what this one is either.
 	<TextView
 		android:id="@+id/curTotal"
 		style="@style/TextResult"

@@ -44,7 +44,7 @@ public final class ROI extends CalcFragment {
 		View view = inflater.inflate(R.layout.sales_tax, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
-		startPrice = new EditCurrency(view, R.id.curPrice, this);
+		startPrice = new EditCurrency(view, R.id.startInvestment, this);
 		decTaxRate = new EditDecimal(view, R.id.decTaxRate,
 				Calc360.KEY_SALES_TAX_RATE, this);
 		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);

@@ -12,12 +12,14 @@
 	<string name="radioAnnually">Annually</string>
 
 	<string name="invest">Investment</string>
+	<string name="totalInvest">Total Investment</string>
 	<string name="pv">Principal</string>
 	<string name="periodPay">Periodic Payment</string>
 	<string name="annRate">Annual Rate</string>
 	<string name="annRateHint">ex: 4.875</string>
 	<string name="years">Number of Years</string>
 	<string name="ppy">Periods per Year</string>
+	<string name="roi">Return on Investment</string>
 	<integer-array name="possiblePPY" translatable="false">
 		<item>1</item>
 		<item>2</item>
