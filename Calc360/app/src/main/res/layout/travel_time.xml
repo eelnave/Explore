@@ -92,18 +92,19 @@
 			android:id="@+id/decTime"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignEnd="@+id/lblEffic"
-			android:layout_alignStart="@+id/lblEffic"
+			android:layout_alignParentTop="true"
+			android:layout_marginStart="@dimen/default_gap"
+			android:layout_toEndOf="@+id/lblTime"
 			android:textAlignment="textEnd"/>
 
-
 		<TextView
-			android:id="@+id/lblEffic"
+			android:id="@+id/lblTime"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/decTime"
 			android:labelFor="@+id/decTime"
 			android:text="@string/travelTime"/>
+
+
 	</RelativeLayout>
 
 	<Button

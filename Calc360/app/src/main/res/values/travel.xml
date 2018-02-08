@@ -35,11 +35,17 @@
 	<string name="reimburseTotal">Reimbursement Total: </string>
 
 	<string name="travelTime">Travel Time</string>
-	<string name="ttexplain">Calculate the travel time by entering your distrance traveled and your average speed.</string>
-	<string name="Speed">Speed</string>
+	<string name="ttexplain">Calculate the travel time by entering your distance traveled and your average speed.</string>
+	<string name="Speed">Average Speed</string>
 
 	<string-array name="ttSpeedUnits" translatable="false">
+		<item>milePerHour</item>
+		<item>kilometerPerHour</item>
 		<item>mph</item>
-		<item>kmph</item>
+	</string-array>
+
+	<string-array name="ttDistUnits" translatable="false">
+		<item>mile</item>
+		<item>kilometer</item>
 	</string-array>
 </resources>

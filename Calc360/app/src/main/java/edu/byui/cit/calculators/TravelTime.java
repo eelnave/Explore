@@ -17,22 +17,20 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.units.FuelEffic;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Speed;
 import edu.byui.cit.units.Unit;
-import edu.byui.cit.units.Volume;
 
 
 public final class TravelTime extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
-			KEY_DIST_UNITS = "FuelEfficiency.distUnits",
-			KEY_SPE_UNITS = "FuelEfficiency.speUnits";
+			KEY_DIST_UNITS = "TravelTime.distUnits",
+			KEY_SPE_UNITS = "TravelTime.speUnits";
 
 	private final NumberFormat fmtrDist, fmtrEffic;
-	private EditDec decBegin, decEnd, decDist, decSpe;
+	private EditDec decDist, decSpe;
 	private SpinUnit spinDistUnits, spinSpeUnits;
 	private TextWrapper decTime;
 
@@ -55,12 +53,8 @@ public final class TravelTime extends CalcFragment {
 		View view = inflater.inflate(R.layout.travel_time, container,
 				false);
 
-		//OdometerChanged dist = new OdometerChanged();
-
 		// Create a wrapper object for each EditText
 		// that appears in this calculator's layout.
-		//decBegin = new EditDec(view, R.id.decBegin, dist);
-		//decEnd = new EditDec(view, R.id.decEnd, dist);
 		decDist = new EditDec(view, R.id.decDist, this);
 		decSpe = new EditDec(view, R.id.decSpe, this);
 
@@ -68,7 +62,7 @@ public final class TravelTime extends CalcFragment {
 		// preferences file and initialize each spinner.
 		Activity act = getActivity();
 		spinDistUnits = new SpinUnit(act, view, R.id.spinDistUnits,
-				Length.getInstance(), R.array.feDistUnits,
+				Length.getInstance(), R.array.ttDistUnits,
 				KEY_DIST_UNITS, this);
 		spinSpeUnits = new SpinUnit(act, view, R.id.spinSpeUnits,
 				Speed.getInstance(), R.array.ttSpeedUnits,
@@ -99,29 +93,6 @@ public final class TravelTime extends CalcFragment {
 	}
 
 
-	/*private final class OdometerChanged extends TextChangeHandler {
-		@Override
-		public void afterChanged(Editable s) {
-			if (decBegin.notEmpty() || decEnd.notEmpty()) {
-				decDist.clear();
-			}
-			callCompute();
-		}
-	}
-
-
-	private final class DistanceChanged extends TextChangeHandler {
-		@Override
-		public void afterChanged(Editable s) {
-			if (decDist.notEmpty()) {
-				decBegin.clear();
-				decEnd.clear();
-			}
-			callCompute();
-		}
-	}
-*/
-
 	@Override
 	protected void compute() {
 		double dist = 0;
@@ -132,7 +103,6 @@ public final class TravelTime extends CalcFragment {
 		if (dist > 0 && decSpe.notEmpty()) {
 			double spe = decSpe.getDec();
 
-			/*
 			// Get from the spinners, the units that the user chose
 			// for inputting the distance and the volume of fuel.
 			Unit distUnits = spinDistUnits.getSelectedItem();
@@ -144,12 +114,12 @@ public final class TravelTime extends CalcFragment {
 			Property speed = Speed.getInstance();
 
 			// Get the units that the user wants for the results.
-			Unit unit = spinEfficUnits.getSelectedItem();
+			//Unit unit = spinEfficUnits.getSelectedItem();
 
 			// If the user wants the results in miles per gallon,
 			// then convert, if necessary, the distance and volume
 			// of fuel entered by the user into miles and gallons.
-			if (unit.getID() == FuelEffic.mpg) {
+			if (speUnits.getID() == Speed.mph) {
 				dist = length.convert(Length.mile, dist, distUnits);
 				spe = speed.convert(Speed.mph, spe, speUnits);
 			}
@@ -157,13 +127,14 @@ public final class TravelTime extends CalcFragment {
 			// If the user wants the results in kilometers per mile,
 			// then convert, if necessary, the distance and speed of
 			// distance entered by the user into kilometers and kmph.
-			else if (unit.getID() == FuelEffic.kpl) {
+			else if (speUnits.getID() == Speed.kmph) {
 				dist = length.convert(Length.km, dist, distUnits);
 				spe = speed.convert(Speed.kmph, spe, speUnits);
 			}
-*/
+
 			double time = dist / spe ;
-			decTime.setText(fmtrEffic.format(time));
+			String formatTime = fmtrEffic.format(time) + " Hours";
+			decTime.setText(formatTime);
 
 		}
 		else {
