@@ -19,7 +19,14 @@ import edu.byui.cit.text.TextWrapper;
 public class Subnet extends CalcFragment {
 	private EditInteger ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8;
 	private TextWrapper availableHosts, numberOfSubnets;
-	private NumberFormat fmtrInt;
+	private final NumberFormat fmtrInt;
+
+	public Subnet() {
+		// Call the constructor in the parent class.
+		super();
+
+		fmtrInt = NumberFormat.getInstance();
+	}
 
 
 	@Override
