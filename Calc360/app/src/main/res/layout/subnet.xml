@@ -184,7 +184,7 @@
 
 		<TextView
 			android:id="@+id/numberOfSubnets"
-			style="@style/TextLabel"
+			style="@style/TextResult"
 			android:layout_marginStart="10dp"/>
 
 	</LinearLayout>
