@@ -1,15 +1,12 @@
 package edu.byui.cit.calculators;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditInt;
 import edu.byui.cit.text.EditWrapper;
@@ -45,13 +42,13 @@ public final class SongDuration extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this calculator.
-		View view = inflater.inflate(R.layout.SongDuration, container, false);
+		View view = inflater.inflate(R.layout.song_duration, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
 		totalMeasures = new EditInt(view, R.id.totalMeasures, this);
-		beatsPerMinute = new EditInt(view, R.id.beatsPerMinute, this);
+		beatsPerMinute = new EditInt(view, R.id.tempo, this);
 		timeSignature = new EditInt(view, R.id.timeSignature, this);
-		songTime = new TextWrapper(view, R.id.songTime);
+		songTime = new TextWrapper(view, R.id.songDuration);
 
 		EditWrapper[] inputs = { totalMeasures, beatsPerMinute };
 		ControlWrapper[] toClear = { totalMeasures, songTime, beatsPerMinute};

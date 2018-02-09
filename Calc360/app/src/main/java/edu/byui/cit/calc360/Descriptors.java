@@ -99,6 +99,7 @@ final class Descriptors {
 				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
 				new CalcDescriptor(1047, R.string.subnet, R.drawable.binary2, Subnet.class),
 				new CalcDescriptor(1021, R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
+				new CalcDescriptor(1021, R.string.songDuration, R.drawable.lightning, SongDuration.class),
 			}),
 		});
 

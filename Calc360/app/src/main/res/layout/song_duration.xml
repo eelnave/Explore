@@ -12,7 +12,7 @@
 
 	<EditText
 		android:id="@+id/totalMeasures"
-		style="@style/UnsignedDecimal"
+		style="@style/UnsignedInteger"
 		android:ems="4"
 		android:hint="@string/measuresHint">
 
@@ -26,7 +26,7 @@
 
 	<EditText
 		android:id="@+id/tempo"
-		style="@style/UnsignedDecimal"
+		style="@style/UnsignedInteger"
 		android:ems="4"
 		android:hint="@string/tempoHint"
 		android:imeOptions="actionDone"/>
@@ -38,7 +38,7 @@
 
 	<EditText
 		android:id="@+id/timeSignature"
-		style="@style/UnsignedDecimal"
+		style="@style/UnsignedInteger"
 		android:ems="4"
 		android:hint="@string/timeSignatureHint"
 		android:imeOptions="actionDone"/>

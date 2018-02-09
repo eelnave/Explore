@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="totalMeasures">Total Measures</string>
+	<string name="measuresHint">85</string>
+	<string name="tempo">Tempo (BPM)</string>
+	<string name="tempoHint">75 bpm</string>
+	<string name="timeSignature">Time Signature (Top)</string>
+	<string name="timeSignatureHint">4 (/4)</string>
+	<string name="songDuration">Song Duration</string>
+</resources>
