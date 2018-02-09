@@ -33,6 +33,12 @@
 	<string name="walking">Walking</string>
 	<string name="running">Running</string>
 	<string name="calories">calories</string>
+	<string name="dancing">Dancing</string>
+	<string name="kickboxing">Kickboxing</string>
+	<string name="cycling">Cycling</string>
+	<string name="television">Watching TV</string>
+
+
 	<string-array name="cbMassUnits">
 		<item>pound</item>
 		<item>kilogram</item>
@@ -64,7 +70,7 @@
 		<item>Football</item>
 		<item>Soccer</item>
 		<item>Tennis</item>
-		<item>Recquetball</item>
+		<item>Racquetball</item>
 		<item>Ping Pong</item>
 		<item>Golf</item>
 		<item>Hockey</item>

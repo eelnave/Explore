@@ -26,11 +26,9 @@ import edu.byui.cit.units.Unit;
 
 public final class CaloriesBurned extends CalcFragment {
 	private static final String KEY_MASS_UNITS = "CaloriesBurned.massUnits";
-
 	private final NumberFormat fmtrDec;
 	private EditDecimal decWeight;
 	private SpinUnit spinMass;
-	private SpinUnit spinExercises;
 	private EditInteger intTime;
 	private RadioGroup grpExercise;
 	private TextWrapper txtResult;
@@ -59,9 +57,11 @@ public final class CaloriesBurned extends CalcFragment {
 		new RadioWrapper(view, R.id.radWalk, this);
 		new RadioWrapper(view, R.id.radRun, this);
 		new RadioWrapper(view, R.id.radSwim, this);
-
-		spinExercises = new SpinUnit(getActivity(), view, R.id.spinExercises,
-				Mass.getInstance(), R.array.cbExercises, KEY_MASS_UNITS, this);
+		new RadioWrapper(view, R.id.radBasketball, this);
+		new RadioWrapper(view, R.id.radCycling, this);
+		new RadioWrapper(view, R.id.radDancing, this);
+		new RadioWrapper(view, R.id.radTv, this);
+		new RadioWrapper(view, R.id.radKickboxing, this);
 
 		txtResult = new TextWrapper(view, R.id.txtResult);
 
@@ -96,10 +96,15 @@ public final class CaloriesBurned extends CalcFragment {
 	}
 
 	private static final RatioPair[] ratios = {
-			new RatioPair(R.id.radWeight, 0.024),
-			new RatioPair(R.id.radWalk, 0.03),
-			new RatioPair(R.id.radRun, 0.05),
-			new RatioPair(R.id.radSwim, 0.07)
+			new RatioPair(R.id.radWeight, 6.0),
+			new RatioPair(R.id.radWalk, 3.5),
+			new RatioPair(R.id.radRun, 12.5),
+			new RatioPair(R.id.radSwim, 8.0),
+			new RatioPair(R.id.radCycling, 9.0),
+			new RatioPair(R.id.radBasketball, 6.5),
+			new RatioPair(R.id.radDancing, 6.0),
+			new RatioPair(R.id.radTv, 1.0),
+			new RatioPair(R.id.radKickboxing,10.5)
 	};
 
 	/** Linear search to find a ratio from the corresponding RadioButton id. */
@@ -131,8 +136,7 @@ public final class CaloriesBurned extends CalcFragment {
 				weight = mass.convert(Mass.pound, weight, unitMass);
 			}
 
-			double calories = Fitness.computeCalories(ratio, weight,
-					minutes);
+			double calories = Fitness.computeCalWithMet(ratio, weight, minutes);
 			String result = fmtrDec.format(calories) + " " + getString(
 					R.string.calories);
 			txtResult.setText(result);
