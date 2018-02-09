@@ -147,7 +147,6 @@ public abstract class InfoFragment extends Fragment {
             restorePrefs(prefs);
         }
         catch (Exception ex) {
-            Log.e(Calc360.TAG, "exception", ex);
             view = inflater.inflate(R.layout.mistake, container, false);
         }
         return view;
@@ -194,7 +193,6 @@ public abstract class InfoFragment extends Fragment {
             }
         }
         catch (Exception ex) {
-            Log.e(Calc360.TAG, "exception", ex);
         }
     }
 
@@ -236,7 +234,6 @@ public abstract class InfoFragment extends Fragment {
             editor.apply();
         }
         catch (Exception ex) {
-            Log.e(Calc360.TAG, "exception", ex);
         }
         finally {
             super.onStop();
