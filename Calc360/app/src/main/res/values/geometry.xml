@@ -121,7 +121,7 @@
 	<string name="distanceBetweenPoints">Distance Between Two Points</string>
 	<string name="coordinate1">Coordinate1</string>
 	<string name="coordinate2">Coordinate2</string>
-	<string name="units">units</string>
+	<string name="units">Units</string>
 
 
 </resources>
