@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
@@ -113,9 +114,6 @@ public final class TravelTime extends CalcFragment {
 			Property length = Length.getInstance();
 			Property speed = Speed.getInstance();
 
-			// Get the units that the user wants for the results.
-			//Unit unit = spinEfficUnits.getSelectedItem();
-
 			// If the user wants the results in miles per gallon,
 			// then convert, if necessary, the distance and volume
 			// of fuel entered by the user into miles and gallons.
@@ -133,8 +131,45 @@ public final class TravelTime extends CalcFragment {
 			}
 
 			double time = dist / spe ;
-			String formatTime = fmtrEffic.format(time) + " Hours";
-			decTime.setText(formatTime);
+			int hours = (int) time;
+			int min = (int) ((time - hours) * 60);
+			if (hours == 1) {
+				if (min == 1) {
+					String result = hours + " hour " + min + " minute";
+					decTime.setText(result);
+
+				}
+				else {
+					String result = hours + " hour " + min + " minutes";
+					decTime.setText(result);
+
+				}
+			}
+			else if (hours > 1) {
+				if (min == 1) {
+					String result = hours + " hours " + min + " minute";
+					decTime.setText(result);
+				}
+				else {
+					String result = hours + " hours " + min + " minutes";
+					decTime.setText(result);
+				}
+			}
+			else if (hours < 1){
+				if(min == 1) {
+					String result = hours + " hours " + min + " minute";
+					decTime.setText(result);
+				}
+				else {
+					String result = hours + " hours " + min + " minutes";
+					decTime.setText(result);
+				}
+			}
+
+
+			//}
+			//String formatTime = fmtrEffic.format(time) + " Hours";
+			//decTime.setText(result);
 
 		}
 		else {
