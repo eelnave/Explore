@@ -90,10 +90,10 @@ public class Subnet extends CalcFragment {
 	protected void compute() {
 		if (ip1.notEmpty() && ip2.notEmpty() && ip3.notEmpty() && ip4.notEmpty() && ip5.notEmpty()
 				&& ip6.notEmpty() && ip7.notEmpty() && ip8.notEmpty()) {
-		//	int input1 = ip1.getInt();
-		//	int input2 = ip2.getInt();
-		//	int input3 = ip3.getInt();
-		//	int input4 = ip4.getInt();
+		//	int input1 = ip1.getInt();  Planning on doing more later
+		//	int input2 = ip2.getInt();  Planning on doing more later
+		//	int input3 = ip3.getInt();  Planning on doing more later
+		//	int input4 = ip4.getInt();  Planning on doing more later
 			int input5 = ip5.getInt();
 			int input6 = ip6.getInt();
 			int input7 = ip7.getInt();
