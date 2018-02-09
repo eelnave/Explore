@@ -1,4 +1,4 @@
-package com.example.tlee1.kindnessclient;
+package edu.byui.cit.kindness;
 
 import org.junit.Test;
 

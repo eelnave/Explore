@@ -1,4 +1,4 @@
-package com.example.tlee1.kindnessclient;
+package edu.byui.cit.kindness;
 
 /**
  * Created by tlee1 on 2/7/2018.

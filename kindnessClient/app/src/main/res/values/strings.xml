@@ -1,5 +1,14 @@
 <resources>
-    <string name="app_name">kindnessClient</string>
-    <string name="appName" />
-    <string name="versionName" />
+    <string name="appName">kindnessClient</string>
+
+    <string name="about">About</string>
+    <string name="contribs">Contributors</string>
+
+    <string name="appDescr">A collection of easy to use specific calculators designed, written, and maintained by students at Brigham Young University - Idaho</string>
+    <string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
+    <string name="logoCredit">We created the logo and icons for Calc360 using the free tools at <a href="logomakr.com">logomakr.com</a></string>
+    <string name="fall2017">Fall 2017</string>
+    <string name="winter2018">Winter 2018</string>
+
+    <string name="mistake">Well, this is embarrassing. Something is wrong with this calculator, and it isn\'t working. We apologize.</string>
 </resources>
