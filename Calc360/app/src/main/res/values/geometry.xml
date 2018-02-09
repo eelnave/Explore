@@ -122,6 +122,7 @@
 	<string name="coordinate1">Coordinate1</string>
 	<string name="coordinate2">Coordinate2</string>
 	<string name="units">Units</string>
+	<string name="answer">Answer</string>
 
 
 </resources>
