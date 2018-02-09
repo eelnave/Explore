@@ -57,7 +57,10 @@ public final class SalesTax extends CalcFragment {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.sales_tax, container, false);
 
-		// Get a reference to each of the text fields in this calculator.
+		// Get a reference to each of the text fields in this calculator. The
+		// id's inside the R class connect this Java code to the elements in
+		// the xml layout file. For example R.id.curPrice connects the new
+		// EditCurrency object to the xml element that has an id of "curPrice".
 		curPrice = new EditCurrency(view, R.id.curPrice, this);
 		decTaxRate = new EditDecimal(view, R.id.decTaxRate,
 				Calc360.KEY_SALES_TAX_RATE, this);
