@@ -40,4 +40,12 @@
 
 	<string name="Weight">Weight</string>
 	<string name="bodyWeight">Body Weight</string>
+
+
+	<string name="day1">What is your day of birth?</string>
+	<string name="dayhint"> (12)</string>
+	<string name="month1">What is your month of birth?</string>
+	<string name="monthhint"> (2)</string>
+	<string name="year1"> What is your year of birth </string>
+	<string name="yearhint">seconds: </string>
 </resources>
