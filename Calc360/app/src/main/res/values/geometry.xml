@@ -123,6 +123,7 @@
 	<string name="coordinate2">Coordinate2</string>
 	<string name="units">Units</string>
 	<string name="answer">Answer</string>
+	<string name="clearCaps">CLEAR</string>
 
 
 </resources>

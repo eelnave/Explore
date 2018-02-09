@@ -145,6 +145,14 @@
 
 		</LinearLayout>
 
+		<Button
+			android:id="@+id/clearB"
+			android:layout_width="91dp"
+			android:layout_height="50dp"
+			android:layout_marginBottom="100dp"
+			android:layout_marginEnd="20dp"
+			android:text="@string/clearCaps"/>
+
 	</LinearLayout>
 
 
