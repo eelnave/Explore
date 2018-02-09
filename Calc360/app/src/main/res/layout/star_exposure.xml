@@ -14,6 +14,8 @@
 		android:id="@+id/focal-length-id"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginBottom="20dp"
+		android:layout_marginTop="20dp"
 		android:text="@string/focal_length"
 		compat:layout_column="0"/>
 
@@ -21,9 +23,25 @@
 		android:id="@+id/crop-factor-id"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginBottom="20dp"
+		android:layout_marginTop="20dp"
 		android:text="@string/crop_factor"
 		compat:layout_column="0"
 		compat:layout_row="1"/>
+
+	<EditText
+		android:id="@+id/focal-entry-id"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:width="100dp"
+		android:layout_marginBottom="20dp"
+		android:layout_marginTop="20dp"
+		android:ems="10"
+		android:hint="@string/ex_18"
+		android:inputType="textPersonName"
+		compat:layout_column="1"
+		compat:layout_row="0"
+		style="@style/UnsignedInteger"/>
 
 
 	<EditText
@@ -32,47 +50,47 @@
 		android:layout_height="wrap_content"
 		android:width="100dp"
 		android:ems="10"
+		android:layout_marginBottom="20dp"
+		android:layout_marginTop="20dp"
 		android:hint="@string/ex_1_5"
 		android:inputType="textPersonName"
 		compat:layout_column="1"
-		compat:layout_row="1"/>
+		compat:layout_row="1"
+		style="@style/UnsignedDecimal"/>
 
-	<EditText
-		android:id="@+id/focal-entry-id"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:width="100dp"
-		android:ems="10"
-		android:hint="@string/ex_18"
-		android:inputType="textPersonName"
-		compat:layout_column="1"
-		compat:layout_row="0"/>
+
 
 	<TextView
 		android:id="@+id/unit-type-id1"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginStart="10dp"
+		android:layout_marginBottom="20dp"
+		android:layout_marginTop="20dp"
 		android:ems="10"
 		android:text="@string/mm"
 		compat:layout_column="2"
 		compat:layout_row="0"/>
 
 	<TextView
-		android:id="@+id/editText3"
+		android:id="@+id/starExpValField"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
+		android:layout_marginBottom="20dp"
 		android:layout_marginStart="10dp"
+		android:layout_marginTop="20dp"
 		android:width="100dp"
 		android:ems="10"
 		compat:layout_column="1"
 		compat:layout_row="2"/>
 
 	<Button
-		android:id="@+id/clear-button-id"
+		android:id="@+id/clear-button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Clear"
+		android:layout_marginBottom="20dp"
+		android:layout_marginTop="20dp"
+		android:text="@string/clear"
 		compat:layout_column="0"
 		compat:layout_row="2"/>
 
