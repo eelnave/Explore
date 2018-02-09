@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">kindnessClient</string>
+    <string name="appName" />
+    <string name="versionName" />
 </resources>

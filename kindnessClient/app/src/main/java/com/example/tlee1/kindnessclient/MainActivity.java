@@ -5,13 +5,8 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import java.util.Comparator;
-
-
-import android.content.res.Resources;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,37 +14,10 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.Comparator;
-
-
-package edu.byui.cit.calculators;
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-
-import edu.byui.cit.calc360.InfoFragment;
-import edu.byui.cit.calc360.R;
-
-
-package edu.byui.cit.calc360;
-
-import android.app.Activity;
-import android.app.Fragment;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
 
