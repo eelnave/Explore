@@ -9,6 +9,6 @@ public final class Fitness {
     }
 
     public static double computeCalWithMet(double met, double weight, double minutes) {
-    	return (.0175 * met * (weight/2.2) * minutes);
+    	return (met * 3.5 * (weight/2.2) / 200 * minutes);
 	}
 }
