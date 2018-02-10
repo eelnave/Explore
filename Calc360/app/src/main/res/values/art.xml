@@ -3,6 +3,7 @@
 
 
 <resources>
+	<string name="star_exposure">Star Exposure</string>
 	<string name="focal_length">Focal Length</string>
 	<string name="crop_factor">Crop Factor</string>
 	<string name="ex_1_5">ex 1.5</string>

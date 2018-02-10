@@ -98,8 +98,11 @@ final class Descriptors {
 				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
 				new CalcDescriptor(1047, R.string.subnet, R.drawable.binary2, Subnet.class),
 				new CalcDescriptor(1021, R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
-					new CalcDescriptor(1059, R.string.gasEnergy, R.drawable.abacus, StarExposure.class),
 			}),
+				new GroupDescriptor(313, R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
+						new CalcDescriptor(1078, R.string.star_exposure, R.drawable.star_exposure, StarExposure.class),
+				}),
+
 		});
 
 	/* Save and restore user selected units in any
