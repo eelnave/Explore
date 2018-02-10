@@ -12,10 +12,10 @@
 		compat:layout_columnSpan="3"/>
 
 	<EditText
-		android:id="@+id/dayhint"
+		android:id="@+id/numberOne"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/salesTaxHint">
+		android:hint="@string/dayhint">
 
 	</EditText>
 
@@ -25,7 +25,7 @@
 		compat:layout_columnSpan="3"/>
 
 	<EditText
-		android:id="@+id/agehint"
+		android:id="@+id/numberTwo"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
 		android:hint="@string/monthhint">
@@ -34,14 +34,14 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/numberTwo"
-		android:text="@string/ageInSeconds"/>
+		android:labelFor="@+id/numberThree"
+		android:text="@string/year1"/>
 
 	<EditText
-		android:id="@+id/numberTwo"
+		android:id="@+id/numberThree"
 		style="@style/UnsignedDecimal"
 		android:ems="3"
-		android:hint="@string/salesTaxHint"
+		android:hint="@string/yearhint"
 		android:imeOptions="actionDone"/>
 
 	<TextView
@@ -51,7 +51,7 @@
 		compat:layout_columnSpan="3"/>
 
 	<TextView
-		android:id="@+id/subtractedTotal"
+		android:id="@+id/exactAge"
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"/>
 

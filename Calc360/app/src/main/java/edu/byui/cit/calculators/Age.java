@@ -8,17 +8,20 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
+import java.time.*;
+import java.time.temporal.ChronoUnit;
 
 public final class Age extends CalcFragment {
 	private final NumberFormat fmtrDec;
 
-	private EditDec numberOne;
-	private EditDec numberTwo;
-	private EditDec numberThree;
-	private TextWrapper subtractedTotal;
+	private EditInteger numberOne;
+	private EditInteger numberTwo;
+	private EditInteger numberThree;
+	private TextWrapper exactAge;
 
 
 	public Age() {
@@ -35,31 +38,34 @@ public final class Age extends CalcFragment {
 		View view = inflater.inflate(R.layout.age, container, false);
 
 		// Reference each of the text fields
-		numberOne = new EditDec(view, R.id.numberOne, this);
-		numberTwo = new EditDec(view, R.id.numberTwo, this);
-		subtractedTotal = new TextWrapper(view, R.id.subtractedTotal);
+		numberOne = new EditInteger(view, R.id.numberOne, this);
+		numberTwo = new EditInteger(view, R.id.numberThree, this);
+		numberThree = new EditInteger(view, R.id.numberThree, this);
+		exactAge= new TextWrapper(view, R.id.exactAge);
 
-		EditWrapper[] inputs = { numberOne, numberTwo };
-		ControlWrapper[] toClear = { numberOne, numberTwo, subtractedTotal };
-		initialize(view, inputs, toClear, R.id.btnClear);
+		EditWrapper[] inputs = { numberOne, numberTwo, numberThree };
+		ControlWrapper[] toClear = { numberOne, numberTwo, numberThree, exactAge };
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
-	@Override
-	protected void compute() {
-		if (numberOne.notEmpty() && numberTwo.notEmpty()){
-			double numerialOne = numberOne.getDec();
-			double numerialTwo = numberTwo.getDec();
+	LocalDate start = LocalDate.of(numberThree, numberTwo, numberOne);
+	LocalDate end = LocalDate.now(); // use for age-calculation: LocalDate.now()
+	long years = ChronoUnit.YEARS.between(start, end);
 
-			double total = numerialOne - numerialTwo;
+				@Override
+				protected void compute() {
 
-			subtractedTotal.setText(fmtrDec.format(total));
+				}
+			}
 		}
-		else {
-			numberOne.clear();
-			numberTwo.clear();
-			subtractedTotal.clear();
-		}
-	}
-}
 
+//public class AgeCalculator {
+
+//public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
+//if ((birthDate != null) && (currentDate != null)) {
+//	return Period.between(birthDate, currentDate).getYears();
+//} else {
+//	return 0;
+//}
+//}
