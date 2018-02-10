@@ -96,8 +96,7 @@
 		android:layout_marginTop="20dp"
 		android:text="@string/clear"
 		compat:layout_column="0"
-		compat:layout_row="2"
-		style="@style/ClearButton"/>
+		compat:layout_row="2"/>
 
 
 </android.support.v7.widget.GridLayout>
