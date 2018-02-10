@@ -51,7 +51,7 @@ public final class SongDuration extends CalcFragment {
 		songTime = new TextWrapper(view, R.id.songDuration);
 
 		EditWrapper[] inputs = { totalMeasures, beatsPerMinute };
-		ControlWrapper[] toClear = { totalMeasures, songTime, beatsPerMinute};
+		ControlWrapper[] toClear = { totalMeasures, beatsPerMinute, timeSignature, songTime};
 		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
