@@ -1,9 +1,11 @@
 package edu.byui.cit.calculators;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 
 import java.text.NumberFormat;
 
@@ -38,13 +40,13 @@ public class StarExposure extends CalcFragment {
 	}
 
 	protected View createView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstState) {
+			Bundle savedInstanceState) {
 		View ourView = inflater.inflate(R.layout.star_exposure, container, false);
 
 		starExpVal = new TextWrapper(ourView, R.id.starExpValField);
 
-		cropFacVal = new EditDecimal(ourView, R.id.focal_entry_id , this);
-		focLengthVal = new EditInteger(ourView, R.id.crop_factor_entry, this);
+		cropFacVal = new EditDecimal(ourView, R.id.crop_factor_entry , this);
+		focLengthVal = new EditInteger(ourView, R.id.focal_entry_id, this);
 
 		EditWrapper[] entries = {cropFacVal, focLengthVal};
 		ControlWrapper[] toClear = { starExpVal, cropFacVal, focLengthVal };
@@ -56,7 +58,8 @@ public class StarExposure extends CalcFragment {
 	@Override
 	protected void compute() {
 		if (cropFacVal.notEmpty() && focLengthVal.notEmpty()) {
-			starExpVal.setText(decFrmt.format(fiveHundredRuleNum / (cropFacVal.getDec() * focLengthVal.getInt())));
+
+			starExpVal.setText(decFrmt.format((int)(fiveHundredRuleNum / (cropFacVal.getDec() * focLengthVal.getInt()))));
 		}
 		else {
 			starExpVal.clear();
