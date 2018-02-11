@@ -13,6 +13,7 @@ import java.text.SimpleDateFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDec;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
@@ -72,8 +73,9 @@ public final class TravelTime extends CalcFragment {
 		decTime = new TextWrapper(view, R.id.decTime);
 
 		EditWrapper[] inputs = { decDist, decSpe };
-		TextWrapper[] outputs = { decTime };
-		initialize(view, inputs, outputs, R.id.btnClear);
+		//TextWrapper[] outputs = { decTime };
+		ControlWrapper[] toClear = { decDist, decSpe, decTime };
+		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
 
