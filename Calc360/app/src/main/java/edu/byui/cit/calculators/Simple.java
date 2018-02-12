@@ -9,15 +9,15 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.ControlWrapper;
+import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
 public final class Simple extends CalcFragment {
 	private final NumberFormat fmtrDec;
-	private EditDec decimal1, decimal2;
+	private EditDecimal decimal1, decimal2;
 	private TextWrapper result;
 
 
@@ -38,15 +38,17 @@ public final class Simple extends CalcFragment {
 		View view = inflater.inflate(R.layout.simple, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
-		decimal1 = new EditDec(view, R.id.decimal1, this);
-		decimal2 = new EditDec(view, R.id.decimal2, this);
+		decimal1 = new EditDecimal(view, R.id.decimal1, this);
+		decimal2 = new EditDecimal(view, R.id.decimal2, this);
 
 		// Get a reference to the text view
 		// where the results will be displayed.
 		result = new TextWrapper(view, R.id.result);
 
-		// Set this calculator as the click listener for the clear button.
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		// Initialize this calculator.
+		EditWrapper[] inputs = { decimal1, decimal2 };
+		ControlWrapper[] toClear = { decimal1, decimal2, result };
+		initialize(view, inputs, R.id.btnClear, toClear);
 
 		return view;
 	}
@@ -68,19 +70,6 @@ public final class Simple extends CalcFragment {
 		}
 		else {
 			result.clear();
-		}
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements ClickListener {
-		/** Handles a click on the clear button. */
-		@Override
-		public void clicked(View button) {
-			decimal1.clear();
-			decimal2.clear();
-			result.clear();
-			decimal1.requestFocus();
 		}
 	}
 }

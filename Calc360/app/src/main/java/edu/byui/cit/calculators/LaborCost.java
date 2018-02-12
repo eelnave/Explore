@@ -1,6 +1,7 @@
 package edu.byui.cit.calculators;
 
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,23 +10,24 @@ import android.view.ViewGroup;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.Calc360;
+import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.calc360.SolveSeries;
+import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
-public class LaborCost extends SolveSeries {
+public class LaborCost extends CalcFragment {
 	private static final String
 			KEY_WAGE = "LaborCost.wage",
 			KEY_SALARY = "LaborCost.salary";
 
 	private final NumberFormat fmtrRate, fmtrCur, fmtrInt;
-	private EditCur curPrice, curSalesTaxAmt, curWage, curSalary;
-	private EditDec decSalesTaxRate;
+	private EditCurrency curPrice, curSalesTaxAmt, curWage, curSalary;
+	private EditDecimal decSalesTaxRate;
 	private TextWrapper txtOutput;
 
 	public LaborCost() {
@@ -39,107 +41,28 @@ public class LaborCost extends SolveSeries {
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+			Bundle savedInstState) {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.labor_cost, container, false);
 
-		curPrice = new EditCur(view, R.id.curPrice, this);
-		decSalesTaxRate = new EditDec(view, R.id.decSalesTaxRate,
-				Calc360.KEY_SALES_TAX_RATE,  this);
-		curSalesTaxAmt = new EditCur(view, R.id.curSalesTaxAmt, this);
-		curWage = new EditCur(view, R.id.curWage, KEY_WAGE, this);
-		curSalary = new EditCur(view, R.id.curSalary, KEY_SALARY, this);
+		curPrice = new EditCurrency(view, R.id.curPrice, this);
+		decSalesTaxRate = new EditDecimal(view, R.id.decSalesTaxRate,
+				Calc360.KEY_SALES_TAX_RATE, this);
+		curSalesTaxAmt = new EditCurrency(view, R.id.curSalesTaxAmt, this);
+		curWage = new EditCurrency(view, R.id.curWage, KEY_WAGE, this);
+		curSalary = new EditCurrency(view, R.id.curSalary, KEY_SALARY, this);
 		txtOutput = new TextWrapper(view, R.id.output);
 
 		EditWrapper[] inputs = {
-			curPrice, decSalesTaxRate, curSalesTaxAmt, curWage, curSalary
+				curPrice, decSalesTaxRate, curSalesTaxAmt, curWage, curSalary
 		};
 		EditWrapper[][] groups = {
 				{ decSalesTaxRate, curSalesTaxAmt },
 				{ curWage, curSalary }
 		};
-		TextWrapper[] outputs = { txtOutput };
+		ControlWrapper[] toClear = { curPrice, curSalesTaxAmt, txtOutput };
 
-		Solver[] solvers = new Solver[]{
-			new Solver(new EditWrapper[]{ curPrice, decSalesTaxRate },
-					new ControlWrapper[]{ curSalesTaxAmt }) {
-				@Override
-				public void solve() {
-					double price = curPrice.getCur();
-					double total = totalWithTaxRate(price);
-					laborCost(total);
-				}
-			},
-			new Solver(new EditWrapper[]{ curPrice, curSalesTaxAmt },
-					new ControlWrapper[]{ decSalesTaxRate }) {
-				@Override
-				public void solve() {
-					double price = curPrice.getCur();
-					double total = totalWithTaxAmt(price);
-					laborCost(total);
-				}
-			},
-
-			new Solver(new EditWrapper[]{ curPrice, curSalary },
-					new ControlWrapper[]{ txtOutput }) {
-				@Override
-				public void solve() {
-					double price = curPrice.getCur();
-					laborCostWithSalary(price);
-				}
-			},
-			new Solver(new EditWrapper[]{ curPrice, curWage },
-					new ControlWrapper[]{ txtOutput }) {
-				@Override
-				public void solve() {
-					double price = curPrice.getCur();
-					double wage = curWage.getCur();
-					laborCostWithWage(price, wage);
-				}
-			},
-
-			new Solver(new EditWrapper[]{ curPrice, decSalesTaxRate, curSalary },
-					new ControlWrapper[]{ curSalesTaxAmt, txtOutput }) {
-				@Override
-				public void solve() {
-					double price = curPrice.getCur();
-					double total = totalWithTaxRate(price);
-					laborCostWithSalary(total);
-				}
-			},
-			new Solver(new EditWrapper[]{ curPrice, decSalesTaxRate, curWage },
-					new ControlWrapper[]{ curSalesTaxAmt, txtOutput }) {
-				@Override
-				public void solve() {
-					double price = curPrice.getCur();
-					double total = totalWithTaxRate(price);
-					double wage = curWage.getCur();
-					laborCostWithWage(total, wage);
-				}
-			},
-
-			new Solver(new EditWrapper[]{ curPrice, curSalesTaxAmt, curSalary },
-					new ControlWrapper[]{ decSalesTaxRate, txtOutput }) {
-				@Override
-				public void solve() {
-					double price = curPrice.getCur();
-					double total = totalWithTaxAmt(price);
-					laborCostWithSalary(total);
-				}
-			},
-			new Solver(new EditWrapper[]{ curPrice, curSalesTaxAmt, curWage },
-					new ControlWrapper[]{ decSalesTaxRate, txtOutput }) {
-				@Override
-				public void solve() {
-					double price = curPrice.getCur();
-					double total = totalWithTaxAmt(price);
-					double wage = curWage.getCur();
-					laborCostWithWage(total, wage);
-				}
-			}
-		};
-
-		initialize(view, inputs, groups, outputs, solvers, R.id.btnClear);
+		initialize(view, inputs, groups, R.id.btnClear, toClear);
 		return view;
 	}
 
@@ -163,22 +86,39 @@ public class LaborCost extends SolveSeries {
 		curSalary.save(editor);
 	}
 
+	@Override
+	protected void compute() {
+		if (curPrice.hasUserInput()) {
+			double price = curPrice.getCur();
 
-	private double totalWithTaxRate(double price) {
-		double taxAmt = 0;
-		double taxRate = decSalesTaxRate.getDec() / 100.0;
-		if (taxRate > 0) {
-			taxAmt = price * taxRate;
-			curSalesTaxAmt.setText(fmtrCur.format(taxAmt));
+			// Compute the sales tax amount and the total.
+			double salesTaxRate;
+			double salesTaxAmt = 0;
+			if (decSalesTaxRate.hasUserInput()) {
+				salesTaxRate = decSalesTaxRate.getDec() / 100.0;
+				salesTaxAmt = Consumer.Ratio.amount(salesTaxRate, price);
+				curSalesTaxAmt.setText(fmtrCur.format(salesTaxAmt));
+			}
+			else if (curSalesTaxAmt.hasUserInput()) {
+				salesTaxAmt = curSalesTaxAmt.getCur();
+				salesTaxRate = Consumer.Ratio.rate(salesTaxAmt, price);
+				decSalesTaxRate.setText(fmtrRate.format(salesTaxRate * 100.0));
+			}
+
+			if (curSalary.hasUserInput() || curWage.hasUserInput()) {
+				double total = price + salesTaxAmt;
+				laborCost(total);
+			}
+			else {
+				txtOutput.clear();
+			}
 		}
-		return price + taxAmt;
-	}
-
-	private double totalWithTaxAmt(double price) {
-		double taxAmt = curSalesTaxAmt.getCur();
-		double taxRate = taxAmt / price * 100.0;
-		decSalesTaxRate.setText(fmtrRate.format(taxRate));
-		return price + taxAmt;
+		else {
+			if (!curSalesTaxAmt.hasUserInput()) {
+				curSalesTaxAmt.clear();
+			}
+			txtOutput.clear();
+		}
 	}
 
 
@@ -191,22 +131,14 @@ public class LaborCost extends SolveSeries {
 
 
 	private void laborCost(double total) {
-		if (curSalary.notEmpty()) {
-			laborCostWithSalary(total);
+		double wage;
+		if (curSalary.hasUserInput()) {
+			wage = curSalary.getCur() / workHoursPerYear;
 		}
-		else if (curWage.notEmpty()) {
-			double wage = curWage.getCur();
-			laborCostWithWage(total, wage);
+		else {
+			wage = curWage.getCur();
 		}
-	}
 
-	private void laborCostWithSalary(double total) {
-		double wage = curSalary.getCur() / workHoursPerYear;
-		laborCostWithWage(total, wage);
-	}
-
-
-	private void laborCostWithWage(double total, double wage) {
 		int hours = (int)Math.floor(total / wage);
 		double remainTotal = total - hours * wage;
 
@@ -225,32 +157,38 @@ public class LaborCost extends SolveSeries {
 				minutes * wagePerMinute);
 		final int cents = (int)Math.ceil(remainTotal * multiplier);
 
-		String output = "You must work for";
+		Resources res = getResources();
+		String output = res.getString(R.string.mustWork);
 		String sep = " ";
 		if (years > 0) {
-			output += sep + fmtrInt.format(years) + " years";
+			output += sep + fmtrInt.format(years) + ' ' +
+					res.getQuantityString(R.plurals.year, years);
 			sep = ", ";
 		}
 		if (days > 0) {
-			output += sep + fmtrInt.format(days) + " days";
+			output += sep + fmtrInt.format(days) + ' ' +
+					res.getQuantityString(R.plurals.day, days);
 			sep = ", ";
 		}
 		if (hours > 0) {
-			output += sep + fmtrInt.format(hours) + " hours";
+			output += sep + fmtrInt.format(hours) + ' ' +
+					res.getQuantityString(R.plurals.hour, hours);
 			sep = ", ";
 		}
 		if (minutes > 0) {
-			output += sep + fmtrInt.format(minutes) + " minutes";
+			output += sep + fmtrInt.format(minutes) + ' ' +
+					res.getQuantityString(R.plurals.minute, minutes);
 		}
 		if (cents > 0) {
-			output += ", and you must get " + cents + " cents from " +
-				"somewhere";
+			output += ", " + res.getString(R.string.mustGet) + ' ' +
+					cents + ' ' + res.getQuantityString(R.plurals.cent, cents) +
+					' ' + res.getString(R.string.somewhere);
 		}
 		output += ".";
 
 		// Code to check the results.
-//				double total = (years * workHoursPerYear + days *
-// workHoursPerDay + hours) * wage;
+//				double total = (years * workHoursPerYear +
+//						days * workHoursPerDay + hours) * wage;
 //				total += minutes * wagePerMinute;
 //				total += (double)cents / multiplier;
 //				output += "\n" + total;

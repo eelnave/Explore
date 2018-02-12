@@ -9,7 +9,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.CoulombsLaw.*;
@@ -17,16 +17,16 @@ import static edu.byui.cit.model.Physics.CoulombsLaw.*;
 
 public final class CoulombsLaw extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decForce, decQ1, decQ2, decDist;
+	private EditDecimal decForce, decQ1, decQ2, decDist;
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.coulombs_law, container, false);
-		decForce = new EditDec(view, R.id.decForce, this);
-		decQ1 = new EditDec(view, R.id.decQ1, this);
-		decQ2 = new EditDec(view, R.id.decQ2, this);
-		decDist = new EditDec(view, R.id.decDist, this);
+		decForce = new EditDecimal(view, R.id.decForce, this);
+		decQ1 = new EditDecimal(view, R.id.decQ1, this);
+		decQ2 = new EditDecimal(view, R.id.decQ2, this);
+		decDist = new EditDecimal(view, R.id.decDist, this);
 		EditWrapper[] inputs = { decForce, decQ1, decQ2, decDist};
 
 		Solver[] solvers = new Solver[] {
@@ -72,7 +72,7 @@ public final class CoulombsLaw extends SolveEquation {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 }

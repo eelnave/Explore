@@ -9,7 +9,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Chemistry.GasVelocity.*;
@@ -17,7 +17,7 @@ import static edu.byui.cit.model.Chemistry.GasVelocity.*;
 
 public final class GasVelocity extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decVeloc, decGasConst, decTemp, decMass;
+	private EditDecimal decVeloc, decGasConst, decTemp, decMass;
 
 
 	@Override
@@ -25,10 +25,10 @@ public final class GasVelocity extends SolveEquation {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.gas_velocity, container, false);
 
-		decVeloc = new EditDec(view, R.id.decV, this);
-		decGasConst = new EditDec(view, R.id.decR, this);
-		decTemp = new EditDec(view, R.id.decT, this);
-		decMass = new EditDec(view, R.id.decM, this);
+		decVeloc = new EditDecimal(view, R.id.decV, this);
+		decGasConst = new EditDecimal(view, R.id.decR, this);
+		decTemp = new EditDecimal(view, R.id.decT, this);
+		decMass = new EditDecimal(view, R.id.decM, this);
 		EditWrapper[] inputs = { decVeloc, decGasConst, decTemp, decMass };
 
 		Solver[] solvers = new Solver[] {
@@ -74,7 +74,7 @@ public final class GasVelocity extends SolveEquation {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 }

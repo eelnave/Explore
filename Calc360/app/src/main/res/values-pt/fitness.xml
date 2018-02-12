@@ -5,18 +5,22 @@
 	<string name="miss">Miss</string>
 
 	<string name="bodyMassIndex">BMI</string>
-	<string name="yourBmi">Your BMI is:</string>
-	<string name="bmiHigh">Your BMI is high</string>
-	<string name="bmiNormal">Your BMI is normal</string>
-	<string name="bmiLow">Your BMI is low</string>
+	<string name="bmi">BMI</string>
+	<string name="category">Categoria</string>
+	<string-array name="bmiCategories">
+		<item>baixo</item>
+		<item>normal</item>
+		<item>excesso de peso</item>
+		<item>obeso</item>
+		<item>extremamente obeso</item>
+	</string-array>
 
-	<string name="caloriesBurned">Calories Burned</string>
-	<string name="weightLift">Weight Lifting</string>
+	<string name="caloriesBurned">Calorias Quemadas</string>
+	<string name="weightLift">Levantar Pesos</string>
 	<string name="swimming">Natação</string>
 	<string name="walking">Caminhando</string>
 	<string name="running">Corrida</string>
 	<string name="calories">calorias</string>
-	<string name="invalidN">Número não é válido</string>
 	<string-array name="cbMassUnits">
 		<item>pound</item>
 		<item>kilogram</item>

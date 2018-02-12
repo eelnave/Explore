@@ -9,7 +9,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.Pendulum.*;
@@ -17,16 +17,16 @@ import static edu.byui.cit.model.Physics.Pendulum.*;
 
 public class Pendulum extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decTime, decLength, decGravity;
+	private EditDecimal decTime, decLength, decGravity;
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.pendulum, container, false);
 
-		decTime = new EditDec(view, R.id.decTime, this);
-		decLength = new EditDec(view, R.id.decLength, this);
-		decGravity = new EditDec(view, R.id.decGravity, this);
+		decTime = new EditDecimal(view, R.id.decTime, this);
+		decLength = new EditDecimal(view, R.id.decLength, this);
+		decGravity = new EditDecimal(view, R.id.decGravity, this);
 		EditWrapper[] inputs = { decTime, decLength, decGravity };
 
 		Solver[] solvers = new Solver[] {
@@ -59,7 +59,7 @@ public class Pendulum extends SolveEquation {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 }

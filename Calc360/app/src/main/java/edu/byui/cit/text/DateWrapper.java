@@ -34,11 +34,6 @@ public class DateWrapper extends InputWrapper implements OnDateChangedListener {
 	}
 
 	@Override
-	public final boolean hasUserInput() {
-		return true;
-	}
-
-	@Override
 	public final boolean isEnabled() {
 		return picker.isEnabled();
 	}

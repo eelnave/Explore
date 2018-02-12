@@ -15,12 +15,10 @@ public abstract class InputWrapper extends ControlWrapper {
 			decFmtr = NumberFormat.getInstance(),
 			perFmtr = NumberFormat.getPercentInstance(),
 			curFmtr = NumberFormat.getCurrencyInstance();
-	private final Handler handler;
 	final String prefsKey;
 
 	InputWrapper(View parent, int resID, String prefsKey, CalcFragment calculator) {
 		super(parent, resID, calculator);
-		this.handler = new Handler();
 		this.prefsKey = prefsKey;
 	}
 
@@ -30,59 +28,5 @@ public abstract class InputWrapper extends ControlWrapper {
 
 	public final boolean notEmpty() {
 		return !isEmpty();
-	}
-
-	public abstract boolean hasUserInput();
-
-	final void nextIsProgrammatic() {
-		handler.nextIsProgrammatic();
-	}
-
-	final boolean isProgrammatic() {
-		return handler.isProgrammatic();
-	}
-
-
-	public static int countEmpty(InputWrapper... inputs) {
-		int n = 0;
-		for (InputWrapper i : inputs) {
-			if (i.isEmpty()) {
-				++n;
-			}
-		}
-		return n;
-	}
-
-	public static int indexOfEmpty(InputWrapper... inputs) {
-		int empty = -1;
-		for (int i = 0; i < inputs.length; ++i) {
-			if (inputs[i].isEmpty()) {
-				empty = i;
-				break;
-			}
-		}
-		return empty;
-	}
-
-	public static boolean anyNotEmpty(InputWrapper... inputs) {
-		boolean any = false;
-		for (InputWrapper in : inputs) {
-			any = in.notEmpty();
-			if (any) {
-				break;
-			}
-		}
-		return any;
-	}
-
-	public static boolean allNotEmpty(InputWrapper... inputs) {
-		boolean all = true;
-		for (InputWrapper in : inputs) {
-			all = in.notEmpty();
-			if (!all) {
-				break;
-			}
-		}
-		return all;
 	}
 }

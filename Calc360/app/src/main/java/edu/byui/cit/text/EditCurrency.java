@@ -8,21 +8,21 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 
 
-public class EditCur extends EditWrapper {
-	public EditCur(View parent, int resID, CalcFragment calculator) {
+public class EditCurrency extends EditWrapper {
+	public EditCurrency(View parent, int resID, CalcFragment calculator) {
 		super(parent, resID, null, calculator);
 	}
 
-	public EditCur(
+	public EditCurrency(
 			View parent, int resID, String prefsKey, CalcFragment calculator) {
 		super(parent, resID, prefsKey, calculator);
 	}
 
-	public EditCur(View parent, int resID, TextChangeListener listener) {
+	public EditCurrency(View parent, int resID, TextChangeListener listener) {
 		super(parent, resID, null, listener);
 	}
 
-	public EditCur(View parent, int resID,
+	public EditCurrency(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}
@@ -40,11 +40,17 @@ public class EditCur extends EditWrapper {
 
 	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
-		if (prefs.contains(prefsKey)) {
-			float val = prefs.getFloat(prefsKey, 0);
+		restore(prefs, fmtr, 0);
+	}
+
+	public void restore(
+			SharedPreferences prefs, NumberFormat fmtr, float deflt) {
+		if (!hasUserInput() && prefs.contains(prefsKey)) {
+			float val = prefs.getFloat(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}
 	}
+
 
 	public double getCur() throws NumberFormatException {
 		return getCur(getText());

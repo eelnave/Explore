@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 	<string name="compoundInterest">Juros Compostos</string>
 	<string name="Deposit">Depósito</string>
 	<string name="Interest">Juros</string>
@@ -30,8 +30,15 @@
 	<string name="Period">Period</string>
 
 	<string name="laborCost">Custo do Trabalho</string>
-	<string name="laborExplain">Esta calculadora converte o custo de um item para quantidade do seu trabalho no tempo. Em outras palavras, quanto de seu trabalho um item custa?</string>
-	<string name="laborWage">Seu Salário por Hora</string>
+	<string name="laborExplain">Esta calculadora converte o custo de um item para quantidade do seu trabalho no tempo. Em outras palavras, quanto do seu trabalho um item custa?</string>
+	<string name="laborWage">Seu Salário para Hora</string>
 	<string name="laborOR">OU</string>
 	<string name="laborSalary">Seu Salário Anual</string>
+	<string name="mustWork">Você deve trabalhar para</string>
+	<string name="mustGet">e você deve obter</string>
+	<string name="somewhere">de algum lugar</string>
+	<plurals name="cent">
+		<item quantity="one" tools:ignore="ImpliedQuantity">centavo</item>
+		<item quantity="other">centavos</item>
+	</plurals>
 </resources>

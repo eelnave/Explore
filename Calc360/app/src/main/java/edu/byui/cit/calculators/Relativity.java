@@ -11,7 +11,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Physics.MassEnergy.*;
@@ -20,14 +20,14 @@ import static edu.byui.cit.model.Physics.MassEnergy.*;
 public final class Relativity extends SolveSeries {
 	private final DecimalFormat fmtrScientific = new DecimalFormat("0.000E0");
 	private final NumberFormat fmtrStandard = NumberFormat.getInstance();
-	private EditDec decEnergy, decMass;
+	private EditDecimal decEnergy, decMass;
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.relativity, container, false);
-		decEnergy = new EditDec(view, R.id.decEnergy, this);
-		decMass = new EditDec(view, R.id.decMass, this);
+		decEnergy = new EditDecimal(view, R.id.decEnergy, this);
+		decMass = new EditDecimal(view, R.id.decMass, this);
 
 		EditWrapper[] inputs = { decEnergy, decMass };
 
@@ -50,7 +50,7 @@ public final class Relativity extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 

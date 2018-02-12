@@ -13,7 +13,7 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.TextWrapper;
 
 
@@ -58,7 +58,7 @@ public final class MeanEtc extends CalcFragment {
 	protected void compute() {
 		String str = decData.getText().toString().trim();
 		if (str.length() > 0) {
-			double[] numbers = EditDec.getDecimals(str);
+			double[] numbers = EditDecimal.getDecimals(str);
 			if (numbers.length > 0) {
 				Statistics stats = new Statistics(numbers);
 				intCount.setText(fmtrInt.format(stats.count));

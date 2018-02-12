@@ -50,4 +50,10 @@
 		android:layout_marginTop="20dp"
 		android:text="@string/clear"
 		compat:layout_columnSpan="2"/>
+
+	<TextView
+		android:id="@+id/txtMessage"
+		style="@style/TextLabel"
+		android:layout_marginTop="20dp"
+		compat:layout_columnSpan="2"/>
 </android.support.v7.widget.GridLayout>

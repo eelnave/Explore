@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Sphere.*;
@@ -18,7 +18,7 @@ import static edu.byui.cit.model.Geometry.Sphere.*;
 
 public final class Sphere extends SolveSeries {
 	private final NumberFormat fmtrStandard = NumberFormat.getInstance();
-	private EditDec decVol, decRad, decSur;
+	private EditDecimal decVol, decRad, decSur;
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
@@ -26,9 +26,9 @@ public final class Sphere extends SolveSeries {
 		//Inflate layout
 		View view = inflater.inflate(R.layout.sphere, container, false);
 
-		decRad = new EditDec(view, R.id.decRad, this);
-		decSur = new EditDec(view, R.id.decSur, this);
-		decVol = new EditDec(view, R.id.decVol, this);
+		decRad = new EditDecimal(view, R.id.decRad, this);
+		decSur = new EditDecimal(view, R.id.decSur, this);
+		decVol = new EditDecimal(view, R.id.decVol, this);
 		EditWrapper[] inputs = { decRad, decSur, decVol };
 
 		Solver[] solvers = new Solver[]{
@@ -67,7 +67,7 @@ public final class Sphere extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 }

@@ -13,7 +13,7 @@ public final class Geometry {
 			return b * b - (4.0 * a * c);
 		}
 
-		public static double root(double a, double b) {
+		public static double onlyRoot(double a, double b) {
 			return -b / (2.0 * a);
 		}
 
@@ -25,6 +25,11 @@ public final class Geometry {
 			return (-b + Math.sqrt(discr)) / (2.0 * a);
 		}
 
+		public static double[] imaginary(double a, double b, double discr) {
+			double twoA = 2.0 * a;
+			return new double[]{ -b / twoA, Math.sqrt(-discr) / twoA };
+		}
+
 		public static double anyRoot(double a, double b, double c) {
 			double discr = discrim(a, b, c);
 			double any = Double.NaN;
@@ -32,12 +37,12 @@ public final class Geometry {
 				any = root1(a, b, discr);
 			}
 			else if (discr == 0) {
-				any = root(a, b);
+				any = onlyRoot(a, b);
 			}
 			return any;
 		}
 
-		public static double posRoot(double a, double b, double c) {
+		static double posRoot(double a, double b, double c) {
 			double discr = discrim(a, b, c);
 			double pos = Double.NaN;
 			if (discr >= 0) {
@@ -49,7 +54,7 @@ public final class Geometry {
 					}
 				}
 				else {
-					r = root(a, b);
+					r = onlyRoot(a, b);
 				}
 				if (r >= 0) {
 					pos = r;
@@ -58,7 +63,7 @@ public final class Geometry {
 			return pos;
 		}
 
-		public static double smallerRoot(double a, double b, double c) {
+		static double smallerRoot(double a, double b, double c) {
 			double discr = discrim(a, b, c);
 			double small = Double.NaN;
 			if (discr >= 0) {
@@ -70,13 +75,13 @@ public final class Geometry {
 					}
 				}
 				else {
-					small = root(a, b);
+					small = onlyRoot(a, b);
 				}
 			}
 			return small;
 		}
 
-		public static double largerRoot(double a, double b, double c) {
+		static double largerRoot(double a, double b, double c) {
 			double discr = discrim(a, b, c);
 			double large = Double.NaN;
 			if (discr >= 0) {
@@ -88,7 +93,7 @@ public final class Geometry {
 					}
 				}
 				else {
-					large = root(a, b);
+					large = onlyRoot(a, b);
 				}
 			}
 			return large;
@@ -97,7 +102,7 @@ public final class Geometry {
 
 
 	public static final class Point2D {
-		public double x, y;
+		public final double x, y;
 
 		public Point2D(double x, double y) {
 			this.x = x;
