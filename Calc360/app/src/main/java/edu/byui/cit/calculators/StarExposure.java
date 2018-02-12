@@ -59,7 +59,7 @@ public class StarExposure extends CalcFragment {
 	protected void compute() {
 		if (cropFacVal.notEmpty() && focLengthVal.notEmpty()) {
 
-			starExpVal.setText(decFrmt.format((int)(fiveHundredRuleNum / (cropFacVal.getDec() * focLengthVal.getInt()))));
+			starExpVal.setText(decFrmt.format((int)(fiveHundredRuleNum / (cropFacVal.getDec() * focLengthVal.getInt()))) + " seconds");
 		}
 		else {
 			starExpVal.clear();
