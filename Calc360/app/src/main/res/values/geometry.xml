@@ -118,12 +118,12 @@
 	<string name="pyrHei" translatable="false">h</string>
 
 
-	<string name="distanceBetweenPoints">Distance Between Two Points</string>
-	<string name="coordinate1">Coordinate1</string>
-	<string name="coordinate2">Coordinate2</string>
-	<string name="units">Units</string>
-	<string name="answer">Answer</string>
-	<string name="clearCaps">CLEAR</string>
+	<string name="coordinate1" translatable="false">Coordinate1</string>
+	<string name="coordinate2" translatable="false">Coordinate2</string>
+	<string name="answer" translatable="false">Answer</string>
+	<string name="units" translatable="false">Units</string>
+	<string name="clearCaps" translatable="false">CLEAR</string>
+	<string name="distanceBP" translatable="false">Distance Between Points</string>
 
 
 </resources>

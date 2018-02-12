@@ -126,7 +126,7 @@
 
 
 			<EditText
-				android:id="@+id/editText"
+				android:id="@+id/total"
 				android:layout_width="100dp"
 				android:layout_height="40dp"
 				style="@style/UnsignedDecimal"
