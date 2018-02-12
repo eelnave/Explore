@@ -41,4 +41,11 @@
 	<string name="laborWage">Your Wage per Hour</string>
 	<string name="laborOR">OR</string>
 	<string name="laborSalary">Your Annual Salary</string>
+	<string name="mustWork">You must work for</string>
+	<string name="mustGet">and you must get</string>
+	<string name="somewhere">from somewhere</string>
+	<plurals name="cent">
+		<item quantity="one">cent</item>
+		<item quantity="other">cents</item>
+	</plurals>
 </resources>

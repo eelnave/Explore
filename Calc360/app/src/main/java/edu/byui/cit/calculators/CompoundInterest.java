@@ -10,20 +10,20 @@ import java.text.NumberFormat;
 import edu.byui.cit.model.Finance;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
-import edu.byui.cit.text.EditInt;
+import edu.byui.cit.text.ControlWrapper;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.text.EditInteger;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.RadioWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
 public final class CompoundInterest extends CalcFragment {
 	private final NumberFormat fmtrCur;
-	private EditCur deposit;
-	private EditDec interestRate;
-	private EditInt numberOfYears;
+	private EditCurrency deposit;
+	private EditDecimal interestRate;
+	private EditInteger numberOfYears;
 	private RadioWrapper radMonthly, radQuarterly;
 	private TextWrapper totalAmount;
 
@@ -40,25 +40,28 @@ public final class CompoundInterest extends CalcFragment {
 		View view = inflater.inflate(R.layout.compound_interest, container,
 				false);
 
-		deposit = new EditCur(view, R.id.deposit, this);
-		interestRate = new EditDec(view, R.id.interestRate, this);
-		numberOfYears = new EditInt(view, R.id.numberOfYears, this);
-
-		totalAmount = new TextWrapper(view, R.id.totalAmount);
+		deposit = new EditCurrency(view, R.id.deposit, this);
+		interestRate = new EditDecimal(view, R.id.interestRate, this);
+		numberOfYears = new EditInteger(view, R.id.numberOfYears, this);
 
 		radMonthly = new RadioWrapper(view, R.id.radMonthly, this);
 		radQuarterly = new RadioWrapper(view, R.id.radQuarterly, this);
 		new RadioWrapper(view, R.id.radAnnually, this);
 
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+		totalAmount = new TextWrapper(view, R.id.totalAmount);
+
+		EditWrapper[] inputs = { deposit, interestRate, numberOfYears };
+		ControlWrapper[] toClear = {
+				deposit, interestRate, numberOfYears, totalAmount
+		};
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
 
 	@Override
 	protected void compute() {
-		if (deposit.notEmpty() && interestRate.notEmpty() &&
-				numberOfYears.notEmpty()) {
+		if (EditWrapper.allNotEmpty(deposit, interestRate, numberOfYears)) {
 			double a = deposit.getCur();
 			double ir = interestRate.getDec();
 			int y = numberOfYears.getInt();
@@ -77,18 +80,6 @@ public final class CompoundInterest extends CalcFragment {
 		}
 		else {
 			totalAmount.clear();
-		}
-	}
-
-
-	private final class ClearHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			deposit.clear();
-			interestRate.clear();
-			numberOfYears.clear();
-			totalAmount.clear();
-			deposit.requestFocus();
 		}
 	}
 }

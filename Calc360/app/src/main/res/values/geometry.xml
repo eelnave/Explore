@@ -10,6 +10,7 @@
 	<string name="quadC" translatable="false">c</string>
 	<string name="roots">roots</string>
 	<string name="noRoots">There are no real roots.</string>
+	<string name="imaginary"><i>i</i></string>
 
 	<string name="radius">radius</string>
 	<string name="majorRadius">major radius</string>

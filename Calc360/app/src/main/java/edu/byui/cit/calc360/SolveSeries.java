@@ -14,21 +14,15 @@ public abstract class SolveSeries extends CalcFragment {
 	private HashMap<Long, Solver> solvers;
 	OrderedIndexArray indicesOfGivens;
 
-
 	protected void initialize(View view, EditWrapper[] inputs,
-			Solver[] solvers, int btnClearID) {
-		this.initialize(view, inputs, null, inputs, solvers, btnClearID);
-	}
-
-	protected void initialize(View view, EditWrapper[] inputs,
-			ControlWrapper[] toClear, Solver[] solvers, int btnClearID) {
-		this.initialize(view, inputs, null, toClear, solvers, btnClearID);
+			Solver[] solvers, int btnClearID, ControlWrapper[] toClear) {
+		this.initialize(view, inputs, null, solvers, btnClearID, toClear);
 	}
 
 	protected void initialize(View view, EditWrapper[] inputs,
 			EditWrapper[][] groups,
-			ControlWrapper[] toClear, Solver[] solvers, int btnClearID) {
-		super.initialize(view, inputs, groups, toClear, btnClearID);
+			Solver[] solvers, int btnClearID, ControlWrapper[] toClear) {
+		super.initialize(view, inputs, groups, btnClearID, toClear);
 		int maxInputs = -1;
 		int len = inputs.length;
 		OrderedIndexArray indexArray = new OrderedIndexArray(len, len);
@@ -53,6 +47,30 @@ public abstract class SolveSeries extends CalcFragment {
 
 
 	@Override
+	public void clearGroup(EditWrapper input) {
+		if (groups != null) {
+			// Find the group of the EditText that was changed.
+			EditWrapper[] group = findGroup(groups, input);
+			if (group != null) {
+				int i;
+				for (i = 0;  group[i] != input;  ++i) {
+					clearGroupHelper(group[i]);
+				}
+				while (++i < group.length) {
+					clearGroupHelper(group[i]);
+				}
+			}
+		}
+	}
+
+	private void clearGroupHelper(EditWrapper other) {
+		int index = indexOf(inputs, other);
+		indicesOfGivens.remove(index);
+		other.clear();
+	}
+
+
+	@Override
 	public void callCompute(EditWrapper input) {
 		try {
 			int index = indexOf(inputs, input);
@@ -68,13 +86,6 @@ public abstract class SolveSeries extends CalcFragment {
 				}
 			}
 			else {
-				if (groups != null) {
-					// Find the group of the EditText that was changed.
-					EditWrapper[] group = findGroup(groups, input);
-					if (group != null) {
-						clearExcept(group, input);
-					}
-				}
 				indicesOfGivens.add(index);
 				compute();
 			}
@@ -90,42 +101,75 @@ public abstract class SolveSeries extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		// Todo: allow user to choose number of decimal places.
-
-		long bits = indicesOfGivens.bitset();
-		Solver solver = solvers.get(bits);
-		if (solver == null) {
+		long bitset = indicesOfGivens.bitset();
+		Solver solver = solvers.get(bitset);
+//		if (solver == null) {
 			// There is no solver that is an exact match to the
 			// inputs given by the user. Search for a partial match.
-			for (Long key : solvers.keySet()) {
-				long skey = key;
-				if ((bits & skey) == skey) {
-					solver = solvers.get(key);
-					break;
-				}
-			}
-		}
+//			for (Long key : solvers.keySet()) {
+//				long skey = key;
+//				if ((bits & skey) == skey) {
+//					solver = solvers.get(key);
+//					break;
+//				}
+//			}
+//		}
 
 		if (solver != null) {
 			solver.solve();
 		}
 		else {
-			clearUnusedInputs();
+			clearOutput();
 		}
 	}
 
-	@Override
-	void clearExceptHelper(EditWrapper input) {
-		input.clear();
-		int index = indexOf(inputs, input);
-		indicesOfGivens.remove(index);
-	}
+//	private long makeBitset() {
+//		long bitset = 0L;
+//		long bit = 1L;
+//		for (EditWrapper in : inputs) {
+//			if (in.hasUserInput()) {
+//				bitset |= bit;
+//			}
+//			bit <<= 1;
+//		}
+//		return bitset;
+//	}
+//
+//	private int countInputs() {
+//		int n = 0;
+//		for (EditWrapper in : inputs) {
+//			if (in.hasUserInput()) {
+//				++n;
+//			}
+//		}
+//		return n;
+//	}
+//
+//	private EditWrapper getOldestInput() {
+//		int min = Integer.MAX_VALUE;
+//		EditWrapper oldest = null;
+//		for (EditWrapper in : inputs) {
+//			if (in.hasUserInput() && in.getInputOrder() < min) {
+//				min = in.getInputOrder();
+//				oldest = in;
+//			}
+//		}
+//		return oldest;
+//	}
+
+
+//	@Override
+//	void clearHelper(EditWrapper input) {
+//		input.clear();
+//		int index = indexOf(inputs, input);
+//		indicesOfGivens.remove(index);
+//	}
 
 	private final class ClearHandler extends CalcFragment.ClearHandler {
 		@Override
 		public void clicked(View button) {
-			indicesOfGivens.clear();
 			super.clicked(button);
+			indicesOfGivens.clear();
 		}
 	}
 

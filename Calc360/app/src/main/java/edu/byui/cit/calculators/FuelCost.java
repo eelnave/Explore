@@ -11,17 +11,17 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.ControlWrapper;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.FuelEffic;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Volume;
 
-import static edu.byui.cit.text.InputWrapper.allNotEmpty;
+import static edu.byui.cit.text.EditWrapper.allNotEmpty;
 
 
 public final class FuelCost extends CalcFragment {
@@ -31,16 +31,15 @@ public final class FuelCost extends CalcFragment {
 			KEY_VOL_UNITS = "FuelCost.volUnits";
 
 	private final NumberFormat fmtrCur = NumberFormat.getCurrencyInstance();
-	private EditDec decDist;
-	private EditDec decEffic;
-	private EditCur curPrice;
+	private EditDecimal decDist;
+	private EditDecimal decEffic;
+	private EditCurrency curPrice;
 	private SpinUnit spinDistUnits;
 	private SpinUnit spinEfficUnits;
 	private SpinUnit spinVolUnits;
 	private TextWrapper curFuelCost;
 
 
-	//create view and initialize interface
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -48,9 +47,9 @@ public final class FuelCost extends CalcFragment {
 		View view = inflater.inflate(R.layout.fuel_cost, container, false);
 
 		// Initialize inputs
-		decDist = new EditDec(view, R.id.decDist, this);
-		decEffic = new EditDec(view, R.id.decEffic, this);
-		curPrice = new EditCur(view, R.id.curPrice, this);
+		decDist = new EditDecimal(view, R.id.decDist, this);
+		decEffic = new EditDecimal(view, R.id.decEffic, this);
+		curPrice = new EditCurrency(view, R.id.curPrice, this);
 
 		Activity act = getActivity();
 		spinDistUnits = new SpinUnit(act, view, R.id.spinDistUnits,
@@ -64,7 +63,11 @@ public final class FuelCost extends CalcFragment {
 				KEY_VOL_UNITS, this);
 
 		curFuelCost = new TextWrapper(view, R.id.curFuelCost);
-		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
+
+		EditWrapper[] inputs = { decDist, decEffic, curPrice };
+		ControlWrapper[] toClear = { decDist, decEffic, curPrice, curFuelCost };
+
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
@@ -103,18 +106,5 @@ public final class FuelCost extends CalcFragment {
 			output = fmtrCur.format(cost);
 		}
 		curFuelCost.setText(output);
-	}
-
-
-	/** Handles a click on the clear button. */
-	private final class ClearHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			decDist.clear();
-			decEffic.clear();
-			curPrice.clear();
-			curFuelCost.clear();
-			decDist.requestFocus();
-		}
 	}
 }

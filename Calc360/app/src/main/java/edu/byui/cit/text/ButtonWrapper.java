@@ -7,7 +7,8 @@ import android.widget.Button;
 import edu.byui.cit.calc360.CalcFragment;
 
 
-public final class ButtonWrapper extends ControlWrapper implements OnClickListener {
+public final class ButtonWrapper extends ControlWrapper
+		implements OnClickListener {
 	private final Button button;
 	private final ClickListener listener;
 
@@ -49,7 +50,7 @@ public final class ButtonWrapper extends ControlWrapper implements OnClickListen
 
 	@Override
 	public final void onClick(View button) {
-		if (listener == null) {
+		if (calculator != null) {
 			calculator.callCompute();
 		}
 		else {

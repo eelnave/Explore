@@ -9,16 +9,16 @@ public final class Consumer {
 		private Ratio() {
 		}
 
-		public static double rate(double part, double total) {
-			return part / total;
+		public static double rate(double part, double whole) {
+			return part / whole;
 		}
 
-		public static double amount(double rate, double total) {
-			return total * rate;
+		public static double amount(double rate, double subtotal) {
+			return subtotal * rate;
 		}
 
-		public static double total(double rate, double total) {
-			return total * (1.0 + rate);
+		public static double total(double rate, double subtotal) {
+			return subtotal * (1.0 + rate);
 		}
 
 		/** Calculates the rate of change between two numbers.

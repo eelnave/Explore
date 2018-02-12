@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Cone.*;
@@ -18,7 +18,7 @@ import static edu.byui.cit.model.Geometry.Cone.*;
 
 public final class Cone extends SolveSeries {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decRadius, decHeight, decSide, decSurfArea, decVolume;
+	private EditDecimal decRadius, decHeight, decSide, decSurfArea, decVolume;
 
 
 	@Override
@@ -27,11 +27,11 @@ public final class Cone extends SolveSeries {
 		// Inflate the layout for this fragment
 		View view = inflater.inflate(R.layout.cone, container, false);
 
-		decRadius = new EditDec(view, R.id.decRadius, this);
-		decHeight = new EditDec(view, R.id.decHeight, this);
-		decSide = new EditDec(view, R.id.decSide, this);
-		decSurfArea = new EditDec(view, R.id.decSurfArea, this);
-		decVolume = new EditDec(view, R.id.decVolume, this);
+		decRadius = new EditDecimal(view, R.id.decRadius, this);
+		decHeight = new EditDecimal(view, R.id.decHeight, this);
+		decSide = new EditDecimal(view, R.id.decSide, this);
+		decSurfArea = new EditDecimal(view, R.id.decSurfArea, this);
+		decVolume = new EditDecimal(view, R.id.decVolume, this);
 
 		EditWrapper[] inputs = new EditWrapper[]{
 				decRadius, decHeight, decSide, decSurfArea, decVolume
@@ -123,7 +123,7 @@ public final class Cone extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 }

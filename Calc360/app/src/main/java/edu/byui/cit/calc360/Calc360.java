@@ -24,8 +24,8 @@ public final class Calc360 extends AppCompatActivity {
 			KEY_INCOME_TAX_RATE = "incomeTaxRate",
 			KEY_ANGLE_UNITS = "angleUnits";
 
-	private OmniFragment about;
-	private OmniFragment fivefunc;
+	private InfoFragment about;
+	private InfoFragment fivefunc;
 //	OnTouchListener swipeHandler;
 
 	public Calc360() {
@@ -127,7 +127,7 @@ public final class Calc360 extends AppCompatActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void switchFragment(OmniFragment fragment) {
+	public void switchFragment(InfoFragment fragment) {
 		// Replace whatever is in the fragment_container view with
 		// fragment, and add the transaction to the back stack so
 		// that the user can navigate back.
@@ -154,7 +154,6 @@ public final class Calc360 extends AppCompatActivity {
 //		super.onDestroy();
 //		Log.v(TAG, getClass().getSimpleName() + ".onDestroy()");
 //	}
-
 
 	// Uses reflection to get an id from R.id, R.array, R.plurals, etc.
 	public static int getID(Class clss, String name)

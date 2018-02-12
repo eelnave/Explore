@@ -9,7 +9,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 
@@ -19,7 +19,7 @@ import edu.byui.cit.text.EditWrapper;
  */
 public final class OhmsLaw extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decVolt, decCur, decRes;
+	private EditDecimal decVolt, decCur, decRes;
 
 
 	@Override
@@ -28,9 +28,9 @@ public final class OhmsLaw extends SolveEquation {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.ohms_law, container, false);
 
-		decVolt = new EditDec(view, R.id.decVolt, this);
-		decCur = new EditDec(view, R.id.decCur, this);
-		decRes = new EditDec(view, R.id.decRes, this);
+		decVolt = new EditDecimal(view, R.id.decVolt, this);
+		decCur = new EditDecimal(view, R.id.decCur, this);
+		decRes = new EditDecimal(view, R.id.decRes, this);
 
 		// An array of all the inputs for this calculator.
 		EditWrapper[] inputs = { decVolt, decCur, decRes };
@@ -69,7 +69,7 @@ public final class OhmsLaw extends SolveEquation {
 		};
 
 		// Initialize the code in the parent class SolveEquation.
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 
 		return view;
 	}

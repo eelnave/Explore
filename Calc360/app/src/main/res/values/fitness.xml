@@ -13,7 +13,7 @@
 	<string name="bodyMassIndex">BMI</string>
 	<string name="bmi">BMI</string>
 	<string name="category">Category</string>
-	<integer-array name="bmiRanges">
+	<integer-array name="bmiRanges" translatable="false">
 		<item>19</item>
 		<item>25</item>
 		<item>30</item>
@@ -33,7 +33,6 @@
 	<string name="walking">Walking</string>
 	<string name="running">Running</string>
 	<string name="calories">calories</string>
-	<string name="invalidN">Number not valid</string>
 	<string-array name="cbMassUnits">
 		<item>pound</item>
 		<item>kilogram</item>

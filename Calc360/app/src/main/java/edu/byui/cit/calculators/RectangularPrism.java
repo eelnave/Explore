@@ -10,7 +10,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.RectangularPrism.*;
@@ -18,7 +18,7 @@ import static edu.byui.cit.model.Geometry.RectangularPrism.*;
 
 public final class RectangularPrism extends SolveSeries {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decWidth, decHeight, decLength, decSurfArea, decVolume;
+	private EditDecimal decWidth, decHeight, decLength, decSurfArea, decVolume;
 
 
 	@Override
@@ -28,11 +28,11 @@ public final class RectangularPrism extends SolveSeries {
 		View view = inflater.inflate(R.layout.rectangular_prism, container,
 				false);
 
-		decWidth = new EditDec(view, R.id.decWidth, this);
-		decHeight = new EditDec(view, R.id.decHeight, this);
-		decLength = new EditDec(view, R.id.decLength, this);
-		decSurfArea = new EditDec(view, R.id.decSurfArea, this);
-		decVolume = new EditDec(view, R.id.decVolume, this);
+		decWidth = new EditDecimal(view, R.id.decWidth, this);
+		decHeight = new EditDecimal(view, R.id.decHeight, this);
+		decLength = new EditDecimal(view, R.id.decLength, this);
+		decSurfArea = new EditDecimal(view, R.id.decSurfArea, this);
+		decVolume = new EditDecimal(view, R.id.decVolume, this);
 		EditWrapper[] inputs = new EditWrapper[]{
 				decWidth, decHeight, decLength, decSurfArea, decVolume
 		};
@@ -116,12 +116,12 @@ public final class RectangularPrism extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 
 	private void solveSSA(
-			EditDec decSide1, EditDec decSide2, EditDec decSide3) {
+			EditDecimal decSide1, EditDecimal decSide2, EditDecimal decSide3) {
 		double side1 = decSide1.getDec();
 		double side2 = decSide2.getDec();
 		double A = decSurfArea.getDec();
@@ -132,7 +132,7 @@ public final class RectangularPrism extends SolveSeries {
 	}
 
 	private void solveSSV(
-			EditDec decSide1, EditDec decSide2, EditDec decSide3) {
+			EditDecimal decSide1, EditDecimal decSide2, EditDecimal decSide3) {
 		double side1 = decSide1.getDec();
 		double side2 = decSide2.getDec();
 		double V = decVolume.getDec();
@@ -143,7 +143,7 @@ public final class RectangularPrism extends SolveSeries {
 	}
 
 	private void solveSAV(
-			EditDec decSide1, EditDec decSide2, EditDec decSide3) {
+			EditDecimal decSide1, EditDecimal decSide2, EditDecimal decSide3) {
 		double side1 = decSide1.getDec();
 		double A = decSurfArea.getDec();
 		double V = decVolume.getDec();

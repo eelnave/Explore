@@ -1,0 +1,68 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+title Calc 360 Classes that Wrap Android User Interface Components
+package edu.byui.cit.text {
+	interface TextChangeListener
+	interface ItemSelectedListener
+	interface DateChangeListener
+	interface ClickListener
+
+	class Handler
+	abstract DateChangeHandler
+	abstract ItemSelectedHandler
+	abstract TextChangeHandler
+
+	DateChangeListener <|... DateChangeHandler
+	ItemSelectedListener <|... ItemSelectedHandler
+	Handler <|-- ItemSelectedHandler
+	TextChangeListener <|... TextChangeHandler
+
+	class ButtonWrapper
+	abstract ControlWrapper
+	class DateWrapper
+	class EditAngle
+	class EditCurrency
+	class EditDecimal
+	class EditFraction
+	class EditInteger
+	class EditPercent
+	abstract EditWrapper
+	abstract InputWrapper
+	class RadioWrapper
+	abstract SpinContainer
+	class SpinInteger
+	class SpinProperty
+	class SpinString
+	class SpinUnit
+	abstract SpinWrapper
+	class TextWrapper
+
+	ControlWrapper <|-- ButtonWrapper
+	ControlWrapper <|-- InputWrapper
+	ControlWrapper <|-- RadioWrapper
+	ControlWrapper <|-- TextWrapper
+	InputWrapper <|-- DateWrapper
+
+	InputWrapper <|-- EditWrapper
+	EditWrapper <|-- EditCurrency
+	EditWrapper <|-- EditDecimal
+	EditWrapper <|-- EditFraction
+	EditWrapper <|-- EditInteger
+	EditWrapper <|-- EditPercent
+	EditDecimal <|-- EditAngle
+
+	InputWrapper <|-- SpinWrapper
+	SpinWrapper <|-- SpinInteger
+	SpinWrapper <|-- SpinContainer
+	SpinContainer <|-- SpinProperty
+	SpinContainer <|-- SpinUnit
+	SpinWrapper <|-- SpinString
+
+	note as WrapperNote
+	Every user interface component in a
+	calculator should be wrapped inside
+	one of the concrete wrapper classes.
+	end note
+}
+@enduml

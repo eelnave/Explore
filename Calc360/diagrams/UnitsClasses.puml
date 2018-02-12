@@ -1,0 +1,47 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+title Calc 360 Classes that Convert between Units
+package edu.byui.cit.units {
+	class Angle <<(S, #FF7700) Singleton>>
+	class Area <<(S, #FF7700) Singleton>>
+	abstract Container<? extends Named>
+	class DataSize <<(S, #FF7700) Singleton>>
+	class Force <<(S, #FF7700) Singleton>>
+	class Frequency <<(S, #FF7700) Singleton>>
+	class FuelEffic <<(S, #FF7700) Singleton>>
+	class Length <<(S, #FF7700) Singleton>>
+	class Mass <<(S, #FF7700) Singleton>>
+	class Money <<(S, #FF7700) Singleton>>
+	class Named
+	class Pressure <<(S, #FF7700) Singleton>>
+	abstract Property
+	class Speed <<(S, #FF7700) Singleton>>
+	class Temperature <<(S, #FF7700) Singleton>>
+	class Time <<(S, #FF7700) Singleton>>
+	class Unit
+	class Volume <<(S, #FF7700) Singleton>>
+	class World <<(S, #FF7700) Singleton>>
+
+	Named <|-- Container
+	Container <|-- World
+	World *-right- Property
+	Property *-right- Unit
+	Container <|-- Property
+	Property <|-- Angle
+	Property <|--- Area
+	Property <|---- DataSize
+	Property <|-- Force
+	Property <|--- Frequency
+	Property <|---- FuelEffic
+	Property <|-- Length
+	Property <|--- Mass
+	Property <|---- Money
+	Property <|-- Pressure
+	Property <|--- Speed
+	Property <|---- Temperature
+	Property <|--- Time
+	Property <|---- Volume
+	Container <|-- Unit
+}
+@enduml

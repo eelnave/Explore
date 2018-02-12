@@ -39,6 +39,7 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 		edit.addTextChangedListener(this);
 	}
 
+
 	public abstract void restore(SharedPreferences prefs, NumberFormat fmtr);
 
 	// These functions should be moved to a EditString
@@ -96,38 +97,44 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	@Override
 	public final void beforeTextChanged(
 			CharSequence s, int start, int count, int after) {
+		/* When an Android device is rotated 90 degrees, the Android
+		 * library automatically copies all text in text fields that
+		 * have IDs. After recreating the view, the Android library
+		 * automatically restores those values. Strangely, the Android
+		 * library calls beforeTextChanged, onTextChanged, and
+		 * afterTextChanged even for text that is being "restored"
+		 * from blank to blank. To detect this problem, we check that
+		 * either count or after is not zero. */
+		if ((count != 0 || after != 0) && calculator != null) {
+			calculator.clearGroup(this);
+		}
 	}
 
 	@Override
 	public final void onTextChanged(
 			CharSequence s, int start, int before, int count) {
+		userInput = notEmpty();
+		if (before != 0 || count != 0) {
+			if (calculator != null) {
+				calculator.callCompute(this);
+			}
+			else {
+				listener.textChanged(s);
+			}
+		}
 	}
 
 	@Override
 	public final void afterTextChanged(Editable edit) {
-		if (isProgrammatic()) {
-			userInput = false;
-		}
-		else {
-			userInput = notEmpty();
-			if (listener == null) {
-				calculator.callCompute(this);
-			}
-			else {
-				listener.afterChanged(edit);
-			}
-		}
 	}
 
-	@Override
 	public boolean hasUserInput() {
 		return userInput;
 	}
 
-
-	public EditText getEdit() {
-		return edit;
-	}
+//	public EditText getEdit() {
+//		return edit;
+//	}
 
 	@Override
 	public boolean isEmpty() {
@@ -140,30 +147,96 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 
 	/** Sets the text in this EditText as if the user had entered it. In
 	 * other words, sets the text in this EditText as it were user input. */
-	public void setInput(CharSequence text) {
+	void setInput(CharSequence text) {
 		edit.setText(text);
 	}
 
 	/** Sets the text in this EditText as output. */
 	public void setText(CharSequence text) {
-//		edit.removeTextChangedListener(this);
-		nextIsProgrammatic();
+		edit.removeTextChangedListener(this);
 		edit.setText(text);
 		userInput = false;
-//		edit.addTextChangedListener(this);
+		edit.addTextChangedListener(this);
 	}
 
 	/** Clears the text in this EditText as if the user had cleared it. */
-	public void clearInput() {
-		edit.getText().clear();
-	}
+//	public void clearInput() {
+//		if (hasUserInput()) {
+//			edit.getText().clear();
+//		}
+//		else {
+//			clear();
+//		}
+//	}
 
 	@Override
 	public void clear() {
-//		edit.removeTextChangedListener(this);
-		nextIsProgrammatic();
-		edit.getText().clear();
-//		userInput = false;
-//		edit.addTextChangedListener(this);
+		if (notEmpty()) {
+			edit.removeTextChangedListener(this);
+			edit.getText().clear();
+			userInput = false;
+			edit.addTextChangedListener(this);
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "input: " + hasUserInput() + "  empty: " + isEmpty() + "  text: " + getText();
+	}
+
+
+
+	public static int countEmpty(EditWrapper... inputs) {
+		int n = 0;
+		for (EditWrapper in : inputs) {
+			if (in.isEmpty()) {
+				++n;
+			}
+		}
+		return n;
+	}
+
+	public static int indexOfEmpty(EditWrapper... inputs) {
+		int empty = -1;
+		for (int i = 0; i < inputs.length; ++i) {
+			if (inputs[i].isEmpty()) {
+				empty = i;
+				break;
+			}
+		}
+		return empty;
+	}
+
+//	public static boolean anyNotEmpty(EditWrapper... inputs) {
+//		boolean any = false;
+//		for (EditWrapper in : inputs) {
+//			any = in.notEmpty();
+//			if (any) {
+//				break;
+//			}
+//		}
+//		return any;
+//	}
+
+	public static boolean allNotEmpty(EditWrapper... inputs) {
+		boolean all = true;
+		for (EditWrapper in : inputs) {
+			all = in.notEmpty();
+			if (!all) {
+				break;
+			}
+		}
+		return all;
+	}
+
+	public static boolean allHaveInput(EditWrapper... inputs) {
+		boolean all = true;
+		for (EditWrapper in : inputs) {
+			all = in.hasUserInput();
+			if (!all) {
+				break;
+			}
+		}
+		return all;
 	}
 }

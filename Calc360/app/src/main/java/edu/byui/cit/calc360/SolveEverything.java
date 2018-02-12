@@ -18,20 +18,20 @@ public abstract class SolveEverything extends CalcFragment {
 
 	private static final int NONE = -1;
 
-	private InputWrapper[] inputs;
+	private EditWrapper[] inputs;
 	private Solver[] solvers;
 	private int mostDesired, secondDesired;
 	private NumberFormat[] fmtrs;
 	private int toSolve;
 
 
-	public void initialize(View view, InputWrapper[] inputs,
+	public void initialize(View view, EditWrapper[] inputs,
 			Solver[] solvers, NumberFormat[] fmtrs, int btnClearID) {
 		initialize(view, inputs, solvers, 0, 1, fmtrs, btnClearID);
 	}
 
 
-	public void initialize(View view, InputWrapper[] inputs,
+	public void initialize(View view, EditWrapper[] inputs,
 			Solver[] solvers, int mostDesired, int secondDesired,
 			NumberFormat[] fmtrs, int btnClearID) {
 		this.inputs = inputs;
@@ -51,13 +51,13 @@ public abstract class SolveEverything extends CalcFragment {
 
 			// Determine which value should be computed.
 			boolean canSolve = true;
-			int empty = InputWrapper.countEmpty(inputs);
+			int empty = EditWrapper.countEmpty(inputs);
 			if (empty > 1) {
 				canSolve = false;
 				toSolve = NONE;
 			}
 			else if (empty == 1) {
-				empty = InputWrapper.indexOfEmpty(inputs);
+				empty = EditWrapper.indexOfEmpty(inputs);
 				if (inputs[empty].hasFocus()) {
 					// don't solve and don't change toSolve
 					canSolve = false;
@@ -89,7 +89,7 @@ public abstract class SolveEverything extends CalcFragment {
 				Number solution = solvers[toSolve].solve(givens);
 
 				// Display the result for the user to see.
-				EditWrapper output = (EditWrapper)inputs[toSolve];
+				EditWrapper output = inputs[toSolve];
 				if (solution instanceof Double ||
 						solution instanceof Float) {
 					output.setText(fmtrs[toSolve].format(solution.doubleValue()));

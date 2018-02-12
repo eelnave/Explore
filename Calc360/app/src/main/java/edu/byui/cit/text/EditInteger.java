@@ -8,21 +8,21 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 
 
-public class EditInt extends EditWrapper {
-	public EditInt(View parent, int resID, CalcFragment calculator) {
+public class EditInteger extends EditWrapper {
+	public EditInteger(View parent, int resID, CalcFragment calculator) {
 		super(parent, resID, null, calculator);
 	}
 
-	public EditInt(
+	public EditInteger(
 			View parent, int resID, String prefsKey, CalcFragment calculator) {
 		super(parent, resID, prefsKey, calculator);
 	}
 
-	public EditInt(View parent, int resID, TextChangeListener listener) {
+	public EditInteger(View parent, int resID, TextChangeListener listener) {
 		super(parent, resID, null, listener);
 	}
 
-	public EditInt(View parent, int resID,
+	public EditInteger(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}
@@ -39,8 +39,12 @@ public class EditInt extends EditWrapper {
 
 	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
-		if (prefs.contains(prefsKey)) {
-			int val = prefs.getInt(prefsKey, 0);
+		restore(prefs, fmtr, 0);
+	}
+
+	public void restore(SharedPreferences prefs, NumberFormat fmtr, int deflt) {
+		if (!hasUserInput() && prefs.contains(prefsKey)) {
+			int val = prefs.getInt(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}
 	}
@@ -53,12 +57,12 @@ public class EditInt extends EditWrapper {
 		return getInt(getText(), deflt);
 	}
 
-	public int getBin() throws NumberFormatException {
-		return Integer.parseInt(getText(), 2);
+	public long getBin() throws NumberFormatException {
+		return Long.parseLong(getText(), 2);
 	}
 
-	public int getHex() throws NumberFormatException {
-		return Integer.parseInt(getText(), 16);
+	public long getHex() throws NumberFormatException {
+		return Long.parseLong(getText(), 16);
 	}
 
 

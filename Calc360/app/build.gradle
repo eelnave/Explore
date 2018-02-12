@@ -7,8 +7,8 @@ android {
         applicationId "edu.byui.cit.calc360"
         minSdkVersion 21
         targetSdkVersion 26
-        versionCode 32
-        versionName "1.9.4"
+        versionCode 33
+        versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

@@ -7,14 +7,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.byui.cit.calc360.OmniFragment;
+import edu.byui.cit.calc360.InfoFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.TextWrapper;
 
 
-public final class Basketball extends OmniFragment {
+public final class Basketball extends InfoFragment {
 	private final NumberFormat fmtrInt, fmtrPerc;
 	private final Stats freeThrow, fieldGoal, threePoint;
 

@@ -12,13 +12,13 @@ import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditAngle;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 
 public final class Torus extends SolveSeries {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decMajor, decMinor, decInner, decOuter, decArea, decVolume;
+	private EditDecimal decMajor, decMinor, decInner, decOuter, decArea, decVolume;
 
 
 	@Override
@@ -26,9 +26,9 @@ public final class Torus extends SolveSeries {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.torus, container, false);
 
-		decMajor = new EditDec(view, R.id.decMajor, this);
-		decMinor = new EditDec(view, R.id.decMinor, this);
-		decInner = new EditDec(view, R.id.decInner, this);
+		decMajor = new EditDecimal(view, R.id.decMajor, this);
+		decMinor = new EditDecimal(view, R.id.decMinor, this);
+		decInner = new EditDecimal(view, R.id.decInner, this);
 		decOuter = new EditAngle(view, R.id.decOuter, this);
 		decArea = new EditAngle(view, R.id.decSurfArea, this);
 		decVolume = new EditAngle(view, R.id.decVolume, this);
@@ -36,7 +36,7 @@ public final class Torus extends SolveSeries {
 				decMajor, decMinor, decInner, decOuter, decArea, decVolume
 		};
 
-		initialize(view, inputs, null, null, new Solver[]{
+		initialize(view, inputs, new Solver[]{
 				new MajorMinor(),
 				new MajorInner(),
 				new MajorOuter(),
@@ -53,7 +53,7 @@ public final class Torus extends SolveSeries {
 				new InnerVolume(),
 				new OuterArea(),
 				new OuterVolume()
-		}, R.id.btnClear);
+		}, R.id.btnClear, inputs);
 
 		return view;
 	}

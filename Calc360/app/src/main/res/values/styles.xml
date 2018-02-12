@@ -26,8 +26,9 @@
 
 	<style name="CalcButton" parent="@android:style/Widget.Material.Button">
 		<item name="android:textAppearance">
-			@android:style/TextAppearance.Material.Large
+			@android:style/TextAppearance.Material.Medium
 		</item>
+		<item name="android:textSize">20sp</item>
 	</style>
 
 	<style name="CalcDatePicker" parent="@android:style/Widget.Material.DatePicker">
@@ -166,10 +167,12 @@
 
 	<style name="SignedDecimal" parent="EditNumber">
 		<item name="android:inputType">numberSigned|numberDecimal</item>
+		<item name="android:digits">0123456789.,-+</item>
 	</style>
 
 	<style name="UnsignedDecimal" parent="EditNumber">
 		<item name="android:inputType">numberDecimal</item>
+		<item name="android:digits">0123456789.,</item>
 	</style>
 
 	<style name="ScientificNumber" parent="EditNumber">

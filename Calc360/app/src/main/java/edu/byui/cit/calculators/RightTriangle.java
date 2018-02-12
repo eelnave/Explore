@@ -15,7 +15,7 @@ import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditAngle;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.TextWrapper;
@@ -28,7 +28,7 @@ import static edu.byui.cit.model.Geometry.RightTriangle.*;
 
 public class RightTriangle extends SolveSeries {
 	private final NumberFormat fmtrDec, fmtrAngle;
-	private EditDec decA, decB, decHyp;
+	private EditDecimal decA, decB, decHyp;
 	private EditAngle decAlpha, decBeta;
 	private EditAngle[] angles;
 	private TextWrapper decPerim, decArea;
@@ -54,9 +54,9 @@ public class RightTriangle extends SolveSeries {
 				Angle.getInstance(), R.array.triUnits,
 				Calc360.KEY_ANGLE_UNITS, new AngleUnits());
 
-		decA = new EditDec(view, R.id.decSideA, this);
-		decB = new EditDec(view, R.id.decSideB, this);
-		decHyp = new EditDec(view, R.id.decSideC, this);
+		decA = new EditDecimal(view, R.id.decSideA, this);
+		decB = new EditDecimal(view, R.id.decSideB, this);
+		decHyp = new EditDecimal(view, R.id.decSideC, this);
 		decAlpha = new EditAngle(view, R.id.decAlpha, this);
 		decBeta = new EditAngle(view, R.id.decBeta, this);
 		EditAngle decGamma = new EditAngle(view, R.id.decGamma, this);
@@ -68,7 +68,9 @@ public class RightTriangle extends SolveSeries {
 		decGamma.getRad(Angle.getInstance().get(Angle.deg));
 
 		EditWrapper[] inputs = { decA, decB, decHyp, decAlpha, decBeta };
-		TextWrapper[] outputs = { decPerim, decArea };
+		ControlWrapper[] toClear = {
+				decA, decB, decHyp, decAlpha, decBeta, decPerim, decArea
+		};
 
 		Solver[] solvers = new Solver[]{
 				// side1 && side2
@@ -161,7 +163,7 @@ public class RightTriangle extends SolveSeries {
 				}
 		};
 
-		initialize(view, inputs, outputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, toClear);
 		return view;
 	}
 
@@ -179,8 +181,8 @@ public class RightTriangle extends SolveSeries {
 		perimAndArea(a, b, hyp);
 	}
 
-	private void solveSH(EditDec decSide1, EditAngle decAngle1,
-			EditDec decSide2, EditAngle decAngle2) {
+	private void solveSH(EditDecimal decSide1, EditAngle decAngle1,
+			EditDecimal decSide2, EditAngle decAngle2) {
 		double side1 = decSide1.getDec();
 		double hyp = decHyp.getDec();
 		double side2 = sideSH(side1, hyp);
@@ -193,8 +195,8 @@ public class RightTriangle extends SolveSeries {
 		perimAndArea(side1, side2, hyp);
 	}
 
-	private void solveSO(EditDec decSide1, EditAngle decAngle1,
-			EditDec decSide2, EditAngle decAngle2) {
+	private void solveSO(EditDecimal decSide1, EditAngle decAngle1,
+			EditDecimal decSide2, EditAngle decAngle2) {
 		Unit user = spinner.getSelectedItem();
 		double side1 = decSide1.getDec();
 		double angle1 = decAngle1.getRad(user);
@@ -207,8 +209,8 @@ public class RightTriangle extends SolveSeries {
 		perimAndArea(side1, side2, hyp);
 	}
 
-	private void solveSA(EditDec decSide1, EditAngle decAngle2,
-			EditDec decSide2, EditAngle decAngle1) {
+	private void solveSA(EditDecimal decSide1, EditAngle decAngle2,
+			EditDecimal decSide2, EditAngle decAngle1) {
 		Unit user = spinner.getSelectedItem();
 		double side1 = decSide1.getDec();
 		double angle2 = decAngle2.getRad(user);
@@ -221,8 +223,8 @@ public class RightTriangle extends SolveSeries {
 		perimAndArea(side1, side2, hyp);
 	}
 
-	private void solveHA(EditAngle decAngle1, EditDec decSide1,
-			EditDec decSide2, EditAngle decAngle2) {
+	private void solveHA(EditAngle decAngle1, EditDecimal decSide1,
+			EditDecimal decSide2, EditAngle decAngle2) {
 		Unit user = spinner.getSelectedItem();
 		double hyp = decHyp.getDec();
 		double angle1 = decAngle1.getRad(user);

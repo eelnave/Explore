@@ -2,7 +2,6 @@ package edu.byui.cit.text;
 
 import android.content.SharedPreferences;
 import android.view.View;
-import android.widget.SpinnerAdapter;
 
 import edu.byui.cit.calc360.CalcFragment;
 

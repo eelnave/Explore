@@ -13,19 +13,19 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer.Ratio;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCur;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditCurrency;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
 public final class Discount extends CalcFragment {
 	private final NumberFormat fmtrCur, fmtrDec;
-	private EditCur curPrice;
-	private EditDec decDiscRate;
-	private EditCur curDiscAmt;
+	private EditCurrency curPrice;
+	private EditDecimal decDiscRate;
+	private EditCurrency curDiscAmt;
 	private TextWrapper curDiscPrice;
-	private EditDec decTaxRate;
+	private EditDecimal decTaxRate;
 	private TextWrapper curTaxAmt, curTotal, curSaved;
 
 
@@ -46,12 +46,12 @@ public final class Discount extends CalcFragment {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.discount, container, false);
 
-		// Attach all the fields to an EditDec or EditCur object
-		curPrice = new EditCur(view, R.id.curPrice, this);
-		decDiscRate = new EditDec(view, R.id.decDiscRate, this);
-		curDiscAmt = new EditCur(view, R.id.curDiscAmt, this);
+		// Attach all the fields to an EditDecimal or EditCurrency object
+		curPrice = new EditCurrency(view, R.id.curPrice, this);
+		decDiscRate = new EditDecimal(view, R.id.decDiscRate, this);
+		curDiscAmt = new EditCurrency(view, R.id.curDiscAmt, this);
 		curDiscPrice = new TextWrapper(view, R.id.curDiscPrice);
-		decTaxRate = new EditDec(view, R.id.decTaxRate,
+		decTaxRate = new EditDecimal(view, R.id.decTaxRate,
 				Calc360.KEY_SALES_TAX_RATE, this);
 		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
 		curTotal = new TextWrapper(view, R.id.curTotal);
@@ -63,7 +63,7 @@ public final class Discount extends CalcFragment {
 				curPrice, decDiscRate, curDiscAmt,
 				curDiscPrice, curTaxAmt, curTotal, curSaved
 		};
-		initialize(view, inputs, groups, toClear, R.id.btnClear);
+		initialize(view, inputs, groups, R.id.btnClear, toClear);
 		return view;
 	}
 
@@ -119,10 +119,7 @@ public final class Discount extends CalcFragment {
 			curSaved.setText(fmtrCur.format(saved));
 		}
 		else {
-			curDiscPrice.clear();
-			curTaxAmt.clear();
-			curTotal.clear();
-			curSaved.clear();
+			clearOutput();
 		}
 	}
 }

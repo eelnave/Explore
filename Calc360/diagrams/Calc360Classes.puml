@@ -1,0 +1,72 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+title High Level Classes in Calc 360
+abstract AppCompatActivity
+abstract Fragment
+abstract AppCompatButton
+
+package edu.byui.cit.calc360 {
+	class Calc360
+	class CalcButton
+	class CalcDescriptor
+	abstract CalcFragment
+	abstract Converter
+	abstract Descriptor
+	class Descriptors <<(S, #FF7700) Singleton>>
+	class GroupDescriptor
+	class GroupFragment
+	class IndexArray
+	abstract InfoFragment
+	class OrderedIndexArray
+	abstract SolveEquation
+	abstract SolveSeries
+
+	AppCompatActivity <|-- Calc360
+	AppCompatButton <|-- CalcButton
+
+	Descriptor <|-- CalcDescriptor
+	Descriptor <|-- GroupDescriptor
+	Descriptors *-- Descriptor
+
+	Calc360 *-right- InfoFragment
+	Fragment <|-- InfoFragment
+	InfoFragment <|-- CalcFragment
+	CalcFragment <|-- Converter
+	CalcFragment <|-- GroupFragment
+	CalcFragment <|-- SolveSeries
+	SolveSeries <|-- SolveEquation
+
+	GroupFragment *-- CalcButton
+	CalcFragment .right. Descriptor
+
+	IndexArray <|-- OrderedIndexArray
+	hide IndexArray
+	hide OrderedIndexArray
+
+	note left of CalcFragment
+	Each calculator that does not
+	fit the note for SolveSeries,
+	SolverEquation, or Converter
+	should extend CalcFragment.
+	end note
+
+	note bottom of Converter
+	Each calculator that simply converts
+	values from one unit to another
+	unit should extend Converter.
+	end note
+
+	note bottom of SolveSeries
+	Each calculator that solves for
+	the values in a series of equations
+	should extend SolveSeries.
+	end note
+
+	note top of SolveEquation
+	Each calculator that solves for
+	the values in a single equation
+	should extend SolveEquation.
+	end note
+}
+@enduml

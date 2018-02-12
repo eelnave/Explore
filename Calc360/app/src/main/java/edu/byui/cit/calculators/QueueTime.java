@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,7 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditInt;
+import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
 
@@ -25,7 +24,7 @@ import edu.byui.cit.text.TextWrapper;
 public final class QueueTime extends CalcFragment {
 	private final DateFormat fmtrDate;
 	private final NumberFormat fmtrInt;
-	private EditInt intPeople;
+	private EditInteger intPeople;
 	private TextWrapper timAvg, timRemain, timServed;
 	private ButtonWrapper btnNext;
 	private double sum;
@@ -45,7 +44,7 @@ public final class QueueTime extends CalcFragment {
 		// Inflate the layout for this fragment.
 		View view = inflater.inflate(R.layout.queue_time, container, false);
 
-		intPeople = new EditInt(view, R.id.intPeople, new PeopleHandler());
+		intPeople = new EditInteger(view, R.id.intPeople, new PeopleHandler());
 		timAvg = new TextWrapper(view, R.id.timAvg);
 		timRemain = new TextWrapper(view, R.id.timRemain);
 		timServed = new TextWrapper(view, R.id.timServed);
@@ -58,7 +57,7 @@ public final class QueueTime extends CalcFragment {
 
 	private final class PeopleHandler extends TextChangeHandler {
 		@Override
-		public void afterChanged(Editable s) {
+		public void textChanged(CharSequence s) {
 			try {
 				prevClick = System.currentTimeMillis();
 				sum = 0;

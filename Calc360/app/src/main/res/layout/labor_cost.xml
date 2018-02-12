@@ -35,7 +35,7 @@
 
 			<TextView
 				style="@style/TextLabel"
-				android:labelFor="@+id/curSalesTaxAmt"
+				android:labelFor="@+id/decSalesTaxRate"
 				android:text="@string/salesTax"/>
 
 			<EditText
@@ -45,7 +45,7 @@
 
 			<TextView
 				style="@style/TextLabel"
-				android:labelFor="@+id/decSalesTaxRate"
+				android:labelFor="@+id/curSalesTaxAmt"
 				android:text="@string/perc"/>
 
 			<EditText
@@ -97,8 +97,9 @@
 
 		<TextView
 			android:id="@+id/output"
-			style="@style/TextLabel"
+			style="@style/TextResult"
 			android:layout_marginTop="20dp"
+			android:textAlignment="textStart"
 			android:minHeight="36pt"/>
 
 		<Button

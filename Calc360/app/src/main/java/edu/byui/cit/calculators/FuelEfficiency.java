@@ -3,7 +3,6 @@ package edu.byui.cit.calculators;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,8 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.ControlWrapper;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextChangeHandler;
@@ -32,7 +32,7 @@ public final class FuelEfficiency extends CalcFragment {
 			KEY_EFFIC_UNITS = "FuelEfficiency.efficUnits";
 
 	private final NumberFormat fmtrDist, fmtrEffic;
-	private EditDec decBegin, decEnd, decDist, decVol;
+	private EditDecimal decBegin, decEnd, decDist, decVol;
 	private SpinUnit spinDistUnits, spinVolUnits, spinEfficUnits;
 	private TextWrapper decEffic;
 
@@ -59,10 +59,10 @@ public final class FuelEfficiency extends CalcFragment {
 
 		// Create a wrapper object for each EditText
 		// that appears in this calculator's layout.
-		decBegin = new EditDec(view, R.id.decBegin, dist);
-		decEnd = new EditDec(view, R.id.decEnd, dist);
-		decDist = new EditDec(view, R.id.decDist, new DistanceChanged());
-		decVol = new EditDec(view, R.id.decVol, this);
+		decBegin = new EditDecimal(view, R.id.decBegin, dist);
+		decEnd = new EditDecimal(view, R.id.decEnd, dist);
+		decDist = new EditDecimal(view, R.id.decDist, new DistanceChanged());
+		decVol = new EditDecimal(view, R.id.decVol, this);
 
 		// Get the user's preferred units from the system
 		// preferences file and initialize each spinner.
@@ -80,8 +80,10 @@ public final class FuelEfficiency extends CalcFragment {
 		decEffic = new TextWrapper(view, R.id.decEffic);
 
 		EditWrapper[] inputs = { decBegin, decEnd, decDist, decVol };
-		TextWrapper[] outputs = { decEffic };
-		initialize(view, inputs, outputs, R.id.btnClear);
+		ControlWrapper[] toClear = {
+				decBegin, decEnd, decDist, decVol, decEffic
+		};
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
@@ -106,7 +108,7 @@ public final class FuelEfficiency extends CalcFragment {
 
 	private final class OdometerChanged extends TextChangeHandler {
 		@Override
-		public void afterChanged(Editable s) {
+		public void textChanged(CharSequence s) {
 			if (decBegin.notEmpty() || decEnd.notEmpty()) {
 				decDist.clear();
 			}
@@ -117,7 +119,7 @@ public final class FuelEfficiency extends CalcFragment {
 
 	private final class DistanceChanged extends TextChangeHandler {
 		@Override
-		public void afterChanged(Editable s) {
+		public void textChanged(CharSequence s) {
 			if (decDist.notEmpty()) {
 				decBegin.clear();
 				decEnd.clear();

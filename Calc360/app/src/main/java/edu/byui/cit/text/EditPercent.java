@@ -1,7 +1,6 @@
 package edu.byui.cit.text;
 
 import android.content.SharedPreferences;
-import android.text.TextWatcher;
 import android.view.View;
 
 import java.text.NumberFormat;
@@ -9,8 +8,8 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 
 
-public final class EditPerc extends EditWrapper {
-	public EditPerc(View parent, int resID, CalcFragment calculator) {
+public final class EditPercent extends EditWrapper {
+	public EditPercent(View parent, int resID, CalcFragment calculator) {
 		super(parent, resID, null, calculator);
 	}
 

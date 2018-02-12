@@ -7,12 +7,12 @@ import android.view.ViewGroup;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditInt;
+import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.TextWrapper;
 
 
 public class Subnet extends CalcFragment {
-	private EditInt ip1;
+	private EditInteger ip1;
 	private TextWrapper availableHosts, maskText;
 
 
@@ -22,7 +22,7 @@ public class Subnet extends CalcFragment {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.subnet, container, false);
 
-		ip1 = new EditInt(view, R.id.ipValue1, this);
+		ip1 = new EditInteger(view, R.id.ipValue1, this);
 
 		maskText = new TextWrapper(view, R.id.maskText);
 		availableHosts = new TextWrapper(view, R.id.availableHosts);

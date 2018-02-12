@@ -2,6 +2,7 @@ package edu.byui.cit.calculators;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.text.Editable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,11 +17,12 @@ import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.ItemSelectedHandler;
 import edu.byui.cit.text.SpinProperty;
 import edu.byui.cit.text.SpinUnit;
+import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 
@@ -38,7 +40,7 @@ public final class UnitConvert extends CalcFragment {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private SpinProperty spinProp;
 	private Property propCurrent;
-	private EditDec decTop, decBottom;
+	private EditDecimal decTop, decBottom;
 	private SpinUnit spinTop, spinBottom;
 
 
@@ -49,8 +51,18 @@ public final class UnitConvert extends CalcFragment {
 		View view = inflater.inflate(R.layout.unit_convert, container,
 				false);
 
-		decTop = new EditDec(view, R.id.decTop, this);
-		decBottom = new EditDec(view, R.id.decBottom, this);
+		decTop = new EditDecimal(view, R.id.decTop, new TextChangeHandler() {
+			@Override
+			public void textChanged(CharSequence s) {
+				compute(decBottom, spinBottom, decTop, spinTop);
+			}
+		});
+		decBottom = new EditDecimal(view, R.id.decBottom, new TextChangeHandler() {
+			@Override
+			public void textChanged(CharSequence s) {
+				compute(decTop, spinTop, decBottom, spinBottom);
+			}
+		});
 
 		new ButtonWrapper(view, R.id.btnSwap, new ClickListener() {
 			@Override
@@ -64,24 +76,22 @@ public final class UnitConvert extends CalcFragment {
 			}
 		});
 
-		Activity act = getActivity();
-		spinProp = new SpinProperty(act, view, R.id.spinProp,
+		spinProp = new SpinProperty(getActivity(), view, R.id.spinProp,
 				R.array.supportedProperties, KEY_PROP,
 				new ChangeProperty());
 
-		ItemSelectedHandler listener = new ItemSelectedHandler() {
+		ItemSelectedHandler handler = new ItemSelectedHandler() {
 			@Override
-			public void itemSelected(AdapterView<?> parent, View view,
-					int pos, long id) {
+			public void itemSelected(AdapterView<?> parent,
+					View view, int pos, long id) {
 				compute(decBottom, spinBottom, decTop, spinTop);
 			}
 		};
-		spinTop = new SpinUnit(view, R.id.spinTop, listener);
-		spinBottom = new SpinUnit(view, R.id.spinBottom, listener);
+		spinTop = new SpinUnit(view, R.id.spinTop, handler);
+		spinBottom = new SpinUnit(view, R.id.spinBottom, handler);
 
 		EditWrapper[] inputs = { decTop, decBottom };
-		EditWrapper[][] groups = {{ decTop, decBottom }};
-		initialize(view, inputs, groups, inputs, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, inputs);
 		return view;
 	}
 
@@ -153,8 +163,8 @@ public final class UnitConvert extends CalcFragment {
 
 
 	// Overload not override so try, catch is necessary.
-	private void compute(EditDec decTo, SpinUnit spinTo,
-			EditDec decFrom, SpinUnit spinFrom) {
+	private void compute(EditDecimal decTo, SpinUnit spinTo,
+			EditDecimal decFrom, SpinUnit spinFrom) {
 		try {
 			if (decFrom.notEmpty()) {
 				Property prop = propCurrent;

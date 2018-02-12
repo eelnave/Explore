@@ -131,7 +131,7 @@ public class GroupFragment extends CalcFragment {
 
 	private final class Click implements OnClickListener {
 		private final Descriptor descriptor;
-		private OmniFragment fragment;
+		private InfoFragment fragment;
 
 		Click(Descriptor descriptor) {
 			this.descriptor = descriptor;

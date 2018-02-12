@@ -3,7 +3,7 @@
 	<string name="NewtonsSecond">2º Lei de Newton</string>
 
 	<string name="harmonicMotion">Movimento Harmônico</string>
-	<string name="hmSpringConstHint">spring constant</string>
+	<string name="hmSpringConstHint">constante de mola</string>
 
 	<string name="pendulum">Pêndulo</string>
 	<string name="tqThetaHint">ângulo theta</string>
@@ -11,8 +11,8 @@
 	<string name="ohmsLaw">Lei de Ohm</string>
 
 	<string name="coulombsLaw">Lei de Coulomb</string>
-	<string name="coulCharge1">charge 1</string>
-	<string name="coulCharge2">charge 2</string>
+	<string name="coulCharge1">carga 1</string>
+	<string name="coulCharge2">carga 2</string>
 
 	<string name="relativity">Relatividade</string>
 </resources>

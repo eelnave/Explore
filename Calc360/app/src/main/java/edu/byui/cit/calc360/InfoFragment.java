@@ -15,7 +15,7 @@ import android.widget.EditText;
 import org.jetbrains.annotations.NotNull;
 
 
-public abstract class OmniFragment extends Fragment {
+public abstract class InfoFragment extends Fragment {
 	private static final String descripIDKey = "calcID";
 
 	Descriptor descriptor;
@@ -34,7 +34,7 @@ public abstract class OmniFragment extends Fragment {
 	public void onCreate(Bundle savedInstState) {
 		super.onCreate(savedInstState);
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onCreate(" +
-// (savedInstState == null ? "null" : savedInstState.size()) + ")");
+//			(savedInstState == null ? "null" : savedInstState.size()) + ")");
 		if (savedInstState != null) {
 			setDescripID(savedInstState.getInt(descripIDKey));
 		}
@@ -45,13 +45,15 @@ public abstract class OmniFragment extends Fragment {
 			Bundle savedInstState) {
 		super.onCreateView(inflater, container, savedInstState);
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onCreateView(" +
-// (savedInstState == null ? "null" : savedInstState.size()) + ")");
+//			(savedInstState == null ? "null" : savedInstState.size()) + ")");
 		View view;
 		try {
 			view = createView(inflater, container, savedInstState);
-			Activity act = getActivity();
-			SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
-			restorePrefs(prefs);
+			if (savedInstState == null) {
+				SharedPreferences prefs = getActivity()
+						.getPreferences(Context.MODE_PRIVATE);
+				restorePrefs(prefs);
+			}
 		}
 		catch (Exception ex) {
 			Log.e(Calc360.TAG, "exception", ex);
@@ -115,10 +117,14 @@ public abstract class OmniFragment extends Fragment {
 	@Override
 	public void onSaveInstanceState(@NotNull Bundle savedInstState) {
 		super.onSaveInstanceState(savedInstState);
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onSaveInstanceState
-// (" + savedInstState.size() + ")");
+//		Log.v(Calc360.TAG, getClass().getSimpleName() +
+//				".onSaveInstanceState(" + savedInstState.size() + ")");
 		savedInstState.putInt(descripIDKey, descriptor.getID());
 	}
+
+//	void logBundle(Bundle savedInstState) {
+//		Log.v(Calc360.TAG, savedInstState == null ? "null" : savedInstState.toString());
+//	}
 
 
 	// When this calculator is stopped by the Android system, save

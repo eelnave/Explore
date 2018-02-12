@@ -7,7 +7,7 @@ import android.util.Log;
 import edu.byui.cit.calc360.Calc360;
 
 
-public abstract class TextChangeHandler extends Handler
+public abstract class TextChangeHandler
 		implements TextWatcher, TextChangeListener {
 	@Override
 	public final void beforeTextChanged(
@@ -17,13 +17,9 @@ public abstract class TextChangeHandler extends Handler
 	@Override
 	public final void onTextChanged(
 			CharSequence s, int start, int before, int count) {
-	}
-
-	@Override
-	public final void afterTextChanged(Editable edit) {
-		if (!isProgrammatic()) {
+		if (before != 0 || count != 0) {
 			try {
-				afterChanged(edit);
+				textChanged(s);
 			}
 			catch (NumberFormatException ex) {
 				// Do nothing
@@ -32,5 +28,9 @@ public abstract class TextChangeHandler extends Handler
 				Log.e(Calc360.TAG, "exception", ex);
 			}
 		}
+	}
+
+	@Override
+	public final void afterTextChanged(Editable edit) {
 	}
 }

@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import edu.byui.cit.calc360.CalcFragment;
 
 
-public final class SpinInt extends SpinWrapper {
+public final class SpinInteger extends SpinWrapper {
 
-	public SpinInt(Context ctx, View parent, int spinID, int arrayID,
+	public SpinInteger(Context ctx, View parent, int spinID, int arrayID,
 			String prefsKey, CalcFragment calculator) {
 		super(parent, spinID, prefsKey, calculator);
 

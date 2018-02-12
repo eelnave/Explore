@@ -7,8 +7,10 @@ import edu.byui.cit.text.EditWrapper;
 
 
 public abstract class SolveEquation extends SolveSeries {
+	@Override
 	public void initialize(View view, EditWrapper[] all,
-			SolveSeries.Solver[] solvers, int btnClearID) {
+			SolveSeries.Solver[] solvers,
+			int btnClearID, ControlWrapper[] toClear) {
 
 		// Create the list of inputs for each solver.
 		int inLen = all.length - 1;
@@ -21,21 +23,17 @@ public abstract class SolveEquation extends SolveSeries {
 			solver.init(inputs, outputs);
 		}
 
-		super.initialize(view, all, null, null, solvers, btnClearID);
+		super.initialize(view, all, null, solvers, btnClearID, toClear);
 	}
 
 	@Override
 	public void initialize(View view, EditWrapper[] inputs,
-			ControlWrapper[] toClear, SolveSeries.Solver[] solvers, int btnClearID) {
+			EditWrapper[][] groups, SolveSeries.Solver[] solvers,
+			int btnClearID, ControlWrapper[] toClear) {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
-	public void initialize(View view, EditWrapper[] inputs,
-			EditWrapper[][] groups,
-			ControlWrapper[] toClear, SolveSeries.Solver[] solvers, int btnClearID) {
-		throw new UnsupportedOperationException();
-	}
+	// Todo: allow user to choose number of decimal places.
 
 
 	public static abstract class Solver extends SolveSeries.Solver {

@@ -11,7 +11,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 
 
 public final class FiveFunction extends CalcFragment {
@@ -95,14 +95,14 @@ public final class FiveFunction extends CalcFragment {
 	private final class NoOp extends BinOp {
 		@Override
 		void compute() {
-			left = EditDec.getDec(decDisplay);
+			left = EditDecimal.getDec(decDisplay);
 		}
 	}
 
 	private final class Add extends BinOp {
 		@Override
 		void compute() {
-			double right = EditDec.getDec(decDisplay);
+			double right = EditDecimal.getDec(decDisplay);
 			double result = left + right;
 			decDisplay.setText(fmtrDec.format(result));
 			left = result;
@@ -112,7 +112,7 @@ public final class FiveFunction extends CalcFragment {
 	private final class Subt extends BinOp {
 		@Override
 		void compute() {
-			double right = EditDec.getDec(decDisplay);
+			double right = EditDecimal.getDec(decDisplay);
 			double result = left - right;
 			decDisplay.setText(fmtrDec.format(result));
 			left = result;
@@ -122,7 +122,7 @@ public final class FiveFunction extends CalcFragment {
 	private final class Mult extends BinOp {
 		@Override
 		void compute() {
-			double right = EditDec.getDec(decDisplay);
+			double right = EditDecimal.getDec(decDisplay);
 			double result = left * right;
 			decDisplay.setText(fmtrDec.format(result));
 			left = result;
@@ -132,7 +132,7 @@ public final class FiveFunction extends CalcFragment {
 	private final class Div extends BinOp {
 		@Override
 		void compute() {
-			double right = EditDec.getDec(decDisplay);
+			double right = EditDecimal.getDec(decDisplay);
 			double result = left / right;
 			decDisplay.setText(fmtrDec.format(result));
 			left = result;
@@ -183,7 +183,7 @@ public final class FiveFunction extends CalcFragment {
 	private final class SqrtClick implements OnClickListener {
 		@Override
 		public void onClick(View button) {
-			double number = Math.sqrt(EditDec.getDec(decDisplay));
+			double number = Math.sqrt(EditDecimal.getDec(decDisplay));
 			decDisplay.setText(fmtrDec.format(number));
 		}
 	}
@@ -191,7 +191,7 @@ public final class FiveFunction extends CalcFragment {
 	private final class NegClick implements OnClickListener {
 		@Override
 		public void onClick(View button) {
-			double number = -EditDec.getDec(decDisplay);
+			double number = -EditDecimal.getDec(decDisplay);
 			decDisplay.setText(fmtrDec.format(number));
 		}
 	}

@@ -9,7 +9,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveEquation;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 
@@ -17,7 +17,7 @@ public final class Ratio extends SolveEquation {
 	// Create a number formatter object that
 	// will format numbers for the user to see.
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDec decA, decB, decX, decY;
+	private EditDecimal decA, decB, decX, decY;
 
 
 	@Override
@@ -25,10 +25,10 @@ public final class Ratio extends SolveEquation {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.ratio, container, false);
 
-		decA = new EditDec(view, R.id.decA, this);
-		decB = new EditDec(view, R.id.decB, this);
-		decX = new EditDec(view, R.id.decX, this);
-		decY = new EditDec(view, R.id.decY, this);
+		decA = new EditDecimal(view, R.id.decA, this);
+		decB = new EditDecimal(view, R.id.decB, this);
+		decX = new EditDecimal(view, R.id.decX, this);
+		decY = new EditDecimal(view, R.id.decY, this);
 		EditWrapper[] inputs = { decA, decB, decX, decY };
 
 		Solver[] solvers = new Solver[] {
@@ -58,7 +58,7 @@ public final class Ratio extends SolveEquation {
 						double a = decA.getDec();
 						double b = decB.getDec();
 						double y = decY.getDec();
-						double x = a * y / b;
+						double x = y * a / b;
 						decX.setText(fmtrDec.format(x));
 					}
 				},
@@ -68,13 +68,13 @@ public final class Ratio extends SolveEquation {
 						double a = decA.getDec();
 						double b = decB.getDec();
 						double x = decX.getDec();
-						double y = b * x / a;
+						double y = x * b / a;
 						decY.setText(fmtrDec.format(y));
 					}
 				}
 		};
 
-		initialize(view, inputs, solvers, R.id.btnClear);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 }
