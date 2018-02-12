@@ -14,7 +14,6 @@ import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
@@ -41,7 +40,7 @@ public final class ROI extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this calculator.
-		View view = inflater.inflate(R.layout.sales_tax, container, false);
+		View view = inflater.inflate(R.layout.roi, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
 		startPrice = new EditCurrency(view, R.id.startInvestment, this);

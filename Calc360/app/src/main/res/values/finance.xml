@@ -20,7 +20,6 @@
 	<string name="years">Number of Years</string>
 	<string name="ppy">Periods per Year</string>
 	<string name="roi">Return on Investment</string>
-	<string name="invreturn">return</string>
 	<integer-array name="possiblePPY" translatable="false">
 		<item>1</item>
 		<item>2</item>
