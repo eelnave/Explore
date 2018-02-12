@@ -22,7 +22,7 @@ public class StarExposure extends CalcFragment {
 	private final int fiveHundredRuleNum = 500;
 
 	// This is the formatter for any displayed decimals
-	private final NumberFormat decFrmt;
+	private final NumberFormat intFrmt;
 
 	// These hold the views
 	private TextWrapper starExpVal;
@@ -34,7 +34,7 @@ public class StarExposure extends CalcFragment {
 
 	public StarExposure(){
 		super();
-		decFrmt = NumberFormat.getInstance();
+		intFrmt = NumberFormat.getInstance();
 	}
 
 	protected View createView(LayoutInflater inflater, ViewGroup container,
@@ -56,7 +56,7 @@ public class StarExposure extends CalcFragment {
 	@Override
 	protected void compute() {
 		if (cropFacVal.notEmpty() && focLengthVal.notEmpty()) {
-			starExpVal.setText(decFrmt.format(fiveHundredRuleNum / (cropFacVal.getDec() * focLengthVal.getInt())));
+			starExpVal.setText(intFrmt.format(fiveHundredRuleNum / (cropFacVal.getDec() * focLengthVal.getInt())));
 		}
 		else {
 			starExpVal.clear();
