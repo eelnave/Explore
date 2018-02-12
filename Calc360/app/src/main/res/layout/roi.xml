@@ -37,9 +37,8 @@
 		android:layout_marginEnd="20dp"
 		android:text="@string/perc"/>
 
-	<TextView
-		android:id="@+id/curTaxAmt"
-		style="@style/TextResult"/>
+	android:id="@+id/curTaxAmt"
+	style="@style/TextResult"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -48,7 +47,8 @@
 		compat:layout_columnSpan="3"/>
 
 	<TextView
-		android:id="@+id/curTotal"
+		android:id="@+id/curTotal">
+	<TextView
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"/>
 
