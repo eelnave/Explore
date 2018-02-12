@@ -25,7 +25,7 @@ public final class ROI extends CalcFragment {
 	// one of the text fields in this calculator.
 	private EditCurrency startPrice;
 	private EditCurrency totalMoney;
-	private TextWrapper curTaxAmt, curTotal;
+	private TextWrapper  curTotal; // took out curTaxAmt
 
 
 	public ROI() {
@@ -45,41 +45,41 @@ public final class ROI extends CalcFragment {
 		// Get a reference to each of the text fields in this calculator.
 		startPrice = new EditCurrency(view, R.id.startInvestment, this);
 		totalMoney = new EditCurrency(view, R.id.allTheMoney, this);
-		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
+		//curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
 		EditWrapper[] inputs = { startPrice, totalMoney };
-		ControlWrapper[] toClear = { startPrice, curTaxAmt, curTotal };
+		ControlWrapper[] toClear = { startPrice, curTotal };  // took out curTaxAmt
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
 
-	@Override
-	protected void restorePrefs(SharedPreferences prefs) {
-		// Get the previous sales tax rate entered by the user if it exits.
-		totalMoney.restore(prefs, fmtrDec);
-	}
+//	@Override
+//	protected void restorePrefs(SharedPreferences prefs) {
+//		// Get the previous sales tax rate entered by the user if it exits.
+//		totalMoney.restore(prefs, fmtrDec);
+//	}
 
-	@Override
-	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Write the tax rate entered by the user into the preferences file.
-		totalMoney.save(editor);
-	}
+//	@Override
+//	protected void savePrefs(SharedPreferences.Editor editor) {
+//		// Write the tax rate entered by the user into the preferences file.
+//		totalMoney.save(editor);
+//	}
 
 
 	@Override
 	protected void compute() {
 		if (startPrice.notEmpty() && totalMoney.notEmpty()) {
 			double price = startPrice.getCur();
-			double taxRate = totalMoney.getCur() / 100.0;
-			double taxAmt = Consumer.Ratio.amount(taxRate, price);
-			double total = Consumer.Ratio.total(taxRate, price);
-			curTaxAmt.setText(fmtrCur.format(taxAmt));
-			curTotal.setText(fmtrCur.format(total));
+			double roi = (totalMoney.getCur() - startPrice.getCur())/ startPrice.getCur();
+			//double taxAmt = Consumer.Ratio.amount(taxRate, price);
+			double total = Consumer.Ratio.total(roi, price);
+			//curTaxAmt.setText(fmtrCur.format(taxAmt));
+			curTotal.setText(fmtrDec.format(roi));
 		}
 		else {
-			curTaxAmt.clear();
+			//curTaxAmt.clear();
 			curTotal.clear();
 		}
 	}
