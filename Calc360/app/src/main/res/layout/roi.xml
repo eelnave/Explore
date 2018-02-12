@@ -10,7 +10,7 @@
 	//Investment box.
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/invest"
+		android:text="@string/pv"
 		compat:layout_columnSpan="3"/>
 
 	<EditText

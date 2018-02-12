@@ -25,7 +25,7 @@ public final class ROI extends CalcFragment {
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
 	private EditCurrency startPrice;
-	private EditDecimal decTaxRate;
+	private EditCurrency totalMoney;
 	private TextWrapper curTaxAmt, curTotal;
 
 
@@ -45,12 +45,11 @@ public final class ROI extends CalcFragment {
 
 		// Get a reference to each of the text fields in this calculator.
 		startPrice = new EditCurrency(view, R.id.startInvestment, this);
-		decTaxRate = new EditDecimal(view, R.id.decTaxRate,
-				Calc360.KEY_SALES_TAX_RATE, this);
+		totalMoney = new EditCurrency(view, R.id.allTheMoney, this);
 		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
-		EditWrapper[] inputs = { startPrice, decTaxRate };
+		EditWrapper[] inputs = { startPrice, totalMoney };
 		ControlWrapper[] toClear = { startPrice, curTaxAmt, curTotal };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
@@ -60,21 +59,21 @@ public final class ROI extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		// Get the previous sales tax rate entered by the user if it exits.
-		decTaxRate.restore(prefs, fmtrDec);
+		totalMoney.restore(prefs, fmtrDec);
 	}
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
 		// Write the tax rate entered by the user into the preferences file.
-		decTaxRate.save(editor);
+		totalMoney.save(editor);
 	}
 
 
 	@Override
 	protected void compute() {
-		if (startPrice.notEmpty() && decTaxRate.notEmpty()) {
+		if (startPrice.notEmpty() && totalMoney.notEmpty()) {
 			double price = startPrice.getCur();
-			double taxRate = decTaxRate.getDec() / 100.0;
+			double taxRate = totalMoney.getCur() / 100.0;
 			double taxAmt = Consumer.Ratio.amount(taxRate, price);
 			double total = Consumer.Ratio.total(taxRate, price);
 			curTaxAmt.setText(fmtrCur.format(taxAmt));
