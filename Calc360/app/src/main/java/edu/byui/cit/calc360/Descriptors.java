@@ -6,7 +6,11 @@ import edu.byui.cit.calculators.*;
 
 
 final class Descriptors {
-	/** The hierarchy of group and calculator descriptors. */
+	/**
+	 * The hierarchy of group and calculator descriptors. Each groupID and
+	 * calcID must be unique. groupID's begin at 300 and calcID's begin at
+	 * 1000.
+	 */
 	private static final GroupDescriptor hierarchy =
 		new GroupDescriptor(0, R.string.appName, R.mipmap.calc360, new Descriptor[]{
 			new GroupDescriptor(307, R.string.shopping, R.drawable.folder_shopping, new CalcDescriptor[]{
@@ -91,7 +95,7 @@ final class Descriptors {
 				new CalcDescriptor(1027, R.string.idealGas, R.drawable.ideal_gas, IdealGas.class),
 				new CalcDescriptor(1045, R.string.gasEnergy, R.drawable.gas_energy, GasEnergy.class),
 				new CalcDescriptor(1038, R.string.gasVelocity, R.drawable.gas_velocity, GasVelocity.class),
-				new CalcDescriptor(1049, R.string.relativity, R.drawable.einstein, Relativity.class),
+				new CalcDescriptor(1059, R.string.relativity, R.drawable.einstein, Relativity.class),
 			}),
 			new GroupDescriptor(310, R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
 				new CalcDescriptor(1032, R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),

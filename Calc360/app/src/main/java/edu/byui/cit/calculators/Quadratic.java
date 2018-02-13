@@ -14,7 +14,7 @@ import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
-import static edu.byui.cit.model.Geometry.Quadratic.*;
+import static edu.byui.cit.model.Mathematics.Quadratic.*;
 
 
 public final class Quadratic extends CalcFragment {
