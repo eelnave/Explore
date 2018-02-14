@@ -63,11 +63,6 @@
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"/>
 
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginEnd="20dp"
-		android:text="@string/perc"/>
-
 	<Button
 		android:id="@+id/btnClear"
 		android:layout_width="wrap_content"
