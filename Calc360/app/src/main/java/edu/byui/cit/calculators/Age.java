@@ -39,7 +39,7 @@ public final class Age extends CalcFragment {
 
 		// Reference each of the text fields
 		numberOne = new EditInteger(view, R.id.numberOne, this);
-		numberTwo = new EditInteger(view, R.id.numberThree, this);
+		numberTwo = new EditInteger(view, R.id.numberTwo, this);
 		numberThree = new EditInteger(view, R.id.numberThree, this);
 		exactAge = new TextWrapper(view, R.id.exactAge);
 
@@ -49,48 +49,56 @@ public final class Age extends CalcFragment {
 		return view;
 	}
 
-
 	@Override
 	protected void compute() {
 
-			Integer day = numberOne.getInt();
-			Integer month = numberTwo.getInt();
-			Integer year = numberThree.getInt();
+		Integer day = numberOne.getInt();
+		Integer month = numberTwo.getInt();
+		Integer year = numberThree.getInt();
 
-			Calendar now = Calendar.getInstance();
-			Calendar dateOfBirth = Calendar.getInstance();
-			int age;
-			int monthage;
-			int dayage;
-			String actualAge;
-			if (dateOfBirth.after(now)) {
-				throw new IllegalArgumentException(
-						"Can't be born in the future");
-			}
-			else {
-				int year1 = now.get(Calendar.YEAR);
-				int year2 = year;
-				age = year1 - year2;
-				int month1 = now.get(Calendar.MONTH);
-				int month2 = month;
-				if (month2 > month1) {
-					monthage = month1 - month2;
-					int day1 = now.get(Calendar.DAY_OF_MONTH);
-					int day2 = day;
-					if (day1 > day2) {
-						dayage = day2 - day1;
-					}
-				}
-				else if (month1 == month2) {
-					monthage = 0;
-					int day1 = now.get(Calendar.DAY_OF_MONTH);
-					int day2 = day;
-					if (day2 > day1) {
-						dayage = day2 - day1;
-					}
-				}
-			}
+		Calendar dateOfBirth = Calendar.getInstance();
+		dateOfBirth.set( year, month, day);
+		long currentTime = System.currentTimeMillis();
+		Calendar now = Calendar.getInstance();
+		now.setTimeInMillis(currentTime);
 
-			exactAge.setText(fmtrDec.format(age));
+		//Difference between years
+		year = now.get(Calendar.YEAR) - dateOfBirth.get(Calendar.YEAR);
+		int actualMonth = now.get(Calendar.MONTH) + 1;
+		int birthMonth = dateOfBirth.get(Calendar.MONTH) + 1;
+
+		//Difference between months
+		month = actualMonth - birthMonth;
+
+		//If month difference is negative then reduce years by one
+		if (month < 0) {
+			year = year -1;
+			month = 12 - birthMonth + actualMonth;
+			if (now.get(Calendar.DATE) < dateOfBirth.get(Calendar.DATE))
+				month = month - 1;
+		}
+		else if (month == 0 && now.get(Calendar.DATE) < dateOfBirth.get(Calendar.DATE)) {
+			year = year - 1;
+			month = 11;
+		}
+
+		//Calculate days
+		if (now.get(Calendar.DATE) > dateOfBirth.get(Calendar.DATE))
+			day = now.get(Calendar.DATE) - dateOfBirth.get(Calendar.DATE);
+		else if (now.get(Calendar.DATE) < dateOfBirth.get(Calendar.DATE)) {
+			int today = now.get(Calendar.DAY_OF_MONTH);
+			now.add(Calendar.MONTH, -1);
+			day = now.getActualMaximum(Calendar.DAY_OF_MONTH) - dateOfBirth.get(Calendar.DAY_OF_MONTH) + today;
+		}
+		else {
+			day = 0;
+			if (month == 12) {
+				year = year + 1;
+				month = 0;
+			}
+		}
+			String age = Integer.toString(year) + " years " + Integer.toString(month) + " months " + Integer.toString(day) + " days old!";
+
+			exactAge.setText(fmtrDec.format(year));
 		}
 	}
