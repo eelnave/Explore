@@ -9,7 +9,6 @@
 	tools:ignore="ExtraText">
 
 
-	//Investment box.
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/pv"
@@ -24,7 +23,7 @@
 		<requestFocus/>
 	</EditText>
 
-	// total investment box.
+
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/totalInvest"
@@ -41,16 +40,6 @@
 
 
 
-	<!--//dont know what this is right now. i think we can take it out.-->
-	<!--<TextView-->
-		<!--android:id="@+id/curTaxAmt"-->
-		<!--style="@style/TextResult"/>-->
-
-
-	// ROI
-
-
-	//dont know what this one is either.
 
 	<TextView
 		style="@style/TextLabel"
