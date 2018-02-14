@@ -35,19 +35,21 @@
 	<TextView
 		style="@style/TextLabel"
 		android:labelFor="@+id/numberThree"
-		android:text="@string/year1"/>
+		android:text="@string/year1"
+		compat:layout_columnSpan="3"/>
+
 
 	<EditText
 		android:id="@+id/numberThree"
 		style="@style/UnsignedDecimal"
-		android:ems="3"
+		android:ems="5"
 		android:hint="@string/yearhint"
 		android:imeOptions="actionDone"/>
 
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
-		android:text="@string/total"
+		android:text="@string/yourAge"
 		compat:layout_columnSpan="3"/>
 
 	<TextView
