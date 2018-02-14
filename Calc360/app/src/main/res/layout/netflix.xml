@@ -2,6 +2,7 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	compat:columnCount="4">
@@ -30,7 +31,8 @@
 	<EditText
 		android:id="@+id/hours1"
 		style="@style/UnsignedInteger"
-		android:ems="5">
+		android:ems="5"
+		tools:ignore="LabelFor">
 
 		<requestFocus/>
 	</EditText>
@@ -44,7 +46,8 @@
 	<EditText
 		android:id="@+id/hours2"
 		style="@style/UnsignedInteger"
-		android:ems="5">
+		android:ems="5"
+		tools:ignore="LabelFor">
 
 		<requestFocus/>
 	</EditText>
@@ -58,7 +61,8 @@
 	<EditText
 		android:id="@+id/hours3"
 		style="@style/UnsignedInteger"
-		android:ems="5">
+		android:ems="5"
+		tools:ignore="LabelFor">
 
 		<requestFocus/>
 	</EditText>
@@ -72,7 +76,8 @@
 	<EditText
 		android:id="@+id/minutes1"
 		style="@style/UnsignedInteger"
-		android:ems="5">
+		android:ems="5"
+		tools:ignore="LabelFor">
 
 		<requestFocus/>
 	</EditText>
@@ -86,7 +91,8 @@
 	<EditText
 		android:id="@+id/minutes2"
 		style="@style/UnsignedInteger"
-		android:ems="5">
+		android:ems="5"
+		tools:ignore="LabelFor">
 
 		<requestFocus/>
 	</EditText>
