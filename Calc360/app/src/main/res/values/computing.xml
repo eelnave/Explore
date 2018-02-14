@@ -12,4 +12,13 @@
 	<string name="subnetHint">First octet of the address (Everything before the first period)</string>
 	<string name="defaultMask">Default Mask</string>
 	<string name="availableHosts">Available Hosts</string>
+
+	<string name="streamServicePayment">Streaming Service Payment</string>
+	<string name="twoDotFiveHRS">2.5 Hours</string>
+	<string name="twoHours">2 Hours</string>
+	<string name="oneDotFiveHRS">1.5 Hours</string>
+	<string name="fortyFiveMINS">45 Minutes</string>
+	<string name="twentyTwoMINS">22 Minutes</string>
+	<string name="totalTime">Total Time Watched</string>
+	<string name="spentPerTime">Spent Per Time</string>
 </resources>
