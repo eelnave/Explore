@@ -7,7 +7,7 @@
 	compat:columnCount="4">
 
 
-	//Investment box.
+
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/pv"
@@ -22,7 +22,7 @@
 		<requestFocus/>
 	</EditText>
 
-	// total investment box.
+
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/totalInvest"
@@ -39,19 +39,18 @@
 
 
 
-	//dont know what this is right now.
 	<TextView
 		android:id="@+id/curTaxAmt"
 		style="@style/TextResult"/>
 
 
-	// ROI
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
 		android:text="@string/roi"
 		compat:layout_columnSpan="3"/>
-//dont know what this one is either.
+
+
 	<TextView
 		android:id="@+id/curTotal"
 		style="@style/TextResult"

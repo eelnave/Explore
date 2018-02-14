@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
@@ -21,15 +20,12 @@ import edu.byui.cit.text.TextWrapper;
 public final class ROI extends CalcFragment {
 	private final NumberFormat fmtrDec, fmtrCur;
 
-	// Each of these variables is a reference to
-	// one of the text fields in this calculator.
 	private EditCurrency startPrice;
 	private EditCurrency totalMoney;
 	private TextWrapper curTaxAmt, curTotal;
 
 
 	public ROI() {
-		// Call the constructor in the parent class.
 		super();
 
 		fmtrDec = NumberFormat.getInstance();
@@ -39,10 +35,8 @@ public final class ROI extends CalcFragment {
 
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.roi, container, false);
 
-		// Get a reference to each of the text fields in this calculator.
 		startPrice = new EditCurrency(view, R.id.startInvestment, this);
 		totalMoney = new EditCurrency(view, R.id.allTheMoney, this);
 		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
@@ -57,13 +51,11 @@ public final class ROI extends CalcFragment {
 
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
-		// Get the previous sales tax rate entered by the user if it exits.
 		totalMoney.restore(prefs, fmtrDec);
 	}
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Write the tax rate entered by the user into the preferences file.
 		totalMoney.save(editor);
 	}
 
