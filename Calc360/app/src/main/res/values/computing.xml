@@ -19,6 +19,6 @@
 	<string name="oneDotFiveHRS">1.5 Hours</string>
 	<string name="fortyFiveMINS">45 Minutes</string>
 	<string name="twentyTwoMINS">22 Minutes</string>
-	<string name="totalTime">Total Time Watched</string>
-	<string name="spentPerTime">Spent Per Time</string>
+	<string name="totalTime">Total Time Watched:</string>
+	<string name="spentPerTime">Spent Per Time:</string>
 </resources>
