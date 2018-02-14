@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
@@ -8,95 +6,73 @@
 	android:layout_height="wrap_content"
 	compat:columnCount="3">
 
-
 	<TextView
-		android:id="@+id/focal-length-id"
+		style="@style/TextLabel"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="20dp"
-		android:layout_marginTop="20dp"
-		android:text="@string/focal_length"
-		compat:layout_column="0"
-		style="@style/TextLabel"/>
-
-	<TextView
-		android:id="@+id/crop-factor-id"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginBottom="20dp"
-		android:layout_marginTop="20dp"
-		android:text="@string/crop_factor"
-		compat:layout_column="0"
-		compat:layout_row="1"
-		style="@style/TextLabel"/>
+		android:labelFor="@+id/focal-length-entry"
+		android:text="@string/stxpFocalLength"/>
 
 	<EditText
-		android:id="@+id/focal-entry-id"
+		android:id="@+id/focal-length-entry"
+		style="@style/UnsignedInteger"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:width="100dp"
-		android:layout_marginBottom="20dp"
-		android:layout_marginTop="20dp"
-		android:ems="10"
-		android:hint="@string/ex_18"
-		compat:layout_column="1"
-		compat:layout_row="0"
-		style="@style/UnsignedInteger">
+		android:ems="5"
+		android:hint="@string/stxpFocalHint">
+
 		<requestFocus/>
 	</EditText>
 
-	<EditText
-		android:id="@+id/crop-factor-entry"
+	<TextView
+		style="@style/TextLabel"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:width="100dp"
-		android:ems="10"
-		android:layout_marginBottom="20dp"
-		android:layout_marginTop="20dp"
-		android:hint="@string/ex_1_5"
-		compat:layout_column="1"
-		compat:layout_row="1"
-		style="@style/UnsignedDecimal"
-		android:imeOptions="actionDone"
-		/>
-
-
+		android:text="@string/millimeters"/>
 
 	<TextView
-		android:id="@+id/unit-type-id1"
+		style="@style/TextLabel"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginStart="10dp"
-		android:layout_marginBottom="20dp"
-		android:layout_marginTop="20dp"
-		android:ems="10"
-		android:text="@string/mm"
-		compat:layout_column="2"
-		compat:layout_row="0"
-		style="@style/TextLabel"/>
+		android:labelFor="@+id/crop-factor-entry"
+		android:text="@string/stxpCropFactor"/>
+
+	<EditText
+		android:id="@+id/crop-factor-entry"
+		style="@style/UnsignedDecimal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="5"
+		android:hint="@string/stxpCropHint"
+		android:imeOptions="actionDone"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/stxpExposure"/>
 
 	<TextView
 		android:id="@+id/starExpValField"
+		style="@style/TextLabel"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="20dp"
-		android:layout_marginStart="10dp"
-		android:layout_marginTop="20dp"
-		android:width="100dp"
-		android:ems="10"
-		compat:layout_column="1"
-		compat:layout_row="2"
-		style="@style/TextLabel"/>
+		android:layout_marginTop="10dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/seconds"/>
 
 	<Button
 		android:id="@+id/clear-button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="20dp"
-		android:layout_marginTop="20dp"
+		android:layout_marginTop="15dp"
 		android:text="@string/clear"
-		compat:layout_column="0"
-		compat:layout_row="2"/>
-
-
+		compat:layout_columnSpan="3"/>
 </android.support.v7.widget.GridLayout>
