@@ -101,10 +101,10 @@ public class Subnet extends CalcFragment {
 			int sub = 0;
 			int zero = 0;
 
-			if (input5 >= 255) {
-				if (input6 >= 255) {
-					if (input7 >= 255) {
-						if (input8 >= 255) {
+			if (input5 == 255) {
+				if (input6 == 255) {
+					if (input7 == 255) {
+						if (input8 == 255) {
 							sub = 0;
 							zero = 0;
 						}
