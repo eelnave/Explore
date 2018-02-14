@@ -1,5 +1,6 @@
 package edu.byui.cit.calculators;
 
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +17,9 @@ import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
+
 import edu.byui.cit.text.RadioWrapper;
+
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Mass;
@@ -107,7 +110,7 @@ public final class CaloriesBurned extends CalcFragment {
 			new RatioPair(R.id.radKickboxing,10.5)
 	};
 
-	/** Linear search to find a ratio from the corresponding RadioButton id. */
+
 	private static double getRatio(int id) {
 		double r = -1;
 		for (RatioPair pair : ratios) {
@@ -118,7 +121,6 @@ public final class CaloriesBurned extends CalcFragment {
 		}
 		return r;
 	}
-
 
 	@Override
 	public void compute() {
