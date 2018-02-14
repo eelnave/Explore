@@ -9,6 +9,7 @@ import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditWrapper;
 
 
+/** The parent (or grandparent) class of all calculators. */
 public abstract class CalcFragment extends InfoFragment {
 	EditWrapper[] inputs;
 	EditWrapper[][] groups;

@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="contribsWinter2018A" translatable="false">
+		Dustin Rowbury\n
+		James Warner</string>
+	<string name="contribsWinter2018B" translatable="false">
+	</string>
+
 	<string name="contribsFall2017A" translatable="false">
 		Jose Abarca Suarez\n
 		Luiz Bezerra\n
@@ -13,8 +19,7 @@
 		Justin Ishino\n
 		Patti Jones\n
 		Trek McLachlan\n
-		Bryan McNeil\n
-	</string>
+		Bryan McNeil</string>
 	<string name="contribsFall2017B" translatable="false">
 		Jordan Murray\n
 		Tanner Nielsen\n
@@ -28,6 +33,4 @@
 		Michael Vance\n
 		Yurii Vasiuk\n
 		Zachary Williams</string>
-
-	<string name="contribsWinter2018" translatable="false"></string>
 </resources>

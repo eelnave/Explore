@@ -5,16 +5,18 @@ import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
 
 
-public class CalcButton extends AppCompatButton {
-	public CalcButton(Context context) {
+/** A nearly square button that is used
+ * to open folders and start calculators. */
+public class IconButton extends AppCompatButton {
+	public IconButton(Context context) {
 		super(context);
 	}
 
-	public CalcButton(Context context, AttributeSet attrs) {
+	public IconButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	}
 
-	public CalcButton(Context context, AttributeSet attrs, int defStyleAttr) {
+	public IconButton(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 	}
 

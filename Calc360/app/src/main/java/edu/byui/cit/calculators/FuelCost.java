@@ -21,8 +21,6 @@ import edu.byui.cit.units.FuelEffic;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Volume;
 
-import static edu.byui.cit.text.EditWrapper.allNotEmpty;
-
 
 public final class FuelCost extends CalcFragment {
 	private static final String
@@ -65,8 +63,9 @@ public final class FuelCost extends CalcFragment {
 		curFuelCost = new TextWrapper(view, R.id.curFuelCost);
 
 		EditWrapper[] inputs = { decDist, decEffic, curPrice };
-		ControlWrapper[] toClear = { decDist, decEffic, curPrice, curFuelCost };
-
+		ControlWrapper[] toClear = {
+				decDist, decEffic, curPrice, curFuelCost
+		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -75,8 +74,10 @@ public final class FuelCost extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		// Restore the user selected units from the preferences file.
-		spinDistUnits.restore(prefs, spinDistUnits.getItemAtPosition(0).getID());
-		spinEfficUnits.restore(prefs, spinEfficUnits.getItemAtPosition(0).getID());
+		spinDistUnits.restore(
+				prefs, spinDistUnits.getItemAtPosition(0).getID());
+		spinEfficUnits.restore(
+				prefs, spinEfficUnits.getItemAtPosition(0).getID());
 		spinVolUnits.restore(prefs, spinVolUnits.getItemAtPosition(0).getID());
 	}
 
@@ -92,7 +93,7 @@ public final class FuelCost extends CalcFragment {
 	@Override
 	protected void compute() {
 		String output = null;
-		if (allNotEmpty(decDist, decEffic, curPrice)) {
+		if (EditWrapper.allNotEmpty(decDist, decEffic, curPrice)) {
 			double dist = decDist.getDec();
 			double effic = decEffic.getDec();
 			double price = 1.0 / curPrice.getCur();

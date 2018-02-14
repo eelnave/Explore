@@ -1,0 +1,15 @@
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context="edu.byui.cit.kindness.MainActivity">
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		compat:columnCount="3">
+
+	</android.support.v7.widget.GridLayout>
+</ScrollView>
