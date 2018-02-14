@@ -11,11 +11,7 @@
 		android:layout_height="match_parent"
 		android:orientation="vertical">
 
-		<!--<TextView-->
-		<!--android:id="@+id/titleDBTP"-->
-		<!--android:layout_width="match_parent"-->
-		<!--android:layout_height="36dp"-->
-		<!--android:text="@string/distanceBetweenPoints"/>-->
+
 
 		<LinearLayout
 			android:layout_width="match_parent"
@@ -36,7 +32,7 @@
 
 			<EditText
 				android:id="@+id/oneX"
-				style="@style/UnsignedDecimal"
+				style="@style/SignedDecimal"
 				android:layout_width="75dp"
 				android:layout_height="40dp"
 				android:ems="4"
@@ -51,7 +47,7 @@
 
 			<EditText
 				android:id="@+id/oneY"
-				style="@style/UnsignedDecimal"
+				style="@style/SignedDecimal"
 				android:layout_width="75dp"
 				android:layout_height="40dp"
 				android:ems="5"
@@ -87,7 +83,7 @@
 				android:id="@+id/twoX"
 				android:layout_width="75dp"
 				android:layout_height="40dp"
-				style="@style/UnsignedDecimal"
+				style="@style/SignedDecimal"
 				android:ems="10"
 				android:hint="@string/X"
 				android:inputType="numberDecimal"/>
@@ -102,7 +98,7 @@
 				android:id="@+id/twoY"
 				android:layout_width="75dp"
 				android:layout_height="40dp"
-				style="@style/UnsignedDecimal"
+				style="@style/SignedDecimal"
 				android:ems="10"
 				android:hint="@string/Y"
 				android:inputType="numberDecimal"/>
@@ -129,7 +125,7 @@
 				android:id="@+id/total"
 				android:layout_width="100dp"
 				android:layout_height="40dp"
-				style="@style/UnsignedDecimal"
+				style="@style/SignedDecimal"
 				android:ems="10"
 				android:hint="@string/answer"
 				android:inputType="numberDecimal"/>
