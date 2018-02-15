@@ -3,7 +3,7 @@
 	<string name="starExposure">Star Exposure</string>
 	<string name="stxpFocalLength">Focal Length</string>
 	<string name="stxpCropFactor">Crop Factor</string>
-	<string name="stxpExposure">Exposure?</string>
+	<string name="stxpExposure">Exposure</string>
 	<string name="stxpFocalHint">ex: 18</string>
 	<string name="stxpCropHint">ex: 1.5</string>
 </resources>

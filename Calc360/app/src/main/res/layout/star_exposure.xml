@@ -19,7 +19,8 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:ems="5"
-		android:hint="@string/stxpFocalHint">
+		android:hint="@string/stxpFocalHint"
+		android:maxLength="3">
 
 		<requestFocus/>
 	</EditText>
@@ -44,7 +45,8 @@
 		android:layout_height="wrap_content"
 		android:ems="5"
 		android:hint="@string/stxpCropHint"
-		android:imeOptions="actionDone"/>
+		android:imeOptions="actionDone"
+		android:maxLength="5"/>
 
 	<Space/>
 
@@ -53,11 +55,12 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="10dp"
-		android:text="@string/stxpExposure"/>
+		android:text="@string/stxpExposure"
+		android:labelFor="@id/starExpValField"/>
 
 	<TextView
 		android:id="@+id/starExpValField"
-		style="@style/TextLabel"
+		style="@style/TextResult"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="10dp"/>
