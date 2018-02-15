@@ -1,4 +1,3 @@
-// kristina and josh new subnet calc
 package edu.byui.cit.calculators;
 
 import android.os.Bundle;
@@ -18,6 +17,7 @@ import edu.byui.cit.text.TextWrapper;
 
 public class Subnet extends CalcFragment {
 	private EditInteger ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8;
+	private EditWrapper[] inputs;
 	private TextWrapper availableHosts, numberOfSubnets;
 	private final NumberFormat fmtrInt;
 
@@ -47,8 +47,9 @@ public class Subnet extends CalcFragment {
 		numberOfSubnets = new TextWrapper(view, R.id.numberOfSubnets);
 		availableHosts = new TextWrapper(view, R.id.availableHosts);
 
-		EditWrapper[] inputs = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
-		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8, availableHosts, numberOfSubnets };
+		inputs = new EditWrapper[]{ ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
+		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8,
+				availableHosts, numberOfSubnets };
 		initialize(view, inputs, R.id.btnClear, toClear);
 
 		return view;
@@ -88,12 +89,11 @@ public class Subnet extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		if (ip1.notEmpty() && ip2.notEmpty() && ip3.notEmpty() && ip4.notEmpty() && ip5.notEmpty()
-				&& ip6.notEmpty() && ip7.notEmpty() && ip8.notEmpty()) {
-		//	int input1 = ip1.getInt();
-		//	int input2 = ip2.getInt();
-		//	int input3 = ip3.getInt();
-		//	int input4 = ip4.getInt();
+		if (EditWrapper.allNotEmpty(inputs)) {
+			//	int input1 = ip1.getInt();
+			//	int input2 = ip2.getInt();
+			//	int input3 = ip3.getInt();
+			//	int input4 = ip4.getInt();
 			int input5 = ip5.getInt();
 			int input6 = ip6.getInt();
 			int input7 = ip7.getInt();
@@ -137,7 +137,6 @@ public class Subnet extends CalcFragment {
 								zero = 2;
 								sub = 64;
 							}
-
 						}
 					}
 					else {
@@ -173,7 +172,6 @@ public class Subnet extends CalcFragment {
 							zero = 510;
 							sub = 128;
 						}
-
 					}
 				}
 				else {
@@ -214,17 +212,9 @@ public class Subnet extends CalcFragment {
 			numberOfSubnets.setText(fmtrInt.format(sub));
 			availableHosts.setText(fmtrInt.format(zero));
 		}
-		/*else {
-			ip1.clear();
-			ip2.clear();
-			ip3.clear();
-			ip4.clear();
-			ip5.clear();
-			ip6.clear();
-			ip7.clear();
-			ip8.clear();
+		else {
 			availableHosts.clear();
 			numberOfSubnets.clear();
-		}*/
+		}
 	}
 }
