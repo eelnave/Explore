@@ -53,10 +53,10 @@
 
 	<RadioGroup
 		android:id="@+id/grpExercise"
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_below="@+id/intTime"
-		android:layout_centerHorizontal="true"
+		android:layout_alignParentStart="true"
 		android:layout_marginTop="10dp"
 		android:checkedButton="@+id/radWeight">
 
@@ -83,6 +83,36 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/swimming"/>
+
+		<RadioButton
+			android:id="@+id/radCycling"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/cycling"/>
+
+		<RadioButton
+			android:id="@+id/radDancing"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/dancing"/>
+
+		<RadioButton
+			android:id="@+id/radKickboxing"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/kickboxing"/>
+
+		<RadioButton
+			android:id="@+id/radBasketball"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/basketball"/>
+
+		<RadioButton
+			android:id="@+id/radTv"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/television"/>
 	</RadioGroup>
 
 	<TextView
