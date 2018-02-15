@@ -101,6 +101,9 @@ final class Descriptors {
 				new CalcDescriptor(1038, R.string.gasVelocity, R.drawable.gas_velocity, GasVelocity.class),
 				new CalcDescriptor(1059, R.string.relativity, R.drawable.einstein, Relativity.class),
 			}),
+			new GroupDescriptor(313, R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
+
+			}),
 			new GroupDescriptor(310, R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
 				new CalcDescriptor(1032, R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),
 				new CalcDescriptor(1021, R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
