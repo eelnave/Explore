@@ -9,7 +9,8 @@
 	<string name="modExplain">The modulo operator returns the remainder of a division operation. For example, 14\u00a0/\u00a03\u00a0=\u00a04.67, while 14\u00a0%\u00a03\u00a0=\u00a02. This is because 3 divides into 14, 4 times, with 2 left over. Remember, we don\u2019t need to pay attention to the quotient of the division, only the remainder.</string>
 
 	<string name="subnet">Subnets</string>
-	<string name="subnetHint">First octet of the address (Everything before the first period)</string>
-	<string name="defaultMask">Default Mask</string>
+	<string name="subnetHint">Enter an IP address or Network ID</string>
+	<string name="defaultMask">Enter a Subnet Mask</string>
 	<string name="availableHosts">Available Hosts</string>
+	<string name="numberOfSubnets">Number of Subnets</string>
 </resources>
