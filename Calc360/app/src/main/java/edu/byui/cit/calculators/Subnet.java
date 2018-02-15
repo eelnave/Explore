@@ -90,10 +90,10 @@ public class Subnet extends CalcFragment {
 	@Override
 	protected void compute() {
 		if (EditWrapper.allNotEmpty(inputs)) {
-			//	int input1 = ip1.getInt();
-			//	int input2 = ip2.getInt();
-			//	int input3 = ip3.getInt();
-			//	int input4 = ip4.getInt();
+			//	int input1 = ip1.getInt();  Planning on doing more later
+			//	int input2 = ip2.getInt();  Planning on doing more later
+			//	int input3 = ip3.getInt();  Planning on doing more later
+			//	int input4 = ip4.getInt();  Planning on doing more later
 			int input5 = ip5.getInt();
 			int input6 = ip6.getInt();
 			int input7 = ip7.getInt();
@@ -101,10 +101,10 @@ public class Subnet extends CalcFragment {
 			int sub = 0;
 			int zero = 0;
 
-			if (input5 >= 255) {
-				if (input6 >= 255) {
-					if (input7 >= 255) {
-						if (input8 >= 255) {
+			if (input5 == 255) {
+				if (input6 == 255) {
+					if (input7 == 255) {
+						if (input8 == 255) {
 							sub = 0;
 							zero = 0;
 						}

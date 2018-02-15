@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
@@ -30,7 +31,8 @@
 		<EditText
 			android:id="@+id/ipValue2"
 			style="@style/UnsignedInteger"
-			android:ems="3"/>
+			android:ems="3"
+			tools:ignore="LabelFor"/>
 
 		<TextView
 			style="@style/TextLabel"
@@ -39,7 +41,8 @@
 		<EditText
 			android:id="@+id/ipValue3"
 			style="@style/UnsignedInteger"
-			android:ems="3"/>
+			android:ems="3"
+			tools:ignore="LabelFor"/>
 
 		<TextView
 			style="@style/TextLabel"
@@ -48,7 +51,8 @@
 		<EditText
 			android:id="@+id/ipValue4"
 			style="@style/UnsignedInteger"
-			android:ems="3"/>
+			android:ems="3"
+			tools:ignore="LabelFor"/>
 	</LinearLayout>
 
 	<TextView
@@ -73,7 +77,8 @@
 		<EditText
 			android:id="@+id/ipValue6"
 			style="@style/UnsignedInteger"
-			android:ems="3"/>
+			android:ems="3"
+			tools:ignore="LabelFor"/>
 
 		<TextView
 			style="@style/TextLabel"
@@ -82,7 +87,8 @@
 		<EditText
 			android:id="@+id/ipValue7"
 			style="@style/UnsignedInteger"
-			android:ems="3"/>
+			android:ems="3"
+			tools:ignore="LabelFor"/>
 
 		<TextView
 			style="@style/TextLabel"
@@ -91,7 +97,8 @@
 		<EditText
 			android:id="@+id/ipValue8"
 			style="@style/UnsignedInteger"
-			android:ems="3"/>
+			android:ems="3"
+			tools:ignore="LabelFor"/>
 	</LinearLayout>
 
 	<LinearLayout
