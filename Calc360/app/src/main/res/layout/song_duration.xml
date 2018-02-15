@@ -4,7 +4,7 @@
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	compat:columnCount="2">
+	compat:columnCount="3">
 
 	<TextView
 		style="@style/TextLabel"
@@ -18,6 +18,8 @@
 
 		<requestFocus/>
 	</EditText>
+
+	<Space/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -33,6 +35,11 @@
 
 	<TextView
 		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:text="@string/tempoUnits"/>
+
+	<TextView
+		style="@style/TextLabel"
 		android:labelFor="@+id/timeSignature"
 		android:text="@string/timeSignature"/>
 
@@ -40,8 +47,13 @@
 		android:id="@+id/timeSignature"
 		style="@style/UnsignedInteger"
 		android:ems="4"
-		android:hint="@string/timeSignatureHint"
+		android:hint="@string/timeSigHint"
 		android:imeOptions="actionDone"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:text="@string/timeSigUnits"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -53,11 +65,17 @@
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"/>
 
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:layout_marginTop="15dp"
+		android:text="@string/songDurationUnits"/>
+
 	<Button
 		android:id="@+id/btnClear"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"
 		android:text="@string/clear"
-		compat:layout_columnSpan="2"/>
+		compat:layout_columnSpan="3"/>
 </android.support.v7.widget.GridLayout>

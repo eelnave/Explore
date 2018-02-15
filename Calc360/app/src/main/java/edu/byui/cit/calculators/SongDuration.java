@@ -12,11 +12,12 @@ import edu.byui.cit.text.EditInt;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
-public final class SongDuration extends CalcFragment {
 
+public final class SongDuration extends CalcFragment {
 	private EditInt totalMeasures;
 	private EditInt beatsPerMinute;
 	private EditInt timeSignature;
+	private EditWrapper[] inputs;
 	private TextWrapper songTime;
 
 
@@ -26,7 +27,6 @@ public final class SongDuration extends CalcFragment {
 
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
 		View view = inflater.inflate(R.layout.song_duration, container, false);
 
 		totalMeasures = new EditInt(view, R.id.totalMeasures, this);
@@ -34,34 +34,39 @@ public final class SongDuration extends CalcFragment {
 		timeSignature = new EditInt(view, R.id.timeSignature, this);
 		songTime = new TextWrapper(view, R.id.songDuration);
 
-		EditWrapper[] inputs = { totalMeasures, beatsPerMinute };
-		ControlWrapper[] toClear = { totalMeasures, beatsPerMinute, timeSignature, songTime};
+		inputs = new EditWrapper[]{ totalMeasures, beatsPerMinute };
+		ControlWrapper[] toClear = {
+				totalMeasures, beatsPerMinute, timeSignature, songTime
+		};
 		initialize(view, inputs, toClear, R.id.btnClear);
 		return view;
 	}
-	
+
+
 	@Override
 	protected void compute() {
-		if (totalMeasures.notEmpty() && beatsPerMinute.notEmpty() && timeSignature.notEmpty()) {
+		if (EditWrapper.allNotEmpty(inputs)) {
 			double measures = totalMeasures.getInt();
 			double bpm = beatsPerMinute.getInt();
 			double timeSig = timeSignature.getInt();
 
-			double songDur = timeSig * (measures / bpm);
+			int duration = (int)Math.round(timeSig * (measures / bpm) * 60);  // in seconds
+			int hour = duration / 3600;
+			duration %= 3600;
+			int min = duration / 60;
+			duration %= 60;
+			int sec = duration;
 
-			int time = (int)(songDur * 60);
-
-			int hour = time/3600;
-			time %= 3600;
-			int min = time/60;
-			time %= 60;
-			int sec = time;
-			String songDurText = hour + ":" + min + ":" + sec;
-
+			String songDurText = pad(hour) + ":" + pad(min) + ":" + pad(sec);
 			songTime.setText(songDurText);
 		}
 		else {
 			songTime.clear();
 		}
+	}
+
+	private static String pad(int x) {
+		String s = Integer.toString(x);
+		return "00".substring(0, 2 - s.length()) + s;
 	}
 }
