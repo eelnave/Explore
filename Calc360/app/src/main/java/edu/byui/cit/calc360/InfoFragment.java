@@ -96,10 +96,17 @@ public abstract class InfoFragment extends Fragment {
 			Activity act = getActivity();
 			act.setTitle(descriptor.getTitle(getResources()));
 			View focused = act.getCurrentFocus();
-			if (focused instanceof EditText) {
+			if (focused != null) {
 				InputMethodManager imm = (InputMethodManager)act
 						.getSystemService(Context.INPUT_METHOD_SERVICE);
-				imm.showSoftInput(focused, InputMethodManager.SHOW_IMPLICIT);
+				if (focused instanceof EditText) {
+					imm.showSoftInput(focused,
+							InputMethodManager.SHOW_IMPLICIT);
+				}
+				else {
+					imm.hideSoftInputFromWindow(focused.getWindowToken(),
+							InputMethodManager.HIDE_NOT_ALWAYS);
+				}
 			}
 		}
 		catch (Exception ex) {
