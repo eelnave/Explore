@@ -104,12 +104,11 @@ public final class CaloriesBurned extends CalcFragment {
 			new RatioPair(R.id.radRun, 12.5),
 			new RatioPair(R.id.radSwim, 8.0),
 			new RatioPair(R.id.radCycling, 9.0),
-			new RatioPair(R.id.radBasketball, 6.5),
 			new RatioPair(R.id.radDancing, 6.0),
-			new RatioPair(R.id.radTv, 1.0),
-			new RatioPair(R.id.radKickboxing,10.5)
+			new RatioPair(R.id.radKickboxing,10.5),
+			new RatioPair(R.id.radBasketball, 6.5),
+			new RatioPair(R.id.radTv, 1.0)
 	};
-
 
 	private static double getRatio(int id) {
 		double r = -1;
@@ -122,6 +121,7 @@ public final class CaloriesBurned extends CalcFragment {
 		return r;
 	}
 
+
 	@Override
 	public void compute() {
 		if (decWeight.notEmpty() && intTime.notEmpty()) {
@@ -130,13 +130,10 @@ public final class CaloriesBurned extends CalcFragment {
 			double weight = decWeight.getDec();
 			double minutes = intTime.getInt();
 
-			// Get from the spinner, the units that
-			// the user chose for inputting his weight.
+			// Convert the user's weight to kilograms.
+			Property mass = Mass.getInstance();
 			Unit unitMass = spinMass.getSelectedItem();
-			if (unitMass.getID() == Mass.kilogram) {
-				Property mass = Mass.getInstance();
-				weight = mass.convert(Mass.pound, weight, unitMass);
-			}
+			weight = mass.convert(Mass.kilogram, weight, unitMass);
 
 			double calories = Fitness.computeCalWithMet(ratio, weight, minutes);
 			String result = fmtrDec.format(calories) + " " + getString(
