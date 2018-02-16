@@ -6,7 +6,11 @@ import edu.byui.cit.calculators.*;
 
 
 final class Descriptors {
-	/** The hierarchy of group and calculator descriptors. */
+	/**
+	 * The hierarchy of group and calculator descriptors. Each groupID and
+	 * calcID must be unique. groupID's begin at 300 and calcID's begin at
+	 * 1000.
+	 */
 	private static final GroupDescriptor hierarchy =
 		new GroupDescriptor(0, R.string.appName, R.mipmap.calc360, new Descriptor[]{
 			new GroupDescriptor(307, R.string.shopping, R.drawable.folder_shopping, new CalcDescriptor[]{
@@ -68,7 +72,7 @@ final class Descriptors {
 				 */
 			}),
 			/*
-			new GroupDescriptor(312, "Geometry", R.drawable.geometryfolder, new CalcDescriptor[] {
+			new GroupDescriptor(?, "Geometry", R.drawable.geometryfolder, new CalcDescriptor[] {
 				new CalcDescriptor(?, "Points", R.drawable.points, Points.class),
 				new CalcDescriptor(?, "Circle", R.drawable.circle, Circle.class),
 				new CalcDescriptor(?, "Ellipse", R.drawable.ellipse, Ellipse.class),
@@ -81,6 +85,10 @@ final class Descriptors {
 				new CalcDescriptor(1009, R.string.meanEtc, R.drawable.mean_etc, MeanEtc.class),
 				new CalcDescriptor(1010, R.string.correl, R.drawable.correlation, Correlation.class),
 			}),
+			new GroupDescriptor(312, R.string.computing, R.drawable.folder_computing, new CalcDescriptor[]{
+				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
+				new CalcDescriptor(1047, R.string.subnet, R.drawable.network, Subnet.class),
+			}),
 			new GroupDescriptor(304, R.string.science, R.drawable.folder_science, new CalcDescriptor[]{
 				new CalcDescriptor(1040, R.string.NewtonsSecond, R.drawable.motion, NewtonsSecond.class),
 				new CalcDescriptor(1043, R.string.pendulum, R.drawable.pendulum, Pendulum.class),
@@ -91,12 +99,13 @@ final class Descriptors {
 				new CalcDescriptor(1027, R.string.idealGas, R.drawable.ideal_gas, IdealGas.class),
 				new CalcDescriptor(1045, R.string.gasEnergy, R.drawable.gas_energy, GasEnergy.class),
 				new CalcDescriptor(1038, R.string.gasVelocity, R.drawable.gas_velocity, GasVelocity.class),
-				new CalcDescriptor(1049, R.string.relativity, R.drawable.einstein, Relativity.class),
+				new CalcDescriptor(1059, R.string.relativity, R.drawable.einstein, Relativity.class),
+			}),
+			new GroupDescriptor(313, R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
+
 			}),
 			new GroupDescriptor(310, R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
 				new CalcDescriptor(1032, R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),
-				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
-				new CalcDescriptor(1047, R.string.subnet, R.drawable.binary2, Subnet.class),
 				new CalcDescriptor(1021, R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
 					new CalcDescriptor(1081, R.string.add2, R.mipmap.addition, PowerBradNicolas.class),
 

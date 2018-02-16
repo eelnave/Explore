@@ -1,5 +1,6 @@
 package edu.byui.cit.calculators;
 
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,7 +17,9 @@ import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
+
 import edu.byui.cit.text.RadioWrapper;
+
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Mass;
@@ -26,7 +29,6 @@ import edu.byui.cit.units.Unit;
 
 public final class CaloriesBurned extends CalcFragment {
 	private static final String KEY_MASS_UNITS = "CaloriesBurned.massUnits";
-
 	private final NumberFormat fmtrDec;
 	private EditDecimal decWeight;
 	private SpinUnit spinMass;
@@ -58,6 +60,11 @@ public final class CaloriesBurned extends CalcFragment {
 		new RadioWrapper(view, R.id.radWalk, this);
 		new RadioWrapper(view, R.id.radRun, this);
 		new RadioWrapper(view, R.id.radSwim, this);
+		new RadioWrapper(view, R.id.radBasketball, this);
+		new RadioWrapper(view, R.id.radCycling, this);
+		new RadioWrapper(view, R.id.radDancing, this);
+		new RadioWrapper(view, R.id.radTv, this);
+		new RadioWrapper(view, R.id.radKickboxing, this);
 
 		txtResult = new TextWrapper(view, R.id.txtResult);
 
@@ -92,13 +99,17 @@ public final class CaloriesBurned extends CalcFragment {
 	}
 
 	private static final RatioPair[] ratios = {
-			new RatioPair(R.id.radWeight, 0.024),
-			new RatioPair(R.id.radWalk, 0.03),
-			new RatioPair(R.id.radRun, 0.05),
-			new RatioPair(R.id.radSwim, 0.07)
+			new RatioPair(R.id.radWeight, 6.0),
+			new RatioPair(R.id.radWalk, 3.5),
+			new RatioPair(R.id.radRun, 12.5),
+			new RatioPair(R.id.radSwim, 8.0),
+			new RatioPair(R.id.radCycling, 9.0),
+			new RatioPair(R.id.radDancing, 6.0),
+			new RatioPair(R.id.radKickboxing,10.5),
+			new RatioPair(R.id.radBasketball, 6.5),
+			new RatioPair(R.id.radTv, 1.0)
 	};
 
-	/** Linear search to find a ratio from the corresponding RadioButton id. */
 	private static double getRatio(int id) {
 		double r = -1;
 		for (RatioPair pair : ratios) {
@@ -119,16 +130,12 @@ public final class CaloriesBurned extends CalcFragment {
 			double weight = decWeight.getDec();
 			double minutes = intTime.getInt();
 
-			// Get from the spinner, the units that
-			// the user chose for inputting his weight.
+			// Convert the user's weight to kilograms.
+			Property mass = Mass.getInstance();
 			Unit unitMass = spinMass.getSelectedItem();
-			if (unitMass.getID() == Mass.kilogram) {
-				Property mass = Mass.getInstance();
-				weight = mass.convert(Mass.pound, weight, unitMass);
-			}
+			weight = mass.convert(Mass.kilogram, weight, unitMass);
 
-			double calories = Fitness.computeCalories(ratio, weight,
-					minutes);
+			double calories = Fitness.computeCalWithMet(ratio, weight, minutes);
 			String result = fmtrDec.format(calories) + " " + getString(
 					R.string.calories);
 			txtResult.setText(result);

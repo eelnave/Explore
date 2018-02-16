@@ -119,7 +119,7 @@ public class GroupFragment extends CalcFragment {
 
 	private Button makeButton(final Descriptor descriptor, Context ctx,
 			Resources res, Resources.Theme theme) {
-		Button button = new CalcButton(ctx);
+		Button button = new IconButton(ctx);
 		button.setBackground(res.getDrawable(descriptor.getIconID(), theme));
 		button.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
 		button.setText(descriptor.getTitle(res));

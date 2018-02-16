@@ -1,12 +1,14 @@
 package edu.byui.cit.calc360;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import android.view.inputmethod.InputMethodManager;
 
 import java.lang.reflect.Field;
 
@@ -135,6 +137,18 @@ public final class Calc360 extends AppCompatActivity {
 		trans.replace(R.id.fragContainer, fragment);
 		trans.addToBackStack(null);
 		trans.commit();
+	}
+
+	@Override
+	public void onBackPressed() {
+		// Hide the virtual keyboard.
+		InputMethodManager imm = (InputMethodManager)
+				getSystemService(Context.INPUT_METHOD_SERVICE);
+		imm.hideSoftInputFromWindow(
+				findViewById(android.R.id.content).getWindowToken(),
+				InputMethodManager.HIDE_NOT_ALWAYS);
+
+		super.onBackPressed();
 	}
 
 //	@Override
