@@ -9,6 +9,16 @@
 
 	<TextView
 		style="@style/TextLabel"
+		android:text="@string/descrip1"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/descrip2"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		style="@style/TextLabel"
 		android:text="@string/streamServicePayment"
 		compat:layout_columnSpan="3"/>
 
@@ -30,7 +40,8 @@
 		android:id="@+id/hours1"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint1">
 
 	</EditText>
 
@@ -43,7 +54,8 @@
 		android:id="@+id/hours2"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint2">
 
 	</EditText>
 
@@ -56,7 +68,8 @@
 		android:id="@+id/hours3"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint3">
 
 	</EditText>
 
@@ -69,9 +82,9 @@
 		android:id="@+id/minutes1"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint22">
 
-		<requestFocus/>
 	</EditText>
 
 	<TextView
@@ -83,7 +96,8 @@
 		android:id="@+id/minutes2"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint45">
 
 	</EditText>
 
