@@ -48,6 +48,8 @@
 	<string name="monthhint"> 2 </string>
 	<string name="year1">Birth year: </string>
 	<string name="yearhint"> 1993 </string>
-	<string name="yourAge"> Your age: </string>
+	<string name="yearsOld"> Years:  </string>
+	<string name="monthsOld"> Months:  </string>
+	<string name="daysOld"> Days:  </string>
 	<string name="age">Age Calculator</string>
 </resources>

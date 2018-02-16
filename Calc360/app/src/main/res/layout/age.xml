@@ -49,11 +49,33 @@
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
-		android:text="@string/yourAge"
+		android:text="@string/yearsOld"
 		compat:layout_columnSpan="3"/>
 
 	<TextView
-		android:id="@+id/exactAge"
+		android:id="@+id/exactYears"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/monthsOld"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		android:id="@+id/exactMonths"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/daysOld"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		android:id="@+id/exactDays"
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"/>
 
