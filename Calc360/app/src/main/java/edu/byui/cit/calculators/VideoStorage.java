@@ -72,21 +72,27 @@ public final class VideoStorage extends CalcFragment {
 		if (space.notEmpty()) {
 			double reSpace = space.getDec();
 			double asMb = reSpace * 1024;
-			double reFourKSixty = (asMb / 7.5) / 60;
-			double reFourKThirty = (asMb / 5.83) / 60;
-			double reTenEighty = (asMb / 2.92) / 60;
-			double reSevenTwenty = (asMb / 1.0) / 60;
+			int reFourKSixty = (int) (asMb / 7.5) / 60;
+			int reFourKThirty = (int) (asMb / 5.9) / 60;
+			int reTenEighty = (int) (asMb / 3.33) / 60;
+			int reSevenTwenty = (int) (asMb / 1.5) / 60;
 
+			String sFourKSixty = reFourKSixty + " mins";
+			String sFourKThirty = reFourKThirty + " mins";
+			String sTenEighty = reTenEighty + " mins";
+			String sSevenTwenty = reSevenTwenty + " mins";
 
-			double taxAmt = Consumer.Ratio.amount(taxRate, price);
-			double total = Consumer.Ratio.total(taxRate, price);
-			curTaxAmt.setText(fmtrCur.format(taxAmt));
-			curTotal.setText(fmtrCur.format(total));
+			fourKSixty.setText(sFourKSixty);
+			fourKThirty.setText(sFourKThirty);
+			tenEighty.setText(sTenEighty);
+			sevenTwenty.setText(sSevenTwenty);
 		}
 		else {
-			// If one or both of the inputs are empty, clear the outputs.
-			curTaxAmt.clear();
-			curTotal.clear();
+			space.clear();
+			fourKSixty.clear();
+			fourKThirty.clear();
+			tenEighty.clear();
+			sevenTwenty.clear();
 		}
 	}
 }
