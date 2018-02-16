@@ -9,7 +9,6 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:layout_weight="1"
 		android:text="@string/streamServicePayment"
 		compat:layout_columnSpan="3"/>
 
@@ -25,7 +24,6 @@
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/twoDotFiveHRS"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
@@ -39,7 +37,6 @@
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/twoHours"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
@@ -53,7 +50,6 @@
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/oneDotFiveHRS"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
@@ -67,7 +63,6 @@
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/fortyFiveMINS"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
@@ -82,7 +77,6 @@
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/twentyTwoMINS"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
