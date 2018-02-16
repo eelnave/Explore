@@ -4,37 +4,89 @@
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
+	android:layout_margin="15dp"
 	compat:columnCount="4">
-
+<LinearLayout>
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/itemPrice"
+		android:text="@string/space"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
 		android:id="@+id/space"
 		style="@style/UnsignedDecimal"
-		android:ems="5"
-		android:hint="@string/priceHint">
+		android:ems="4"
+		android:textAlignment="center"
+		android:hint="@string/spaceHint">
 
 		<requestFocus/>
+
 	</EditText>
-
-
 	<TextView
-		android:id="@+id/curTaxAmt"
-		style="@style/TextResult"/>
+		style="@style/TextLabel"
+		android:text="@string/space2"
+		compat:layout_columnSpan="3"/>
+</LinearLayout>
+
+	<RelativeLayout></RelativeLayout>
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:layout_marginBottom="15dp"
+		android:text="@string/VideoQual"
+		android:textStyle="bold"
+		compat:layout_columnSpan="3"/>
 
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
-		android:text="@string/total"
+		android:layout_marginBottom="15dp"
+		android:text="@string/fourKS"
 		compat:layout_columnSpan="3"/>
 
 	<TextView
-		android:id="@+id/curTotal"
+		android:id="@+id/fourKSixty"
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:layout_marginBottom="15dp"
+		android:text="@string/fourKT"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		android:id="@+id/fourKThirty"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:layout_marginBottom="15dp"
+		android:text="@string/tenEighty"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		android:id="@+id/tenEighty"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:layout_marginBottom="15dp"
+		android:text="@string/sevenTwenty"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		android:id="@+id/sevenTwenty"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
 
 	<Button
 		android:id="@+id/btnClear"
@@ -43,4 +95,6 @@
 		android:layout_marginTop="15dp"
 		android:text="@string/clear"
 		compat:layout_columnSpan="4"/>
+
+
 </android.support.v7.widget.GridLayout>
