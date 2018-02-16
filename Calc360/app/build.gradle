@@ -34,4 +34,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'org.jetbrains:annotations-java5:15.0'
     compile 'com.google.code.findbugs:jsr305:2.0.1'
+    compile 'org.testng:testng:6.9.6'
 }
