@@ -1,16 +1,13 @@
 
 package edu.byui.cit.calculators;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
@@ -75,11 +72,5 @@ public final class DistanceBetweenPoints extends CalcFragment {
 
 			total.setText(fmtrDec.format(total1));
 		}
-		else {
-				/*oneY.clear();
-				oneX.clear();
-				twoX.clear();
-				twoY.clear();*/
-			}
 	}
 }
