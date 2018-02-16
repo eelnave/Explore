@@ -2,25 +2,28 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DBConnector {
 
-    public static List<Report> getReports(ReportTimes reportTimes)
-            throws SQLException, ClassNotFoundException {
+    public static void addReport(double latitude, double longitude) {
+        /* connect to DB */
+    }
 
-        List<Report> reports = new ArrayList<>();
+    public static List<Report> getReports(
+            ReportTimes reportTimes)
+            throws SQLException, ClassNotFoundException {
 
         // Load JDBC Driver
         Class.forName("com.mysql.jdbc.Driver");
-        System.out.println("Driver Loaded");
+
+        List<Report> reports = new ArrayList<>();
 
         // Make connection to database
         Connection connection = DriverManager.getConnection(
                 "jdbc:mysql://localhost/kindness", "java", "java");
-        System.out.println("Database connected");
 
         Statement statement = connection.createStatement();
         ResultSet resultSet = null;
-
 
         /* Case for which statement to execute */
         switch (reportTimes) {
@@ -70,8 +73,6 @@ public class DBConnector {
         while (resultSet.next()) {
             double latitude = Double.parseDouble(resultSet.getString(1));
             double longitude = Double.parseDouble(resultSet.getString(2));
-
-            System.out.println(latitude + "\t" + longitude);
 
             Report report = new Report(latitude, longitude);
             reports.add(report);
