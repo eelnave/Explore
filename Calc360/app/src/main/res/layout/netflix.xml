@@ -34,7 +34,6 @@
 		android:ems="5"
 		tools:ignore="LabelFor">
 
-		<requestFocus/>
 	</EditText>
 
 	<TextView
@@ -49,7 +48,6 @@
 		android:ems="5"
 		tools:ignore="LabelFor">
 
-		<requestFocus/>
 	</EditText>
 
 	<TextView
@@ -64,7 +62,6 @@
 		android:ems="5"
 		tools:ignore="LabelFor">
 
-		<requestFocus/>
 	</EditText>
 
 	<TextView
@@ -94,7 +91,6 @@
 		android:ems="5"
 		tools:ignore="LabelFor">
 
-		<requestFocus/>
 	</EditText>
 
 	<TextView
