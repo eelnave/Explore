@@ -17,7 +17,6 @@ import edu.byui.cit.text.TextWrapper;
 
 
 public final class ROI extends CalcFragment {
-	private final NumberFormat fmtrDec, fmtrCur;
 
 
 	private EditCurrency startPrice;
@@ -28,8 +27,6 @@ public final class ROI extends CalcFragment {
 	public ROI() {
 		super();
 
-		fmtrDec = NumberFormat.getInstance();
-		fmtrCur = NumberFormat.getCurrencyInstance();
 	}
 
 
@@ -42,7 +39,7 @@ public final class ROI extends CalcFragment {
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
 		EditWrapper[] inputs = { startPrice, totalMoney };
-		ControlWrapper[] toClear = { startPrice, curTotal };
+		ControlWrapper[] toClear = { startPrice, curTotal, totalMoney};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -58,6 +55,7 @@ public final class ROI extends CalcFragment {
 		}
 		else {
 			curTotal.clear();
+
 		}
 	}
 }
