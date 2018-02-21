@@ -7,7 +7,6 @@
 	android:layout_height="match_parent">
 
  <android.support.v7.widget.GridLayout
-
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	compat:columnCount="4">
@@ -102,7 +101,8 @@
 		style="@style/UnsignedInteger"
 		android:ems="5"
 		tools:ignore="LabelFor"
-		android:hint="@string/intHint45">
+		android:hint="@string/intHint45"
+		android:imeOptions="actionDone">
 
 	</EditText>
 
