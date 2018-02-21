@@ -37,6 +37,7 @@ public final class Netflix extends CalcFragment{
 
 //		result
 		spentPer = new TextWrapper(view, R.id.spentPer);
+		ttw = new TextWrapper(view, R.id.ttw);
 
 //		initialize the calculator
 		EditWrapper[] inputs = { ssp, hours1, hours2, hours3, minutes1, minutes2 };
@@ -56,23 +57,40 @@ public final class Netflix extends CalcFragment{
 
 	@Override
 	protected void compute(){
-		if (ssp.isEmpty() ||  hours1.isEmpty() || hours2.isEmpty() || hours3.isEmpty() || minutes1.isEmpty() || minutes2.isEmpty()){
-			int ssp, hours1, hours2, hours3, minutes1, minutes2 = 0;
+		double price = 0;
+		double firstHour = 0;
+		double secondHour = 0;
+		double thirdHour = 0;
+		double firstMin = 0;
+		double secondMin = 0;
 
-		}else if (ssp.notEmpty() || hours1.notEmpty() || hours3.notEmpty() || minutes1.isEmpty() || minutes2.isEmpty()){
-			double price = ssp.getDec();
-			double firstHour = hours1.getDec();
-			double secondHour = hours2.getDec();
-			double thirdHour = hours3.getDec();
-			double firstMin = minutes1.getDec();
-			double secondMin = minutes2.getDec();
-
+		if (ssp.notEmpty() || hours1.notEmpty() || hours3.notEmpty() || minutes1.isEmpty() || minutes2.isEmpty()) {
+			if (ssp.notEmpty()) {
+				price = ssp.getDec();
+			}
+			if (hours1.notEmpty()) {
+				firstHour = hours1.getDec();
+			}
+			if (hours2.notEmpty()) {
+				secondHour = hours2.getDec();
+			}
+			if (hours3.notEmpty()) {
+				thirdHour = hours3.getDec();
+			}
+			if (minutes1.notEmpty()) {
+				firstMin = minutes1.getDec();
+			}
+			if (minutes2.notEmpty()) {
+				secondMin = minutes2.getDec();
+			}
+			
 //			get the total
 			double sum = (firstHour + secondHour + thirdHour + firstMin + secondMin) / price;
 //			result
 			spentPer.setText(fmtNum.format(sum));
 		}else{
 			spentPer.clear();
+			ttw.clear();
 		}
 	}
 }
