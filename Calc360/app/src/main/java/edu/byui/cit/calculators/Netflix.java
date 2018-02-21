@@ -17,7 +17,7 @@ import edu.byui.cit.text.TextWrapper;
 
 
 public final class Netflix extends CalcFragment{
-	private final NumberFormat fmtNum;
+	private final NumberFormat fmtNum, fmtCur;
 	private EditDecimal ssp, hours1, hours2, hours3, minutes1, minutes2;
 	private TextWrapper ttw, spentPer;
 
@@ -52,6 +52,7 @@ public final class Netflix extends CalcFragment{
 		super();
 //		get instance
 		fmtNum = NumberFormat.getInstance();
+		fmtCur = NumberFormat.getCurrencyInstance();
 	}
 
 	@Override
@@ -89,7 +90,7 @@ public final class Netflix extends CalcFragment{
 
 //			result
 			ttw.setText(fmtNum.format(time));
-			spentPer.setText(fmtNum.format(sum));
+			spentPer.setText(fmtCur.format(sum));
 		}else{
 			spentPer.clear();
 			ttw.clear();

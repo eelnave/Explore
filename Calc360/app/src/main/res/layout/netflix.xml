@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.GridLayout
+<ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+ <android.support.v7.widget.GridLayout
+
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	compat:columnCount="4">
@@ -131,4 +136,5 @@
 		android:text="@string/clear"
 		compat:layout_columnSpan="4"/>
 
-</android.support.v7.widget.GridLayout>
+ </android.support.v7.widget.GridLayout>
+</ScrollView>
