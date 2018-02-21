@@ -29,7 +29,7 @@ final class Descriptors {
 				new CalcDescriptor(1026, R.string.foreignFuel, R.drawable.fuel_pump, ForeignFuel.class),
 				new CalcDescriptor(1036, R.string.currencyExch, R.drawable.currency_exchange, CurrencyExchange.class),
 				new CalcDescriptor(1002, R.string.tip, R.drawable.tip, Tip.class),
-				new CalcDescriptor(9999, R.string.videoStorage, R.drawable.tip, VideoStorage.class),
+				new CalcDescriptor(9999, R.string.tip, R.drawable.tip, VideoStorage.class),
 			}),
 			new GroupDescriptor(303, R.string.finance, R.drawable.folder_finance, new CalcDescriptor[]{
 				new CalcDescriptor(1013, R.string.compoundInterest, R.drawable.compound_interest, CompoundInterest.class),
