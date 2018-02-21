@@ -30,8 +30,7 @@
 		android:id="@+id/tempo"
 		style="@style/UnsignedInteger"
 		android:ems="4"
-		android:hint="@string/tempoHint"
-		android:imeOptions="actionDone"/>
+		android:hint="@string/tempoHint"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -58,7 +57,7 @@
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
-		android:text="@string/songDuration"/>
+		android:text="@string/musicDuration"/>
 
 	<TextView
 		android:id="@+id/songDuration"
@@ -69,7 +68,7 @@
 		style="@style/TextLabel"
 		android:layout_marginStart="10dp"
 		android:layout_marginTop="15dp"
-		android:text="@string/songDurationUnits"/>
+		android:text="@string/timeUnits"/>
 
 	<Button
 		android:id="@+id/btnClear"

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="contribsWinter2018A" translatable="false">
+		Tyler Madsen\n
+		Cameron Osborn</string>
+	<string name="contribsWinter2018B" translatable="false">
 		Dustin Rowbury\n
 		James Warner</string>
-	<string name="contribsWinter2018B" translatable="false">
-	</string>
 
 	<string name="contribsFall2017A" translatable="false">
 		Jose Abarca Suarez\n

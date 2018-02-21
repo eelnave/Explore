@@ -8,37 +8,37 @@ import android.view.ViewGroup;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditInt;
+import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
-public final class SongDuration extends CalcFragment {
-	private EditInt totalMeasures;
-	private EditInt beatsPerMinute;
-	private EditInt timeSignature;
+public final class MusicDuration extends CalcFragment {
+	private EditInteger totalMeasures;
+	private EditInteger beatsPerMinute;
+	private EditInteger timeSignature;
 	private EditWrapper[] inputs;
 	private TextWrapper songTime;
 
 
-	public SongDuration() {
+	public MusicDuration() {
 		super();
 	}
 
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.song_duration, container, false);
+		View view = inflater.inflate(R.layout.music_duration, container, false);
 
-		totalMeasures = new EditInt(view, R.id.totalMeasures, this);
-		beatsPerMinute = new EditInt(view, R.id.tempo, this);
-		timeSignature = new EditInt(view, R.id.timeSignature, this);
+		totalMeasures = new EditInteger(view, R.id.totalMeasures, this);
+		beatsPerMinute = new EditInteger(view, R.id.tempo, this);
+		timeSignature = new EditInteger(view, R.id.timeSignature, this);
 		songTime = new TextWrapper(view, R.id.songDuration);
 
 		inputs = new EditWrapper[]{ totalMeasures, beatsPerMinute };
 		ControlWrapper[] toClear = {
 				totalMeasures, beatsPerMinute, timeSignature, songTime
 		};
-		initialize(view, inputs, toClear, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
