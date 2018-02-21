@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="videoStorage">Video Storage</string>
-	<string name="space">Storage Space: </string>
-	<string name="space2">GB</string>
-	<string name="spaceHint">ex.16 </string>
-	<string name="VideoQual">Video Qualities: </string>
-	<string name="fourKS"> 4k at 60 fps </string>
-	<string name="fourKT"> 4k at 30 fps </string>
-	<string name="tenEighty"> 1080p at 60 fps </string>
-	<string name="sevenTwenty"> 720p at 60 fps </string>
-
-	<string name="exclaimer"> Times shown are estimated based on averages of lastest smartphones</string>
-
+	<string name="art">Art</string>
 </resources>
