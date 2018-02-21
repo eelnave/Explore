@@ -9,7 +9,16 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:layout_weight="1"
+		android:text="@string/descrip1"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/descrip2"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		style="@style/TextLabel"
 		android:text="@string/streamServicePayment"
 		compat:layout_columnSpan="3"/>
 
@@ -25,71 +34,70 @@
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/twoDotFiveHRS"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
 		android:id="@+id/hours1"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint1">
 
 	</EditText>
 
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/twoHours"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
 		android:id="@+id/hours2"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint2">
 
 	</EditText>
 
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/oneDotFiveHRS"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
 		android:id="@+id/hours3"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint3">
 
 	</EditText>
 
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/fortyFiveMINS"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
 		android:id="@+id/minutes1"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint22">
 
-		<requestFocus/>
 	</EditText>
 
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/twentyTwoMINS"
-		android:layout_weight="1"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
 		android:id="@+id/minutes2"
 		style="@style/UnsignedInteger"
 		android:ems="5"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:hint="@string/intHint45">
 
 	</EditText>
 
