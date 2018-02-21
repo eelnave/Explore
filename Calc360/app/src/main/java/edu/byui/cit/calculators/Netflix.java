@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.w3c.dom.Text;
 
 import java.text.NumberFormat;
 
@@ -83,10 +82,13 @@ public final class Netflix extends CalcFragment{
 			if (minutes2.notEmpty()) {
 				secondMin = minutes2.getDec();
 			}
-			
+
 //			get the total
-			double sum = (firstHour + secondHour + thirdHour + firstMin + secondMin) / price;
+			double time = firstHour + secondHour + thirdHour + firstMin + secondMin;
+			double sum = time / price;
+
 //			result
+			ttw.setText(fmtNum.format(time));
 			spentPer.setText(fmtNum.format(sum));
 		}else{
 			spentPer.clear();
