@@ -5,8 +5,28 @@ import java.util.List;
 
 public class DBConnector {
 
-    public static void addReport(double latitude, double longitude) {
-        /* connect to DB */
+    public static void addReport(double latitude, double longitude)
+            throws ClassNotFoundException, SQLException {
+
+        // Load JDBC Driver
+        Class.forName("com.mysql.jdbc.Driver");
+
+        // Make connection to database
+        Connection connection = DriverManager.getConnection(
+                "jdbc:mysql://localhost/kindness", "java", "java");
+
+        // Create a statement
+        Statement statement = connection.createStatement();
+
+        // execute statements
+        statement.executeQuery(
+                "INSERT INTO location (latitude, longitude) " +
+                        "VALUES (" + latitude + "," + longitude + ")"
+        );
+        statement.executeQuery(
+                "INSERT INTO report (category_id, location_id, report_date)" +
+                        "VALUES (1,LAST_INSERT_ID(),CURRENT_TIMESTAMP )"
+        );
     }
 
     public static List<Report> getReports(

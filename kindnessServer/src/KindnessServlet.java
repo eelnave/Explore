@@ -45,20 +45,27 @@ public class KindnessServlet extends HttpServlet {
 			/* Not sure what this means */
 			response.setStatus(HttpServletResponse.SC_OK);
 
-			/* populate list of reports */
-			List<Report> reports = DBConnector.getReports(ReportTimes.AllTime);
+			String[] userRequest = receivedString.split(",");
 
-			/* Create a writer to write back to the client */
-			OutputStreamWriter writer = new OutputStreamWriter(response.getOutputStream());
+			if(userRequest[0].equals("select")) {
+				/* populate list of reports */
+				List<Report> reports = DBConnector.getReports(ReportTimes.AllTime);
 
-			for (Report report : reports) {
-				writer.write(report.toString() + "\n");
+				/* Create a writer to write back to the client */
+				OutputStreamWriter writer = new OutputStreamWriter(response.getOutputStream());
+
+				for (Report report : reports) {
+					writer.write(report.toString() + "\n");
+				}
+
+				writer.flush();
+				writer.close();
 			}
-
-			writer.flush();
-			writer.close();
-
-
+			else if (userRequest[0].equals("insert")) {
+				double latitude = Double.parseDouble(userRequest[1]);
+				double longitude = Double.parseDouble(userRequest[2]);
+				DBConnector.addReport(latitude, longitude);
+			}
 
 		} catch (IOException e) {
 			try{
