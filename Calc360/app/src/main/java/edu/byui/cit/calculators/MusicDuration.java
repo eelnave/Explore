@@ -18,7 +18,7 @@ public final class MusicDuration extends CalcFragment {
 	private EditInteger beatsPerMinute;
 	private EditInteger timeSignature;
 	private EditWrapper[] inputs;
-	private TextWrapper songTime;
+	private TextWrapper musicDuration;
 
 
 	public MusicDuration() {
@@ -32,11 +32,11 @@ public final class MusicDuration extends CalcFragment {
 		totalMeasures = new EditInteger(view, R.id.totalMeasures, this);
 		beatsPerMinute = new EditInteger(view, R.id.tempo, this);
 		timeSignature = new EditInteger(view, R.id.timeSignature, this);
-		songTime = new TextWrapper(view, R.id.songDuration);
+		musicDuration = new TextWrapper(view, R.id.musicDuration);
 
 		inputs = new EditWrapper[]{ totalMeasures, beatsPerMinute };
 		ControlWrapper[] toClear = {
-				totalMeasures, beatsPerMinute, timeSignature, songTime
+				totalMeasures, beatsPerMinute, timeSignature, musicDuration
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
@@ -57,11 +57,11 @@ public final class MusicDuration extends CalcFragment {
 			duration %= 60;
 			int sec = duration;
 
-			String songDurText = pad(hour) + ":" + pad(min) + ":" + pad(sec);
-			songTime.setText(songDurText);
+			String durationText = pad(hour) + ":" + pad(min) + ":" + pad(sec);
+			musicDuration.setText(durationText);
 		}
 		else {
-			songTime.clear();
+			musicDuration.clear();
 		}
 	}
 

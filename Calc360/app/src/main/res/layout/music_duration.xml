@@ -60,7 +60,7 @@
 		android:text="@string/musicDuration"/>
 
 	<TextView
-		android:id="@+id/songDuration"
+		android:id="@+id/musicDuration"
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"/>
 
