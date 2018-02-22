@@ -28,8 +28,10 @@ final class Descriptors {
 				new CalcDescriptor(1003, R.string.FuelEffic, R.drawable.fuel_gauge, FuelEfficiency.class),
 				new CalcDescriptor(1031, R.string.fuelCost, R.drawable.fuel_cost, FuelCost.class),
 				new CalcDescriptor(1026, R.string.foreignFuel, R.drawable.fuel_pump, ForeignFuel.class),
+				new CalcDescriptor(1063, R.string.travelTime, R.drawable.travel_time, TravelTime.class),
 				new CalcDescriptor(1036, R.string.currencyExch, R.drawable.currency_exchange, CurrencyExchange.class),
 				new CalcDescriptor(1002, R.string.tip, R.drawable.tip, Tip.class),
+				new CalcDescriptor(1060, R.string.fuelReimburse, R.mipmap.miles_driven,MilesDriven.class),
 			}),
 			new GroupDescriptor(303, R.string.finance, R.drawable.folder_finance, new CalcDescriptor[]{
 				new CalcDescriptor(1013, R.string.compoundInterest, R.drawable.compound_interest, CompoundInterest.class),
