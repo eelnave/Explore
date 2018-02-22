@@ -12,14 +12,12 @@
 	<string name="radioAnnually">Annually</string>
 
 	<string name="invest">Investment</string>
-	<string name="totalInvest">Total Investment</string>
 	<string name="pv">Principal</string>
 	<string name="periodPay">Periodic Payment</string>
 	<string name="annRate">Annual Rate</string>
 	<string name="annRateHint">ex: 4.875</string>
 	<string name="years">Number of Years</string>
 	<string name="ppy">Periods per Year</string>
-	<string name="roi">Return on Investment</string>
 	<integer-array name="possiblePPY" translatable="false">
 		<item>1</item>
 		<item>2</item>
@@ -37,6 +35,15 @@
 	<string name="ptd">Payments Paid to Date</string>
 	<string name="Principal">Principal</string>
 	<string name="Period">Period</string>
+
+	<string name="roi">Return on Investment</string>
+	<string name="income">Income</string>
+	<string name="expenses">Expenses</string>
+	<string name="totalInvest">Investment</string>
+	<string name="roiReturn">Return</string>
+	<string name="roiIncomeHint">ex: 5,000</string>
+	<string name="roiExpensesHint">ex: 3,255</string>
+	<string name="roiInvestHint">ex: 10,560</string>
 
 	<string name="laborCost">Labor Cost</string>
 	<string name="laborExplain">This calculator converts the cost of an item into the amount of your labor in time. In other words, how much of your labor does an item cost?</string>

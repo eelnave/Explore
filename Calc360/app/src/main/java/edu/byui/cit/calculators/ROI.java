@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
@@ -17,16 +16,16 @@ import edu.byui.cit.text.TextWrapper;
 
 
 public final class ROI extends CalcFragment {
-
-
-	private EditCurrency startPrice;
-	private EditCurrency totalMoney;
-	private TextWrapper  curTotal;
+	private final NumberFormat fmtrPerc;
+	private EditCurrency curIncome, curExpenses, curInvest;
+	private EditWrapper[] inputs;
+	private TextWrapper percROI;
 
 
 	public ROI() {
 		super();
-
+		fmtrPerc = NumberFormat.getPercentInstance();
+		fmtrPerc.setMaximumFractionDigits(1);
 	}
 
 
@@ -34,28 +33,31 @@ public final class ROI extends CalcFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.roi, container, false);
 
-		startPrice = new EditCurrency(view, R.id.startInvestment, this);
-		totalMoney = new EditCurrency(view, R.id.allTheMoney, this);
-		curTotal = new TextWrapper(view, R.id.curTotal);
+		curIncome = new EditCurrency(view, R.id.curIncome, this);
+		curExpenses = new EditCurrency(view, R.id.curExpenses, this);
+		curInvest = new EditCurrency(view, R.id.curInvest, this);
+		percROI = new TextWrapper(view, R.id.percROI);
 
-		EditWrapper[] inputs = { startPrice, totalMoney };
-		ControlWrapper[] toClear = { startPrice, curTotal, totalMoney};
+		inputs = new EditWrapper[]{ curIncome, curExpenses, curInvest };
+		ControlWrapper[] toClear = {
+				curIncome, curExpenses, curInvest, percROI
+		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
 
-
 	@Override
 	protected void compute() {
-		if (startPrice.notEmpty() && totalMoney.notEmpty()) {
-			double roi = ((totalMoney.getCur() - startPrice.getCur())/startPrice.getCur()) * 100;
-			NumberFormat formatter = new DecimalFormat("#0");
-			curTotal.setText(formatter.format(roi) + "%");
+		if (EditWrapper.allNotEmpty(inputs)) {
+			double income = curIncome.getCur();
+			double expenses = curExpenses.getCur();
+			double invest = curInvest.getCur();
+			double roi = (income - expenses) / invest;
+			percROI.setText(fmtrPerc.format(roi));
 		}
 		else {
-			curTotal.clear();
-
+			percROI.clear();
 		}
 	}
 }
