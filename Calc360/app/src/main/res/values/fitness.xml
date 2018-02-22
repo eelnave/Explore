@@ -41,15 +41,9 @@
 	<string name="Weight">Weight</string>
 	<string name="bodyWeight">Body Weight</string>
 
-
-	<string name="day1">Birth day: </string>
-	<string name="dayhint"> 12 </string>
-	<string name="month1">Birth month: </string>
-	<string name="monthhint"> 2 </string>
-	<string name="year1">Birth year: </string>
-	<string name="yearhint"> 1993 </string>
-	<string name="yearsOld"> Years:  </string>
-	<string name="monthsOld"> Months:  </string>
-	<string name="daysOld"> Days:  </string>
-	<string name="age">Age Calculator</string>
+	<string name="age">Age</string>
+	<string name="birthDate">Birth Date</string>
+	<string name="dayHint">12</string>
+	<string name="monthHint">2</string>
+	<string name="yearHint">1993</string>
 </resources>

@@ -3,7 +3,6 @@
 	<string name="compoundInterest">Juros Compostos</string>
 	<string name="Deposit">Depósito</string>
 	<string name="Interest">Juros</string>
-	<string name="Years">Anos</string>
 	<string name="depositHint">ex: 300,50</string>
 	<string name="interestHint">ex: 6,5</string>
 	<string name="yearsHint">ex: 7</string>
@@ -16,7 +15,7 @@
 	<string name="periodPay">Pagamento Periódico</string>
 	<string name="annRate">Taxa Anual</string>
 	<string name="annRateHint">ex: 4,875</string>
-	<string name="years">Número de Anos</string>
+	<string name="numYears">Número de Anos</string>
 	<string name="ppy">Períodos por Ano</string>
 	<string name="fv">Valor Futuro</string>
 
