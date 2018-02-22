@@ -8,8 +8,9 @@
 	<string name="modulo">Modulo</string>
 	<string name="modExplain">O operador de módulo retorna o restante de uma operação de divisão. Por exemplo, 14\u00a0/\u00a03\u00a0=\u00a04,67, enquanto 14\u00a0%\u00a03\u00a0=\u00a02. Isso ocorre porque 3 se divide em 14, 4 vezes, com 2 restantes. Lembre-se, não precisamos prestar atenção ao quociente da divisão, apenas o restante.</string>
 
-	<string name="subnet">Subnações</string>
-	<string name="subnetHint">Primeiro octeto do endereço (Tudo antes do primeiro período)</string>
-	<string name="defaultMask">Máscara Padrão</string>
+	<string name="subnet">Sub-redes</string>
+	<string name="IPAddress">Digite um endereço IP ou identificação de rede</string>
+	<string name="subnetMask">Digite uma máscara de sub-rede</string>
 	<string name="availableHosts">Hosts Disponíveis</string>
+	<string name="numberOfSubnets">Número de Sub-redes</string>
 </resources>

@@ -28,6 +28,15 @@
 	<string name="Principal">Principal</string>
 	<string name="Period">Period</string>
 
+	<string name="roi">Retorna do Investimento</string>
+	<string name="income">Renda</string>
+	<string name="expenses">Despesas</string>
+	<string name="totalInvest">Investimento</string>
+	<string name="roiReturn">Retorna</string>
+	<string name="roiIncomeHint">ex: 5.000</string>
+	<string name="roiExpensesHint">ex: 3.255</string>
+	<string name="roiInvestHint">ex: 10.560</string>
+
 	<string name="laborCost">Custo do Trabalho</string>
 	<string name="laborExplain">Esta calculadora converte o custo de um item para quantidade do seu trabalho no tempo. Em outras palavras, quanto do seu trabalho um item custa?</string>
 	<string name="laborWage">Seu Salário para Hora</string>

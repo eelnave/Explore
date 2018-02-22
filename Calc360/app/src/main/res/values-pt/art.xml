@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="starExposure">Exposição da Estrela</string>
+	<string name="stxpFocalLength">Comprimento Focal</string>
+	<string name="stxpCropFactor">Fator de Cultivo</string>
+	<string name="stxpExposure">Exposição</string>
+	<string name="stxpFocalHint">ex: 18</string>
+	<string name="stxpCropHint">ex: 1.5</string>
+</resources>

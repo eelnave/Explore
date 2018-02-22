@@ -3,7 +3,6 @@ package edu.byui.cit.calc360;
 import org.junit.Test;
 
 import edu.byui.cit.model.Geometry.*;
-import edu.byui.cit.model.Mathematics;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

@@ -56,15 +56,15 @@ public final class CaloriesBurned extends CalcFragment {
 		intTime = new EditInteger(view, R.id.intTime, this);
 
 		grpExercise = view.findViewById(R.id.grpExercise);
-		new RadioWrapper(view, R.id.radWeight, this);
 		new RadioWrapper(view, R.id.radWalk, this);
 		new RadioWrapper(view, R.id.radRun, this);
+		new RadioWrapper(view, R.id.radCycle, this);
 		new RadioWrapper(view, R.id.radSwim, this);
+		new RadioWrapper(view, R.id.radDance, this);
+		new RadioWrapper(view, R.id.radKickbox, this);
 		new RadioWrapper(view, R.id.radBasketball, this);
-		new RadioWrapper(view, R.id.radCycling, this);
-		new RadioWrapper(view, R.id.radDancing, this);
+		new RadioWrapper(view, R.id.radLift, this);
 		new RadioWrapper(view, R.id.radTv, this);
-		new RadioWrapper(view, R.id.radKickboxing, this);
 
 		txtResult = new TextWrapper(view, R.id.txtResult);
 
@@ -103,9 +103,9 @@ public final class CaloriesBurned extends CalcFragment {
 			new RatioPair(R.id.radWalk, 3.5),
 			new RatioPair(R.id.radRun, 12.5),
 			new RatioPair(R.id.radSwim, 8.0),
-			new RatioPair(R.id.radCycling, 9.0),
-			new RatioPair(R.id.radDancing, 6.0),
-			new RatioPair(R.id.radKickboxing,10.5),
+			new RatioPair(R.id.radCycle, 9.0),
+			new RatioPair(R.id.radDance, 6.0),
+			new RatioPair(R.id.radKickbox,10.5),
 			new RatioPair(R.id.radBasketball, 6.5),
 			new RatioPair(R.id.radTv, 1.0)
 	};

@@ -14,4 +14,8 @@
 	<string name="fuelPrice">Preço do Combustível</string>
 
 	<string name="currencyExch">Câmbio Monetário</string>
+
+	<string name="travelTime">Tempo para Viajar</string>
+	<string name="ttExplain">Calcule o tempo necessário para viajar, entrando a distância e a velocidade média</string>
+	<string name="avgSpeed">Velocidade Média</string>
 </resources>

@@ -16,16 +16,20 @@
 	</string-array>
 
 	<string name="caloriesBurned">Calorias Quemadas</string>
-	<string name="weightLift">Levantar Pesos</string>
-	<string name="swimming">Natação</string>
 	<string name="walking">Caminhando</string>
 	<string name="running">Corrida</string>
+	<string name="cycling">Ciclismo</string>
+	<string name="swimming">Natação</string>
+	<string name="dancing">Bailando</string>
+	<string name="kickboxing">Kickboxing</string>
+	<string name="weightLift">Levantar Pesos</string>
+	<string name="television">Ver Televisão</string>
+
 	<string name="calories">calorias</string>
-	<string-array name="cbMassUnits">
-		<item>pound</item>
-		<item>kilogram</item>
-	</string-array>
 
 	<string name="Weight">Peso</string>
 	<string name="bodyWeight">Peso Corporal</string>
+
+	<string name="age">Idade</string>
+	<string name="birthDate">Data de Nascimento</string>
 </resources>

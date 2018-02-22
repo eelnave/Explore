@@ -27,6 +27,9 @@
 	<string name="time">tempo</string>
 	<string name="seconds">segundos</string>
 	<string name="minutes">minutos</string>
+	<string name="Days">Dias</string>
+	<string name="Months">Meses</string>
+	<string name="Years">Anos</string>
 
 	<string name="Current">Corrente</string>
 	<string name="current">corrente</string>

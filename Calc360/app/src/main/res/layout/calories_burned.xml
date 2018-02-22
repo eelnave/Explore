@@ -61,12 +61,6 @@
 		android:checkedButton="@+id/radWeight">
 
 		<RadioButton
-			android:id="@+id/radWeight"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/weightLift"/>
-
-		<RadioButton
 			android:id="@+id/radWalk"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -79,25 +73,25 @@
 			android:text="@string/running"/>
 
 		<RadioButton
+			android:id="@+id/radCycle"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/cycling"/>
+
+		<RadioButton
 			android:id="@+id/radSwim"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/swimming"/>
 
 		<RadioButton
-			android:id="@+id/radCycling"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/cycling"/>
-
-		<RadioButton
-			android:id="@+id/radDancing"
+			android:id="@+id/radDance"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/dancing"/>
 
 		<RadioButton
-			android:id="@+id/radKickboxing"
+			android:id="@+id/radKickbox"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/kickboxing"/>
@@ -107,6 +101,12 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/basketball"/>
+
+		<RadioButton
+			android:id="@+id/radLift"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/weightLift"/>
 
 		<RadioButton
 			android:id="@+id/radTv"

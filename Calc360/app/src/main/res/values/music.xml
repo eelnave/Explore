@@ -2,12 +2,12 @@
 <resources>
 	<string name="musicDuration">Music Duration</string>
 	<string name="totalMeasures">Total Measures</string>
-	<string name="measuresHint">85</string>
+	<string name="measuresHint" translatable="false">85</string>
 	<string name="tempo">Tempo</string>
-	<string name="tempoHint">75</string>
+	<string name="tempoHint" translatable="false">75</string>
 	<string name="tempoUnits">beats per minute</string>
 	<string name="timeSignature">Time Signature</string>
-	<string name="timeSigHint">4</string>
+	<string name="timeSigHint" translatable="false">4</string>
 	<string name="timeSigUnits">counts per measure</string>
 	<string name="timeUnits">hours:mins:secs</string>
 </resources>
