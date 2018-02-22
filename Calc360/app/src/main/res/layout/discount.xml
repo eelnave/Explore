@@ -8,12 +8,12 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/startInvestment"
+		android:labelFor="@+id/curPrice"
 		android:text="@string/itemPrice"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
-		android:id="@+id/startInvestment"
+		android:id="@+id/curPrice"
 		style="@style/UnsignedDecimal"
 		android:ems="6"
 		android:hint="@string/priceHint"
