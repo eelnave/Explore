@@ -1,156 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	compat:columnCount="6">
 
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/oneX"
+		android:text="@string/coordinate1"/>
 
-	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:orientation="vertical">
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:text="@string/lparen"/>
 
+	<EditText
+		android:id="@+id/oneX"
+		style="@style/SignedDecimal"
+		android:ems="5"
+		android:hint="@string/X">
 
+		<requestFocus/>
+	</EditText>
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="50dp"
-			android:orientation="horizontal">
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/oneY"
+		android:text="@string/comma"/>
 
-			<TextView
-				android:id="@+id/cO"
-				android:layout_width="150dp"
-				android:layout_height="40dp"
-				android:text="@string/coordinate1"/>
+	<EditText
+		android:id="@+id/oneY"
+		style="@style/SignedDecimal"
+		android:ems="5"
+		android:hint="@string/Y"/>
 
-			<TextView
-				android:id="@+id/parenLO"
-				android:layout_width="20dp"
-				android:layout_height="40dp"
-				android:text="@string/lparen"/>
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/rparen"/>
 
-			<EditText
-				android:id="@+id/oneX"
-				style="@style/SignedDecimal"
-				android:layout_width="75dp"
-				android:layout_height="40dp"
-				android:ems="4"
-				android:hint="@string/X"
-				android:inputType="numberDecimal"/>
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/twoX"
+		android:text="@string/coordinate2"/>
 
-			<TextView
-				android:id="@+id/comO"
-				android:layout_width="20dp"
-				android:layout_height="40dp"
-				android:text="@string/comma"/>
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:text="@string/lparen"/>
 
-			<EditText
-				android:id="@+id/oneY"
-				style="@style/SignedDecimal"
-				android:layout_width="75dp"
-				android:layout_height="40dp"
-				android:ems="5"
-				android:hint="@string/Y"
-				android:inputType="numberDecimal"/>
+	<EditText
+		android:id="@+id/twoX"
+		style="@style/SignedDecimal"
+		android:ems="5"
+		android:hint="@string/X"/>
 
-			<TextView
-				android:id="@+id/parenRO"
-				android:layout_width="20dp"
-				android:layout_height="40dp"
-				android:text="@string/rparen"/>
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/twoY"
+		android:text="@string/comma"/>
 
-		</LinearLayout>
+	<EditText
+		android:id="@+id/twoY"
+		style="@style/SignedDecimal"
+		android:ems="5"
+		android:hint="@string/Y"/>
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="50dp"
-			android:orientation="horizontal">
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/rparen"/>
 
-			<TextView
-				android:id="@+id/cT"
-				android:layout_width="150dp"
-				android:layout_height="40dp"
-				android:text="@string/coordinate2"/>
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/Distance"/>
 
-			<TextView
-				android:id="@+id/parenLT"
-				android:layout_width="20dp"
-				android:layout_height="40dp"
-				android:text="@string/lparen"/>
+	<TextView
+		android:id="@+id/decDist"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"
+		compat:layout_columnSpan="3"/>
 
-			<EditText
-				android:id="@+id/twoX"
-				android:layout_width="75dp"
-				android:layout_height="40dp"
-				style="@style/SignedDecimal"
-				android:ems="10"
-				android:hint="@string/X"
-				android:inputType="numberDecimal"/>
+	<Space compat:layout_columnSpan="2"/>
 
-			<TextView
-				android:id="@+id/comT"
-				android:layout_width="20dp"
-				android:layout_height="40dp"
-				android:text="@string/comma"/>
-
-			<EditText
-				android:id="@+id/twoY"
-				android:layout_width="75dp"
-				android:layout_height="40dp"
-				style="@style/SignedDecimal"
-				android:ems="10"
-				android:hint="@string/Y"
-				android:inputType="numberDecimal"/>
-
-			<TextView
-				android:id="@+id/parenRT"
-				android:layout_width="20dp"
-				android:layout_height="40dp"
-				android:text="@string/rparen"/>
-		</LinearLayout>
-
-		<Space
-			android:layout_width="match_parent"
-			android:layout_height="50dp"/>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="50dp"
-			android:orientation="horizontal">
-
-
-
-			<EditText
-				android:id="@+id/total"
-				android:layout_width="100dp"
-				android:layout_height="40dp"
-				style="@style/SignedDecimal"
-				android:ems="10"
-				android:hint="@string/answer"
-				android:inputType="numberDecimal"/>
-			<Space
-				android:layout_width="20dp"
-				android:layout_height="match_parent"/>
-			<TextView
-				android:id="@+id/unit"
-				android:layout_width="75dp"
-				android:layout_height="40dp"
-				android:ems="10"
-				android:text="@string/units"/>
-
-		</LinearLayout>
-
-		<Button
-			android:id="@+id/clearB"
-			android:layout_width="91dp"
-			android:layout_height="50dp"
-			android:layout_marginBottom="100dp"
-			android:layout_marginEnd="20dp"
-			android:text="@string/clearCaps"/>
-
-	</LinearLayout>
-
-
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="6"/>
 </android.support.v7.widget.GridLayout>
-

@@ -117,13 +117,7 @@
 	<string name="pyrLen" translatable="false">g</string>
 	<string name="pyrHei" translatable="false">h</string>
 
-
-	<string name="coordinate1" translatable="false">Coordinate1</string>
-	<string name="coordinate2" translatable="false">Coordinate2</string>
-	<string name="answer" translatable="false">Answer</string>
-	<string name="units" translatable="false">Units</string>
-	<string name="clearCaps" translatable="false">CLEAR</string>
-	<string name="distanceBP" translatable="false">Distance Between Points</string>
-
-
+	<string name="pointsDist">Distance between Points</string>
+	<string name="coordinate1">Coordinate 1</string>
+	<string name="coordinate2">Coordinate 2</string>
 </resources>

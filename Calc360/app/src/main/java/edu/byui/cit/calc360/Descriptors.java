@@ -54,6 +54,7 @@ final class Descriptors {
 				new CalcDescriptor(1030, R.string.ratio, R.drawable.golden_ratio, Ratio.class),
 				new CalcDescriptor(1024, R.string.quadratic, R.drawable.quadratic, Quadratic.class),
 				new CalcDescriptor(1028, R.string.modulo, R.drawable.division, Modulo.class),
+				new CalcDescriptor(1064, R.string.pointsDist, R.drawable.points_dist, DistanceBetweenPoints.class),
 				new CalcDescriptor(1023, R.string.rightTriangle, R.drawable.right_triangle, RightTriangle.class),
 				new CalcDescriptor(1050, R.string.triangle, R.drawable.triangle, Triangle.class),
 				new CalcDescriptor(1042, R.string.rectangle, R.drawable.rectangle, Rectangle.class),
@@ -63,10 +64,6 @@ final class Descriptors {
 				new CalcDescriptor(1046, R.string.cone, R.drawable.cone, Cone.class),
 				new CalcDescriptor(1058, R.string.rectPrism, R.drawable.box, RectangularPrism.class),
 				new CalcDescriptor(1034, R.string.pyramid, R.drawable.pyramid, Pyramid.class),
-				new CalcDescriptor(1041, R.string.distanceBP, R.drawable.lightning , DistanceBetweenPoints.class),
-
-
-
 				/*
 				new CalcDescriptor(?, "GCM and LCM", R.drawable.gcmlcm, GCMandLCM.class),
 				 */
