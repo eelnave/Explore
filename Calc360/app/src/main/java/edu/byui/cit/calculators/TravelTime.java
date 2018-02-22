@@ -13,7 +13,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDec;
+import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
@@ -30,7 +30,7 @@ public final class TravelTime extends CalcFragment {
 			KEY_SPE_UNITS = "TravelTime.speUnits";
 
 	private final NumberFormat fmtrInt = NumberFormat.getIntegerInstance();
-	private EditDec decDist, decSpeed;
+	private EditDecimal decDist, decSpeed;
 	private SpinUnit spinDistUnits, spinSpeedUnits;
 	private TextWrapper decTime;
 
@@ -44,8 +44,8 @@ public final class TravelTime extends CalcFragment {
 
 		// Create a wrapper object for each EditText
 		// that appears in this calculator's layout.
-		decDist = new EditDec(view, R.id.decDist, this);
-		decSpeed = new EditDec(view, R.id.decSpeed, this);
+		decDist = new EditDecimal(view, R.id.decDist, this);
+		decSpeed = new EditDecimal(view, R.id.decSpeed, this);
 
 		// Get the user's preferred units from the system
 		// preferences file and initialize each spinner.
@@ -61,7 +61,7 @@ public final class TravelTime extends CalcFragment {
 
 		EditWrapper[] inputs = { decDist, decSpeed };
 		ControlWrapper[] toClear = { decDist, decSpeed, decTime };
-		initialize(view, inputs, toClear, R.id.btnClear);
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 

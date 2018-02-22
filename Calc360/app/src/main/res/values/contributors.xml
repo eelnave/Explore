@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="contribsWinter2018A" translatable="false">
+		Trevor Cutler\n
 		Tyler Madsen\n
 		Hunter Nicholson\n
-		Cameron Osborn\n
-		Rachelle Pierson</string>
+		Cameron Osborn</string>
 	<string name="contribsWinter2018B" translatable="false">
+		Rachelle Pierson\n
 		Dustin Rowbury\n
+		Mike Vance\n
 		James Warner</string>
 
 	<string name="contribsFall2017A" translatable="false">
