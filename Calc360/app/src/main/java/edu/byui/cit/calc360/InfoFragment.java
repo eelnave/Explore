@@ -95,10 +95,16 @@ public abstract class InfoFragment extends Fragment {
 		try {
 			Activity act = getActivity();
 			act.setTitle(descriptor.getTitle(getResources()));
+
+			InputMethodManager imm = (InputMethodManager)act
+					.getSystemService(Context.INPUT_METHOD_SERVICE);
 			View focused = act.getCurrentFocus();
-			if (focused != null) {
-				InputMethodManager imm = (InputMethodManager)act
-						.getSystemService(Context.INPUT_METHOD_SERVICE);
+			if (focused == null) {
+				View view = act.findViewById(android.R.id.content);
+				imm.hideSoftInputFromWindow(view.getWindowToken(),
+						InputMethodManager.HIDE_NOT_ALWAYS);
+			}
+			else {
 				if (focused instanceof EditText) {
 					imm.showSoftInput(focused,
 							InputMethodManager.SHOW_IMPLICIT);

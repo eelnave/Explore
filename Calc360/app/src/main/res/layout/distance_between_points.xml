@@ -65,7 +65,8 @@
 		android:id="@+id/twoY"
 		style="@style/SignedDecimal"
 		android:ems="5"
-		android:hint="@string/Y"/>
+		android:hint="@string/Y"
+		android:imeOptions="actionDone"/>
 
 	<TextView
 		style="@style/TextLabel"
