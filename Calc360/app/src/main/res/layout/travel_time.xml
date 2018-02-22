@@ -3,14 +3,51 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	android:orientation="vertical"
 	android:layout_marginStart="10dp"
 	android:layout_marginTop="@dimen/default_gap"
-	>
+	android:orientation="vertical">
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/ttexplain"/>
+		android:text="@string/ttExplain"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<TextView
+			android:id="@+id/empty1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<EditText
+			android:id="@+id/decDist"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/empty1"
+			android:layout_toEndOf="@+id/empty1"
+			android:ems="4">
+
+			<requestFocus/>
+		</EditText>
+
+		<Spinner
+			android:id="@+id/spinDistUnits"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/empty1"
+			android:layout_toEndOf="@+id/decDist"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignEnd="@+id/decDist"
+			android:layout_alignStart="@+id/decDist"
+			android:layout_below="@+id/empty1"
+			android:labelFor="@+id/decDist"
+			android:text="@string/Distance"
+			android:textAlignment="center"/>
+	</RelativeLayout>
 
 	<RelativeLayout
 		android:layout_width="match_parent"
@@ -23,63 +60,28 @@
 			android:layout_height="wrap_content"/>
 
 		<EditText
-			android:id="@+id/decDist"
+			android:id="@+id/decSpeed"
 			style="@style/UnsignedDecimal"
 			android:layout_alignBaseline="@+id/empty2"
 			android:layout_toEndOf="@+id/empty2"
-			android:ems="4"/>
-
-		<Spinner
-			android:id="@+id/spinDistUnits"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignBaseline="@+id/empty2"
-			android:layout_toEndOf="@+id/decDist"/>
-
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/empty2"
-			android:layout_alignEnd="@+id/decDist"
-			android:layout_alignStart="@+id/decDist"
-			android:labelFor="@+id/decDist"
-			android:text="@string/Distance"
-			android:textAlignment="center"/>
-	</RelativeLayout>
-
-	<RelativeLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp">
-
-		<TextView
-			android:id="@+id/empty3"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
-
-		<EditText
-			android:id="@+id/decSpe"
-			style="@style/UnsignedDecimal"
-			android:layout_alignBaseline="@+id/empty3"
-			android:layout_toEndOf="@+id/empty3"
 			android:ems="4"
 			android:imeOptions="actionDone"/>
 
 		<Spinner
-			android:id="@+id/spinSpeUnits"
+			android:id="@+id/spinSpeedUnits"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignBaseline="@+id/empty3"
-			android:layout_toEndOf="@+id/decSpe"/>
+			android:layout_alignBaseline="@+id/empty2"
+			android:layout_toEndOf="@+id/decSpeed"/>
 
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignEnd="@+id/decSpe"
-			android:layout_alignStart="@+id/decSpe"
-			android:layout_below="@+id/empty3"
-			android:labelFor="@+id/decSpe"
-			android:text="@string/Speed"
+			android:layout_alignEnd="@+id/decSpeed"
+			android:layout_alignStart="@+id/decSpeed"
+			android:layout_below="@+id/empty2"
+			android:labelFor="@+id/decSpeed"
+			android:text="@string/avgSpeed"
 			android:textAlignment="center"/>
 	</RelativeLayout>
 
@@ -103,8 +105,6 @@
 			android:layout_height="wrap_content"
 			android:labelFor="@+id/decTime"
 			android:text="@string/travelTime"/>
-
-
 	</RelativeLayout>
 
 	<Button

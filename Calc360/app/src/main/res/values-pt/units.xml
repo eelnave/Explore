@@ -13,7 +13,7 @@
 	<string name="Mass">Massa</string>
 	<string name="mass">massa</string>
 	<string name="grams">gramas</string>
-	<string name="kilograms">kilograms</string>
+	<string name="kilograms">quilogramas</string>
 
 	<string name="moles">moles</string>
 	<string name="molarMass">massa molar</string>
@@ -118,8 +118,8 @@
 		<item quantity="other">rods</item>
 	</plurals>
 	<plurals name="mile">
-		<item quantity="one">%d mile</item>
-		<item quantity="other">miles</item>
+		<item quantity="one">%d milha</item>
+		<item quantity="other">milhas</item>
 	</plurals>
 	<plurals name="millimeter">
 		<item quantity="one">%d milímetro</item>
@@ -234,8 +234,8 @@
 		<item quantity="other">acres</item>
 	</plurals>
 	<plurals name="squareMile">
-		<item quantity="one">%d square mile</item>
-		<item quantity="other">square miles</item>
+		<item quantity="one">%d milha quadrada</item>
+		<item quantity="other">milhas quadradas</item>
 	</plurals>
 	<plurals name="squareCentimeter">
 		<item quantity="one">%d centímetro quadrado</item>
@@ -378,8 +378,8 @@
 		<item quantity="other">feet / segundo</item>
 	</plurals>
 	<plurals name="milePerHour">
-		<item quantity="one">%d mile / hora</item>
-		<item quantity="other">miles / hora</item>
+		<item quantity="one">%d milha / hora</item>
+		<item quantity="other">milhas / hora</item>
 	</plurals>
 	<plurals name="knot">
 		<item quantity="one">%d knot</item>
