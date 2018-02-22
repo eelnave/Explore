@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	compat:columnCount="2">
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/curIncome"
+		android:text="@string/income"/>
+
+	<EditText
+		android:id="@+id/curIncome"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:hint="@string/roiIncomeHint">
+
+		<requestFocus/>
+	</EditText>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/curExpenses"
+		android:text="@string/expenses"/>
+
+	<EditText
+		android:id="@+id/curExpenses"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:hint="@string/roiExpensesHint"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/curInvest"
+		android:text="@string/totalInvest"/>
+
+	<EditText
+		android:id="@+id/curInvest"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:hint="@string/roiInvestHint"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/roi"/>
+
+	<TextView
+		android:id="@+id/percROI"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="2"/>
+</android.support.v7.widget.GridLayout>
