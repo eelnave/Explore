@@ -51,7 +51,7 @@
 	<TextView
 		style="@style/TextLabel"
 		android:labelFor="@+id/decYears"
-		android:text="@string/years"/>
+		android:text="@string/numYears"/>
 
 	<EditText
 		android:id="@+id/decYears"

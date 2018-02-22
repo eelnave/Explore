@@ -3,7 +3,6 @@
 	<string name="compoundInterest">Compound Interest</string>
 	<string name="Deposit">Deposit</string>
 	<string name="Interest">Interest</string>
-	<string name="Years">Years</string>
 	<string name="depositHint">ex: 300.50</string>
 	<string name="interestHint">ex: 6.5</string>
 	<string name="yearsHint">ex: 7</string>
@@ -16,7 +15,7 @@
 	<string name="periodPay">Periodic Payment</string>
 	<string name="annRate">Annual Rate</string>
 	<string name="annRateHint">ex: 4.875</string>
-	<string name="years">Number of Years</string>
+	<string name="numYears">Number of Years</string>
 	<string name="ppy">Periods per Year</string>
 	<integer-array name="possiblePPY" translatable="false">
 		<item>1</item>

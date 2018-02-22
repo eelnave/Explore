@@ -78,4 +78,10 @@
 
 	<string name="Weight">Weight</string>
 	<string name="bodyWeight">Body Weight</string>
+
+	<string name="age">Age</string>
+	<string name="birthDate">Birth Date</string>
+	<string name="dayHint">12</string>
+	<string name="monthHint">2</string>
+	<string name="yearHint">1993</string>
 </resources>
