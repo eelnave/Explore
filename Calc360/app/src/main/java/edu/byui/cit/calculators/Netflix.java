@@ -26,7 +26,6 @@ public final class Netflix extends CalcFragment{
 			Bundle savedInstState) {
 		View view = inflater.inflate(R.layout.netflix, container, false);
 
-//		this layout of stuff : decimal1 = new EditDecimal(view, R.id.decimal1, this);
 		ssp = new EditDecimal(view, R.id.ssp, this);
 		hours1 = new EditDecimal(view, R.id.hours1, this);
 		hours2 = new EditDecimal(view, R.id.hours2, this);
