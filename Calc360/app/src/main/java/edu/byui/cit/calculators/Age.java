@@ -66,13 +66,24 @@ public final class Age extends CalcFragment {
 		int years = now.get(Calendar.YEAR) - birth.get(Calendar.YEAR);
 		int months = now.get(Calendar.MONTH) - birth.get(Calendar.MONTH);
 		int days = now.get(Calendar.DAY_OF_MONTH) - birth.get(Calendar.DAY_OF_MONTH);
+
+		Calendar prev;
+		if (months < 0) {
+			prev = Calendar.getInstance();
+			prev.add(Calendar.YEAR, -1);
+			months = prev.getActualMaximum(Calendar.MONTH) + 1 + months;
+			years--;
+		}
+
 		if (days < 0) {
-			Calendar prev = Calendar.getInstance();
-			prev.setTimeInMillis(now.getTimeInMillis());
+			prev = Calendar.getInstance();
 			prev.add(Calendar.MONTH, -1);
+
 			days = prev.getActualMaximum(Calendar.DAY_OF_MONTH) + days;
 			if (--months < 0) {
-				months = now.getActualMaximum(Calendar.MONTH) + 1 + months;
+				prev = Calendar.getInstance();
+				prev.add(Calendar.YEAR, -1);
+				months = prev.getActualMaximum(Calendar.MONTH) + 1 + months;
 				years--;
 			}
 		}
