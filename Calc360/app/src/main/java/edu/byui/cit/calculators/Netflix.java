@@ -90,7 +90,8 @@ public final class Netflix extends CalcFragment{
 //			result
 			ttw.setText(fmtNum.format(time));
 			spentPer.setText(fmtCur.format(sum));
-		}else{
+
+		}else {
 			spentPer.clear();
 			ttw.clear();
 		}
