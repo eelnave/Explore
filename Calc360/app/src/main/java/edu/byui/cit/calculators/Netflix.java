@@ -63,7 +63,8 @@ public final class Netflix extends CalcFragment{
 		double firstMin = 0;
 		double secondMin = 0;
 
-		if (ssp.notEmpty() || hours1.notEmpty() || hours3.notEmpty() || minutes1.isEmpty() || minutes2.isEmpty()) {
+		if (ssp.notEmpty() || hours1.notEmpty() || hours2.notEmpty() || hours3.notEmpty() ||
+				minutes1.isEmpty() || minutes2.isEmpty()) {
 			if (ssp.notEmpty()) {
 				price = ssp.getDec();
 			}
