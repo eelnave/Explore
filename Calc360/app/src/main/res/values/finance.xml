@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+	<string name="offerings">Fast Offerings (Charity)</string>
+	<string name="otherCat">Other</string>
+
+
 	<string name="compoundInterest">Compound Interest</string>
 	<string name="Deposit">Deposit</string>
 	<string name="Interest">Interest</string>
@@ -11,7 +16,9 @@
 	<string name="radioQuarterly">Quarterly</string>
 	<string name="radioAnnually">Annually</string>
 
+	<string name="income">Income</string>
 	<string name="invest">Investment</string>
+	<string name="tithing">Tithing</string>
 	<string name="totalInvest">Total Investment</string>
 	<string name="pv">Principal</string>
 	<string name="periodPay">Periodic Payment</string>
