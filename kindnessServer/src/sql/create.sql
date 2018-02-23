@@ -1,3 +1,4 @@
+/* drop database and tables */
 BEGIN
   EXECUTE IMMEDIATE 'DROP DATABASE kindness';
   EXECUTE IMMEDIATE 'DROP TABLE location';
@@ -9,22 +10,24 @@ EXCEPTION
 END;
 /
 
+/*make the database*/
 CREATE DATABASE kindness;
 
+/*choose the database to work in*/
 USE kindness;
 
+/*make tables*/
 Create table location
 ( location_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
 , longitude decimal(9,6) NOT NULL
-, latitude decimal(9,6) NOT NULL);
+, latitude decimal(9,6) NOT NULL
+);
 
 Create table category
 (  category_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
 , category VARCHAR(45) NOT NULL
 , description VARCHAR(45) NULL
 );
-
-
 
 CREATE TABLE report 
 ( report_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
