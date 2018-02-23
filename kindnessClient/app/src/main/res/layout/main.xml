@@ -14,23 +14,33 @@
 
 		<edu.byui.cit.kindness.IconButton
 			style="@style/IconButton"
-			android:background="@drawable/omega"
-			android:text="@string/sports"/>
+			android:background="@drawable/emotional"
+			android:text="@string/emotion"/>
 
 		<edu.byui.cit.kindness.IconButton
 			style="@style/IconButton"
-			android:background="@drawable/omega"
-			android:text="@string/school"/>
+			android:background="@drawable/food"
+			android:text="@string/food"/>
 
 		<edu.byui.cit.kindness.IconButton
 			style="@style/IconButton"
-			android:background="@drawable/omega"
-			android:text="@string/sports"/>
+			android:background="@drawable/labor"
+			android:text="@string/labor"/>
 
 		<edu.byui.cit.kindness.IconButton
 			style="@style/IconButton"
-			android:background="@drawable/omega"
-			android:text="@string/sports"/>
+			android:background="@drawable/travel"
+			android:text="@string/travel"/>
+
+		<edu.byui.cit.kindness.IconButton
+			style="@style/IconButton"
+			android:background="@drawable/money"
+			android:text="@string/money"/>
+
+		<edu.byui.cit.kindness.IconButton
+			style="@style/IconButton"
+			android:background="@drawable/other"
+			android:text="@string/other"/>
 
 	</android.support.v7.widget.GridLayout>
 </ScrollView>

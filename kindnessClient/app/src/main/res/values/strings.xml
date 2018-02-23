@@ -12,6 +12,10 @@
 
     <string name="mistake">Well, this is embarrassing. Something is wrong with this calculator, and it isn\'t working. We apologize.</string>
 
-	<string name="sports">Sports</string>
-	<string name="school">School</string>
+	<string name="emotion">Emotional</string>
+    <string name="food">Food</string>
+    <string name="labor">Labor</string>
+    <string name="money">Money</string>
+    <string name="travel">Travel</string>
+    <string name="other">Other</string>
 </resources>
