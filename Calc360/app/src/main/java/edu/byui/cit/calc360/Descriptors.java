@@ -107,8 +107,6 @@ final class Descriptors {
 			new GroupDescriptor(310, R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
 				new CalcDescriptor(1032, R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),
 				new CalcDescriptor(1021, R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
-					new CalcDescriptor(1081, R.string.add2, R.mipmap.addition, PowerBradNicolas.class),
-
 			}),
 		});
 
