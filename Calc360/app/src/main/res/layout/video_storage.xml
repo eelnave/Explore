@@ -28,7 +28,8 @@
 		compat:layout_columnSpan="3"/>
 </LinearLayout>
 
-	<RelativeLayout></RelativeLayout>
+	<RelativeLayout>
+	</RelativeLayout>
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
@@ -47,7 +48,8 @@
 	<TextView
 		android:id="@+id/fourKSixty"
 		style="@style/TextResult"
-		android:layout_marginTop="15dp"/>
+		android:layout_marginTop="15dp"
+		android:textColor="@color/charcoal"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -59,7 +61,8 @@
 	<TextView
 		android:id="@+id/fourKThirty"
 		style="@style/TextResult"
-		android:layout_marginTop="15dp"/>
+		android:layout_marginTop="15dp"
+		android:textColor="@color/charcoal"/>
 
 
 	<TextView
@@ -72,7 +75,8 @@
 	<TextView
 		android:id="@+id/tenEighty"
 		style="@style/TextResult"
-		android:layout_marginTop="15dp"/>
+		android:layout_marginTop="15dp"
+		android:textColor="@color/charcoal"/>
 
 
 	<TextView
@@ -85,7 +89,8 @@
 	<TextView
 		android:id="@+id/sevenTwenty"
 		style="@style/TextResult"
-		android:layout_marginTop="15dp"/>
+		android:layout_marginTop="15dp"
+		android:textColor="@color/charcoal"/>
 
 
 	<Button
