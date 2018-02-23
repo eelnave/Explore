@@ -108,7 +108,24 @@
 		android:id="@+id/btnClear"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp"
 		android:text="@string/clear"
+		compat:layout_columnSpan="4"
+		tools:layout_editor_absoluteY="282dp"/>
+
+	//quote
+
+	<TextView
+		android:id="@+id/textView6"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text=" "/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/tithingQuote"
 		compat:layout_columnSpan="4"/>
+
+	<requestFocus/>
+
+
 </android.support.v7.widget.GridLayout>

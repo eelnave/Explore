@@ -6,6 +6,8 @@
 	<string name="contribs">Contributors</string>
 	<string name="humanitarian">Humanitarian Aid</string>
 
+	<string name="tithingQuote">"For it is in giving that we receive" ~St. Francis </string>
+
 	<string name="appDescr">A collection of easy to use specific calculators designed, written, and maintained by students at Brigham Young University - Idaho</string>
 	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
 	<string name="logoCredit">We created the logo and icons for Calc360 using the free tools at <a href="logomakr.com">logomakr.com</a></string>
