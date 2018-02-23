@@ -86,7 +86,7 @@ public final class Netflix extends CalcFragment{
 
 //			get the total
 			double time = firstHour + secondHour + thirdHour + firstMin + secondMin;
-			double sum = time / price;
+			double sum = price / time;
 
 //			result
 			ttw.setText(fmtNum.format(time));
