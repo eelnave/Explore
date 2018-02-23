@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.GridLayout
+<ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
+	android:layout_height="wrap_content">
+<android.support.v7.widget.GridLayout
+
+	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:layout_margin="15dp"
-	compat:columnCount="4">
-<LinearLayout>
+	compat:columnCount="4"
+	compat:rowCount="7">
+
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/space"
-		compat:layout_columnSpan="3"/>
+		compat:layout_column="0"
+		compat:layout_row="0"/>
 
 	<EditText
 		android:id="@+id/space"
@@ -22,47 +28,52 @@
 		<requestFocus/>
 
 	</EditText>
+
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/space2"
-		compat:layout_columnSpan="3"/>
-</LinearLayout>
+		compat:layout_column="2"
+		compat:layout_row="0"/>
 
-	<RelativeLayout>
-	</RelativeLayout>
+
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
 		android:layout_marginBottom="15dp"
 		android:text="@string/VideoQual"
 		android:textStyle="bold"
-		compat:layout_columnSpan="3"/>
+		compat:layout_column="0"
+		compat:layout_row="1"/>
 
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
 		android:layout_marginBottom="15dp"
 		android:text="@string/fourKS"
-		compat:layout_columnSpan="2"/>
+		compat:layout_column="0"
+		compat:layout_row="2"/>
 
 	<TextView
 		android:id="@+id/fourKSixty"
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"
-		android:textColor="@color/charcoal"/>
+		android:textColor="@color/charcoal"
+		compat:layout_column="2"/>
 
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
 		android:layout_marginBottom="15dp"
 		android:text="@string/fourKT"
-		compat:layout_columnSpan="2"/>
+		compat:layout_column="0"
+		compat:layout_row="3"/>
 
 	<TextView
 		android:id="@+id/fourKThirty"
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"
-		android:textColor="@color/charcoal"/>
+		android:textColor="@color/charcoal"
+		compat:layout_column="2"/>
 
 
 	<TextView
@@ -70,13 +81,15 @@
 		android:layout_marginTop="15dp"
 		android:layout_marginBottom="15dp"
 		android:text="@string/tenEighty"
-		compat:layout_columnSpan="2"/>
+		compat:layout_column="0"
+		compat:layout_row="4"/>
 
 	<TextView
 		android:id="@+id/tenEighty"
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"
-		android:textColor="@color/charcoal"/>
+		android:textColor="@color/charcoal"
+		compat:layout_column="2"/>
 
 
 	<TextView
@@ -84,13 +97,15 @@
 		android:layout_marginTop="15dp"
 		android:layout_marginBottom="15dp"
 		android:text="@string/sevenTwenty"
-		compat:layout_columnSpan="2"/>
+		compat:layout_column="0"
+		compat:layout_row="5"/>
 
 	<TextView
 		android:id="@+id/sevenTwenty"
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"
-		android:textColor="@color/charcoal"/>
+		android:textColor="@color/charcoal"
+		compat:layout_column="2"/>
 
 
 	<Button
@@ -99,7 +114,9 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"
 		android:text="@string/clear"
-		compat:layout_columnSpan="4"/>
-
+		compat:layout_column="0"
+		compat:layout_row="6"/>
 
 </android.support.v7.widget.GridLayout>
+
+	</ScrollView>

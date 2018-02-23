@@ -8,12 +8,9 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
@@ -29,9 +26,6 @@ public final class VideoStorage extends CalcFragment {
 	private TextWrapper fourKThirty;
 	private TextWrapper tenEighty;
 	private TextWrapper sevenTwenty;
-
-
-	private TextWrapper curTaxAmt, curTotal;
 
 
 	public VideoStorage() {
