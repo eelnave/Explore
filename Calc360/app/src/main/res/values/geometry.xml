@@ -116,4 +116,8 @@
 	<string name="pyrWid" translatable="false">w</string>
 	<string name="pyrLen" translatable="false">g</string>
 	<string name="pyrHei" translatable="false">h</string>
+
+	<string name="pointsDist">Distance between Points</string>
+	<string name="coordinate1">Coordinate 1</string>
+	<string name="coordinate2">Coordinate 2</string>
 </resources>

@@ -2,7 +2,7 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
-	android:layout_width="wrap_content"
+	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:layout_margin="15dp"
 	compat:columnCount="4">
@@ -42,7 +42,7 @@
 		android:layout_marginTop="15dp"
 		android:layout_marginBottom="15dp"
 		android:text="@string/fourKS"
-		compat:layout_columnSpan="3"/>
+		compat:layout_columnSpan="2"/>
 
 	<TextView
 		android:id="@+id/fourKSixty"
@@ -54,7 +54,7 @@
 		android:layout_marginTop="15dp"
 		android:layout_marginBottom="15dp"
 		android:text="@string/fourKT"
-		compat:layout_columnSpan="3"/>
+		compat:layout_columnSpan="2"/>
 
 	<TextView
 		android:id="@+id/fourKThirty"
@@ -67,7 +67,7 @@
 		android:layout_marginTop="15dp"
 		android:layout_marginBottom="15dp"
 		android:text="@string/tenEighty"
-		compat:layout_columnSpan="3"/>
+		compat:layout_columnSpan="2"/>
 
 	<TextView
 		android:id="@+id/tenEighty"
@@ -80,7 +80,7 @@
 		android:layout_marginTop="15dp"
 		android:layout_marginBottom="15dp"
 		android:text="@string/sevenTwenty"
-		compat:layout_columnSpan="3"/>
+		compat:layout_columnSpan="2"/>
 
 	<TextView
 		android:id="@+id/sevenTwenty"

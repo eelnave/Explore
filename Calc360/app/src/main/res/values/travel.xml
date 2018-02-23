@@ -26,4 +26,19 @@
 	<string name="fuelPrice">Fuel Price</string>
 
 	<string name="currencyExch">Currency Exchange</string>
+
+	<string name="travelTime">Travel Time</string>
+	<string name="ttExplain">Calculate the time required to travel by entering the distance and average speed.</string>
+	<string name="avgSpeed">Average Speed</string>
+
+	<string-array name="ttSpeedUnits" translatable="false">
+		<item>milePerHour</item>
+		<item>kilometerPerHour</item>
+		<item>mph</item>
+	</string-array>
+
+	<string-array name="ttDistUnits" translatable="false">
+		<item>mile</item>
+		<item>kilometer</item>
+	</string-array>
 </resources>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	compat:columnCount="3">
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:labelFor="@+id/focal-length-entry"
+		android:text="@string/stxpFocalLength"/>
+
+	<EditText
+		android:id="@+id/focal-length-entry"
+		style="@style/UnsignedInteger"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="5"
+		android:hint="@string/stxpFocalHint"
+		android:maxLength="3">
+
+		<requestFocus/>
+	</EditText>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/millimeters"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:labelFor="@+id/crop-factor-entry"
+		android:text="@string/stxpCropFactor"/>
+
+	<EditText
+		android:id="@+id/crop-factor-entry"
+		style="@style/UnsignedDecimal"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="5"
+		android:hint="@string/stxpCropHint"
+		android:imeOptions="actionDone"
+		android:maxLength="5"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/stxpExposure"
+		android:labelFor="@id/starExpValField"/>
+
+	<TextView
+		android:id="@+id/starExpValField"
+		style="@style/TextResult"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"/>
+
+	<TextView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/seconds"/>
+
+	<Button
+		android:id="@+id/clear-button"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="3"/>
+</android.support.v7.widget.GridLayout>

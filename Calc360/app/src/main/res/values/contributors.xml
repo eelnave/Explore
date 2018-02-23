@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="contribsWinter2018A" translatable="false">
-		Dustin Rowbury\n
-		James Warner</string>
+		Scott Croft\n
+		Trevor Cutler\n
+		Victoria Fisher\n
+		Tyler Madsen\n
+		Hunter Nicholson\n
+		Cameron Osborn</string>
 	<string name="contribsWinter2018B" translatable="false">
-	</string>
+		Rachelle Pierson\n
+		Alex Raia\n
+		Dustin Rowbury\n
+		Caliesha Stimpson\n
+		Mike Vance\n
+		James Warner</string>
 
 	<string name="contribsFall2017A" translatable="false">
 		Jose Abarca Suarez\n
