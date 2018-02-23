@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	compat:columnCount="3">
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/decValue"
+		compat:layout_columnSpan="2"/>
+
+	<EditText
+		android:id="@+id/intDecToRom"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/decHint">
+
+		<requestFocus/>
+	</EditText>
+
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/romanNumeral"
+		compat:layout_columnSpan="2"/>
+
+	<TextView
+		android:id="@+id/romanNum"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="2"/>
+</android.support.v7.widget.GridLayout>

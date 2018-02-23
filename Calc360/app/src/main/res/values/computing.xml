@@ -13,4 +13,10 @@
 	<string name="defaultMask">Enter a Subnet Mask</string>
 	<string name="availableHosts">Available Hosts</string>
 	<string name="numberOfSubnets">Number of Subnets</string>
+
+
+	<string name="decValue">Decimal Value</string>
+	<string name="decHint">ex: 1 - 3999</string>
+	<string name="romanNumeral">Roman Numeral  </string>
+	<string name="romanNumConvert">Roman Numerals</string>
 </resources>
