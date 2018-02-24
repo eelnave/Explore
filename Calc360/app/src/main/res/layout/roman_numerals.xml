@@ -14,7 +14,7 @@
 	<EditText
 		android:id="@+id/intDecToRom"
 		style="@style/UnsignedDecimal"
-		android:ems="6"
+		android:ems="9"
 		android:hint="@string/decHint">
 
 		<requestFocus/>
