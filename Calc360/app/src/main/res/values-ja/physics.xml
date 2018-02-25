@@ -1,2 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+	<string name="NewtonsSecond">ニュートンの二番</string>
+	<string name="newtA" translatable="false">a</string>
+
+	<string name="harmonicMotion">高調波運動</string>
+	<string name="hmFormula" translatable="false">T = 2\u03c0 \u221a(m/k)</string>
+	<string name="hmSpringConstHint">バネ定数</string>
+
+	<string name="pendulum">振り子</string>
+
+	<string name="tqThetaHint">a角度シータ</string>
+
+	<string name="ohmsLaw">オームの法則</string>
+
+	<string name="coulombsLaw">クーロンの法則</string>
+	<string name="coulCharge1">電荷 1</string>
+	<string name="coulCharge2">電荷 2</string>
+
+	<string name="relativity">相対性理論</string>
+</resources>

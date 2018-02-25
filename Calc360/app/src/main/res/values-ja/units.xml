@@ -1,2 +1,681 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+	<string name="Metric">メートル法</string>
+	<string name="Imperial">帝国法</string>
+
+	<!-- Base Properties -->
+	<string name="Length">縦</string>
+	<string name="length">縦</string>
+	<string name="Distance">距離</string>
+	<string name="distance">距離</string>
+	<string name="millimeters">粍</string>
+	<string name="meters">メートル</string>
+
+	<string name="Mass">質量</string>
+	<string name="mass">質量</string>
+	<string name="grams">グラム</string>
+	<string name="kilograms">キログラム</string>
+
+	<string name="moles">モル</string>
+	<string name="molarMass">モル質量</string>
+	<string name="atomicMass">原子質量</string>
+
+	<string name="Time">時間</string>
+	<string name="time">時間</string>
+	<string name="seconds">秒</string>
+	<string name="minutes">分</string>
+
+	<string name="Current">電流</string>
+	<string name="current">電流</string>
+	<string name="amps">アンペア</string>
+
+	<string name="Charge">電荷</string>
+	<string name="charge">電荷</string>
+	<string name="millicoulombs">ミリクーロン</string>
+
+	<string name="Temperature">温度</string>
+	<string name="temperature">温度</string>
+	<string name="Fahrenheit">華氏</string>
+	<string name="Celsius">摂氏</string>
+	<string name="Kelvin">ケルビン</string>
+
+	<string name="Luminosity">光度</string>
+	<string name="luminosity">光度</string>
+
+	<!-- Derived Properties -->
+	<string name="Area">面積</string>
+	<string name="area">面積</string>
+
+	<string name="Volume">体積</string>
+	<string name="volume">体積</string>
+
+	<string name="Frequency">周波数</string>
+	<string name="frequency">周波数</string>
+
+	<string name="Angle">角度</string>
+	<string name="angle">角度</string>
+	<string name="degrees">度</string>
+	<string name="radians">ラジアン</string>
+	<string name="gradians">グラシアン</string>
+
+	<string name="Voltage">電圧</string>
+	<string name="voltage">電圧</string>
+	<string name="volts">ボルト</string>
+
+	<string name="Resistance">抵抗</string>
+	<string name="resistance">抵抗</string>
+	<string name="ohms">オーム</string>
+
+	<string name="Pressure">圧力</string>
+	<string name="pressure">圧力</string>
+	<string name="pascals">パスカル</string>
+
+	<string name="Energy">エネルギー</string>
+	<string name="energy">エネルギー</string>
+	<string name="kineticEnergy">運動エネルギー</string>
+	<string name="joules">ジュール</string>
+
+	<string name="velocity">速度</string>
+	<string name="speed">速力</string>
+	<string name="m_s">毎秒メートル</string>
+
+	<string name="Accel">加速度</string>
+	<string name="accel">加速度</string>
+	<string name="accelGravity">重力加速度</string>
+	<string name="m_s2">毎秒メートル\u00b2</string>
+
+	<string name="Force">部隊</string>
+	<string name="force">部隊</string>
+	<string name="newtons">ニュートン</string>
+
+	<string name="Torque">トルク</string>
+	<string name="torque">トルク</string>
+	<string name="newtonMeters">ニュートンメートル</string>
+
+	<string name="gasConst">気体定数</string>
+
+	<string name="power">力</string>
+	<string name="fuelEffic">燃料効率</string>
+
+	<string name="dataSize">データサイズ</string>
+
+	<string name="money">貨幣</string>
+
+
+	<!-- Supported Properties -->
+	<string-array name="supportedProperties" translatable="false">
+		<item>縦</item>
+		<item>質量</item>
+		<item>時間</item>
+		<item>温度</item>
+		<item>面積</item>
+		<item>体積</item>
+		<item>体積</item>
+		<item>角度</item>
+		<item>圧力</item>
+		<item>燃料効率</item>
+		<item>速力</item>
+		<item>部隊</item>
+		<item>データサイズ</item>
+		<item>お金</item>
+	</string-array>
+
+	<!-- Units of Length -->
+	<string-array name="length">
+		<item>吋</item>
+		<item>フィート</item>
+		<item>ヤード</item>
+		<item>ロッド</item>
+		<item>マイル</item>
+		<item>粍</item>
+		<item>糎</item>
+		<item>メートル</item>
+		<item>粁</item>
+	</string-array>
+
+	<plurals name="inch">
+		<item quantity="other">吋</item>
+	</plurals>
+	<plurals name="foot">
+		<item quantity="other">フィート</item>
+	</plurals>
+	<plurals name="yard">
+		<item quantity="other">ヤード</item>
+	</plurals>
+	<plurals name="rod">
+		<item quantity="other">ロッド</item>
+	</plurals>
+	<plurals name="mile">
+		<item quantity="other">マイル</item>
+	</plurals>
+	<plurals name="millimeter">
+		<item quantity="other">粍</item>
+	</plurals>
+	<plurals name="centimeter">
+		<item quantity="other">糎</item>
+	</plurals>
+	<plurals name="meter">
+		<item quantity="other">メートル</item>
+	</plurals>
+	<plurals name="kilometer">
+		<item quantity="other">粁</item>
+	</plurals>
+
+	<!-- Units of Mass -->
+	<string-array name="mass">
+		<item>grain</item>
+		<item>ounce</item>
+		<item>pound</item>
+		<item>stone</item>
+		<item>shortTon</item>
+		<item>longTon</item>
+		<item>gram</item>
+		<item>kilogram</item>
+		<item>metricTon</item>
+	</string-array>
+
+	<plurals name="grain">
+		<item quantity="other">粒子</item>
+	</plurals>
+	<plurals name="ounce">
+		<item quantity="other">オンス</item>
+	</plurals>
+	<plurals name="pound">
+		<item quantity="other">ポンド</item>
+	</plurals>
+	<plurals name="stone">
+		<item quantity="other">石</item>
+	</plurals>
+	<plurals name="shortTon">
+		<item quantity="other">ショートトン (US)</item>
+	</plurals>
+	<plurals name="longTon">
+		<item quantity="other">ロングトン (UK)</item>
+	</plurals>
+	<plurals name="gram">
+		<item quantity="other">グラム</item>
+	</plurals>
+	<plurals name="kilogram">
+		<item quantity="other">キログラム</item>
+	</plurals>
+	<plurals name="metricTon">
+		<item quantity="other">仏噸</item>
+	</plurals>
+
+	<!-- Units of Time -->
+	<string-array name="time">
+		<item>ミリ秒</item>
+		<item>秒</item>
+		<item>分</item>
+		<item>時間</item>
+		<item>日</item>
+		<item>週間</item>
+	</string-array>
+
+	<plurals name="millisecond">
+		<item quantity="other">ミリ秒</item>
+	</plurals>
+	<plurals name="second">
+		<item quantity="other">秒</item>
+	</plurals>
+	<plurals name="minute">
+		<item quantity="other">分</item>
+	</plurals>
+	<plurals name="hour">
+		<item quantity="other">時間</item>
+	</plurals>
+	<plurals name="day">
+		<item quantity="other">日</item>
+	</plurals>
+	<plurals name="week">
+		<item quantity="other">週間</item>
+	</plurals>
+	<plurals name="month">
+		<item quantity="other">月</item>
+	</plurals>
+	<plurals name="year">
+		<item quantity="other">年</item>
+	</plurals>
+
+
+	<!-- Units of Temperature -->
+	<string-array name="temperature">
+		<item>ケルビン</item>
+		<item>摂氏</item>
+		<item>華氏</item>
+	</string-array>
+
+	<plurals name="Kelvin">
+		<item quantity="other">ケルビン</item>
+	</plurals>
+	<plurals name="Celsius">
+		<item quantity="other">摂氏</item>
+	</plurals>
+	<plurals name="Fahrenheit">
+		<item quantity="other">華氏</item>
+	</plurals>
+
+	<!-- Units of Area -->
+	<string-array name="area">
+		<item>吋\u00b2</item>
+		<item>フィート\u00b2</item>
+		<item>ヤード</item>
+		<item>エーカー</item>
+		<item>マイル\u00b2</item>
+		<item>糎\u00b2</item>
+		<item>メートル\u00b2</item>
+		<item>町歩</item>
+		<item>粁\u00b2</item>
+	</string-array>
+
+	<plurals name="squareInch">
+		<item quantity="other">吋\u00b2</item>
+	</plurals>
+	<plurals name="squareFoot">
+		<item quantity="other">フィート\u00b2</item>
+	</plurals>
+	<plurals name="squareYard">
+		<item quantity="other">ヤード\u00b2</item>
+	</plurals>
+	<plurals name="acre">
+		<item quantity="other">エーカー</item>
+	</plurals>
+	<plurals name="squareMile">
+		<item quantity="other">マイル\u00b2</item>
+	</plurals>
+	<plurals name="squareCentimeter">
+		<item quantity="other">糎\u00b2</item>
+	</plurals>
+	<plurals name="squareMeter">
+		<item quantity="other">メートル\u00b2</item>
+	</plurals>
+	<plurals name="hectare">
+		<item quantity="other">町歩</item>
+	</plurals>
+	<plurals name="squareKilometer">
+		<item quantity="other">粁\u00b2</item>
+	</plurals>
+
+	<!-- Units of Volume -->
+	<string-array name="volume">
+		<item>小匙</item>
+		<item>大小匙</item>
+		<item>流体オンス</item>
+		<item>カップ</item>
+		<item>パイント</item>
+		<item>クォート</item>
+		<item>ガロン</item>
+		<item>インチ\u00b3</item>
+		<item>フィート\u003</item>
+		<item>ミリリットル</item>
+		<item>リットル</item>
+		<item>メートル\u00b3</item>
+	</string-array>
+
+	<plurals name="teaspoon">
+		<item quantity="other">小匙</item>
+	</plurals>
+	<plurals name="tablespoon">
+		<item quantity="other">大小匙</item>
+	</plurals>
+	<plurals name="fluidOunce">
+		<item quantity="other">流体オンス</item>
+	</plurals>
+	<plurals name="cup">
+		<item quantity="other">カップ</item>
+	</plurals>
+	<plurals name="pint">
+		<item quantity="other">パイント</item>
+	</plurals>
+	<plurals name="quart">
+		<item quantity="other">クォート</item>
+	</plurals>
+	<plurals name="gallon">
+		<item quantity="other">ガロン</item>
+	</plurals>
+	<plurals name="cubicInch">
+		<item quantity="other">インチ\u00b3</item>
+	</plurals>
+	<plurals name="cubicFoot">
+		<item quantity="other">フィート\u003</item>
+	</plurals>
+	<plurals name="milliliter">
+		<item quantity="other">ミリリットル</item>
+	</plurals>
+	<plurals name="liter">
+		<item quantity="other">リットル</item>
+	</plurals>
+	<plurals name="cubicMeter">
+		<item quantity="other">メートル\u00b3</item>
+	</plurals>
+
+	<!-- Units of Frequency -->
+	<string-array name="frequency">
+		<item>ヘルツ</item>
+		<item>キロヘルツ</item>
+		<item>メガヘルツ</item>
+		<item>ギガヘルツ</item>
+		<item>テラヘルツ</item>
+	</string-array>
+
+	<plurals name="hertz">
+		<item quantity="other">ヘルツ</item>
+	</plurals>
+	<plurals name="kilohertz">
+		<item quantity="other">キロヘルツ</item>
+	</plurals>
+	<plurals name="megahertz">
+		<item quantity="other">メガヘルツ</item>
+	</plurals>
+	<plurals name="gigahertz">
+		<item quantity="other">ギガヘルツ</item>
+	</plurals>
+	<plurals name="terahertz">
+		<item quantity="other">テラヘルツ</item>
+	</plurals>
+
+	<!-- Units of Angle -->
+	<string-array name="angle">
+		<item>円弧度</item>
+		<item>度</item>
+		<item>ラジアン</item>
+		<item>グラシアン</item>
+	</string-array>
+
+	<plurals name="minuteArc">
+		<item quantity="other">円弧度</item>
+	</plurals>
+	<plurals name="degree">
+		<item quantity="other">度</item>
+	</plurals>
+	<plurals name="radian">
+		<item quantity="other">ラジアン</item>
+	</plurals>
+	<plurals name="gradian">
+		<item quantity="other">グラシアン</item>
+	</plurals>
+
+	<!-- Units of Pressure -->
+	<string-array name="pressure">
+		<item>ポンド/インチ\u00b2</item>
+		<item>気圧</item>
+		<item>パスカル</item>
+		<item>バー</item>
+	</string-array>
+
+	<plurals name="lbfPerSqIn">
+		<item quantity="other">ポンド/インチ\u00b2</item>
+	</plurals>
+	<plurals name="atmosphere">
+		<item quantity="other">気圧</item>
+	</plurals>
+	<plurals name="Pascal">
+		<item quantity="other">パスカル</item>
+	</plurals>
+	<plurals name="Bar">
+		<item quantity="other">バー</item>
+	</plurals>
+
+	<!-- Units of Fuel Efficiency -->
+	<string-array name="fuelEffic">
+		<item>ガロン/マイル</item>
+		<item>粁/リットル</item>
+	</string-array>
+
+	<plurals name="milePerGallon">
+		<item quantity="other">ガロン/マイル</item>
+	</plurals>
+	<plurals name="kilometerPerLiter">
+		<item quantity="other">粁/リットル</item>
+	</plurals>
+
+	<!-- Units of Speed -->
+	<string-array name="speed">
+		<item>footPerSecond</item>
+		<item>milePerHour</item>
+		<item>knot</item>
+		<item>meterPerSecond</item>
+		<item>kilometerPerHour</item>
+	</string-array>
+
+	<plurals name="footPerSecond">
+		<item quantity="other">フィート/秒</item>
+	</plurals>
+	<plurals name="milePerHour">
+		<item quantity="other">時間/マイル</item>
+	</plurals>
+	<plurals name="knot">
+		<item quantity="other">ノット</item>
+	</plurals>
+	<plurals name="meterPerSecond">
+		<item quantity="other">秒/メートル</item>
+	</plurals>
+	<plurals name="kilometerPerHour">
+		<item quantity="other">時間/粁</item>
+	</plurals>
+
+	<!-- Units of Force -->
+	<string-array name="force">
+		<item>ニュートン</item>
+		<item>poundForce</item>
+	</string-array>
+
+	<plurals name="Newton">
+		<item quantity="other">ニュートン</item>
+	</plurals>
+	<plurals name="poundForce">
+		<item quantity="other">ポンドフォース</item>
+	</plurals>
+
+	<!-- Units of Data Size -->
+	<string-array name="dataSize">
+		<item>ビット</item>
+		<item>ニブル</item>
+		<item>バイト</item>
+		<item>ハーフワード</item>
+		<item>ワード</item>
+		<item>ダブルワード</item>
+		<item>キロビット</item>
+		<item>メガビット</item>
+		<item>ギガビット</item>
+		<item>テラビット</item>
+		<item>ペタビット</item>
+		<item>エクサビット</item>
+		<item>キロバイト</item>
+		<item>メガバイト</item>
+		<item>ギガバイト</item>
+		<item>テラバイト</item>
+		<item>ペタバイト</item>
+		<item>エクサバイト</item>
+	</string-array>
+
+	<plurals name="bit">
+		<item quantity="other">ビット</item>
+	</plurals>
+	<plurals name="nibble">
+		<item quantity="other">ニブル</item>
+	</plurals>
+	<plurals name="byt">
+		<item quantity="other">バイト</item>
+	</plurals>
+	<plurals name="hword">
+		<item quantity="other">ハーフワード</item>
+	</plurals>
+	<plurals name="word">
+		<item quantity="other">ワード</item>
+	</plurals>
+	<plurals name="dword">
+		<item quantity="other">ダブルワード</item>
+	</plurals>
+
+	<plurals name="kilobit">
+		<item quantity="other">キロビット</item>
+	</plurals>
+	<plurals name="megabit">
+		<item quantity="other">メガビット</item>
+	</plurals>
+	<plurals name="gigabit">
+		<item quantity="other">ギガビット</item>
+	</plurals>
+	<plurals name="terabit">
+		<item quantity="other">テラビット</item>
+	</plurals>
+	<plurals name="petabit">
+		<item quantity="other">ペタビット</item>
+	</plurals>
+	<plurals name="exabit">
+		<item quantity="other">エクサビット</item>
+	</plurals>
+
+	<plurals name="kilobyte">
+		<item quantity="other">キロバイト</item>
+	</plurals>
+	<plurals name="megabyte">
+		<item quantity="other">メガバイト</item>
+	</plurals>
+	<plurals name="gigabyte">
+		<item quantity="other">ギガバイト</item>
+	</plurals>
+	<plurals name="terabyte">
+		<item quantity="other">テラバイト</item>
+	</plurals>
+	<plurals name="petabyte">
+		<item quantity="other">ペタバイト</item>
+	</plurals>
+	<plurals name="exabyte">
+		<item quantity="other">エクサバイト</item>
+	</plurals>
+
+	<!-- Units of Currency (Money) -->
+	<string-array name="money">
+		<item>豪州のお金</item>
+		<item>ブラジルのお金</item>
+		<item>ブルガリアのお金</item>
+		<item>カナダのお金</item>
+		<item>中国のお金</item>
+		<item>クロアチアのお金</item>
+		<item>チェコスロバキアのお金</item>
+		<item>デンマークのお金</item>
+		<item>欧州のお金</item>
+		<item>香港のお金</item>
+		<item>匈牙利のお金</item>
+		<item>天竺のお金</item>
+		<item>インドネシアのお金</item>
+		<item>イスラエルのお金</item>
+		<item>日本のお金</item>
+		<item>マレーシアのお金</item>
+		<item>メキシコのお金</item>
+		<item>ニュージーランドのお金</item>
+		<item>ノルウェーのお金</item>
+		<item>フィリピンのお金</item>
+		<item>ポーランドのお金</item>
+		<item>ルーマニアのお金</item>
+		<item>魯国のお金</item>
+		<item>シンガポールのお金</item>
+		<item>南阿のお金</item>
+		<item>南韓国のお金</item>
+		<item>スウェーデンのお金</item>
+		<item>スイスのお金</item>
+		<item>泰国のお金</item>
+		<item>トルコのお金</item>
+		<item>英吉利のお金</item>
+		<item>米国のお金</item>
+	</string-array>
+
+	<plurals name="AustralianDollar">
+		<item quantity="other">豪州のお金</item>
+	</plurals>
+	<plurals name="BrazilianReal">
+		<item quantity="other">ブラジルのお金</item>
+	</plurals>
+	<plurals name="BulgarianLev">
+		<item quantity="other">ブルガリアのお金</item>
+	</plurals>
+	<plurals name="CanadianDollar">
+		<item quantity="other">カナダのお金</item>
+	</plurals>
+	<plurals name="ChineseYuanRenminbi">
+		<item quantity="other">中国のお金</item>
+	</plurals>
+	<plurals name="CroatianKuna">
+		<item quantity="other">クロアチアのお金</item>
+	</plurals>
+	<plurals name="CzechKoruna">
+		<item quantity="other">チェコスロバキアのお金</item>
+	</plurals>
+	<plurals name="DanishKrone">
+		<item quantity="other">デンマークのお金</item>
+	</plurals>
+	<plurals name="EuropeanUnionEuro">
+		<item quantity="other">欧州のお金</item>
+	</plurals>
+	<plurals name="HongKongDollar">
+		<item quantity="other">香港のお金</item>
+	</plurals>
+	<plurals name="HungarianForint">
+		<item quantity="other">匈牙利のお金</item>
+	</plurals>
+	<plurals name="IndianRupee">
+		<item quantity="other">天竺のお金</item>
+	</plurals>
+	<plurals name="IndonesianRupiah">
+		<item quantity="other">インドネシアのお金</item>
+	</plurals>
+	<plurals name="IsraeliShekel">
+		<item quantity="other">イスラエルのお金</item>
+	</plurals>
+	<plurals name="JapaneseYen">
+		<item quantity="other">日本のお金</item>
+	</plurals>
+	<plurals name="MalaysianRinggit">
+		<item quantity="other">マレーシアのお金</item>
+	</plurals>
+	<plurals name="MexicanPeso">
+		<item quantity="other">メキシコのお金</item>
+	</plurals>
+	<plurals name="NewZealandDollar">
+		<item quantity="other">ニュージーランドのお金</item>
+	</plurals>
+	<plurals name="NorwegianKrone">
+		<item quantity="other">ノルウェーのお金</item>
+	</plurals>
+	<plurals name="PhilippinePeso">
+		<item quantity="other">フィリピンのお金</item>
+	</plurals>
+	<plurals name="PolishZloty">
+		<item quantity="other">ポーランドのお金</item>
+	</plurals>
+	<plurals name="RomanianLeu">
+		<item quantity="other">ルーマニアのお金</item>
+	</plurals>
+	<plurals name="RussianRouble">
+		<item quantity="other">魯国のお金</item>
+	</plurals>
+	<plurals name="SingaporeDollar">
+		<item quantity="other">シンガポールのお金</item>
+	</plurals>
+	<plurals name="SouthAfricanRand">
+		<item quantity="other">南阿のお金</item>
+	</plurals>
+	<plurals name="SouthKoreanWon">
+		<item quantity="other">南韓国のお金</item>
+	</plurals>
+	<plurals name="SwedishKrona">
+		<item quantity="other">スウェーデンのお金</item>
+	</plurals>
+	<plurals name="SwissFranc">
+		<item quantity="other">スイスのお金</item>
+	</plurals>
+	<plurals name="ThaiBaht">
+		<item quantity="other">泰国のお金</item>
+	</plurals>
+	<plurals name="TurkishLira">
+		<item quantity="other">トルコのお金</item>
+	</plurals>
+	<plurals name="UKPoundSterling">
+		<item quantity="other">英吉利のお金</item>
+	</plurals>
+	<plurals name="USDollar">
+		<item quantity="other">米国のお金</item>
+	</plurals>
+</resources>
