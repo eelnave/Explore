@@ -2,53 +2,53 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	compat:columnCount="4"
-	tools:ignore="ExtraText">
-
+	compat:columnCount="2">
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/pv"
-		compat:layout_columnSpan="3"/>
+		android:labelFor="@+id/curIncome"
+		android:text="@string/income"/>
 
 	<EditText
-		android:id="@+id/startInvestment"
+		android:id="@+id/curIncome"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/priceHint">
+		android:hint="@string/roiIncomeHint">
 
 		<requestFocus/>
 	</EditText>
 
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/curExpenses"
+		android:text="@string/expenses"/>
+
+	<EditText
+		android:id="@+id/curExpenses"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:hint="@string/roiExpensesHint"/>
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/totalInvest"
-		compat:layout_columnSpan="3"/>
+		android:labelFor="@+id/curInvest"
+		android:text="@string/totalInvest"/>
 
 	<EditText
-		android:id="@+id/allTheMoney"
+		android:id="@+id/curInvest"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/priceHint">
-
-		<requestFocus/>
-	</EditText>
-
-
-
+		android:hint="@string/roiInvestHint"/>
 
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
-		android:text="@string/roi"
-		compat:layout_columnSpan="3"/>
+		android:text="@string/roi"/>
 
 	<TextView
-		android:id="@+id/curTotal"
+		android:id="@+id/percROI"
 		style="@style/TextResult"
 		android:layout_marginTop="15dp"/>
 
@@ -58,5 +58,5 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"
 		android:text="@string/clear"
-		compat:layout_columnSpan="4"/>
+		compat:layout_columnSpan="2"/>
 </android.support.v7.widget.GridLayout>
