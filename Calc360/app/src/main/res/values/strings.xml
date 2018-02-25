@@ -2,6 +2,8 @@
 <resources>
 	<string name="appName">Calc 360</string>
 
+	<string name="offerings">Fast Offerings (Charity)</string>
+	<string name="other">Other</string>
 	<string name="about">About</string>
 	<string name="contribs">Contributors</string>
 	<string name="humanitarian">Humanitarian Aid</string>

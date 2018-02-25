@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
 	<string name="compoundInterest">Compound Interest</string>
 	<string name="Deposit">Deposit</string>
 	<string name="Interest">Interest</string>

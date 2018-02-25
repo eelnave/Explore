@@ -80,7 +80,7 @@
 	//other
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/otherCat"
+		android:text="@string/other"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
@@ -118,7 +118,7 @@
 		android:id="@+id/textView6"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text=" "/>
+		android:text="  "/>
 
 	<TextView
 		style="@style/TextLabel"
