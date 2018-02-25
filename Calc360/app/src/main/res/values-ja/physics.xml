@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="NewtonsSecond">ニュートンの二番</string>
-	<string name="newtA" translatable="false">a</string>
 
 	<string name="harmonicMotion">高調波運動</string>
-	<string name="hmFormula" translatable="false">T = 2\u03c0 \u221a(m/k)</string>
 	<string name="hmSpringConstHint">バネ定数</string>
 
 	<string name="pendulum">振り子</string>
