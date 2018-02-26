@@ -103,7 +103,7 @@
 	<string name="gasConstUnits" translatable="false">J / (mol K)</string>
 
 	<string name="power">power</string>
-	<string name="fuelEffic">fuel efficiency</string>
+	<string name="fuelEcon">fuel efficiency</string>
 
 	<string name="dataSize">data size</string>
 
@@ -121,7 +121,7 @@
 		<item>frequency</item>
 		<item>angle</item>
 		<item>pressure</item>
-		<item>fuelEffic</item>
+		<item>fuelEcon</item>
 		<item>speed</item>
 		<item>force</item>
 		<item>dataSize</item>
@@ -488,7 +488,7 @@
 	</plurals>
 
 	<!-- Units of Fuel Efficiency -->
-	<string-array name="fuelEffic">
+	<string-array name="fuelEcon">
 		<item>milePerGallon</item>
 		<item>kilometerPerLiter</item>
 	</string-array>

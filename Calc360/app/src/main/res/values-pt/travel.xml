@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="FuelEffic">Eficiência do Combustível</string>
+	<string name="FuelEcon">Eficiência do Combustível</string>
 	<string name="odometer">Odómetro</string>
 	<string name="start">começar</string>
 	<string name="end">fim</string>

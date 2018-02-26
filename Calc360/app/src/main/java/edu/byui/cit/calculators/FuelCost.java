@@ -17,7 +17,7 @@ import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.units.FuelEffic;
+import edu.byui.cit.units.FuelEcon;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Volume;
 
@@ -46,15 +46,15 @@ public final class FuelCost extends CalcFragment {
 
 		// Initialize inputs
 		decDist = new EditDecimal(view, R.id.decDist, this);
-		decEffic = new EditDecimal(view, R.id.decEffic, this);
+		decEffic = new EditDecimal(view, R.id.decEcon, this);
 		curPrice = new EditCurrency(view, R.id.curPrice, this);
 
 		Activity act = getActivity();
 		spinDistUnits = new SpinUnit(act, view, R.id.spinDistUnits,
 				Length.getInstance(), R.array.feDistUnits,
 				KEY_DIST_UNITS, this);
-		spinEfficUnits = new SpinUnit(act, view, R.id.spinEfficUnits,
-				FuelEffic.getInstance(), R.array.feEfficUnits,
+		spinEfficUnits = new SpinUnit(act, view, R.id.spinEconUnits,
+				FuelEcon.getInstance(), R.array.feEconUnits,
 				KEY_EFFIC_UNITS, this);
 		spinVolUnits = new SpinUnit(act, view, R.id.spinVolUnits,
 				Volume.getInstance(), R.array.feVolUnits,
@@ -99,8 +99,8 @@ public final class FuelCost extends CalcFragment {
 			double price = 1.0 / curPrice.getCur();
 			dist = Length.getInstance().convert(
 					Length.km, dist, spinDistUnits.getSelectedItem());
-			effic = FuelEffic.getInstance().convert(
-					FuelEffic.kpl, effic, spinEfficUnits.getSelectedItem());
+			effic = FuelEcon.getInstance().convert(
+					FuelEcon.kpl, effic, spinEfficUnits.getSelectedItem());
 			price = Volume.getInstance().convert(
 					Volume.liter, price, spinVolUnits.getSelectedItem());
 			double cost = dist / (effic * price);

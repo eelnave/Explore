@@ -17,27 +17,27 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.units.FuelEffic;
+import edu.byui.cit.units.FuelEcon;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 import edu.byui.cit.units.Volume;
 
 
-public final class FuelEfficiency extends CalcFragment {
+public final class FuelEconomy extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
-			KEY_DIST_UNITS = "FuelEfficiency.distUnits",
-			KEY_VOL_UNITS = "FuelEfficiency.volUnits",
-			KEY_EFFIC_UNITS = "FuelEfficiency.efficUnits";
+			KEY_DIST_UNITS = "FuelEconomy.distUnits",
+			KEY_VOL_UNITS = "FuelEconomy.volUnits",
+			KEY_EFFIC_UNITS = "FuelEconomy.efficUnits";
 
 	private final NumberFormat fmtrDist, fmtrEffic;
 	private EditDecimal decBegin, decEnd, decDist, decVol;
 	private SpinUnit spinDistUnits, spinVolUnits, spinEfficUnits;
-	private TextWrapper decEffic;
+	private TextWrapper decEcon;
 
 
-	public FuelEfficiency() {
+	public FuelEconomy() {
 		super();
 		fmtrDist = NumberFormat.getInstance();
 		fmtrEffic = NumberFormat.getInstance();
@@ -52,7 +52,7 @@ public final class FuelEfficiency extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment.
-		View view = inflater.inflate(R.layout.fuel_efficiency, container,
+		View view = inflater.inflate(R.layout.fuel_economy, container,
 				false);
 
 		OdometerChanged dist = new OdometerChanged();
@@ -73,15 +73,15 @@ public final class FuelEfficiency extends CalcFragment {
 		spinVolUnits = new SpinUnit(act, view, R.id.spinVolUnits,
 				Volume.getInstance(), R.array.feVolUnits,
 				KEY_VOL_UNITS, this);
-		spinEfficUnits = new SpinUnit(act, view, R.id.spinEfficUnits,
-				FuelEffic.getInstance(), R.array.feEfficUnits,
+		spinEfficUnits = new SpinUnit(act, view, R.id.spinEconUnits,
+				FuelEcon.getInstance(), R.array.feEconUnits,
 				KEY_EFFIC_UNITS, this);
 
-		decEffic = new TextWrapper(view, R.id.decEffic);
+		decEcon = new TextWrapper(view, R.id.decEcon);
 
 		EditWrapper[] inputs = { decBegin, decEnd, decDist, decVol };
 		ControlWrapper[] toClear = {
-				decBegin, decEnd, decDist, decVol, decEffic
+				decBegin, decEnd, decDist, decVol, decEcon
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
@@ -92,7 +92,7 @@ public final class FuelEfficiency extends CalcFragment {
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinDistUnits.restore(prefs, Length.mile);
 		spinVolUnits.restore(prefs, Volume.gallon);
-		spinEfficUnits.restore(prefs, FuelEffic.mpg);
+		spinEfficUnits.restore(prefs, FuelEcon.mpg);
 	}
 
 	@Override
@@ -161,7 +161,7 @@ public final class FuelEfficiency extends CalcFragment {
 			// If the user wants the results in miles per gallon,
 			// then convert, if necessary, the distance and volume
 			// of fuel entered by the user into miles and gallons.
-			if (unit.getID() == FuelEffic.mpg) {
+			if (unit.getID() == FuelEcon.mpg) {
 				dist = length.convert(Length.mile, dist, distUnits);
 				vol = volume.convert(Volume.gallon, vol, volUnits);
 			}
@@ -169,16 +169,16 @@ public final class FuelEfficiency extends CalcFragment {
 			// If the user wants the results in kilometers per liter,
 			// then convert, if necessary, the distance and volume of
 			// fuel entered by the user into kilometers and liters.
-			else if (unit.getID() == FuelEffic.kpl) {
+			else if (unit.getID() == FuelEcon.kpl) {
 				dist = length.convert(Length.km, dist, distUnits);
 				vol = volume.convert(Volume.liter, vol, volUnits);
 			}
 
 			double effic = dist / vol;
-			decEffic.setText(fmtrEffic.format(effic));
+			decEcon.setText(fmtrEffic.format(effic));
 		}
 		else {
-			decEffic.clear();
+			decEcon.clear();
 		}
 	}
 }
