@@ -29,22 +29,22 @@ public final class FuelEconomy extends CalcFragment {
 	private static final String
 			KEY_DIST_UNITS = "FuelEconomy.distUnits",
 			KEY_VOL_UNITS = "FuelEconomy.volUnits",
-			KEY_EFFIC_UNITS = "FuelEconomy.efficUnits";
+			KEY_ECON_UNITS = "FuelEconomy.econUnits";
 
-	private final NumberFormat fmtrDist, fmtrEffic;
+	private final NumberFormat fmtrDist, fmtrEcon;
 	private EditDecimal decBegin, decEnd, decDist, decVol;
-	private SpinUnit spinDistUnits, spinVolUnits, spinEfficUnits;
+	private SpinUnit spinDistUnits, spinVolUnits, spinEconUnits;
 	private TextWrapper decEcon;
 
 
 	public FuelEconomy() {
 		super();
 		fmtrDist = NumberFormat.getInstance();
-		fmtrEffic = NumberFormat.getInstance();
+		fmtrEcon = NumberFormat.getInstance();
 		fmtrDist.setMinimumFractionDigits(0);
 		fmtrDist.setMaximumFractionDigits(1);
-		fmtrEffic.setMinimumFractionDigits(1);
-		fmtrEffic.setMaximumFractionDigits(1);
+		fmtrEcon.setMinimumFractionDigits(1);
+		fmtrEcon.setMaximumFractionDigits(2);
 	}
 
 
@@ -73,9 +73,9 @@ public final class FuelEconomy extends CalcFragment {
 		spinVolUnits = new SpinUnit(act, view, R.id.spinVolUnits,
 				Volume.getInstance(), R.array.feVolUnits,
 				KEY_VOL_UNITS, this);
-		spinEfficUnits = new SpinUnit(act, view, R.id.spinEconUnits,
-				FuelEcon.getInstance(), R.array.feEconUnits,
-				KEY_EFFIC_UNITS, this);
+		spinEconUnits = new SpinUnit(act, view, R.id.spinEconUnits,
+				FuelEcon.getInstance(), R.array.fuelEcon,
+				KEY_ECON_UNITS, this);
 
 		decEcon = new TextWrapper(view, R.id.decEcon);
 
@@ -92,7 +92,7 @@ public final class FuelEconomy extends CalcFragment {
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinDistUnits.restore(prefs, Length.mile);
 		spinVolUnits.restore(prefs, Volume.gallon);
-		spinEfficUnits.restore(prefs, FuelEcon.mpg);
+		spinEconUnits.restore(prefs, FuelEcon.mpg);
 	}
 
 	@Override
@@ -102,7 +102,7 @@ public final class FuelEconomy extends CalcFragment {
 		// Get from the spinners, the units chosen by the user.
 		spinDistUnits.save(editor);
 		spinVolUnits.save(editor);
-		spinEfficUnits.save(editor);
+		spinEconUnits.save(editor);
 	}
 
 
@@ -150,32 +150,37 @@ public final class FuelEconomy extends CalcFragment {
 			Unit distUnits = spinDistUnits.getSelectedItem();
 			Unit volUnits = spinVolUnits.getSelectedItem();
 
-			// Get the length and volume properties so that they can
-			// be used to convert values from one unit to another.
-			Property length = Length.getInstance();
-			Property volume = Volume.getInstance();
-
 			// Get the units that the user wants for the results.
-			Unit unit = spinEfficUnits.getSelectedItem();
+			Unit fuelEconUnits = spinEconUnits.getSelectedItem();
 
-			// If the user wants the results in miles per gallon,
-			// then convert, if necessary, the distance and volume
-			// of fuel entered by the user into miles and gallons.
-			if (unit.getID() == FuelEcon.mpg) {
-				dist = length.convert(Length.mile, dist, distUnits);
-				vol = volume.convert(Volume.gallon, vol, volUnits);
-			}
+			dist =  Length.getInstance().convert(Length.km, dist, distUnits);
+			vol = Volume.getInstance().convert(Volume.liter, vol, volUnits);
+			double econ = dist / vol;
+			econ = FuelEcon.getInstance().convert(fuelEconUnits, econ, FuelEcon.kpl);
 
-			// If the user wants the results in kilometers per liter,
-			// then convert, if necessary, the distance and volume of
-			// fuel entered by the user into kilometers and liters.
-			else if (unit.getID() == FuelEcon.kpl) {
-				dist = length.convert(Length.km, dist, distUnits);
-				vol = volume.convert(Volume.liter, vol, volUnits);
-			}
-
-			double effic = dist / vol;
-			decEcon.setText(fmtrEffic.format(effic));
+//			// Get the length and volume properties so that they can
+//			// be used to convert values from one unit to another.
+//			Property length = Length.getInstance();
+//			Property volume = Volume.getInstance();
+//
+//			// If the user wants the results in miles per gallon,
+//			// then convert, if necessary, the distance and volume
+//			// of fuel entered by the user into miles and gallons.
+//			if (fuelEconUnits.getID() == FuelEcon.mpg) {
+//				dist = length.convert(Length.mile, dist, distUnits);
+//				vol = volume.convert(Volume.gallon, vol, volUnits);
+//			}
+//
+//			// If the user wants the results in kilometers per liter,
+//			// then convert, if necessary, the distance and volume of
+//			// fuel entered by the user into kilometers and liters.
+//			else if (fuelEconUnits.getID() == FuelEcon.kpl) {
+//				dist = length.convert(Length.km, dist, distUnits);
+//				vol = volume.convert(Volume.liter, vol, volUnits);
+//			}
+//
+//			double econ = dist / vol;
+			decEcon.setText(fmtrEcon.format(econ));
 		}
 		else {
 			decEcon.clear();

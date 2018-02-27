@@ -487,10 +487,11 @@
 		<item quantity="other">bars</item>
 	</plurals>
 
-	<!-- Units of Fuel Efficiency -->
+	<!-- Units of Fuel Economy -->
 	<string-array name="fuelEcon">
 		<item>milePerGallon</item>
 		<item>kilometerPerLiter</item>
+		<item>literPer100kilometer</item>
 	</string-array>
 
 	<plurals name="milePerGallon">
@@ -500,6 +501,10 @@
 	<plurals name="kilometerPerLiter">
 		<item quantity="one">kilometer / liter</item>
 		<item quantity="other">kilometers / liter</item>
+	</plurals>
+	<plurals name="literPer100kilometer">
+		<item quantity="one">liter / 100 kilometers</item>
+		<item quantity="other">liters / 100 kilometers</item>
 	</plurals>
 
 	<!-- Units of Speed -->

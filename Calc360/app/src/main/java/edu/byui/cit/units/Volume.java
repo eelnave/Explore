@@ -11,9 +11,9 @@ public final class Volume extends Property {
 		gallon = 2107,
 		cuIn  = 2110,
 		cuFt  = 2111,
-		ml  = 2120,
+		ml    = 2120,
 		liter = 2121,
-		cuM = 2130;
+		cuM   = 2130;
 
 	private static final double
 		cf = 35.3147,
