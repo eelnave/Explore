@@ -4,6 +4,8 @@
 	<string name="make">Make</string>
 	<string name="miss">Miss</string>
 
+	<string name="bodyMassIndex">BMI</string>
+	<string name="bmi">BMI</string>
 	<string name="category">Categoria</string>
 	<string-array name="bmiCategories">
 		<item>baixo</item>

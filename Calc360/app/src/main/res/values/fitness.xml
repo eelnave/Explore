@@ -48,7 +48,4 @@
 
 	<string name="age">Age</string>
 	<string name="birthDate">Birth Date</string>
-	<string name="dayHint" translatable="false">12</string>
-	<string name="monthHint" translatable="false">2</string>
-	<string name="yearHint" translatable="false">1993</string>
 </resources>
