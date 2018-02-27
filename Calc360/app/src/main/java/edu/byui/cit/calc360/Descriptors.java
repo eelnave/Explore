@@ -25,7 +25,7 @@ final class Descriptors {
 				new CalcDescriptor(1062, R.string.age, R.drawable.birthday_cake, Age.class),
 			}),
 			new GroupDescriptor(302, R.string.travel, R.drawable.folder_travel, new CalcDescriptor[]{
-				new CalcDescriptor(1003, R.string.FuelEconomy, R.drawable.fuel_gauge, FuelEconomy.class),
+				new CalcDescriptor(1003, R.string.FuelEffic, R.drawable.fuel_gauge, FuelEconomy.class),
 				new CalcDescriptor(1031, R.string.fuelCost, R.drawable.fuel_cost, FuelCost.class),
 				new CalcDescriptor(1026, R.string.foreignFuel, R.drawable.fuel_pump, ForeignFuel.class),
 				new CalcDescriptor(1063, R.string.travelTime, R.drawable.travel_time, TravelTime.class),
