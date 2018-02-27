@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
 	<string name="compoundInterest">Compound Interest</string>
 	<string name="Deposit">Deposit</string>
 	<string name="Interest">Interest</string>
@@ -17,6 +18,7 @@
 	<string name="annRateHint">ex: 4.875</string>
 	<string name="numYears">Number of Years</string>
 	<string name="ppy">Periods per Year</string>
+	<string name="roi">Return on Investment</string>
 	<integer-array name="possiblePPY" translatable="false">
 		<item>1</item>
 		<item>2</item>
@@ -35,7 +37,6 @@
 	<string name="Principal">Principal</string>
 	<string name="Period">Period</string>
 
-	<string name="roi">Return on Investment</string>
 	<string name="income">Income</string>
 	<string name="expenses">Expenses</string>
 	<string name="totalInvest">Investment</string>
@@ -56,4 +57,15 @@
 		<item quantity="one">cent</item>
 		<item quantity="other">cents</item>
 	</plurals>
+
+	<string name="tithing">Tithing</string>
+	<string name="charity">Fast Offering (Charity)</string>
+	<string name="humanitarian">Humanitarian Aid</string>
+	<string name="other">Other</string>
+	<string name="incomeHint">ex: 5,000</string>
+	<string name="tithingHint">ex: 10</string>
+	<string name="offeringHint">ex: 100</string>
+	<string name="humanitarianHint">ex: 50</string>
+	<string name="otherHint">ex: 35</string>
+	<string name="tithingQuote">\"For it is in giving that we receive.\"\n~St. Francis</string>
 </resources>

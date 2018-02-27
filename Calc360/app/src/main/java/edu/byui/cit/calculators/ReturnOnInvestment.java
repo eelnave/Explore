@@ -15,14 +15,14 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
-public final class ROI extends CalcFragment {
+public final class ReturnOnInvestment extends CalcFragment {
 	private final NumberFormat fmtrPerc;
 	private EditCurrency curIncome, curExpenses, curInvest;
 	private EditWrapper[] inputs;
 	private TextWrapper percROI;
 
 
-	public ROI() {
+	public ReturnOnInvestment() {
 		super();
 		fmtrPerc = NumberFormat.getPercentInstance();
 		fmtrPerc.setMaximumFractionDigits(1);
