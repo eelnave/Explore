@@ -13,7 +13,6 @@
 	<string name="radioAnnually">Annually</string>
 
 	<string name="invest">Investment</string>
-	<string name="tithing">Tithing</string>
 	<string name="pv">Principal</string>
 	<string name="periodPay">Periodic Payment</string>
 	<string name="annRate">Annual Rate</string>
@@ -59,4 +58,15 @@
 		<item quantity="one">cent</item>
 		<item quantity="other">cents</item>
 	</plurals>
+
+	<string name="tithing">Tithing</string>
+	<string name="charity">Fast Offering (Charity)</string>
+	<string name="humanitarian">Humanitarian Aid</string>
+	<string name="other">Other</string>
+	<string name="incomeHint">ex: 5,000</string>
+	<string name="tithingHint">ex: 10</string>
+	<string name="offeringHint">ex: 100</string>
+	<string name="humanitarianHint">ex: 50</string>
+	<string name="otherHint">ex: 35</string>
+	<string name="tithingQuote">\"For it is in giving that we receive.\"\n~St. Francis</string>
 </resources>

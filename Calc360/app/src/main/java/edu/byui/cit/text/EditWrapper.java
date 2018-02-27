@@ -191,16 +191,16 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 		return empty;
 	}
 
-//	public static boolean anyNotEmpty(EditWrapper... inputs) {
-//		boolean any = false;
-//		for (EditWrapper in : inputs) {
-//			any = in.notEmpty();
-//			if (any) {
-//				break;
-//			}
-//		}
-//		return any;
-//	}
+	public static boolean anyNotEmpty(EditWrapper... inputs) {
+		boolean any = false;
+		for (EditWrapper in : inputs) {
+			any = in.notEmpty();
+			if (any) {
+				break;
+			}
+		}
+		return any;
+	}
 
 	public static boolean allNotEmpty(EditWrapper... inputs) {
 		boolean all = true;

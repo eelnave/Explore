@@ -2,69 +2,65 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	compat:columnCount="4"
-	tools:ignore="ExtraText">
+	compat:columnCount="4">
 
-
+	<!-- Income -->
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/income"
-		compat:layout_columnSpan="3"/>
+		android:text="@string/income"/>
 
 	<EditText
 		android:id="@+id/incomeID"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/priceHint">
+		android:hint="@string/incomeHint"
+		compat:layout_columnSpan="2">
 
 		<requestFocus/>
 	</EditText>
 
+	<Space/>
 
-//this was the tax.
+	<!-- Tithing -->
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/decTithing"
+		android:labelFor="@+id/rateID"
 		android:text="@string/tithing"/>
 
-
 	<EditText
-		android:id="@+id/decTithing"
+		android:id="@+id/rateID"
 		style="@style/UnsignedDecimal"
-		android:ems="5"
-		android:hint="@string/salesTaxHint"/>
-	
+		android:ems="4"
+		android:hint="@string/tithingHint"/>
 
-
-<TextView
+	<TextView
 		style="@style/TextLabel"
 		android:layout_marginEnd="20dp"
 		android:text="@string/perc"/>
 
-	<requestFocus/>
+	<TextView
+		android:id="@+id/tithingID"
+		style="@style/TextResult"/>
 
-
-//offering
+	<!-- Fast Offering -->
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/offerings"
+		android:labelFor="@+id/charityID"
+		android:text="@string/charity"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
 		android:id="@+id/charityID"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/priceHint">
+		android:hint="@string/offeringHint"/>
 
-		<requestFocus/>
-	</EditText>
-
-	//aid
+	<!-- Humanitarian Aid -->
 	<TextView
 		style="@style/TextLabel"
+		android:labelFor="@+id/aidID"
 		android:text="@string/humanitarian"
 		compat:layout_columnSpan="3"/>
 
@@ -72,27 +68,23 @@
 		android:id="@+id/aidID"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/priceHint">
+		android:hint="@string/humanitarianHint"/>
 
-		<requestFocus/>
-	</EditText>
-
-	//other
+	<!-- Other -->
 	<TextView
 		style="@style/TextLabel"
+		android:labelFor="@+id/otherID"
 		android:text="@string/other"
 		compat:layout_columnSpan="3"/>
 
 	<EditText
-		android:id="@+id/otherMoneyID"
+		android:id="@+id/otherID"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/priceHint">
+		android:hint="@string/otherHint"
+		android:imeOptions="actionDone"/>
 
-		<requestFocus/>
-	</EditText>
-
-
+	<!-- Total -->
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
@@ -109,23 +101,12 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:text="@string/clear"
-		compat:layout_columnSpan="4"
-		tools:layout_editor_absoluteY="282dp"/>
-
-	//quote
-
-	<TextView
-		android:id="@+id/textView6"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="  "/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:text="@string/tithingQuote"
 		compat:layout_columnSpan="4"/>
 
-	<requestFocus/>
-
-
+	<!-- Quote -->
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/tithingQuote"
+		compat:layout_columnSpan="4"/>
 </android.support.v7.widget.GridLayout>

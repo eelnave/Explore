@@ -16,23 +16,24 @@ import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
+
 public final class Tithing extends CalcFragment {
+	private static final String KEY_TITHING_RATE = "Tithing.rate";
 	private final NumberFormat fmtrDec, fmtrCur;
 
-	private EditCurrency income;
-	private EditDecimal tithing;
-	private EditCurrency charity;
-	private EditCurrency aid;
-	private EditCurrency other;
-	private TextWrapper  curTotal;
+	private EditCurrency curIncome;
+	private EditDecimal decRate;
+	private TextWrapper curTithing;
+	private EditCurrency curCharity;
+	private EditCurrency curHumanAid;
+	private EditCurrency curOther;
+	private TextWrapper curTotal;
 
 
 	public Tithing() {
 		super();
-
 		fmtrDec = NumberFormat.getInstance();
 		fmtrCur = NumberFormat.getCurrencyInstance();
-
 	}
 
 
@@ -40,15 +41,21 @@ public final class Tithing extends CalcFragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tithing, container, false);
 
-		income = new EditCurrency(view, R.id.incomeID, this);
-		tithing = new EditDecimal(view, R.id.decTithing, this);
-		charity = new EditCurrency(view, R.id.charityID, this);
-		other = new EditCurrency(view, R.id.otherMoneyID, this);
-		aid = new EditCurrency(view, R.id.aidID, this);
+		curIncome = new EditCurrency(view, R.id.incomeID, this);
+		decRate = new EditDecimal(view, R.id.rateID, KEY_TITHING_RATE, this);
+		curTithing = new TextWrapper(view, R.id.tithingID);
+		curCharity = new EditCurrency(view, R.id.charityID, this);
+		curHumanAid = new EditCurrency(view, R.id.aidID, this);
+		curOther = new EditCurrency(view, R.id.otherID, this);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
-		EditWrapper[] inputs = { income };
-		ControlWrapper[] toClear = { income, curTotal, charity, other, aid};
+		EditWrapper[] inputs = {
+				curIncome, decRate, curCharity, curHumanAid, curOther
+		};
+		ControlWrapper[] toClear = {
+				curIncome, curTithing,
+				curCharity, curHumanAid, curOther, curTotal
+		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -57,48 +64,52 @@ public final class Tithing extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		// Get the previous sales tax rate entered by the user if it exits.
-		tithing.restore(prefs, fmtrDec, 10);
+		decRate.restore(prefs, fmtrDec, 10);
 	}
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
 		// Write the tax rate entered by the user into the preferences file.
-		tithing.save(editor);
+		decRate.save(editor);
 	}
 
 
 	@Override
 	protected void compute() {
-		double c = 0;
-		double a = 0;
-		double o = 0;
-		double t = 0;
+		EditWrapper[] offerings = { curCharity, curHumanAid, curOther };
+		if ((curIncome.notEmpty() && decRate.notEmpty()) ||
+				EditWrapper.anyNotEmpty(offerings)) {
+			double i = curIncome.getCur();
+			double t = 0;
+			double c = 0;
+			double a = 0;
+			double o = 0;
 
-		if (income.notEmpty() && tithing.notEmpty()) {
-			if (charity.notEmpty()) {
-				c = charity.getCur();
+			if (decRate.notEmpty()) {
+				double rate = decRate.getDec() / 100.0;
+				t = i * rate;
+				curTithing.setText(fmtrCur.format(t));
 			}
-			if(aid.notEmpty()){
-				a = aid.getCur();
-			}
-			if(tithing.notEmpty()){
-				t = tithing.getDec();
-			}
-			if(other.notEmpty()){
-				o = other.getCur();
+			else {
+				curTithing.clear();
 			}
 
-			double tithingDec = t / 100.00;
-				double totalTithing = (tithingDec * income.getCur());
-				double total = totalTithing + c + a + o;
+			if (curCharity.notEmpty()) {
+				c = curCharity.getCur();
+			}
+			if (curHumanAid.notEmpty()) {
+				a = curHumanAid.getCur();
+			}
+			if (curOther.notEmpty()) {
+				o = curOther.getCur();
+			}
 
-				curTotal.setText(fmtrCur.format(total));
-
+			double total = t + c + a + o;
+			curTotal.setText(fmtrCur.format(total));
 		}
 		else {
+			curTithing.clear();
 			curTotal.clear();
-			curTotal.clear();
-
 		}
 	}
 }
