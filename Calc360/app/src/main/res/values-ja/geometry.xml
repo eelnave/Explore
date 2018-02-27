@@ -34,11 +34,6 @@
 	<string name="triSides">両側</string>
 	<string name="triAngles">角度</string>
 	<string name="triDiagram">三角形の図</string>
-	<string-array name="triUnits" translatable="false">
-		<item>度</item>
-		<item>ラジアン</item>
-		<item>グラシアン</item>
-	</string-array>
 
 	<string name="rectangle">矩形</string>
 	<string name="rectDiagFormula">>対角線 d = \u221a(w\u00b2 + h\u00b2)</string>

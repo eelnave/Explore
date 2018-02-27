@@ -5,12 +5,6 @@
 	<string name="miss">ミス</string>
 
 	<string name="category">種類</string>
-	<integer-array name="bmiRanges" translatable="false">
-		<item>19</item>
-		<item>25</item>
-		<item>30</item>
-		<item>40</item>
-	</integer-array>
 	<string-array name="bmiCategories">
 		<item>低い</item>
 		<item>正常</item>
@@ -29,45 +23,6 @@
 	<string name="kickboxing">キックボクシング</string>
 	<string name="cycling">サイクリング</string>
 	<string name="television">テレビを見る</string>
-
-
-	<string-array name="cbMassUnits">
-		<item>ポンド</item>
-		<item>キログラム</item>
-	</string-array>
-
-	<string-array name="cbExercises">
-		<item>重量上げ</item>
-		<item>泳ぐ</item>
-		<item>歩く</item>
-		<item>走る</item>
-		<item>サイクリング</item>
-		<item>岩登り</item>
-		<item>サルサダンス</item>
-		<item>スイングダンス</item>
-		<item>縄跳び</item>
-		<item>拳闘</item>
-		<item>組み付く</item>
-		<item>テコンドー</item>
-		<item>キックボクシング</item>
-		<item>ズンバ</item>
-		<item>体操</item>
-		<item>テレビを見る</item>
-		<item>ヨガ</item>
-		<item>総合格闘技</item>
-		<item>アイススケート</item>
-		<item>ローラーブレード</item>
-		<item>スキー/スノーボード</item>
-		<item>武のトリック</item>
-		<item>バスケットボール</item>
-		<item>フットボール</item>
-		<item>サッカー</item>
-		<item>テニス</item>
-		<item>ラケットボール</item>
-		<item>卓球</item>
-		<item>ゴルフ</item>
-		<item>ホッケー</item>
-	</string-array>
 
 	<string name="Weight">体重</string>
 	<string name="bodyWeight">体重</string>

@@ -9,8 +9,6 @@
 	<string name="modExplain">モジュロ演算子は、除算演算の残りの部分を返します。たとえば、14 \ u00a0 / \ u00a03 \ u00a0 = \ u00a04.67、14 \ u00a0％\ u00a03 \ u00a0 = \ u00a02のようになります。これは、3が14、4回に分割され、2が残されているためです。部門の商には注意を払う必要はなく、残りの部分のみに注意する必要はありません。</string>
 
 	<string name="subnet">サブネット</string>
-	<string name="subnetHint">IPアドレスまたはネットワークIDを入力してください</string>
-	<string name="defaultMask">サブネットマスクを入力してください</string>
 	<string name="availableHosts">利用可能なホスト</string>
 	<string name="numberOfSubnets">サブネットの数</string>
 </resources>

@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="FuelEffic">燃料効率</string>
+	<string name="FuelEconomy">燃料効率</string>
 	<string name="odometer">オドメーター</string>
 	<string name="start">初め</string>
 	<string name="end">終わり</string>
 	<string name="fuel">燃料</string>
-	<string-array name="feDistUnits" translatable="false">
-		<item>マイル</item>
-		<item>粁</item>
-	</string-array>
-	<string-array name="feVolUnits" translatable="false">
-		<item>ガロン</item>
-		<item>リットル</item>
-	</string-array>
-	<string-array name="feEfficUnits" translatable="false">
-		<item>ガロンあたりのマイル</item>
-		<item>キロメートル/リットル</item>
-	</string-array>
+	<string name="FuelEcon">燃料効率</string>
 
 	<string name="foreignFuel">外国の燃料</string>
 	<string name="ffExplain">外国でガソリンを購入する必要がある場合は、ガソリンの金額と費用を外国​​の測定値と通貨からネイティブの測定値と通貨に変換します。</string>

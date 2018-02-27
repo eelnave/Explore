@@ -23,17 +23,6 @@
 	<string name="prod2">製品 2</string>
 	<string name="prod3">製品 3</string>
 
-	<!-- Properties used in the Compare Prices Calculator -->
-	<string-array name="cmpPricesProps" translatable="false">
-		<!--suppress CheckTagEmptyBody -->
-		<item></item>
-		<item>縦</item>
-		<item>塊</item>
-		<item>時間</item>
-		<item>面積</item>
-		<item>体積</item>
-	</string-array>
-
 	<string name="tip">チップ</string>
 	<string name="costBeforeTax">税引前の費用</string>
 	<string name="taxAmt">税金</string>

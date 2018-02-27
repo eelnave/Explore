@@ -16,10 +16,4 @@
 	<string name="duration">期間</string>
 	<string name="difference">差</string>
 	<string name="today">今日</string>
-	<string-array name="durationChoices" translatable="false">
-		<item>日</item>
-		<item>週間</item>
-		<item>月</item>
-		<item>年</item>
-	</string-array>
 </resources>

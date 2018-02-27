@@ -3,7 +3,6 @@
 	<string name="compoundInterest">複利</string>
 	<string name="Deposit">入金</string>
 	<string name="Interest">利子</string>
-	<string name="Years">年</string>
 	<string name="depositHint">ex 300.50</string>
 	<string name="interestHint">ex 6.5</string>
 	<string name="yearsHint">ex 7</string>
@@ -16,15 +15,7 @@
 	<string name="periodPay">定期支払い</string>
 	<string name="annRate">年率</string>
 	<string name="annRateHint">ex 4.875</string>
-	<string name="years">年数</string>
 	<string name="ppy">年間の期間</string>
-	<integer-array name="possiblePPY" translatable="false">
-		<item>1</item>
-		<item>2</item>
-		<item>4</item>
-		<item>6</item>
-		<item>12</item>
-	</integer-array>
 	<string name="fv">将来価値</string>
 
 	<string name="loan">融資</string>
