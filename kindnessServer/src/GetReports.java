@@ -10,18 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/KindnessServlet")
-public class KindnessServlet extends HttpServlet {
+@WebServlet("/GetReports")
+public class GetReports extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public KindnessServlet() {
+	public GetReports() {
 		super();
 
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		response.getOutputStream().println("Hurray !! This Servlet Works");
+		response.getOutputStream().println("Hurray !! You can get reports!!!");
 
 	}
 
@@ -47,34 +47,20 @@ public class KindnessServlet extends HttpServlet {
 
 			String[] userRequest = receivedString.split(",");
 
-			if(userRequest[0].equals("select")) {
-				/* populate list of reports */
-				List<Report> reports = DBConnector.getReports(ReportTimes.AllTime);
+			/* populate list of reports */
+			List<Report> reports = DBConnector.getReports(
+					ReportTimes.AllTime);
 
-				/* Create a writer to write back to the client */
-				OutputStreamWriter writer = new OutputStreamWriter(response.getOutputStream());
+			/* Create a writer to write back to the client */
+			OutputStreamWriter writer = new OutputStreamWriter(
+					response.getOutputStream());
 
-				for (Report report : reports) {
-					writer.write(report.toString() + "\n");
-				}
-
-				writer.flush();
-				writer.close();
-			}
-			else if (userRequest[0].equals("insert")) {
-
-				double latitude = Double.parseDouble(userRequest[1]);
-
-				double longitude = Double.parseDouble(userRequest[2]);
-				DBConnector.addReport(latitude, longitude);
-
-				OutputStreamWriter writer = new OutputStreamWriter(response.getOutputStream());
-				writer.write("Success!");
-
-				writer.flush();
-				writer.close();
+			for (Report report : reports) {
+				writer.write(report.toString() + "\n");
 			}
 
+			writer.flush();
+			writer.close();
 		} catch (IOException e) {
 			try{
 				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
