@@ -17,9 +17,7 @@ import edu.byui.cit.text.TextWrapper;
 
 
 public final class VideoStorage extends CalcFragment {
-
 	private final NumberFormat fmtrDec;
-
 
 	private EditDecimal space;
 	private TextWrapper fourKSixty;
@@ -37,12 +35,9 @@ public final class VideoStorage extends CalcFragment {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
-
 		View view = inflater.inflate(R.layout.video_storage, container, false);
 
 		space = new EditDecimal(view, R.id.space, this);
-
-
 		fourKSixty = new TextWrapper(view, R.id.fourKSixty);
 		fourKThirty = new TextWrapper(view, R.id.fourKThirty);
 		tenEighty = new TextWrapper(view, R.id.tenEighty);

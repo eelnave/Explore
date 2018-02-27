@@ -3,120 +3,113 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
-<android.support.v7.widget.GridLayout
+	android:layout_height="match_parent">
 
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:layout_margin="15dp"
-	compat:columnCount="4"
-	compat:rowCount="7">
-
-	<TextView
-		style="@style/TextLabel"
-		android:text="@string/space"
-		compat:layout_column="0"
-		compat:layout_row="0"/>
-
-	<EditText
-		android:id="@+id/space"
-		style="@style/UnsignedDecimal"
-		android:ems="4"
-		android:textAlignment="center"
-		android:hint="@string/spaceHint">
-
-		<requestFocus/>
-
-	</EditText>
-
-	<TextView
-		style="@style/TextLabel"
-		android:text="@string/space2"
-		compat:layout_column="2"
-		compat:layout_row="0"/>
-
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginTop="15dp"
-		android:layout_marginBottom="15dp"
-		android:text="@string/VideoQual"
-		android:textStyle="bold"
-		compat:layout_column="0"
-		compat:layout_row="1"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginTop="15dp"
-		android:layout_marginBottom="15dp"
-		android:text="@string/fourKS"
-		compat:layout_column="0"
-		compat:layout_row="2"/>
-
-	<TextView
-		android:id="@+id/fourKSixty"
-		style="@style/TextResult"
-		android:layout_marginTop="15dp"
-		android:textColor="@color/charcoal"
-		compat:layout_column="2"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginTop="15dp"
-		android:layout_marginBottom="15dp"
-		android:text="@string/fourKT"
-		compat:layout_column="0"
-		compat:layout_row="3"/>
-
-	<TextView
-		android:id="@+id/fourKThirty"
-		style="@style/TextResult"
-		android:layout_marginTop="15dp"
-		android:textColor="@color/charcoal"
-		compat:layout_column="2"/>
-
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginTop="15dp"
-		android:layout_marginBottom="15dp"
-		android:text="@string/tenEighty"
-		compat:layout_column="0"
-		compat:layout_row="4"/>
-
-	<TextView
-		android:id="@+id/tenEighty"
-		style="@style/TextResult"
-		android:layout_marginTop="15dp"
-		android:textColor="@color/charcoal"
-		compat:layout_column="2"/>
-
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginTop="15dp"
-		android:layout_marginBottom="15dp"
-		android:text="@string/sevenTwenty"
-		compat:layout_column="0"
-		compat:layout_row="5"/>
-
-	<TextView
-		android:id="@+id/sevenTwenty"
-		style="@style/TextResult"
-		android:layout_marginTop="15dp"
-		android:textColor="@color/charcoal"
-		compat:layout_column="2"/>
-
-
-	<Button
-		android:id="@+id/btnClear"
-		android:layout_width="wrap_content"
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp"
-		android:text="@string/clear"
-		compat:layout_column="0"
-		compat:layout_row="6"/>
+		android:layout_margin="15dp"
+		compat:columnCount="4"
+		compat:rowCount="7">
 
-</android.support.v7.widget.GridLayout>
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/space"
+			compat:layout_column="0"
+			compat:layout_row="0"/>
 
-	</ScrollView>
+		<EditText
+			android:id="@+id/space"
+			style="@style/UnsignedDecimal"
+			android:ems="4"
+			android:hint="@string/spaceHint"
+			android:textAlignment="center">
+
+			<requestFocus/>
+		</EditText>
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/space2"
+			compat:layout_column="2"
+			compat:layout_row="0"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginBottom="15dp"
+			android:layout_marginTop="15dp"
+			android:text="@string/VideoQual"
+			android:textStyle="bold"
+			compat:layout_column="0"
+			compat:layout_row="1"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginBottom="15dp"
+			android:layout_marginTop="15dp"
+			android:text="@string/fourKS"
+			compat:layout_column="0"
+			compat:layout_row="2"/>
+
+		<TextView
+			android:id="@+id/fourKSixty"
+			style="@style/TextResult"
+			android:layout_marginTop="15dp"
+			android:textColor="@color/charcoal"
+			compat:layout_column="2"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginBottom="15dp"
+			android:layout_marginTop="15dp"
+			android:text="@string/fourKT"
+			compat:layout_column="0"
+			compat:layout_row="3"/>
+
+		<TextView
+			android:id="@+id/fourKThirty"
+			style="@style/TextResult"
+			android:layout_marginTop="15dp"
+			android:textColor="@color/charcoal"
+			compat:layout_column="2"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginBottom="15dp"
+			android:layout_marginTop="15dp"
+			android:text="@string/tenEighty"
+			compat:layout_column="0"
+			compat:layout_row="4"/>
+
+		<TextView
+			android:id="@+id/tenEighty"
+			style="@style/TextResult"
+			android:layout_marginTop="15dp"
+			android:textColor="@color/charcoal"
+			compat:layout_column="2"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginBottom="15dp"
+			android:layout_marginTop="15dp"
+			android:text="@string/sevenTwenty"
+			compat:layout_column="0"
+			compat:layout_row="5"/>
+
+		<TextView
+			android:id="@+id/sevenTwenty"
+			style="@style/TextResult"
+			android:layout_marginTop="15dp"
+			android:textColor="@color/charcoal"
+			compat:layout_column="2"/>
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:text="@string/clear"
+			compat:layout_column="0"
+			compat:layout_row="6"/>
+	</android.support.v7.widget.GridLayout>
+</ScrollView>
