@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="tempConvert">気温の変換器</string>
+	<string name="massConvert">質量の変換器</string>
+	<string name="lengthConvert">長さの変換器</string>
+	<string name="areaConvert">面積の変換器</string>
+	<string name="volumeConvert">体積の変換器</string>
+
+	<string name="recipeMult">料理法の乗数</string>
+	<string name="amount">量</string>
+	<string name="amountHint">ex 0.75</string>
+	<string name="multiplier">乗数</string>
+	<string-array name="recipeRatio" translatable="false">
+		<item>1/4</item>
+		<item>1/2</item>
+		<item>2\u00d7</item>
+		<item>3\u00d7</item>
+		<item>4\u00d7</item>
+	</string-array>
+
+	<!-- Types of units used in the kitchen -->
+	<string-array name="kitchenProperties" translatable="false">
+		<item>長さ</item>
+		<item>面積</item>
+		<item>体積</item>
+		<item>質量</item>
+	</string-array>
+
+	<!-- Length units used in the kitchen -->
+	<string-array name="kitchenLength" translatable="false">
+		<item>吋</item>
+		<item>フィート</item>
+		<item>ヤード</item>
+		<item>粍</item>
+		<item>糎</item>
+		<item>メートル</item>
+	</string-array>
+
+	<!-- Area units used in the kitchen -->
+	<string-array name="kitchenArea" translatable="false">
+		<item>吋\u00b2</item>
+		<item>フィート\u00b2</item>
+		<item>糎\u00b2</item>
+		<item>メートル\u00b2</item>
+	</string-array>
+
+	<!-- Volume units used in the kitchen -->
+	<string-array name="kitchenVolume" translatable="false">
+		<item>小匙</item>
+		<item>大小匙</item>
+		<item>オンス</item>
+		<item>カップ</item>
+		<item>パイント</item>
+		<item>クォート</item>
+		<item>ガロン</item>
+		<item>ミリリットル</item>
+		<item>リットル</item>
+	</string-array>
+
+	<!-- Mass units used in the kitchen -->
+	<string-array name="kitchenMass" translatable="false">
+		<item>オンス</item>
+		<item>ポンド</item>
+		<item>グラム</item>
+		<item>キログラム</item>
+	</string-array>
+
+	<!-- Temperature units used in the kitchen -->
+	<string-array name="kitchenTemperature" translatable="false">
+		<item>華氏</item>
+		<item>摂氏</item>
+	</string-array>
+</resources>

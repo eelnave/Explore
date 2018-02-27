@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="counter">カウンタ</string>
+
+	<string name="queueTime">待ち行列時間</string>
+	<string name="people">人々の数</string>
+	<string name="next">次の人</string>
+	<string name="person">1人あたりの時間</string>
+	<string name="remain">残り時間</string>
+	<string name="served">サービスされた時間</string>
+
+	<string name="dateArith">日付演算</string>
+	<string name="dateDiff">日付差</string>
+	<string name="startDate">開始日</string>
+	<string name="endDate">終了日</string>
+	<string name="duration">期間</string>
+	<string name="difference">差</string>
+	<string name="today">今日</string>
+	<string-array name="durationChoices" translatable="false">
+		<item>日</item>
+		<item>週間</item>
+		<item>月</item>
+		<item>年</item>
+	</string-array>
+</resources>
