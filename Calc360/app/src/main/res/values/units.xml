@@ -44,6 +44,11 @@
 	<string name="Luminosity">Luminosity</string>
 	<string name="luminosity">luminosity</string>
 
+	<string name="fraction">Fraction</string>
+	<string name="decimal">Decimal</string>
+	<string name="decimalFraction">Convert Decimal and Fraction</string>
+
+
 	<!-- Derived Properties -->
 	<string name="Area">Area</string>
 	<string name="area">area</string>
