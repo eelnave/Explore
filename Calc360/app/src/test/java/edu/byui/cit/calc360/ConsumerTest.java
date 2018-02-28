@@ -61,7 +61,7 @@ public final class ConsumerTest {
 	}
 
 	@Test
-	public  void testNetflix() {
+	public void testNetflix() {
 		double price = 8.0;
 		double firstHour = 4.0;
 		double secondHour = 9.0;
