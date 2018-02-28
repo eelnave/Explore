@@ -15,7 +15,7 @@ import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
-import static edu.byui.cit.model.Consumer.Neflix.*;
+import static edu.byui.cit.model.Consumer.NetflixComputing.*;
 
 
 public final class Netflix extends CalcFragment{
@@ -71,24 +71,24 @@ public final class Netflix extends CalcFragment{
 				price = ssp.getDec();
 			}
 			if (hours1.notEmpty()) {
-				firstHour = hours1.getDec() * 2.5;
+				firstHour = movieLengthTwoHalf( hours1.getDec());
 			}
 			if (hours2.notEmpty()) {
-				secondHour = hours2.getDec() * 2;
+				secondHour = movieLengthTwo( hours2.getDec());
 			}
 			if (hours3.notEmpty()) {
-				thirdHour = hours3.getDec() * 1.5;
+				thirdHour = movieLengthOneHalf( hours3.getDec());
 			}
 			if (minutes1.notEmpty()) {
-				firstMin = minutes1.getDec() * .75;
+				firstMin = episodeLengthFourFive( minutes1.getDec());
 			}
 			if (minutes2.notEmpty()) {
-				secondMin = minutes2.getDec() * .37;
+				secondMin = episodeLengthTwoTwo( minutes2.getDec());
 			}
 
 //			get the total
-			double time = firstHour + secondHour + thirdHour + firstMin + secondMin;
-			double sum = price / time;
+			double time = time(firstHour,  secondHour, thirdHour, firstMin, secondMin);
+			double sum = sum(price, time);
 
 //			result
 			ttw.setText(fmtNum.format(time));
