@@ -15,6 +15,8 @@ import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
+import static edu.byui.cit.model.Consumer.Neflix.*;
+
 
 public final class Netflix extends CalcFragment{
 	private final NumberFormat fmtNum, fmtCur;

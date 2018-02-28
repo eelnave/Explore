@@ -60,4 +60,13 @@ public final class Consumer {
 			return cost + taxAmt + tipAmt;
 		}
 	}
+
+	public static final class netflixComputing {
+		private netflixComputing() {
+		}
+
+		public static double movieLengthTwoHalf(double h1) {
+			return h1 * 2.5;
+		}
+	}
 }
