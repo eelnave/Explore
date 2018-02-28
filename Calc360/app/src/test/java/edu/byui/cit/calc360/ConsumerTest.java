@@ -70,7 +70,7 @@ public final class ConsumerTest {
 		double secondMin = 45.0;
 		double time = 65.65;
 
-		assertEquals(0.12185833968012184, NetflixComputing.sum(price, time), delta);
+		assertEquals(0.12, NetflixComputing.sum(price, time), delta);
 		assertEquals(10, NetflixComputing.movieLengthTwoHalf(firstHour), delta);
 		assertEquals(18, NetflixComputing.movieLengthTwo(secondHour), delta);
 		assertEquals(4.5, NetflixComputing.movieLengthOneHalf(thirdHour), delta);

@@ -90,7 +90,7 @@ public final class Consumer {
 		}
 
 		public static double sum(double price, double time) {
-			return price / time;
+			return Math.floor(price / time * 100) / 100;
 		}
 	}
 }
