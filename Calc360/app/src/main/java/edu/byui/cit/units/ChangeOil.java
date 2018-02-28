@@ -1,9 +1,10 @@
 package edu.byui.cit.units;
 
+
 public final class ChangeOil extends Property {
 	public static final int
-			fullSynOil = 3001,
-			regularOil = 3002;
+			fullSynOil = 9001,
+			regularOil = 9002;
 
 	private static ChangeOil singleton;
 
@@ -15,7 +16,7 @@ public final class ChangeOil extends Property {
 	}
 
 	private ChangeOil() {
-		super(World.len, "ChangeOil", new Unit[]{
+		super(World.oil, "changeOil", new Unit[]{
 				new Unit(fullSynOil, "fs", "Full Synthetic", 1),
 				new Unit(regularOil, "reg", "Regular",1)
 		});

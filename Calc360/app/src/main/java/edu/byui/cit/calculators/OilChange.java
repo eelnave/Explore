@@ -22,30 +22,30 @@ import edu.byui.cit.units.FuelEcon;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
-import edu.byui.cit.units.Volume;
+
 
 
 public final class OilChange extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
 			KEY_DIST_UNITS = "FuelEconomy.distUnits",
-			KEY_VOL_UNITS = "FuelEconomy.volUnits",
+			KEY_OilTypes = "FuelEconomy.oilTypes",
 			KEY_ECON_UNITS = "FuelEconomy.econUnits";
 
-	private final NumberFormat fmtrDist, fmtrEcon;
-	private EditDecimal decBegin, decEnd, decDist, decVol;
-	private SpinUnit spinDistUnits, spinOilTypes, spinEconUnits;
+	private final NumberFormat fmtrDist;
+	private EditDecimal decBegin, decEnd, decDist, decOil;
+	private SpinUnit spinDistUnits, spinOilUnits, spinEconUnits;
 	private TextWrapper decEcon;
 
 
 	public OilChange() {
 		super();
 		fmtrDist = NumberFormat.getInstance();
-		fmtrEcon = NumberFormat.getInstance();
+	//	fmtrEcon = NumberFormat.getInstance();
 		fmtrDist.setMinimumFractionDigits(0);
 		fmtrDist.setMaximumFractionDigits(1);
-		fmtrEcon.setMinimumFractionDigits(1);
-		fmtrEcon.setMaximumFractionDigits(2);
+	//	fmtrEcon.setMinimumFractionDigits(1);
+	//	fmtrEcon.setMaximumFractionDigits(2);
 	}
 
 
@@ -63,7 +63,7 @@ public final class OilChange extends CalcFragment {
 		decBegin = new EditDecimal(view, R.id.decBegin, dist);
 		decEnd = new EditDecimal(view, R.id.decEnd, dist);
 		decDist = new EditDecimal(view, R.id.decDist, new DistanceChanged());
-		decVol = new EditDecimal(view, R.id.decVol, this);
+		decOil = new EditDecimal(view, R.id.decOil, this);
 
 		// Get the user's preferred units from the system
 		// preferences file and initialize each spinner.
@@ -71,18 +71,18 @@ public final class OilChange extends CalcFragment {
 		spinDistUnits = new SpinUnit(act, view, R.id.spinDistUnits,
 				Length.getInstance(), R.array.feDistUnits,
 				KEY_DIST_UNITS, this);
-		spinOilTypes = new SpinUnit(act, view, R.id.spinOilTypes,
-				Volume.getInstance(), R.array.OilTypes,
-				KEY_VOL_UNITS, this);
+		spinOilUnits = new SpinUnit(act, view, R.id.spinOilUnits,
+				ChangeOil.getInstance(), R.array.ocOilUnits,
+				KEY_OilTypes, this);
 		spinEconUnits = new SpinUnit(act, view, R.id.spinEconUnits,
 				FuelEcon.getInstance(), R.array.fuelEcon,
 				KEY_ECON_UNITS, this);
 
 		decEcon = new TextWrapper(view, R.id.decEcon);
 
-		EditWrapper[] inputs = { decBegin, decEnd, decDist, decVol };
+		EditWrapper[] inputs = { decBegin, decEnd, decDist, decOil  };
 		ControlWrapper[] toClear = {
-				decBegin, decEnd, decDist, decVol, decEcon
+				decBegin, decEnd, decDist, decOil, decEcon
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
@@ -92,7 +92,7 @@ public final class OilChange extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinDistUnits.restore(prefs, Length.mile);
-		spinOilTypes.restore(prefs, ChangeOil.fullSynOil);
+		spinOilUnits.restore(prefs, ChangeOil.fullSynOil);
 		spinEconUnits.restore(prefs, FuelEcon.mpg);
 	}
 
@@ -102,7 +102,7 @@ public final class OilChange extends CalcFragment {
 		// the user into the preferences file.
 		// Get from the spinners, the units chosen by the user.
 		spinDistUnits.save(editor);
-		spinOilTypes.save(editor);
+		spinOilUnits.save(editor);
 		spinEconUnits.save(editor);
 	}
 
@@ -129,7 +129,7 @@ public final class OilChange extends CalcFragment {
 		}
 	}
 
-
+/*
 	@Override
 	protected void compute() {
 		double dist = 0;
@@ -186,5 +186,5 @@ public final class OilChange extends CalcFragment {
 		else {
 			decEcon.clear();
 		}
-	}
+	} */
 }

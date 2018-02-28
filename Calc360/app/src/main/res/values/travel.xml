@@ -28,7 +28,7 @@
 	<string name="previousOdo">previous</string>
 	<string name="currentOdo">current</string>
 	<string name="OilType">Oil Type</string>
-	<string-array name="OilTypes" translatable="false">
+	<string-array name="ocOilUnits" translatable="false">
 		<item>Full Synthetic</item>
 		<item>Regular</item>
 	</string-array>
