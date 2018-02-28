@@ -18,4 +18,10 @@
     <string name="money">Money</string>
     <string name="travel">Travel</string>
     <string name="other">Other</string>
+    <string name="longitude">Longitdue</string>
+    <string name="latitude">Latitude</string>
+    <string name="category">Category</string>
+
+    <string name="submit">Submit</string>
+	<string name="map">Map</string>
 </resources>
