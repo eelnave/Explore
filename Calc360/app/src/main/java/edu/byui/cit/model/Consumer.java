@@ -61,36 +61,29 @@ public final class Consumer {
 		}
 	}
 
-	public static final class NetflixComputing {
-		private NetflixComputing() {
+
+	public static final class StreamingCost {
+		private StreamingCost() {
 		}
 
-		public static double movieLengthTwoHalf(double h1) {
-			return h1 * 2.5;
+		public static double durationMovie2_5(double quantity) {
+			return quantity * 2.5;
 		}
 
-		public static double movieLengthTwo(double h2) {
-			return h2 * 2;
+		public static double durationMovie2(double quantity) {
+			return quantity * 2;
 		}
 
-		public static double movieLengthOneHalf(double h3) {
-			return h3 * 1.5;
+		public static double durationMovie1_5(double quantity) {
+			return quantity * 1.5;
 		}
 
-		public static double episodeLengthFourFive(double e1) {
-			return e1 * .75;
+		public static double durationEpisode45(double quantity) {
+			return quantity * 0.75;
 		}
 
-		public static double episodeLengthTwoTwo(double e2) {
-			return e2 * .37;
-		}
-
-		public static double time(double firstHour, double secondHour, double thirdHour, double firstMin, double secondMin) {
-			return firstHour + secondHour + thirdHour + firstMin + secondMin;
-		}
-
-		public static double sum(double price, double time) {
-			return Math.floor(price / time * 100) / 100;
+		public static double durationEpisode22(double quantity) {
+			return quantity * 0.37;
 		}
 	}
 }

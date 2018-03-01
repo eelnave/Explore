@@ -61,20 +61,17 @@ public final class ConsumerTest {
 	}
 
 	@Test
-	public void testNetflix() {
-		double price = 8.0;
+	public void testStreamingCost() {
 		double firstHour = 4.0;
 		double secondHour = 9.0;
 		double thirdHour = 3.0;
 		double firstMin = 22.0;
 		double secondMin = 45.0;
-		double time = 65.65;
 
-		assertEquals(0.12, NetflixComputing.sum(price, time), delta);
-		assertEquals(10, NetflixComputing.movieLengthTwoHalf(firstHour), delta);
-		assertEquals(18, NetflixComputing.movieLengthTwo(secondHour), delta);
-		assertEquals(4.5, NetflixComputing.movieLengthOneHalf(thirdHour), delta);
-		assertEquals(16.5, NetflixComputing.episodeLengthFourFive(firstMin), delta);
-		assertEquals(16.65, NetflixComputing.episodeLengthTwoTwo(secondMin), delta);
+		assertEquals(10, StreamingCost.durationMovie2_5(firstHour), delta);
+		assertEquals(18, StreamingCost.durationMovie2(secondHour), delta);
+		assertEquals(4.5, StreamingCost.durationMovie1_5(thirdHour), delta);
+		assertEquals(16.5, StreamingCost.durationEpisode45(firstMin), delta);
+		assertEquals(16.65, StreamingCost.durationEpisode22(secondMin), delta);
 	}
 }

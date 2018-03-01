@@ -7,11 +7,6 @@
 	<string name="depositHint">ex: 300.50</string>
 	<string name="interestHint">ex: 6.5</string>
 	<string name="yearsHint">ex: 7</string>
-	<string name="intHint1">ex: 1</string>
-	<string name="intHint2">ex: 2</string>
-	<string name="intHint3">ex: 3</string>
-	<string name="intHint22">ex: 22</string>
-	<string name="intHint45">ex: 45</string>
 	<string name="radioMonthly">Monthly</string>
 	<string name="radioQuarterly">Quarterly</string>
 	<string name="radioAnnually">Annually</string>
@@ -54,14 +49,18 @@
 		<item quantity="other">cents</item>
 	</plurals>
 
+	<string name="netflix">Streaming Service</string>
 	<string name="descrip1">Cost of streaming services like:</string>
 	<string name="descrip2">Netflix, Hulu, Amazon, etc.</string>
 	<string name="servicePayment">Service Payment</string>
-	<string name="hours_2_5">2.5 Hours</string>
-	<string name="hours_2">2 Hours</string>
-	<string name="hours_1_5">1.5 Hours</string>
-	<string name="mins_45">45 Minutes</string>
-	<string name="mins_22">22 Minutes</string>
+	<string name="hours2_5">2.5 Hours</string>
+	<string name="hours2">2 Hours</string>
+	<string name="hours1_5">1.5 Hours</string>
+	<string name="minutes45">45 Minutes</string>
+	<string name="minutes22">22 Minutes</string>
 	<string name="totalTime">Total Hours Watched</string>
-	<string name="costPerHour">Cost per Hour:</string>
+	<string name="costPerHour">Cost per Hour</string>
+	<string name="intHint1">ex: 1</string>
+	<string name="intHint2">ex: 2</string>
+	<string name="intHint5">ex: 5</string>
 </resources>
