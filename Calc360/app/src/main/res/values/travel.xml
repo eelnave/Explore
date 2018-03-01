@@ -25,13 +25,20 @@
 	<string name="currencyExch">Currency Exchange</string>
 
 	<string name="OilChange">Oil Change</string>
+	<string name="ocExplain">Calculate when your recommended to change your oil by entering your previous oil change mileage, current mileage. Then select your oil type and your typical driving habit. </string>
 	<string name="previousOdo">previous</string>
 	<string name="currentOdo">current</string>
-	<string name="OilType">Oil Type</string>
+	<string name="OilType">Oil Type:</string>
 	<string-array name="ocOilUnits" translatable="false">
-		<item>Full Synthetic</item>
 		<item>Regular</item>
+		<item>Full-Synthetic</item>
 	</string-array>
+	<string name="driveType">Typical Driving:</string>
+	<string-array name="ocDriveUnits" translatable="false">
+		<item>City Driving</item>
+		<item>Highway Driving</item>
+	</string-array>
+	<string name="changeOil">Change Oil</string>
 
 	<string name="travelTime">Travel Time</string>
 	<string name="ttExplain">Calculate the time required to travel by entering the distance and average speed</string>

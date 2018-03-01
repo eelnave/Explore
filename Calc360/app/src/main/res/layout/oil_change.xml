@@ -3,8 +3,12 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical">
+	android:orientation="vertical"
+	android:layout_marginStart="@dimen/default_gap">
 
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/ocExplain"/>
 	<RelativeLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -85,11 +89,13 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp">
 
+
 		<Spinner
 			android:id="@+id/spinOilUnits"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_toEndOf="@+id/type"/>
+			android:layout_toEndOf="@id/type"
+			style="@style/CalcSpinnerDropDownItem"/>
 
 		<TextView
 			android:id="@+id/type"
@@ -97,7 +103,30 @@
 			android:layout_height="wrap_content"
 			android:labelFor="@+id/decOil"
 			android:text="@string/OilType"
-			android:textAlignment="center"/>
+			android:textAlignment="center"
+			android:textStyle="bold"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<Spinner
+			android:id="@+id/spinDriveUnits"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@+id/type2"
+			style="@style/CalcSpinnerDropDownItem"/>
+
+		<TextView
+			android:id="@+id/type2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:labelFor="@+id/decDrive"
+			android:text="@string/driveType"
+			android:textAlignment="center"
+			android:textStyle="bold"/>
 	</RelativeLayout>
 
 	<RelativeLayout
@@ -106,28 +135,19 @@
 		android:layout_marginTop="15dp">
 
 		<TextView
-			android:id="@+id/decEcon"
+			android:id="@+id/decResult"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignBaseline="@+id/spinEconUnits"
-			android:layout_alignEnd="@+id/lblEcon"
-			android:layout_alignStart="@+id/lblEcon"
 			android:textAlignment="textEnd"/>
 
-		<Spinner
-			android:id="@+id/spinEconUnits"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_toEndOf="@+id/decEcon"/>
-
 		<TextView
-			android:id="@+id/lblEcon"
+			android:id="@+id/lblResult"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/decEcon"
-			android:labelFor="@+id/decEcon"
-			android:text="@string/FuelEcon"/>
-	</RelativeLayout>
+			android:layout_below="@+id/decResult"
+			android:labelFor="@+id/decResult"
+			android:text="@string/changeOil"/>
+		</RelativeLayout>
 
 	<Button
 		android:id="@+id/btnClear"
