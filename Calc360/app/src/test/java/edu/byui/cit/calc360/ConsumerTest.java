@@ -59,4 +59,19 @@ public final class ConsumerTest {
 		assertEquals(tipRate, Ratio.rate(tipAmt, cost), delta);
 		assertEquals(total, Tip.total(cost, taxAmt, tipAmt), delta);
 	}
+
+	@Test
+	public void testStreamingCost() {
+		double firstHour = 4.0;
+		double secondHour = 9.0;
+		double thirdHour = 3.0;
+		double firstMin = 22.0;
+		double secondMin = 45.0;
+
+		assertEquals(10, StreamingCost.durationMovie2_5(firstHour), delta);
+		assertEquals(18, StreamingCost.durationMovie2(secondHour), delta);
+		assertEquals(4.5, StreamingCost.durationMovie1_5(thirdHour), delta);
+		assertEquals(16.5, StreamingCost.durationEpisode45(firstMin), delta);
+		assertEquals(16.65, StreamingCost.durationEpisode22(secondMin), delta);
+	}
 }
