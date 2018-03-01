@@ -1,15 +1,105 @@
-<ScrollView
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:compat="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context="edu.byui.cit.kindness.MainActivity">
+	android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<android.support.v7.widget.GridLayout
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			android:textSize="12pt"
+			android:paddingStart="5dp"
+			android:paddingEnd="5dp"
+			android:id="@+id/textView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/longitude"/>
+
+		<TextView
+			android:textSize="12pt"
+			android:paddingStart="5dp"
+			android:paddingEnd="5dp"
+			android:id="@+id/textView4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/longitude"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			android:textSize="12pt"
+			android:paddingStart="5dp"
+			android:paddingEnd="5dp"
+			android:id="@+id/textView2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/latitude"/>
+
+		<TextView
+			android:textSize="12pt"
+			android:paddingStart="5dp"
+			android:paddingEnd="5dp"
+			android:id="@+id/textView5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/latitude"/>
+
+	</LinearLayout>
+
+	<!--<TextView
+		android:textSize="12pt"
+		android:id="@+id/textView3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/story"/>
+
+	<EditText
+		android:id="@+id/editText7"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		compat:columnCount="3">
+		android:autoText="true"
+		android:ems="10"
+		android:inputType="textMultiLine"
+		android:text="@string/story"
+		tools:ignore="LabelFor"/>-->
 
-	</android.support.v7.widget.GridLayout>
-</ScrollView>
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			android:textSize="12pt"
+			android:paddingStart="5dp"
+			android:paddingEnd="5dp"
+			android:id="@+id/textView3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/category"/>
+
+		<TextView
+			android:textSize="12pt"
+			android:paddingStart="5dp"
+			android:paddingEnd="5dp"
+			android:id="@+id/textView6"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/category"/>
+
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/submitButton"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/submit"/>
+
+</LinearLayout>
