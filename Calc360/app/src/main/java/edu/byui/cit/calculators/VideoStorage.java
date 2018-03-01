@@ -19,6 +19,7 @@ import edu.byui.cit.units.DataSize;
 
 public final class VideoStorage extends CalcFragment {
 	private static final String KEY_STORAGE_SIZE = "VideoStorage.size";
+	private static final double secsPerMin = 60.0;
 	private final NumberFormat fmtrInt, fmtrDec;
 
 	private EditDecimal space;
@@ -72,10 +73,14 @@ public final class VideoStorage extends CalcFragment {
 			double reSpace = space.getDec();
 			double asMb = DataSize.getInstance()
 					.convert(DataSize.mByte, reSpace, DataSize.gByte);
-			int reSevenTwenty = (int)Math.floor(asMb / 1.5 / 60.0);
-			int reTenEighty = (int)Math.floor(asMb / 3.33 / 60.0);
-			int reFourKThirty = (int)Math.floor(asMb / 5.9 / 30.0);
-			int reFourKSixty = (int)Math.floor(asMb / 7.5 / 60.0);
+
+			// The conversion constants below come from experiments recording
+			// video at the various resolutions on both an Apple iPhone and
+			// an Android phone.
+			int reSevenTwenty = (int)Math.floor(asMb / 1.5 / secsPerMin);
+			int reTenEighty = (int)Math.floor(asMb / 3.33 / secsPerMin);
+			int reFourKThirty = (int)Math.floor(asMb / 5.9 / secsPerMin);
+			int reFourKSixty = (int)Math.floor(asMb / 7.5 / secsPerMin);
 
 			sevenTwenty.setText(fmtrInt.format(reSevenTwenty));
 			tenEighty.setText(fmtrInt.format(reTenEighty));
