@@ -35,7 +35,7 @@ public final class OilChange extends CalcFragment {
 	private SpinUnit spinDistUnits;
 	private SpinString spinOilUnits, spinDriveUnits;
 	private TextWrapper decDrive, decOil, decResult;
-
+	private String result;
 
 	public OilChange() {
 		super();
@@ -129,6 +129,7 @@ public final class OilChange extends CalcFragment {
 	@Override
 	protected void compute() {
 		double dist = 0;
+		double recommend = 0;
 		if (decBegin.notEmpty() && decEnd.notEmpty()) {
 			double begin = decBegin.getDec();
 			double end = decEnd.getDec();
@@ -142,9 +143,46 @@ public final class OilChange extends CalcFragment {
 			dist = length.convert(Length.mile, dist, distUnit);
 
 			// Perform calculations.
+			if (spinOilUnits.getSelectedItemPosition() == 0) {
+				if (spinDriveUnits.getSelectedItemPosition() == 0) {
+					recommend = 5000;
+				}
+				else if (spinDriveUnits.getSelectedItemPosition() == 1) {
+					recommend = 7500;
+				}
+			}
+			else if (spinOilUnits.getSelectedItemPosition() == 1) {
+				if (spinDriveUnits.getSelectedItemPosition() == 0) {
+					recommend = 10000;
+				}
+				else if (spinDriveUnits.getSelectedItemPosition() == 1) {
+					recommend = 13000;
+				}
+			}
+
+			double distLeft = recommend - dist;
+
+			if (distLeft <= 0) {
+				result = "Overdue!";
+			}
+			else {
+				if (distUnit.equals(7002)) {
+					result = distLeft + " miles left";
+				}
+				else if (distUnit.equals(7021)) {
+					double converted = length.convert(distUnit, distLeft, Length.mile);
+					result = converted + " kilometers left";
+
+				}
+			}
+
+			decResult.setText(result);
+
+
+
 
 			// Convert the results into the unit the user chose.
-//			result = length.convert(distUnit, result, Length.mile);
+			// result = length.convert(distUnit, result, Length.mile);
 		} /*
 		else if (decDist.notEmpty()) {
 			dist = decDist.getDec();
