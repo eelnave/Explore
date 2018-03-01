@@ -106,9 +106,9 @@ final class Descriptors {
 				new CalcDescriptor(1059, R.string.relativity, R.drawable.einstein, Relativity.class),
 			}),
 			new GroupDescriptor(313, R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
+				new CalcDescriptor(1065, R.string.videoStorage, R.drawable.film, VideoStorage.class),
 				new CalcDescriptor(1061, R.string.starExposure, R.drawable.star_exposure, StarExposure.class),
 				new CalcDescriptor(1060, R.string.musicDuration, R.drawable.music_notes, MusicDuration.class),
-				new CalcDescriptor(1065, R.string.videoStorage, R.drawable.lightning,VideoStorage.class),
 			}),
 			new GroupDescriptor(310, R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
 				new CalcDescriptor(1032, R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),

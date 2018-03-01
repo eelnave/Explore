@@ -14,10 +14,12 @@ import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.units.DataSize;
 
 
 public final class VideoStorage extends CalcFragment {
-	private final NumberFormat fmtrDec;
+	private static final String KEY_STORAGE_SIZE = "VideoStorage.size";
+	private final NumberFormat fmtrInt, fmtrDec;
 
 	private EditDecimal space;
 	private TextWrapper fourKSixty;
@@ -28,6 +30,7 @@ public final class VideoStorage extends CalcFragment {
 
 	public VideoStorage() {
 		super();
+		fmtrInt = NumberFormat.getIntegerInstance();
 		fmtrDec = NumberFormat.getInstance();
 	}
 
@@ -37,14 +40,16 @@ public final class VideoStorage extends CalcFragment {
 			Bundle savedInstState) {
 		View view = inflater.inflate(R.layout.video_storage, container, false);
 
-		space = new EditDecimal(view, R.id.space, this);
+		space = new EditDecimal(view, R.id.space, KEY_STORAGE_SIZE, this);
 		fourKSixty = new TextWrapper(view, R.id.fourKSixty);
 		fourKThirty = new TextWrapper(view, R.id.fourKThirty);
 		tenEighty = new TextWrapper(view, R.id.tenEighty);
 		sevenTwenty = new TextWrapper(view, R.id.sevenTwenty);
 
 		EditWrapper[] inputs = { space };
-		ControlWrapper[] toClear = { space, fourKSixty, fourKThirty, tenEighty, sevenTwenty };
+		ControlWrapper[] toClear = {
+				space, fourKSixty, fourKThirty, tenEighty, sevenTwenty
+		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -55,29 +60,29 @@ public final class VideoStorage extends CalcFragment {
 		space.restore(prefs, fmtrDec);
 	}
 
+	@Override
+	protected void savePrefs(SharedPreferences.Editor editor) {
+		space.save(editor);
+	}
+
 
 	@Override
 	protected void compute() {
 		if (space.notEmpty()) {
 			double reSpace = space.getDec();
-			double asMb = reSpace * 1024;
-			int reFourKSixty = (int) (asMb / 7.5) / 60;
-			int reFourKThirty = (int) (asMb / 5.9) / 60;
-			int reTenEighty = (int) (asMb / 3.33) / 60;
-			int reSevenTwenty = (int) (asMb / 1.5) / 60;
+			double asMb = DataSize.getInstance()
+					.convert(DataSize.mByte, reSpace, DataSize.gByte);
+			int reSevenTwenty = (int)Math.floor(asMb / 1.5 / 60.0);
+			int reTenEighty = (int)Math.floor(asMb / 3.33 / 60.0);
+			int reFourKThirty = (int)Math.floor(asMb / 5.9 / 30.0);
+			int reFourKSixty = (int)Math.floor(asMb / 7.5 / 60.0);
 
-			String sFourKSixty = reFourKSixty + " mins";
-			String sFourKThirty = reFourKThirty + " mins";
-			String sTenEighty = reTenEighty + " mins";
-			String sSevenTwenty = reSevenTwenty + " mins";
-
-			fourKSixty.setText(sFourKSixty);
-			fourKThirty.setText(sFourKThirty);
-			tenEighty.setText(sTenEighty);
-			sevenTwenty.setText(sSevenTwenty);
+			sevenTwenty.setText(fmtrInt.format(reSevenTwenty));
+			tenEighty.setText(fmtrInt.format(reTenEighty));
+			fourKThirty.setText(fmtrInt.format(reFourKThirty));
+			fourKSixty.setText(fmtrInt.format(reFourKSixty));
 		}
 		else {
-			space.clear();
 			fourKSixty.clear();
 			fourKThirty.clear();
 			tenEighty.clear();
