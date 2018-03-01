@@ -144,7 +144,7 @@ public final class OilChange extends CalcFragment {
 			// Perform calculations.
 
 			// Convert the results into the unit the user chose.
-			result = length.convert(distUnit, result, Length.mile);
+//			result = length.convert(distUnit, result, Length.mile);
 		} /*
 		else if (decDist.notEmpty()) {
 			dist = decDist.getDec();
