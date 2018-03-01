@@ -14,27 +14,26 @@ import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.text.SpinString;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.ChangeOil;
-import edu.byui.cit.units.FuelEcon;
 import edu.byui.cit.units.Length;
-import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
-
 
 
 public final class OilChange extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
-			KEY_DIST_UNITS = "FuelEconomy.distUnits",
-			KEY_Oil_UNITS = "FuelEconomy.oilTypes",
-			KEY_DRIVE_UNITS = "FuelEconomy.econUnits";
+			KEY_DIST_UNITS = "OilChange.distUnits",
+			KEY_Oil_UNITS = "OilChange.oilTypes",
+			KEY_DRIVE_UNITS = "OilChange.econUnits";
 
 	private final NumberFormat fmtrDist;
 	private EditDecimal decBegin, decEnd, decDist;
-	private SpinUnit spinDistUnits, spinOilUnits, spinDriveUnits;
+	private SpinUnit spinDistUnits;
+	private SpinString spinOilUnits, spinDriveUnits;
 	private TextWrapper decDrive, decOil, decResult;
 
 
@@ -70,11 +69,9 @@ public final class OilChange extends CalcFragment {
 		spinDistUnits = new SpinUnit(act, view, R.id.spinDistUnits,
 				Length.getInstance(), R.array.feDistUnits,
 				KEY_DIST_UNITS, this);
-		spinOilUnits = new SpinUnit(act, view, R.id.spinOilUnits,
-				ChangeOil.getInstance(), R.array.ocOilUnits,
+		spinOilUnits = new SpinString(view, R.id.spinOilUnits,
 				KEY_Oil_UNITS, this);
-		spinDriveUnits = new SpinUnit(act, view, R.id.spinDriveUnits,
-				ChangeOil.getInstance(), R.array.ocDriveUnits,
+		spinDriveUnits = new SpinString(view, R.id.spinDriveUnits,
 				KEY_DRIVE_UNITS, this);
 
 		decResult = new TextWrapper(view, R.id.decResult);
@@ -91,8 +88,8 @@ public final class OilChange extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinDistUnits.restore(prefs, Length.mile);
-		spinOilUnits.restore(prefs, ChangeOil.fullSynOil);
-		spinDriveUnits.restore(prefs, ChangeOil.cityDrive);
+		spinOilUnits.restore(prefs, 0);
+		spinDriveUnits.restore(prefs, 0);
 	}
 
 	@Override
@@ -136,7 +133,18 @@ public final class OilChange extends CalcFragment {
 			double begin = decBegin.getDec();
 			double end = decEnd.getDec();
 			dist = Math.abs(end - begin);
+
 			decDist.setText(fmtrDist.format(dist));
+
+			// Convert the distance to miles.
+			Unit distUnit = spinDistUnits.getSelectedItem();
+			Length length = Length.getInstance();
+			dist = length.convert(Length.mile, dist, distUnit);
+
+			// Perform calculations.
+
+			// Convert the results into the unit the user chose.
+			result = length.convert(distUnit, result, Length.mile);
 		} /*
 		else if (decDist.notEmpty()) {
 			dist = decDist.getDec();

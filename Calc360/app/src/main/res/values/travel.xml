@@ -29,12 +29,12 @@
 	<string name="previousOdo">previous</string>
 	<string name="currentOdo">current</string>
 	<string name="OilType">Oil Type:</string>
-	<string-array name="ocOilUnits" translatable="false">
+	<string-array name="ocOilUnits">
 		<item>Regular</item>
 		<item>Full-Synthetic</item>
 	</string-array>
 	<string name="driveType">Typical Driving:</string>
-	<string-array name="ocDriveUnits" translatable="false">
+	<string-array name="ocDriveUnits">
 		<item>City Driving</item>
 		<item>Highway Driving</item>
 	</string-array>

@@ -31,7 +31,7 @@ final class Descriptors {
 				new CalcDescriptor(1063, R.string.travelTime, R.drawable.travel_time, TravelTime.class),
 				new CalcDescriptor(1036, R.string.currencyExch, R.drawable.currency_exchange, CurrencyExchange.class),
 				new CalcDescriptor(1002, R.string.tip, R.drawable.tip, Tip.class),
-				new CalcDescriptor(1079, R.string.OilChange, R.drawable.lightning, OilChange.class),
+				new CalcDescriptor(1079, R.string.OilChange, R.drawable.oil_change, OilChange.class),
 			}),
 			new GroupDescriptor(303, R.string.finance, R.drawable.folder_finance, new CalcDescriptor[]{
 				new CalcDescriptor(1013, R.string.compoundInterest, R.drawable.compound_interest, CompoundInterest.class),

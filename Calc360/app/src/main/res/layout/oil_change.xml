@@ -3,12 +3,13 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:orientation="vertical"
-	android:layout_marginStart="@dimen/default_gap">
+	android:layout_marginStart="@dimen/default_gap"
+	android:orientation="vertical">
 
 	<TextView
 		style="@style/TextLabel"
 		android:text="@string/ocExplain"/>
+
 	<RelativeLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -76,9 +77,9 @@
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/empty2"
 			android:layout_alignEnd="@+id/decDist"
 			android:layout_alignStart="@+id/decDist"
+			android:layout_below="@+id/empty2"
 			android:labelFor="@+id/decDist"
 			android:text="@string/Distance"
 			android:textAlignment="center"/>
@@ -92,10 +93,11 @@
 
 		<Spinner
 			android:id="@+id/spinOilUnits"
+			style="@style/CalcSpinnerDropDownItem"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_toEndOf="@id/type"
-			style="@style/CalcSpinnerDropDownItem"/>
+			android:entries="@array/ocOilUnits"/>
 
 		<TextView
 			android:id="@+id/type"
@@ -114,10 +116,11 @@
 
 		<Spinner
 			android:id="@+id/spinDriveUnits"
+			style="@style/CalcSpinnerDropDownItem"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_toEndOf="@+id/type2"
-			style="@style/CalcSpinnerDropDownItem"/>
+			android:entries="@array/ocDriveUnits"/>
 
 		<TextView
 			android:id="@+id/type2"
@@ -147,7 +150,7 @@
 			android:layout_below="@+id/decResult"
 			android:labelFor="@+id/decResult"
 			android:text="@string/changeOil"/>
-		</RelativeLayout>
+	</RelativeLayout>
 
 	<Button
 		android:id="@+id/btnClear"
