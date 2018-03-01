@@ -18,7 +18,6 @@ import edu.byui.cit.text.SpinString;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.units.ChangeOil;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Unit;
 
@@ -34,7 +33,7 @@ public final class OilChange extends CalcFragment {
 	private EditDecimal decBegin, decEnd, decDist;
 	private SpinUnit spinDistUnits;
 	private SpinString spinOilUnits, spinDriveUnits;
-	private TextWrapper decDrive, decOil, decResult;
+	private TextWrapper decDrive, decOil, result;
 
 
 	public OilChange() {
