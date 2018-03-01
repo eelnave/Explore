@@ -18,7 +18,7 @@ import edu.byui.cit.text.TextWrapper;
 import static edu.byui.cit.model.Consumer.NetflixComputing.*;
 
 
-public final class Netflix extends CalcFragment{
+public final class Netflix extends CalcFragment {
 	private final NumberFormat fmtNum, fmtCur;
 	private EditDecimal ssp, hours1, hours2, hours3, minutes1, minutes2;
 	private TextWrapper ttw, spentPer;
@@ -40,16 +40,18 @@ public final class Netflix extends CalcFragment{
 		ttw = new TextWrapper(view, R.id.ttw);
 
 //		initialize the calculator
-		EditWrapper[] inputs = { ssp, hours1, hours2, hours3, minutes1, minutes2 };
+		EditWrapper[] inputs = { ssp, hours1, hours2, hours3, minutes1,
+				minutes2 };
 
 //		clears the button
-		ControlWrapper[] toClear = { ssp, hours1, hours2, hours3, minutes1, minutes2, ttw, spentPer };
+		ControlWrapper[] toClear = { ssp, hours1, hours2, hours3, minutes1,
+				minutes2, ttw, spentPer };
 		initialize(view, inputs, R.id.btnClear, toClear);
 
 		return view;
 	}
 
-	public Netflix(){
+	public Netflix() {
 		super();
 //		get instance
 		fmtNum = NumberFormat.getInstance();
@@ -57,44 +59,46 @@ public final class Netflix extends CalcFragment{
 	}
 
 	@Override
-	protected void compute(){
-		double price = 0;
-		double firstHour = 0;
-		double secondHour = 0;
-		double thirdHour = 0;
-		double firstMin = 0;
-		double secondMin = 0;
-
-		if (ssp.notEmpty() || hours1.notEmpty() || hours2.notEmpty() || hours3.notEmpty() ||
+	protected void compute() {
+		if (ssp.notEmpty() || hours1.notEmpty() || hours2.notEmpty() ||
+				hours3.notEmpty() ||
 				minutes1.isEmpty() || minutes2.isEmpty()) {
+			double price = 0;
+			double firstHour = 0;
+			double secondHour = 0;
+			double thirdHour = 0;
+			double firstMin = 0;
+			double secondMin = 0;
+
 			if (ssp.notEmpty()) {
 				price = ssp.getDec();
 			}
 			if (hours1.notEmpty()) {
-				firstHour = movieLengthTwoHalf( hours1.getDec());
+				firstHour = movieLengthTwoHalf(hours1.getDec());
 			}
 			if (hours2.notEmpty()) {
-				secondHour = movieLengthTwo( hours2.getDec());
+				secondHour = movieLengthTwo(hours2.getDec());
 			}
 			if (hours3.notEmpty()) {
-				thirdHour = movieLengthOneHalf( hours3.getDec());
+				thirdHour = movieLengthOneHalf(hours3.getDec());
 			}
 			if (minutes1.notEmpty()) {
-				firstMin = episodeLengthFourFive( minutes1.getDec());
+				firstMin = episodeLengthFourFive(minutes1.getDec());
 			}
 			if (minutes2.notEmpty()) {
-				secondMin = episodeLengthTwoTwo( minutes2.getDec());
+				secondMin = episodeLengthTwoTwo(minutes2.getDec());
 			}
 
 //			get the total
-			double time = time(firstHour,  secondHour, thirdHour, firstMin, secondMin);
+			double time = time(firstHour, secondHour, thirdHour, firstMin,
+					secondMin);
 			double sum = sum(price, time);
 
 //			result
 			ttw.setText(fmtNum.format(time));
 			spentPer.setText(fmtCur.format(sum));
-
-		}else {
+		}
+		else {
 			spentPer.clear();
 			ttw.clear();
 		}

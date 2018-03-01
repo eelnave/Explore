@@ -54,15 +54,14 @@
 		<item quantity="other">cents</item>
 	</plurals>
 
-	<string name="streamServicePayment">Streaming Service Payment</string>
-	<string name="twoDotFiveHRS">2.5 Hours</string>
-	<string name="twoHours">2 Hours</string>
-	<string name="oneDotFiveHRS">1.5 Hours</string>
-	<string name="fortyFiveMINS">45 Minutes</string>
-	<string name="twentyTwoMINS">22 Minutes</string>
-	<string name="totalTime">Total Hours Watched:</string>
-	<string name="spentPerTime">Spent Per Hour:</string>
-	<string name="descrip1">Streaming Services like:</string>
+	<string name="descrip1">Cost of streaming services like:</string>
 	<string name="descrip2">Netflix, Hulu, Amazon, etc.</string>
-
+	<string name="servicePayment">Service Payment</string>
+	<string name="hours_2_5">2.5 Hours</string>
+	<string name="hours_2">2 Hours</string>
+	<string name="hours_1_5">1.5 Hours</string>
+	<string name="mins_45">45 Minutes</string>
+	<string name="mins_22">22 Minutes</string>
+	<string name="totalTime">Total Hours Watched</string>
+	<string name="costPerHour">Cost per Hour:</string>
 </resources>
