@@ -23,14 +23,14 @@ import edu.byui.cit.units.Unit;
 
 // Fix save user values for decBegin
 // Format output
-// Solidify layout
 // Fix bugs
 
 public final class OilChange extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
+			KEY_ODOMETER_UNITS ="OilChange.decBegin",
 			KEY_DIST_UNITS = "OilChange.distUnits",
-			KEY_OIL_UNITS = "OilChange.oilTypes",
+			KEY_OIL_UNITS = "OilChange.oilUnits",
 			KEY_DRIVE_UNITS = "OilChange.econUnits";
 
 	private final NumberFormat fmtrDist;
@@ -59,7 +59,7 @@ public final class OilChange extends CalcFragment {
 
 		// Create a wrapper object for each EditText
 		// that appears in this calculator's layout.
-		decBegin = new EditDecimal(view, R.id.decBegin, dist);
+		decBegin = new EditDecimal(view, R.id.decBegin, KEY_ODOMETER_UNITS, this);
 		decEnd = new EditDecimal(view, R.id.decEnd, dist);
 		decDist = new EditDecimal(view, R.id.decDist, new DistanceChanged());
 
@@ -97,10 +97,14 @@ public final class OilChange extends CalcFragment {
 		// Write the IDs of the units chosen by
 		// the user into the preferences file.
 		// Get from the spinners, the units chosen by the user.
+
+		if (decBegin.hasUserInput()) {
+			decBegin.save(editor);
+		}
 		spinDistUnits.save(editor);
 		spinOilUnits.save(editor);
 		spinDriveUnits.save(editor);
-		decBegin.save(editor);
+
 	}
 
 
