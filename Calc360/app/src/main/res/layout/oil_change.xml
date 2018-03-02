@@ -138,18 +138,20 @@
 		android:layout_marginTop="15dp">
 
 		<TextView
+			android:id="@+id/oilResult"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:labelFor="@+id/decResult"
+			android:text="@string/changeOil"/>
+
+		<TextView
 			android:id="@+id/decResult"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/default_gap"
+			android:layout_toEndOf="@+id/oilResult"
 			android:textAlignment="textEnd"/>
-
-		<TextView
-			android:id="@+id/lblResult"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_below="@+id/decResult"
-			android:labelFor="@+id/decResult"
-			android:text="@string/changeOil"/>
 	</RelativeLayout>
 
 	<Button

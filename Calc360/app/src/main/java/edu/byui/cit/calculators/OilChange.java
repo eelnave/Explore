@@ -18,33 +18,33 @@ import edu.byui.cit.text.SpinString;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.units.ChangeOil;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Unit;
 
+// Fix save user values for decBegin
+// Format output
+// Solidify layout
+// Fix bugs
 
 public final class OilChange extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
 			KEY_DIST_UNITS = "OilChange.distUnits",
-			KEY_Oil_UNITS = "OilChange.oilTypes",
+			KEY_OIL_UNITS = "OilChange.oilTypes",
 			KEY_DRIVE_UNITS = "OilChange.econUnits";
 
 	private final NumberFormat fmtrDist;
 	private EditDecimal decBegin, decEnd, decDist;
 	private SpinUnit spinDistUnits;
 	private SpinString spinOilUnits, spinDriveUnits;
-	private TextWrapper decDrive, decOil, decResult;
+	private TextWrapper decResult;
 	private String result;
 
 	public OilChange() {
 		super();
 		fmtrDist = NumberFormat.getInstance();
-		//	fmtrEcon = NumberFormat.getInstance();
 		fmtrDist.setMinimumFractionDigits(0);
 		fmtrDist.setMaximumFractionDigits(1);
-		//	fmtrEcon.setMinimumFractionDigits(1);
-		//	fmtrEcon.setMaximumFractionDigits(2);
 	}
 
 
@@ -70,7 +70,7 @@ public final class OilChange extends CalcFragment {
 				Length.getInstance(), R.array.feDistUnits,
 				KEY_DIST_UNITS, this);
 		spinOilUnits = new SpinString(view, R.id.spinOilUnits,
-				KEY_Oil_UNITS, this);
+				KEY_OIL_UNITS, this);
 		spinDriveUnits = new SpinString(view, R.id.spinDriveUnits,
 				KEY_DRIVE_UNITS, this);
 
@@ -78,13 +78,13 @@ public final class OilChange extends CalcFragment {
 
 		EditWrapper[] inputs = { decBegin, decEnd, decDist };
 		ControlWrapper[] toClear = {
-				decBegin, decEnd, decDist, decOil, decDrive
+				decBegin, decEnd, decDist
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
-
+	// The default values when you first start the app
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinDistUnits.restore(prefs, Length.mile);
@@ -100,6 +100,7 @@ public final class OilChange extends CalcFragment {
 		spinDistUnits.save(editor);
 		spinOilUnits.save(editor);
 		spinDriveUnits.save(editor);
+		decBegin.save(editor);
 	}
 
 
@@ -128,7 +129,7 @@ public final class OilChange extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		double dist = 0;
+		double dist;
 		double recommend = 0;
 		if (decBegin.notEmpty() && decEnd.notEmpty()) {
 			double begin = decBegin.getDec();
@@ -143,21 +144,22 @@ public final class OilChange extends CalcFragment {
 			dist = length.convert(Length.mile, dist, distUnit);
 
 			// Perform calculations.
-			if (spinOilUnits.getSelectedItemPosition() == 0) {
-				if (spinDriveUnits.getSelectedItemPosition() == 0) {
+			if (spinOilUnits.getSelectedItem().equals("Regular")) {
+				if (spinDriveUnits.getSelectedItem().equals("City Driving")) {
 					recommend = 5000;
 				}
-				else if (spinDriveUnits.getSelectedItemPosition() == 1) {
+				else if (spinDriveUnits.getSelectedItem().equals("Highway Driving")) {
 					recommend = 7500;
 				}
 			}
-			else if (spinOilUnits.getSelectedItemPosition() == 1) {
-				if (spinDriveUnits.getSelectedItemPosition() == 0) {
+			else if (spinOilUnits.getSelectedItem().equals("Full-Synthetic")) {
+				if (spinDriveUnits.getSelectedItem().equals("City Driving")) {
+					recommend = 8000;
+				}
+				else if (spinDriveUnits.getSelectedItem().equals("Highway Driving") ) {
 					recommend = 10000;
 				}
-				else if (spinDriveUnits.getSelectedItemPosition() == 1) {
-					recommend = 13000;
-				}
+
 			}
 
 			double distLeft = recommend - dist;
@@ -166,71 +168,19 @@ public final class OilChange extends CalcFragment {
 				result = "Overdue!";
 			}
 			else {
-				if (distUnit.equals(7002)) {
-					result = distLeft + " miles left";
+				if (distUnit.getID() == Length.mile ) {
+					result = distLeft + " miles";
 				}
-				else if (distUnit.equals(7021)) {
+				else if (distUnit.getID() == (Length.km)) {
+					// Convert the results into the unit the user chose.
 					double converted = length.convert(distUnit, distLeft, Length.mile);
-					result = converted + " kilometers left";
+					result = converted + " kilometers";
 
 				}
 			}
 
 			decResult.setText(result);
 
-
-
-
-			// Convert the results into the unit the user chose.
-			// result = length.convert(distUnit, result, Length.mile);
-		} /*
-		else if (decDist.notEmpty()) {
-			dist = decDist.getDec();
 		}
-
-		if (dist > 0 && decVol.notEmpty()) {
-			double vol = decVol.getDec();
-
-			// Get from the spinners, the units that the user chose
-			// for inputting the distance and the volume of fuel.
-			Unit distUnits = spinDistUnits.getSelectedItem();
-			Unit volUnits = spinOilTypes.getSelectedItem();
-
-			// Get the units that the user wants for the results.
-			Unit fuelEconUnits = spinEconUnits.getSelectedItem();
-
-			dist =  Length.getInstance().convert(Length.km, dist, distUnits);
-			//vol = Volume.getInstance().convert(Volume.liter, vol, volUnits);
-			double econ = dist / vol;
-			econ = FuelEcon.getInstance().convert(fuelEconUnits, econ, FuelEcon.kpl);
-
-//			// Get the length and volume properties so that they can
-//			// be used to convert values from one unit to another.
-//			Property length = Length.getInstance();
-//			Property volume = Volume.getInstance();
-//
-//			// If the user wants the results in miles per gallon,
-//			// then convert, if necessary, the distance and volume
-//			// of fuel entered by the user into miles and gallons.
-//			if (fuelEconUnits.getID() == FuelEcon.mpg) {
-//				dist = length.convert(Length.mile, dist, distUnits);
-//				vol = volume.convert(Volume.gallon, vol, volUnits);
-//			}
-//
-//			// If the user wants the results in kilometers per liter,
-//			// then convert, if necessary, the distance and volume of
-//			// fuel entered by the user into kilometers and liters.
-//			else if (fuelEconUnits.getID() == FuelEcon.kpl) {
-//				dist = length.convert(Length.km, dist, distUnits);
-//				vol = volume.convert(Volume.liter, vol, volUnits);
-//			}
-//
-//			double econ = dist / vol;
-			decEcon.setText(fmtrEcon.format(econ));
-		}
-		else {
-			decEcon.clear();
-		}
-	} */
 	}
 }
