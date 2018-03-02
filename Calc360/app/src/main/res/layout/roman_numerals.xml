@@ -4,39 +4,64 @@
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	compat:columnCount="3">
+	compat:columnCount="2">
+
 
 	<TextView
 		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
 		android:text="@string/decValue"
-		compat:layout_columnSpan="2"/>
+		compat:layout_columnSpan="1"/>
 
 	<EditText
-		android:id="@+id/intDecToRom"
+		android:id="@+id/intDecimalNum"
 		style="@style/UnsignedDecimal"
-		android:ems="6"
-		android:hint="@string/decHint">
+		android:hint="@string/decHint"
+		android:ems="5">
 
 		<requestFocus/>
 	</EditText>
 
 
+
+	<Button
+		android:id="@+id/btnSwap"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:text="@string/vswap"
+		android:textSize="13pt"
+		android:textStyle="normal"
+		compat:layout_columnSpan="2"
+		compat:layout_gravity="center_horizontal"/>
+
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
 		android:text="@string/romanNumeral"
-		compat:layout_columnSpan="2"/>
+		compat:layout_columnSpan="1"/>
 
-	<TextView
+	<EditText
 		android:id="@+id/romanNum"
-		style="@style/TextResult"
-		android:layout_marginTop="15dp"/>
+		android:ems="5"
+		android:hint="@string/romHint"
+		android:imeOptions="actionDone"
+		android:inputType="textCapCharacters"
+		android:digits="XDIMCLV"/>
+
+
 
 	<Button
 		android:id="@+id/btnClear"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp"
+		android:layout_marginTop="20dp"
 		android:text="@string/clear"
+		compat:layout_columnSpan="2"/>
+
+	<TextView
+		android:id="@+id/txtMessage"
+		style="@style/TextLabel"
+		android:layout_marginTop="20dp"
 		compat:layout_columnSpan="2"/>
 </android.support.v7.widget.GridLayout>

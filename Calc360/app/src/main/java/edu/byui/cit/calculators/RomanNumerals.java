@@ -1,17 +1,13 @@
 package edu.byui.cit.calculators;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 
-import java.text.NumberFormat;
-
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.model.Consumer;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
@@ -22,11 +18,12 @@ public final class RomanNumerals extends CalcFragment {
 
 	// Each of these variables is a reference to
 	// one of the text fields in this calculator.
-	private EditInteger intDecToRom;
+	private EditInteger intDecimalNum;
+	private EditWrapper romanNum;
 
 	// Each of these variables is a reference to one of the
 	// TextViews where this calculator will display output.
-	private TextWrapper romanNum;
+
 
 
 	public RomanNumerals() {
@@ -46,14 +43,15 @@ public final class RomanNumerals extends CalcFragment {
 		// id's inside the R class connect this Java code to the elements in
 		// the xml layout file. For example R.id.romanNum connects the new
 		// EditString object to the xml element that has an id of "romanNum".
-		intDecToRom = new EditInteger(view, R.id.intDecToRom, this);
+		intDecimalNum = new EditInteger(view, R.id.intDecimalNum, this);
+		romanNum = new EditWrapper(view, R.id.romanNum, this);
 
 		// Get a reference to each of the TextViews
 		// where this calculator will display output.
-		romanNum = new TextWrapper(view, R.id.romanNum);
+//		romanNum = new TextWrapper(view, R.id.romanNum);
 
-		EditWrapper[] inputs = { intDecToRom };
-		ControlWrapper[] toClear = { romanNum, intDecToRom };
+		EditWrapper[] inputs = { intDecimalNum, romanNum };
+		ControlWrapper[] toClear = { romanNum, intDecimalNum };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -61,9 +59,9 @@ public final class RomanNumerals extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		if (intDecToRom.notEmpty()) {
+		if (intDecimalNum.notEmpty()) {
 
-			int inputNum = intDecToRom.getInt();
+			int inputNum = intDecimalNum.getInt();
 
 			int decimalValue[] = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
 			String romanNumeral[] = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
@@ -83,11 +81,66 @@ public final class RomanNumerals extends CalcFragment {
 			else{
 				romanNum.setText("Out of bounds");
 			}
+
 		}
+		else if (romanNum.notEmpty()) {
+				int decimal = 0;
+				int lastNumber = 0;
+				String romanNumeral = romanNum;
+				for (int x = romanNumeral.length() - 1; x >= 0 ; x--) {
+					char convertToDecimal = romanNumeral.charAt(x);
+
+					switch (convertToDecimal) {
+						case 'M':
+							decimal = processDecimal(1000, lastNumber, decimal);
+							lastNumber = 1000;
+							break;
+
+						case 'D':
+							decimal = processDecimal(500, lastNumber, decimal);
+							lastNumber = 500;
+							break;
+
+						case 'C':
+							decimal = processDecimal(100, lastNumber, decimal);
+							lastNumber = 100;
+							break;
+
+						case 'L':
+							decimal = processDecimal(50, lastNumber, decimal);
+							lastNumber = 50;
+							break;
+
+						case 'X':
+							decimal = processDecimal(10, lastNumber, decimal);
+							lastNumber = 10;
+							break;
+
+						case 'V':
+							decimal = processDecimal(5, lastNumber, decimal);
+							lastNumber = 5;
+							break;
+
+						case 'I':
+							decimal = processDecimal(1, lastNumber, decimal);
+							lastNumber = 1;
+							break;
+					}
+				}
+			}
 		else {
 			// If one or both of the inputs are empty, clear the outputs.
-			intDecToRom.clear();
+			intDecimalNum.clear();
 			romanNum.clear();
+		}
+
+	}
+
+	public static int processDecimal(int decimal, int lastNumber, int lastDecimal) {
+		if (lastNumber > decimal) {
+			return lastDecimal - decimal;
+		} else {
+			return lastDecimal + decimal;
 		}
 	}
 }
