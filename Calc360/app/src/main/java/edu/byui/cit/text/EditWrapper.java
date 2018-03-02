@@ -42,24 +42,6 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 
 	public abstract void restore(SharedPreferences prefs, NumberFormat fmtr);
 
-	// These functions should be moved to a EditString
-	// class if we ever need to make one.
-//	public void save(SharedPreferences.Editor editor) {
-//		if (isEmpty()) {
-//			editor.remove(prefsKey);
-//		}
-//		else {
-//			editor.putString(prefsKey, getText());
-//		}
-//	}
-//
-//	public void restore(SharedPreferences prefs) {
-//		if (prefs.contains(prefsKey)) {
-//			String val = prefs.getString(prefsKey, null);
-//			setInput(val);
-//		}
-//	}
-
 	@Override
 	public boolean isEnabled() {
 		return edit.isEnabled();
