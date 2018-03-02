@@ -27,6 +27,10 @@
 	<string name="Perimeter">周囲</string>
 	<string name="SurfaceArea">表面積</string>
 
+	<string name="pointsDist">Distance between Points</string>
+	<string name="coordinate1">Coordinate 1</string>
+	<string name="coordinate2">Coordinate 2</string>
+
 	<string name="rightTriangle">直角三角形</string>
 	<string name="rtDiagram">直角三角形の図</string>
 

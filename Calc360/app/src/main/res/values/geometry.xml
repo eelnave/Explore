@@ -31,6 +31,10 @@
 	<string name="Perimeter">Perimeter</string>
 	<string name="SurfaceArea">Surface Area</string>
 
+	<string name="pointsDist">Distance between Points</string>
+	<string name="coordinate1">Coordinate 1</string>
+	<string name="coordinate2">Coordinate 2</string>
+
 	<string name="rightTriangle">Right Triangle</string>
 	<string name="triHyp" translatable="false">hyp</string>
 	<string name="tri90" translatable="false">90</string>
@@ -116,8 +120,4 @@
 	<string name="pyrWid" translatable="false">w</string>
 	<string name="pyrLen" translatable="false">g</string>
 	<string name="pyrHei" translatable="false">h</string>
-
-	<string name="pointsDist">Distance between Points</string>
-	<string name="coordinate1">Coordinate 1</string>
-	<string name="coordinate2">Coordinate 2</string>
 </resources>

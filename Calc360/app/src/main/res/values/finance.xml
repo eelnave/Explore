@@ -17,7 +17,6 @@
 	<string name="annRateHint">ex: 4.875</string>
 	<string name="numYears">Number of Years</string>
 	<string name="ppy">Periods per Year</string>
-	<string name="roi">Return on Investment</string>
 	<integer-array name="possiblePPY" translatable="false">
 		<item>1</item>
 		<item>2</item>
@@ -36,6 +35,7 @@
 	<string name="Principal">Principal</string>
 	<string name="Period">Period</string>
 
+	<string name="roi">Return on Investment</string>
 	<string name="income">Income</string>
 	<string name="expenses">Expenses</string>
 	<string name="totalInvest">Investment</string>
@@ -68,7 +68,7 @@
 	<string name="otherHint">ex: 35</string>
 	<string name="tithingQuote">\"For it is in giving that we receive.\"\n~St. Francis</string>
 
-	<string name="netflix">Streaming Service</string>
+	<string name="stream">Streaming Service</string>
 	<string name="descrip1">Cost of streaming services like:</string>
 	<string name="descrip2">Netflix, Hulu, Amazon, etc.</string>
 	<string name="servicePayment">Service Payment</string>

@@ -16,7 +16,7 @@
 	<string name="currencyCredit">為替レートは、欧州中央銀行によるものです。</string>
 
 	<!-- Calculator Categories -->
-	<string name="basic">基本的な</string>
+	<string name="art">芸術と音楽</string>
 	<string name="computing">コンピューター</string>
 	<string name="cooking">料理</string>
 	<string name="data">データ</string>
