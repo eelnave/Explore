@@ -127,6 +127,8 @@ public final class RomanNumerals extends CalcFragment {
 							break;
 					}
 				}
+
+				intDecimalNum.setText(decimal);
 			}
 		else {
 			// If one or both of the inputs are empty, clear the outputs.
