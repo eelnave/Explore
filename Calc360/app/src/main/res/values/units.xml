@@ -47,6 +47,8 @@
 	<string name="fraction">Fraction</string>
 	<string name="decimal">Decimal</string>
 	<string name="decimalFraction">Convert Decimal and Fraction</string>
+	<string name="decimalFractionInstructions">Type in a decimal to convert to fraction, or type in a fraction to convert to decimal.</string>
+
 
 
 	<!-- Derived Properties -->
