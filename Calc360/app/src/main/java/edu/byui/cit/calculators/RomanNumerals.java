@@ -59,6 +59,8 @@ public final class RomanNumerals extends CalcFragment {
 
 	@Override
 	protected void compute() {
+
+		//decimal to roman
 		if (intDecimalNum.notEmpty()) {
 
 			int inputNum = intDecimalNum.getInt();
@@ -83,6 +85,8 @@ public final class RomanNumerals extends CalcFragment {
 			}
 
 		}
+
+		//roman to decimal
 		else if (romanNum.notEmpty()) {
 				int decimal = 0;
 				int lastNumber = 0;
