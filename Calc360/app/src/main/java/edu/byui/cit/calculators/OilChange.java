@@ -87,6 +87,7 @@ public final class OilChange extends CalcFragment {
 	// The default values when you first start the app
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
+		decBegin.restore(prefs,fmtrDist);
 		spinDistUnits.restore(prefs, Length.mile);
 		spinOilUnits.restore(prefs, 0);
 		spinDriveUnits.restore(prefs, 0);
