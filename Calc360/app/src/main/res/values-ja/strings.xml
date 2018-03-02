@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="appName">カルキュ360</string>
+
+	<string name="about">関して</string>
+	<string name="contribs">投稿者</string>
+
+	<string name="appDescr">これは、ブリガム・ヤング大学 - アイダホ州の学生が設計、書込み、維持管理している使いやすい電卓です</string>
+	<string name="eula">法律で認められている限り、このソフトウェアには、明示または黙示の保証は一切含まれていません。このソフトウェアをインストールおよび/または使用することにより、無害なブリガム・ヤング大学 - アイダホ州およびそのスポンサー、従業員、および学生を保持することに同意することになります。</string>
+	<string name="logoCredit"><a href="logomakr.com">logomakr.com</a>の無料ツールを使用してカルキュ360のロゴとアイコンを作成しました。</string>
+	<string name="fall2017">2017年秋</string>
+	<string name="winter2018">2018年冬</string>
+
+	<string name="mistake">まあ、これは恥ずかしいです。この電卓に何か問題があり、動作していません。私たちはお詫び申し上げます。</string>
+
+	<string name="currencyCredit">為替レートは、欧州中央銀行によるものです。</string>
+
+	<!-- Calculator Categories -->
+	<string name="basic">基本的な</string>
+	<string name="computing">コンピューター</string>
+	<string name="cooking">料理</string>
+	<string name="data">データ</string>
+	<string name="events">イベント</string>
+	<string name="finance">経済</string>
+	<string name="general">一般</string>
+	<string name="geometry">幾何</string>
+	<string name="mathematics">数学</string>
+	<string name="science">科学</string>
+	<string name="shopping">買い物</string>
+	<string name="sports">遊戯</string>
+	<string name="stats">統計</string>
+	<string name="travel">旅行</string>
+
+	<string name="simple">単純</string>
+
+	<string name="result">結果</string>
+	<string name="results">結果</string>
+
+	<string name="compute">計算する</string>
+	<string name="clear">除去する</string>
+
+	<string name="unitConvert">単位変換</string>
+</resources>

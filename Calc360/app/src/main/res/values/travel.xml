@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="FuelEffic">Fuel Efficiency</string>
+	<string name="FuelEconomy">Fuel Efficiency</string>
 	<string name="odometer">Odometer</string>
 	<string name="start">start</string>
 	<string name="end">end</string>
 	<string name="fuel">Fuel</string>
+	<string name="FuelEcon">Fuel Efficiency</string>
 	<string-array name="feDistUnits" translatable="false">
 		<item>mile</item>
 		<item>kilometer</item>
@@ -12,10 +13,6 @@
 	<string-array name="feVolUnits" translatable="false">
 		<item>gallon</item>
 		<item>liter</item>
-	</string-array>
-	<string-array name="feEfficUnits" translatable="false">
-		<item>milePerGallon</item>
-		<item>kilometerPerLiter</item>
 	</string-array>
 
 	<string name="foreignFuel">Foreign Fuel</string>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="idealGas">理想の気体</string>
+
+	<string name="gasEnergy">気体の勢力</string>
+
+	<string name="gasVelocity">気体の速度</string>
+</resources>

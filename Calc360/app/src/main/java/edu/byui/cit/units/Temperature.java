@@ -17,7 +17,7 @@ public final class Temperature extends Property {
 
 	private Temperature() {
 		super(World.temp, "temperature", new TempUnit[]{
-			new TempUnit(kel, "Kelvin", "K") {
+			new TempUnit(kel, "K", "Kelvin") {
 				@Override
 				double convert(double quant, TempUnit from) {
 					double k = Double.NaN;
@@ -36,7 +36,7 @@ public final class Temperature extends Property {
 				}
 			},
 
-			new TempUnit(cels, "Celsius", "C") {
+			new TempUnit(cels, "C", "Celsius") {
 				@Override
 				double convert(double quant, TempUnit from) {
 					double c = Double.NaN;
@@ -55,7 +55,7 @@ public final class Temperature extends Property {
 				}
 			},
 
-			new TempUnit(fahr, "Fahrenheit", "F") {
+			new TempUnit(fahr, "F", "Fahrenheit") {
 				@Override
 				double convert(double quant, TempUnit from) {
 					double f = Double.NaN;
@@ -77,7 +77,7 @@ public final class Temperature extends Property {
 	}
 
 	private static abstract class TempUnit extends Unit {
-		TempUnit(int id, String name, String abbrev) {
+		TempUnit(int id, String abbrev, String name) {
 			super(id, abbrev, name, 0);
 		}
 

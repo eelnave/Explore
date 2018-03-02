@@ -101,7 +101,7 @@
 	<string name="gasConst">constante de gás</string>
 
 	<string name="power">poder</string>
-	<string name="fuelEffic">eficiência do combustível</string>
+	<string name="fuelEcon">eficiência do combustível</string>
 
 	<string name="dataSize">tamanho do dado</string>
 
@@ -377,7 +377,7 @@
 		<item quantity="other">barras</item>
 	</plurals>
 
-	<!-- Units of Fuel Efficiency -->
+	<!-- Units of Fuel Economy -->
 	<plurals name="milePerGallon">
 		<item quantity="one">mile / gallon</item>
 		<item quantity="other">miles / gallon</item>
@@ -385,6 +385,10 @@
 	<plurals name="kilometerPerLiter">
 		<item quantity="one">quilômetro / litro</item>
 		<item quantity="other">quilômetros / litro</item>
+	</plurals>
+	<plurals name="literPer100kilometer">
+		<item quantity="one">litro / 100 quilômetros</item>
+		<item quantity="other">litros / 100 quilômetros</item>
 	</plurals>
 
 	<!-- Units of Speed -->
