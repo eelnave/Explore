@@ -21,10 +21,6 @@ public final class RomanNumerals extends CalcFragment {
 	private EditInteger intDecimalNum;
 	private EditWrapper romanNum;
 
-	// Each of these variables is a reference to one of the
-	// TextViews where this calculator will display output.
-
-
 
 	public RomanNumerals() {
 		// Call the constructor in the parent class CalcFragment.
