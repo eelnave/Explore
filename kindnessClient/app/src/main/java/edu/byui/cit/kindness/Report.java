@@ -16,7 +16,7 @@ public class Report {
 	private double longitude;
 	private Category category;
 
-	public Report (double latitude, double longitude) {
+	public Report(double latitude, double longitude) {
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
@@ -45,34 +45,43 @@ public class Report {
 		this.longitude = longitude;
 	}
 
-	public void addReport() throws MalformedURLException {
-		try {
-			URL url = new URL("http://157.201.228.200/KindnessServer/AddReport");
+	public void addReport() {
 
-			URLConnection connection = url.openConnection();
+		final String inputString = this.latitude + "," + this.longitude;
 
-			connection.setDoOutput(true);
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					URL url = new URL(
+							"http://157.201.228.200/KindnessServer/AddReport");
+					URLConnection connection = url.openConnection();
 
-			OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream());
+					connection.setDoOutput(true);
 
-			out.write(this.latitude + "," + this.longitude);
+					OutputStreamWriter out = new OutputStreamWriter(
+							connection.getOutputStream());
+					out.write(inputString);
+					out.close();
 
-			out.close();
+					BufferedReader in = new BufferedReader(
+							new InputStreamReader(connection.getInputStream()));
 
-			BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+					String returnString = "";
 
-			String returnString;
+					while ((returnString = in.readLine()) != null) {
+						/* Whatever I want to do with the stuff that comes back */
+					}
 
-			while ((returnString = in.readLine()) != null) {
-				/* Whatever I want to do with the stuff that comes back */
+					in.close();
+				}
+				catch (MalformedURLException e) {
+					e.printStackTrace();
+				}
+				catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
-
-			in.close();
-
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		}).start();
 	}
 }

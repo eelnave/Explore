@@ -21,12 +21,8 @@ public class SubmitActivity extends AppCompatActivity {
 		double longitude = Double.parseDouble(longEdit.getText().toString());
 
 		Report report = new Report(latitude, longitude);
-		try {
-			report.addReport();
-		}
-		catch (MalformedURLException e) {
-			e.printStackTrace();
-		}
+
+		report.addReport();
 	}
 
 	@Override

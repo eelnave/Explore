@@ -4,5 +4,6 @@ public enum Category {
 	Food,
 	Driving,
 	Marriage,
-	Sibling
+	Sibling,
+	Resturaut
 }
