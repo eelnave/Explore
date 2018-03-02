@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content">
 
@@ -76,10 +75,9 @@
 				android:layout_height="wrap_content"
 				android:layout_alignBaseline="@+id/lblWinter2018A"
 				android:layout_marginStart="5dp"
-				android:layout_toEndOf="@+id/lblWinter2018B"
+				android:layout_toEndOf="@+id/lblWinter2018A"
 				android:text="@string/contribsWinter2018B"
-				android:textSize="14sp"
-				tools:ignore="NotSibling"/>
+				android:textSize="14sp"/>
 		</RelativeLayout>
 	</LinearLayout>
 </ScrollView>
