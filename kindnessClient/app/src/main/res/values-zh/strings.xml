@@ -15,4 +15,6 @@
 	<string name="other">其他</string>
 	<string name="mistake">不好意思。这几孙继有问题所以现在不难用。</string>
 	<string name="about">关于</string>
+	<string name="longitude">经度</string>
+	<string name="latitude">纬度</string>
 </resources>
