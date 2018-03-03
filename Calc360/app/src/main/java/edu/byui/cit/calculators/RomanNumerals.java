@@ -10,6 +10,7 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditInteger;
+import edu.byui.cit.text.EditString;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
@@ -28,7 +29,6 @@ public final class RomanNumerals extends CalcFragment {
 
 	}
 
-
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
@@ -40,7 +40,7 @@ public final class RomanNumerals extends CalcFragment {
 		// the xml layout file. For example R.id.romanNum connects the new
 		// EditString object to the xml element that has an id of "romanNum".
 		intDecimalNum = new EditInteger(view, R.id.intDecimalNum, this);
-		romanNum = new EditWrapper(view, R.id.romanNum, this);
+		romanNum = new EditString(view, R.id.romanNum, this);
 
 		// Get a reference to each of the TextViews
 		// where this calculator will display output.
