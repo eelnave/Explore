@@ -7,10 +7,13 @@ import android.view.ViewGroup;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
+import edu.byui.cit.model.Art;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
+
+import edu.byui.cit.model.Art.MusicDuration.*;
 
 
 public final class MusicDuration extends CalcFragment {
@@ -50,12 +53,10 @@ public final class MusicDuration extends CalcFragment {
 			double bpm = beatsPerMinute.getInt();
 			double timeSig = timeSignature.getInt();
 
-			int duration = (int)Math.round(timeSig * (measures / bpm) * 60);  // in seconds
-			int hour = duration / 3600;
-			duration %= 3600;
-			int min = duration / 60;
-			duration %= 60;
-			int sec = duration;
+			int duration = Art.MusicDuration.calculateSongDuration(measures, bpm, timeSig);
+			int hour = Art.MusicDuration.calculateHours(duration);
+			int min = Art.MusicDuration.calculateMinutes(duration);
+			int sec = Art.MusicDuration.calculateSeconds(duration);
 
 			String durationText = pad(hour) + ":" + pad(min) + ":" + pad(sec);
 			musicDuration.setText(durationText);
