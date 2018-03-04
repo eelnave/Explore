@@ -21,9 +21,7 @@ import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Unit;
 
-// Fix save user values for decBegin
 // Format output
-// Fix bugs
 
 public final class OilChange extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
@@ -169,6 +167,7 @@ public final class OilChange extends CalcFragment {
 
 			double distLeft = recommend - dist;
 
+
 			if (distLeft <= 0) {
 				result = "Overdue!";
 			}
@@ -185,6 +184,7 @@ public final class OilChange extends CalcFragment {
 			}
 
 			decResult.setText(result);
+
 
 		}
 	}
