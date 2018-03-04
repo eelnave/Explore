@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="appName">kindnessClient</string>
-	<string name="about">关于</string>
 	<string name="contribs">贡献者</string>
-	<string name="mistake">"不好意思。 这计算机有问题。 "</string>
-	<string name="fall2017">秋天 2018</string>
 	<string name="winter2018">冬天 2018</string>
 	<string name="logoCredit">我们用<a href="logomakr.com">logomakr.com</a>来创建使用的商标和图标。</string>
 	<string name="appDescr">Brigham Young University - Idaho 学生写的，创建的，和保持的计算机。</string>
+	<string name="category">类别</string>
+	<string name="submit">提交</string>
+	<string name="map">地图</string>
+	<string name="emotion">情感</string>
+	<string name="food">餐饮</string>
+	<string name="labor">施工</string>
+	<string name="money">钱</string>
+	<string name="travel">颅行</string>
+	<string name="other">其他</string>
+	<string name="mistake">不好意思。这几孙继有问题所以现在不难用。</string>
+	<string name="about">关于</string>
+	<string name="longitude">经度</string>
+	<string name="latitude">纬度</string>
 </resources>
