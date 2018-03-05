@@ -61,22 +61,22 @@
 							android:textStyle="bold"/>
 			-->
 			<TextView
-				android:id="@+id/lblFall2017A"
+				android:id="@+id/lblWinter2018A"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_alignParentStart="true"
 				android:layout_below="@+id/lblContribs"
-				android:text="@string/contribsFall2017A"
+				android:text="@string/contribsWinter2018A"
 				android:textSize="14sp"/>
 
 			<TextView
-				android:id="@+id/lblFall2017B"
+				android:id="@+id/lblWinter2018B"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_alignBaseline="@+id/lblFall2017A"
+				android:layout_alignBaseline="@+id/lblWinter2018A"
 				android:layout_marginStart="5dp"
-				android:layout_toEndOf="@+id/lblFall2017A"
-				android:text="@string/contribsFall2017B"
+				android:layout_toEndOf="@+id/lblWinter2018A"
+				android:text="@string/contribsWinter2018B"
 				android:textSize="14sp"/>
 		</RelativeLayout>
 	</LinearLayout>

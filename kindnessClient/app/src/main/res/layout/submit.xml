@@ -18,14 +18,13 @@
 			android:layout_height="wrap_content"
 			android:text="@string/longitude"/>
 
-		<TextView
-			android:textSize="12pt"
-			android:paddingStart="5dp"
-			android:paddingEnd="5dp"
-			android:id="@+id/textView4"
+		<EditText
+			android:id="@+id/editLongitude"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/longitude"/>
+			android:layout_weight="1"
+			android:ems="10"
+			android:inputType="numberDecimal"/>
 
 	</LinearLayout>
 
@@ -43,14 +42,13 @@
 			android:layout_height="wrap_content"
 			android:text="@string/latitude"/>
 
-		<TextView
-			android:textSize="12pt"
-			android:paddingStart="5dp"
-			android:paddingEnd="5dp"
-			android:id="@+id/textView5"
+		<EditText
+			android:id="@+id/editLatitude"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/latitude"/>
+			android:layout_weight="1"
+			android:ems="10"
+			android:inputType="numberDecimal"/>
 
 	</LinearLayout>
 
@@ -81,15 +79,6 @@
 			android:paddingStart="5dp"
 			android:paddingEnd="5dp"
 			android:id="@+id/textView3"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/category"/>
-
-		<TextView
-			android:textSize="12pt"
-			android:paddingStart="5dp"
-			android:paddingEnd="5dp"
-			android:id="@+id/textView6"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/category"/>

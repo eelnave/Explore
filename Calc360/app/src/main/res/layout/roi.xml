@@ -45,7 +45,7 @@
 	<TextView
 		style="@style/TextLabel"
 		android:layout_marginTop="15dp"
-		android:text="@string/roi"/>
+		android:text="@string/roiReturn"/>
 
 	<TextView
 		android:id="@+id/percROI"

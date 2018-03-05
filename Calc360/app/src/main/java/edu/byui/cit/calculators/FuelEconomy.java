@@ -19,7 +19,6 @@ import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.FuelEcon;
 import edu.byui.cit.units.Length;
-import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 import edu.byui.cit.units.Volume;
 
