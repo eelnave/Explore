@@ -31,20 +31,6 @@ public class Subnet extends CalcFragment {
 		fmtrInt = NumberFormat.getInstance();
 	}
 
-
-
-	protected void evaluate() {
-		String sub1 = Long.toBinaryString(ip5.getInt());
-		String sub2 = Long.toBinaryString(ip6.getInt());
-		String sub3 = Long.toBinaryString(ip7.getInt());
-		String sub4 = Long.toBinaryString(ip8.getInt());
-
-		String binary = sub1 + sub2 + sub3 + sub4;
-
-		double hosts = Computing.Subnet.calculateHosts(binary);
-		double nets = Computing.Subnet.calculateNets(binary);
-	}
-
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -84,27 +70,10 @@ public class Subnet extends CalcFragment {
 			String sub3 = Long.toBinaryString(ip7.getInt());
 			String sub4 = Long.toBinaryString(ip8.getInt());
 
-			String subnets[] = {sub1, sub2, sub3, sub4};
+			String subnet = sub1 + "." + sub2 + "." + sub3 + "." + sub4;
 
-			for (int i = 0; i < subnets.length; i++) {
-				if (subnets[i].length() != 8) {
-					int zeroes = 8 - subnets[i].length();
-					String saver = subnets[i];
-					subnets[i] = "";
-					for (int j = 0; j < zeroes; j++) {
-						subnets[i] += "0";
-					}
-					subnets[i] += saver;
-				}
-			}
-
-			String binary = "";
-			for (String subnet : subnets) {
-				binary += subnet;
-			}
-
-			double hosts = Computing.Subnet.calculateHosts(binary);
-			double nets = Computing.Subnet.calculateNets(binary);
+			double hosts = Computing.Subnet.calculateHosts(subnet);
+			double nets = Computing.Subnet.calculateNets(subnet);
 
 			numberOfSubnets.setText(fmtrInt.format(nets));
 			availableHosts.setText(fmtrInt.format(hosts));
