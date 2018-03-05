@@ -15,6 +15,7 @@ public final class Computing {
 		private Subnet() {
 
 		}
+
 		/* Checks to see if the subnet is valid by passing it a binary string */
 		public static boolean isValidSubnet(String binary) {
 			String pattern = "\\A[1]+[0]+\\z";
@@ -22,7 +23,7 @@ public final class Computing {
 			Pattern r = Pattern.compile(pattern);
 
 			Matcher m = r.matcher(binary);
-			if (m.find()) {
+			if (m.find() && binary.length() == 32) {
 				return true;
 			}
 			return false;
@@ -70,6 +71,4 @@ public final class Computing {
 		}
 
 	}
-
-
 }
