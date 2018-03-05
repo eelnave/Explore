@@ -28,7 +28,6 @@ public class Subnet extends CalcFragment {
 		fmtrInt = NumberFormat.getInstance();
 	}
 
-
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
