@@ -9,10 +9,13 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
+import edu.byui.cit.model.Computing;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
+
+import java.util.regex.*;
 
 
 public class Subnet extends CalcFragment {
@@ -26,6 +29,20 @@ public class Subnet extends CalcFragment {
 		super();
 
 		fmtrInt = NumberFormat.getInstance();
+	}
+
+
+
+	protected void evaluate() {
+		String sub1 = Long.toBinaryString(ip5.getInt());
+		String sub2 = Long.toBinaryString(ip6.getInt());
+		String sub3 = Long.toBinaryString(ip7.getInt());
+		String sub4 = Long.toBinaryString(ip8.getInt());
+
+		String binary = sub1 + sub2 + sub3 + sub4;
+
+		double hosts = Computing.Subnet.calculateHosts(binary);
+		double nets = Computing.Subnet.calculateNets(binary);
 	}
 
 	@Override
