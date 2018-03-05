@@ -1,5 +1,6 @@
 package edu.byui.cit.kindness;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ public final class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+
 
 	}
 
@@ -61,6 +63,10 @@ public final class MainActivity extends AppCompatActivity {
 	}
 
 	private void switchFragment(InfoFragment about) {
+		FragmentTransaction trans = getFragmentManager().beginTransaction();
+		trans.add(about, null);
+		trans.addToBackStack(null);
+		trans.commit();
 	}
 
 	private void startActivity(KindnessMap kindMap) {
