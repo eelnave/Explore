@@ -144,7 +144,7 @@
 		<TextView
 			android:id="@+id/networkAddress"
 			style="@style/TextResult"
-			android:layout_weight="1"/>
+			android:layout_marginStart="10dp"/>
 	</LinearLayout>
 
 	<Button
