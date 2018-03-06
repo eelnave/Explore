@@ -49,7 +49,7 @@ public class Subnet extends CalcFragment {
 
 		inputs = new EditWrapper[]{ ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
 		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8,
-				availableHosts, numberOfSubnets };
+				availableHosts, numberOfSubnets, networkAddress };
 		initialize(view, inputs, R.id.btnClear, toClear);
 
 		return view;
