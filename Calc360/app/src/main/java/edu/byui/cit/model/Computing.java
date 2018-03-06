@@ -16,6 +16,36 @@ public final class Computing {
 
 		}
 
+		public static String getBroadcast(String ip, String subnet) {
+			String broadcast = "";
+			StringBuilder ipBinary;
+			String subnetBinary;
+
+			int count = 0;
+
+			if (isValidSubnet(subnet)) {
+
+				subnetBinary = ipToBinary(subnet);
+				ipBinary = new StringBuilder(ipToBinary(ip));
+
+				for (int i = 0; i < subnetBinary.length(); i++) {
+					if (subnetBinary.charAt(i) == '1') {
+						count++;
+					}
+				}
+				ipBinary = new StringBuilder(ipBinary.substring(0, count));
+				int ones = 32 - ipBinary.length();
+
+				for (int i = 0; i < ones; i++) {
+					ipBinary.append("1");
+				}
+
+				broadcast = binaryToIp(ipBinary.toString());
+			}
+
+			return broadcast;
+		}
+
 		public static String getNetworkAddress(String ip, String subnet) {
 			String networkAddress = "";
 			StringBuilder ipBinary;

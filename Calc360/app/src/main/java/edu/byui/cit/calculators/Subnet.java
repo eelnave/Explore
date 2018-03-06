@@ -18,7 +18,7 @@ import edu.byui.cit.text.TextWrapper;
 public class Subnet extends CalcFragment {
 	private EditInteger ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8;
 	private EditWrapper[] inputs;
-	private TextWrapper availableHosts, numberOfSubnets, networkAddress;
+	private TextWrapper availableHosts, numberOfSubnets, networkAddress, broadcastAddress;
 	private final NumberFormat fmtrInt;
 
 	public Subnet() {
@@ -46,10 +46,11 @@ public class Subnet extends CalcFragment {
 		numberOfSubnets = new TextWrapper(view, R.id.numberOfSubnets);
 		availableHosts = new TextWrapper(view, R.id.availableHosts);
 		networkAddress = new TextWrapper(view, R.id.networkAddress);
+		broadcastAddress = new TextWrapper(view,R.id.broadcast);
 
 		inputs = new EditWrapper[]{ ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
 		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8,
-				availableHosts, numberOfSubnets };
+				availableHosts, numberOfSubnets, networkAddress, broadcastAddress };
 		initialize(view, inputs, R.id.btnClear, toClear);
 
 		return view;
@@ -73,10 +74,12 @@ public class Subnet extends CalcFragment {
 			double hosts = Computing.Subnet.calculateHosts(subnet);
 			double nets = Computing.Subnet.calculateNets(subnet);
 			String netAddress = Computing.Subnet.getNetworkAddress(ip, subnet);
+			String broadcast = Computing.Subnet.getBroadcast(ip, subnet);
 
 			numberOfSubnets.setText(fmtrInt.format(nets));
 			availableHosts.setText(fmtrInt.format(hosts));
 			networkAddress.setText(netAddress);
+			broadcastAddress.setText(broadcast);
 
 		}
 		else {
