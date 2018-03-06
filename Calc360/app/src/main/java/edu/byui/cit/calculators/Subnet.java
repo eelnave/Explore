@@ -21,7 +21,7 @@ import java.util.regex.*;
 public class Subnet extends CalcFragment {
 	private EditInteger ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8;
 	private EditWrapper[] inputs;
-	private TextWrapper availableHosts, numberOfSubnets;
+	private TextWrapper availableHosts, numberOfSubnets, networkAddress;
 	private final NumberFormat fmtrInt;
 
 	public Subnet() {
@@ -48,6 +48,7 @@ public class Subnet extends CalcFragment {
 
 		numberOfSubnets = new TextWrapper(view, R.id.numberOfSubnets);
 		availableHosts = new TextWrapper(view, R.id.availableHosts);
+		networkAddress = new TextWrapper(view, R.id.networkAddress);
 
 		inputs = new EditWrapper[]{ ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
 		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8,
@@ -60,23 +61,26 @@ public class Subnet extends CalcFragment {
 	@Override
 	protected void compute() {
 		if (EditWrapper.allNotEmpty(inputs)) {
-			//	int input1 = ip1.getInt();  Planning on doing more later
-			//	int input2 = ip2.getInt();  Planning on doing more later
-			//	int input3 = ip3.getInt();  Planning on doing more later
-			//	int input4 = ip4.getInt();  Planning on doing more later
 
-			String sub1 = Long.toBinaryString(ip5.getInt());
-			String sub2 = Long.toBinaryString(ip6.getInt());
-			String sub3 = Long.toBinaryString(ip7.getInt());
-			String sub4 = Long.toBinaryString(ip8.getInt());
+			String ip = ip1.getInt() + "." + ip2.getInt() + "." +
+					ip3.getInt() + "." + ip4.getInt();
 
-			String subnet = sub1 + "." + sub2 + "." + sub3 + "." + sub4;
+//			String sub1 = Long.toBinaryString(ip5.getInt());
+//			String sub2 = Long.toBinaryString(ip6.getInt());
+//			String sub3 = Long.toBinaryString(ip7.getInt());
+//			String sub4 = Long.toBinaryString(ip8.getInt());
+
+			String subnet = ip5.getInt() + "." + ip6.getInt() +
+					"." + ip7.getInt() + "." + ip8.getInt();
 
 			double hosts = Computing.Subnet.calculateHosts(subnet);
 			double nets = Computing.Subnet.calculateNets(subnet);
+			String netAddress = Computing.Subnet.getNetworkAddress(ip, subnet);
 
 			numberOfSubnets.setText(fmtrInt.format(nets));
 			availableHosts.setText(fmtrInt.format(hosts));
+			networkAddress.setText(netAddress);
+
 		}
 		else {
 			availableHosts.clear();

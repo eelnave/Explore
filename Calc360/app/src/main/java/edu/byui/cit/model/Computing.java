@@ -16,15 +16,17 @@ public final class Computing {
 
 		}
 
-		public static String networkAddress(String ip, String subnet) {
+		public static String getNetworkAddress(String ip, String subnet) {
 			String networkAddress = "";
+			String ipBinary = "";
+			String subnetBinary = "";
 
 			int count = 0;
 
 			if (isValidSubnet(subnet)) {
 
-				String subnetBinary = ipToBinary(subnet);
-				String ipBinary = ipToBinary(ip);
+				subnetBinary = ipToBinary(subnet);
+				ipBinary = ipToBinary(ip);
 
 				for (int i = 0; i < subnetBinary.length(); i++) {
 					if (subnetBinary.charAt(i) == '1') {
@@ -32,7 +34,7 @@ public final class Computing {
 					}
 				}
 				ipBinary = ipBinary.substring(0,count);
-				int zeroes = 32 - ip.length();
+				int zeroes = 32 - ipBinary.length();
 
 				for (int i = 0; i < zeroes; i++) {
 					ipBinary += "0";
@@ -45,15 +47,18 @@ public final class Computing {
 		}
 
 		public static String binaryToIp(String binary) {
-			String ip = "";
+			String ip;
 
-			if (ip.length() == 32) {
-				int oct1 = Integer.parseInt(binary.substring(0,7), 2);
-				int oct2 = Integer.parseInt(binary.substring(8,15), 2);
-				int oct3 = Integer.parseInt(binary.substring(16,23), 2);
-				int oct4 = Integer.parseInt(binary.substring(24,31), 2);
+			if (binary.length() == 32) {
+				int oct1 = Integer.parseInt(binary.substring(0,8), 2);
+				int oct2 = Integer.parseInt(binary.substring(8,16), 2);
+				int oct3 = Integer.parseInt(binary.substring(16,24), 2);
+				int oct4 = Integer.parseInt(binary.substring(24), 2);
 
 				ip = oct1 + "." + oct2 + "." + oct3 + "." + oct4;
+			}
+			else {
+				ip = "invalid";
 			}
 
 			return ip;
@@ -68,14 +73,17 @@ public final class Computing {
 			String[] octets = subnet.split("\\.");
 
 			for (int i = 0; i < octets.length; i++) {
+
+				octets[i] = Long.toBinaryString(Integer.parseInt(octets[i]));
+
 				if (octets[i].length() != 8) {
 					int zeroes = 8 - octets[i].length();
-					String saver = octets[i];
+					String tmp = octets[i];
 					octets[i] = "";
 					for (int j = 0; j < zeroes; j++) {
 						octets[i] += "0";
 					}
-					octets[i] += saver;
+					octets[i] += tmp;
 				}
 			}
 
@@ -145,6 +153,5 @@ public final class Computing {
 				return -1;
 			}
 		}
-
 	}
 }
