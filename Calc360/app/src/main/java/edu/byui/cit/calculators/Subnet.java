@@ -15,9 +15,6 @@ import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
-import java.util.regex.*;
-
-
 public class Subnet extends CalcFragment {
 	private EditInteger ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8;
 	private EditWrapper[] inputs;
