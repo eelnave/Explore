@@ -19,11 +19,11 @@ public class DBConnector {
         Statement statement = connection.createStatement();
 
         // execute statements
-        statement.executeQuery(
+        statement.execute(
                 "INSERT INTO location (latitude, longitude) " +
                         "VALUES (" + latitude + "," + longitude + ")"
         );
-        statement.executeQuery(
+        statement.execute(
                 "INSERT INTO report (category_id, location_id, report_date)" +
                         "VALUES (1,LAST_INSERT_ID(),CURRENT_TIMESTAMP )"
         );

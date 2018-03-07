@@ -1,15 +1,94 @@
-<ScrollView
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:compat="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	tools:context="edu.byui.cit.kindness.MainActivity">
+	android:orientation="vertical"
+	xmlns:android="http://schemas.android.com/apk/res/android">
 
-	<android.support.v7.widget.GridLayout
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			android:textSize="12pt"
+			android:paddingStart="5dp"
+			android:paddingEnd="5dp"
+			android:id="@+id/textView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/longitude"/>
+
+		<EditText
+			android:id="@+id/editLongitude"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:ems="10"
+			android:inputType="numberDecimal"/>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			android:textSize="12pt"
+			android:paddingStart="5dp"
+			android:paddingEnd="5dp"
+			android:id="@+id/textView2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/latitude"/>
+
+		<EditText
+			android:id="@+id/editLatitude"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:ems="10"
+			android:inputType="numberDecimal"/>
+
+	</LinearLayout>
+
+	<!--<TextView
+		android:textSize="12pt"
+		android:id="@+id/textView3"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/story"/>
+
+	<EditText
+		android:id="@+id/editText7"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		compat:columnCount="3">
+		android:autoText="true"
+		android:ems="10"
+		android:inputType="textMultiLine"
+		android:text="@string/story"
+		tools:ignore="LabelFor"/>-->
 
-	</android.support.v7.widget.GridLayout>
-</ScrollView>
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			android:textSize="12pt"
+			android:paddingStart="5dp"
+			android:paddingEnd="5dp"
+			android:id="@+id/textView3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/category"/>
+
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/submitButton"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/submit"/>
+
+</LinearLayout>
