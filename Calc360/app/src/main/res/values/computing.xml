@@ -11,8 +11,8 @@
 	<string name="subnet">Subnets</string>
 	<string name="IPAddress">Enter an IP address or Network ID</string>
 	<string name="subnetMask">Enter a Subnet Mask</string>
-	<string name="availableHosts">Available Hosts</string>
-	<string name="numberOfSubnets">Number of Subnets</string>
-	<string name="networkAddress">Network Address</string>
-	<string name="broadcastAddress">Broadcast Address</string>
+	<string name="availableHosts">Available Hosts:</string>
+	<string name="numberOfSubnets">Number of Subnets:</string>
+	<string name="networkAddress">Network Address:</string>
+	<string name="broadcastAddress">Broadcast Address:</string>
 </resources>
