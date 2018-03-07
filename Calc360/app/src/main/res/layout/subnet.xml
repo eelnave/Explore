@@ -98,7 +98,8 @@
 			android:id="@+id/ipValue8"
 			style="@style/UnsignedInteger"
 			android:ems="3"
-			tools:ignore="LabelFor"/>
+			tools:ignore="LabelFor"
+			android:imeOptions="actionDone"/>
 	</LinearLayout>
 
 	<LinearLayout
@@ -153,14 +154,13 @@
 		android:orientation="horizontal">
 
 		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			style="@style/TextLabel"
 			android:text="@string/broadcastAddress"/>
 
 		<TextView
 			android:id="@+id/broadcast"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"/>
 	</LinearLayout>
 
 	<Button
