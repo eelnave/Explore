@@ -76,7 +76,7 @@ public final class Computing {
 			return networkAddress;
 		}
 
-		static String binaryToIp(String binary) {
+		public static String binaryToIp(String binary) {
 			String ip;
 
 			if (binary.length() == 32) {
@@ -96,11 +96,11 @@ public final class Computing {
 
 		/* will convert subnet to binary */
 		/* like 255.255.255.0 */
-		static String ipToBinary(String subnet) {
+		public static String ipToBinary(String ip) {
 
 			StringBuilder binary = new StringBuilder();
 
-			String[] octets = subnet.split("\\.");
+			String[] octets = ip.split("\\.");
 
 			for (int i = 0; i < octets.length; i++) {
 
@@ -125,7 +125,7 @@ public final class Computing {
 		}
 
 		/* Checks to see if the subnet is valid by passing it a binary string */
-		static boolean isValidSubnet(String subnet) {
+		public static boolean isValidSubnet(String subnet) {
 			String binary = ipToBinary(subnet);
 
 			String pattern = "\\A[1]+[0]+\\z";
