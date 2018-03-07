@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="binaryConvert">Conversión Binaria</string>
+	<string name="base10">Decimal</string>
+	<string name="binary">Binario</string>
+	<string name="hex">Hexadecimal</string>
+
+	<string name="modulo">Módulo</string>
+	<string name="modExplain">El operador de módulo retorna la restante de una operación de división. Por ejemplo, 14\u00a0/\u00a03\u00a0=\u00a04,67, mientras 14\u00a0%\u00a03\u00a0=\u00a02. Eso ocurre porque 3 se divide en 14, 4 veces, con 2 restantes. Recuerde, no necesitamos prestar atención al cociente de la división, sólo el resto.</string>
+
+	<string name="subnet">Sub-redes</string>
+	<string name="IPAddress">Escriba una dirección IP o una identificación de red</string>
+	<string name="subnetMask">Escriba una máscara de sub-red</string>
+	<string name="availableHosts">Hosts disponibles</string>
+	<string name="numberOfSubnets">Número de Sub-redes</string>
+</resources>
