@@ -1,22 +1,28 @@
 @startuml
-scale 350 width
-[*] --> NotShooting
+[*] --> Cleared
 
-state NotShooting {
-  [*] --> Idle
-  Idle --> Configuring : EvConfig
-  Configuring --> Idle : EvConfig
-}
+Cleared --> Cleared : C CE 0 =
+Cleared --> AccumLeft : 1 2 3 4 5 6 7 8 9 .
+Cleared --> Result : +/- sqrt
+Cleared --> Pending : + - * /
 
-state Configuring {
-  [*] --> NewValueSelection
-  NewValueSelection --> NewValuePreview : EvNewValue
-  NewValuePreview --> NewValueSelection : EvNewValueRejected
-  NewValuePreview --> NewValueSelection : EvNewValueSaved
+AccumLeft --> Cleared : C CE
+AccumLeft --> AccumLeft : 0 1 2 3 4 5 6 7 8 9 .
+AccumLeft --> Result : +/- sqrt
+AccumLeft --> Pending : + - * /
+AccumLeft --> AccumLeft : =
 
-  state NewValuePreview {
-     State1 -> State2
-  }
+Pending --> Cleared : C
+Pending --> Pending : CE 0 +/= sqrt
+Pending --> AccumRight : 1 2 3 4 5 6 7 8 9 .
+Pending --> Pending : + - * /
 
-}
+AccumRight --> Cleared : C
+AccumRight --> Pending : CE
+AccumRight --> AccumRight : 0 1 2 3 4 5 6 7 8 9 .
+AccumRight --> Result : +/- sqrt
+AccumRight --> Result : =
+
+Result --> Cleared : C CE
+Result --> Result : +/- sqrt
 @enduml
