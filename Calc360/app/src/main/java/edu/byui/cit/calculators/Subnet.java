@@ -79,6 +79,8 @@ public class Subnet extends CalcFragment {
 		else {
 			availableHosts.clear();
 			numberOfSubnets.clear();
+			networkAddress.clear();
+			broadcastAddress.clear();
 		}
 	}
 }
