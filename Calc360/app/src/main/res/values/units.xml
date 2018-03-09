@@ -26,6 +26,7 @@
 	<string name="time">time</string>
 	<string name="seconds">seconds</string>
 	<string name="minutes">minutes</string>
+	<string name="hours">hours</string>
 	<string name="Days">Days</string>
 	<string name="Months">Months</string>
 	<string name="Years">Years</string>
