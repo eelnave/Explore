@@ -13,4 +13,5 @@
 		android:id="@+id/actAbout"
 		android:title="@string/about"
 		compat:showAsAction="never"/>
+	
 </menu>
