@@ -6,90 +6,69 @@
 	android:layout_height="wrap_content"
 	compat:columnCount="4">
 
-	<LinearLayout
+	<TextView
+		android:id="@+id/textView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="TextView"/>
+
+	<EditText
+		android:id="@+id/editText"
+		android:layout_width="146dp"
+		android:layout_height="40dp"
+		android:layout_column="0"
+		android:layout_row="1"
+		android:layout_weight="1"
+		android:ems="10"
+		android:hint="Distance"
+		android:inputType="number"/>
+
+	<Spinner
+		android:id="@+id/spinDistUnits"
+		android:layout_width="50dp"
+		android:layout_height="30dp"
+		android:layout_column="1"
+		android:layout_row="1"
+		android:layout_weight="1"/>
+
+	<EditText
+		android:id="@+id/editText3"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:orientation="vertical">
+		android:layout_height="40dp"
+		android:layout_column="0"
+		android:layout_row="3"
+		android:ems="10"
+		android:inputType="textPersonName"
+		android:text="Name"/>
 
-		<TextView
-				android:id="@+id/textView2"
-				tools:layout_editor_absoluteX="0dp"
-				tools:layout_editor_absoluteY="0dp"
-				android:layout_width="match_parent"
-				android:layout_height="38dp"
-				android:text="Pace Calculator"/>
+	<EditText
+		android:id="@+id/Time"
+		android:layout_width="150dp"
+		android:layout_height="40dp"
+		android:layout_column="0"
+		android:layout_row="2"
+		android:layout_weight="1"
+		android:ems="10"
+		android:hint=""
+		android:inputType="time"/>
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:orientation="horizontal">
+	<EditText
+		android:id="@+id/editText4"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:ems="10"
+		android:hint="@string/seconds"
+		android:inputType="textPersonName"/>
 
-			<EditText
-				android:id="@+id/editText"
-				android:layout_width="146dp"
-				android:layout_height="40dp"
-				android:layout_column="0"
-				android:layout_row="1"
-				android:layout_weight="1"
-				android:ems="10"
-				android:hint="Distance"
-				android:inputType="number"/>
-
-			<Spinner
-				android:id="@+id/spinDistUnits"
-				android:layout_width="50dp"
-				android:layout_height="30dp"
-				android:layout_column="1"
-				android:layout_row="1"
-				android:layout_weight="1"/>
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:orientation="horizontal">
-
-			<EditText
-				android:id="@+id/Time"
-				android:layout_width="150dp"
-				android:layout_height="40dp"
-				android:layout_column="0"
-				android:layout_row="2"
-				android:layout_weight="1"
-				android:ems="10"
-				android:hint=""
-				android:inputType="time"/>
-
-			<EditText
-				android:id="@+id/editText2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_weight="1"
-				android:ems="10"
-				android:hint="@string/minutes"
-				android:inputType="time"/>
-
-			<EditText
-				android:id="@+id/editText4"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_weight="1"
-				android:ems="10"
-				android:hint="@string/seconds"
-				android:inputType="textPersonName"/>
-		</LinearLayout>
-
-		<EditText
-				android:id="@+id/editText3"
-				android:layout_width="match_parent"
-				android:layout_height="40dp"
-				android:layout_column="0"
-				android:layout_row="3"
-				android:ems="10"
-				android:inputType="textPersonName"
-				android:text="Name"/>
-
-	</LinearLayout>
+	<EditText
+		android:id="@+id/editText2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:ems="10"
+		android:hint="@string/minutes"
+		android:inputType="time"/>
 
 
 </android.support.v7.widget.GridLayout>
