@@ -33,31 +33,19 @@ public class Ecen extends SolveEquation {
 				new SolveEquation.Solver() {
 					@Override
 					public void solve() {
-						double b = v.getDec();
-						double x = wh.getDec();
-						double y = decY.getDec();
-						double a = b * x / y;
-						mAh.setText(fmtrDec.format(a));
+						double a = v.getDec();
+						double b = wh.getDec();
+						double c = (b*1000)/a;
+						mAh.setText(fmtrDec.format(c));
 					}
 				},
 				new SolveEquation.Solver() {
 					@Override
 					public void solve() {
 						double a = mAh.getDec();
-						double x = wh.getDec();
-						double y = decY.getDec();
-						double b = a * y / x;
-						v.setText(fmtrDec.format(b));
-					}
-				},
-				new SolveEquation.Solver() {
-					@Override
-					public void solve() {
-						double a = mAh.getDec();
-						double b = v.getDec();
-						double y = decY.getDec();
-						double x = y * a / b;
-						wh.setText(fmtrDec.format(x));
+						double b = wh.getDec();
+						double c = (b*1000)/a;
+						v.setText(fmtrDec.format(c));
 					}
 				},
 				new SolveEquation.Solver() {
@@ -65,11 +53,10 @@ public class Ecen extends SolveEquation {
 					public void solve() {
 						double a = mAh.getDec();
 						double b = v.getDec();
-						double x = wh.getDec();
-						double y = x * b / a;
-						decY.setText(fmtrDec.format(y));
+						double c = (a*b)/1000;
+						wh.setText(fmtrDec.format(c));
 					}
-				}
+				},
 		};
 
 		initialize(view, inputs, solvers, R.id.ecenclear, inputs);
