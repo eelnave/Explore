@@ -19,9 +19,10 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="Electrical Calc"
+				android:text="@string/electrical_calc"
 				android:textAlignment="center"
-				android:textSize="30dp"/>
+				android:textSize="30sp"
+				tools:ignore="InefficientWeight"/>
 		</LinearLayout>
 
 		<LinearLayout
@@ -34,15 +35,15 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="mAh"
-				android:layout_marginLeft="50dp"/>
+				android:text="@string/mah"
+				android:layout_marginStart="50dp"/>
 
 			<EditText
 				android:id="@+id/mAhInput"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="10dp"
-				android:layout_marginRight="75dp"
+				android:layout_marginEnd="75dp"
 				android:layout_weight="1"
 				android:ems="10"
 				android:inputType="textPersonName"/>
@@ -58,15 +59,15 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="V"
-				android:layout_marginLeft="50dp"/>
+				android:text="@string/v"
+				android:layout_marginStart="50dp"/>
 
 			<EditText
 				android:id="@+id/vInput"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="10dp"
-				android:layout_marginRight="75dp"
+				android:layout_marginEnd="75dp"
 				android:layout_weight="1"
 				android:ems="10"
 				android:inputType="textPersonName"/>
@@ -82,8 +83,9 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="="
-				android:paddingLeft="50dp"/>
+				android:text="@string/equals"
+				android:paddingStart="50dp"
+				tools:ignore="InefficientWeight,RtlSymmetry"/>
 		</LinearLayout>
 
 		<LinearLayout
@@ -96,25 +98,25 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
-				android:text="Wh"
-				android:layout_marginLeft="50dp"/>
+				android:text="@string/wh"
+				android:layout_marginStart="50dp"/>
 
 			<EditText
 				android:id="@+id/whInput"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="10dp"
-				android:layout_marginRight="75dp"
+				android:layout_marginEnd="75dp"
 				android:layout_weight="1"
 				android:ems="10"
 				android:inputType="textPersonName"/>
 		</LinearLayout>
 
 		<Button
-			android:id="@+id/ecenclear"
+			android:id="@+id/btnClear"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="Clear"/>
+			android:text="@string/clear"/>
 
 	</LinearLayout>
 </android.support.constraint.ConstraintLayout>

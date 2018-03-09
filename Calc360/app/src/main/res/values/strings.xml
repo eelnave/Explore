@@ -31,6 +31,7 @@
 	<string name="sports">Sports</string>
 	<string name="stats">Statistics</string>
 	<string name="travel">Travel</string>
+	<string name="electrical">Electrical</string>
 
 	<string name="simple">Simple</string>
 
@@ -38,7 +39,12 @@
 	<string name="results">Results</string>
 
 	<string name="compute">Compute</string>
-	<string name="clear">Clear</string>
 
 	<string name="unitConvert">Unit Conversion</string>
+	<string name="electrical_calc">Electrical Calc</string>
+	<string name="mah">mAh</string>
+	<string name="v">V</string>
+	<string name="equals">=</string>
+	<string name="wh">Wh</string>
+	<string name="clear">Clear</string>
 </resources>

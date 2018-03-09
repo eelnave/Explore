@@ -59,7 +59,7 @@ public class Ecen extends SolveEquation {
 				},
 		};
 
-		initialize(view, inputs, solvers, R.id.ecenclear, inputs);
+		initialize(view, inputs, solvers, R.id.btnClear, inputs);
 		return view;
 	}
 }
