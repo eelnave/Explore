@@ -7,10 +7,10 @@
 	<string name="tax">Impuesto</string>
 	<string name="total">Total</string>
 
-	<string name="salesTax">Imposto sobre Ventas</string>
+	<string name="salesTax">Impuesto sobre Ventas</string>
 	<string name="itemPrice">Precio de Articulo</string>
 	<string name="priceHint">ej: 24,95</string>
-	<string name="salesTaxHint">ex: 6,5</string>
+	<string name="salesTaxHint">ej: 6,5</string>
 	<string name="discHint">ej: 25</string>
 
 	<string name="discount">Descuento</string>
@@ -24,8 +24,8 @@
 	<string name="prod3">Produto 3</string>
 
 	<string name="tip">Propina</string>
-	<string name="costBeforeTax">Custo antes de Impostos</string>
-	<string name="taxAmt">Cantidad de Imposto</string>
+	<string name="costBeforeTax">Costo antes de Impuestos</string>
+	<string name="taxAmt">Cantidad de Impuesto</string>
 
 	<string name="usa">EUA</string>
 	<string name="euro">Europa</string>
