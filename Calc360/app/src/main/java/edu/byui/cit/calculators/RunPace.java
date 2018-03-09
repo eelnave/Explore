@@ -17,10 +17,6 @@ import edu.byui.cit.units.Speed;
 import edu.byui.cit.units.Time;
 
 
-/**
- * Created by Landon on 3/7/2018.
- */
-
 public class RunPace extends CalcFragment {
 
 	/*Initialize data types for
@@ -30,7 +26,7 @@ public class RunPace extends CalcFragment {
 	These factors will go into the Calculations for pace, distance, and speed
 	 */
 	private static final String
-			KEY_DIST_UNITS = "RunPace.distUnits",
+			KEY_DIST_UNITS = "RunPace.distUnits";
 
 	private EditDecimal Distance;
 	private EditDecimal Speed;

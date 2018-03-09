@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "edu.byui.cit.calc360"
-        minSdkVersion 21
-        targetSdkVersion 26
+        minSdkVersion 27
+        targetSdkVersion 27
         versionCode 36
         versionName "2.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -19,6 +19,8 @@ android {
     }
     applicationVariants.all {
         variant -> variant.resValue "string", "versionName", variant.versionName
+    }
+    productFlavors {
     }
 }
 
