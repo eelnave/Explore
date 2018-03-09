@@ -19,6 +19,9 @@ public class Feedback extends InfoFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.about, container, false);
+		String feedBack = getString(R.string.feedMessage)+ " " +(R.string.feedLink);
+		TextView version = view.findViewById(R.id.txtVersion);
+		version.setText(feedBack);
 		return view;
 	}
 }
