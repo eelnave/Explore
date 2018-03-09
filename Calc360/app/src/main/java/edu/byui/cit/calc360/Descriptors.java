@@ -132,13 +132,7 @@ final class Descriptors {
 		descriptors = new Descriptor[count];
 		storeDescrips(descriptors, 0, hierarchy);
 		descriptors[count - 1] = new CalcDescriptor(1, R.string.about, R.mipmap.calc360, About.class);
-		Arrays.sort(descriptors, Descriptor.compareID);
-	}
-	static void initiate() {
-		int count = countDescrips(hierarchy) + 1;
-		descriptors = new Descriptor[count];
-		storeDescrips(descriptors, 0, hierarchy);
-		descriptors[count - 1] = new CalcDescriptor(1, R.string.feedback, R.mipmap.calc360, Feedback.class);
+		descriptors[count - 1] = new CalcDescriptor(2, R.string.feedback, R.mipmap.calc360, Feedback.class);
 		Arrays.sort(descriptors, Descriptor.compareID);
 	}
 
