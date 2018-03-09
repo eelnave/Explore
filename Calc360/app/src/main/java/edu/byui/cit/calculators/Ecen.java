@@ -21,7 +21,7 @@ public class Ecen extends SolveEquation {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.ratio, container, false);
+		View view = inflater.inflate(R.layout.ecen, container, false);
 
 		mAh = new EditDecimal(view, R.id.mAhInput, this);
 		v = new EditDecimal(view, R.id.vInput, this);
