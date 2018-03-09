@@ -134,6 +134,13 @@ final class Descriptors {
 		descriptors[count - 1] = new CalcDescriptor(1, R.string.about, R.mipmap.calc360, About.class);
 		Arrays.sort(descriptors, Descriptor.compareID);
 	}
+	static void initiate() {
+		int count = countDescrips(hierarchy) + 1;
+		descriptors = new Descriptor[count];
+		storeDescrips(descriptors, 0, hierarchy);
+		descriptors[count - 1] = new CalcDescriptor(1, R.string.feedback, R.mipmap.calc360, Feedback.class);
+		Arrays.sort(descriptors, Descriptor.compareID);
+	}
 
 	/** Counts the number of descriptors in the
 	 * hierarchy that includes and is below descrip. */
