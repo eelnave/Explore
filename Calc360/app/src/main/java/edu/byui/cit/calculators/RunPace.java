@@ -9,7 +9,10 @@ import android.view.ViewGroup;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.text.EditInteger;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Length;
@@ -28,9 +31,11 @@ public class RunPace extends CalcFragment {
 	private static final String
 			KEY_DIST_UNITS = "RunPace.distUnits";
 
-	private EditDecimal Distance;
-	private EditDecimal Speed;
-	private TextWrapper Time;
+	private EditDecimal distance;
+	private EditInteger hours;
+	private EditInteger minutes;
+	private EditInteger seconds;
+	private TextWrapper pace;
 	private SpinUnit spinDistUnits;
 
 	@Override
@@ -39,13 +44,23 @@ public class RunPace extends CalcFragment {
 		View view = inflater.inflate(R.layout.run_pace, container,
 				false);
 
+
+		distance = new EditDecimal(view, R.id.distInput, this);
+		hours = new EditInteger(view, R.id.hours, this);
+		minutes = new EditInteger(view, R.id.minutes, this);
+		seconds = new EditInteger(view, R.id.seconds, this);
+		pace = new TextWrapper(view, R.id.paceOutput);
+
 		Activity spin = getActivity();
 		spinDistUnits = new SpinUnit(spin, view, R.id.spinDistUnits,
 				Length.getInstance(), R.array.ttDistUnits,
 				KEY_DIST_UNITS, this);
 
-		Time = new TextWrapper(view, R.id.Time);
-		return null;
+		EditWrapper[] inputs = {distance, hours, minutes, seconds};
+		ControlWrapper[] toClear = {distance, hours, minutes, seconds, pace};
+		// Need to add a clear button to xml file..
+		initialize(view, inputs, R.id.btnClear, toClear);
+		return view;
 	}
 
 	@Override
