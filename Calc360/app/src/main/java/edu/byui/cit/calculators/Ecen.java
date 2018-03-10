@@ -12,6 +12,8 @@ import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
+import static edu.byui.cit.model.Engineering.ElectricalEnergy.*;
+
 
 public class Ecen extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
@@ -33,28 +35,28 @@ public class Ecen extends SolveEquation {
 				new SolveEquation.Solver() {
 					@Override
 					public void solve() {
-						double a = v.getDec();
-						double b = wh.getDec();
-						double c = (b*1000)/a;
-						mAh.setText(fmtrDec.format(c));
+						double volt = v.getDec();
+						double wattHour = wh.getDec();
+						double milliampHour = milliampHour(volt, wattHour);
+						mAh.setText(fmtrDec.format(milliampHour));
 					}
 				},
 				new SolveEquation.Solver() {
 					@Override
 					public void solve() {
-						double a = mAh.getDec();
-						double b = wh.getDec();
-						double c = (b*1000)/a;
-						v.setText(fmtrDec.format(c));
+						double milliampHour = mAh.getDec();
+						double wattHour = wh.getDec();
+						double volt = volt(milliampHour, wattHour);
+						v.setText(fmtrDec.format(volt));
 					}
 				},
 				new SolveEquation.Solver() {
 					@Override
 					public void solve() {
-						double a = mAh.getDec();
-						double b = v.getDec();
-						double c = (a*b)/1000;
-						wh.setText(fmtrDec.format(c));
+						double milliampHour = mAh.getDec();
+						double volt = v.getDec();
+						double wattHour = wattHour(volt, milliampHour);
+						wh.setText(fmtrDec.format(wattHour));
 					}
 				},
 		};

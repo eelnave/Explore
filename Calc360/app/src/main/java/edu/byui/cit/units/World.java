@@ -39,7 +39,8 @@ public final class World extends Container<Property> {
 //		accel = 61,
 		force = 62,
 		data  = 70,
-		money = 71;
+		money = 71,
+		energy = 72;
 
 	private static World singleton;
 

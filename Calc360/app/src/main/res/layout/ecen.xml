@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent" android:layout_height="match_parent">
 
 	<LinearLayout
@@ -18,11 +17,9 @@
 				android:id="@+id/title"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:layout_weight="1"
 				android:text="@string/electrical_calc"
-				android:textAlignment="center"
-				android:textSize="30sp"
-				tools:ignore="InefficientWeight"/>
+				android:textAlignment="viewStart"
+				android:textSize="30sp"/>
 		</LinearLayout>
 
 		<LinearLayout
@@ -34,19 +31,16 @@
 				android:id="@+id/textView3"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_weight="1"
 				android:text="@string/mah"
-				android:layout_marginStart="50dp"/>
+				android:textAlignment="textStart"/>
 
 			<EditText
 				android:id="@+id/mAhInput"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginBottom="10dp"
-				android:layout_marginEnd="75dp"
-				android:layout_weight="1"
 				android:ems="10"
-				android:inputType="textPersonName"/>
+				android:inputType="textPersonName"
+				android:hint="milliampHours"/>
 		</LinearLayout>
 
 		<LinearLayout
@@ -58,19 +52,15 @@
 				android:id="@+id/textView2"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_weight="1"
-				android:text="@string/v"
-				android:layout_marginStart="50dp"/>
+				android:text="@string/v"/>
 
 			<EditText
 				android:id="@+id/vInput"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginBottom="10dp"
-				android:layout_marginEnd="75dp"
-				android:layout_weight="1"
 				android:ems="10"
-				android:inputType="textPersonName"/>
+				android:inputType="textPersonName"
+				android:hint="voltage"/>
 		</LinearLayout>
 
 		<LinearLayout
@@ -82,10 +72,7 @@
 				android:id="@+id/textView4"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_weight="1"
-				android:text="@string/equals"
-				android:paddingStart="50dp"
-				tools:ignore="InefficientWeight,RtlSymmetry"/>
+				android:text="@string/equals"/>
 		</LinearLayout>
 
 		<LinearLayout
@@ -97,24 +84,20 @@
 				android:id="@+id/textView5"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_weight="1"
-				android:text="@string/wh"
-				android:layout_marginStart="50dp"/>
+				android:text="@string/wh"/>
 
 			<EditText
 				android:id="@+id/whInput"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_marginBottom="10dp"
-				android:layout_marginEnd="75dp"
-				android:layout_weight="1"
 				android:ems="10"
-				android:inputType="textPersonName"/>
+				android:inputType="textPersonName"
+				android:hint="wattHours"/>
 		</LinearLayout>
 
 		<Button
 			android:id="@+id/btnClear"
-			android:layout_width="match_parent"
+			android:layout_width="150dp"
 			android:layout_height="wrap_content"
 			android:text="@string/clear"/>
 

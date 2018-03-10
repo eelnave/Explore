@@ -41,7 +41,7 @@
 	<string name="compute">Compute</string>
 
 	<string name="unitConvert">Unit Conversion</string>
-	<string name="electrical_calc">Electrical Calc</string>
+	<string name="electrical_calc">Electrical Energy</string>
 	<string name="mah">mAh</string>
 	<string name="v">V</string>
 	<string name="equals">=</string>
