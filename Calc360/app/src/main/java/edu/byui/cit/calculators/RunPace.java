@@ -61,3 +61,24 @@ public class RunPace extends CalcFragment {
 		spinDistUnits.save(editor);
 	}
 }
+
+/*
+double distance = 3;
+		int hour = 20;
+		int min = 15;
+		int sec = 25;
+
+		double time = (hour * 3600) + (min * 60) + sec;
+		// pace in seconds (second / distance)
+		double pace = time / distance;
+
+		double secondPace = (time / distance) % 60;
+
+		int hourPace = (int)(hour / distance);
+		pace = pace - (hourPace * 3600);
+		int minutePace = (int)pace / 60;
+
+	    System.out.println(time);
+		System.out.println(hourPace + ":" + minutePace + ":" + secondPace);
+
+ */
