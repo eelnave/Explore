@@ -69,7 +69,8 @@ public final class World extends Container<Property> {
 			Speed.getInstance(),
 			Force.getInstance(),
 			DataSize.getInstance(),
-			Money.getInstance()
+			Money.getInstance(),
+			Energy.getInstance()
 		});
 	}
 

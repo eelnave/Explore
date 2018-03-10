@@ -47,4 +47,6 @@
 	<string name="equals">=</string>
 	<string name="wh">Wh</string>
 	<string name="clear">Clear</string>
+	<string name="milliamphours">milliampHours</string>
+	<string name="watthours">wattHours</string>
 </resources>

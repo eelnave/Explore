@@ -40,7 +40,7 @@
 				android:layout_height="wrap_content"
 				android:ems="10"
 				android:inputType="textPersonName"
-				android:hint="milliampHours"/>
+				android:hint="@string/milliamphours"/>
 		</LinearLayout>
 
 		<LinearLayout
@@ -60,7 +60,7 @@
 				android:layout_height="wrap_content"
 				android:ems="10"
 				android:inputType="textPersonName"
-				android:hint="voltage"/>
+				android:hint="@string/voltage"/>
 		</LinearLayout>
 
 		<LinearLayout
@@ -92,7 +92,7 @@
 				android:layout_height="wrap_content"
 				android:ems="10"
 				android:inputType="textPersonName"
-				android:hint="wattHours"/>
+				android:hint="@string/watthours"/>
 		</LinearLayout>
 
 		<Button

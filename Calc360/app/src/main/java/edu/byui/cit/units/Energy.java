@@ -1,7 +1,7 @@
 package edu.byui.cit.units;
 
 public final class Energy extends Property {
-	public static final int
+	private static final int
 		milliampHour  = 8901,
 		volt = 8902,
 		wattHour   = 8903;
@@ -15,7 +15,7 @@ public final class Energy extends Property {
 		return singleton;
 	}
 
-	public Energy() {
+	private Energy() {
 		super(World.energy, "energy", new Unit[]{
 			new Unit(milliampHour, "mAh", "MilliampHour", 1 ),
 			new Unit(volt, "V", "Volt", 1),
