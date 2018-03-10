@@ -24,4 +24,6 @@
 
     <string name="submit">Submit</string>
 	<string name="map">Map</string>
+    <string name="instruction">When you notice kindness in the world, tap on an icon to report that type of kindness to the map for others to see.</string>
+    <string name="howto">How to Use</string>
 </resources>

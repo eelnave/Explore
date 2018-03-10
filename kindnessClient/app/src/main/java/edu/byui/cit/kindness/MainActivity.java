@@ -20,6 +20,7 @@ public final class MainActivity extends AppCompatActivity {
 
 	private KindnessMap kindMap;
 	private InfoFragment about;
+	private HowTo how_to;
 	private Button[] icon = new Button[6];
 	private int[] btnIds = {R.id.emotional, R.id.food, R.id.labor, R.id.travel, R.id.money, R.id.other,};
 
@@ -89,6 +90,12 @@ public final class MainActivity extends AppCompatActivity {
 				return true;
 			case R.id.kind_map:
 				startActivity(kindMap);
+				return true;
+			case R.id.howto:
+				if (how_to == null || how_to.isDetached()) {
+					how_to = new HowTo();
+				}
+				switchFragment(how_to);
 				return true;
 		}
 
