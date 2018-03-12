@@ -82,4 +82,15 @@
 	<string name="intHint1">ex: 1</string>
 	<string name="intHint2">ex: 2</string>
 	<string name="intHint5">ex: 5</string>
+
+	<string name="habitCost">Habit Cost</string>
+	<string name="itemCost">Item Cost:</string>
+	<string name="costEx">4.99</string>
+	<string name="useFrequency">Frequency of Use:</string>
+	<string name="frequencyEx">2</string>
+	<string name="habitDaily">Daily</string>
+	<string name="habitWeekly">Weekly</string>
+	<string name="habitMonthly">Monthly</string>
+	<string name="habitYearly">Yearly</string>
+	<string name="habitTotal">Total</string>
 </resources>
