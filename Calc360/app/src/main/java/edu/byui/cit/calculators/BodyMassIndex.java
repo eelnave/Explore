@@ -40,6 +40,8 @@ public final class BodyMassIndex extends CalcFragment {
 	}
 
 
+
+
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
