@@ -84,7 +84,7 @@
 	<string name="intHint5">ex: 5</string>
 
 	<string name="habitCost">Habit Cost</string>
-	<string name="itemCost">Item Cost:</string>
+	<string name="itemCost">Cost Per Item:</string>
 	<string name="costEx">4.99</string>
 	<string name="useFrequency">Frequency of Use:</string>
 	<string name="frequencyEx">2</string>

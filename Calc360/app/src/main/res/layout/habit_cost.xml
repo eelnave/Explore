@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	compat:columnCount="3">
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/itemCost"/>
+
+
+	<EditText
+		android:id="@+id/costHabit"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/costEx">
+
+		<requestFocus/>
+	</EditText>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/useFrequency"/>
+
+	<EditText
+		android:id="@+id/frequencyHabit"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/frequencyEx"
+		android:inputType="numberDecimal"/>
+
+	<Space/>
+
+	<RadioGroup
+		android:layout_marginTop="20dp"
+		android:checkedButton="@+id/radDaily"
+		android:orientation="horizontal"
+		compat:layout_columnSpan="3"
+		compat:layout_gravity="fill_horizontal">
+
+		<RadioButton
+			android:id="@+id/radDaily"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/habitDaily"/>
+
+		<RadioButton
+			android:id="@+id/radWeekly"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/habitWeekly"/>
+
+		<RadioButton
+			android:id="@+id/radMonthly"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/habitMonthly"/>
+
+		<RadioButton
+			android:id="@+id/radYearly"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/habitYearly"/>
+	</RadioGroup>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="20dp"
+		android:text="@string/habitDaily"/>
+
+	<TextView
+		android:id="@+id/dailyAmount"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="6"
+		android:layout_marginTop="20dp"
+		android:textAlignment="textEnd"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="20dp"
+		android:text="@string/habitWeekly"/>
+
+	<TextView
+		android:id="@+id/weeklyAmount"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="6"
+		android:layout_marginTop="20dp"
+		android:textAlignment="textEnd"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="20dp"
+		android:text="@string/habitMonthly"/>
+
+	<TextView
+		android:id="@+id/monthlyAmount"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="6"
+		android:layout_marginTop="20dp"
+		android:textAlignment="textEnd"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="20dp"
+		android:text="@string/habitYearly"/>
+
+	<TextView
+		android:id="@+id/yearlyAmount"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:ems="6"
+		android:layout_marginTop="20dp"
+		android:textAlignment="textEnd"/>
+
+	<Space/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="3"/>
+</android.support.v7.widget.GridLayout>
