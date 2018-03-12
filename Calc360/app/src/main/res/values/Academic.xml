@@ -8,7 +8,7 @@
 	<string name="grade">Grade:</string>
 	<string name="yourGrades">Your Grades:</string>
 	<string name="semesterGrade">This Semesters GPA:</string>
-	<string name="yourCurGPA">Your Current GPA:</string>
+	<string name="yourCurGPA">Your Overall GPA:</string>
 	<string-array name="gradeSpin">
 		<item>A</item>
 		<item>A-</item>
