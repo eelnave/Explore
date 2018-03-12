@@ -2,6 +2,7 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	compat:columnCount="2">
@@ -13,22 +14,31 @@
 	<EditText
 		android:id="@+id/curGPA"
 		style="@style/UnsignedDecimal"
-		android:ems="3">
+		android:ems="4"
+		tools:ignore="LabelFor">
 
 		<requestFocus/>
 	</EditText>
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/curCredits"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
+		android:text="@string/curCredits"/>
 
 	<EditText
 		android:id="@+id/curCredits"
 		style="@style/UnsignedDecimal"
-		android:ems="3">
+		android:ems="4"
+		tools:ignore="LabelFor">
 
 	</EditText>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/grade"/>
+
+	<Spinner
+		android:id="@+id/gradeSpin"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
 
 </android.support.v7.widget.GridLayout>
