@@ -30,7 +30,8 @@
 		style="@style/UnsignedDecimal"
 		android:ems="4"
 		tools:ignore="LabelFor"
-		android:layout_marginTop="15dp">
+		android:layout_marginTop="15dp"
+		android:imeOptions="actionDone">
 
 	</EditText>
 
