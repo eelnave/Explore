@@ -3,8 +3,8 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
 	compat:columnCount="2">
 
 	<TextView
@@ -22,23 +22,64 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/curCredits"/>
+		android:text="@string/curCredits"
+		android:layout_marginTop="15dp"/>
 
 	<EditText
 		android:id="@+id/curCredits"
 		style="@style/UnsignedDecimal"
 		android:ems="4"
-		tools:ignore="LabelFor">
+		tools:ignore="LabelFor"
+		android:layout_marginTop="15dp">
 
 	</EditText>
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/grade"/>
+		android:text="@string/grade"
+		android:layout_marginTop="15dp"/>
 
 	<Spinner
 		android:id="@+id/gradeSpin"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/yourGrades"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		android:id="@+id/yourGrades"
+		style="@style/TextResult"
+		android:layout_marginStart="10dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/semesterGrade"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		android:id="@+id/semesterGrade"
+		style="@style/TextResult"
+		android:layout_marginStart="10dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/yourCurGPA"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		android:id="@+id/yourCurGPA"
+		style="@style/TextResult"
+		android:layout_marginStart="10dp"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"/>
 
 </android.support.v7.widget.GridLayout>
