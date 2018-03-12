@@ -26,8 +26,6 @@ public final class BasalMetabolicRate extends CalcFragment {
 	private RadioWrapper radFemale;
 	private EditDecimal decWeight, decHeight, decAge;
 	private TextWrapper txtHeightUnit, txtWeightUnit, txtAge, txtBMR;
-	private int[] ranges;
-	private String[] categories;
 	private final NumberFormat fmtrDec;
 
 	public BasalMetabolicRate() {
@@ -51,20 +49,18 @@ public final class BasalMetabolicRate extends CalcFragment {
 		decWeight = new EditDecimal(view, R.id.decWeight, this);
 		txtHeightUnit = new TextWrapper(view, R.id.heightUnit);
 		txtWeightUnit = new TextWrapper(view, R.id.weightUnit);
-		txtAge = new TextWrapper(view, R.id.decAge);
+		decAge = new EditDecimal(view, R.id.decAge, this);
+		txtAge = new TextWrapper(view, R.id.txtAge);
 		txtBMR = new TextWrapper(view, R.id.txtBMR);
 
-		ranges = getResources().getIntArray(R.array.bmiRanges);
-		categories = getResources().getStringArray(R.array.bmiCategories);
-
 		RadioClick listener = new RadioClick();
-		radFemale = new RadioWrapper(view, R.id.radImperial, listener);
+		radFemale = new RadioWrapper(view, R.id.radFemale, listener);
 		new RadioWrapper(view, R.id.radMetric, listener);
 		radFemale.performClick();
 
-		EditWrapper[] inputs = { decHeight, decWeight };
+		EditWrapper[] inputs = { decHeight, decWeight, decAge };
 		ControlWrapper[] toClear = {
-				decHeight, decWeight, txtAge, txtBMR
+				decHeight, decWeight, decAge, txtBMR
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
@@ -99,35 +95,17 @@ public final class BasalMetabolicRate extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		if (decHeight.notEmpty() && decWeight.notEmpty()) {
+		if (decHeight.notEmpty() && decWeight.notEmpty() && decAge.notEmpty()) {
 			double height = decHeight.getDec();
 			double weight = decWeight.getDec();
+			double age = decAge.getDec();
 			if (radFemale.isChecked()) {
-				// Convert inches to meters and pounds to kilograms
-				// before calculating the BMI.
-				height = Length.getInstance().convert(
-						Length.m, height, Length.inch);
-				weight = Mass.getInstance().convert(
-						Mass.kilogram, weight, Mass.pound);
+				//Female BMR calculation
+				double BMR = 10 * (weight / 2.2) + 6.25 * (height * 2.54) - 5 * (age) - 162;
 			}
 
-			// Calculate the BMR.
-			double bmr = weight / (height * height);
-
-			// Find the category that includes the user's BMI.
-			String category = categories[categories.length - 1];
-			for (int i = 0;  i < ranges.length;  ++i) {
-				if (bmi < ranges[i]) {
-					category = categories[i];
-					break;
-				}
-			}
-
-			// Display the results to the user.
-			txtBMR.setText(fmtrDec.format(bmr));
-		}
-		else {
-			txtBMR.clear();
+			// Male BMR calculation
+			double BMR = 10 * (weight / 2.2) + 6.25 * (height * 2.54) - 5 * (age) + 4;
 		}
 	}
 }
