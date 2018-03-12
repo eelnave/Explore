@@ -31,7 +31,7 @@ public final class Academic {
 				}
 			}
 
-			return gpa;
+			return Math.floor(gpa * 100) / 100;
 		}
 
 		public static double calculateGPA(String[] grades) {
@@ -45,7 +45,7 @@ public final class Academic {
 
 			gpa = totalPoints / count;
 
-			return gpa;
+			return Math.floor(gpa * 100) / 100;
 		}
 	}
 }
