@@ -18,6 +18,7 @@ import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Speed;
 import edu.byui.cit.units.Time;
+import edu.byui.cit.model.Fitness;
 
 
 public class RunPace extends CalcFragment {
@@ -26,7 +27,7 @@ public class RunPace extends CalcFragment {
 	Distance
 	Speed
 	Time
-	These factors will go into the Calculations for pace, distance, and speed
+	These factors will go into the Calculations for pace, distance, and time
 	 */
 	private static final String
 			KEY_DIST_UNITS = "RunPace.distUnits";
@@ -75,25 +76,15 @@ public class RunPace extends CalcFragment {
 		// Get from the spinners, the units chosen by the user.
 		spinDistUnits.save(editor);
 	}
+
+	protected void compute(){
+		double d = distance.getDec();
+		int h = hours.getInt();
+		int m = minutes.getInt();
+		int s = seconds.getInt();
+
+		String output = Fitness.calcPace(d, h, m, s);
+
+		pace.setText(output);
+	}
 }
-
-/*
-double distance = 3;
-		int hour = 20;
-		int min = 15;
-		int sec = 25;
-
-		double time = (hour * 3600) + (min * 60) + sec;
-		// pace in seconds (second / distance)
-		double pace = time / distance;
-
-		double secondPace = (time / distance) % 60;
-
-		int hourPace = (int)(hour / distance);
-		pace = pace - (hourPace * 3600);
-		int minutePace = (int)pace / 60;
-
-	    System.out.println(time);
-		System.out.println(hourPace + ":" + minutePace + ":" + secondPace);
-
- */
