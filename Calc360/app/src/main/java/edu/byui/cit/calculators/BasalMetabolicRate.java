@@ -52,7 +52,7 @@ public final class BasalMetabolicRate extends CalcFragment {
 		txtHeightUnit = new TextWrapper(view, R.id.heightUnit);
 		txtWeightUnit = new TextWrapper(view, R.id.weightUnit);
 		txtAge = new TextWrapper(view, R.id.decAge);
-		txtBMR = new TextWrapper(view, R.id.txtBMR);
+		txtBMR = new TextWrapper(view, R.id.decBMR);
 
 		ranges = getResources().getIntArray(R.array.bmiRanges);
 		categories = getResources().getStringArray(R.array.bmiCategories);
@@ -113,15 +113,6 @@ public final class BasalMetabolicRate extends CalcFragment {
 
 			// Calculate the BMR.
 			double bmr = weight / (height * height);
-
-			// Find the category that includes the user's BMI.
-			String category = categories[categories.length - 1];
-			for (int i = 0;  i < ranges.length;  ++i) {
-				if (bmi < ranges[i]) {
-					category = categories[i];
-					break;
-				}
-			}
 
 			// Display the results to the user.
 			txtBMR.setText(fmtrDec.format(bmr));

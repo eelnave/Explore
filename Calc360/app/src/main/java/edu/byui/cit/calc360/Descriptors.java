@@ -19,6 +19,7 @@ final class Descriptors {
 				new CalcDescriptor(1001, R.string.cmpPrices, R.drawable.balance, ComparePrices.class),
 			}),
 			new GroupDescriptor(308, R.string.sports, R.drawable.folder_sports, new CalcDescriptor[]{
+				//new CalcDescriptor(9999, R.drawable.BMR, BasalMetabolicRate.class),
 				new CalcDescriptor(1011, R.string.basketball, R.drawable.basketball, Basketball.class),
 				new CalcDescriptor(1012, R.string.bodyMassIndex, R.drawable.body_mass_index, BodyMassIndex.class),
 				new CalcDescriptor(1020, R.string.caloriesBurned, R.drawable.flame, CaloriesBurned.class),
