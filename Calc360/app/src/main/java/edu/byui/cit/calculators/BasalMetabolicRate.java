@@ -4,28 +4,28 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioButton;
+//import android.widget.RadioButton;
 
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ClickListener;
+//import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.RadioWrapper;
 import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.units.Length;
-import edu.byui.cit.units.Property;
-import edu.byui.cit.units.Unit;
-import edu.byui.cit.units.Mass;
+//import edu.byui.cit.units.Length;
+//import edu.byui.cit.units.Property;
+//import edu.byui.cit.units.Unit;
+//import edu.byui.cit.units.Mass;
 
 
 public final class BasalMetabolicRate extends CalcFragment {
 	private RadioWrapper radFemale;
 	private EditDecimal decWeight, decHeight, decAge;
-	private TextWrapper txtHeightUnit, txtWeightUnit, txtAge, txtBMR;
+	private TextWrapper txtBMR;
 	private final NumberFormat fmtrDec;
 
 	public BasalMetabolicRate() {
@@ -47,15 +47,12 @@ public final class BasalMetabolicRate extends CalcFragment {
 
 		decHeight = new EditDecimal(view, R.id.decHeight, this);
 		decWeight = new EditDecimal(view, R.id.decWeight, this);
-		txtHeightUnit = new TextWrapper(view, R.id.heightUnit);
-		txtWeightUnit = new TextWrapper(view, R.id.weightUnit);
 		decAge = new EditDecimal(view, R.id.decAge, this);
-		txtAge = new TextWrapper(view, R.id.txtAge);
 		txtBMR = new TextWrapper(view, R.id.txtBMR);
 
-		RadioClick listener = new RadioClick();
-		radFemale = new RadioWrapper(view, R.id.radFemale, listener);
-		new RadioWrapper(view, R.id.radMetric, listener);
+		//RadioClick listener = new RadioClick();
+		radFemale = new RadioWrapper(view, R.id.radFemale, this);
+		new RadioWrapper(view, R.id.radMale, this);
 		radFemale.performClick();
 
 		EditWrapper[] inputs = { decHeight, decWeight, decAge };
@@ -67,7 +64,7 @@ public final class BasalMetabolicRate extends CalcFragment {
 	}
 
 
-	private final class RadioClick implements ClickListener {
+	/*private final class RadioClick implements ClickListener {
 		@Override
 		public void clicked(View button) {
 			Property length = Length.getInstance();
@@ -76,7 +73,7 @@ public final class BasalMetabolicRate extends CalcFragment {
 			if (selected) {
 				Unit unitLength, unitMass;
 				switch (button.getId()) {
-					case R.id.radImperial:
+					case R.id.radFemale:
 						unitLength = length.get(Length.inch);
 						unitMass = mass.get(Mass.pound);
 						break;
@@ -90,7 +87,7 @@ public final class BasalMetabolicRate extends CalcFragment {
 			}
 			callCompute();
 		}
-	}
+	}*/
 
 
 	@Override
@@ -102,10 +99,16 @@ public final class BasalMetabolicRate extends CalcFragment {
 			if (radFemale.isChecked()) {
 				//Female BMR calculation
 				double BMR = 10 * (weight / 2.2) + 6.25 * (height * 2.54) - 5 * (age) - 162;
-			}
+				txtBMR.setText(fmtrDec.format(BMR));
+			}else {
 
-			// Male BMR calculation
-			double BMR = 10 * (weight / 2.2) + 6.25 * (height * 2.54) - 5 * (age) + 4;
+				// Male BMR calculation
+				double BMR = 10 * (weight / 2.2) + 6.25 * (height * 2.54) - 5 * (age) + 4;
+				txtBMR.setText(fmtrDec.format(BMR));
+			}
+		}
+		else{
+			txtBMR.clear();
 		}
 	}
 }
