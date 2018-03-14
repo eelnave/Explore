@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:background="#ffffff"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+
+	<ImageView
+		android:id="@+id/logo"
+		style="@style/IconButton"
+		android:src="@drawable/square_button2"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.498"/>
+
+
+	<edu.byui.cit.kindness.IconButton
+		android:id="@+id/emotional"
+		style="@style/IconButton"
+		android:background="@drawable/emotional"
+		android:text="@string/emotion"
+		app:layout_constraintCircle="@+id/logo"
+		app:layout_constraintCircleAngle="0"
+		app:layout_constraintCircleRadius="125dp"/>
+
+	<edu.byui.cit.kindness.IconButton
+		android:id="@+id/food"
+		style="@style/IconButton"
+		android:background="@drawable/food"
+		android:text="@string/food"
+		app:layout_constraintCircle="@+id/logo"
+		app:layout_constraintCircleAngle="72"
+		app:layout_constraintCircleRadius="125dp"/>
+
+	<edu.byui.cit.kindness.IconButton
+		android:id="@+id/labor"
+		style="@style/IconButton"
+		android:background="@drawable/labor"
+		android:text="@string/labor"
+		app:layout_constraintCircle="@+id/logo"
+		app:layout_constraintCircleAngle="144"
+		app:layout_constraintCircleRadius="125dp"/>
+
+	<edu.byui.cit.kindness.IconButton
+		android:id="@+id/travel"
+		style="@style/IconButton"
+		android:background="@drawable/travel"
+		android:text="@string/travel"
+		app:layout_constraintCircle="@+id/logo"
+		app:layout_constraintCircleAngle="216"
+		app:layout_constraintCircleRadius="125dp"/>
+
+	<edu.byui.cit.kindness.IconButton
+		android:id="@+id/money"
+		style="@style/IconButton"
+		android:background="@drawable/money"
+		android:text="@string/money"
+		app:layout_constraintCircle="@+id/logo"
+		app:layout_constraintCircleAngle="288"
+		app:layout_constraintCircleRadius="125dp"/>
+
+
+</android.support.constraint.ConstraintLayout>
