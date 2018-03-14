@@ -8,8 +8,7 @@
 
 	<ImageView
 		android:id="@+id/logo"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
+		style="@style/IconButton"
 		android:src="@drawable/square_button2"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
@@ -24,8 +23,8 @@
 		android:background="@drawable/emotional"
 		android:text="@string/emotion"
 		app:layout_constraintCircle="@+id/logo"
-		app:layout_constraintCircleAngle="15"
-		app:layout_constraintCircleRadius="90dp"/>
+		app:layout_constraintCircleAngle="0"
+		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
 		android:id="@+id/food"
@@ -33,8 +32,8 @@
 		android:background="@drawable/food"
 		android:text="@string/food"
 		app:layout_constraintCircle="@+id/logo"
-		app:layout_constraintCircleAngle="90"
-		app:layout_constraintCircleRadius="90dp"/>
+		app:layout_constraintCircleAngle="72"
+		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
 		android:id="@+id/labor"
@@ -42,8 +41,8 @@
 		android:background="@drawable/labor"
 		android:text="@string/labor"
 		app:layout_constraintCircle="@+id/logo"
-		app:layout_constraintCircleAngle="150"
-		app:layout_constraintCircleRadius="90dp"/>
+		app:layout_constraintCircleAngle="144"
+		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
 		android:id="@+id/travel"
@@ -51,8 +50,8 @@
 		android:background="@drawable/travel"
 		android:text="@string/travel"
 		app:layout_constraintCircle="@+id/logo"
-		app:layout_constraintCircleAngle="220"
-		app:layout_constraintCircleRadius="90dp"/>
+		app:layout_constraintCircleAngle="216"
+		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
 		android:id="@+id/money"
@@ -60,8 +59,8 @@
 		android:background="@drawable/money"
 		android:text="@string/money"
 		app:layout_constraintCircle="@+id/logo"
-		app:layout_constraintCircleAngle="300"
-		app:layout_constraintCircleRadius="90dp"/>
+		app:layout_constraintCircleAngle="288"
+		app:layout_constraintCircleRadius="125dp"/>
 
 
 </android.support.constraint.ConstraintLayout>
