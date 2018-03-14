@@ -16,6 +16,8 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Length;
+import edu.byui.cit.units.Property;
+import edu.byui.cit.units.Unit;
 import edu.byui.cit.model.Fitness;
 
 
@@ -28,7 +30,8 @@ public class RunPace extends CalcFragment {
 	These factors will go into the Calculations for pace, distance, and time
 	 */
 	private static final String
-			KEY_DIST_UNITS = "RunPace.distUnits";
+			KEY_DIST_UNITS = "RunPace.distUnits",
+			KEY_PACE_UNITS = "RunPace.paceUnits";
 
 	private EditDecimal distance;
 	private EditInteger hours;
@@ -36,6 +39,7 @@ public class RunPace extends CalcFragment {
 	private EditInteger seconds;
 	private TextWrapper pace;
 	private SpinUnit spinDistUnits;
+	private SpinUnit spinPaceUnits;
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
@@ -53,6 +57,9 @@ public class RunPace extends CalcFragment {
 		spinDistUnits = new SpinUnit(spin, view, R.id.spinDistUnits,
 				Length.getInstance(), R.array.ttDistUnits,
 				KEY_DIST_UNITS, this);
+		spinPaceUnits = new SpinUnit(spin, view, R.id.spinPaceUnits,
+				Length.getInstance(), R.array.ttDistUnits,
+				KEY_PACE_UNITS, this);
 
 		EditWrapper[] inputs = {distance, hours, minutes, seconds};
 		ControlWrapper[] toClear = {distance, hours, minutes, seconds, pace};
@@ -64,6 +71,7 @@ public class RunPace extends CalcFragment {
 	@Override
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinDistUnits.restore(prefs, Length.mile);
+		spinPaceUnits.restore(prefs, Length.mile);
 	}
 
 	@Override
@@ -72,16 +80,78 @@ public class RunPace extends CalcFragment {
 		// the user into the preferences file.
 		// Get from the spinners, the units chosen by the user.
 		spinDistUnits.save(editor);
+		spinPaceUnits.save(editor);
 	}
 
 	protected void compute(){
-		double d = distance.getDec();
-		int h = hours.getInt();
-		int m = minutes.getInt();
-		int s = seconds.getInt();
+		int h = 0;
+		Unit dUnit = spinDistUnits.getSelectedItem();
+		Unit pUnit = spinPaceUnits.getSelectedItem();
+		if (dUnit == pUnit) {
 
-		String output = Fitness.calcPace(d, h, m, s);
+			if (distance.notEmpty() && hours.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
 
-		pace.setText(output);
+				double d = distance.getDec();
+				//dUnit = spinDistUnits.getSelectedItem();
+				h = hours.getInt();
+				int m = minutes.getInt();
+				int s = seconds.getInt();
+
+				String output = Fitness.calcPace(d, h, m, s);
+				//output += " spinDistUnits";
+
+				pace.setText(output);
+			}
+			else if (distance.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
+
+				double d = distance.getDec();
+				int m = minutes.getInt();
+				int s = seconds.getInt();
+
+				String output = Fitness.calcPace(d, h, m, s);
+				//output += " spinDistUnits";
+
+				pace.setText(output);
+			}
+			else {
+				pace.clear();
+			}
+		} else {
+
+			if (distance.notEmpty() && hours.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
+
+				double d = distance.getDec();
+				//dUnit = spinDistUnits.getSelectedItem();
+				h = hours.getInt();
+				int m = minutes.getInt();
+				int s = seconds.getInt();
+
+				Property length = Length.getInstance();
+				d = length.convert(Length.km, d, dUnit);
+
+				String output = Fitness.calcPace(d, h, m, s);
+				//output += " spinDistUnits";
+
+				pace.setText(output);
+			}
+			else if (distance.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
+
+				double d = distance.getDec();
+				int m = minutes.getInt();
+				int s = seconds.getInt();
+
+				Property length = Length.getInstance();
+				d = length.convert(Length.km, d, dUnit);
+
+				String output = Fitness.calcPace(d, h, m, s);
+				//output += " spinDistUnits";
+
+				pace.setText(output);
+			}
+			else {
+				pace.clear();
+			}
+
+		}
 	}
 }
