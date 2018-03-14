@@ -9,6 +9,8 @@
 	<string name="yourGrades">Your Grades:</string>
 	<string name="semesterGrade">This Semesters GPA:</string>
 	<string name="yourCurGPA">Your Overall GPA:</string>
+	<string name="butGradeInput">Input</string>
+	<string name="butGradeRemove">Remove</string>
 	<string-array name="gradeSpin">
 		<item>A</item>
 		<item>A-</item>
