@@ -16,8 +16,6 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Length;
-import edu.byui.cit.units.Speed;
-import edu.byui.cit.units.Time;
 import edu.byui.cit.model.Fitness;
 
 
@@ -42,8 +40,7 @@ public class RunPace extends CalcFragment {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
-		View view = inflater.inflate(R.layout.run_pace, container,
-				false);
+		View view = inflater.inflate(R.layout.run_pace, container, false);
 
 
 		distance = new EditDecimal(view, R.id.distInput, this);
@@ -59,7 +56,7 @@ public class RunPace extends CalcFragment {
 
 		EditWrapper[] inputs = {distance, hours, minutes, seconds};
 		ControlWrapper[] toClear = {distance, hours, minutes, seconds, pace};
-		// Need to add a clear button to xml file..
+		
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
