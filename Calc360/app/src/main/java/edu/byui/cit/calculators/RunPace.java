@@ -97,6 +97,9 @@ public class RunPace extends CalcFragment {
 				int m = minutes.getInt();
 				int s = seconds.getInt();
 
+				Property length = Length.getInstance();
+				d = length.convert(Length.km, d, dUnit);
+
 				String output = Fitness.calcPace(d, h, m, s);
 				//output += " spinDistUnits";
 
