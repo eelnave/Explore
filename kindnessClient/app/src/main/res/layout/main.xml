@@ -16,18 +16,19 @@
 		compat:rowCount="2">
 
 		<edu.byui.cit.kindness.IconButton
-			android:id="@+id/see_kindness"
-			style="@style/IconButton"
-			android:layout_height="wrap_content"
-			android:background="@drawable/emotional"
-			android:text="@string/see_kindness"/>
-
-		<edu.byui.cit.kindness.IconButton
 			android:id="@+id/report_kindness"
 			style="@style/IconButton"
 			android:layout_height="wrap_content"
-			android:background="@drawable/other"
+			android:background="@drawable/reportkindness"
 			android:text="@string/report_kindness"/>
+
+		<edu.byui.cit.kindness.IconButton
+			android:id="@+id/see_kindness"
+			style="@style/IconButton"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:background="@drawable/seekindness"
+			android:text="@string/see_kindness"/>
 
 	</android.support.v7.widget.GridLayout>
 
