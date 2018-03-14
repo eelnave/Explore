@@ -51,4 +51,5 @@
 
 	<string name="runPace">Find your pace by putting in the distance you ran and the time it took.</string>
 	<string name="pace">Pace</string>
+	<string name="paceCalc">Pace Calculator</string>
 </resources>

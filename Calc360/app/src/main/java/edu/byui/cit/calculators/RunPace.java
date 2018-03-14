@@ -56,7 +56,7 @@ public class RunPace extends CalcFragment {
 
 		EditWrapper[] inputs = {distance, hours, minutes, seconds};
 		ControlWrapper[] toClear = {distance, hours, minutes, seconds, pace};
-		
+
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
