@@ -26,7 +26,7 @@ final class Descriptors {
 					new CalcDescriptor(1065, R.string.basalMetabolicRate,R.drawable.lightning,BasalMetabolicRate.class),
 			}),
 			new GroupDescriptor(302, R.string.travel, R.drawable.folder_travel, new CalcDescriptor[]{
-				new CalcDescriptor(1003, R.string.FuelEffic, R.drawable.fuel_gauge, FuelEfficiency.class),
+				new CalcDescriptor(1003, R.string.FuelEconomy, R.drawable.fuel_gauge, FuelEconomy.class),
 				new CalcDescriptor(1031, R.string.fuelCost, R.drawable.fuel_cost, FuelCost.class),
 				new CalcDescriptor(1026, R.string.foreignFuel, R.drawable.fuel_pump, ForeignFuel.class),
 				new CalcDescriptor(1066, R.string.travelTime, R.drawable.travel_time, TravelTime.class),
@@ -37,8 +37,10 @@ final class Descriptors {
 				new CalcDescriptor(1013, R.string.compoundInterest, R.drawable.compound_interest, CompoundInterest.class),
 				new CalcDescriptor(1004, R.string.invest, R.drawable.investment, Investment.class),
 				new CalcDescriptor(1005, R.string.loan, R.drawable.loan, Loan.class),
-				new CalcDescriptor(1063, R.string.roi, R.drawable.roi, ROI.class),
+				new CalcDescriptor(1016, R.string.roi, R.drawable.roi, ReturnOnInvestment.class),
 				new CalcDescriptor(1022, R.string.laborCost, R.drawable.labor_cost, LaborCost.class),
+				new CalcDescriptor(1018, R.string.tithing, R.drawable.coins, Tithing.class),
+				new CalcDescriptor(1066, R.string.stream, R.drawable.netflix, StreamingCost.class),
 			}),
 			new GroupDescriptor(311,R.string.cooking, R.drawable.folder_cooking, new CalcDescriptor[]{
 				new CalcDescriptor(1052, R.string.recipeMult, R.drawable.recipe_book, RecipeMultiplier.class),
@@ -107,6 +109,7 @@ final class Descriptors {
 				new CalcDescriptor(1059, R.string.relativity, R.drawable.einstein, Relativity.class),
 			}),
 			new GroupDescriptor(313, R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
+				new CalcDescriptor(1065, R.string.videoStorage, R.drawable.film, VideoStorage.class),
 				new CalcDescriptor(1061, R.string.starExposure, R.drawable.star_exposure, StarExposure.class),
 				new CalcDescriptor(1060, R.string.musicDuration, R.drawable.music_notes, MusicDuration.class),
 			}),

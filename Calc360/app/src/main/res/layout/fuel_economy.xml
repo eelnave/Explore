@@ -122,27 +122,27 @@
 		android:layout_marginTop="15dp">
 
 		<TextView
-			android:id="@+id/decEffic"
+			android:id="@+id/decEcon"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignBaseline="@+id/spinEfficUnits"
-			android:layout_alignEnd="@+id/lblEffic"
-			android:layout_alignStart="@+id/lblEffic"
+			android:layout_alignBaseline="@+id/spinEconUnits"
+			android:layout_alignEnd="@+id/lblEcon"
+			android:layout_alignStart="@+id/lblEcon"
 			android:textAlignment="textEnd"/>
 
 		<Spinner
-			android:id="@+id/spinEfficUnits"
+			android:id="@+id/spinEconUnits"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_toEndOf="@+id/decEffic"/>
+			android:layout_toEndOf="@+id/decEcon"/>
 
 		<TextView
-			android:id="@+id/lblEffic"
+			android:id="@+id/lblEcon"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/decEffic"
-			android:labelFor="@+id/decEffic"
-			android:text="@string/FuelEffic"/>
+			android:layout_below="@+id/decEcon"
+			android:labelFor="@+id/decEcon"
+			android:text="@string/FuelEcon"/>
 	</RelativeLayout>
 
 	<Button

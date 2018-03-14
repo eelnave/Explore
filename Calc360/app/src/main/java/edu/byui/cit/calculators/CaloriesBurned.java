@@ -99,14 +99,14 @@ public final class CaloriesBurned extends CalcFragment {
 	}
 
 	private static final RatioPair[] ratios = {
-			new RatioPair(R.id.radWeight, 6.0),
 			new RatioPair(R.id.radWalk, 3.5),
 			new RatioPair(R.id.radRun, 12.5),
-			new RatioPair(R.id.radSwim, 8.0),
 			new RatioPair(R.id.radCycle, 9.0),
+			new RatioPair(R.id.radSwim, 8.0),
 			new RatioPair(R.id.radDance, 6.0),
 			new RatioPair(R.id.radKickbox,10.5),
 			new RatioPair(R.id.radBasketball, 6.5),
+			new RatioPair(R.id.radLift, 6.0),
 			new RatioPair(R.id.radTv, 1.0)
 	};
 

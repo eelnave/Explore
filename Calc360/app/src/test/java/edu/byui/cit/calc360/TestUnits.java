@@ -192,6 +192,25 @@ public final class TestUnits {
 
 
 	@Test
+	public void testFuelEcon() {
+		Property prop = World.getInstance().get(World.fuelEcon);
+		final double delta = 1e-5;
+		final double lp100km = 17, kpl = 5.882353, mpg = 13.83615;
+		assertEquals(lp100km, prop.convert(FuelEcon.litPer100km, lp100km, FuelEcon.litPer100km), delta);
+		assertEquals(lp100km, prop.convert(FuelEcon.litPer100km, kpl, FuelEcon.kpl), delta);
+		assertEquals(lp100km, prop.convert(FuelEcon.litPer100km, mpg, FuelEcon.mpg), delta);
+
+		assertEquals(kpl, prop.convert(FuelEcon.kpl, lp100km, FuelEcon.litPer100km), delta);
+		assertEquals(kpl, prop.convert(FuelEcon.kpl, kpl, FuelEcon.kpl), delta);
+		assertEquals(kpl, prop.convert(FuelEcon.kpl, mpg, FuelEcon.mpg), delta);
+
+		assertEquals(mpg, prop.convert(FuelEcon.mpg, lp100km, FuelEcon.litPer100km), delta);
+		assertEquals(mpg, prop.convert(FuelEcon.mpg, kpl, FuelEcon.kpl), delta);
+		assertEquals(mpg, prop.convert(FuelEcon.mpg, mpg, FuelEcon.mpg), delta);
+	}
+
+
+	@Test
 	public void testDataSize() {
 		Property prop = World.getInstance().get(World.data);
 		final double delta = 1e-6;
