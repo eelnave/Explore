@@ -1,6 +1,10 @@
 package edu.byui.cit.kindness;
 
 
+import android.app.Application;
+import android.content.Context;
+import android.widget.Toast;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,6 +19,7 @@ public class Report {
 	private double latitude;
 	private double longitude;
 	private Category category;
+
 
 	public Report(double latitude, double longitude) {
 		this.latitude = latitude;
@@ -48,7 +53,6 @@ public class Report {
 	public void addReport() {
 
 		final String inputString = this.latitude + "," + this.longitude;
-
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
@@ -84,4 +88,6 @@ public class Report {
 			}
 		}).start();
 	}
+
+
 }
