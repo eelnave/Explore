@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Date App</string>
+
+    <string name="spring">Spring</string>
+    <string name="winter">Winter</string>
+    <string name="fall">Fall</string>
+    <string name="summer">Summer</string>
+    <string name="inside">Inside</string>
+    <string name="outside">Outside</string>
+    <string name="season">Season</string>
+
+    <string name="venue">Venue</string>
+
 </resources>
