@@ -7,7 +7,7 @@
 	android:orientation="vertical">
 
 	<LinearLayout
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal">
 
@@ -115,6 +115,46 @@
 		</RadioGroup>
 	</LinearLayout>
 
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/credits"/>
+
+		<RadioGroup
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/credit05"
+				android:id="@+id/credit05"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/credit1"
+				android:id="@+id/credit1"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/credit2"
+				android:id="@+id/credit2"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/credit3"
+				android:id="@+id/credit3"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/credit4"
+				android:id="@+id/credit4"/>
+
+		</RadioGroup>
+	</LinearLayout>
+
 	<Button
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
@@ -125,11 +165,6 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal">
-		<TextView
-			style="@style/TextLabel"
-			android:text="@string/yourGrades"
-			android:layout_marginTop="15dp"/>
-
 		<TextView
 			android:id="@+id/yourGrades"
 			style="@style/TextResult"

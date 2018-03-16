@@ -23,4 +23,11 @@
 	<string name="gradeMinus">-</string>
 	<string name="gradePlus">+</string>
 	<string name="gradeNone">None</string>
+
+	<string name="credits">Credits:</string>
+	<string name="credit05">0.5</string>
+	<string name="credit1">1</string>
+	<string name="credit2">2</string>
+	<string name="credit3">3</string>
+	<string name="credit4">4</string>
 </resources>

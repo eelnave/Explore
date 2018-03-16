@@ -10,8 +10,10 @@ public final class Academic {
 		private GPA() {
 
 		}
-		public static double calculateGPA(String grade) {
+		public static double calculateGPA(String letterGrade) {
 			double gpa = 0;
+
+			letterGrade = letterGrade.trim();
 
 			String[] letters = {
 					"A+","A", "A-",
@@ -30,7 +32,7 @@ public final class Academic {
 			};
 
 			for (int i = 0; i < letters.length; i++) {
-				if (grade == letters[i]) {
+				if (letterGrade.equals(letters[i])) {
 					gpa = points[i];
 				}
 			}
@@ -39,7 +41,7 @@ public final class Academic {
 		}
 
 		public static double calculateGPA(String[] grades) {
-			double gpa = 0;
+			double gpa;
 			double totalPoints = 0;
 			int count = grades.length;
 
