@@ -16,6 +16,7 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.units.Length;
+import edu.byui.cit.units.Pace;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 import edu.byui.cit.model.Fitness;
@@ -58,7 +59,7 @@ public class RunPace extends CalcFragment {
 				Length.getInstance(), R.array.ttDistUnits,
 				KEY_DIST_UNITS, this);
 		spinPaceUnits = new SpinUnit(spin, view, R.id.spinPaceUnits,
-				Length.getInstance(), R.array.ttDistUnits,
+				Pace.getInstance(), R.array.fPaceUnits,
 				KEY_PACE_UNITS, this);
 
 		EditWrapper[] inputs = {distance, hours, minutes, seconds};
@@ -87,74 +88,49 @@ public class RunPace extends CalcFragment {
 		int h = 0;
 		Unit dUnit = spinDistUnits.getSelectedItem();
 		Unit pUnit = spinPaceUnits.getSelectedItem();
-		if (dUnit == pUnit) {
+		if (distance.notEmpty() && hours.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
 
-			if (distance.notEmpty() && hours.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
+			double d = distance.getDec();
+			//dUnit = spinDistUnits.getSelectedItem();
+			h = hours.getInt();
+			int m = minutes.getInt();
+			int s = seconds.getInt();
 
-				double d = distance.getDec();
-				//dUnit = spinDistUnits.getSelectedItem();
-				h = hours.getInt();
-				int m = minutes.getInt();
-				int s = seconds.getInt();
+			Property length = Length.getInstance();
+			d = length.convert(Length.mile, d, dUnit);
 
-				Property length = Length.getInstance();
-				d = length.convert(Length.km, d, dUnit);
 
-				String output = Fitness.calcPace(d, h, m, s);
-				//output += " spinDistUnits";
 
-				pace.setText(output);
-			}
-			else if (distance.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
+			Property paceU = Pace.getInstance();
+			d = paceU.convert(Pace.timepermile, d, pUnit);
 
-				double d = distance.getDec();
-				int m = minutes.getInt();
-				int s = seconds.getInt();
+			String output = Fitness.calcPace(d, h, m, s);
+			//output += " spinDistUnits";
 
-				String output = Fitness.calcPace(d, h, m, s);
-				//output += " spinDistUnits";
-
-				pace.setText(output);
-			}
-			else {
-				pace.clear();
-			}
-		} else {
-
-			if (distance.notEmpty() && hours.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
-
-				double d = distance.getDec();
-				//dUnit = spinDistUnits.getSelectedItem();
-				h = hours.getInt();
-				int m = minutes.getInt();
-				int s = seconds.getInt();
-
-				Property length = Length.getInstance();
-				d = length.convert(Length.km, d, dUnit);
-
-				String output = Fitness.calcPace(d, h, m, s);
-				//output += " spinDistUnits";
-
-				pace.setText(output);
-			}
-			else if (distance.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
-
-				double d = distance.getDec();
-				int m = minutes.getInt();
-				int s = seconds.getInt();
-
-				Property length = Length.getInstance();
-				d = length.convert(Length.km, d, dUnit);
-
-				String output = Fitness.calcPace(d, h, m, s);
-				//output += " spinDistUnits";
-
-				pace.setText(output);
-			}
-			else {
-				pace.clear();
-			}
-
+			pace.setText(output);
 		}
+		else if (distance.notEmpty() && minutes.notEmpty() && seconds.notEmpty()) {
+
+			double d = distance.getDec();
+			int m = minutes.getInt();
+			int s = seconds.getInt();
+
+			Property length = Length.getInstance();
+			d = length.convert(Length.mile, d, dUnit);
+
+
+
+			Property paceU = Pace.getInstance();
+			d = paceU.convert(Pace.timepermile, d, pUnit);
+
+			String output = Fitness.calcPace(d, h, m, s);
+			//output += " spinDistUnits";
+
+			pace.setText(output);
+		}
+		else {
+			pace.clear();
+		}
+
 	}
 }
