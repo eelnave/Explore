@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.example.tlee1.kindnessclient"
+        applicationId "edu.byui.cit.kindness"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1
@@ -32,4 +32,5 @@ dependencies {
     compile 'org.jetbrains:annotations-java5:15.0'
     implementation 'com.android.support:gridlayout-v7:26.1.0'
     compile 'com.google.android.gms:play-services-location:11.8.0'
+    compile 'com.android.support.constraint:constraint-layout:1.1.0-beta5'
 }

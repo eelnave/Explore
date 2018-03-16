@@ -71,8 +71,6 @@ public class CategoryFragment extends InfoFragment {
 		travel.setOnClickListener(new categoryListener(R.id.travel));
 		Button money = view.findViewById(R.id.money);
 		money.setOnClickListener(new categoryListener(R.id.money));
-		Button other = view.findViewById(R.id.other);
-		other.setOnClickListener(new categoryListener(R.id.other));
 
 		return view;
 	}

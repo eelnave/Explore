@@ -139,17 +139,17 @@ public class GroupFragment extends CalcFragment {
 
 		@Override
 		public void onClick(View button) {
-			try {
-				if (fragment == null || fragment.isDetached()) {
-					fragment = descriptor.getCalcClass().newInstance();
-					fragment.setDescripID(descriptor.getID());
+				try {
+					if (fragment == null || fragment.isDetached()) {
+						fragment = descriptor.getCalcClass().newInstance();
+						fragment.setDescripID(descriptor.getID());
+					}
 				}
-			}
-			catch (Exception ex) {
-				Log.e(Calc360.TAG,
-						"cannot instantiate " + descriptor.toString(), ex);
-			}
-			((Calc360)getActivity()).switchFragment(fragment);
+				catch (Exception ex) {
+					Log.e(Calc360.TAG,
+							"cannot instantiate " + descriptor.toString(), ex);
+				}
+				((Calc360)getActivity()).switchFragment(fragment);
 		}
 	}
 
