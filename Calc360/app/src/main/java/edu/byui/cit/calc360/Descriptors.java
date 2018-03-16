@@ -112,8 +112,8 @@ final class Descriptors {
 				new CalcDescriptor(1061, R.string.starExposure, R.drawable.star_exposure, StarExposure.class),
 				new CalcDescriptor(1060, R.string.musicDuration, R.drawable.music_notes, MusicDuration.class),
 			}),
-			new GroupDescriptor(314,R.string.academic, R.drawable.recipe_book, new CalcDescriptor[]{
-				new CalcDescriptor(1067, R.string.gpaCalc, R.drawable.rectangle, GPA.class)
+			new GroupDescriptor(314,R.string.academic, R.drawable.folder_academic, new CalcDescriptor[]{
+				new CalcDescriptor(1067, R.string.gpaCalc, R.drawable.GPA, GPA.class)
 			}),
 			new GroupDescriptor(310, R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
 				new CalcDescriptor(1032, R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),
