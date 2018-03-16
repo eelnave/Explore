@@ -10,22 +10,23 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 @WebServlet("/GetReports")
 public class GetReports extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public GetReports() {
 		super();
-
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		response.getOutputStream().println("Hurray !! You can get reports!!!");
-
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		try {
 			/* Not exactly sure what this section does */
@@ -33,9 +34,9 @@ public class GetReports extends HttpServlet {
 			int length = request.getContentLength();
 			byte[] input = new byte[length];
 			ServletInputStream sin = request.getInputStream();
-			int c, count = 0 ;
-			while ((c = sin.read(input, count, input.length-count)) != -1) {
-				count +=c;
+			int c, count = 0;
+			while ((c = sin.read(input, count, input.length - count)) != -1) {
+				count += c;
 			}
 			sin.close();
 
@@ -61,12 +62,14 @@ public class GetReports extends HttpServlet {
 
 			writer.flush();
 			writer.close();
-		} catch (IOException e) {
-			try{
+		}
+		catch (IOException e) {
+			try {
 				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 				response.getWriter().print(e.getMessage());
 				response.getWriter().close();
-			} catch (IOException ioe) {
+			}
+			catch (IOException ioe) {
 			}
 		}
 		catch (SQLException e) {
@@ -75,7 +78,5 @@ public class GetReports extends HttpServlet {
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-
 	}
-
 }
