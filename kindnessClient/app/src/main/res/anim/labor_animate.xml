@@ -8,12 +8,12 @@
 		android:fromYDelta="0%p"
 		android:toYDelta="-16%p"
 		android:fromXDelta="0%p"
-		android:toXDelta="-22%p"
+		android:toXDelta="22%p"
 		android:duration="0" />
 	<translate
 		android:fromYDelta="0%p"
 		android:toYDelta="16%p"
 		android:fromXDelta="0%p"
-		android:toXDelta="22%p"
+		android:toXDelta="-22%p"
 		android:duration="400" />
 </set>

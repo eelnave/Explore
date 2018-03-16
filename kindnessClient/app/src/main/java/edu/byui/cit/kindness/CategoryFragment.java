@@ -3,13 +3,13 @@ package edu.byui.cit.kindness;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class CategoryFragment extends InfoFragment {
 
@@ -18,7 +18,7 @@ public class CategoryFragment extends InfoFragment {
 		private InfoFragment fragment;
 		private int id;
 
-		public categoryListener(int id) {
+		private categoryListener(int id) {
 
 			this.id = id;
 		}
@@ -71,6 +71,18 @@ public class CategoryFragment extends InfoFragment {
 		travel.setOnClickListener(new categoryListener(R.id.travel));
 		Button money = view.findViewById(R.id.money);
 		money.setOnClickListener(new categoryListener(R.id.money));
+
+		Animation foodAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.food_animate);
+		Animation moneyAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.money_animate);
+		Animation emotionalAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.emotional_animate);
+		Animation travelAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.travel_animate);
+		Animation laborAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.labor_animate);
+
+		food.startAnimation(foodAnimate);
+		money.startAnimation(moneyAnimate);
+		emotion.startAnimation(emotionalAnimate);
+		labor.startAnimation(laborAnimate);
+		travel.startAnimation(travelAnimate);
 
 		return view;
 	}
