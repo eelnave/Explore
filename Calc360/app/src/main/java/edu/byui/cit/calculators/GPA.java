@@ -164,8 +164,13 @@ public final class GPA extends CalcFragment {
 		@Override
 		public void clicked(View button) {
 			StringBuilder newGradeString = new StringBuilder();
-			if(!yourGradesString.equals("")) {
+			if (!yourGradesString.contains(",")) {
+				clear();
+			}
+			else if(!yourGradesString.equals("")) {
+
 				String[] array = yourGradesString.split(",");
+
 				for (int i = 0; i < array.length - 1; i++) {
 					if (i == 0)
 						newGradeString = new StringBuilder(array[i]);
@@ -173,6 +178,7 @@ public final class GPA extends CalcFragment {
 						newGradeString.append(", ").append(array[i]);
 				}
 				yourGradesString = newGradeString.toString();
+
 
 				yourGrades.setText(yourGradesString);
 
@@ -207,6 +213,17 @@ public final class GPA extends CalcFragment {
 			}
 		}
 	}
+
+	private void clear() {
+		ControlWrapper[] toClear = {
+				yourGrades, semGPA, overallGPA
+		};
+		for (ControlWrapper clear : toClear) {
+			clear.clear();
+		}
+		yourGradesString = "";
+	}
+
 	private final class ClearHandler implements ClickListener {
 		@Override
 		public void clicked(View button) {
