@@ -56,9 +56,14 @@ public abstract class InfoFragment extends Fragment {
 			}
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "exception", ex);
+			Log.e(KindnessActivity.TAG, "exception", ex);
 			view = inflater.inflate(R.layout.mistake, container, false);
 		}
+		//keep from stacking
+		if (container != null) {
+			container.removeAllViews();
+		}
+
 		return view;
 	}
 
@@ -103,7 +108,7 @@ public abstract class InfoFragment extends Fragment {
 			}
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "exception", ex);
+			Log.e(KindnessActivity.TAG, "exception", ex);
 		}
 	}
 
@@ -149,7 +154,7 @@ public abstract class InfoFragment extends Fragment {
 			editor.apply();
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "exception", ex);
+			Log.e(KindnessActivity.TAG, "exception", ex);
 		}
 		finally {
 			super.onStop();
