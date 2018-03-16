@@ -2,23 +2,26 @@ package edu.byui.cit.kindness;
 
 import android.Manifest;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 
 public final class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Kindness";
 
+	private KindnessMap kindMap;
 	private InfoFragment about;
 	private Button[] icon = new Button[6];
-	private int[] btnIds = {R.id.emotional, R.id.food, R.id.labor, R.id.travel, R.id.money};
-	private KindnessMap kindMap = new KindnessMap();
+	private int[] btnIds = {R.id.emotional, R.id.food, R.id.labor, R.id.travel, R.id.money, };
 
 
 
@@ -42,8 +45,8 @@ public final class MainActivity extends AppCompatActivity {
 					if(loc != null){
 						double lat = loc.getLatitude();
 						double lon = loc.getLongitude();
-						Report location = new Report(lat, lon);
-						location.addReport();
+
+						Toast.makeText(getApplicationContext(), "LAT: " + lat + " Lon: " + lon, Toast.LENGTH_LONG).show();
 					}
 				}
 			});

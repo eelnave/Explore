@@ -9,7 +9,9 @@
 	<ImageView
 		android:id="@+id/logo"
 		style="@style/IconButton"
-		android:src="@drawable/square_button2"
+		android:background="@android:color/transparent"
+		android:contentDescription="@string/kindness_logo"
+		android:src="@drawable/kindness_logo"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
@@ -20,8 +22,8 @@
 	<edu.byui.cit.kindness.IconButton
 		android:id="@+id/emotional"
 		style="@style/IconButton"
-		android:background="@drawable/emotional"
-		android:text="@string/emotion"
+		android:background="@drawable/service"
+		android:text="@string/service"
 		app:layout_constraintCircle="@+id/logo"
 		app:layout_constraintCircleAngle="0"
 		app:layout_constraintCircleRadius="125dp"/>
@@ -29,26 +31,26 @@
 	<edu.byui.cit.kindness.IconButton
 		android:id="@+id/food"
 		style="@style/IconButton"
-		android:background="@drawable/food"
-		android:text="@string/food"
+		android:background="@drawable/time"
+		android:text="@string/time"
 		app:layout_constraintCircle="@+id/logo"
 		app:layout_constraintCircleAngle="72"
 		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
-		android:id="@+id/labor"
+		android:id="@+id/travel"
 		style="@style/IconButton"
-		android:background="@drawable/labor"
-		android:text="@string/labor"
+		android:background="@drawable/words"
+		android:text="@string/words"
 		app:layout_constraintCircle="@+id/logo"
 		app:layout_constraintCircleAngle="144"
 		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
-		android:id="@+id/travel"
+		android:id="@+id/labor"
 		style="@style/IconButton"
-		android:background="@drawable/travel"
-		android:text="@string/travel"
+		android:background="@drawable/touch"
+		android:text="@string/touch"
 		app:layout_constraintCircle="@+id/logo"
 		app:layout_constraintCircleAngle="216"
 		app:layout_constraintCircleRadius="125dp"/>
@@ -56,8 +58,8 @@
 	<edu.byui.cit.kindness.IconButton
 		android:id="@+id/money"
 		style="@style/IconButton"
-		android:background="@drawable/money"
-		android:text="@string/money"
+		android:background="@drawable/gift"
+		android:text="@string/gift"
 		app:layout_constraintCircle="@+id/logo"
 		app:layout_constraintCircleAngle="288"
 		app:layout_constraintCircleRadius="125dp"/>
