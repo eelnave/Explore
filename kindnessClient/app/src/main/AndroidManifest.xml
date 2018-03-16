@@ -7,6 +7,7 @@
      emulator does not have a network.  You need to test it on an real android phone that is connected to a
      network for testing to work.-->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -16,14 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="edu.byui.cit.kindness.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name="edu.byui.cit.kindness.SubmitActivity">
+        <activity android:name="edu.byui.cit.kindness.KindnessActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
