@@ -15,10 +15,10 @@ import android.widget.Button;
 public final class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Kindness";
 
-	private KindnessMap kindMap;
 	private InfoFragment about;
 	private Button[] icon = new Button[6];
 	private int[] btnIds = {R.id.emotional, R.id.food, R.id.labor, R.id.travel, R.id.money};
+	private KindnessMap kindMap = new KindnessMap();
 
 
 
