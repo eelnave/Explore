@@ -21,7 +21,7 @@ public final class MainActivity extends AppCompatActivity {
 	private KindnessMap kindMap;
 	private InfoFragment about;
 	private Button[] icon = new Button[6];
-	private int[] btnIds = {R.id.emotional, R.id.food, R.id.labor, R.id.travel, R.id.money, R.id.other,};
+	private int[] btnIds = {R.id.emotional, R.id.food, R.id.labor, R.id.travel, R.id.money, };
 
 
 
