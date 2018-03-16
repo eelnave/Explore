@@ -43,8 +43,9 @@ public final class GPA extends CalcFragment {
 		semGPA = new TextWrapper(view, R.id.semGPA);
 		overallGPA = new TextWrapper(view, R.id.overallGPA);
 
-		new ButtonWrapper(view, R.id.butGradeInput, new GradeHandler());
+		new ButtonWrapper(view, R.id.butGradeInput, new InputHandler());
 		new ButtonWrapper(view, R.id.gpaClear, new ClearHandler());
+		new ButtonWrapper(view, R.id.butGradeRemove, new RemoveHandler());
 
 		radioA = new RadioWrapper(view, R.id.letterA, this);
 		radioB = new RadioWrapper(view, R.id.letterB, this);
@@ -159,7 +160,30 @@ public final class GPA extends CalcFragment {
 			return  "";
 	}
 
-	private final class GradeHandler implements ClickListener {
+	private final class RemoveHandler implements ClickListener {
+		@Override
+		public void clicked(View button) {
+			StringBuilder newGradeString = new StringBuilder();
+			if(!yourGradesString.equals("")) {
+				String[] array = yourGradesString.split(",");
+				for (int i = 0; i < array.length - 1; i++) {
+					if (i == 0)
+						newGradeString = new StringBuilder(array[i]);
+					else
+						newGradeString.append(", ").append(array[i]);
+				}
+			}
+
+			yourGradesString = newGradeString.toString();
+
+			yourGrades.setText(yourGradesString);
+
+			calculateSemGPA();
+			calculateOverallGPA();
+		}
+	}
+
+	private final class InputHandler implements ClickListener {
 		@Override
 		public void clicked(View button) {
 			if (isValid()) {
