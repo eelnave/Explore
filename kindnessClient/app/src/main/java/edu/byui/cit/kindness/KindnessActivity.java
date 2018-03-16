@@ -1,58 +1,33 @@
 package edu.byui.cit.kindness;
 
-import android.Manifest;
-import android.location.Location;
-import android.location.LocationManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
 
-
-public final class MainActivity extends AppCompatActivity {
+public final class KindnessActivity extends AppCompatActivity {
 	public static final String TAG = "Kindness";
 
 	private KindnessMap kindMap;
 	private InfoFragment about;
-	private Button[] icon = new Button[6];
-	private int[] btnIds = {R.id.emotional, R.id.food, R.id.labor, R.id.travel, R.id.money, };
-
-
-
-
-	// Get the location and Category when a user clicks on of the categories
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
-		ActivityCompat.requestPermissions(MainActivity.this, new String[]{
-				Manifest.permission.ACCESS_COARSE_LOCATION}, 123);
-		for(int i = 0; i < 6; i++){
-			icon[i] = findViewById(btnIds[i]);
-			icon[i].setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View view) {
-					GPSTracker gps = new GPSTracker(getApplicationContext());
-					Location loc = gps.getLocation();
-					if(loc != null){
-						double lat = loc.getLatitude();
-						double lon = loc.getLongitude();
+		setContentView(R.layout.kindness_activity);
+	/*	ActivityCompat.requestPermissions(KindnessActivity.this, new String[]{
+				Manifest.permission.ACCESS_COARSE_LOCATION}, 123);*/
 
-						Toast.makeText(getApplicationContext(), "LAT: " + lat + " Lon: " + lon, Toast.LENGTH_LONG).show();
-					}
-				}
-			});
+
+		if (savedInstanceState == null) {
+			MainFragment mainFragment = new MainFragment();
+			FragmentTransaction trans = getFragmentManager().beginTransaction();
+			//this id will be whatever it is in the XML
+			trans.add(R.id.fragContainer, mainFragment);
+			trans.commit();
 		}
-
-
 	}
 
 	@Override
@@ -95,7 +70,16 @@ public final class MainActivity extends AppCompatActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	private void switchFragment(InfoFragment about) {
+	public void switchFragment(InfoFragment fragment) {
+		System.out.println(fragment.toString());
+		// Replace whatever is in the fragment_container view with
+		// fragment, and add the transaction to the back stack so
+		// that the user can navigate back.
+		FragmentTransaction trans = getFragmentManager().beginTransaction();
+		//this id will be whatever it is in the XML
+		trans.replace(R.id.fragContainer, fragment);
+		trans.addToBackStack(null);
+		trans.commit();
 	}
 
 	private void startActivity(KindnessMap kindMap) {

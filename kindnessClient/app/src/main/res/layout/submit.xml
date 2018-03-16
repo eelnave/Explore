@@ -16,15 +16,15 @@
 			android:id="@+id/textView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/longitude"/>
+			android:text="@string/longitude"
+			android:labelFor="@+id/longitudeView"/>
 
-		<EditText
-			android:id="@+id/editLongitude"
+		<TextView
+			android:id="@+id/longitudeView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:ems="10"
-			android:inputType="numberDecimal"/>
+			android:text="TextView"/>
 
 	</LinearLayout>
 
@@ -40,34 +40,17 @@
 			android:id="@+id/textView2"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/latitude"/>
+			android:text="@string/latitude"
+			android:labelFor="@+id/latitudeView"/>
 
-		<EditText
-			android:id="@+id/editLatitude"
+		<TextView
+			android:id="@+id/latitudeView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
-			android:ems="10"
-			android:inputType="numberDecimal"/>
+			android:text="TextView"/>
 
 	</LinearLayout>
-
-	<!--<TextView
-		android:textSize="12pt"
-		android:id="@+id/textView3"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="@string/story"/>
-
-	<EditText
-		android:id="@+id/editText7"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:autoText="true"
-		android:ems="10"
-		android:inputType="textMultiLine"
-		android:text="@string/story"
-		tools:ignore="LabelFor"/>-->
 
 	<LinearLayout
 		android:layout_width="wrap_content"
@@ -81,7 +64,15 @@
 			android:id="@+id/textView3"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/category"/>
+			android:text="@string/category"
+			android:labelFor="@+id/categoryView"/>
+
+		<TextView
+			android:id="@+id/categoryView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="TextView"/>
 
 	</LinearLayout>
 
