@@ -172,14 +172,13 @@ public final class GPA extends CalcFragment {
 					else
 						newGradeString.append(", ").append(array[i]);
 				}
+				yourGradesString = newGradeString.toString();
+
+				yourGrades.setText(yourGradesString);
+
+				calculateSemGPA();
+				calculateOverallGPA();
 			}
-
-			yourGradesString = newGradeString.toString();
-
-			yourGrades.setText(yourGradesString);
-
-			calculateSemGPA();
-			calculateOverallGPA();
 		}
 	}
 
