@@ -48,31 +48,77 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal">
+
 		<TextView
 			style="@style/TextLabel"
-			android:text="@string/grade"
-			android:layout_marginTop="15dp"/>
+			android:text="@string/letterGrade"/>
 
-		<Spinner
-			android:id="@+id/gradeSpin"
+		<RadioGroup
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp"/>
-
-		<Button
-			android:id="@+id/buttonGpaInput"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:text="@string/butGradeInput"/>
-
-		<Button
-			android:id="@+id/button2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:text="@string/butGradeRemove"/>
+			android:orientation="horizontal">
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/gradeA"
+				android:id="@+id/letterA"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/gradeB"
+				android:id="@+id/letterB"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/gradeC"
+				android:id="@+id/letterC"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/gradeD"
+				android:id="@+id/letterD"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/gradeF"
+				android:id="@+id/letterF"/>
+		</RadioGroup>
 	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/gradeSymbol"/>
+
+		<RadioGroup
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/gradeNone"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/gradePlus"
+				android:id="@+id/gradePlus"/>
+			<RadioButton
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/gradeMinus"
+				android:id="@+id/gradeMinus"/>
+		</RadioGroup>
+	</LinearLayout>
+
+	<Button
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/butGradeInput"
+		android:id="@+id/butGradeInput"/>
 
 	<LinearLayout
 		android:layout_width="wrap_content"
@@ -99,7 +145,7 @@
 			android:layout_marginTop="15dp"/>
 
 		<TextView
-			android:id="@+id/semesterGrade"
+			android:id="@+id/semGPA"
 			style="@style/TextResult"
 			android:layout_marginStart="10dp"/>
 	</LinearLayout>
@@ -114,13 +160,13 @@
 			android:layout_marginTop="15dp"/>
 
 		<TextView
-			android:id="@+id/yourCurGPA"
+			android:id="@+id/overallGPA"
 			style="@style/TextResult"
 			android:layout_marginStart="10dp"/>
 	</LinearLayout>
 
 	<Button
-		android:id="@+id/btnClear"
+		android:id="@+id/gpaClear"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"

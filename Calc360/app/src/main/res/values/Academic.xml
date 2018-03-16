@@ -11,18 +11,16 @@
 	<string name="yourCurGPA">Your Overall GPA:</string>
 	<string name="butGradeInput">Input</string>
 	<string name="butGradeRemove">Remove</string>
-	<string-array name="gradeSpin">
-		<item>A</item>
-		<item>A-</item>
-		<item>B+</item>
-		<item>B</item>
-		<item>B-</item>
-		<item>C+</item>
-		<item>C</item>
-		<item>C-</item>
-		<item>D+</item>
-		<item>D</item>
-		<item>D-</item>
-		<item>F</item>
-	</string-array>
+
+	<string name="letterGrade">Letter:</string>
+	<string name="gradeA">A</string>
+	<string name="gradeB">B</string>
+	<string name="gradeC">C</string>
+	<string name="gradeD">D</string>
+	<string name="gradeF">F</string>
+
+	<string name="gradeSymbol">Symbol:</string>
+	<string name="gradeMinus">-</string>
+	<string name="gradePlus">+</string>
+	<string name="gradeNone">None</string>
 </resources>
