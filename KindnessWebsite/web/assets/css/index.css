@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa|Roboto');
+
+h1{
+    color: #CD2F30;
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+ul{
+    display: flex;
+}
+
+li{
+    list-style-type: none;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+ul>li{
+    color: #E25755;
+}
+
+.input{
+    background-color: #FFDD92;
+    max-width: 50%;
+}
+
+.android{
+    background-color: #61C87E;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    max-width: 50%;
+}
+
+.calc{
+    background-color: #6973AD;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-top: 30px;
+    max-width: 50%;
+}
+
+.see-kindness{
+    background-color: #FF8C89;
+    width: 45%;
+    float: right;
+    height: 75%;
+}
