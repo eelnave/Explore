@@ -10,6 +10,7 @@ import java.util.List;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
@@ -26,8 +27,9 @@ public final class GPA extends CalcFragment {
 
 	private RadioWrapper radioA, radioB, radioC, radioD, radioF;
 	private RadioWrapper radioMinus, radioPlus;
-	List<RadioWrapper> letters = null;
-	List<RadioWrapper> symbols = null;
+	RadioWrapper[] letters, symbols;
+
+	private String yourGradesString = "";
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +44,8 @@ public final class GPA extends CalcFragment {
 		semGPA = new TextWrapper(view, R.id.semGPA);
 		overallGPA = new TextWrapper(view, R.id.overallGPA);
 
-		inputGrade = new ButtonWrapper(view, R.id.butGradeInput, this);
+		new ButtonWrapper(view, R.id.butGradeInput, new GradeHandler());
+		new ButtonWrapper(view, R.id.gpaClear, new ClearHandler());
 
 		radioA = new RadioWrapper(view, R.id.letterA, this);
 		radioB = new RadioWrapper(view, R.id.letterB, this);
@@ -53,39 +56,70 @@ public final class GPA extends CalcFragment {
 		radioMinus = new RadioWrapper(view, R.id.gradeMinus, this);
 		radioPlus = new RadioWrapper(view, R.id.gradePlus, this);
 
-		letters.add(radioA);
-		letters.add(radioB);
-		letters.add(radioC);
-		letters.add(radioD);
-		letters.add(radioF);
-
-		symbols.add(radioMinus);
-		symbols.add(radioPlus);
-
-		EditWrapper[] inputs = { editCurrGPA, editCurrCred };
-		ControlWrapper[] toClear = {
-				editCurrCred, editCurrGPA, yourGrades, semGPA, overallGPA
-		};
-
-		initialize(view, inputs, R.id.gpaClear, toClear);
+		letters = new RadioWrapper[]{ radioA, radioB, radioC, radioD, radioF };
+		symbols = new RadioWrapper[]{ radioMinus, radioPlus };
 
 		return view;
 	}
 
-	private	void addGrade() {
-		String letterString = "";
-		String symbolString = "";
+	@Override
+	protected void compute() {
 
-		for (RadioWrapper symbol: symbols) {
-			if(symbol.isChecked()) {
-				symbolString = symbol.toString();
-			}
+	}
+
+	private String getLetter() {
+		if (radioA.isChecked())
+			return "A";
+		else if (radioB.isChecked())
+			return "B";
+		else if (radioC.isChecked())
+			return "C";
+		else if (radioD.isChecked())
+			return "D";
+		else if (radioF.isChecked())
+			return "F";
+		else
+			return "";
+	}
+
+	private String getSymbol() {
+		if (radioMinus.isChecked())
+			return "-";
+		else if (radioPlus.isChecked())
+			return "+";
+		else
+			return  "";
+	}
+
+	private final class GradeHandler implements ClickListener {
+		@Override
+		public void clicked(View button) {
+			String prior = yourGradesString;
+			String[] grades = yourGradesString.split(",");
+			String current;
+			String letter = getLetter();
+			String symbol = getSymbol();
+
+			if (grades[0] == "")
+				current = letter + symbol;
+			else
+				current = prior + "," + letter + symbol;
+
+			yourGradesString = current;
+
+			yourGrades.setText(yourGradesString);
 		}
-		for (RadioWrapper letter: letters) {
-			if (letter.isChecked()) {
-				letterString = letter.toString();
+	}
+	private final class ClearHandler implements ClickListener {
+		@Override
+		public void clicked(View button) {
+			ControlWrapper[] toClear = {
+					editCurrCred, editCurrGPA, yourGrades, semGPA, overallGPA
+			};
+			for (ControlWrapper clear : toClear) {
+				clear.clear();
 			}
+			yourGradesString = "";
 		}
-		yourGrades.setText(letterString + symbolString);
 	}
 }

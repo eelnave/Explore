@@ -100,7 +100,8 @@
 			<RadioButton
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/gradeNone"/>
+				android:text="@string/gradeNone"
+				android:id="@+id/gradeNone"/>
 			<RadioButton
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
@@ -132,7 +133,8 @@
 		<TextView
 			android:id="@+id/yourGrades"
 			style="@style/TextResult"
-			android:layout_marginStart="10dp"/>
+			android:layout_marginStart="10dp"
+			android:layout_marginTop="15dp"/>
 	</LinearLayout>
 
 	<LinearLayout
@@ -147,7 +149,8 @@
 		<TextView
 			android:id="@+id/semGPA"
 			style="@style/TextResult"
-			android:layout_marginStart="10dp"/>
+			android:layout_marginStart="10dp"
+			android:layout_marginTop="15dp"/>
 	</LinearLayout>
 
 	<LinearLayout
@@ -162,7 +165,8 @@
 		<TextView
 			android:id="@+id/overallGPA"
 			style="@style/TextResult"
-			android:layout_marginStart="10dp"/>
+			android:layout_marginStart="10dp"
+			android:layout_marginTop="15dp"/>
 	</LinearLayout>
 
 	<Button
