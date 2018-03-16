@@ -69,7 +69,6 @@ public final class HabitCost extends CalcFragment {
 			double y = 0;
 
 			if (radDaily.isChecked()) {
-				//Calculations based off day
 				d = c * f;
 				w = d * 7;
 				m = d * 30;
@@ -77,14 +76,12 @@ public final class HabitCost extends CalcFragment {
 
 			}
 			else if (radWeekly.isChecked()) {
-				//Calculations based off week
 				w = c * f;
 				d = w / 7;
 				m = w * 4;
 				y = w * 52;
 			}
 			else if (radMonthly.isChecked()) {
-				//Calculations based off month
 				m = c * f;
 				d = m / 30;
 				w = m / 4;
