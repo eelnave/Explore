@@ -154,12 +154,23 @@
 
 		</RadioGroup>
 	</LinearLayout>
-
-	<Button
+	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="@string/butGradeInput"
-		android:id="@+id/butGradeInput"/>
+		android:orientation="horizontal">
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/butGradeInput"
+			android:id="@+id/butGradeInput"/>
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/butGradeRemove"
+			android:id="@+id/butGradeRemove"/>
+	</LinearLayout>
+
+
 
 	<LinearLayout
 		android:layout_width="wrap_content"
