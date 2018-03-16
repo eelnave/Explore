@@ -84,6 +84,7 @@ public final class MainActivity extends AppCompatActivity {
 				// view with the About fragment.
 				switchFragment(about);
 
+
 				// Return true to indicate that this
 				// method handled the item selected event.
 				return true;
