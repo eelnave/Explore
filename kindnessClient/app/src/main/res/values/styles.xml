@@ -6,7 +6,7 @@
 		<item name="colorPrimary">@color/colorPrimary</item>
 		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
 		<item name="colorAccent">@color/colorAccent</item>
-		<item name="colorBlack">@color/colorBlack</item>
+		<!--<item name="colorBlack">@color/colorBlack</item>-->
 	</style>
 
 	<style name="IconButton" parent="@android:style/Widget.Material.Button">
@@ -15,7 +15,7 @@
 		</item>
 		<item name="android:textSize">30sp</item>
 		<item name="android:textStyle">bold</item>
-		<item name="android:textColor">@color/colorBlack</item>
+		<!--<item name="android:textColor">@color/colorBlack</item>-->
 		<item name="android:layout_width">110dp</item>
 		<item name="android:layout_height">110dp</item>
 		<item name="android:layout_margin">10dp</item>
