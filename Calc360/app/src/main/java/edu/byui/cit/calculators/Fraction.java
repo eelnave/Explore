@@ -12,7 +12,7 @@ import edu.byui.cit.calc360.R;
 
 
 /**
- * Created by Jordan on 3/16/2018.
+ * Created by Jordan Aquino on 3/16/2018.
  */
 
 public final class Fraction extends CalcFragment{
