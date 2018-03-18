@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="meanEtc">平均など</string>
+	<string name="count">カウント</string>
+	<string name="min">最小</string>
+	<string name="first">第1四分位</string>
+	<string name="second">第2四分位e</string>
+	<string name="third">第3四分位</string>
+	<string name="max">最大</string>
+	<string name="sum">全額</string>
+	<string name="mean">平均</string>
+	<string name="var">分散</string>
+	<string name="stdDev">標準偏差</string>
+
+	<string name="correl">相関</string>
+	<string name="sample1">サンプル 1</string>
+	<string name="sample2">サンプル 2</string>
+	<string name="mismatchedSamples">サンプルは同じが作りましてください。</string>
+</resources>

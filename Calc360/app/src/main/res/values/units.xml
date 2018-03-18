@@ -103,9 +103,10 @@
 	<string name="gasConstUnits" translatable="false">J / (mol K)</string>
 
 	<string name="power">power</string>
-	<string name="fuelEffic">fuel efficiency</string>
+	<string name="fuelEcon">fuel efficiency</string>
 
 	<string name="dataSize">data size</string>
+	<string name="gigabytes">gigabytes</string>
 
 	<string name="money">currency</string>
 
@@ -121,7 +122,7 @@
 		<item>frequency</item>
 		<item>angle</item>
 		<item>pressure</item>
-		<item>fuelEffic</item>
+		<item>fuelEcon</item>
 		<item>speed</item>
 		<item>force</item>
 		<item>dataSize</item>
@@ -487,10 +488,11 @@
 		<item quantity="other">bars</item>
 	</plurals>
 
-	<!-- Units of Fuel Efficiency -->
-	<string-array name="fuelEffic">
+	<!-- Units of Fuel Economy -->
+	<string-array name="fuelEcon">
 		<item>milePerGallon</item>
 		<item>kilometerPerLiter</item>
+		<item>literPer100kilometer</item>
 	</string-array>
 
 	<plurals name="milePerGallon">
@@ -500,6 +502,10 @@
 	<plurals name="kilometerPerLiter">
 		<item quantity="one">kilometer / liter</item>
 		<item quantity="other">kilometers / liter</item>
+	</plurals>
+	<plurals name="literPer100kilometer">
+		<item quantity="one">liter / 100 kilometers</item>
+		<item quantity="other">liters / 100 kilometers</item>
 	</plurals>
 
 	<!-- Units of Speed -->

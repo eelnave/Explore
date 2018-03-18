@@ -51,4 +51,6 @@
 	<string name="dayHint" translatable="false">12</string>
 	<string name="monthHint" translatable="false">2</string>
 	<string name="yearHint" translatable="false">1993</string>
+	<string name="basalMetabolicRate" translatable="false">BMR</string>
+
 </resources>

@@ -17,34 +17,33 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinUnit;
 import edu.byui.cit.text.TextChangeHandler;
 import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.units.FuelEffic;
+import edu.byui.cit.units.FuelEcon;
 import edu.byui.cit.units.Length;
-import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 import edu.byui.cit.units.Volume;
 
 
-public final class FuelEfficiency extends CalcFragment {
+public final class FuelEconomy extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
-			KEY_DIST_UNITS = "FuelEfficiency.distUnits",
-			KEY_VOL_UNITS = "FuelEfficiency.volUnits",
-			KEY_EFFIC_UNITS = "FuelEfficiency.efficUnits";
+			KEY_DIST_UNITS = "FuelEconomy.distUnits",
+			KEY_VOL_UNITS = "FuelEconomy.volUnits",
+			KEY_ECON_UNITS = "FuelEconomy.econUnits";
 
-	private final NumberFormat fmtrDist, fmtrEffic;
+	private final NumberFormat fmtrDist, fmtrEcon;
 	private EditDecimal decBegin, decEnd, decDist, decVol;
-	private SpinUnit spinDistUnits, spinVolUnits, spinEfficUnits;
-	private TextWrapper decEffic;
+	private SpinUnit spinDistUnits, spinVolUnits, spinEconUnits;
+	private TextWrapper decEcon;
 
 
-	public FuelEfficiency() {
+	public FuelEconomy() {
 		super();
 		fmtrDist = NumberFormat.getInstance();
-		fmtrEffic = NumberFormat.getInstance();
+		fmtrEcon = NumberFormat.getInstance();
 		fmtrDist.setMinimumFractionDigits(0);
 		fmtrDist.setMaximumFractionDigits(1);
-		fmtrEffic.setMinimumFractionDigits(1);
-		fmtrEffic.setMaximumFractionDigits(1);
+		fmtrEcon.setMinimumFractionDigits(1);
+		fmtrEcon.setMaximumFractionDigits(2);
 	}
 
 
@@ -52,7 +51,7 @@ public final class FuelEfficiency extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment.
-		View view = inflater.inflate(R.layout.fuel_efficiency, container,
+		View view = inflater.inflate(R.layout.fuel_economy, container,
 				false);
 
 		OdometerChanged dist = new OdometerChanged();
@@ -73,15 +72,15 @@ public final class FuelEfficiency extends CalcFragment {
 		spinVolUnits = new SpinUnit(act, view, R.id.spinVolUnits,
 				Volume.getInstance(), R.array.feVolUnits,
 				KEY_VOL_UNITS, this);
-		spinEfficUnits = new SpinUnit(act, view, R.id.spinEfficUnits,
-				FuelEffic.getInstance(), R.array.feEfficUnits,
-				KEY_EFFIC_UNITS, this);
+		spinEconUnits = new SpinUnit(act, view, R.id.spinEconUnits,
+				FuelEcon.getInstance(), R.array.fuelEcon,
+				KEY_ECON_UNITS, this);
 
-		decEffic = new TextWrapper(view, R.id.decEffic);
+		decEcon = new TextWrapper(view, R.id.decEcon);
 
 		EditWrapper[] inputs = { decBegin, decEnd, decDist, decVol };
 		ControlWrapper[] toClear = {
-				decBegin, decEnd, decDist, decVol, decEffic
+				decBegin, decEnd, decDist, decVol, decEcon
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
@@ -92,7 +91,7 @@ public final class FuelEfficiency extends CalcFragment {
 	protected void restorePrefs(SharedPreferences prefs) {
 		spinDistUnits.restore(prefs, Length.mile);
 		spinVolUnits.restore(prefs, Volume.gallon);
-		spinEfficUnits.restore(prefs, FuelEffic.mpg);
+		spinEconUnits.restore(prefs, FuelEcon.mpg);
 	}
 
 	@Override
@@ -102,7 +101,7 @@ public final class FuelEfficiency extends CalcFragment {
 		// Get from the spinners, the units chosen by the user.
 		spinDistUnits.save(editor);
 		spinVolUnits.save(editor);
-		spinEfficUnits.save(editor);
+		spinEconUnits.save(editor);
 	}
 
 
@@ -150,35 +149,40 @@ public final class FuelEfficiency extends CalcFragment {
 			Unit distUnits = spinDistUnits.getSelectedItem();
 			Unit volUnits = spinVolUnits.getSelectedItem();
 
-			// Get the length and volume properties so that they can
-			// be used to convert values from one unit to another.
-			Property length = Length.getInstance();
-			Property volume = Volume.getInstance();
-
 			// Get the units that the user wants for the results.
-			Unit unit = spinEfficUnits.getSelectedItem();
+			Unit fuelEconUnits = spinEconUnits.getSelectedItem();
 
-			// If the user wants the results in miles per gallon,
-			// then convert, if necessary, the distance and volume
-			// of fuel entered by the user into miles and gallons.
-			if (unit.getID() == FuelEffic.mpg) {
-				dist = length.convert(Length.mile, dist, distUnits);
-				vol = volume.convert(Volume.gallon, vol, volUnits);
-			}
+			dist =  Length.getInstance().convert(Length.km, dist, distUnits);
+			vol = Volume.getInstance().convert(Volume.liter, vol, volUnits);
+			double econ = dist / vol;
+			econ = FuelEcon.getInstance().convert(fuelEconUnits, econ, FuelEcon.kpl);
 
-			// If the user wants the results in kilometers per liter,
-			// then convert, if necessary, the distance and volume of
-			// fuel entered by the user into kilometers and liters.
-			else if (unit.getID() == FuelEffic.kpl) {
-				dist = length.convert(Length.km, dist, distUnits);
-				vol = volume.convert(Volume.liter, vol, volUnits);
-			}
-
-			double effic = dist / vol;
-			decEffic.setText(fmtrEffic.format(effic));
+//			// Get the length and volume properties so that they can
+//			// be used to convert values from one unit to another.
+//			Property length = Length.getInstance();
+//			Property volume = Volume.getInstance();
+//
+//			// If the user wants the results in miles per gallon,
+//			// then convert, if necessary, the distance and volume
+//			// of fuel entered by the user into miles and gallons.
+//			if (fuelEconUnits.getID() == FuelEcon.mpg) {
+//				dist = length.convert(Length.mile, dist, distUnits);
+//				vol = volume.convert(Volume.gallon, vol, volUnits);
+//			}
+//
+//			// If the user wants the results in kilometers per liter,
+//			// then convert, if necessary, the distance and volume of
+//			// fuel entered by the user into kilometers and liters.
+//			else if (fuelEconUnits.getID() == FuelEcon.kpl) {
+//				dist = length.convert(Length.km, dist, distUnits);
+//				vol = volume.convert(Volume.liter, vol, volUnits);
+//			}
+//
+//			double econ = dist / vol;
+			decEcon.setText(fmtrEcon.format(econ));
 		}
 		else {
-			decEffic.clear();
+			decEcon.clear();
 		}
 	}
 }

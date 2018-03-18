@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="tempConvert">気温の変換器</string>
+	<string name="massConvert">質量の変換器</string>
+	<string name="lengthConvert">長さの変換器</string>
+	<string name="areaConvert">面積の変換器</string>
+	<string name="volumeConvert">体積の変換器</string>
+
+	<string name="recipeMult">料理法の乗数</string>
+	<string name="amount">量</string>
+	<string name="amountHint">ex 0.75</string>
+	<string name="multiplier">乗数</string>
+</resources>

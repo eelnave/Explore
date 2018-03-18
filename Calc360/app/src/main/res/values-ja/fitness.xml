@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="basketball">バスケットボール</string>
+	<string name="make">成功</string>
+	<string name="miss">ミス</string>
+
+	<string name="bodyMassIndex">BMI</string>
+	<string name="bmi">BMI</string>
+	<string name="category">種類</string>
+	<string-array name="bmiCategories">
+		<item>低い</item>
+		<item>正常</item>
+		<item>過重</item>
+		<item>肥満</item>
+		<item>病的肥満</item>
+	</string-array>
+
+	<string name="caloriesBurned">使用カロリー</string>
+	<string name="weightLift">重量上げ</string>
+	<string name="swimming">泳ぐ</string>
+	<string name="walking">歩く</string>
+	<string name="running">走る</string>
+	<string name="calories">カロリー</string>
+	<string name="dancing">踊り</string>
+	<string name="kickboxing">キックボクシング</string>
+	<string name="cycling">サイクリング</string>
+	<string name="television">テレビを見る</string>
+
+	<string name="Weight">体重</string>
+	<string name="bodyWeight">体重</string>
+
+	<string name="age">Age</string>
+	<string name="birthDate">Birth Date</string>
+</resources>

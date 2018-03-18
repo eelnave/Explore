@@ -60,4 +60,30 @@ public final class Consumer {
 			return cost + taxAmt + tipAmt;
 		}
 	}
+
+
+	public static final class StreamingCost {
+		private StreamingCost() {
+		}
+
+		public static double durationMovie2_5(double quantity) {
+			return quantity * 2.5;
+		}
+
+		public static double durationMovie2(double quantity) {
+			return quantity * 2;
+		}
+
+		public static double durationMovie1_5(double quantity) {
+			return quantity * 1.5;
+		}
+
+		public static double durationEpisode45(double quantity) {
+			return quantity * 0.75;
+		}
+
+		public static double durationEpisode22(double quantity) {
+			return quantity * 0.37;
+		}
+	}
 }

@@ -17,7 +17,6 @@
 
 	<!-- Calculator Categories -->
 	<string name="art">Art &amp; Music</string>
-	<string name="basic">Basic</string>
 	<string name="computing">Computing</string>
 	<string name="cooking">Cooking</string>
 	<string name="data">Data</string>
