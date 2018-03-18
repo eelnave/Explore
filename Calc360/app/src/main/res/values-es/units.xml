@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="Metric">Métrica</string>
+	<string name="Imperial">Imperial</string>
+
+	<!-- Base Properties -->
+	<string name="Length">Longitud</string>
+	<string name="length">longitud</string>
+	<string name="Distance">Distancia</string>
+	<string name="distance">distancia</string>
+	<string name="millimeters">milímetros</string>
+	<string name="meters">metros</string>
+
+	<string name="Mass">Masa</string>
+	<string name="mass">masa</string>
+	<string name="grams">gramos</string>
+	<string name="kilograms">kilogramos</string>
+	<string name="kg_s2" translatable="false">kg/seg</string>
+
+	<string name="moles">moles</string>
+	<string name="molarMass">masa molar</string>
+	<string name="atomicMass">masa atómica</string>
+	<string name="kg_mol" translatable="false">kg / mol</string>
+
+	<string name="Time">Tiempo</string>
+	<string name="time">tiempo</string>
+	<string name="seconds">segundos</string>
+	<string name="minutes">minutos</string>
+	<string name="Days">Días</string>
+	<string name="Months">Meses</string>
+	<string name="Years">Años</string>
+
+	<string name="Current">Corriente</string>
+	<string name="current">corriente</string>
+	<string name="amps">amperios</string>
+
+	<string name="Charge">Cargar</string>
+	<string name="charge">cargar</string>
+	<string name="millicoulombs">millicoulombs</string>
+
+	<string name="Temperature">Temperatura</string>
+	<string name="temperature">temperatura</string>
+	<string name="Fahrenheit">Grados Fahrenheit</string>
+	<string name="Celsius">Grados Celsius</string>
+	<string name="Kelvin">Grados Kelvin</string>
+
+	<string name="Luminosity">Luminosidad</string>
+	<string name="luminosity">luminosidad</string>
+
+	<!-- Derived Properties -->
+	<string name="Area">área</string>
+	<string name="area">área</string>
+	<string name="metersSquared" translatable="false">m\u00b2</string>
+
+	<string name="Volume">Volumen</string>
+	<string name="volume">volumen</string>
+	<string name="metersCubed" translatable="false">m\u00b3</string>
+
+	<string name="Frequency">Frecuencia</string>
+	<string name="frequency">frecuencia</string>
+
+	<string name="Angle">Ángulo</string>
+	<string name="angle">ángulo</string>
+	<string name="degrees">grados</string>
+	<string name="radians">radianes</string>
+	<string name="gradians">gradians</string>
+
+	<string name="Voltage">Tensión</string>
+	<string name="voltage">tensión</string>
+	<string name="volts">voltios</string>
+
+	<string name="Resistance">Resistencia</string>
+	<string name="resistance">resistencia</string>
+	<string name="ohms">ohmios</string>
+
+	<string name="Pressure">Presión</string>
+	<string name="pressure">presión</string>
+	<string name="pascals">pascales</string>
+
+	<string name="Energy">Energía</string>
+	<string name="energy">energía</string>
+	<string name="kineticEnergy">energía cinética</string>
+	<string name="joules">julios</string>
+
+	<string name="velocity">velocidad</string>
+	<string name="speed">velocidad</string>
+	<string name="m_s">metros / seg.</string>
+
+	<string name="Accel">Aceleración</string>
+	<string name="accel">aceleración</string>
+	<string name="accelGravity">aceleración de la gravedad</string>
+	<string name="m_s2">metros / seg.\u00b2</string>
+
+	<string name="Force">Forzar</string>
+	<string name="force">forzar</string>
+	<string name="newtons">newtons</string>
+
+	<string name="Torque">Esfuerzo de torsión</string>
+	<string name="torque">esfuerzo de torsión</string>
+	<string name="newtonMeters">Newton metros</string>
+
+	<string name="gasConst">constante de gas</string>
+	<string name="gasConstUnits" translatable="false">J / (mol K)</string>
+
+	<string name="power">energía</string>
+	<string name="fuelEcon">eficiencia de combustible</string>
+
+	<string name="dataSize">tamaño de los datos</string>
+	<string name="gigabytes">gigabytes</string>
+
+	<string name="money">moneda</string>
+</resources>

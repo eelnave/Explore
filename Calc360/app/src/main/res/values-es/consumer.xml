@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="cost">Costo</string>
+	<string name="price">Precio</string>
+	<string name="quant">Cantidad</string>
+	<string name="per">por</string>
+	<string name="tax">Impuesto</string>
+	<string name="total">Total</string>
+
+	<string name="salesTax">Impuesto sobre las ventas</string>
+	<string name="itemPrice">Precio del artículo</string>
+	<string name="priceHint">ex: 24.95</string>
+	<string name="salesTaxHint">ex: 6.5</string>
+	<string name="discHint">ex: 25</string>
+
+	<string name="discount">Descuento</string>
+	<string name="discPrice">Precio con descuento</string>
+	<string name="netSaved">Red de guardado</string>
+
+	<string name="cmpPrices">Comparación de precios</string>
+	<string name="unitType">Tipo de unidades</string>
+	<string name="prod1">Producto 1</string>
+	<string name="prod2">Producto 2</string>
+	<string name="prod3">Producto 3</string>
+
+
+	<string name="tip">Propina</string>
+	<string name="costBeforeTax">Costo antes de impuestos</string>
+	<string name="taxAmt">Cantidad de impuestos</string>
+	<integer name="standardTip" translatable="false">15</integer>
+
+	<string name="usa">Estados Unidos de América</string>
+	<string name="euro">Europa</string>
+	<string name="shoeSize">Tamaño del zapato</string>
+
+	<string name="ratio">Relación de</string>
+	<string name="XofY">A es a B como X es a Y</string>
+
+	<string name="percent">Por ciento</string>
+	<string name="XPercentOfY">¿Qué es x % de y?</string>
+	<string name="percentOf">% de</string>
+	<string name="to">para</string>
+	<string name="percentIsXofY">¿Qué % es x de y?</string>
+	<string name="percentChange">¿Cuál es el porcentaje cambian de x a y?</string>
+</resources>
