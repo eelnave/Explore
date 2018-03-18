@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+	<string name="compoundInterest">Compound Interest</string>
+	<string name="Deposit">Deposit</string>
+	<string name="Interest">Interest</string>
+	<string name="depositHint">ex: 300.50</string>
+	<string name="interestHint">ex: 6.5</string>
+	<string name="yearsHint">ex: 7</string>
+	<string name="radioMonthly">Monthly</string>
+	<string name="radioQuarterly">Quarterly</string>
+	<string name="radioAnnually">Annually</string>
+
+	<string name="invest">Investment</string>
+	<string name="pv">Principal</string>
+	<string name="periodPay">Periodic Payment</string>
+	<string name="annRate">Annual Rate</string>
+	<string name="annRateHint">ex: 4.875</string>
+	<string name="numYears">Number of Years</string>
+	<string name="ppy">Periods per Year</string>
+	<integer-array name="possiblePPY" translatable="false">
+		<item>1</item>
+		<item>2</item>
+		<item>4</item>
+		<item>6</item>
+		<item>12</item>
+	</integer-array>
+	<string name="fv">Future Value</string>
+
+	<string name="loan">Loan</string>
+	<string name="amt">Amount Borrowed</string>
+	<string name="loanPPY">Payments per Year</string>
+	<string name="Payment">Payment</string>
+	<string name="Balance">Balance</string>
+	<string name="ptd">Payments Paid to Date</string>
+	<string name="Principal">Principal</string>
+	<string name="Period">Period</string>
+
+	<string name="roi">Return on Investment</string>
+	<string name="income">Income</string>
+	<string name="expenses">Expenses</string>
+	<string name="totalInvest">Investment</string>
+	<string name="roiReturn">Return</string>
+	<string name="roiIncomeHint">ex: 5,000</string>
+	<string name="roiExpensesHint">ex: 3,255</string>
+	<string name="roiInvestHint">ex: 10,560</string>
+
+	<string name="laborCost">Labor Cost</string>
+	<string name="laborExplain">This calculator converts the cost of an item into the amount of your labor in time. In other words, how much of your labor does an item cost?</string>
+	<string name="laborWage">Your Wage per Hour</string>
+	<string name="laborOR">OR</string>
+	<string name="laborSalary">Your Annual Salary</string>
+	<string name="mustWork">You must work for</string>
+	<string name="mustGet">and you must get</string>
+	<string name="somewhere">from somewhere</string>
+	<plurals name="cent">
+		<item quantity="one" tools:ignore="ImpliedQuantity">cent</item>
+		<item quantity="other">cents</item>
+	</plurals>
+
+	<string name="tithing">Tithing</string>
+	<string name="charity">Fast Offering (Charity)</string>
+	<string name="humanitarian">Humanitarian Aid</string>
+	<string name="other">Other</string>
+	<string name="incomeHint">ex: 5,000</string>
+	<string name="tithingHint">ex: 10</string>
+	<string name="offeringHint">ex: 100</string>
+	<string name="humanitarianHint">ex: 50</string>
+	<string name="otherHint">ex: 35</string>
+	<string name="tithingQuote">\"For it is in giving that we receive.\"\n~St. Francis</string>
+
+	<string name="stream">Streaming Service</string>
+	<string name="descrip1">Cost of streaming services like:</string>
+	<string name="descrip2">Netflix, Hulu, Amazon, etc.</string>
+	<string name="servicePayment">Service Payment</string>
+	<string name="hours2_5">2.5 Hours</string>
+	<string name="hours2">2 Hours</string>
+	<string name="hours1_5">1.5 Hours</string>
+	<string name="minutes45">45 Minutes</string>
+	<string name="minutes22">22 Minutes</string>
+	<string name="totalTime">Total Hours Watched</string>
+	<string name="costPerHour">Cost per Hour</string>
+	<string name="intHint1">ex: 1</string>
+	<string name="intHint2">ex: 2</string>
+	<string name="intHint5">ex: 5</string>
+</resources>
