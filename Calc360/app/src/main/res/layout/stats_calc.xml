@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/binDis"/>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/defPro"/>
+
+		<EditText
+			android:id="@+id/pro"
+			style="@style/UnsignedDecimal"
+			android:ems="4"
+			android:hint="@string/productionHint">
+
+			<requestFocus/>
+		</EditText>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/numOfTrials"/>
+
+		<EditText
+			android:id="@+id/tri"
+			style="@style/UnsignedInteger"
+			android:ems="4"
+			android:hint="@string/numOfTrialsHint">
+
+		</EditText>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/numOfDefects"/>
+
+		<EditText
+			android:id="@+id/def"
+			style="@style/UnsignedInteger"
+			android:ems="4"
+			android:hint="@string/numOfDefectsHint"
+			android:imeOptions="actionDone">
+
+		</EditText>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/binPro"/>
+
+		<TextView
+			android:id="@+id/binPro"
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"/>
+
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"/>
+
+</LinearLayout>
