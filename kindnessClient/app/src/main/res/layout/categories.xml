@@ -17,7 +17,7 @@
 		app:layout_constraintVertical_bias="0.498"/>
 
 	<edu.byui.cit.kindness.IconButton
-		android:id="@+id/emotional"
+		android:id="@+id/service"
 		style="@style/IconButton"
 		android:background="@drawable/service"
 		android:text="@string/service"
@@ -26,7 +26,7 @@
 		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
-		android:id="@+id/food"
+		android:id="@+id/time"
 		style="@style/IconButton"
 		android:background="@drawable/time"
 		android:text="@string/time"
@@ -35,7 +35,7 @@
 		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
-		android:id="@+id/travel"
+		android:id="@+id/words"
 		style="@style/IconButton"
 		android:background="@drawable/words"
 		android:text="@string/words"
@@ -44,7 +44,7 @@
 		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
-		android:id="@+id/labor"
+		android:id="@+id/touch"
 		style="@style/IconButton"
 		android:background="@drawable/touch"
 		android:text="@string/touch"
@@ -53,7 +53,7 @@
 		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
-		android:id="@+id/money"
+		android:id="@+id/gift"
 		style="@style/IconButton"
 		android:background="@drawable/gift"
 		android:text="@string/gift"
