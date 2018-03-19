@@ -5,29 +5,36 @@ import java.util.List;
 
 public class DBConnector {
 
-    public static void addReport(double latitude, double longitude)
-            throws ClassNotFoundException, SQLException {
+	public static void addReport(double latitude, double longitude)
+			throws ClassNotFoundException, SQLException {
 
-        // Load JDBC Driver
-        Class.forName("com.mysql.jdbc.Driver");
+		// Load JDBC Driver
+		Class.forName("com.mysql.jdbc.Driver");
 
-        // Make connection to database
-        Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost/kindness", "java", "java");
+		// Make connection to database
+		Connection connection = DriverManager.getConnection(
+				"jdbc:mysql://localhost/kindness", "java", "java");
+		// Insert Statement
+		String query = "INSERT INTO report (latitude, longitude)" + "values (?,?)";
+		//Prepared Statement Creation
+		PreparedStatement preparedStmt = connection.prepareStatement(query);
+		preparedStmt.setDouble (1, latitude);
+		preparedStmt.setDouble (2, longitude);
 
-        // Create a statement
-        Statement statement = connection.createStatement();
+		// Create a statement
+		Statement statement = connection.createStatement();
+		// execute statements
+		//statement.execute(
+		//        "INSERT INTO location (latitude, longitude) " +
+		//                "VALUES (" + latitude + "," + longitude + ")"
+		//);
+		preparedStmt.execute();
+		statement.execute(
+				"INSERT INTO report (category_id, location_id, report_date)" +
+						"VALUES (1,LAST_INSERT_ID(),CURRENT_TIMESTAMP )"
+		);
+	}
 
-        // execute statements
-        statement.execute(
-                "INSERT INTO location (latitude, longitude) " +
-                        "VALUES (" + latitude + "," + longitude + ")"
-        );
-        statement.execute(
-                "INSERT INTO report (category_id, location_id, report_date)" +
-                        "VALUES (1,LAST_INSERT_ID(),CURRENT_TIMESTAMP )"
-        );
-    }
 
     public static List<Report> getReports(
             ReportTimes reportTimes)

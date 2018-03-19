@@ -1,7 +1,7 @@
 public enum ReportTimes {
-    AllTime,
-    LastDay,
-    LastWeek,
-    LastMonth,
-    LastYear
+	AllTime,
+	LastDay,
+	LastWeek,
+	LastMonth,
+	LastYear
 }

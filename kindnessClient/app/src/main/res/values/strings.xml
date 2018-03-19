@@ -12,18 +12,21 @@
 
     <string name="mistake">Well, this is embarrassing. Something is wrong with this calculator, and it isn\'t working. We apologize.</string>
 
-	<string name="emotion">Emotional</string>
-    <string name="food">Food</string>
-    <string name="labor">Labor</string>
-    <string name="money">Money</string>
-    <string name="travel">Travel</string>
-    <string name="other">Other</string>
+
     <string name="longitude">Longitdue</string>
     <string name="latitude">Latitude</string>
     <string name="category">Category</string>
+    <string name="service">Service</string>
+    <string name="time">Time</string>
+    <string name="touch">Touch</string>
+    <string name="gift">Gifts</string>
+    <string name="words">Words</string>
+    <string name="kindness_logo">KindnessLogo</string>
 
     <string name="submit">Submit</string>
 	<string name="map">Map</string>
     <string name="instruction">When you notice kindness in the world, tap on an icon to report that type of kindness to the map for others to see.</string>
     <string name="howto">How to Use</string>
+    <string name="see_kindness">See Kindness</string>
+    <string name="report_kindness">Report Kindness</string>
 </resources>
