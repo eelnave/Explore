@@ -62,15 +62,15 @@ public class CategoryFragment extends InfoFragment {
 
 		//Save buttons from view, add event listeners
 		Button emotion = view.findViewById(R.id.emotional);
-		emotion.setOnClickListener(new categoryListener(R.id.emotional));
+			emotion.setOnClickListener(new categoryListener(R.id.emotional));
 		Button food = view.findViewById(R.id.food);
-		food.setOnClickListener(new categoryListener(R.id.food));
+			food.setOnClickListener(new categoryListener(R.id.food));
 		Button labor = view.findViewById(R.id.labor);
-		labor.setOnClickListener(new categoryListener(R.id.labor));
+			labor.setOnClickListener(new categoryListener(R.id.labor));
 		Button travel = view.findViewById(R.id.travel);
-		travel.setOnClickListener(new categoryListener(R.id.travel));
+			travel.setOnClickListener(new categoryListener(R.id.travel));
 		Button money = view.findViewById(R.id.money);
-		money.setOnClickListener(new categoryListener(R.id.money));
+			money.setOnClickListener(new categoryListener(R.id.money));
 
 		Animation foodAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.food_animate);
 		Animation moneyAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.money_animate);
