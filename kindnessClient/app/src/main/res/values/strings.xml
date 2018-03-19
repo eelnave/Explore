@@ -25,8 +25,10 @@
 
     <string name="submit">Submit</string>
 	<string name="map">Map</string>
-    <string name="instruction">When you notice kindness in the world, tap on an icon to report that type of kindness to the map for others to see.</string>
+    <string name="instruction1">Tap \"See Kindness\" to view acts of kindness near you, or tap \"Report Kindness\" to add to the map.</string>
     <string name="howto">How to Use</string>
     <string name="see_kindness">See Kindness</string>
     <string name="report_kindness">Report Kindness</string>
+    <string name="instruction2">Tap the icon that best reflects the kindness you would like to report.</string>
+    <string name="instruction3">Tap \\\"Submit\\\" to add your kindness to the map at your location.</string>
 </resources>

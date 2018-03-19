@@ -15,6 +15,7 @@ public final class MainFragment extends InfoFragment {
 
 	private KindnessMap kindMap;
 	private InfoFragment about;
+	private InfoFragment howto;
 
 
 	@Override

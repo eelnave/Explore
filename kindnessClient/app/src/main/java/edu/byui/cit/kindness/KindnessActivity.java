@@ -12,6 +12,7 @@ public final class KindnessActivity extends AppCompatActivity {
 
 	private KindnessMap kindMap;
 	private InfoFragment about;
+	private InfoFragment howto;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,18 @@ public final class KindnessActivity extends AppCompatActivity {
 				// Replace whatever is in the fragment_container
 				// view with the About fragment.
 				switchFragment(about);
+
+				// Return true to indicate that this
+				// method handled the item selected event.
+				return true;
+			case R.id.howto:
+				if (howto == null || howto.isDetached()) {
+					howto = new HowTo();
+				}
+
+				// Replace whatever is in the fragment_container
+				// view with the HowTo fragment.
+				switchFragment(howto);
 
 				// Return true to indicate that this
 				// method handled the item selected event.
