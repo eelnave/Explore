@@ -53,7 +53,7 @@
 	<string name="pace">Pace</string>
 	<string name="paceCalc">Pace Calculator</string>
 	<string-array name="fPaceUnits" translatable="false">
-		<item>timePerMile</item>
-		<item>timePerKm</item>
+		<item>perMile</item>
+		<item>perKm</item>
 	</string-array>
 </resources>

@@ -13,7 +13,7 @@ public final class Fitness {
 	}
 
 	public static String calcPace(double d, int h, int m, int s) {
-
+		String output;
 		double t = (h * 3600) + (m * 60) + s;
 		double p = t / d;
 		double sp = (t / d) % 60;
@@ -23,7 +23,7 @@ public final class Fitness {
 		int mp = (int) p / 60;
 
 
-		String output = hp + ":" + mp + ":" + sp;
+		output = hp + " Hrs: " + mp + " Mins: " + sp + " Secs";
 
 		return output;
 	}

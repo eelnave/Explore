@@ -87,9 +87,10 @@
 
 		<TextView
 			android:id="@+id/paceLabel"
-			android:layout_width="15dp"
+			android:layout_width="wrap_content"
+			android:minEms="3"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"
+			android:layout_weight="0"
 			android:text="@string/pace"/>
 
 		<TextView
@@ -97,11 +98,11 @@
 			android:layout_width="wrap_content"
 			android:minEms="2"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"/>
+			android:layout_weight="0"/>
 
 		<Spinner
 			android:id="@+id/spinPaceUnits"
-			android:layout_width="wrap_content"
+			android:layout_width="30dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"/>
 	</LinearLayout>

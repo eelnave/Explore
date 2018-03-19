@@ -102,7 +102,7 @@ public class RunPace extends CalcFragment {
 
 
 			Property paceU = Pace.getInstance();
-			d = paceU.convert(Pace.timepermile, d, pUnit);
+			d = paceU.convert(Pace.permile, d, pUnit);
 
 			String output = Fitness.calcPace(d, h, m, s);
 			//output += " spinDistUnits";
@@ -121,7 +121,7 @@ public class RunPace extends CalcFragment {
 
 
 			Property paceU = Pace.getInstance();
-			d = paceU.convert(Pace.timepermile, d, pUnit);
+			d = paceU.convert(Pace.permile, d, pUnit);
 
 			String output = Fitness.calcPace(d, h, m, s);
 			//output += " spinDistUnits";
