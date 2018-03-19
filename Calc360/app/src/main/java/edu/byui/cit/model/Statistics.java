@@ -121,4 +121,33 @@ public final class Statistics {
 		double covar = sumXY / n - meanX * meanY;
 		return covar / (sdevX * sdevY);
 	}
+
+	public static double binDistProb(int n, int x, double p) {
+
+		double probability;
+		int numerator = 1;
+		int xDenominator = 1;
+		int nxDenominator = 1;
+		double denominator;
+
+		for (int i = 1; i <= n; i++) {
+			numerator *= i;
+		}
+
+		for (int i = 1; i <= x; i++) {
+			xDenominator *= i;
+		}
+
+		for (int i = 1; i <= (n - x); i++) {
+			nxDenominator *= i;
+		}
+
+		denominator = xDenominator * nxDenominator;
+
+		probability = numerator / denominator * Math.pow(p, x) *
+				Math.pow((1-p), (n-x));
+
+
+		return probability;
+	}
 }
