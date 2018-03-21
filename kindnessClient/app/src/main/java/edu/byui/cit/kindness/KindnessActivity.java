@@ -1,7 +1,9 @@
 package edu.byui.cit.kindness;
 
+import android.Manifest;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,9 +19,9 @@ public final class KindnessActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.kindness_activity);
-	/*	ActivityCompat.requestPermissions(KindnessActivity.this, new String[]{
-				Manifest.permission.ACCESS_COARSE_LOCATION}, 123);*/
 
+		ActivityCompat.requestPermissions(KindnessActivity.this, new String[] {
+				Manifest.permission.ACCESS_COARSE_LOCATION}, 123);
 
 		if (savedInstanceState == null) {
 			MainFragment mainFragment = new MainFragment();
