@@ -90,7 +90,7 @@ final class Descriptors {
 			new GroupDescriptor(306, R.string.stats, R.drawable.folder_stats, new CalcDescriptor[]{
 				new CalcDescriptor(1009, R.string.meanEtc, R.drawable.mean_etc, MeanEtc.class),
 				new CalcDescriptor(1010, R.string.correl, R.drawable.correlation, Correlation.class),
-				new CalcDescriptor(1068, R.string.binDis ,R.drawable.correlation, BinDistProb.class),
+				new CalcDescriptor(1068, R.string.binDis ,R.drawable.bindis, BinDistProb.class),
 			}),
 			new GroupDescriptor(312, R.string.computing, R.drawable.folder_computing, new CalcDescriptor[]{
 				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
