@@ -1,50 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="appName">Calc 360</string>
+	<string name="appName">კალკულატორი 360</string>
 
-	<string name="about">About</string>
-	<string name="contribs">Contributors</string>
+	<string name="about">დაახლოებით</string>
+	<string name="contribs">ავტორები</string>
 
-	<string name="appDescr">A collection of easy to use specific calculators designed, written, and maintained by students at Brigham Young University - Idaho</string>
-	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
-	<string name="logoCredit">We created the logo and icons for Calc360 using the free tools at <a href="logomakr.com">logomakr.com</a></string>
-	<string name="fall2017">Fall 2017</string>
-	<string name="winter2018">Winter 2018</string>
+	<string name="appDescr">კოლექციის ადვილად გამოსაყენებელი კონკრეტული კალკულატორები შექმნილია, დაწერილი და შენარჩუნებულია სტუდენტების მიერ ბრიგჰემ იანგის უნივერსიტეტი - იდაჰო</string>
+	<string name="eula">კანონით დაშვებული სრული მოცულობით, ეს პროგრამული უზრუნველყოფა არ არის გარანტია, გამოხატული ან ნაგულისხმევი. ამ პროგრამული უზრუნველყოფის ინსტალაციით და / ან გამოყენებით თქვენ თანახმა ხართ გამართოთ უვნებელი ბრიგემის ახალგაზრდა უნივერსიტეტი - იდაჰო და მისი სპონსორები, თანამშრომლები და სტუდენტები.</string>
+	<string name="logoCredit">ჩვენ შევქმენით ლოგო და ხატები Calc360- ის უფასო იარაღის გამოყენებით logomakr.com- ზე</string>
+	<string name="fall2017">შემოდგომა 2017</string>
+	<string name="winter2018">ზამთარი 2018</string>
 
-	<string name="mistake">Well, this is embarrassing. Something is wrong with this calculator, and it isn\'t working. We apologize.</string>
+	<string name="mistake">ეს უხერხულია. რაღაც არასწორია ამ კალკულატორით და არ მუშაობს. ბოდიშს გიხდით.</string>
 
-	<string name="currencyCredit">The currency exchange rates are courtesy of the European Central Bank.</string>
+	<string name="currencyCredit">ვალუტის გაცვლითი კურსი ევროპის ცენტრალური ბანკის თავაზიანობაა.</string>
 
 	<!-- Calculator Categories -->
-	<string name="art">Art &amp; Music</string>
-	<string name="computing">Computing</string>
-	<string name="cooking">Cooking</string>
-	<string name="data">Data</string>
-	<string name="events">Events</string>
-	<string name="finance">Finance</string>
-	<string name="general">General</string>
-	<string name="geometry">Geometry</string>
-	<string name="mathematics">Math</string>
-	<string name="science">Science</string>
-	<string name="shopping">Shopping</string>
-	<string name="sports">Sports</string>
-	<string name="stats">Statistics</string>
-	<string name="travel">Travel</string>
+	<string name="art">ხელოვნება და მუსიკა</string>
+	<string name="computing">გამოთვლითი</string>
+	<string name="cooking">სამზარეულო</string>
+	<string name="data">მონაცემები</string>
+	<string name="events">ივენთი</string>
+	<string name="finance">ფინანსები</string>
+	<string name="general">ზოგადი</string>
+	<string name="geometry">გეომეტრია</string>
+	<string name="mathematics">მათემატიკა</string>
+	<string name="science">მეცნიერება</string>
+	<string name="shopping">სავაჭრო</string>
+	<string name="sports">სპორტი</string>
+	<string name="stats">სტატისტიკა</string>
+	<string name="travel">მოგზაურობა</string>
 
-	<string name="simple">Simple</string>
+	<string name="simple">მარტივი</string>
 
-	<string name="result">Result</string>
-	<string name="results">Results</string>
+	<string name="result">შედეგი</string>
+	<string name="results">შედეგები</string>
 
-	<string name="compute">Compute</string>
-	<string name="clear">Clear</string>
+	<string name="compute">გამოთვალეთ</string>
+	<string name="clear">ნათელია</string>
 
-	<string name="unitConvert">Unit Conversion</string>
-	<string name="Female">Female</string>
-	<string name="Male">Male</string>
-	<string name="Calories">Calories</string>
+	<string name="unitConvert">ერთეული კონვერსია</string>
+	<string name="Female">ქალი</string>
+	<string name="Male">კაცი</string>
+	<string name="Calories">კალორია</string>
 	<string name="bmr">BMR</string>
 	<string name="inches">inches</string>
-	<string name="pounds">pounds</string>
-	<string name="years">years</string>
+	<string name="pounds">ფუნტი</string>
+	<string name="years">წლები</string>
 </resources>
