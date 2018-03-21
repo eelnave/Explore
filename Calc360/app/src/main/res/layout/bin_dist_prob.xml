@@ -23,9 +23,8 @@
 
 		<EditText
 			android:id="@+id/pro"
-			style="@style/UnsignedDecimal"
-			android:ems="4"
-			android:hint="@string/productionHint">
+			style="@style/UnsignedInteger"
+			android:ems="4">
 
 			<requestFocus/>
 		</EditText>

@@ -19,7 +19,8 @@ import edu.byui.cit.text.TextWrapper;
 
 public final class BinDistProb extends CalcFragment {
 
-	private EditInteger editN, editX, editP;
+	private EditInteger editN, editX;
+	private EditDecimal editP;
 	private EditWrapper[] inputs;
 	private TextWrapper resultProb;
 	private NumberFormat fmtrPerc;
@@ -35,7 +36,7 @@ public final class BinDistProb extends CalcFragment {
 
 		editN = new EditInteger(view, R.id.tri, this);
 		editX = new EditInteger(view, R.id.def, this);
-		editP = new EditInteger(view, R.id.pro, this);
+		editP = new EditDecimal(view, R.id.pro, this);
 
 		resultProb = new TextWrapper(view, R.id.binPro);
 
@@ -52,7 +53,7 @@ public final class BinDistProb extends CalcFragment {
 		if (EditWrapper.allNotEmpty(inputs)) {
 			int n = editN.getInt();
 			int x = editX.getInt();
-			double p = editP.getInt() / 100;
+			double p = editP.getDec();
 
 			double prob = Statistics.binDistProb(n, x, p);
 
