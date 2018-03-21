@@ -25,6 +25,6 @@
 
     <string name="submit">Submit</string>
 	<string name="map">Map</string>
-    <string name="see_kindness">See Kindness</string>
-    <string name="report_kindness">Report Kindness</string>
+    <string name="see_kindness">See\nKindness</string>
+    <string name="report_kindness">Report\nKindness</string>
 </resources>
