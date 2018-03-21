@@ -17,7 +17,7 @@
 	<string name="sample2">Sample 2</string>
 	<string name="mismatchedSamples">samples must be the same length</string>
 
-	<string name="binDis">Binomial Distribution</string>
+	<string name="binDis">Binomial Probability</string>
 	<string name="defPro">Defective Probability(p):</string>
 	<string name="numOfTrials">Number of Trials(n):</string>
 	<string name="numOfDefects">Number of Defectives(x):</string>

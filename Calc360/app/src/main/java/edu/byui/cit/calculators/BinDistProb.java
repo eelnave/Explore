@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +32,7 @@ public final class BinDistProb extends CalcFragment {
 		View view = inflater.inflate(R.layout.bin_dist_prob, container,
 				false);
 
-		fmtrPerc = NumberFormat.getPercentInstance();
+		fmtrPerc = NumberFormat.getInstance();
 
 		editN = new EditInteger(view, R.id.tri, this);
 		editX = new EditInteger(view, R.id.def, this);
