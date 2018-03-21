@@ -1,7 +1,9 @@
 package edu.byui.cit.kindness;
 
+import android.Manifest;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -58,8 +60,12 @@ public class SubmitFragment extends InfoFragment {
 		//a collection of the names with the key being their associated id. Grab that name from the collection using the id passed in.
 		Bundle args = getArguments();
 		TreeMap categories = new TreeMap();
-		categories.put(2131165245, "Emotional");
-		System.out.println(args.getInt("id"));
+		categories.put(R.id.service, "Service");
+		categories.put(R.id.time, "Time");
+		categories.put(R.id.touch, "Touch");
+		categories.put(R.id.gift, "Gifts");
+		categories.put(R.id.words, "Words");
+
 		categoryView.setText("" + categories.get(args.getInt("id")));
 
 		addReports();
