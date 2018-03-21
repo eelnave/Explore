@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="basketball">Basketball</string>
+	<string name="make">Make</string>
+	<string name="miss">Miss</string>
+	<string name="freeThrow" translatable="false">FT</string>
+	<string name="threePoint" translatable="false">3PT</string>
+	<string name="fieldGoal" translatable="false">FG</string>
+	<string name="threePointPercent" translatable="false">3PT%</string>
+	<string name="fieldGoalPercent" translatable="false">FG%</string>
+	<string name="freeThrowPercent" translatable="false">FT%</string>
+
+	<string name="bodyMassIndex">BMI</string>
+	<string name="bmi">BMI</string>
+	<string name="category">Category</string>
+	<integer-array name="bmiRanges" translatable="false">
+		<item>19</item>
+		<item>25</item>
+		<item>30</item>
+		<item>40</item>
+	</integer-array>
+	<string-array name="bmiCategories">
+		<item>low</item>
+		<item>normal</item>
+		<item>overweight</item>
+		<item>obese</item>
+		<item>extremely obese</item>
+	</string-array>
+
+	<string name="caloriesBurned">Calories Burned</string>
+	<string name="walking">Walking</string>
+	<string name="running">Running</string>
+	<string name="cycling">Cycling</string>
+	<string name="swimming">Swimming</string>
+	<string name="dancing">Dancing</string>
+	<string name="kickboxing">Kickboxing</string>
+	<string name="weightLift">Weight Lifting</string>
+	<string name="television">Watching TV</string>
+
+	<string name="calories">calories</string>
+	<string-array name="cbMassUnits" translatable="false">
+		<item>pound</item>
+		<item>kilogram</item>
+	</string-array>
+
+	<string name="Weight">Weight</string>
+	<string name="bodyWeight">Body Weight</string>
+
+	<string name="age">Age</string>
+	<string name="birthDate">Birth Date</string>
+	<string name="dayHint" translatable="false">12</string>
+	<string name="monthHint" translatable="false">2</string>
+	<string name="yearHint" translatable="false">1993</string>
+	<string name="basalMetabolicRate" translatable="false">BMR</string>
+
+</resources>

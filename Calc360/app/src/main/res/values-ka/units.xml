@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="Metric">Metric</string>
+	<string name="Imperial">Imperial</string>
+
+	<!-- Base Properties -->
+	<string name="Length">სიგრძე</string>
+	<string name="length">სიგრძე</string>
+	<string name="Distance">Distance</string>
+	<string name="distance">distance</string>
+	<string name="millimeters">millimeters</string>
+	<string name="meters">meters</string>
+
+	<string name="Mass">Mass</string>
+	<string name="mass">mass</string>
+	<string name="grams">grams</string>
+	<string name="kilograms">kilograms</string>
+	<string name="kg_s2" translatable="false">kg / sec\u00b2</string>
+
+	<string name="moles">moles</string>
+	<string name="molarMass">molar mass</string>
+	<string name="atomicMass">atomic mass</string>
+	<string name="kg_mol" translatable="false">kg / mol</string>
+
+	<string name="Time">Time</string>
+	<string name="time">time</string>
+	<string name="seconds">seconds</string>
+	<string name="minutes">minutes</string>
+	<string name="Days">Days</string>
+	<string name="Months">Months</string>
+	<string name="Years">Years</string>
+
+	<string name="Current">Current</string>
+	<string name="current">current</string>
+	<string name="amps">amperes</string>
+
+	<string name="Charge">Charge</string>
+	<string name="charge">charge</string>
+	<string name="millicoulombs">millicoulombs</string>
+
+	<string name="Temperature">Temperature</string>
+	<string name="temperature">temperature</string>
+	<string name="Fahrenheit">Fahrenheit</string>
+	<string name="Celsius">Celsius</string>
+	<string name="Kelvin">Kelvin</string>
+
+	<string name="Luminosity">Luminosity</string>
+	<string name="luminosity">luminosity</string>
+
+	<!-- Derived Properties -->
+	<string name="Area">Area</string>
+	<string name="area">area</string>
+	<string name="metersSquared" translatable="false">m\u00b2</string>
+
+	<string name="Volume">Volume</string>
+	<string name="volume">volume</string>
+	<string name="metersCubed" translatable="false">m\u00b3</string>
+
+	<string name="Frequency">Frequency</string>
+	<string name="frequency">frequency</string>
+
+	<string name="Angle">Angle</string>
+	<string name="angle">angle</string>
+	<string name="degrees">degrees</string>
+	<string name="radians">radians</string>
+	<string name="gradians">gradians</string>
+
+	<string name="Voltage">Voltage</string>
+	<string name="voltage">voltage</string>
+	<string name="volts">volts</string>
+
+	<string name="Resistance">Resistance</string>
+	<string name="resistance">resistance</string>
+	<string name="ohms">ohms</string>
+
+	<string name="Pressure">Pressure</string>
+	<string name="pressure">pressure</string>
+	<string name="pascals">pascals</string>
+
+	<string name="Energy">Energy</string>
+	<string name="energy">energy</string>
+	<string name="kineticEnergy">kinetic energy</string>
+	<string name="joules">joules</string>
+
+	<string name="velocity">velocity</string>
+	<string name="speed">speed</string>
+	<string name="m_s">meters / sec</string>
+
+	<string name="Accel">Acceleration</string>
+	<string name="accel">acceleration</string>
+	<string name="accelGravity">accel of gravity</string>
+	<string name="m_s2">meters / sec\u00b2</string>
+
+	<string name="Force">Force</string>
+	<string name="force">force</string>
+	<string name="newtons">newtons</string>
+
+	<string name="Torque">Torque</string>
+	<string name="torque">torque</string>
+	<string name="newtonMeters">newton-meters</string>
+
+	<string name="gasConst">gas constant</string>
+	<string name="gasConstUnits" translatable="false">J / (mol K)</string>
+
+	<string name="power">power</string>
+	<string name="fuelEcon">fuel efficiency</string>
+
+	<string name="dataSize">data size</string>
+	<string name="gigabytes">gigabytes</string>
+
+	<string name="money">currency</string>
+
+
+	<!-- Supported Properties -->
+	<string-array name="supportedProperties" translatable="false">
+		<item>length</item>
+		<item>mass</item>
+		<item>time</item>
+		<item>temperature</item>
+		<item>area</item>
+		<item>volume</item>
+		<item>frequency</item>
+		<item>angle</item>
+		<item>pressure</item>
+		<item>fuelEcon</item>
+		<item>speed</item>
+		<item>force</item>
+		<item>dataSize</item>
+		<item>money</item>
+	</string-array>
+
+	<!-- Units of Length -->
+	<string-array name="length">
+		<item>inch</item>
+		<item>foot</item>
+		<item>yard</item>
+		<item>rod</item>
+		<item>mile</item>
+		<item>millimeter</item>
+		<item>centimeter</item>
+		<item>meter</item>
+		<item>kilometer</item>
+	</string-array>
+
+	<plurals name="inch">
+		<item quantity="one">inch</item>
+		<item quantity="other">inches</item>
+	</plurals>
+	<plurals name="foot">
+		<item quantity="one">foot</item>
+		<item quantity="other">feet</item>
+	</plurals>
+	<plurals name="yard">
+		<item quantity="one">yard</item>
+		<item quantity="other">yards</item>
+	</plurals>
+	<plurals name="rod">
+		<item quantity="one">rod</item>
+		<item quantity="other">rods</item>
+	</plurals>
+	<plurals name="mile">
+		<item quantity="one">mile</item>
+		<item quantity="other">miles</item>
+	</plurals>
+	<plurals name="millimeter">
+		<item quantity="one">millimeter</item>
+		<item quantity="other">millimeters</item>
+	</plurals>
+	<plurals name="centimeter">
+		<item quantity="one">centimeter</item>
+		<item quantity="other">centimeters</item>
+	</plurals>
+	<plurals name="meter">
+		<item quantity="one">meter</item>
+		<item quantity="other">meters</item>
+	</plurals>
+	<plurals name="kilometer">
+		<item quantity="one">kilometer</item>
+		<item quantity="other">kilometers</item>
+	</plurals>
+
+	<!-- Units of Mass -->
+	<string-array name="mass">
+		<item>grain</item>
+		<item>ounce</item>
+		<item>pound</item>
+		<item>stone</item>
+		<item>shortTon</item>
+		<item>longTon</item>
+		<item>gram</item>
+		<item>kilogram</item>
+		<item>metricTon</item>
+	</string-array>
+
+	<plurals name="grain">
+		<item quantity="one">grain</item>
+		<item quantity="other">grains</item>
+	</plurals>
+	<plurals name="ounce">
+		<item quantity="one">ounce</item>
+		<item quantity="other">ounces</item>
+	</plurals>
+	<plurals name="pound">
+		<item quantity="one">pound</item>
+		<item quantity="other">pounds</item>
+	</plurals>
+	<plurals name="stone">
+		<item quantity="one">stone</item>
+		<item quantity="other">stones</item>
+	</plurals>
+	<plurals name="shortTon">
+		<item quantity="one">short ton (US)</item>
+		<item quantity="other">short tons (US)</item>
+	</plurals>
+	<plurals name="longTon">
+		<item quantity="one">long ton (UK)</item>
+		<item quantity="other">long tons (UK)</item>
+	</plurals>
+	<plurals name="gram">
+		<item quantity="one">gram</item>
+		<item quantity="other">grams</item>
+	</plurals>
+	<plurals name="kilogram">
+		<item quantity="one">kilogram</item>
+		<item quantity="other">kilograms</item>
+	</plurals>
+	<plurals name="metricTon">
+		<item quantity="one">metric ton</item>
+		<item quantity="other">metric tons</item>
+	</plurals>
+
+	<!-- Units of Time -->
+	<string-array name="time">
+		<item>millisecond</item>
+		<item>second</item>
+		<item>minute</item>
+		<item>hour</item>
+		<item>day</item>
+		<item>week</item>
+	</string-array>
+
+	<plurals name="millisecond">
+		<item quantity="one">millisecond</item>
+		<item quantity="other">milliseconds</item>
+	</plurals>
+	<plurals name="second">
+		<item quantity="one">second</item>
+		<item quantity="other">seconds</item>
+	</plurals>
+	<plurals name="minute">
+		<item quantity="one">minute</item>
+		<item quantity="other">minutes</item>
+	</plurals>
+	<plurals name="hour">
+		<item quantity="one">hour</item>
+		<item quantity="other">hours</item>
+	</plurals>
+	<plurals name="day">
+		<item quantity="one">day</item>
+		<item quantity="other">days</item>
+	</plurals>
+	<plurals name="week">
+		<item quantity="one">week</item>
+		<item quantity="other">weeks</item>
+	</plurals>
+	<plurals name="month">
+		<item quantity="one">month</item>
+		<item quantity="other">months</item>
+	</plurals>
+	<plurals name="year">
+		<item quantity="one">year</item>
+		<item quantity="other">years</item>
+	</plurals>
+
+
+	<!-- Units of Temperature -->
+	<string-array name="temperature">
+		<item>Kelvin</item>
+		<item>Celsius</item>
+		<item>Fahrenheit</item>
+	</string-array>
+
+	<plurals name="Kelvin">
+		<item quantity="one">degree Kelvin</item>
+		<item quantity="other">degrees Kelvin</item>
+	</plurals>
+	<plurals name="Celsius">
+		<item quantity="one">degree Celsius</item>
+		<item quantity="other">degrees Celsius</item>
+	</plurals>
+	<plurals name="Fahrenheit">
+		<item quantity="one">degree Fahrenheit</item>
+		<item quantity="other">degrees Fahrenheit</item>
+	</plurals>
+
+	<!-- Units of Area -->
+	<string-array name="area">
+		<item>squareInch</item>
+		<item>squareFoot</item>
+		<item>squareYard</item>
+		<item>acre</item>
+		<item>squareMile</item>
+		<item>squareCentimeter</item>
+		<item>squareMeter</item>
+		<item>hectare</item>
+		<item>squareKilometer</item>
+	</string-array>
+
+	<plurals name="squareInch">
+		<item quantity="one">square inch</item>
+		<item quantity="other">square inches</item>
+	</plurals>
+	<plurals name="squareFoot">
+		<item quantity="one">square foot</item>
+		<item quantity="other">square feet</item>
+	</plurals>
+	<plurals name="squareYard">
+		<item quantity="one">square yard</item>
+		<item quantity="other">square yards</item>
+	</plurals>
+	<plurals name="acre">
+		<item quantity="one">acre</item>
+		<item quantity="other">acres</item>
+	</plurals>
+	<plurals name="squareMile">
+		<item quantity="one">square mile</item>
+		<item quantity="other">square miles</item>
+	</plurals>
+	<plurals name="squareCentimeter">
+		<item quantity="one">square centimeter</item>
+		<item quantity="other">square centimeters</item>
+	</plurals>
+	<plurals name="squareMeter">
+		<item quantity="one">square meter</item>
+		<item quantity="other">square meters</item>
+	</plurals>
+	<plurals name="hectare">
+		<item quantity="one">hectare</item>
+		<item quantity="other">hectares</item>
+	</plurals>
+	<plurals name="squareKilometer">
+		<item quantity="one">square kilometer</item>
+		<item quantity="other">square kilometers</item>
+	</plurals>
+
+	<!-- Units of Volume -->
+	<string-array name="volume">
+		<item>teaspoon</item>
+		<item>tablespoon</item>
+		<item>fluidOunce</item>
+		<item>cup</item>
+		<item>pint</item>
+		<item>quart</item>
+		<item>gallon</item>
+		<item>cubicInch</item>
+		<item>cubicFoot</item>
+		<item>milliliter</item>
+		<item>liter</item>
+		<item>cubicMeter</item>
+	</string-array>
+
+	<plurals name="teaspoon">
+		<item quantity="one">teaspoon</item>
+		<item quantity="other">teaspoons</item>
+	</plurals>
+	<plurals name="tablespoon">
+		<item quantity="one">tablespoon</item>
+		<item quantity="other">tablespoons</item>
+	</plurals>
+	<plurals name="fluidOunce">
+		<item quantity="one">fluid ounce</item>
+		<item quantity="other">fluid ounces</item>
+	</plurals>
+	<plurals name="cup">
+		<item quantity="one">cup</item>
+		<item quantity="other">cups</item>
+	</plurals>
+	<plurals name="pint">
+		<item quantity="one">pint</item>
+		<item quantity="other">pints</item>
+	</plurals>
+	<plurals name="quart">
+		<item quantity="one">quart</item>
+		<item quantity="other">quarts</item>
+	</plurals>
+	<plurals name="gallon">
+		<item quantity="one">gallon</item>
+		<item quantity="other">gallons</item>
+	</plurals>
+	<plurals name="cubicInch">
+		<item quantity="one">cubic inch</item>
+		<item quantity="other">cubic inches</item>
+	</plurals>
+	<plurals name="cubicFoot">
+		<item quantity="one">cubic foot</item>
+		<item quantity="other">cubic feet</item>
+	</plurals>
+	<plurals name="milliliter">
+		<item quantity="one">milliliter</item>
+		<item quantity="other">milliliters</item>
+	</plurals>
+	<plurals name="liter">
+		<item quantity="one">liter</item>
+		<item quantity="other">liters</item>
+	</plurals>
+	<plurals name="cubicMeter">
+		<item quantity="one">cubic meter</item>
+		<item quantity="other">cubic meters</item>
+	</plurals>
+
+	<!-- Units of Frequency -->
+	<string-array name="frequency">
+		<item>hertz</item>
+		<item>kilohertz</item>
+		<item>megahertz</item>
+		<item>gigahertz</item>
+		<item>terahertz</item>
+	</string-array>
+
+	<plurals name="hertz">
+		<item quantity="one">hertz</item>
+		<item quantity="other">hertz</item>
+	</plurals>
+	<plurals name="kilohertz">
+		<item quantity="one">kilohertz</item>
+		<item quantity="other">kilohertz</item>
+	</plurals>
+	<plurals name="megahertz">
+		<item quantity="one">megahertz</item>
+		<item quantity="other">megahertz</item>
+	</plurals>
+	<plurals name="gigahertz">
+		<item quantity="one">gigahertz</item>
+		<item quantity="other">gigahertz</item>
+	</plurals>
+	<plurals name="terahertz">
+		<item quantity="one">terahertz</item>
+		<item quantity="other">terahertz</item>
+	</plurals>
+
+	<!-- Units of Angle -->
+	<string-array name="angle">
+		<item>minuteArc</item>
+		<item>degree</item>
+		<item>radian</item>
+		<item>gradian</item>
+	</string-array>
+
+	<plurals name="minuteArc">
+		<item quantity="one">minute of arc</item>
+		<item quantity="other">minutes of arc</item>
+	</plurals>
+	<plurals name="degree">
+		<item quantity="one">degree</item>
+		<item quantity="other">degrees</item>
+	</plurals>
+	<plurals name="radian">
+		<item quantity="one">radian</item>
+		<item quantity="other">radians</item>
+	</plurals>
+	<plurals name="gradian">
+		<item quantity="one">gradian</item>
+		<item quantity="other">gradians</item>
+	</plurals>
+
+	<!-- Units of Pressure -->
+	<string-array name="pressure">
+		<item>lbfPerSqIn</item>
+		<item>atmosphere</item>
+		<item>Pascal</item>
+		<item>Bar</item>
+	</string-array>
+
+	<plurals name="lbfPerSqIn">
+		<item quantity="one">pound / sq inch</item>
+		<item quantity="other">pounds / sq inch</item>
+	</plurals>
+	<plurals name="atmosphere">
+		<item quantity="one">atmosphere</item>
+		<item quantity="other">atmospheres</item>
+	</plurals>
+	<plurals name="Pascal">
+		<item quantity="one">pascal</item>
+		<item quantity="other">pascals</item>
+	</plurals>
+	<plurals name="Bar">
+		<item quantity="one">bar</item>
+		<item quantity="other">bars</item>
+	</plurals>
+
+	<!-- Units of Fuel Economy -->
+	<string-array name="fuelEcon">
+		<item>milePerGallon</item>
+		<item>kilometerPerLiter</item>
+		<item>literPer100kilometer</item>
+	</string-array>
+
+	<plurals name="milePerGallon">
+		<item quantity="one">mile / gallon</item>
+		<item quantity="other">miles / gallon</item>
+	</plurals>
+	<plurals name="kilometerPerLiter">
+		<item quantity="one">kilometer / liter</item>
+		<item quantity="other">kilometers / liter</item>
+	</plurals>
+	<plurals name="literPer100kilometer">
+		<item quantity="one">liter / 100 kilometers</item>
+		<item quantity="other">liters / 100 kilometers</item>
+	</plurals>
+
+	<!-- Units of Speed -->
+	<string-array name="speed">
+		<item>footPerSecond</item>
+		<item>milePerHour</item>
+		<item>knot</item>
+		<item>meterPerSecond</item>
+		<item>kilometerPerHour</item>
+	</string-array>
+
+	<plurals name="footPerSecond">
+		<item quantity="one">foot / second</item>
+		<item quantity="other">feet / second</item>
+	</plurals>
+	<plurals name="milePerHour">
+		<item quantity="one">mile / hour</item>
+		<item quantity="other">miles / hour</item>
+	</plurals>
+	<plurals name="knot">
+		<item quantity="one">knot</item>
+		<item quantity="other">knots</item>
+	</plurals>
+	<plurals name="meterPerSecond">
+		<item quantity="one">meter / second</item>
+		<item quantity="other">meters / second</item>
+	</plurals>
+	<plurals name="kilometerPerHour">
+		<item quantity="one">kilometer / hour</item>
+		<item quantity="other">kilometers / hour</item>
+	</plurals>
+
+	<!-- Units of Force -->
+	<string-array name="force">
+		<item>Newton</item>
+		<item>poundForce</item>
+	</string-array>
+
+	<plurals name="Newton">
+		<item quantity="one">Newton</item>
+		<item quantity="other">Newtons</item>
+	</plurals>
+	<plurals name="poundForce">
+		<item quantity="one">pound-force</item>
+		<item quantity="other">pound-forces</item>
+	</plurals>
+
+	<!-- Units of Data Size -->
+	<string-array name="dataSize">
+		<item>bit</item>
+		<item>nibble</item>
+		<item>byt</item>
+		<item>hword</item>
+		<item>word</item>
+		<item>dword</item>
+		<item>kilobit</item>
+		<item>megabit</item>
+		<item>gigabit</item>
+		<item>terabit</item>
+		<item>petabit</item>
+		<item>exabit</item>
+		<item>kilobyte</item>
+		<item>megabyte</item>
+		<item>gigabyte</item>
+		<item>terabyte</item>
+		<item>petabyte</item>
+		<item>exabyte</item>
+	</string-array>
+
+	<plurals name="bit">
+		<item quantity="one">bit</item>
+		<item quantity="other">bits</item>
+	</plurals>
+	<plurals name="nibble">
+		<item quantity="one">nibble</item>
+		<item quantity="other">nibbles</item>
+	</plurals>
+	<plurals name="byt">
+		<item quantity="one">byte</item>
+		<item quantity="other">bytes</item>
+	</plurals>
+	<plurals name="hword">
+		<item quantity="one">half word</item>
+		<item quantity="other">half words</item>
+	</plurals>
+	<plurals name="word">
+		<item quantity="one">word</item>
+		<item quantity="other">words</item>
+	</plurals>
+	<plurals name="dword">
+		<item quantity="one">double word</item>
+		<item quantity="other">double words</item>
+	</plurals>
+
+	<plurals name="kilobit">
+		<item quantity="one">kilobit</item>
+		<item quantity="other">kilobits</item>
+	</plurals>
+	<plurals name="megabit">
+		<item quantity="one">megabit</item>
+		<item quantity="other">megabits</item>
+	</plurals>
+	<plurals name="gigabit">
+		<item quantity="one">gigabit</item>
+		<item quantity="other">gigabits</item>
+	</plurals>
+	<plurals name="terabit">
+		<item quantity="one">terabit</item>
+		<item quantity="other">terabits</item>
+	</plurals>
+	<plurals name="petabit">
+		<item quantity="one">petabit</item>
+		<item quantity="other">petabits</item>
+	</plurals>
+	<plurals name="exabit">
+		<item quantity="one">exabit</item>
+		<item quantity="other">exabits</item>
+	</plurals>
+
+	<plurals name="kilobyte">
+		<item quantity="one">kilobyte</item>
+		<item quantity="other">kilobytes</item>
+	</plurals>
+	<plurals name="megabyte">
+		<item quantity="one">megabyte</item>
+		<item quantity="other">megabytes</item>
+	</plurals>
+	<plurals name="gigabyte">
+		<item quantity="one">gigabyte</item>
+		<item quantity="other">gigabytes</item>
+	</plurals>
+	<plurals name="terabyte">
+		<item quantity="one">terabyte</item>
+		<item quantity="other">terabytes</item>
+	</plurals>
+	<plurals name="petabyte">
+		<item quantity="one">petabyte</item>
+		<item quantity="other">petabytes</item>
+	</plurals>
+	<plurals name="exabyte">
+		<item quantity="one">exabyte</item>
+		<item quantity="other">exabytes</item>
+	</plurals>
+
+	<!-- Units of Currency (Money) -->
+	<string-array name="money">
+		<item>AustralianDollar</item>
+		<item>BrazilianReal</item>
+		<item>BulgarianLev</item>
+		<item>CanadianDollar</item>
+		<item>ChineseYuanRenminbi</item>
+		<item>CroatianKuna</item>
+		<item>CzechKoruna</item>
+		<item>DanishKrone</item>
+		<item>EuropeanUnionEuro</item>
+		<item>HongKongDollar</item>
+		<item>HungarianForint</item>
+		<item>IndianRupee</item>
+		<item>IndonesianRupiah</item>
+		<item>IsraeliShekel</item>
+		<item>JapaneseYen</item>
+		<item>MalaysianRinggit</item>
+		<item>MexicanPeso</item>
+		<item>NewZealandDollar</item>
+		<item>NorwegianKrone</item>
+		<item>PhilippinePeso</item>
+		<item>PolishZloty</item>
+		<item>RomanianLeu</item>
+		<item>RussianRouble</item>
+		<item>SingaporeDollar</item>
+		<item>SouthAfricanRand</item>
+		<item>SouthKoreanWon</item>
+		<item>SwedishKrona</item>
+		<item>SwissFranc</item>
+		<item>ThaiBaht</item>
+		<item>TurkishLira</item>
+		<item>UKPoundSterling</item>
+		<item>USDollar</item>
+	</string-array>
+
+	<plurals name="AustralianDollar">
+		<item quantity="one">Australian dollar</item>
+		<item quantity="other">Australian dollars</item>
+	</plurals>
+	<plurals name="BrazilianReal">
+		<item quantity="one">Brazilian real</item>
+		<item quantity="other">Brazilian reals</item>
+	</plurals>
+	<plurals name="BulgarianLev">
+		<item quantity="one">Bulgarian lev</item>
+		<item quantity="other">Bulgarian levs</item>
+	</plurals>
+	<plurals name="CanadianDollar">
+		<item quantity="one">Canadian dollar</item>
+		<item quantity="other">Canadian dollars</item>
+	</plurals>
+	<plurals name="ChineseYuanRenminbi">
+		<item quantity="one">Chinese yuan renminbi</item>
+		<item quantity="other">Chinese yuan renminbis</item>
+	</plurals>
+	<plurals name="CroatianKuna">
+		<item quantity="one">Croatian kuna</item>
+		<item quantity="other">Croatian kunas</item>
+	</plurals>
+	<plurals name="CzechKoruna">
+		<item quantity="one">Czech koruna</item>
+		<item quantity="other">Czech korunas</item>
+	</plurals>
+	<plurals name="DanishKrone">
+		<item quantity="one">Danish krone</item>
+		<item quantity="other">Danish krones</item>
+	</plurals>
+	<plurals name="EuropeanUnionEuro">
+		<item quantity="one">European Union euro</item>
+		<item quantity="other">European Union euros</item>
+	</plurals>
+	<plurals name="HongKongDollar">
+		<item quantity="one">Hong Kong dollar</item>
+		<item quantity="other">Hong Kong dollars</item>
+	</plurals>
+	<plurals name="HungarianForint">
+		<item quantity="one">Hungarian forint</item>
+		<item quantity="other">Hungarian forints</item>
+	</plurals>
+	<plurals name="IndianRupee">
+		<item quantity="one">Indian rupee</item>
+		<item quantity="other">Indian rupees</item>
+	</plurals>
+	<plurals name="IndonesianRupiah">
+		<item quantity="one">Indonesian rupiah</item>
+		<item quantity="other">Indonesian rupiahs</item>
+	</plurals>
+	<plurals name="IsraeliShekel">
+		<item quantity="one">Israeli shekel</item>
+		<item quantity="other">Israeli shekels</item>
+	</plurals>
+	<plurals name="JapaneseYen">
+		<item quantity="one">Japanese yen</item>
+		<item quantity="other">Japanese yens</item>
+	</plurals>
+	<plurals name="MalaysianRinggit">
+		<item quantity="one">Malaysian ringgit</item>
+		<item quantity="other">Malaysian ringgits</item>
+	</plurals>
+	<plurals name="MexicanPeso">
+		<item quantity="one">Mexican peso</item>
+		<item quantity="other">Mexican pesos</item>
+	</plurals>
+	<plurals name="NewZealandDollar">
+		<item quantity="one">New Zealand dollar</item>
+		<item quantity="other">New Zealand dollars</item>
+	</plurals>
+	<plurals name="NorwegianKrone">
+		<item quantity="one">Norwegian krone</item>
+		<item quantity="other">Norwegian krones</item>
+	</plurals>
+	<plurals name="PhilippinePeso">
+		<item quantity="one">Philippine peso</item>
+		<item quantity="other">Philippine pesos</item>
+	</plurals>
+	<plurals name="PolishZloty">
+		<item quantity="one">Polish zloty</item>
+		<item quantity="other">Polish zlotys</item>
+	</plurals>
+	<plurals name="RomanianLeu">
+		<item quantity="one">Romanian leu</item>
+		<item quantity="other">Romanian leus</item>
+	</plurals>
+	<plurals name="RussianRouble">
+		<item quantity="one">Russian rouble</item>
+		<item quantity="other">Russian roubles</item>
+	</plurals>
+	<plurals name="SingaporeDollar">
+		<item quantity="one">Singapore dollar</item>
+		<item quantity="other">Singapore dollars</item>
+	</plurals>
+	<plurals name="SouthAfricanRand">
+		<item quantity="one">South African rand</item>
+		<item quantity="other">South African rands</item>
+	</plurals>
+	<plurals name="SouthKoreanWon">
+		<item quantity="one">South Korean won</item>
+		<item quantity="other">South Korean wons</item>
+	</plurals>
+	<plurals name="SwedishKrona">
+		<item quantity="one">Swedish krona</item>
+		<item quantity="other">Swedish kronas</item>
+	</plurals>
+	<plurals name="SwissFranc">
+		<item quantity="one">Swiss franc</item>
+		<item quantity="other">Swiss francs</item>
+	</plurals>
+	<plurals name="ThaiBaht">
+		<item quantity="one">Thai baht</item>
+		<item quantity="other">Thai bahts</item>
+	</plurals>
+	<plurals name="TurkishLira">
+		<item quantity="one">Turkish lira</item>
+		<item quantity="other">Turkish liras</item>
+	</plurals>
+	<plurals name="UKPoundSterling">
+		<item quantity="one">UK Pound sterling</item>
+		<item quantity="other">UK Pound sterlings</item>
+	</plurals>
+	<plurals name="USDollar">
+		<item quantity="one">US dollar</item>
+		<item quantity="other">US dollars</item>
+	</plurals>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="meanEtc">Mean, etc.</string>
+	<string name="count">Count</string>
+	<string name="min">Minimum</string>
+	<string name="first">1st Quartile</string>
+	<string name="second">2nd Quartile</string>
+	<string name="third">3rd Quartile</string>
+	<string name="max">Maximum</string>
+	<string name="sum">Sum</string>
+	<string name="mean">Mean</string>
+	<string name="var">Variance</string>
+	<string name="stdDev">Std Dev</string>
+
+	<string name="correl">Correlation</string>
+	<string name="sample1">Sample 1</string>
+	<string name="sample2">Sample 2</string>
+	<string name="mismatchedSamples">samples must be the same length</string>
+</resources>

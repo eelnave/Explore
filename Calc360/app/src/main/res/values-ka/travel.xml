@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="FuelEconomy">Fuel Efficiency</string>
+	<string name="odometer">Odometer</string>
+	<string name="start">start</string>
+	<string name="end">end</string>
+	<string name="fuel">Fuel</string>
+	<string name="FuelEcon">Fuel Efficiency</string>
+	<string-array name="feDistUnits" translatable="false">
+		<item>mile</item>
+		<item>kilometer</item>
+	</string-array>
+	<string-array name="feVolUnits" translatable="false">
+		<item>gallon</item>
+		<item>liter</item>
+	</string-array>
+
+	<string name="foreignFuel">Foreign Fuel</string>
+	<string name="ffExplain">If you must buy gasoline in a foreign country, this calculator will convert the amount and cost of gasoline from the foreign measurement and currency to your native measurement and currency.</string>
+
+	<string name="fuelCost">Fuel Cost</string>
+	<string name="vehicleEfficiency">Vehicle\nEfficiency</string>
+	<string name="fuelPrice">Fuel Price</string>
+
+	<string name="currencyExch">Currency Exchange</string>
+
+	<string name="travelTime">Travel Time</string>
+	<string name="ttExplain">Calculate the time required to travel by entering the distance and average speed</string>
+	<string name="avgSpeed">Average Speed</string>
+	<string-array name="ttSpeedUnits" translatable="false">
+		<item>milePerHour</item>
+		<item>kilometerPerHour</item>
+	</string-array>
+	<string-array name="ttDistUnits" translatable="false">
+		<item>mile</item>
+		<item>kilometer</item>
+	</string-array>
+</resources>
