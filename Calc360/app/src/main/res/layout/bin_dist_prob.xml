@@ -10,6 +10,13 @@
 		style="@style/TextLabel"
 		android:text="@string/binDis"/>
 
+	<ImageView
+		android:layout_width="220dp"
+		android:layout_height="wrap_content"
+		android:adjustViewBounds="true"
+		android:contentDescription="@string/binomialDistribution"
+		android:src="@drawable/formula_bindis"/>
+
 	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
