@@ -24,20 +24,11 @@
 	<string name="prod3">პროდუქტი 3</string>
 
 	<!-- Properties used in the Compare Prices Calculator -->
-	<string-array name="cmpPricesProps" translatable="false">
-		<!--suppress CheckTagEmptyBody -->
-		<item></item>
-		<item>length</item>
-		<item>mass</item>
-		<item>time</item>
-		<item>area</item>
-		<item>volume</item>
-	</string-array>
+
 
 	<string name="tip">წვერი</string>
 	<string name="costBeforeTax">საგადასახადო ღირებულებამდე</string>
 	<string name="taxAmt">საგადასახადო თანხა</string>
-	<integer name="standardTip" translatable="false">15</integer>
 
 	<string name="usa">აშშ</string>
 	<string name="euro">ევროპა</string>
@@ -45,15 +36,10 @@
 
 	<string name="ratio">პროპორცია</string>
 	<string name="XofY">A არიის B როგორც X არის Y</string>
-	<string name="A" translatable="false">A</string>
-	<string name="B" translatable="false">B</string>
-	<string name="X" translatable="false">X</string>
-	<string name="Y" translatable="false">Y</string>
 
 	<string name="percent">პროცენტი</string>
 	<string name="XPercentOfY">რა არის X% Y-ის</string>
 	<string name="percentOf">%</string>
-	<string name="is" translatable="false">=</string>
 	<string name="to">ზე</string>
 	<string name="percentIsXofY">რა არის % X Y-ის</string>
 	<string name="percentChange">რა არის პროცენტული ცვლილება x- დან y-ანდე</string>

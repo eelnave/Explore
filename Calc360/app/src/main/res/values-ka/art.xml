@@ -4,10 +4,6 @@
 	<string name="space">შესანახი მოცულობა</string>
 	<string name="spaceHint">მაგალითად 16</string>
 	<string name="Quality">ხარისხი</string>
-	<string name="fourKS" translatable="false">4k at 60 fps</string>
-	<string name="fourKT" translatable="false">4k at 30 fps</string>
-	<string name="tenEighty" translatable="false">1080p at 60 fps</string>
-	<string name="sevenTwenty" translatable="false">720p at 60 fps</string>
 
 	<string name="starExposure">ვარსკვლავი ექსპოზიცია</string>
 	<string name="stxpFocalLength">ფოკალური სიგრძე</string>

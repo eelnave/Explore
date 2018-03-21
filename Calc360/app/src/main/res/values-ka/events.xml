@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="counter">დახლი</string>
-	<string name="plusOne" translatable="false">+1</string>
-	<string name="plusTwo" translatable="false">+2</string>
-	<string name="plusThree" translatable="false">+3</string>
-	<string name="plusFive" translatable="false">+5</string>
 
 	<string name="queueTime">რიგის დრო</string>
 	<string name="people">ხალხის რაოდენობა</string>
@@ -20,10 +16,4 @@
 	<string name="duration">ხანგრძლივობა</string>
 	<string name="difference">სხვაობა</string>
 	<string name="today">დღეს</string>
-	<string-array name="durationChoices" translatable="false">
-		<item>day</item>
-		<item>week</item>
-		<item>month</item>
-		<item>year</item>
-	</string-array>
 </resources>

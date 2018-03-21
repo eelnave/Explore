@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="idealGas">იდეალური გაზი</string>
-	<string name="igFormula" translatable="false">PV = nRT</string>
-	<string name="igP" translatable="false">P</string>
-	<string name="igV" translatable="false">V</string>
-	<string name="igN" translatable="false">n</string>
-	<string name="igR" translatable="false">R</string>
-	<string name="igT" translatable="false">T</string>
 
 	<string name="gasEnergy">გაზის ენერგია</string>
-	<string name="geFormula" translatable="false">E<sub><small>k</small></sub> = 3nRT / 2</string>
-	<string name="geEnergy" translatable="false">E<sub><small>k</small></sub></string>
-	<string name="geMoles" translatable="false">n</string>
-	<string name="geGasConst" translatable="false">R</string>
-	<string name="geTemp" translatable="false">T</string>
 
 	<string name="gasVelocity">გაზის სიჩქარე</string>
-	<string name="gvFormula" translatable="false">v<sub><small>rms</small></sub> = sqrt(3RT / M<sub><small>m</small></sub></string>
-	<string name="gvVeloc" translatable="false">V</string>
-	<string name="gvTemp" translatable="false">T</string>
-	<string name="gvGasConst" translatable="false">R</string>
-	<string name="gvMass" translatable="false">M</string>
 </resources>

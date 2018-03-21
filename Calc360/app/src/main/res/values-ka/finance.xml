@@ -17,13 +17,7 @@
 	<string name="annRateHint">მაგალითად 4.875</string>
 	<string name="numYears">წლების რაოდენობა</string>
 	<string name="ppy">პერიოდები წელიწადში</string>
-	<integer-array name="possiblePPY" translatable="false">
-		<item>1</item>
-		<item>2</item>
-		<item>4</item>
-		<item>6</item>
-		<item>12</item>
-	</integer-array>
+
 	<string name="fv">მომავალი ღირებულება</string>
 
 	<string name="loan">სესხი</string>

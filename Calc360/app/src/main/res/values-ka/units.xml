@@ -15,12 +15,10 @@
 	<string name="mass">მასა</string>
 	<string name="grams">გრამი</string>
 	<string name="kilograms">კილოგრამი</string>
-	<string name="kg_s2" translatable="false">kg / sec\u00b2</string>
 
 	<string name="moles">მოლი</string>
 	<string name="molarMass">მოლური მასა</string>
 	<string name="atomicMass">ატომური მასა</string>
-	<string name="kg_mol" translatable="false">kg / mol</string>
 
 	<string name="Time">დრო</string>
 	<string name="time">დრო</string>
@@ -50,11 +48,9 @@
 	<!-- Derived Properties -->
 	<string name="Area">ტერიტორია</string>
 	<string name="area">ტერიტორია</string>
-	<string name="metersSquared" translatable="false">m\u00b2</string>
 
 	<string name="Volume">მოცულობა</string>
 	<string name="volume">მოცულობა</string>
-	<string name="metersCubed" translatable="false">m\u00b3</string>
 
 	<string name="Frequency">სიხშირე</string>
 	<string name="frequency">სიხშირე</string>
@@ -100,7 +96,6 @@
 	<string name="newtonMeters">newton-მეტრი</string>
 
 	<string name="gasConst">გაზის მუდმივი</string>
-	<string name="gasConstUnits" translatable="false">J / (mol K)</string>
 
 	<string name="power">ძალა</string>
 	<string name="fuelEcon">საწვავის ეფექტურობა</string>
@@ -110,24 +105,6 @@
 
 	<string name="money">ვალუტა</string>
 
-
-	<!-- Supported Properties -->
-	<string-array name="supportedProperties" translatable="false">
-		<item>length</item>
-		<item>mass</item>
-		<item>time</item>
-		<item>temperature</item>
-		<item>area</item>
-		<item>volume</item>
-		<item>frequency</item>
-		<item>angle</item>
-		<item>pressure</item>
-		<item>fuelEcon</item>
-		<item>speed</item>
-		<item>force</item>
-		<item>dataSize</item>
-		<item>money</item>
-	</string-array>
 
 	<!-- Units of Length -->
 	<string-array name="length">

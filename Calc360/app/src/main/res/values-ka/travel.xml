@@ -6,14 +6,6 @@
 	<string name="end">დასასრული</string>
 	<string name="fuel">საწვავი</string>
 	<string name="FuelEcon">Fuel Efficiency</string>
-	<string-array name="feDistUnits" translatable="false">
-		<item>mile</item>
-		<item>kilometer</item>
-	</string-array>
-	<string-array name="feVolUnits" translatable="false">
-		<item>gallon</item>
-		<item>liter</item>
-	</string-array>
 
 	<string name="foreignFuel">უცხოური საწვავი</string>
 	<string name="ffExplain">თუ უცხოურ ქვეყანაში ბენზინი უნდა შეიძინოთ, ეს კალკულატორი გაზისა და საწვავის ღირებულებას უცხოურ გაზომვასა და ვალუტას გადააქვს თქვენს გაზომეთსა და ვალუტაში.</string>
@@ -27,12 +19,4 @@
 	<string name="travelTime">მოგზაურობის დრო</string>
 	<string name="ttExplain">გამოთვალეთ დრო, რომელიც საჭიროა მანძილისა და საშუალო სიჩქარის შესასვლელად</string>
 	<string name="avgSpeed">საშუალო სიჩქარე</string>
-	<string-array name="ttSpeedUnits" translatable="false">
-		<item>milePerHour</item>
-		<item>kilometerPerHour</item>
-	</string-array>
-	<string-array name="ttDistUnits" translatable="false">
-		<item>mile</item>
-		<item>kilometer</item>
-	</string-array>
 </resources>

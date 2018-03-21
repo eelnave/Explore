@@ -10,64 +10,6 @@
 	<string name="amount">თანხა</string>
 	<string name="amountHint">მაგალითად 0.75</string>
 	<string name="multiplier">მულტიპლიკატორი</string>
-	<string-array name="recipeRatio" translatable="false">
-		<item>1/4</item>
-		<item>1/2</item>
-		<item>2\u00d7</item>
-		<item>3\u00d7</item>
-		<item>4\u00d7</item>
-	</string-array>
 
-	<!-- Types of units used in the kitchen -->
-	<string-array name="kitchenProperties" translatable="false">
-		<item>length</item>
-		<item>area</item>
-		<item>volume</item>
-		<item>mass</item>
-	</string-array>
 
-	<!-- Length units used in the kitchen -->
-	<string-array name="kitchenLength" translatable="false">
-		<item>inch</item>
-		<item>foot</item>
-		<item>yard</item>
-		<item>millimeter</item>
-		<item>centimeter</item>
-		<item>meter</item>
-	</string-array>
-
-	<!-- Area units used in the kitchen -->
-	<string-array name="kitchenArea" translatable="false">
-		<item>squareInch</item>
-		<item>squareFoot</item>
-		<item>squareCentimeter</item>
-		<item>squareMeter</item>
-	</string-array>
-
-	<!-- Volume units used in the kitchen -->
-	<string-array name="kitchenVolume" translatable="false">
-		<item>teaspoon</item>
-		<item>tablespoon</item>
-		<item>ounce</item>
-		<item>cup</item>
-		<item>pint</item>
-		<item>quart</item>
-		<item>gallon</item>
-		<item>milliliter</item>
-		<item>liter</item>
-	</string-array>
-
-	<!-- Mass units used in the kitchen -->
-	<string-array name="kitchenMass" translatable="false">
-		<item>ounce</item>
-		<item>pound</item>
-		<item>gram</item>
-		<item>kilogram</item>
-	</string-array>
-
-	<!-- Temperature units used in the kitchen -->
-	<string-array name="kitchenTemperature" translatable="false">
-		<item>Fahrenheit</item>
-		<item>Celsius</item>
-	</string-array>
 </resources>
