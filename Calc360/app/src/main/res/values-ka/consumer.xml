@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="cost">Cost</string>
-	<string name="price">Price</string>
-	<string name="quant">Quantity</string>
-	<string name="per">per</string>
-	<string name="tax">Tax</string>
-	<string name="total">Total</string>
+	<string name="cost">ღირებულება</string>
+	<string name="price">ფასი</string>
+	<string name="quant">რაოდენობა</string>
+	<string name="per">თითო</string>
+	<string name="tax">გადასახადი</string>
+	<string name="total">მთელი</string>
 
-	<string name="salesTax">Sales Tax</string>
-	<string name="itemPrice">Item Price</string>
-	<string name="priceHint">ex: 24.95</string>
-	<string name="salesTaxHint">ex: 6.5</string>
-	<string name="discHint">ex: 25</string>
+	<string name="salesTax">გაყიდვების საგადასახადო</string>
+	<string name="itemPrice">საქონლის ფასი</string>
+	<string name="priceHint">მაგალითად 24.95</string>
+	<string name="salesTaxHint">მაგალითად 6.5</string>
+	<string name="discHint">მაგალითად 25</string>
 
-	<string name="discount">Discount</string>
-	<string name="discPrice">Discounted Price</string>
-	<string name="netSaved">Net Saved</string>
+	<string name="discount">ფასდაკლება</string>
+	<string name="discPrice">დაკლებული ფასი</string>
+	<string name="netSaved">შენახული</string>
 
-	<string name="cmpPrices">Compare Prices</string>
-	<string name="unitType">Type of Units</string>
-	<string name="prod1">Product 1</string>
-	<string name="prod2">Product 2</string>
-	<string name="prod3">Product 3</string>
+	<string name="cmpPrices">ფასების შედარება</string>
+	<string name="unitType">ტიპის ერთეული</string>
+	<string name="prod1">პროდუქტი 1</string>
+	<string name="prod2">პროდუქტი 2</string>
+	<string name="prod3">პროდუქტი 3</string>
 
 	<!-- Properties used in the Compare Prices Calculator -->
 	<string-array name="cmpPricesProps" translatable="false">
@@ -34,27 +34,27 @@
 		<item>volume</item>
 	</string-array>
 
-	<string name="tip">Tip</string>
-	<string name="costBeforeTax">Cost before Tax</string>
-	<string name="taxAmt">Tax Amount</string>
+	<string name="tip">წვერი</string>
+	<string name="costBeforeTax">საგადასახადო ღირებულებამდე</string>
+	<string name="taxAmt">საგადასახადო თანხა</string>
 	<integer name="standardTip" translatable="false">15</integer>
 
-	<string name="usa">USA</string>
-	<string name="euro">Europe</string>
-	<string name="shoeSize">Shoe Size</string>
+	<string name="usa">აშშ</string>
+	<string name="euro">ევროპა</string>
+	<string name="shoeSize">ფეხსაცმლის ზომა</string>
 
-	<string name="ratio">Ratio</string>
-	<string name="XofY">A is to B as X is to Y</string>
+	<string name="ratio">პროპორცია</string>
+	<string name="XofY">A არიის B როგორც X არის Y</string>
 	<string name="A" translatable="false">A</string>
 	<string name="B" translatable="false">B</string>
 	<string name="X" translatable="false">X</string>
 	<string name="Y" translatable="false">Y</string>
 
-	<string name="percent">Percent</string>
-	<string name="XPercentOfY">What is x% of y?</string>
-	<string name="percentOf">% of</string>
+	<string name="percent">პროცენტი</string>
+	<string name="XPercentOfY">რა არის X% Y-ის</string>
+	<string name="percentOf">%</string>
 	<string name="is" translatable="false">=</string>
-	<string name="to">to</string>
-	<string name="percentIsXofY">What % is x of y?</string>
-	<string name="percentChange">What is the percent change from x to y?</string>
+	<string name="to">ზე</string>
+	<string name="percentIsXofY">რა არის % X Y-ის</string>
+	<string name="percentChange">რა არის პროცენტული ცვლილება x- დან y-ანდე</string>
 </resources>

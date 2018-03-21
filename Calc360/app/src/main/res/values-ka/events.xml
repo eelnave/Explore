@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="counter">Counter</string>
+	<string name="counter">დახლი</string>
 	<string name="plusOne" translatable="false">+1</string>
 	<string name="plusTwo" translatable="false">+2</string>
 	<string name="plusThree" translatable="false">+3</string>
 	<string name="plusFive" translatable="false">+5</string>
 
-	<string name="queueTime">Queue Time</string>
-	<string name="people">Number of People</string>
-	<string name="next">Next Person</string>
-	<string name="person">Average Time per Person</string>
-	<string name="remain">Estimated Time Remaining</string>
-	<string name="served">Estimated Time Served</string>
+	<string name="queueTime">რიგის დრო</string>
+	<string name="people">ხალხის რაოდენობა</string>
+	<string name="next">შემდეგი ადამიანი</string>
+	<string name="person">საშუალო დრო ერთ ადამიანზე</string>
+	<string name="remain">სავარაუდო დრო დარჩენილია</string>
+	<string name="served">სავარაუდო დრო მსახურობდა</string>
 
-	<string name="dateArith">Date Arithmetic</string>
-	<string name="dateDiff">Date Difference</string>
-	<string name="startDate">Start Date</string>
-	<string name="endDate">End Date</string>
-	<string name="duration">Duration</string>
-	<string name="difference">Difference</string>
-	<string name="today">Today</string>
+	<string name="dateArith">თარიღი არითმეტიკა</string>
+	<string name="dateDiff">თარიღი განსხვავება</string>
+	<string name="startDate">დაწყების თარიღი</string>
+	<string name="endDate">დასრულების თარიღი</string>
+	<string name="duration">ხანგრძლივობა</string>
+	<string name="difference">სხვაობა</string>
+	<string name="today">დღეს</string>
 	<string-array name="durationChoices" translatable="false">
 		<item>day</item>
 		<item>week</item>
