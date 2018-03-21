@@ -22,7 +22,6 @@
 	<string name="numOfTrials">Number of Trials(n):</string>
 	<string name="numOfDefects">Number of Defectives(x):</string>
 	<string name="binPro">Binomial Probability:</string>
-	<string name="productionHint">ex: 6.5</string>
 	<string name="numOfTrialsHint">ex: 5</string>
 	<string name="numOfDefectsHint">ex: 10</string>
 </resources>
