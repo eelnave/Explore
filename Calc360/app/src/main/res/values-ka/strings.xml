@@ -43,8 +43,8 @@
 	<string name="Female">ქალი</string>
 	<string name="Male">კაცი</string>
 	<string name="Calories">კალორია</string>
-	<string name="bmr">BMR</string>
-	<string name="inches">inches</string>
+	<string name="bmr">ბაზალური მეტაბოლური კურსი</string>
+	<string name="inches">დიუიმი</string>
 	<string name="pounds">ფუნტი</string>
 	<string name="years">წლები</string>
 </resources>

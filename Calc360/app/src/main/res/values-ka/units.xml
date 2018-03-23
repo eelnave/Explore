@@ -67,16 +67,16 @@
 
 	<string name="Resistance">წინააღმდეგობა</string>
 	<string name="resistance">წინააღმდეგობა</string>
-	<string name="ohms">ohms</string>
+	<string name="ohms">ოჰმს</string>
 
 	<string name="Pressure">ზეწოლა</string>
 	<string name="pressure">ზეწოლა</string>
-	<string name="pascals">pascals</string>
+	<string name="pascals">პასკალი</string>
 
 	<string name="Energy">ენერგია</string>
 	<string name="energy">ენერგია</string>
 	<string name="kineticEnergy">კინეტიკური ენერგია</string>
-	<string name="joules">joules</string>
+	<string name="joules">ჯოლები</string>
 
 	<string name="velocity">სიჩქარე</string>
 	<string name="speed">სიჩქარე</string>
@@ -93,7 +93,7 @@
 
 	<string name="Torque">ბორბალი</string>
 	<string name="torque">ბორბალი</string>
-	<string name="newtonMeters">newton-მეტრი</string>
+	<string name="newtonMeters">ნიუთონის-მეტრი</string>
 
 	<string name="gasConst">გაზის მუდმივი</string>
 

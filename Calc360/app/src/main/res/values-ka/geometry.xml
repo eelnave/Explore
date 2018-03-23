@@ -3,7 +3,7 @@
 	<string name="quadratic">კვადრატული განტოლება</string>
 	<string name="quadExplain1">ამ ფორმით კვადრატული განტოლების გათვალისწინებით</string>
 	<string name="quadExplain3">ჩვენ შეგვიძლია მოვძებნოთ განტოლების ფესვები კვადრატული ფორმულის გამოყენებით</string>
-	<string name="quadExplain4">the quadratic formula which is</string>
+	<string name="quadExplain4">კვადრატული ფორმულა</string>
 	<string name="roots">წარმოშობა</string>
 	<string name="noRoots">არ არსებობს რეალური წარმოშობა</string>
 	<string name="imaginary"><i>i</i></string>
