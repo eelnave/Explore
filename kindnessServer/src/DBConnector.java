@@ -15,7 +15,7 @@ public class DBConnector {
 		Connection connection = DriverManager.getConnection(
 				"jdbc:mysql://localhost/kindness", "java", "java");
 		// Insert Statement
-		String query = "INSERT INTO report (latitude, longitude)" + "values (?,?)";
+		String query = "INSERT INTO location (latitude, longitude)" + "values (?,?)";
 		//Prepared Statement Creation
 		PreparedStatement preparedStmt = connection.prepareStatement(query);
 		preparedStmt.setDouble (1, latitude);

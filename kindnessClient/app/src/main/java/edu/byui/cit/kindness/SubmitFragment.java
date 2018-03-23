@@ -1,5 +1,6 @@
 package edu.byui.cit.kindness;
 
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.TreeMap;
 
 
@@ -20,7 +20,6 @@ public class SubmitFragment extends InfoFragment {
 	private void addReports() {
 
 		double lat = 0, lon = 0;
-		//getApplicationContext();
 		GPSTracker gps = new GPSTracker(view.getContext());
 		Location loc = gps.getLocation();
 		if(loc != null){
@@ -29,7 +28,6 @@ public class SubmitFragment extends InfoFragment {
 			Toast.makeText(view.getContext(), "LAT: " + lat + " Lon: " + lon, Toast.LENGTH_LONG).show();
 		}
 
-		//change this, how do I just display the doubles?
 		latitudeView.setText("" + lat);
 		longitudeView.setText("" + lon);
 
@@ -53,13 +51,26 @@ public class SubmitFragment extends InfoFragment {
 		latitudeView = view.findViewById(R.id.latitudeView);
 		longitudeView = view.findViewById(R.id.longitudeView);
 		categoryView = view.findViewById(R.id.categoryView);
-		//convert to actual category name
 
+		submit = view.findViewById(R.id.submitButton);
+		submit.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent goHome = new Intent(getActivity(), KindnessActivity.class);
+				getActivity().startActivity(goHome);
+			}
+		});
+
+		//convert to actual category name
 		//a collection of the names with the key being their associated id. Grab that name from the collection using the id passed in.
 		Bundle args = getArguments();
 		TreeMap categories = new TreeMap();
-		categories.put(2131165245, "Emotional");
-		System.out.println(args.getInt("id"));
+		categories.put(R.id.service, "Service");
+		categories.put(R.id.time, "Time");
+		categories.put(R.id.touch, "Touch");
+		categories.put(R.id.gift, "Gifts");
+		categories.put(R.id.words, "Words");
+
 		categoryView.setText("" + categories.get(args.getInt("id")));
 
 		addReports();
