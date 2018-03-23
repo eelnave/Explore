@@ -1,7 +1,9 @@
 package edu.byui.cit.kindness;
 
+import android.Manifest;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,14 +19,13 @@ public final class KindnessActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.kindness_activity);
-	/*	ActivityCompat.requestPermissions(KindnessActivity.this, new String[]{
-				Manifest.permission.ACCESS_COARSE_LOCATION}, 123);*/
 
+		ActivityCompat.requestPermissions(KindnessActivity.this, new String[] {
+				Manifest.permission.ACCESS_COARSE_LOCATION}, 123);
 
 		if (savedInstanceState == null) {
 			MainFragment mainFragment = new MainFragment();
 			FragmentTransaction trans = getFragmentManager().beginTransaction();
-			//this id will be whatever it is in the XML
 			trans.add(R.id.fragContainer, mainFragment);
 			trans.commit();
 		}
@@ -72,11 +73,7 @@ public final class KindnessActivity extends AppCompatActivity {
 
 	public void switchFragment(InfoFragment fragment) {
 		System.out.println(fragment.toString());
-		// Replace whatever is in the fragment_container view with
-		// fragment, and add the transaction to the back stack so
-		// that the user can navigate back.
 		FragmentTransaction trans = getFragmentManager().beginTransaction();
-		//this id will be whatever it is in the XML
 		trans.replace(R.id.fragContainer, fragment);
 		trans.addToBackStack(null);
 		trans.commit();
