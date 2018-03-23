@@ -22,6 +22,13 @@
     <string name="gift">I Regalia</string>
     <string name="words">parole</string>
 
+    <string name="emotion">Emozione</string>
+    <string name="food">Cibo</string>
+    <string name="labor">Lavora</string>
+    <string name="money">I Soldi</string>
+    <string name="travel">Viaggio</string>
+    <string name="other">Altro</string>
+
     <string name="submit">Scottoscrivi</string>
 	<string name="map">Carta Geografica</string>
     <string name="see_kindness">See Kindness</string>
