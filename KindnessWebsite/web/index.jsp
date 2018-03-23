@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Jordan
-  Date: 2/24/2018
-  Time: 7:03 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,17 +5,13 @@
     <link rel="stylesheet" href="../../assets/css/index.css">
 </head>
 <body>
-<%--<form action="Login" method="post">--%>
-<%--Enter username: <input type="text" name="user"><br>--%>
-<%--Enter password: <input type="password" name="pass"><br>--%>
-<%--<input type="submit" value="login">--%>
-<%--</form>--%>
+
 <h1>Kindness Around the World</h1>
 
 <nav>
     <ul>
-        <li>Home</li>
-        <li>Map</li>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="map.jsp">Map</a></li>
     </ul>
 </nav>
 
@@ -59,7 +48,6 @@
 
 </div>
 
-
 <div class="android">
     <p>Get our Android App Here. (Coming Soon)</p>
 </div>
@@ -67,7 +55,6 @@
 <div class="calc">
     <p>Get our Universal Calculator <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.calc360">Here</a>.</p>
 </div>
-
 
 <p id="demo"></p>
 <script src="../../assets/js/index.js"></script>
