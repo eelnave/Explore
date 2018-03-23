@@ -32,7 +32,8 @@
 			android:id="@+id/pro"
 			style="@style/UnsignedDecimal"
 			android:ems="4"
-			android:hint="@string/productionHint">
+			android:hint="@string/productionHint"
+			android:maxLength="5">
 
 			<requestFocus/>
 		</EditText>
@@ -54,7 +55,8 @@
 			android:id="@+id/tri"
 			style="@style/UnsignedInteger"
 			android:ems="4"
-			android:hint="@string/numOfTrialsHint">
+			android:hint="@string/numOfTrialsHint"
+			android:maxLength="5">
 
 		</EditText>
 
@@ -76,7 +78,8 @@
 			style="@style/UnsignedInteger"
 			android:ems="4"
 			android:hint="@string/numOfDefectsHint"
-			android:imeOptions="actionDone">
+			android:imeOptions="actionDone"
+			android:maxLength="5">
 
 		</EditText>
 
