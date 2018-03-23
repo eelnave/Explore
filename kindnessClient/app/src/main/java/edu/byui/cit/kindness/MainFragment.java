@@ -33,26 +33,17 @@ public final class MainFragment extends InfoFragment {
 	}
 
 	private final class SeeListener implements View.OnClickListener {
-//		InfoFragment fragment;
-//		FragmentActivity mapFragment;
 		@Override
 		public void onClick(View view) {
 			try {
 				Intent goToMap = new Intent(getActivity(), KindnessMap.class);
 				getActivity().startActivity(goToMap);
-//				if (fragment == null || fragment.isDetached()) {
-//					fragment = KindnessMap.class.newInstance();
-//					//this is a random ID I gave it. Why does it need an ID? Beats me.
-//					fragment.setDescripID(1012);
-//				}
 
 			}
 			catch (Exception ex) {
 				Log.e(KindnessActivity.TAG,
-						"cannot instantiate KindnessMap fragment", ex);
+						"cannot instantiate KindnessMap ActivityFragment", ex);
 			}
-//			switchFragment(fragment);
-//			startActivity(mapFragment);
 		}
 	}
 
@@ -76,12 +67,7 @@ public final class MainFragment extends InfoFragment {
 	}
 
 	public void switchFragment(InfoFragment fragment) {
-		System.out.println(fragment.toString());
-		// Replace whatever is in the fragment_container view with
-		// fragment, and add the transaction to the back stack so
-		// that the user can navigate back.
 		FragmentTransaction trans = getFragmentManager().beginTransaction();
-		//this id will be whatever it is in the XML
 		trans.replace(R.id.fragContainer, fragment);
 		trans.addToBackStack(null);
 		trans.commit();

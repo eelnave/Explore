@@ -22,7 +22,6 @@ public class SubmitFragment extends InfoFragment {
 	private void addReports() {
 
 		double lat = 0, lon = 0;
-		//getApplicationContext();
 		GPSTracker gps = new GPSTracker(view.getContext());
 		Location loc = gps.getLocation();
 		if(loc != null){
