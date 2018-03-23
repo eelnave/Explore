@@ -22,7 +22,7 @@
 			android:textAlignment="center"
 			android:textAllCaps="false"
 			android:textAppearance="@style/TextAppearance.AppCompat"
-			android:textSize="36sp"
+			android:textSize="24sp"
 			android:textStyle="bold"
 			app:layout_constraintTop_toTopOf="parent"
 			tools:layout_editor_absoluteX="15dp"/>
@@ -44,17 +44,17 @@
 			android:textAlignment="center"
 			android:textAllCaps="false"
 			android:textAppearance="@style/TextAppearance.AppCompat"
-			android:textSize="36sp"
+			android:textSize="24sp"
 			android:textStyle="bold"
 			app:layout_constraintTop_toTopOf="parent"
 			tools:layout_editor_absoluteX="15dp"/>
 
-		<!--<ImageView-->
-			<!--android:id="@+id/tutorialimage2"-->
-			<!--android:layout_width="match_parent"-->
-			<!--android:layout_height="match_parent"-->
-			<!--android:adjustViewBounds="true"-->
-			<!--app:srcCompat="@drawable/tutorial2"/>-->
+		<ImageView
+			android:id="@+id/tutorialimage2"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:adjustViewBounds="true"
+			app:srcCompat="@drawable/tutorial2"/>
 
 		<TextView
 			android:id="@+id/textView6"
@@ -65,7 +65,7 @@
 			android:textAlignment="center"
 			android:textAllCaps="false"
 			android:textAppearance="@style/TextAppearance.AppCompat"
-			android:textSize="36sp"
+			android:textSize="24sp"
 			android:textStyle="bold"
 			app:layout_constraintTop_toTopOf="parent"
 			tools:layout_editor_absoluteX="15dp"/>
@@ -76,6 +76,13 @@
 			android:layout_height="match_parent"
 			android:adjustViewBounds="true"
 			app:srcCompat="@drawable/tutorial3"/>
+
+		<Button
+			android:id="@+id/toMainMenu"
+			style="@android:style/Widget.Button.Inset"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Get Started!"/>
 
 	</LinearLayout>
 </ScrollView>
