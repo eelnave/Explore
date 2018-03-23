@@ -15,7 +15,7 @@
 		android:layout_height="wrap_content"
 		android:adjustViewBounds="true"
 		android:contentDescription="@string/binomialDistribution"
-		android:src="@drawable/formula_bindis"/>
+		android:src="@drawable/binomial_probability_equation"/>
 
 	<LinearLayout
 		android:layout_width="wrap_content"

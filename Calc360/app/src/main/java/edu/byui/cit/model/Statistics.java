@@ -125,10 +125,10 @@ public final class Statistics {
 	public static double binDistProb(int n, int x, double p) {
 
 		double probability;
-		int numerator = 1;
-		int xDenominator = 1;
-		int nxDenominator = 1;
-		double denominator;
+		Long numerator = 1L;
+		Long xDenominator = 1L;
+		Long nxDenominator = 1L;
+		Long denominator;
 
 		for (int i = 1; i <= n; i++) {
 			numerator *= i;
@@ -144,9 +144,11 @@ public final class Statistics {
 
 		denominator = xDenominator * nxDenominator;
 
-		probability = numerator / denominator * Math.pow(p, x) *
-				Math.pow((1-p), (n-x));
+		double left = numerator / denominator;
+		double middle = Math.pow(p, x);
+		double right = Math.pow((1-p), (n-x));
 
+		probability = left * middle * right;
 
 		return probability;
 	}
