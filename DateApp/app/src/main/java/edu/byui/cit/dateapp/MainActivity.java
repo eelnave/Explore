@@ -26,5 +26,9 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    public void customOnClick (View v) {
+
+    }
+
     //TODO make text view
 }
