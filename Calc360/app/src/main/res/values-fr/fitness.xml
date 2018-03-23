@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="basketball">Basket-ball</string>
+	<string name="make">Faire</string>
+	<string name="miss">Miss</string>
+	<string name="freeThrow" translatable="false">FT</string>
+	<string name="threePoint" translatable="false">3PT</string>
+	<string name="fieldGoal" translatable="false">FG</string>
+	<string name="threePointPercent" translatable="false">3PT%</string>
+	<string name="fieldGoalPercent" translatable="false">FG%</string>
+	<string name="freeThrowPercent" translatable="false">FT%</string>
+
+	<string name="bodyMassIndex">IMC</string>
+	<string name="bmi">IMC</string>
+	<string name="category">Catégorie</string>
+	<integer-array name="bmiRanges" translatable="false">
+		<item>19</item>
+		<item>25</item>
+		<item>30</item>
+		<item>40</item>
+	</integer-array>
+	<string-array name="bmiCategories">
+		<item>low</item>
+		<item>normal</item>
+		<item>overweight</item>
+		<item>obese</item>
+		<item>extremely obese</item>
+	</string-array>
+
+	<string name="caloriesBurned">Calories brûlées</string>
+	<string name="walking">Marche</string>
+	<string name="running">En cours d’exécution</string>
+	<string name="cycling">Cyclisme </string>
+	<string name="swimming">Piscine</string>
+	<string name="dancing">Danse</string>
+	<string name="kickboxing">Kick-Boxing</string>
+	<string name="weightLift">Poids et haltères</string>
+	<string name="television">Regarder la télévision</string>
+	<string name="poundsBurned">3 500 calories équivaut à 1lb de graisse.</string>
+
+	<string name="calories">calories</string>
+	<string-array name="cbMassUnits" translatable="false">
+		<item>pound</item>
+		<item>kilogram</item>
+	</string-array>
+
+	<string name="Weight">Poids</string>
+	<string name="bodyWeight">Poids corporel</string>
+
+	<string name="age">Age</string>
+	<string name="birthDate">Date de naissance</string>
+</resources>

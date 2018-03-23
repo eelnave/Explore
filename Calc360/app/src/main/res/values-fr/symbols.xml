@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="bang" translatable="false">!</string>
+	<string name="quote" translatable="false">"</string>
+	<string name="hash" translatable="false">#</string>
+	<string name="dollar" translatable="false">$</string>
+	<string name="perc" translatable="false">%</string>
+	<string name="amp" translatable="false">&amp;</string>
+	<string name="apos" translatable="false">\'</string>
+	<string name="lparen" translatable="false">(</string>
+	<string name="rparen" translatable="false">)</string>
+	<string name="star" translatable="false">*</string>
+	<string name="plus" translatable="false">+</string>
+	<string name="comma" translatable="false">,</string>
+	<string name="dash" translatable="false">-</string>
+	<string name="dot" translatable="false">.</string>
+	<string name="slash" translatable="false">/</string>
+	<string name="colon" translatable="false">:</string>
+	<string name="semi" translatable="false">;</string>
+	<string name="lt" translatable="false">&lt;</string>
+	<string name="eq" translatable="false">=</string>
+	<string name="gt" translatable="false">&gt;</string>
+
+	<string name="lbrack" translatable="false">[</string>
+	<string name="whack" translatable="false">\</string>
+	<string name="rbrack" translatable="false">]</string>
+	<string name="caret" translatable="false">^</string>
+	<string name="under" translatable="false">_</string>
+	<string name="grave" translatable="false">`</string>
+	<string name="lcurly" translatable="false">{</string>
+	<string name="vbar" translatable="false">|</string>
+	<string name="rcurly" translatable="false">}</string>
+	<string name="tilde" translatable="false">~</string>
+
+	<string name="fiveFunc">Fonction de Cinq</string>
+	<string name="clearAll" translatable="false">C</string>
+	<string name="clearEntry" translatable="false">CE</string>
+	<string name="sqrt" translatable="false">\u221a</string>
+	<string name="neg" translatable="false">\u00b1</string>
+	<string name="mult" translatable="false">\u00d7</string>
+	<string name="div" translatable="false">\u00f7</string>
+	<string name="add" translatable="false">+</string>
+	<string name="subt" translatable="false">\u2212</string>
+	<string name="dec" translatable="false">.</string>
+	<string name="zero" translatable="false">0</string>
+	<string name="one" translatable="false">1</string>
+	<string name="two" translatable="false">2</string>
+	<string name="three" translatable="false">3</string>
+	<string name="four" translatable="false">4</string>
+	<string name="five" translatable="false">5</string>
+	<string name="six" translatable="false">6</string>
+	<string name="seven" translatable="false">7</string>
+	<string name="eight" translatable="false">8</string>
+	<string name="nine" translatable="false">9</string>
+
+	<string name="scientific">Scientifique</string>
+	<string name="options" translatable="false">opts</string>
+	<string name="shift" translatable="false">shift</string>
+	<string name="FSE" translatable="false">FSE</string>
+	<string name="DRG" translatable="false">DRG</string>
+	<string name="euler" translatable="false">e<sup><small>x</small></sup></string>
+	<string name="ln" translatable="false">ln</string>
+	<string name="tenx" translatable="false">10<sup><small>x</small></sup></string>
+	<string name="log" translatable="false">log</string>
+	<string name="archyp" translatable="false">hyp<sup><small>-1</small></sup></string>
+	<string name="hyp" translatable="false">hyp</string>
+	<string name="arcsin" translatable="false">sin<sup><small>-1</small></sup></string>
+	<string name="sin" translatable="false">sin</string>
+	<string name="arccos" translatable="false">cos<sup><small>-1</small></sup></string>
+	<string name="cos" translatable="false">cos</string>
+	<string name="arctan" translatable="false">tan<sup><small>-1</small></sup></string>
+	<string name="tan" translatable="false">tan</string>
+	<string name="mod" translatable="false">mod</string>
+	<string name="inv" translatable="false">1/x</string>
+	<string name="npow" translatable="false">x<sup><small>n</small></sup></string>
+	<string name="sq" translatable="false">x<sup><small>2</small></sup></string>
+	<string name="nroot" translatable="false"><sup><small>n</small></sup>\u221a</string>
+	<string name="drop" translatable="false">drop</string>
+	<string name="get" translatable="false">get</string>
+	<string name="swap" translatable="false">x\u21c4y</string>
+	<string name="clst" translatable="false">clear</string>
+	<string name="back" translatable="false">&lt;-</string>
+	<string name="enter" translatable="false">enter</string>
+
+	<string name="vswap" translatable="false">\u21f5</string>
+
+	<string name="collapsed" translatable="false">\u25b6</string>
+	<string name="expanded" translatable="false">\u25bc</string>
+	<string name="launch" translatable="false">\u003e</string>
+</resources>
