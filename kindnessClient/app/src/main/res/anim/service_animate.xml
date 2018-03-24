@@ -13,23 +13,23 @@
 		android:toYDelta="-5%p"
 		android:fromXDelta="0%p"
 		android:toXDelta="-8%p"
-		android:duration="100" />
+		android:duration="150" />
 	<translate
 		android:fromYDelta="0%p"
 		android:toYDelta="-5%p"
 		android:fromXDelta="0%p"
 		android:toXDelta="-12%p"
-		android:duration="200" />
-	<translate
-		android:fromYDelta="0%p"
-		android:toYDelta="-5%p"
-		android:fromXDelta="0%p"
-		android:toXDelta="8%p"
 		android:duration="300" />
 	<translate
 		android:fromYDelta="0%p"
 		android:toYDelta="-5%p"
 		android:fromXDelta="0%p"
+		android:toXDelta="8%p"
+		android:duration="450" />
+	<translate
+		android:fromYDelta="0%p"
+		android:toYDelta="-5%p"
+		android:fromXDelta="0%p"
 		android:toXDelta="12%p"
-		android:duration="400" />
+		android:duration="600" />
 </set>
