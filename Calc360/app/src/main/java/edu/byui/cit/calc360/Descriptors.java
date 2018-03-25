@@ -60,6 +60,7 @@ final class Descriptors {
 			}),
 			new GroupDescriptor(309, R.string.mathematics, R.drawable.folder_math, new CalcDescriptor[]{
 				new CalcDescriptor(1029, R.string.percent, R.drawable.percent, Percent.class),
+				new CalcDescriptor(1234, R.string.fraction, R.drawable.division, Fraction.class),
 				new CalcDescriptor(1030, R.string.ratio, R.drawable.golden_ratio, Ratio.class),
 				new CalcDescriptor(1024, R.string.quadratic, R.drawable.quadratic, Quadratic.class),
 				new CalcDescriptor(1028, R.string.modulo, R.drawable.division, Modulo.class),
