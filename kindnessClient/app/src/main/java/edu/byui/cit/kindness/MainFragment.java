@@ -4,7 +4,6 @@ package edu.byui.cit.kindness;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,8 +13,6 @@ import android.widget.Button;
 
 public final class MainFragment extends InfoFragment {
 	public static final String TAG = "Kindness";
-
-	private KindnessMap kindMap;
 	private InfoFragment about;
 
 
@@ -40,19 +37,11 @@ public final class MainFragment extends InfoFragment {
 			try {
 				Intent goToMap = new Intent(getActivity(), KindnessMap.class);
 				getActivity().startActivity(goToMap);
-//				if (fragment == null || fragment.isDetached()) {
-//					fragment = KindnessMap.class.newInstance();
-//					//this is a random ID I gave it. Why does it need an ID? Beats me.
-//					fragment.setDescripID(1012);
-//				}
-
 			}
 			catch (Exception ex) {
 				Log.e(KindnessActivity.TAG,
 						"cannot instantiate KindnessMap fragment", ex);
 			}
-//			switchFragment(fragment);
-//			startActivity(mapFragment);
 		}
 	}
 

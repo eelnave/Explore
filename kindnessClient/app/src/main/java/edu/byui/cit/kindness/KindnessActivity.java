@@ -11,8 +11,6 @@ import android.view.MenuItem;
 
 public final class KindnessActivity extends AppCompatActivity {
 	public static final String TAG = "Kindness";
-
-	private KindnessMap kindMap;
 	private InfoFragment about;
 
 	@Override
@@ -64,9 +62,6 @@ public final class KindnessActivity extends AppCompatActivity {
 				// Return true to indicate that this
 				// method handled the item selected event.
 				return true;
-			case R.id.kind_map:
-				startActivity(kindMap);
-				return true;
 		}
 
 		return super.onOptionsItemSelected(item);
@@ -83,8 +78,4 @@ public final class KindnessActivity extends AppCompatActivity {
 		trans.addToBackStack(null);
 		trans.commit();
 	}
-
-	private void startActivity(KindnessMap kindMap) {
-	}
-
 }
