@@ -10,6 +10,7 @@
 	<string name="food">Comida</string>
 	<string name="labor">Trabalho</string>
 	<string name="money">Dinhero</string>
+	<string name="map">Mapa</string>
 	<string name="travel">Viagem</string>
 	<string name="other">Outro</string>
 </resources>

@@ -1,61 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="contribsFall2017A" translatable="false">
-		Jose Abarca Suarez\n
-		Luiz Bezerra\n
-		Daz Buttars\n
-		Kyle Birch\n
-		Jossten Childs\n
-		Dalton Cole\n
-		Josch Eggers\n
-		Mathew Fackrell\n
-		Chris Hanna\n
-		Justin Ishino\n
-		Patti Jones\n
-		Trek McLachlan\n
-		Bryan McNeil\n
-	</string>
-	<string name="contribsFall2017B" translatable="false">
-		Jordan Murray\n
-		Tanner Nielsen\n
-		Steven Peterson\n
-		Samuel Prusse\n
-		Erika Rigby\n
-		Andrew Savage\n
-		Zachary Smith\n
-		Mac Soper\n
-		Jacob Strupp\n
-		Michael Vance\n
-		Yurii Vasiuk\n
-		Zachary Williams</string>
-
 	<string name="contribsWinter2018A" translatable="false">
 		Jordan Aquino Fernandez\n
-		Scott Croft\n
-		Trevor Cutler\n
 		Kristina Darroch\n
 		Christopher Evans\n
-		Victoria Fisher\n
 		Adam Follis\n
 		Justin Fullmer\n
 		Landon Furniss\n
 		Brian Humecky\n
 		Bradley Kubie\n
 		Tony Lee\n
-		Adam Loseee\n
-		Tyler Madsen\n
-		Hunter Nicholson\n
-		Cameron Osborn\n
-	</string>
-	<string name="contribsWinter2018B" translatable="false">
+		Adam Losee\n
 		Rachelle Pierson\n
 		Taylor Ray Posivio\n
-		Alex Raia\n
+		Alex Raia</string>
+	<string name="contribsWinter2018B" translatable="false">
 		Gavin Rook\n
 		Jaime Rosales-Lopez\n
 		Dustin Rowbury\n
-		Rob Shein\n
-		Joshua Sprague\n
+		Rob Schein\n
 		Brett Starks\n
 		Caliesha Stimpson\n
 		Ethan Strom\n
@@ -64,6 +27,5 @@
 		James Warner\n
 		Nicolas Williams\n
 		Zachary Wilson\n
-		James Worthen\n
-	</string>string>
+		James Worthen</string>
 </resources>

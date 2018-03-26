@@ -23,8 +23,15 @@
     <string name="words">Words</string>
     <string name="kindness_logo">KindnessLogo</string>
 
+    <string name="emotion">Emotion</string>
+    <string name="food">Food</string>
+    <string name="labor">Labor</string>
+    <string name="money">Money</string>
+    <string name="travel">Travel</string>
+    <string name="other">Other</string>
+
     <string name="submit">Submit</string>
 	<string name="map">Map</string>
-    <string name="see_kindness">See Kindness</string>
-    <string name="report_kindness">Report Kindness</string>
+    <string name="see_kindness">See\nKindness</string>
+    <string name="report_kindness">Report\nKindness</string>
 </resources>
