@@ -23,15 +23,14 @@
     <string name="words">Words</string>
     <string name="kindness_logo">KindnessLogo</string>
 
-    <string name="emotion">Emotion</string>
-    <string name="food">Food</string>
-    <string name="labor">Labor</string>
-    <string name="money">Money</string>
-    <string name="travel">Travel</string>
-    <string name="other">Other</string>
-
     <string name="submit">Submit</string>
 	<string name="map">Map</string>
+    <string name="instruction1">Tap \"See Kindness\" to view acts of kindness near you, or tap \"Report Kindness\" to add to the map.</string>
+    <string name="howto">How to Use</string>
+    <string name="see_kindness">See Kindness</string>
+    <string name="report_kindness">Report Kindness</string>
+    <string name="instruction2">Tap the icon that best reflects the kindness you would like to report.</string>
+    <string name="instruction3">Tap \"Submit\" to add your kindness to the map at your location.</string>
     <string name="see_kindness">See\nKindness</string>
     <string name="report_kindness">Report\nKindness</string>
 </resources>

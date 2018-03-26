@@ -15,8 +15,8 @@ import android.widget.Button;
 public final class MainFragment extends InfoFragment {
 	public static final String TAG = "Kindness";
 
-	private KindnessMap kindMap;
 	private InfoFragment about;
+	private InfoFragment howto;
 
 
 	@Override
