@@ -27,8 +27,6 @@
 	<string name="map">Map</string>
     <string name="instruction1">Tap \"See Kindness\" to view acts of kindness near you, or tap \"Report Kindness\" to add to the map.</string>
     <string name="howto">How to Use</string>
-    <string name="see_kindness">See Kindness</string>
-    <string name="report_kindness">Report Kindness</string>
     <string name="instruction2">Tap the icon that best reflects the kindness you would like to report.</string>
     <string name="instruction3">Tap \"Submit\" to add your kindness to the map at your location.</string>
     <string name="see_kindness">See\nKindness</string>
