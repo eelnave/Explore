@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Date App</string>
+
+    <string name="quick">Quick Start</string>
+    <string name="random">Random</string>
+    <string name="custom">Custom</string>
+    <string name="welcome">Welcome</string>
+
+    <string name="spring">Spring</string>
+    <string name="winter">Winter</string>
+    <string name="fall">Fall</string>
+    <string name="summer">Summer</string>
+    <string name="inside">Inside</string>
+    <string name="outside">Outside</string>
+    <string name="season">Season</string>
+    <string name="season2">Choose a season:</string>
+
+    <string name="venue">Venue</string>
+    <string name="price">Price</string>
+    <string name="moneyOne">$</string>
+    <string name="moneyTwo">$$</string>
+    <string name="moneyThree">$$$</string>
+
+</resources>
