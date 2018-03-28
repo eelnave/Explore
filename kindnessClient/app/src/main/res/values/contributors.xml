@@ -29,5 +29,41 @@
 		Yurii Vasiuk\n
 		Zachary Williams</string>
 
-	<string name="contribsWinter2018" translatable="false"></string>
+	<string name="contribsWinter2018A" translatable="false">
+		Jordan Aquino Fernandez\n
+		Scott Croft\n
+		Trevor Cutler\n
+		Kristina Darroch\n
+		Christopher Evans\n
+		Victoria Fisher\n
+		Adam Follis\n
+		Justin Fullmer\n
+		Landon Furniss\n
+		Brian Humecky\n
+		Bradley Kubie\n
+		Tony Lee\n
+		Adam Loseee\n
+		Tyler Madsen\n
+		Hunter Nicholson\n
+		Cameron Osborn\n
+	</string>
+	<string name="contribsWinter2018B" translatable="false">
+		Rachelle Pierson\n
+		Taylor Ray Posivio\n
+		Alex Raia\n
+		Gavin Rook\n
+		Jaime Rosales-Lopez\n
+		Dustin Rowbury\n
+		Rob Shein\n
+		Joshua Sprague\n
+		Brett Starks\n
+		Caliesha Stimpson\n
+		Ethan Strom\n
+		Mike Vance\n
+		Joseph Walker\n
+		James Warner\n
+		Nicolas Williams\n
+		Zachary Wilson\n
+		James Worthen\n
+	</string>string>
 </resources>
