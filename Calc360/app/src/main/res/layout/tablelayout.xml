@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<TextView
+			android:id="@+id/lblWeight"
+			style="@style/TextLabel"
+			android:layout_alignBaseline="@+id/decWeight"
+			android:layout_alignParentStart="true"
+			android:labelFor="@+id/decWeight"
+			android:text="@string/bodyWeight"/>
+
+		<EditText
+			android:id="@+id/decWeight"
+			style="@style/UnsignedDecimal"
+			android:layout_alignParentTop="true"
+			android:layout_toEndOf="@+id/lblWeight"
+			android:ems="5">
+
+			<requestFocus/>
+		</EditText>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_alignBaseline="@+id/intTime"
+			android:layout_alignParentStart="true"
+			android:labelFor="@+id/intTime"
+			android:text="@string/Time"/>
+
+		<EditText
+			android:id="@+id/intTime"
+			style="@style/UnsignedDecimal"
+			android:layout_alignEnd="@+id/decWeight"
+			android:layout_alignStart="@+id/decWeight"
+			android:layout_below="@+id/decWeight"
+			android:ems="5"
+			android:imeOptions="actionDone"/>
+
+		<TextView
+			android:id="@+id/Cwidth"
+			style="@style/TextLabel"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/decWeight"
+			android:layout_alignParentStart="true"
+			android:labelFor="@+id/decWeight"
+			android:text="@string/bodyWeight"/>
+
+		<EditText
+			android:id="@+id/Cwidth2"
+			style="@style/UnsignedDecimal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignEnd="@+id/decWeight"
+			android:layout_alignStart="@+id/decWeight"
+			android:layout_below="@+id/decWeight"
+			android:ems="5"
+			android:imeOptions="actionDone"/>
+
+		<RadioGroup
+			android:id="@+id/grpExercise"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/intTime"
+			android:layout_marginStart="80dp"
+			android:layout_marginTop="10dp"
+			android:checkedButton="@+id/radLift">
+
+			<RadioButton
+				android:id="@+id/radWalk"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/walking"/>
+
+			<RadioButton
+				android:id="@+id/radRun"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/running"/>
+
+			<RadioButton
+				android:id="@+id/radCycle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/cycling"/>
+
+		</RadioGroup>
+
+		<TextView
+			android:id="@+id/txtResult"
+			style="@style/TextLabel"
+			android:layout_below="@+id/grpExercise"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="10dp"/>
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/pounds"
+			android:layout_marginTop="10dp"
+			android:text="@string/clear"/>
+
+
+	</RelativeLayout>
+</ScrollView>
