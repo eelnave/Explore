@@ -9,35 +9,36 @@
 		android:layout_height="wrap_content">
 
 		<TextView
-			android:id="@+id/lblWeight"
+			android:id="@+id/chairnum"
 			style="@style/TextLabel"
-			android:layout_alignBaseline="@+id/decWeight"
+			android:layout_alignBaseline="@+id/chairnum2"
 			android:layout_alignParentStart="true"
 			android:labelFor="@+id/decWeight"
 			android:text="@string/bodyWeight"/>
 
 		<EditText
-			android:id="@+id/decWeight"
+			android:id="@+id/chairnum2"
 			style="@style/UnsignedDecimal"
 			android:layout_alignParentTop="true"
-			android:layout_toEndOf="@+id/lblWeight"
+			android:layout_toEndOf="@+id/chairnum"
 			android:ems="5">
 
 			<requestFocus/>
 		</EditText>
 
 		<TextView
-			style="@style/TextLabel"
-			android:layout_alignBaseline="@+id/intTime"
+			android:id="@+id/Clength"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/Clength2"
 			android:layout_alignParentStart="true"
 			android:labelFor="@+id/intTime"
 			android:text="@string/Time"/>
 
 		<EditText
-			android:id="@+id/intTime"
+			android:id="@+id/Clength2"
 			style="@style/UnsignedDecimal"
-			android:layout_alignEnd="@+id/decWeight"
-			android:layout_alignStart="@+id/decWeight"
+			android:layout_alignEnd="@+id/chairnum2"
+			android:layout_alignStart="@+id/chairnum2"
 			android:layout_below="@+id/decWeight"
 			android:ems="5"
 			android:imeOptions="actionDone"/>
@@ -47,7 +48,7 @@
 			style="@style/TextLabel"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignBaseline="@+id/decWeight"
+			android:layout_alignBaseline="@+id/chairnum"
 			android:layout_alignParentStart="true"
 			android:labelFor="@+id/decWeight"
 			android:text="@string/bodyWeight"/>
@@ -57,46 +58,46 @@
 			style="@style/UnsignedDecimal"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignEnd="@+id/decWeight"
-			android:layout_alignStart="@+id/decWeight"
+			android:layout_alignEnd="@+id/chairnum2"
+			android:layout_alignStart="@+id/chairnum2"
 			android:layout_below="@+id/decWeight"
 			android:ems="5"
 			android:imeOptions="actionDone"/>
 
 		<RadioGroup
-			android:id="@+id/grpExercise"
+			android:id="@+id/tableLayout"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_alignParentStart="true"
-			android:layout_below="@+id/intTime"
+			android:layout_below="@+id/Clength2"
 			android:layout_marginStart="80dp"
 			android:layout_marginTop="10dp"
 			android:checkedButton="@+id/radLift">
 
 			<RadioButton
-				android:id="@+id/radWalk"
+				android:id="@+id/Separate"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/walking"/>
+				android:text="@string/separate"/>
 
 			<RadioButton
-				android:id="@+id/radRun"
+				android:id="@+id/S2S"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/running"/>
+				android:text="@string/S2S"/>
 
 			<RadioButton
-				android:id="@+id/radCycle"
+				android:id="@+id/E2E"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/cycling"/>
+				android:text="@string/E2E"/>
 
 		</RadioGroup>
 
 		<TextView
 			android:id="@+id/txtResult"
 			style="@style/TextLabel"
-			android:layout_below="@+id/grpExercise"
+			android:layout_below="@+id/tableLayout"
 			android:layout_centerHorizontal="true"
 			android:layout_marginTop="10dp"/>
 
