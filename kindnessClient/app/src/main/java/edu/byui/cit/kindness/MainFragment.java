@@ -1,7 +1,9 @@
 package edu.byui.cit.kindness;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -16,10 +18,19 @@ public final class MainFragment extends InfoFragment {
 	private InfoFragment about;
 	private InfoFragment howto;
 
+	SharedPreferences firstTime;
+	SharedPreferences.Editor editor;
+	String firstTimeKey = "FirstTimeCheck";
+
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+
+		firstTime = getActivity().getPreferences(Context.MODE_PRIVATE);
+		editor = firstTime.edit();
+		firstTimeTest();
+
 		View view = inflater.inflate(R.layout.main, container, false);
 		Button seekindness = view.findViewById(R.id.see_kindness);
 		Button reportkindness = view.findViewById(R.id.report_kindness);
@@ -70,6 +81,38 @@ public final class MainFragment extends InfoFragment {
 		trans.addToBackStack(null);
 		trans.commit();
 	}
+
+	public void firstTimeTest() {
+		InfoFragment fragment = null;
+
+		if (firstTime.contains(firstTimeKey)) {
+			//if it is not the first time
+		}
+		// If first time
+		else{
+
+			try {
+				if (fragment == null || fragment.isDetached()) {
+					fragment = CategoryFragment.class.newInstance();
+					//this is a random ID I gave it. Why does it need an ID? Beats me.
+					fragment.setDescripID(1010);
+				}
+			}
+			catch (Exception ex) {
+				Log.e(KindnessActivity.TAG,
+						"cannot instantiate Categories fragment", ex);
+			}
+			switchFragment(fragment);
+
+			saveFirstTimeTest();
+		}
+	}
+
+	public void saveFirstTimeTest() {
+		editor.putFloat(firstTimeKey, 1);
+		editor.apply();
+	}
+
 }
 
 
