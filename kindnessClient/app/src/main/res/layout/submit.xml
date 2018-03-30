@@ -5,81 +5,86 @@
 	xmlns:android="http://schemas.android.com/apk/res/android">
 
 	<LinearLayout
-		android:layout_width="wrap_content"
+		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:paddingTop="25dp"
+		android:paddingBottom="25dp"
+		android:gravity="center"
 		android:orientation="horizontal">
 
 		<TextView
-			android:textSize="12pt"
-			android:paddingStart="5dp"
-			android:paddingEnd="5dp"
 			android:id="@+id/textView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/longitude"
+			android:textSize="12pt"
+			android:textStyle="bold"
 			android:labelFor="@+id/longitudeView"/>
 
 		<TextView
 			android:id="@+id/longitudeView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"
 			android:text="TextView"/>
 
 	</LinearLayout>
 
 	<LinearLayout
-		android:layout_width="wrap_content"
+		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:paddingBottom="25dp"
+		android:gravity="center"
 		android:orientation="horizontal">
 
 		<TextView
-			android:textSize="12pt"
-			android:paddingStart="5dp"
-			android:paddingEnd="5dp"
 			android:id="@+id/textView2"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/latitude"
+			android:textSize="12pt"
+			android:textStyle="bold"
 			android:labelFor="@+id/latitudeView"/>
 
 		<TextView
 			android:id="@+id/latitudeView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"
 			android:text="TextView"/>
 
 	</LinearLayout>
 
 	<LinearLayout
-		android:layout_width="wrap_content"
+		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:paddingBottom="25dp"
+		android:gravity="center"
 		android:orientation="horizontal">
 
 		<TextView
-			android:textSize="12pt"
-			android:paddingStart="5dp"
-			android:paddingEnd="5dp"
 			android:id="@+id/textView3"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="@string/category"
+			android:textSize="12pt"
+			android:textStyle="bold"
 			android:labelFor="@+id/categoryView"/>
 
 		<TextView
 			android:id="@+id/categoryView"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"
 			android:text="TextView"/>
 
 	</LinearLayout>
 
 	<Button
 		android:id="@+id/submitButton"
-		android:layout_width="match_parent"
+		android:layout_width="150dp"
 		android:layout_height="wrap_content"
-		android:text="@string/submit"/>
+		android:layout_gravity="center"
+		android:background="@drawable/round_button"
+		android:text="@string/submit"
+		android:textSize="12pt"
+		android:textStyle="bold"/>
 
 </LinearLayout>
