@@ -85,15 +85,11 @@ public final class MainFragment extends InfoFragment {
 	public void firstTimeTest() {
 		InfoFragment fragment = null;
 
-		if (firstTime.contains(firstTimeKey)) {
-			//if it is not the first time
-		}
-		// If first time
-		else{
-
+		if (!firstTime.contains(firstTimeKey)) {
+			//if first time
 			try {
 				if (fragment == null || fragment.isDetached()) {
-					fragment = CategoryFragment.class.newInstance();
+					fragment = HowTo.class.newInstance();
 					//this is a random ID I gave it. Why does it need an ID? Beats me.
 					fragment.setDescripID(1010);
 				}
@@ -105,11 +101,18 @@ public final class MainFragment extends InfoFragment {
 			switchFragment(fragment);
 
 			saveFirstTimeTest();
+
+			//clearFirstTime() //used to reset first time file for testing
 		}
 	}
 
 	public void saveFirstTimeTest() {
 		editor.putFloat(firstTimeKey, 1);
+		editor.apply();
+	}
+
+	public void clearFirstTime() {
+		editor.remove(firstTimeKey);
 		editor.apply();
 	}
 
