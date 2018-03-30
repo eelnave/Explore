@@ -78,19 +78,19 @@
 				android:id="@+id/Separate"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/separate"/>
+				<!--android:text="@string/Separate"/>-->
 
 			<RadioButton
 				android:id="@+id/S2S"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/S2S"/>
+				<!--android:text="@string/S2S"/>-->
 
 			<RadioButton
 				android:id="@+id/E2E"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/E2E"/>
+				<!--android:text="@string/E2E"/>-->
 
 		</RadioGroup>
 
