@@ -32,7 +32,7 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 		// Add a marker in Sydney and move the camera
 		LatLng sydney = new LatLng(-34, 151);
 		mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").icon(
-				BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
+				BitmapDescriptorFactory.fromResource(R.drawable.realicon)));
 		mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
 
 	}
