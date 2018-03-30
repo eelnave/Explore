@@ -4,14 +4,11 @@ package edu.byui.cit.dateapp;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 public class DaterCreator extends AppCompatActivity{
     public  static final String TAG = "DaterCreator";
 
-
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dater_creator);
@@ -19,9 +16,9 @@ public class DaterCreator extends AppCompatActivity{
 
         if(savedInstanceState == null) {
 
-            DaterFrag daterFrag = new DaterFrag();
+            MainMenu mainMenu = new MainMenu();
             FragmentTransaction trans = getFragmentManager().beginTransaction();
-            trans.add(R.id.fragContainer, daterFrag );
+            trans.add(R.id.fragContainer, mainMenu);
             trans.commit();
 
         }
