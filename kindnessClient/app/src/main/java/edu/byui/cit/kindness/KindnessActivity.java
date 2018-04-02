@@ -11,10 +11,7 @@ import android.view.MenuItem;
 
 public final class KindnessActivity extends AppCompatActivity {
 	public static final String TAG = "Kindness";
-
-	private KindnessMap kindMap;
 	private InfoFragment about;
-	private InfoFragment howto;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +24,7 @@ public final class KindnessActivity extends AppCompatActivity {
 		if (savedInstanceState == null) {
 			MainFragment mainFragment = new MainFragment();
 			FragmentTransaction trans = getFragmentManager().beginTransaction();
+			//this id will be whatever it is in the XML
 			trans.add(R.id.fragContainer, mainFragment);
 			trans.commit();
 		}
@@ -64,21 +62,6 @@ public final class KindnessActivity extends AppCompatActivity {
 				// Return true to indicate that this
 				// method handled the item selected event.
 				return true;
-			case R.id.howto:
-				if (howto == null || howto.isDetached()) {
-					howto = new HowTo();
-				}
-
-				// Replace whatever is in the fragment_container
-				// view with the HowTo fragment.
-				switchFragment(howto);
-
-				// Return true to indicate that this
-				// method handled the item selected event.
-				return true;
-			case R.id.kind_map:
-				startActivity(kindMap);
-				return true;
 		}
 
 		return super.onOptionsItemSelected(item);
@@ -86,13 +69,13 @@ public final class KindnessActivity extends AppCompatActivity {
 
 	public void switchFragment(InfoFragment fragment) {
 		System.out.println(fragment.toString());
+		// Replace whatever is in the fragment_container view with
+		// fragment, and add the transaction to the back stack so
+		// that the user can navigate back.
 		FragmentTransaction trans = getFragmentManager().beginTransaction();
+		//this id will be whatever it is in the XML
 		trans.replace(R.id.fragContainer, fragment);
 		trans.addToBackStack(null);
 		trans.commit();
 	}
-
-	private void startActivity(KindnessMap kindMap) {
-	}
-
 }

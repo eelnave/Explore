@@ -5,7 +5,7 @@
     <!-- When using ACCESS_COARSE_LOCATION you cannot use GPS_PROVIDER. You
      - must use NETWORK_PROVIDER instead. If you try to run a get location
      - method on the android emulator, IT WILL NOT WORK because the android
-     - emulator does not have a network. You need to test it on an real
+     - emulator does not have a network. You need to test it on a real
      - android phone that is connected to a network for testing to work. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
