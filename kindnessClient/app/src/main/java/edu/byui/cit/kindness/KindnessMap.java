@@ -10,6 +10,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -45,11 +46,12 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 			Toast.makeText(getApplicationContext(), "LAT: " + lat + " Lon: " + lon, Toast.LENGTH_LONG).show();
 		}
 
-		// Add a marker in Sydney and move the camera
-		LatLng rex = new LatLng(lat, lon);
-		mMap.addMarker(new MarkerOptions().position(rex));
-		CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(rex, 1);
+		LatLng current = new LatLng(lat, lon);
+		mMap.addMarker(new MarkerOptions().position(current).icon(
+				BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
+		CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(current, 1);
 		mMap.animateCamera(yourLocation);
+
 	}
 
 
