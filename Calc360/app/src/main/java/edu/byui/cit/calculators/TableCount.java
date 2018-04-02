@@ -33,10 +33,10 @@ public class TableCount extends CalcFragment{
 		chairCount = new EditInteger(view, R.id.chairCount, this);
 
 
-			tableLayout = view.findViewById(R.id.tableLayout);
-			new RadioWrapper(view, R.id.sideBySide, this);
-			new RadioWrapper(view, R.id.seperate, this);
-			new RadioWrapper(view, R.id.endToEnd, this);
+			tableLayout = view.findViewById(R.id.tablelayout);
+			new RadioWrapper(view, R.id.S2S, this);
+			new RadioWrapper(view, R.id.Separate, this);
+			new RadioWrapper(view, R.id.E2E, this);
 
 		txtResult = new TextWrapper(view, R.id.txtResult);
 
@@ -54,11 +54,11 @@ public class TableCount extends CalcFragment{
 			int width = tblWidth.getInt();
 			int count = chairCount.getInt();
 
-			if (layout = R.id.seperate) {
+			if (layout = R.id.Separate) {
 				int tableChairs = length * 2 + width * 2;
 				double tableCount = count / tableChairs;
 			}
-			else if (layout = R.id.sideBySide) {
+			else if (layout = R.id.S2S) {
 				int tableChair1 = length + (width * 2);
 				int tableChair2 = width * 2;
 
@@ -74,7 +74,7 @@ public class TableCount extends CalcFragment{
 					double tableCount = 1;
 				}
 			}
-			else if (layout = R.id.endToEnd) {
+			else if (layout = R.id.E2E) {
 				int tableChair1 = width + (length * 2);
 				int tableChair2 = length * 2;
 
