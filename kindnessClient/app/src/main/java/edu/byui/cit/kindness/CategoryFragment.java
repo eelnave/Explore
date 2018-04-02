@@ -2,6 +2,7 @@ package edu.byui.cit.kindness;
 
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ public class CategoryFragment extends InfoFragment {
 			try {
 				if (fragment == null || fragment.isDetached()) {
 					fragment = SubmitFragment.class.newInstance();
-					Bundle args =new Bundle();
+					Bundle args = new Bundle();
 					args.putInt("id",id);
 					fragment.setArguments(args);
 				}
@@ -41,6 +42,21 @@ public class CategoryFragment extends InfoFragment {
 			switchFragment(fragment);
 		}
 	}
+
+//	private final class SeeListener implements View.OnClickListener {
+//		@Override
+//		public void onClick(View view) {
+//			try {
+//				Intent goToMap = new Intent(getActivity(), KindnessMap.class);
+//				getActivity().startActivity(goToMap);
+//
+//			}
+//			catch (Exception ex) {
+//				Log.e(KindnessActivity.TAG,
+//						"cannot instantiate KindnessMap ActivityFragment", ex);
+//			}
+//		}
+//	}
 
 	public CategoryFragment() {
 		// Required empty public constructor
@@ -59,6 +75,8 @@ public class CategoryFragment extends InfoFragment {
 				false);
 
 		//Save buttons from view, add event listeners
+//		Button map = view.findViewById(R.id.logo);
+//			map.setOnClickListener(new SeeListener());
 		Button service = view.findViewById(R.id.service);
 			service.setOnClickListener(new categoryListener(R.id.service));
 			service.getBackground().setAlpha(100);
@@ -75,12 +93,14 @@ public class CategoryFragment extends InfoFragment {
 			gift.setOnClickListener(new categoryListener(R.id.gift));
 			gift.getBackground().setAlpha(100);
 
+//		Animation logoAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.category_map_enlarge);
 		Animation timeAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.time_animate);
 		Animation giftAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.gift_animate);
 		Animation serviceAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.service_animate);
 		Animation wordsAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.words_animate);
 		Animation touchAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.touch_animate);
 
+//		map.startAnimation(logoAnimate);
 		time.startAnimation(timeAnimate);
 		gift.startAnimation(giftAnimate);
 		service.startAnimation(serviceAnimate);

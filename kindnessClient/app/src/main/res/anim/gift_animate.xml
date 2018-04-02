@@ -34,10 +34,4 @@
 		android:fromXDelta="0%p"
 		android:toXDelta="-4%p"
 		android:duration="600" />
-	<!--<translate-->
-		<!--android:fromYDelta="0%p"-->
-		<!--android:toYDelta="-7%p"-->
-		<!--android:fromXDelta="0%p"-->
-		<!--android:toXDelta="-29%p"-->
-		<!--android:duration="400" />-->
 </set>

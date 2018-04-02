@@ -56,8 +56,8 @@ public class SubmitFragment extends InfoFragment {
 		submit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent goHome = new Intent(getActivity(), KindnessMap.class);
-				getActivity().startActivity(goHome);
+				Intent toMap = new Intent(getActivity(), KindnessMap.class);
+				getActivity().startActivity(toMap);
 			}
 		});
 
