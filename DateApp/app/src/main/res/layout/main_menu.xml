@@ -1,53 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/randomBtn"
-        android:layout_width="101dp"
-        android:layout_height="101dp"
-        android:layout_marginTop="56dp"
-        android:background="@drawable/button_round"
-        android:text="Random"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-
-    <Button
-        android:id="@+id/filterBtn"
-        android:layout_width="101dp"
-        android:layout_height="101dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/button_round"
-        android:text="Filter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/addBtn"
-        app:layout_constraintHorizontal_bias="0.261"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/randomBtn"
-        app:layout_constraintVertical_bias="0.149" />
-
-    <Button
-        android:id="@+id/addBtn"
-        android:layout_width="101dp"
-        android:layout_height="101dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/button_round"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/randomBtn"
-        app:layout_constraintVertical_bias="0.149" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/watercolor" />
 
     <SearchView
         android:id="@+id/searchView"
@@ -65,11 +27,12 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:layout_marginTop="52dp"
         android:text="Main Menu"
+        android:textColor="#F8F8F7"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -78,6 +41,78 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/searchView" />
 
+    <Button
+        android:id="@+id/dateBtn"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="152dp"
+        android:drawableTop="@drawable/view2"
+        android:gravity="center|bottom"
+        android:paddingBottom="18dp"
+        android:paddingTop="24dp"
+        android:text="Dates"
+        android:textSize="13sp"
+        app:layout_constraintStart_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        tools:layout_editor_absoluteX="49dp" />
+
+    <Button
+        android:id="@+id/randomBtn"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="152dp"
+        android:drawableTop="@drawable/random2"
+        android:gravity="center|bottom"
+        android:paddingBottom="18dp"
+        android:paddingTop="30dp"
+        android:text="Random"
+        android:textSize="13sp"
+        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+
+    <Button
+        android:id="@+id/filterBtn"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="28dp"
+        android:drawableTop="@drawable/filter1"
+        android:gravity="center|bottom"
+        android:paddingBottom="18dp"
+        android:paddingTop="22dp"
+        android:text="Filter"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/addBtn"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/randomBtn"
+        app:layout_constraintVertical_bias="0.162" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="28dp"
+        android:drawableTop="@drawable/plus2"
+        android:gravity="center|bottom"
+        android:paddingBottom="18dp"
+        android:paddingTop="30dp"
+        android:text="Add a Date"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/randomBtn"
+        app:layout_constraintVertical_bias="0.162" />
 
 
 </android.support.constraint.ConstraintLayout>
