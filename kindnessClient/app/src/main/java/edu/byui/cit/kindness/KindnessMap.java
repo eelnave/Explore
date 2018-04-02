@@ -46,10 +46,10 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 			Toast.makeText(getApplicationContext(), "LAT: " + lat + " Lon: " + lon, Toast.LENGTH_LONG).show();
 		}
 
-		LatLng rex = new LatLng(lat, lon);
-		mMap.addMarker(new MarkerOptions().position(rex).icon(
-				BitmapDescriptorFactory.fromResource(R.drawable.realicon)));
-		CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(rex, 1);
+		LatLng current = new LatLng(lat, lon);
+		mMap.addMarker(new MarkerOptions().position(current).icon(
+				BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
+		CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(current, 1);
 		mMap.animateCamera(yourLocation);
 
 	}
