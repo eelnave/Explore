@@ -105,6 +105,12 @@
 
 
 	<!-- Styles for TextViews -->
+	<style name="Contributors" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textSize">14sp</item>
+	</style>
+
 	<style name="TextLabel" parent="@android:style/TextAppearance.Material.Medium">
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
@@ -204,7 +210,6 @@
 	<style name="CorrelMultiLine" parent="@android:style/TextAppearance.Material.Medium">
 		<item name="android:layout_width">0dp</item>
 		<item name="android:layout_height">0dp</item>
-		<item name="android:allowUndo" tools:targetApi="23">true</item>
 		<item name="android:background">@drawable/multi_line_edit_text</item>
 		<item name="android:digits">01234567890.,-\n</item>
 		<item name="android:gravity">top|end</item>

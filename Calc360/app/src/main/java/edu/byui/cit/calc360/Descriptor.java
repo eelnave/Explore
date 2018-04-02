@@ -5,7 +5,10 @@ import android.content.res.Resources;
 import java.util.Comparator;
 
 
-/** A Descriptor is either a CalcDescriptor or a GroupDescriptor of Descriptors. */
+/**
+ * A Descriptor is either a CalcDescriptor or a GroupDescriptor and stores
+ * information about a calculator or a group (folder) of calculators.
+ */
 abstract class Descriptor {
 	private final int id, titleID, iconID;
 	private final Class<? extends InfoFragment> calcClass;

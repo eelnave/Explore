@@ -139,8 +139,4 @@ abstract class SpinWrapper extends InputWrapper
 		nextIsProgrammatic();
 		spinner.setSelection(index);
 	}
-
-	@Override
-	public void clear() {
-	}
 }

@@ -41,7 +41,7 @@ public class LaborCost extends CalcFragment {
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+			Bundle savedInstState) {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.labor_cost, container, false);
 
@@ -86,10 +86,8 @@ public class LaborCost extends CalcFragment {
 		curSalary.save(editor);
 	}
 
-
 	@Override
 	protected void compute() {
-		clearOutput();
 		if (curPrice.hasUserInput()) {
 			double price = curPrice.getCur();
 
@@ -111,6 +109,15 @@ public class LaborCost extends CalcFragment {
 				double total = price + salesTaxAmt;
 				laborCost(total);
 			}
+			else {
+				txtOutput.clear();
+			}
+		}
+		else {
+			if (!curSalesTaxAmt.hasUserInput()) {
+				curSalesTaxAmt.clear();
+			}
+			txtOutput.clear();
 		}
 	}
 

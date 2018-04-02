@@ -1,6 +1,6 @@
 package edu.byui.cit.calc360;
 
-/** A GroupDescriptor contains Descriptors */
+/** A GroupDescriptor contains Descriptors. */
 final class GroupDescriptor extends Descriptor {
 	private final Descriptor[] children;
 

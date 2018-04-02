@@ -16,8 +16,7 @@
 	<string name="currencyCredit">The currency exchange rates are courtesy of the European Central Bank.</string>
 
 	<!-- Calculator Categories -->
-	<string name="art">Art</string>
-	<string name="basic">Basic</string>
+	<string name="art">Art &amp; Music</string>
 	<string name="computing">Computing</string>
 	<string name="cooking">Cooking</string>
 	<string name="data">Data</string>
@@ -41,4 +40,11 @@
 	<string name="clear">Clear</string>
 
 	<string name="unitConvert">Unit Conversion</string>
+	<string name="Female">Female</string>
+	<string name="Male">Male</string>
+	<string name="Calories">Calories</string>
+	<string name="bmr">BMR</string>
+	<string name="inches">inches</string>
+	<string name="pounds">pounds</string>
+	<string name="years">years</string>
 </resources>

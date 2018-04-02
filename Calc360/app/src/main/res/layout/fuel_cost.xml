@@ -15,8 +15,8 @@
 		android:id="@+id/decDist"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:nextFocusDown="@+id/decEffic"
-		android:nextFocusForward="@+id/decEffic">
+		android:nextFocusDown="@+id/decEcon"
+		android:nextFocusForward="@+id/decEcon">
 
 		<requestFocus/>
 	</EditText>
@@ -29,11 +29,11 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/decEffic"
+		android:labelFor="@+id/decEcon"
 		android:text="@string/vehicleEfficiency"/>
 
 	<EditText
-		android:id="@+id/decEffic"
+		android:id="@+id/decEcon"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
 		android:nextFocusDown="@+id/curPrice"
@@ -41,7 +41,7 @@
 		android:nextFocusUp="@id/decDist"/>
 
 	<Spinner
-		android:id="@+id/spinEfficUnits"
+		android:id="@+id/spinEconUnits"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		compat:layout_columnSpan="2"/>
@@ -56,7 +56,7 @@
 		style="@style/UnsignedDecimal"
 		android:ems="5"
 		android:imeOptions="actionDone"
-		android:nextFocusUp="@id/decEffic"/>
+		android:nextFocusUp="@id/decEcon"/>
 
 	<TextView
 		style="@style/TextLabel"

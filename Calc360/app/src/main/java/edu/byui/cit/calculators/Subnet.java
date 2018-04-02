@@ -5,15 +5,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.NumberFormat;
+
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
+import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditInteger;
+import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
 public class Subnet extends CalcFragment {
-	private EditInteger ip1;
-	private TextWrapper availableHosts, maskText;
+	private EditInteger ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8;
+	private EditWrapper[] inputs;
+	private TextWrapper availableHosts, numberOfSubnets;
+	private final NumberFormat fmtrInt;
+
+	public Subnet() {
+		// Call the constructor in the parent class.
+		super();
+
+		fmtrInt = NumberFormat.getInstance();
+	}
 
 
 	@Override
@@ -23,9 +36,21 @@ public class Subnet extends CalcFragment {
 		View view = inflater.inflate(R.layout.subnet, container, false);
 
 		ip1 = new EditInteger(view, R.id.ipValue1, this);
+		ip2 = new EditInteger(view, R.id.ipValue2, this);
+		ip3 = new EditInteger(view, R.id.ipValue3, this);
+		ip4 = new EditInteger(view, R.id.ipValue4, this);
+		ip5 = new EditInteger(view, R.id.ipValue5, this);
+		ip6 = new EditInteger(view, R.id.ipValue6, this);
+		ip7 = new EditInteger(view, R.id.ipValue7, this);
+		ip8 = new EditInteger(view, R.id.ipValue8, this);
 
-		maskText = new TextWrapper(view, R.id.maskText);
+		numberOfSubnets = new TextWrapper(view, R.id.numberOfSubnets);
 		availableHosts = new TextWrapper(view, R.id.availableHosts);
+
+		inputs = new EditWrapper[]{ ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
+		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8,
+				availableHosts, numberOfSubnets };
+		initialize(view, inputs, R.id.btnClear, toClear);
 
 		return view;
 	}
@@ -42,7 +67,7 @@ public class Subnet extends CalcFragment {
 	// }
 
 
-	@Override
+	/*@Override
 	protected void compute() {
 		int cc = ip1.getInt();
 		String mask = null;
@@ -60,8 +85,136 @@ public class Subnet extends CalcFragment {
 				mask = "255.255.255.0";
 				ipHosts = 254;
 			}
+		}*/
+
+	@Override
+	protected void compute() {
+		if (EditWrapper.allNotEmpty(inputs)) {
+			//	int input1 = ip1.getInt();  Planning on doing more later
+			//	int input2 = ip2.getInt();  Planning on doing more later
+			//	int input3 = ip3.getInt();  Planning on doing more later
+			//	int input4 = ip4.getInt();  Planning on doing more later
+			int input5 = ip5.getInt();
+			int input6 = ip6.getInt();
+			int input7 = ip7.getInt();
+			int input8 = ip8.getInt();
+			int sub = 0;
+			int zero = 0;
+
+			if (input5 == 255) {
+				if (input6 == 255) {
+					if (input7 == 255) {
+						if (input8 == 255) {
+							sub = 0;
+							zero = 0;
+						}
+						else {
+							if (input8 == 0) {
+								zero = 254;
+								sub = 1;
+							}
+							else if (input8 == 128) {
+								zero = 126;
+								sub = 2;
+							}
+							else if (input8 == 192) {
+								zero = 62;
+								sub = 4;
+							}
+							else if (input8 == 224) {
+								zero = 30;
+								sub = 8;
+							}
+							else if (input8 == 240) {
+								zero = 14;
+								sub = 16;
+							}
+							else if (input8 == 248) {
+								zero = 6;
+								sub = 32;
+							}
+							else if (input8 == 252) {
+								zero = 2;
+								sub = 64;
+							}
+						}
+					}
+					else {
+						if (input7 == 0) {
+							zero = 65534;
+							sub = 1;
+						}
+						else if (input7 == 128) {
+							zero = 32766;
+							sub = 2;
+						}
+						else if (input7 == 192) {
+							zero = 16382;
+							sub = 4;
+						}
+						else if (input7 == 224) {
+							zero = 8190;
+							sub = 8;
+						}
+						else if (input7 == 240) {
+							zero = 4094;
+							sub = 16;
+						}
+						else if (input7 == 248) {
+							zero = 2046;
+							sub = 32;
+						}
+						else if (input7 == 252) {
+							zero = 1022;
+							sub = 64;
+						}
+						else if (input7 == 254) {
+							zero = 510;
+							sub = 128;
+						}
+					}
+				}
+				else {
+					if (input6 == 0) {
+						zero = 16777214;
+						sub = 1;
+					}
+					else if (input6 == 128) {
+						zero = 8388606;
+						sub = 2;
+					}
+					else if (input6 == 192) {
+						zero = 4194302;
+						sub = 4;
+					}
+					else if (input6 == 224) {
+						zero = 2097150;
+						sub = 8;
+					}
+					else if (input6 == 240) {
+						zero = 1048574;
+						sub = 16;
+					}
+					else if (input6 == 248) {
+						zero = 524286;
+						sub = 32;
+					}
+					else if (input6 == 252) {
+						zero = 262142;
+						sub = 64;
+					}
+					else if (input6 == 254) {
+						zero = 131070;
+						sub = 128;
+					}
+				}
+			}
+			numberOfSubnets.setText(fmtrInt.format(sub));
+			availableHosts.setText(fmtrInt.format(zero));
 		}
-		maskText.setText(mask);
-		availableHosts.setText(String.valueOf(ipHosts));
+		else {
+			availableHosts.clear();
+			numberOfSubnets.clear();
+		}
 	}
 }

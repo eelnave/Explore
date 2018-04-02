@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	compat:columnCount="6">
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/oneX"
+		android:text="@string/coordinate1"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:text="@string/lparen"/>
+
+	<EditText
+		android:id="@+id/oneX"
+		style="@style/SignedDecimal"
+		android:ems="5"
+		android:hint="@string/X">
+
+		<requestFocus/>
+	</EditText>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/oneY"
+		android:text="@string/comma"/>
+
+	<EditText
+		android:id="@+id/oneY"
+		style="@style/SignedDecimal"
+		android:ems="5"
+		android:hint="@string/Y"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/rparen"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/twoX"
+		android:text="@string/coordinate2"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:text="@string/lparen"/>
+
+	<EditText
+		android:id="@+id/twoX"
+		style="@style/SignedDecimal"
+		android:ems="5"
+		android:hint="@string/X"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/twoY"
+		android:text="@string/comma"/>
+
+	<EditText
+		android:id="@+id/twoY"
+		style="@style/SignedDecimal"
+		android:ems="5"
+		android:hint="@string/Y"
+		android:imeOptions="actionDone"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/rparen"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/Distance"/>
+
+	<TextView
+		android:id="@+id/decDist"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"
+		compat:layout_columnSpan="3"/>
+
+	<Space compat:layout_columnSpan="2"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="6"/>
+</android.support.v7.widget.GridLayout>

@@ -6,7 +6,11 @@ import edu.byui.cit.calculators.*;
 
 
 final class Descriptors {
-	/** The hierarchy of group and calculator descriptors. */
+	/**
+	 * The hierarchy of group and calculator descriptors. Each groupID and
+	 * calcID must be unique. groupID's begin at 300 and calcID's begin at
+	 * 1000.
+	 */
 	private static final GroupDescriptor hierarchy =
 		new GroupDescriptor(0, R.string.appName, R.mipmap.calc360, new Descriptor[]{
 			new GroupDescriptor(307, R.string.shopping, R.drawable.folder_shopping, new CalcDescriptor[]{
@@ -15,14 +19,18 @@ final class Descriptors {
 				new CalcDescriptor(1001, R.string.cmpPrices, R.drawable.balance, ComparePrices.class),
 			}),
 			new GroupDescriptor(308, R.string.sports, R.drawable.folder_sports, new CalcDescriptor[]{
+				//new CalcDescriptor(9999, R.drawable.BMR, BasalMetabolicRate.class),
 				new CalcDescriptor(1011, R.string.basketball, R.drawable.basketball, Basketball.class),
 				new CalcDescriptor(1012, R.string.bodyMassIndex, R.drawable.body_mass_index, BodyMassIndex.class),
 				new CalcDescriptor(1020, R.string.caloriesBurned, R.drawable.flame, CaloriesBurned.class),
+				new CalcDescriptor(1062, R.string.age, R.drawable.birthday_cake, Age.class),
+					new CalcDescriptor(1067, R.string.basalMetabolicRate,R.drawable.lightning,BasalMetabolicRate.class),
 			}),
 			new GroupDescriptor(302, R.string.travel, R.drawable.folder_travel, new CalcDescriptor[]{
-				new CalcDescriptor(1003, R.string.FuelEffic, R.drawable.fuel_gauge, FuelEfficiency.class),
+				new CalcDescriptor(1003, R.string.FuelEconomy, R.drawable.fuel_gauge, FuelEconomy.class),
 				new CalcDescriptor(1031, R.string.fuelCost, R.drawable.fuel_cost, FuelCost.class),
 				new CalcDescriptor(1026, R.string.foreignFuel, R.drawable.fuel_pump, ForeignFuel.class),
+				new CalcDescriptor(1066, R.string.travelTime, R.drawable.travel_time, TravelTime.class),
 				new CalcDescriptor(1036, R.string.currencyExch, R.drawable.currency_exchange, CurrencyExchange.class),
 				new CalcDescriptor(1002, R.string.tip, R.drawable.tip, Tip.class),
 			}),
@@ -30,7 +38,10 @@ final class Descriptors {
 				new CalcDescriptor(1013, R.string.compoundInterest, R.drawable.compound_interest, CompoundInterest.class),
 				new CalcDescriptor(1004, R.string.invest, R.drawable.investment, Investment.class),
 				new CalcDescriptor(1005, R.string.loan, R.drawable.loan, Loan.class),
+				new CalcDescriptor(1016, R.string.roi, R.drawable.roi, ReturnOnInvestment.class),
 				new CalcDescriptor(1022, R.string.laborCost, R.drawable.labor_cost, LaborCost.class),
+				new CalcDescriptor(1018, R.string.tithing, R.drawable.coins, Tithing.class),
+				new CalcDescriptor(1066, R.string.stream, R.drawable.netflix, StreamingCost.class),
 			}),
 			new GroupDescriptor(311,R.string.cooking, R.drawable.folder_cooking, new CalcDescriptor[]{
 				new CalcDescriptor(1052, R.string.recipeMult, R.drawable.recipe_book, RecipeMultiplier.class),
@@ -54,6 +65,7 @@ final class Descriptors {
 				new CalcDescriptor(1030, R.string.ratio, R.drawable.golden_ratio, Ratio.class),
 				new CalcDescriptor(1024, R.string.quadratic, R.drawable.quadratic, Quadratic.class),
 				new CalcDescriptor(1028, R.string.modulo, R.drawable.division, Modulo.class),
+				new CalcDescriptor(1064, R.string.pointsDist, R.drawable.points_dist, DistanceBetweenPoints.class),
 				new CalcDescriptor(1023, R.string.rightTriangle, R.drawable.right_triangle, RightTriangle.class),
 				new CalcDescriptor(1050, R.string.triangle, R.drawable.triangle, Triangle.class),
 				new CalcDescriptor(1042, R.string.rectangle, R.drawable.rectangle, Rectangle.class),
@@ -68,7 +80,7 @@ final class Descriptors {
 				 */
 			}),
 			/*
-			new GroupDescriptor(312, "Geometry", R.drawable.geometryfolder, new CalcDescriptor[] {
+			new GroupDescriptor(?, "Geometry", R.drawable.geometryfolder, new CalcDescriptor[] {
 				new CalcDescriptor(?, "Points", R.drawable.points, Points.class),
 				new CalcDescriptor(?, "Circle", R.drawable.circle, Circle.class),
 				new CalcDescriptor(?, "Ellipse", R.drawable.ellipse, Ellipse.class),
@@ -81,6 +93,10 @@ final class Descriptors {
 				new CalcDescriptor(1009, R.string.meanEtc, R.drawable.mean_etc, MeanEtc.class),
 				new CalcDescriptor(1010, R.string.correl, R.drawable.correlation, Correlation.class),
 			}),
+			new GroupDescriptor(312, R.string.computing, R.drawable.folder_computing, new CalcDescriptor[]{
+				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
+				new CalcDescriptor(1047, R.string.subnet, R.drawable.network, Subnet.class),
+			}),
 			new GroupDescriptor(304, R.string.science, R.drawable.folder_science, new CalcDescriptor[]{
 				new CalcDescriptor(1040, R.string.NewtonsSecond, R.drawable.motion, NewtonsSecond.class),
 				new CalcDescriptor(1043, R.string.pendulum, R.drawable.pendulum, Pendulum.class),
@@ -91,15 +107,15 @@ final class Descriptors {
 				new CalcDescriptor(1027, R.string.idealGas, R.drawable.ideal_gas, IdealGas.class),
 				new CalcDescriptor(1045, R.string.gasEnergy, R.drawable.gas_energy, GasEnergy.class),
 				new CalcDescriptor(1038, R.string.gasVelocity, R.drawable.gas_velocity, GasVelocity.class),
-				new CalcDescriptor(1049, R.string.relativity, R.drawable.einstein, Relativity.class),
+				new CalcDescriptor(1059, R.string.relativity, R.drawable.einstein, Relativity.class),
 			}),
 			new GroupDescriptor(313, R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
-				new CalcDescriptor(1059, R.string.starExposure, R.drawable.star_exposure, StarExposure.class),
+				new CalcDescriptor(1065, R.string.videoStorage, R.drawable.film, VideoStorage.class),
+				new CalcDescriptor(1061, R.string.starExposure, R.drawable.star_exposure, StarExposure.class),
+				new CalcDescriptor(1060, R.string.musicDuration, R.drawable.music_notes, MusicDuration.class),
 			}),
 			new GroupDescriptor(310, R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
 				new CalcDescriptor(1032, R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),
-				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
-				new CalcDescriptor(1047, R.string.subnet, R.drawable.binary2, Subnet.class),
 				new CalcDescriptor(1021, R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
 			}),
 		});

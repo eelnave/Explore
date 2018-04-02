@@ -34,7 +34,7 @@ public abstract class InfoFragment extends Fragment {
 	public void onCreate(Bundle savedInstState) {
 		super.onCreate(savedInstState);
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onCreate(" +
-// (savedInstState == null ? "null" : savedInstState.size()) + ")");
+//			(savedInstState == null ? "null" : savedInstState.size()) + ")");
 		if (savedInstState != null) {
 			setDescripID(savedInstState.getInt(descripIDKey));
 		}
@@ -45,13 +45,15 @@ public abstract class InfoFragment extends Fragment {
 			Bundle savedInstState) {
 		super.onCreateView(inflater, container, savedInstState);
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onCreateView(" +
-// (savedInstState == null ? "null" : savedInstState.size()) + ")");
+//			(savedInstState == null ? "null" : savedInstState.size()) + ")");
 		View view;
 		try {
 			view = createView(inflater, container, savedInstState);
-			Activity act = getActivity();
-			SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
-			restorePrefs(prefs);
+			if (savedInstState == null) {
+				SharedPreferences prefs = getActivity()
+						.getPreferences(Context.MODE_PRIVATE);
+				restorePrefs(prefs);
+			}
 		}
 		catch (Exception ex) {
 			Log.e(Calc360.TAG, "exception", ex);
@@ -93,11 +95,24 @@ public abstract class InfoFragment extends Fragment {
 		try {
 			Activity act = getActivity();
 			act.setTitle(descriptor.getTitle(getResources()));
+
+			InputMethodManager imm = (InputMethodManager)act
+					.getSystemService(Context.INPUT_METHOD_SERVICE);
 			View focused = act.getCurrentFocus();
-			if (focused instanceof EditText) {
-				InputMethodManager imm = (InputMethodManager)act
-						.getSystemService(Context.INPUT_METHOD_SERVICE);
-				imm.showSoftInput(focused, InputMethodManager.SHOW_IMPLICIT);
+			if (focused == null) {
+				View view = act.findViewById(android.R.id.content);
+				imm.hideSoftInputFromWindow(view.getWindowToken(),
+						InputMethodManager.HIDE_NOT_ALWAYS);
+			}
+			else {
+				if (focused instanceof EditText) {
+					imm.showSoftInput(focused,
+							InputMethodManager.SHOW_IMPLICIT);
+				}
+				else {
+					imm.hideSoftInputFromWindow(focused.getWindowToken(),
+							InputMethodManager.HIDE_NOT_ALWAYS);
+				}
 			}
 		}
 		catch (Exception ex) {
@@ -115,10 +130,14 @@ public abstract class InfoFragment extends Fragment {
 	@Override
 	public void onSaveInstanceState(@NotNull Bundle savedInstState) {
 		super.onSaveInstanceState(savedInstState);
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onSaveInstanceState
-// (" + savedInstState.size() + ")");
+//		Log.v(Calc360.TAG, getClass().getSimpleName() +
+//				".onSaveInstanceState(" + savedInstState.size() + ")");
 		savedInstState.putInt(descripIDKey, descriptor.getID());
 	}
+
+//	void logBundle(Bundle savedInstState) {
+//		Log.v(Calc360.TAG, savedInstState == null ? "null" : savedInstState.toString());
+//	}
 
 
 	// When this calculator is stopped by the Android system, save

@@ -37,7 +37,7 @@
 	<string name="tip">Tip</string>
 	<string name="costBeforeTax">Cost before Tax</string>
 	<string name="taxAmt">Tax Amount</string>
-	<string name="standardTip" translatable="false">15</string>
+	<integer name="standardTip" translatable="false">15</integer>
 
 	<string name="usa">USA</string>
 	<string name="euro">Europe</string>

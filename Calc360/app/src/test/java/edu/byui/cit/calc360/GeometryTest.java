@@ -16,24 +16,6 @@ public final class GeometryTest {
 	}
 
 	@Test
-	public void testQuadratic() {
-		assertEquals(-3, Quadratic.discrim(1, 1, 1), delta);
-		assertEquals(-12, Quadratic.discrim(2, 2, 2), delta);
-		assertEquals(-27, Quadratic.discrim(3, 3, 3), delta);
-		assertEquals(0, Quadratic.discrim(0, 0, 0), delta);
-		assertEquals(0, Quadratic.discrim(1, 2, 1), delta);
-		assertEquals(4, Quadratic.discrim(3, 4, 1), delta);
-		assertEquals(9, Quadratic.discrim(1, 5, 4), delta);
-
-		assertEquals(-1, Quadratic.root1(3, 4, 4), delta);
-		assertEquals(-4, Quadratic.root1(1, 5, 9), delta);
-
-		assertEquals(-1, Quadratic.root2(1, 2, 0), delta);
-		assertEquals(-1.0 / 3, Quadratic.root2(3, 4, 4), delta);
-		assertEquals(-1, Quadratic.root2(1, 5, 9), delta);
-	}
-
-	@Test
 	public void testPoint2D() {
 		Point2D p1 = new Point2D(1, 2);
 		Point2D mid = new Point2D(2, 3);
