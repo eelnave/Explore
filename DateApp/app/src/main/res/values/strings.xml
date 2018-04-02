@@ -21,4 +21,10 @@
     <string name="moneyTwo">$$</string>
     <string name="moneyThree">$$$</string>
 
+    <string name="MainMenu">Main Menu</string>
+    <string name="dates">Dates</string>
+    <string name="filter">Filter</string>
+    <string name="add">Add a Date</string>
+    <string name="imageAttribute">Watercolors Background</string>
+
 </resources>
