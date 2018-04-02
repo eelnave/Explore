@@ -48,6 +48,9 @@
 
 </div>
 
+<p id="demo"></p>
+<script src="../../assets/js/index.js"></script>
+
 <div class="android">
     <p>Get our Android App Here. (Coming Soon)</p>
 </div>
@@ -56,7 +59,19 @@
     <p>Get our Universal Calculator <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.calc360">Here</a>.</p>
 </div>
 
-<p id="demo"></p>
-<script src="../../assets/js/index.js"></script>
 </body>
+
+<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAlpfPcXOXycuVGAKq7osrN7ffsxIJdsr0",
+        authDomain: "kindness-836db.firebaseapp.com",
+        databaseURL: "https://kindness-836db.firebaseio.com",
+        projectId: "kindness-836db",
+        storageBucket: "",
+        messagingSenderId: "933634843909"
+    };
+    firebase.initializeApp(config);
+</script>
 </html>
