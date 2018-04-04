@@ -19,10 +19,10 @@ public class MainMenu extends InfoFragment {
         Button randBtn = view.findViewById(R.id.randomBtn);
         Button filterBtn = view.findViewById(R.id.filterBtn);
         Button addBtn = view.findViewById(R.id.addBtn);
-//
+
 //        randBtn.setOnClickListener(new RandomListener());
-//        filterBtn.setOnClickListener(new FilterListener());
-      addBtn.setOnClickListener(new AddListener());
+        filterBtn.setOnClickListener(new FilterListener());
+        addBtn.setOnClickListener(new AddListener());
 
         return view;
     }
@@ -66,6 +66,7 @@ public class MainMenu extends InfoFragment {
 //    }
 //
 //
+    //This method gives functionality for the Add Button
     private final class AddListener implements View.OnClickListener {
         InfoFragment fragment;
         @Override
@@ -74,7 +75,25 @@ public class MainMenu extends InfoFragment {
                 if (fragment == null || fragment.isDetached()) {
                     fragment = NewDate.class.newInstance();
                     //this is a random ID I gave it. Why does it need an ID? Beats me.
+                }
+            }
+            catch (Exception ex) {
+                // Log.e(KindnessActivity.TAG,
+                //            "cannot instantiate Categories fragment", ex);
+            }
+            switchFragment(fragment);
+        }
+    }
 
+    //This method gives functionality for the Add Button
+    private final class FilterListener implements View.OnClickListener {
+        InfoFragment fragment;
+        @Override
+        public void onClick(View view) {
+            try {
+                if (fragment == null || fragment.isDetached()) {
+                    fragment = FilterList.class.newInstance();
+                    //this is a random ID I gave it. Why does it need an ID? Beats me.
                 }
             }
             catch (Exception ex) {
