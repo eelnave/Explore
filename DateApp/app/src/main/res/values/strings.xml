@@ -21,4 +21,6 @@
     <string name="moneyTwo">$$</string>
     <string name="moneyThree">$$$</string>
 
+    <string name="about">About</string>
+
 </resources>
