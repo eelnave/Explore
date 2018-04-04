@@ -5,9 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by Frisbeedust on 3/28/2018.
- */
 
 public class NewDate extends InfoFragment{
     @Override

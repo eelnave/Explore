@@ -30,5 +30,6 @@
     <string name="filter">Filter</string>
     <string name="add">Add a Date</string>
     <string name="imageAttribute">Watercolors Background</string>
+    <string name="about">About</string>
 
 </resources>
