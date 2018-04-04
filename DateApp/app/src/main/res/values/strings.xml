@@ -15,6 +15,9 @@
     <string name="season">Season</string>
     <string name="season2">Choose a season:</string>
 
+    <string name="temp">Temperature</string>
+    <string name="size">Group size</string>
+
     <string name="venue">Venue</string>
     <string name="price">Price</string>
     <string name="moneyOne">$</string>
