@@ -98,7 +98,8 @@
 			android:id="@+id/ipValue8"
 			style="@style/UnsignedInteger"
 			android:ems="3"
-			tools:ignore="LabelFor"/>
+			tools:ignore="LabelFor"
+			android:imeOptions="actionDone"/>
 	</LinearLayout>
 
 	<LinearLayout
@@ -128,6 +129,36 @@
 
 		<TextView
 			android:id="@+id/numberOfSubnets"
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"/>
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/networkAddress"/>
+
+		<TextView
+			android:id="@+id/networkAddress"
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"/>
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/broadcastAddress"/>
+
+		<TextView
+			android:id="@+id/broadcast"
 			style="@style/TextResult"
 			android:layout_marginStart="10dp"/>
 	</LinearLayout>

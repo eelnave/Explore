@@ -1,0 +1,65 @@
+@startuml
+title CIT 160 Auto-Grader
+package cit160 {
+	class cit160 <<(S, #FF7700) Singleton>> {
+		bank : { }
+
+		addProblem()
+
+		refCopy()
+		copy()
+		deepCopy()
+		copy2Deep()
+		containsPoint()
+		countLines()
+		countOccurs()
+		randKey()
+		randArray()
+		randArrayFixedLen()
+		randBool()
+		randSign()
+		randInt()
+		randEvenInt()
+		randOddInt()
+		isEven()
+		isOdd()
+		randReal()
+		choose()
+		errorRange()
+		round(value, digits)
+
+		equalRealArrays()
+		equalReals()
+		equalIntArrays()
+		equalInts()
+		equalBools()
+		equal()
+		matchPat()
+		buildPat()
+
+		padLeft()
+		padRight()
+		adjustPadding()
+
+		replace()
+		revive()
+
+		loadIcons()
+	}
+
+	class Object
+	class Problem
+	class FillBlank
+	class DeskCheck
+	class WriteCode
+
+	class Assignment
+}
+
+Object <|-- Problem
+Problem <|-- FillBlank
+Problem <|-- DeskCheck
+Problem <|-- WriteCode
+
+Object <|-- Assignment
+@enduml
