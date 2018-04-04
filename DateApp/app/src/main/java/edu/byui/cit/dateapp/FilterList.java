@@ -9,7 +9,7 @@ public class FilterList extends InfoFragment {
 
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstState) {
-        View view = inflater.inflate(R.layout.filter_list, container, false);
+        View view = inflater.inflate(R.layout.custom, container, false);
         return view;
     }
 }
