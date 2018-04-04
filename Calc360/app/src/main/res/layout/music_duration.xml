@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	compat:columnCount="3">
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/totalMeasures"/>
+
+	<EditText
+		android:id="@+id/totalMeasures"
+		style="@style/UnsignedInteger"
+		android:ems="4"
+		android:hint="@string/measuresHint">
+
+		<requestFocus/>
+	</EditText>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/tempo"
+		android:text="@string/tempo"/>
+
+	<EditText
+		android:id="@+id/tempo"
+		style="@style/UnsignedInteger"
+		android:ems="4"
+		android:hint="@string/tempoHint"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:text="@string/tempoUnits"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/timeSignature"
+		android:text="@string/timeSignature"/>
+
+	<EditText
+		android:id="@+id/timeSignature"
+		style="@style/UnsignedInteger"
+		android:ems="4"
+		android:hint="@string/timeSigHint"
+		android:imeOptions="actionDone"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:text="@string/timeSigUnits"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/musicDuration"/>
+
+	<TextView
+		android:id="@+id/musicDuration"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:layout_marginTop="15dp"
+		android:text="@string/timeUnits"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="3"/>
+</android.support.v7.widget.GridLayout>

@@ -28,16 +28,29 @@
 	</string-array>
 
 	<string name="caloriesBurned">Calories Burned</string>
-	<string name="weightLift">Weight Lifting</string>
-	<string name="swimming">Swimming</string>
 	<string name="walking">Walking</string>
 	<string name="running">Running</string>
+	<string name="cycling">Cycling</string>
+	<string name="swimming">Swimming</string>
+	<string name="dancing">Dancing</string>
+	<string name="kickboxing">Kickboxing</string>
+	<string name="weightLift">Weight Lifting</string>
+	<string name="television">Watching TV</string>
+
 	<string name="calories">calories</string>
-	<string-array name="cbMassUnits">
+	<string-array name="cbMassUnits" translatable="false">
 		<item>pound</item>
 		<item>kilogram</item>
 	</string-array>
 
 	<string name="Weight">Weight</string>
 	<string name="bodyWeight">Body Weight</string>
+
+	<string name="age">Age</string>
+	<string name="birthDate">Birth Date</string>
+	<string name="dayHint" translatable="false">12</string>
+	<string name="monthHint" translatable="false">2</string>
+	<string name="yearHint" translatable="false">1993</string>
+	<string name="basalMetabolicRate" translatable="false">BMR</string>
+
 </resources>

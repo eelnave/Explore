@@ -27,6 +27,9 @@
 	<string name="time">tempo</string>
 	<string name="seconds">segundos</string>
 	<string name="minutes">minutos</string>
+	<string name="Days">Dias</string>
+	<string name="Months">Meses</string>
+	<string name="Years">Anos</string>
 
 	<string name="Current">Corrente</string>
 	<string name="current">corrente</string>
@@ -98,9 +101,10 @@
 	<string name="gasConst">constante de gás</string>
 
 	<string name="power">poder</string>
-	<string name="fuelEffic">eficiência do combustível</string>
+	<string name="fuelEcon">eficiência do combustível</string>
 
 	<string name="dataSize">tamanho do dado</string>
+	<string name="gigabytes">gigabytes</string>
 
 	<string name="money">moeda</string>
 
@@ -122,8 +126,8 @@
 		<item quantity="other">rods</item>
 	</plurals>
 	<plurals name="mile">
-		<item quantity="one">mile</item>
-		<item quantity="other">miles</item>
+		<item quantity="one">milha</item>
+		<item quantity="other">milhas</item>
 	</plurals>
 	<plurals name="millimeter">
 		<item quantity="one">milímetro</item>
@@ -246,8 +250,8 @@
 		<item quantity="other">acres</item>
 	</plurals>
 	<plurals name="squareMile">
-		<item quantity="one">square mile</item>
-		<item quantity="other">square miles</item>
+		<item quantity="one">milha quadrada</item>
+		<item quantity="other">milhas quadradas</item>
 	</plurals>
 	<plurals name="squareCentimeter">
 		<item quantity="one">centímetro quadrado</item>
@@ -374,7 +378,7 @@
 		<item quantity="other">barras</item>
 	</plurals>
 
-	<!-- Units of Fuel Efficiency -->
+	<!-- Units of Fuel Economy -->
 	<plurals name="milePerGallon">
 		<item quantity="one">mile / gallon</item>
 		<item quantity="other">miles / gallon</item>
@@ -383,6 +387,10 @@
 		<item quantity="one">quilômetro / litro</item>
 		<item quantity="other">quilômetros / litro</item>
 	</plurals>
+	<plurals name="literPer100kilometer">
+		<item quantity="one">litro / 100 quilômetros</item>
+		<item quantity="other">litros / 100 quilômetros</item>
+	</plurals>
 
 	<!-- Units of Speed -->
 	<plurals name="footPerSecond">
@@ -390,8 +398,8 @@
 		<item quantity="other">feet / segundo</item>
 	</plurals>
 	<plurals name="milePerHour">
-		<item quantity="one">mile / hora</item>
-		<item quantity="other">miles / hora</item>
+		<item quantity="one">milha / hora</item>
+		<item quantity="other">milhas / hora</item>
 	</plurals>
 	<plurals name="knot">
 		<item quantity="one">knot</item>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp">
+
+		<TextView
+			android:id="@+id/empty1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<EditText
+			android:id="@+id/decBegin"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/empty1"
+			android:layout_toEndOf="@+id/empty1"
+			android:ems="4"
+			android:hint="@string/start">
+
+			<requestFocus/>
+		</EditText>
+
+		<EditText
+			android:id="@+id/decEnd"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/empty1"
+			android:layout_toEndOf="@+id/decBegin"
+			android:ems="4"
+			android:hint="@string/end"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignEnd="@+id/decEnd"
+			android:layout_alignStart="@+id/decBegin"
+			android:layout_below="@+id/empty1"
+			android:labelFor="@+id/decBegin"
+			android:text="@string/odometer"
+			android:textAlignment="center"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<TextView
+			android:id="@+id/empty2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<EditText
+			android:id="@+id/decDist"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/empty2"
+			android:layout_toEndOf="@+id/empty2"
+			android:ems="4"/>
+
+		<Spinner
+			android:id="@+id/spinDistUnits"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/empty2"
+			android:layout_toEndOf="@+id/decDist"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/empty2"
+			android:layout_alignEnd="@+id/decDist"
+			android:layout_alignStart="@+id/decDist"
+			android:labelFor="@+id/decDist"
+			android:text="@string/Distance"
+			android:textAlignment="center"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<TextView
+			android:id="@+id/empty3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<EditText
+			android:id="@+id/decVol"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/empty3"
+			android:layout_toEndOf="@+id/empty3"
+			android:ems="4"
+			android:imeOptions="actionDone"/>
+
+		<Spinner
+			android:id="@+id/spinVolUnits"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/empty3"
+			android:layout_toEndOf="@+id/decVol"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignEnd="@+id/decVol"
+			android:layout_alignStart="@+id/decVol"
+			android:layout_below="@+id/empty3"
+			android:labelFor="@+id/decVol"
+			android:text="@string/fuel"
+			android:textAlignment="center"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<TextView
+			android:id="@+id/decEcon"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/spinEconUnits"
+			android:layout_alignEnd="@+id/lblEcon"
+			android:layout_alignStart="@+id/lblEcon"
+			android:textAlignment="textEnd"/>
+
+		<Spinner
+			android:id="@+id/spinEconUnits"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@+id/decEcon"/>
+
+		<TextView
+			android:id="@+id/lblEcon"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/decEcon"
+			android:labelFor="@+id/decEcon"
+			android:text="@string/FuelEcon"/>
+	</RelativeLayout>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"/>
+</LinearLayout>

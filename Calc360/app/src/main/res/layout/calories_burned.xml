@@ -1,102 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
-	<TextView
-		android:id="@+id/lblWeight"
-		style="@style/TextLabel"
-		android:layout_alignBaseline="@+id/decWeight"
-		android:layout_alignParentStart="true"
-		android:labelFor="@+id/decWeight"
-		android:text="@string/bodyWeight"/>
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
 
-	<EditText
-		android:id="@+id/decWeight"
-		style="@style/UnsignedDecimal"
-		android:layout_alignParentTop="true"
-		android:layout_toEndOf="@+id/lblWeight"
-		android:ems="5">
+		<TextView
+			android:id="@+id/lblWeight"
+			style="@style/TextLabel"
+			android:layout_alignBaseline="@+id/decWeight"
+			android:layout_alignParentStart="true"
+			android:labelFor="@+id/decWeight"
+			android:text="@string/bodyWeight"/>
 
-		<requestFocus/>
-	</EditText>
+		<EditText
+			android:id="@+id/decWeight"
+			style="@style/UnsignedDecimal"
+			android:layout_alignParentTop="true"
+			android:layout_toEndOf="@+id/lblWeight"
+			android:ems="5">
 
-	<Spinner
-		android:id="@+id/spinMassUnits"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignBaseline="@+id/decWeight"
-		android:layout_toEndOf="@+id/decWeight"/>
+			<requestFocus/>
+		</EditText>
 
-	<TextView
-		style="@style/TextLabel"
-		android:layout_alignBaseline="@+id/intTime"
-		android:layout_alignParentStart="true"
-		android:labelFor="@+id/intTime"
-		android:text="@string/Time"/>
-
-	<EditText
-		android:id="@+id/intTime"
-		style="@style/UnsignedDecimal"
-		android:layout_alignEnd="@+id/decWeight"
-		android:layout_alignStart="@+id/decWeight"
-		android:layout_below="@+id/decWeight"
-		android:ems="5"
-		android:imeOptions="actionDone"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_alignBaseline="@+id/intTime"
-		android:layout_toEndOf="@+id/intTime"
-		android:text="@string/minutes"/>
-
-	<RadioGroup
-		android:id="@+id/grpExercise"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/intTime"
-		android:layout_centerHorizontal="true"
-		android:layout_marginTop="10dp"
-		android:checkedButton="@+id/radWeight">
-
-		<RadioButton
-			android:id="@+id/radWeight"
+		<Spinner
+			android:id="@+id/spinMassUnits"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/weightLift"/>
+			android:layout_alignBaseline="@+id/decWeight"
+			android:layout_toEndOf="@+id/decWeight"/>
 
-		<RadioButton
-			android:id="@+id/radWalk"
+		<TextView
+			style="@style/TextLabel"
+			android:layout_alignBaseline="@+id/intTime"
+			android:layout_alignParentStart="true"
+			android:labelFor="@+id/intTime"
+			android:text="@string/Time"/>
+
+		<EditText
+			android:id="@+id/intTime"
+			style="@style/UnsignedDecimal"
+			android:layout_alignEnd="@+id/decWeight"
+			android:layout_alignStart="@+id/decWeight"
+			android:layout_below="@+id/decWeight"
+			android:ems="5"
+			android:imeOptions="actionDone"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_alignBaseline="@+id/intTime"
+			android:layout_toEndOf="@+id/intTime"
+			android:text="@string/minutes"/>
+
+		<RadioGroup
+			android:id="@+id/grpExercise"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/intTime"
+			android:layout_marginStart="80dp"
+			android:layout_marginTop="10dp"
+			android:checkedButton="@+id/radLift">
+
+			<RadioButton
+				android:id="@+id/radWalk"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/walking"/>
+
+			<RadioButton
+				android:id="@+id/radRun"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/running"/>
+
+			<RadioButton
+				android:id="@+id/radCycle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/cycling"/>
+
+			<RadioButton
+				android:id="@+id/radSwim"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/swimming"/>
+
+			<RadioButton
+				android:id="@+id/radDance"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/dancing"/>
+
+			<RadioButton
+				android:id="@+id/radKickbox"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/kickboxing"/>
+
+			<RadioButton
+				android:id="@+id/radBasketball"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/basketball"/>
+
+			<RadioButton
+				android:id="@+id/radLift"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/weightLift"/>
+
+			<RadioButton
+				android:id="@+id/radTv"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/television"/>
+		</RadioGroup>
+
+		<TextView
+			android:id="@+id/txtResult"
+			style="@style/TextLabel"
+			android:layout_below="@+id/grpExercise"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="10dp"/>
+
+		<Button
+			android:id="@+id/btnClear"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/walking"/>
-
-		<RadioButton
-			android:id="@+id/radRun"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/running"/>
-
-		<RadioButton
-			android:id="@+id/radSwim"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/swimming"/>
-	</RadioGroup>
-
-	<TextView
-		android:id="@+id/txtResult"
-		style="@style/TextLabel"
-		android:layout_below="@+id/grpExercise"
-		android:layout_centerHorizontal="true"
-		android:layout_marginTop="10dp"/>
-
-	<Button
-		android:id="@+id/btnClear"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_below="@+id/txtResult"
-		android:layout_marginTop="10dp"
-		android:text="@string/clear"/>
-</RelativeLayout>
+			android:layout_below="@+id/txtResult"
+			android:layout_marginTop="10dp"
+			android:text="@string/clear"/>
+	</RelativeLayout>
+</ScrollView>

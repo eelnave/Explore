@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<RadioGroup
+		android:id="@+id/genderRadioGroup"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:orientation="horizontal">
+
+		<Space
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"/>
+
+		<RadioButton
+			android:id="@+id/radFemale"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/Female"/>
+
+		<Space
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"/>
+
+		<RadioButton
+			android:id="@+id/radMale"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/Male"/>
+
+		<Space
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_weight="1"/>
+	</RadioGroup>
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		compat:columnCount="3">
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decHeight"
+			android:text="@string/Height"/>
+
+		<EditText
+			android:id="@+id/decHeight"
+			style="@style/UnsignedDecimal"
+			android:ems="4">
+
+			<requestFocus/>
+		</EditText>
+
+		<TextView
+			android:id="@+id/heightUnit"
+			style="@style/TextLabel"
+			android:text="@string/inches"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decWeight"
+			android:text="@string/Weight"/>
+
+		<EditText
+			android:id="@+id/decWeight"
+			style="@style/UnsignedDecimal"
+			android:ems="4"
+			android:imeOptions="actionDone"/>
+
+		<TextView
+			android:id="@+id/weightUnit"
+			style="@style/TextLabel"
+			android:text="@string/pounds"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="10dp"
+			android:text="@string/age"/>
+
+		<EditText
+			android:id="@+id/decAge"
+			style="@style/UnsignedDecimal"
+			android:ems="4"
+			android:imeOptions="actionDone"
+			tools:ignore="LabelFor"/>
+
+		<TextView
+			android:id="@+id/ageUnit"
+			style="@style/TextLabel"
+			android:text="@string/years"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="10dp"
+			android:text="@string/bmr"/>
+
+		<TextView
+			android:id="@+id/txtBMR"
+			style="@style/TextResult"
+			android:layout_marginTop="10dp"/>
+
+		<TextView
+			android:id="@+id/textView"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/calories"/>
+
+	</android.support.v7.widget.GridLayout>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"/>
+</LinearLayout>

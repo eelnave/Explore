@@ -53,4 +53,8 @@
 	<string name="rectPrism">Prisma Retângular</string>
 
 	<string name="pyramid">Pirâmide</string>
+
+	<string name="pointsDist">Distância entre Pontos</string>
+	<string name="coordinate1">Coordenada 1</string>
+	<string name="coordinate2">Coordenada 2</string>
 </resources>

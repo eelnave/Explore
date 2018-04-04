@@ -45,11 +45,12 @@ public class EditCurrency extends EditWrapper {
 
 	public void restore(
 			SharedPreferences prefs, NumberFormat fmtr, float deflt) {
-		if (prefs.contains(prefsKey)) {
+		if (!hasUserInput() && prefs.contains(prefsKey)) {
 			float val = prefs.getFloat(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}
 	}
+
 
 	public double getCur() throws NumberFormatException {
 		return getCur(getText());

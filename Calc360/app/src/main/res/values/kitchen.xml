@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="tempConvert">Temperatur Converter</string>
+	<string name="tempConvert">Temperature Converter</string>
 	<string name="massConvert">Weight Converter</string>
 	<string name="lengthConvert">Length Converter</string>
 	<string name="areaConvert">Area Converter</string>

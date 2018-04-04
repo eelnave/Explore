@@ -3,7 +3,6 @@
 	<string name="compoundInterest">Juros Compostos</string>
 	<string name="Deposit">Depósito</string>
 	<string name="Interest">Juros</string>
-	<string name="Years">Anos</string>
 	<string name="depositHint">ex: 300,50</string>
 	<string name="interestHint">ex: 6,5</string>
 	<string name="yearsHint">ex: 7</string>
@@ -16,7 +15,7 @@
 	<string name="periodPay">Pagamento Periódico</string>
 	<string name="annRate">Taxa Anual</string>
 	<string name="annRateHint">ex: 4,875</string>
-	<string name="years">Número de Anos</string>
+	<string name="numYears">Número de Anos</string>
 	<string name="ppy">Períodos por Ano</string>
 	<string name="fv">Valor Futuro</string>
 
@@ -28,6 +27,15 @@
 	<string name="ptd">Pagamentos Pagos Até a Data</string>
 	<string name="Principal">Principal</string>
 	<string name="Period">Period</string>
+
+	<string name="roi">Retorna do Investimento</string>
+	<string name="income">Renda</string>
+	<string name="expenses">Despesas</string>
+	<string name="totalInvest">Investimento</string>
+	<string name="roiReturn">Retorna</string>
+	<string name="roiIncomeHint">ex: 5.000</string>
+	<string name="roiExpensesHint">ex: 3.255</string>
+	<string name="roiInvestHint">ex: 10.560</string>
 
 	<string name="laborCost">Custo do Trabalho</string>
 	<string name="laborExplain">Esta calculadora converte o custo de um item para quantidade do seu trabalho no tempo. Em outras palavras, quanto do seu trabalho um item custa?</string>
@@ -41,4 +49,30 @@
 		<item quantity="one" tools:ignore="ImpliedQuantity">centavo</item>
 		<item quantity="other">centavos</item>
 	</plurals>
+
+	<string name="tithing">Tithing</string>
+	<string name="charity">Fast Offering (Charity)</string>
+	<string name="humanitarian">Humanitarian Aid</string>
+	<string name="other">Other</string>
+	<string name="incomeHint">ex: 5,000</string>
+	<string name="tithingHint">ex: 10</string>
+	<string name="offeringHint">ex: 100</string>
+	<string name="humanitarianHint">ex: 50</string>
+	<string name="otherHint">ex: 35</string>
+	<string name="tithingQuote">\"For it is in giving that we receive.\"\n~St. Francis</string>
+
+	<string name="stream">Streaming Service</string>
+	<string name="descrip1">Cost of streaming services like:</string>
+	<string name="descrip2">Netflix, Hulu, Amazon, etc.</string>
+	<string name="servicePayment">Service Payment</string>
+	<string name="hours2_5">2.5 Hours</string>
+	<string name="hours2">2 Hours</string>
+	<string name="hours1_5">1.5 Hours</string>
+	<string name="minutes45">45 Minutes</string>
+	<string name="minutes22">22 Minutes</string>
+	<string name="totalTime">Total Hours Watched</string>
+	<string name="costPerHour">Cost per Hour</string>
+	<string name="intHint1">ex: 1</string>
+	<string name="intHint2">ex: 2</string>
+	<string name="intHint5">ex: 5</string>
 </resources>

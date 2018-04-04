@@ -1,0 +1,24 @@
+Communication Protocol (HTTP)
+
+The Kindness Application will be operating on a client
+to server relationship through Post and Get request. It
+will be operating on port 80.
+
+The client will open up the application and will be provided
+with a menu that has the categories, the application's title,
+and a map button.
+
+Once a category is selected, the client is sent to a submit
+button. They will be provided the information that will be
+given to the server, including category, date, and location
+by latitude and longitude. Pressing the submit button will
+send the data to the server through a post request method.
+
+When the server receives a new submission, it will add a
+report_id to easily organize it.
+
+If the client presses the map button, a get request will be
+sent to the server and the server will return any submissions
+received within the last week. This information will be translated
+into icons on a map that will show where kindness has been found
+(latitude and longitude) and what category it was (based on color).

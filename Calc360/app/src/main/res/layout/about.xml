@@ -47,37 +47,61 @@
 				android:layout_alignParentStart="true"
 				android:text="@string/contribs"
 				android:textStyle="bold"/>
-			<!--
-						<TextView
-							android:id="@+id/lblFall2017"
-							android:layout_width="wrap_content"
-							android:layout_height="wrap_content"
-							android:layout_alignParentStart="true"
-							android:layout_below="@+id/lblContribs"
-							android:layout_alignEnd="@+id/lblFall2017B"
-							android:text="@string/fall2017"
-							android:textAlignment="center"
-							android:textSize="14sp"
-							android:textStyle="bold"/>
-			-->
+
 			<TextView
-				android:id="@+id/lblFall2017A"
+				android:id="@+id/lblWinter2018"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_alignEnd="@+id/lblWinter2018B"
 				android:layout_alignParentStart="true"
 				android:layout_below="@+id/lblContribs"
-				android:text="@string/contribsFall2017A"
-				android:textSize="14sp"/>
+				android:text="@string/winter2018"
+				android:textAlignment="center"
+				android:textSize="14sp"
+				android:textStyle="bold"/>
+
+			<TextView
+				android:id="@+id/lblWinter2018A"
+				style="@style/Contributors"
+				android:layout_alignParentStart="true"
+				android:layout_below="@+id/lblWinter2018"
+				android:text="@string/contribsWinter2018A"/>
+
+			<TextView
+				android:id="@+id/lblWinter2018B"
+				style="@style/Contributors"
+				android:layout_alignBaseline="@+id/lblWinter2018A"
+				android:layout_marginStart="5dp"
+				android:layout_toEndOf="@+id/lblWinter2018A"
+				android:text="@string/contribsWinter2018B"/>
+
+			<TextView
+				android:id="@+id/lblFall2017"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignEnd="@+id/lblFall2017B"
+				android:layout_alignParentStart="true"
+				android:layout_below="@+id/lblWinter2018A"
+				android:layout_marginTop="10dp"
+				android:text="@string/fall2017"
+				android:textAlignment="center"
+				android:textSize="14sp"
+				android:textStyle="bold"/>
+
+			<TextView
+				android:id="@+id/lblFall2017A"
+				style="@style/Contributors"
+				android:layout_alignParentStart="true"
+				android:layout_below="@+id/lblFall2017"
+				android:text="@string/contribsFall2017A"/>
 
 			<TextView
 				android:id="@+id/lblFall2017B"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
+				style="@style/Contributors"
 				android:layout_alignBaseline="@+id/lblFall2017A"
 				android:layout_marginStart="5dp"
 				android:layout_toEndOf="@+id/lblFall2017A"
-				android:text="@string/contribsFall2017B"
-				android:textSize="14sp"/>
+				android:text="@string/contribsFall2017B"/>
 		</RelativeLayout>
 	</LinearLayout>
 </ScrollView>

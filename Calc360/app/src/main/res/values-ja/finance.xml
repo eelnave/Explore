@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="compoundInterest">複利</string>
+	<string name="Deposit">入金</string>
+	<string name="Interest">利子</string>
+	<string name="depositHint">ex 300.50</string>
+	<string name="interestHint">ex 6.5</string>
+	<string name="yearsHint">ex 7</string>
+	<string name="radioMonthly">毎月</string>
+	<string name="radioQuarterly">四半期ごと</string>
+	<string name="radioAnnually">毎年</string>
+
+	<string name="invest">出資</string>
+	<string name="pv">元本</string>
+	<string name="periodPay">定期支払い</string>
+	<string name="annRate">年率</string>
+	<string name="annRateHint">ex 4.875</string>
+	<string name="numYears">Number of Years</string>
+	<string name="ppy">年間の期間</string>
+	<string name="fv">将来価値</string>
+
+	<string name="loan">融資</string>
+	<string name="amt">借りたお金</string>
+	<string name="loanPPY">年間支払額</string>
+	<string name="Payment">支払い</string>
+	<string name="Balance">残高</string>
+	<string name="ptd">現在までの支払い</string>
+	<string name="Principal">元本</string>
+	<string name="Period">期間</string>
+
+	<string name="roi">Return on Investment</string>
+	<string name="income">Income</string>
+	<string name="expenses">Expenses</string>
+	<string name="totalInvest">Investment</string>
+	<string name="roiReturn">Return</string>
+	<string name="roiIncomeHint">ex: 5,000</string>
+	<string name="roiExpensesHint">ex: 3,255</string>
+	<string name="roiInvestHint">ex: 10,560</string>
+
+	<string name="laborCost">人件費</string>
+	<string name="laborExplain">この計算機は、製品のコストをあなたの労働時間に換算します。言い換えれば、どのくらいの労力で商品がいくらですか？</string>
+	<string name="laborWage">時給</string>
+	<string name="laborOR">または</string>
+	<string name="laborSalary">年俸</string>
+	<string name="mustWork">あなたは</string>
+	<string name="mustGet">間働くだろうよに</string>
+	<string name="somewhere">をみつけります。</string>
+	<plurals name="cent">
+		<item quantity="other">円</item>
+	</plurals>
+
+	<string name="tithing">Tithing</string>
+	<string name="charity">Fast Offering (Charity)</string>
+	<string name="humanitarian">Humanitarian Aid</string>
+	<string name="other">Other</string>
+	<string name="incomeHint">ex: 5,000</string>
+	<string name="tithingHint">ex: 10</string>
+	<string name="offeringHint">ex: 100</string>
+	<string name="humanitarianHint">ex: 50</string>
+	<string name="otherHint">ex: 35</string>
+	<string name="tithingQuote">\"For it is in giving that we receive.\"\n~St. Francis</string>
+
+	<string name="stream">Streaming Service</string>
+	<string name="descrip1">Cost of streaming services like:</string>
+	<string name="descrip2">Netflix, Hulu, Amazon, etc.</string>
+	<string name="servicePayment">Service Payment</string>
+	<string name="hours2_5">2.5 Hours</string>
+	<string name="hours2">2 Hours</string>
+	<string name="hours1_5">1.5 Hours</string>
+	<string name="minutes45">45 Minutes</string>
+	<string name="minutes22">22 Minutes</string>
+	<string name="totalTime">Total Hours Watched</string>
+	<string name="costPerHour">Cost per Hour</string>
+	<string name="intHint1">ex: 1</string>
+	<string name="intHint2">ex: 2</string>
+	<string name="intHint5">ex: 5</string>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="quadratic">二次方程式</string>
+	<string name="quadExplain1">この形式の二次方程式が与えられると、</string>
+	<string name="quadExplain3">二次式を使って方程式の根を見つけることができます。</string>
+	<string name="quadExplain4">である二次式</string>
+	<string name="roots">根</string>
+	<string name="noRoots">本当の根はありません</string>
+	<string name="imaginary"><i>i</i></string>
+
+	<string name="radius">半径</string>
+	<string name="majorRadius">大半径</string>
+	<string name="minorRadius">小半径</string>
+	<string name="innerRadius">内 半径</string>
+	<string name="outerRadius">外半径</string>
+	<string name="width">幅</string>
+	<string name="height">高さ</string>
+	<string name="diagonal">対角線</string>
+	<string name="hypotenuse">斜辺</string>
+	<string name="sideLength">辺の長さ</string>
+	<string name="perimeter">周囲</string>
+	<string name="surfaceArea">表面積</string>
+
+	<string name="Height">高さ</string>
+	<string name="Diagonal">対角線</string>
+	<string name="SideLength">辺の長さ</string>
+	<string name="Perimeter">周囲</string>
+	<string name="SurfaceArea">表面積</string>
+
+	<string name="pointsDist">Distance between Points</string>
+	<string name="coordinate1">Coordinate 1</string>
+	<string name="coordinate2">Coordinate 2</string>
+
+	<string name="rightTriangle">直角三角形</string>
+	<string name="rtDiagram">直角三角形の図</string>
+
+	<string name="triangle">三角形</string>
+	<string name="triSides">両側</string>
+	<string name="triAngles">角度</string>
+	<string name="triDiagram">三角形の図</string>
+
+	<string name="rectangle">矩形</string>
+	<string name="rectDiagFormula">>対角線 d = \u221a(w\u00b2 + h\u00b2)</string>
+	<string name="rectPerimFormula">周囲  P = 2(w + h)</string>
+	<string name="rectAreaFormula">面積  A = w * h</string>
+
+	<string name="sphere">球</string>
+
+	<string name="torus">円環</string>
+	<string name="torDiagram">円環の図表</string>
+
+	<string name="cylinder">気筒</string>
+
+	<string name="cone">円錐</string>
+
+	<string name="rectPrism">矩形の三稜鏡</string>
+
+	<string name="pyramid">角錐</string>
+</resources>

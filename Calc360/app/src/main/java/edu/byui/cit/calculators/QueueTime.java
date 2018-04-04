@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,7 +57,7 @@ public final class QueueTime extends CalcFragment {
 
 	private final class PeopleHandler extends TextChangeHandler {
 		@Override
-		public void afterChanged(Editable s) {
+		public void textChanged(CharSequence s) {
 			try {
 				prevClick = System.currentTimeMillis();
 				sum = 0;
