@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 
-public class MainMenu extends InfoFragment {
-    public static final String TAG = "MainMenu";
+public class DaterFrag extends InfoFragment {
+    public static final String TAG = "DaterFrag";
 
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container,

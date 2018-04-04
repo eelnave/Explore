@@ -8,8 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="edu.byui.cit.dateapp.DaterCreator">
+        android:theme="@style/Theme.AppCompat.Light" >
+        <!-- The Theme found above may not be the best solution for what we are doing  but it makes the app work -->
+        <activity android:name=".DaterCreator">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

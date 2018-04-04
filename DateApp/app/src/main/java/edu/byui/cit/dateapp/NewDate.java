@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class NewDate extends InfoFragment{
 
+public class NewDate extends InfoFragment{
     @Override
     protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstState) {
         View view = inflater.inflate(R.layout.new_date, container, false);
