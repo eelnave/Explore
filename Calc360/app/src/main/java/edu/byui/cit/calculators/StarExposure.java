@@ -15,6 +15,8 @@ import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
+import static edu.byui.cit.model.Art.StarExposure.calculateStarExposureLength;
+
 
 public class StarExposure extends CalcFragment {
 	private static final int fiveHundredRuleNum = 500;
@@ -51,14 +53,12 @@ public class StarExposure extends CalcFragment {
 		return ourView;
 	}
 
-
 	@Override
 	protected void compute() {
 		if (cropFacVal.notEmpty() && focLengthVal.notEmpty()) {
 			int focal = focLengthVal.getInt();
 			double crop = cropFacVal.getDec();
-			double expos = fiveHundredRuleNum / (crop * focal);
-			starExpVal.setText(fmtrInt.format(expos));
+			starExpVal.setText(fmtrInt.format(calculateStarExposureLength(focal,crop)));
 		}
 		else {
 			starExpVal.clear();
