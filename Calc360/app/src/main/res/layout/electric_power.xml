@@ -29,12 +29,12 @@
 		style="@style/TextLabel"
 		android:text="@string/watts"/>
 
-	<Space/>
-
 	<TextView
-		style="@style/TextLabel"
+		style="@style/TextLabelCenter"
 		android:text="@string/eq"
 		compat:layout_columnSpan="2"/>
+
+	<Space/>
 
 	<TextView
 		style="@style/TextLabel"

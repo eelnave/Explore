@@ -103,12 +103,12 @@ final class Descriptors {
 				new CalcDescriptor(1039, R.string.harmonicMotion, R.drawable.spring, HarmonicMotion.class),
 				new CalcDescriptor(1051, R.string.Torque, R.drawable.gear, Torque.class),
 				new CalcDescriptor(1006, R.string.ohmsLaw, R.drawable.omega, OhmsLaw.class),
+				new CalcDescriptor(1069, R.string.elecricPower, R.drawable.electric, ElectricPower.class),
 				new CalcDescriptor(1035, R.string.coulombsLaw, R.drawable.charges, CoulombsLaw.class),
 				new CalcDescriptor(1027, R.string.idealGas, R.drawable.ideal_gas, IdealGas.class),
 				new CalcDescriptor(1045, R.string.gasEnergy, R.drawable.gas_energy, GasEnergy.class),
 				new CalcDescriptor(1038, R.string.gasVelocity, R.drawable.gas_velocity, GasVelocity.class),
 				new CalcDescriptor(1059, R.string.relativity, R.drawable.einstein, Relativity.class),
-				new CalcDescriptor(1069, R.string.elecricPower, R.drawable.electric, ElectricPower.class),
 			}),
 			new GroupDescriptor(313, R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
 				new CalcDescriptor(1065, R.string.videoStorage, R.drawable.film, VideoStorage.class),
