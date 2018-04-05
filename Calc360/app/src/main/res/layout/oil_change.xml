@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:layout_marginStart="@dimen/default_gap"
+	android:orientation="vertical">
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/ocExplain"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp">
+
+		<TextView
+			android:id="@+id/empty1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<EditText
+			android:id="@+id/decBegin"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/empty1"
+			android:layout_toEndOf="@+id/empty1"
+			android:ems="5"
+			android:hint="@string/previousOdo">
+
+			<requestFocus/>
+		</EditText>
+
+		<EditText
+			android:id="@+id/decEnd"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/empty1"
+			android:layout_toEndOf="@+id/decBegin"
+			android:ems="5"
+			android:hint="@string/currentOdo"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignEnd="@+id/decEnd"
+			android:layout_alignStart="@+id/decBegin"
+			android:layout_below="@+id/empty1"
+			android:labelFor="@+id/decBegin"
+			android:text="@string/odometer"
+			android:textAlignment="center"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<TextView
+			android:id="@+id/empty2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<EditText
+			android:id="@+id/decDist"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/empty2"
+			android:layout_toEndOf="@+id/empty2"
+			android:ems="4"/>
+
+		<Spinner
+			android:id="@+id/spinDistUnits"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/empty2"
+			android:layout_toEndOf="@+id/decDist"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignEnd="@+id/decDist"
+			android:layout_alignStart="@+id/decDist"
+			android:layout_below="@+id/empty2"
+			android:labelFor="@+id/decDist"
+			android:text="@string/Distance"
+			android:textAlignment="center"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+
+		<Spinner
+			android:id="@+id/spinOilUnits"
+			style="@style/CalcSpinnerDropDownItem"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@id/type"
+			android:entries="@array/ocOilUnits"/>
+
+		<TextView
+			android:id="@+id/type"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:labelFor="@+id/decOil"
+			android:text="@string/OilType"
+			android:textAlignment="center"
+			android:textStyle="bold"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<Spinner
+			android:id="@+id/spinDriveUnits"
+			style="@style/CalcSpinnerDropDownItem"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toEndOf="@+id/type2"
+			android:entries="@array/ocDriveUnits"/>
+
+		<TextView
+			android:id="@+id/type2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:labelFor="@+id/decDrive"
+			android:text="@string/driveType"
+			android:textAlignment="center"
+			android:textStyle="bold"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<TextView
+			android:id="@+id/oilResult"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textStyle="bold"
+			android:labelFor="@+id/decResult"
+			android:text="@string/changeOil"/>
+
+		<TextView
+			android:id="@+id/decResult"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="@dimen/default_gap"
+			android:layout_toEndOf="@+id/oilResult"
+			android:textAlignment="textEnd"/>
+	</RelativeLayout>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"/>
+</LinearLayout>
+</ScrollView>

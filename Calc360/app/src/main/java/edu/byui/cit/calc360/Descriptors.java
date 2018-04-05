@@ -19,18 +19,18 @@ final class Descriptors {
 				new CalcDescriptor(1001, R.string.cmpPrices, R.drawable.balance, ComparePrices.class),
 			}),
 			new GroupDescriptor(308, R.string.sports, R.drawable.folder_sports, new CalcDescriptor[]{
-				//new CalcDescriptor(9999, R.drawable.BMR, BasalMetabolicRate.class),
 				new CalcDescriptor(1011, R.string.basketball, R.drawable.basketball, Basketball.class),
 				new CalcDescriptor(1012, R.string.bodyMassIndex, R.drawable.body_mass_index, BodyMassIndex.class),
 				new CalcDescriptor(1020, R.string.caloriesBurned, R.drawable.flame, CaloriesBurned.class),
 				new CalcDescriptor(1062, R.string.age, R.drawable.birthday_cake, Age.class),
-					new CalcDescriptor(1067, R.string.basalMetabolicRate,R.drawable.lightning,BasalMetabolicRate.class),
+				new CalcDescriptor(1067, R.string.basalMetabolicRate, R.drawable.lightning, BasalMetabolicRate.class),
 			}),
 			new GroupDescriptor(302, R.string.travel, R.drawable.folder_travel, new CalcDescriptor[]{
-				new CalcDescriptor(1003, R.string.FuelEconomy, R.drawable.fuel_gauge, FuelEconomy.class),
+				new CalcDescriptor(1003, R.string.FuelEcon, R.drawable.fuel_gauge, FuelEconomy.class),
 				new CalcDescriptor(1031, R.string.fuelCost, R.drawable.fuel_cost, FuelCost.class),
 				new CalcDescriptor(1026, R.string.foreignFuel, R.drawable.fuel_pump, ForeignFuel.class),
-				new CalcDescriptor(1066, R.string.travelTime, R.drawable.travel_time, TravelTime.class),
+				new CalcDescriptor(1079, R.string.OilChange, R.drawable.oil_change, OilChange.class),
+				new CalcDescriptor(1063, R.string.travelTime, R.drawable.travel_time, TravelTime.class),
 				new CalcDescriptor(1036, R.string.currencyExch, R.drawable.currency_exchange, CurrencyExchange.class),
 				new CalcDescriptor(1002, R.string.tip, R.drawable.tip, Tip.class),
 			}),
@@ -117,7 +117,7 @@ final class Descriptors {
 			new GroupDescriptor(310, R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
 				new CalcDescriptor(1032, R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),
 				new CalcDescriptor(1021, R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
-				new CalcDescriptor(1063, R.string.romanNumConvert, R.drawable.roman_num, RomanNumerals.class),
+				new CalcDescriptor(1068, R.string.romanNumConvert, R.drawable.roman_num, RomanNumerals.class),
 			}),
 		});
 
