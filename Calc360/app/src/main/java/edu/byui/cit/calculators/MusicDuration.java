@@ -13,8 +13,6 @@ import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
-import edu.byui.cit.model.Art.MusicDuration.*;
-
 
 public final class MusicDuration extends CalcFragment {
 	private EditInteger totalMeasures;

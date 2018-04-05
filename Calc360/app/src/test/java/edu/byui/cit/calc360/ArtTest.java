@@ -5,6 +5,7 @@ import org.junit.Test;
 import static edu.byui.cit.model.Art.*;
 import static org.junit.Assert.assertEquals;
 
+
 public final class ArtTest {
 	@Test
 	public void testStarExposure() {
@@ -23,5 +24,4 @@ public final class ArtTest {
 		assertEquals(4, MusicDuration.calculateMinutes(duration), delta);
 		assertEquals(32, MusicDuration.calculateSeconds(duration), delta);
 	}
-
 }
