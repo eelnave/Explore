@@ -12,53 +12,51 @@ import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
-import static edu.byui.cit.model.Engineering.ElectricalEnergy.*;
 
-
-public class Power extends SolveEquation {
+public class ElectricPower extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDecimal mAh, v, wh;
+	private EditDecimal decPow, decCur, decVolt;
 
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.ecen, container, false);
+							  Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.electric_power, container, false);
 
-		mAh = new EditDecimal(view, R.id.mAhInput, this);
-		v = new EditDecimal(view, R.id.vInput, this);
-		wh = new EditDecimal(view, R.id.whInput, this);
+		decPow = new EditDecimal(view, R.id.decPow, this);
+		decCur = new EditDecimal(view, R.id.decCur, this);
+		decVolt = new EditDecimal(view, R.id.decVolt, this);
 
-		EditWrapper[] inputs = { mAh, v, wh};
+		EditWrapper[] inputs = {decPow, decCur, decVolt};
 
 		SolveEquation.Solver[] solvers = new SolveEquation.Solver[]{
-				new SolveEquation.Solver() {
-					@Override
-					public void solve() {
-						double volt = v.getDec();
-						double wattHour = wh.getDec();
-						double milliampHour = milliampHour(volt, wattHour);
-						mAh.setText(fmtrDec.format(milliampHour));
-					}
-				},
-				new SolveEquation.Solver() {
-					@Override
-					public void solve() {
-						double milliampHour = mAh.getDec();
-						double wattHour = wh.getDec();
-						double volt = volt(milliampHour, wattHour);
-						v.setText(fmtrDec.format(volt));
-					}
-				},
-				new SolveEquation.Solver() {
-					@Override
-					public void solve() {
-						double milliampHour = mAh.getDec();
-						double volt = v.getDec();
-						double wattHour = wattHour(volt, milliampHour);
-						wh.setText(fmtrDec.format(wattHour));
-					}
-				},
+			new SolveEquation.Solver() {
+				@Override
+				public void solve() {
+					double current = decCur.getDec();
+					double voltage = decVolt.getDec();
+					double power = current * voltage;
+					decPow.setText(fmtrDec.format(power));
+				}
+			},
+			new SolveEquation.Solver() {
+				@Override
+				public void solve() {
+					double power = decPow.getDec();
+					double voltage = decVolt.getDec();
+					double current = power / voltage;
+					decCur.setText(fmtrDec.format(current));
+				}
+			},
+			new SolveEquation.Solver() {
+				@Override
+				public void solve() {
+					double power = decPow.getDec();
+					double current = decCur.getDec();
+					double voltage = power / current;
+					decVolt.setText(fmtrDec.format(voltage));
+				}
+			},
 		};
 
 		initialize(view, inputs, solvers, R.id.btnClear, inputs);

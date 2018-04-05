@@ -33,6 +33,14 @@
 	<string name="ohmsI" translatable="false">I</string>
 	<string name="ohmsR" translatable="false">R</string>
 
+	<string name="elecricPower">Electric Power</string>
+	<string name="powFormula" translatable="false">P = IV</string>
+	<string name="powP" translatable="false">P</string>
+	<string name="powI" translatable="false">I</string>
+	<string name="powV" translatable="false">V</string>
+
+	<string name="electricEnergy">Electric Energy</string>
+
 	<string name="coulombsLaw">Coulomb\u2019s Law</string>
 	<string name="coulFormula" translatable="false">F = k<sub><small>e</small></sub>q<sub><small>1</small></sub>q<sub><small>2</small></sub> / r\u00b2</string>
 	<string name="coulF" translatable="false"><i>F</i></string>
