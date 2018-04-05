@@ -1,10 +1,18 @@
 <resources>
-    <string name="app_name">Date App</string>
+    <string name="app_name">Dater Creater</string>
+
+    <string name="about">About</string>
+    <string name="contribs">Contributors</string>
+
+    <string name="logoCredit">We created the logo and icons for Dater Creater using the free tools at <a href="logomakr.com">logomakr.com</a></string>
+
+    <string name="winter2018">Winter 2018</string>
 
     <string name="quick">Quick Start</string>
     <string name="random">Random</string>
     <string name="custom">Custom</string>
     <string name="welcome">Welcome</string>
+    <string name="search">Search</string>
 
     <string name="spring">Spring</string>
     <string name="winter">Winter</string>

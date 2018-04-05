@@ -85,7 +85,7 @@ public class DaterFrag extends InfoFragment {
         }
     }
 
-    //This method gives functionality for the Add Button
+    //This method gives functionality for the Filter Button
     private final class FilterListener implements View.OnClickListener {
         InfoFragment fragment;
         @Override
