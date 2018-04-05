@@ -6,12 +6,13 @@ import org.junit.Test;
 import edu.byui.cit.model.Mathematics;
 import edu.byui.cit.model.Mathematics.Quadratic;
 
+import static edu.byui.cit.model.Mathematics.Roman.arabicFromRoman;
+import static edu.byui.cit.model.Mathematics.Roman.romanFromArabic;
 import static org.junit.Assert.assertEquals;
 
 
 public final class MathematicsTest {
 	private static final double delta = 1e-9;
-
 
 	@Test
 	public void testGCDLCM() {
@@ -45,5 +46,14 @@ public final class MathematicsTest {
 		assertEquals(-1, Quadratic.root2(1, 2, 0), delta);
 		assertEquals(-1.0 / 3, Quadratic.root2(3, 4, 4), delta);
 		assertEquals(-1, Quadratic.root2(1, 5, 9), delta);
+	}
+
+	@Test
+	public void testRomanNumerals() {
+		for (int i = 0;  i < 4000;  ++i) {
+			String roman = romanFromArabic(i);
+			int arabic = arabicFromRoman(roman);
+			assertEquals(i, arabic);
+		}
 	}
 }
