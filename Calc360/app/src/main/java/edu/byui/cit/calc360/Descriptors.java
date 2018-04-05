@@ -108,6 +108,7 @@ final class Descriptors {
 				new CalcDescriptor(1045, R.string.gasEnergy, R.drawable.gas_energy, GasEnergy.class),
 				new CalcDescriptor(1038, R.string.gasVelocity, R.drawable.gas_velocity, GasVelocity.class),
 				new CalcDescriptor(1059, R.string.relativity, R.drawable.einstein, Relativity.class),
+					new CalcDescriptor(1065, R.string.electrical, R.drawable.lightning, Ecen.class),
 			}),
 			new GroupDescriptor(313, R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
 				new CalcDescriptor(1065, R.string.videoStorage, R.drawable.film, VideoStorage.class),

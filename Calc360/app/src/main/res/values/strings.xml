@@ -47,4 +47,12 @@
 	<string name="inches">inches</string>
 	<string name="pounds">pounds</string>
 	<string name="years">years</string>
+
+	<string name="electrical_calc">Electrical Energy</string>
+	<string name="mah">mAh</string>
+	<string name="v">V</string>
+	<string name="equals">=</string>
+	<string name="wh">Wh</string>
+	<string name="milliamphours">milliampHours</string>
+	<string name="watthours">wattHours</string>
 </resources>
