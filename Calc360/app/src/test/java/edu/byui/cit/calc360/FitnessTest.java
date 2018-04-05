@@ -31,4 +31,13 @@ public final class FitnessTest {
 		assertEquals(378, ResultsRunning);
 		assertEquals(161, ResultsWalking);
 	}
+
+	@Test
+	public void testCalcPace() {
+
+		assertEquals("0 Hrs: 6 Mins: 40.57 Secs", Fitness.calcPace(5.3, 0, 35, 23));
+		//check that method doesn't rounding down
+		assertFalse(Fitness.calcPace(5.3, 0, 35, 23).contains("40.56"));
+		assertTrue(Fitness.calcPace(5.3, 0, 35, 23).contains("40.57"));
+	}
 }
