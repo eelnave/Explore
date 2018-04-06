@@ -10,8 +10,10 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,19 +22,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+
 
 
 public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
-//	private DatabaseReference kindnessDB;
+
 	public GoogleMap mMap;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map);
 		// Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -46,32 +46,39 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
 		mMap = googleMap;
-		FirebaseDatabase.getInstance().getReference().child("report").addListenerForSingleValueEvent(
 
-				new ValueEventListener() {
-					@Override
-					public void onDataChange(DataSnapshot dataSnapshot) {
+		FirebaseDatabase database = FirebaseDatabase.getInstance();
+		DatabaseReference myRef = database.getReference("report");
 
+		// Read from the database
+		myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+			@Override
+			public void onDataChange(DataSnapshot dataSnapshot) {
+				GenericTypeIndicator<HashMap<String, Report>> t = new GenericTypeIndicator<HashMap<String, Report>>() {};
+				HashMap<String, Report> reports = dataSnapshot.getValue(t);
 
-						GenericTypeIndicator<List<Report>> t = new GenericTypeIndicator<List<Report>>() {};
-						List<Report> reports = dataSnapshot.getValue(t);
-						for(int i = 0; i < reports.size(); i++) {
-							System.out.println(reports.get(i).getLatitude());
-							System.out.println(reports.get(i).getLongitude());
+				for(HashMap.Entry<String, Report> entry : reports.entrySet()) {
+					Report value = entry.getValue();
+					mMap.addMarker(new MarkerOptions().position(new LatLng(value.getLatitude(), value.getLongitude())));
+				}
 
-							LatLng current = new LatLng(reports.get(i).getLatitude(), reports.get(i).getLongitude());
-							mMap.addMarker(new MarkerOptions().position(current).icon(
-									BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
-						}
-						CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(new LatLng(reports.get(reports.size()-1).getLatitude(), reports.get(reports.size()-1).getLongitude()), 1);
-						mMap.animateCamera(yourLocation);
-					}
+				mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(0,0)));
+			}
 
-					@Override
-					public void onCancelled(DatabaseError databaseError) {
+			@Override
+			public void onCancelled(DatabaseError error) {
+				// Failed to read value
+			}
+		});
 
-					}
-				});
+		// Add a marker in Sydney and move the camera
+		/*LatLng sydney = new LatLng(-34, 151);
+		MarkerOptions mk = new MarkerOptions();
+		mk.position(sydney).title("Sydney!");
+		mk.icon(BitmapDescriptorFactory.fromResource(R.drawable.money));
+		mMap.addMarker(mk);/*
+
+		/*mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
 		double lat = 0, lon = 0;
 		//getApplicationContext();
 		GPSTracker gps = new GPSTracker(getApplicationContext());
@@ -82,11 +89,11 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 			Toast.makeText(getApplicationContext(), "LAT: " + lat + " Lon: " + lon, Toast.LENGTH_LONG).show();
 		}
 
-//		LatLng current = new LatLng(lat, lon);
-//		mMap.addMarker(new MarkerOptions().position(current).icon(
-//				BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
-
-
+		LatLng current = new LatLng(lat, lon);
+		mMap.addMarker(new MarkerOptions().position(current).icon(
+				BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
+		CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(current, 1);
+		mMap.animateCamera(yourLocation);
 
 	}
 
