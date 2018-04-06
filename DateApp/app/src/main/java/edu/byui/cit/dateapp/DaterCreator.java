@@ -2,7 +2,9 @@ package edu.byui.cit.dateapp;
 
 
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +18,7 @@ public class DaterCreator extends AppCompatActivity{
     public  static final String TAG = "DaterCreator";
 
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dater_creator);
@@ -30,6 +33,7 @@ public class DaterCreator extends AppCompatActivity{
             FragmentTransaction trans = getFragmentManager().beginTransaction();
             trans.add(R.id.fragContainer, daterFrag );
             trans.commit();
+            DaterCreatorDBHelper ourDB = new DaterCreatorDBHelper(daterFrag.getContext());
 
         }
 

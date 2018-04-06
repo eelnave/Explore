@@ -24,6 +24,8 @@ public class DaterFrag extends InfoFragment {
         filterBtn.setOnClickListener(new FilterListener());
         addBtn.setOnClickListener(new AddListener());
 
+
+
         return view;
     }
 

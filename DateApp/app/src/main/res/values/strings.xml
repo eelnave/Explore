@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Dater Creater</string>
 
-    <string name="about">About</string>
     <string name="contribs">Contributors</string>
 
     <string name="logoCredit">We created the logo and icons for Dater Creater using the free tools at <a href="logomakr.com">logomakr.com</a></string>
