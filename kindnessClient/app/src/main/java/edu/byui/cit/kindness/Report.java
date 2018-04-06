@@ -20,6 +20,12 @@ public class Report {
 	private double longitude;
 	private Category category;
 
+	public Report(){
+		latitude = 0;
+		longitude = 0;
+		category = null;
+	}
+
 
 	public Report(double latitude, double longitude) {
 		this.latitude = latitude;
