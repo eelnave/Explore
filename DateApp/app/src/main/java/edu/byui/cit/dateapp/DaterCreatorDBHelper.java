@@ -1,9 +1,11 @@
 package edu.byui.cit.dateapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import edu.byui.cit.dateapp.data.DaterCreatorContract;
 
@@ -32,6 +34,7 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
                 + DaterCreatorContract.DateInfo.DATE_COST_COLUMN_ + " INTEGER );";
         final String CREATE_DATES_DONE = "CREATE TABLE " + DaterCreatorContract.DatesDone.TABLE_NAME + " ( "
                 + DaterCreatorContract.DatesDone.DATE_INFO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT);";
+        Log.i("example", "We are in the dataHelper");
 
         sqLiteDatabase.execSQL(CREATE_USER_TABLE);
     }
@@ -43,4 +46,32 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
 
 
     }
+
+    public boolean insertDataIntoDatesDone(int userID, int datesInfoID){
+
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put(DaterCreatorContract.DatesDone.USER_ID_COLUMN, userID);
+            contentValues.put(DaterCreatorContract.DatesDone.DATE_INFO_ID, datesInfoID);
+            long result = db.insert(DaterCreatorContract.DatesDone.TABLE_NAME, null, contentValues);
+            if(result == -1)
+                return false;
+            else
+                return true;
+
+    }
+
+    public boolean insertDataIntoUser(String name){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        long result = 0;
+        if(result == -1)
+            return false;
+        else
+            return true;
+
+    }
+
+
 }
