@@ -83,14 +83,19 @@ public class CategoryFragment extends InfoFragment {
 			map.setOnClickListener(new SeeListener());
 		Button service = view.findViewById(R.id.service);
 			service.setOnClickListener(new categoryListener(R.id.service));
+			service.getBackground().setAlpha(100);
 		Button time = view.findViewById(R.id.time);
 			time.setOnClickListener(new categoryListener(R.id.time));
+			time.getBackground().setAlpha(100);
 		Button touch = view.findViewById(R.id.touch);
 			touch.setOnClickListener(new categoryListener(R.id.touch));
+			touch.getBackground().setAlpha(100);
 		Button words = view.findViewById(R.id.words);
 			words.setOnClickListener(new categoryListener(R.id.words));
+			words.getBackground().setAlpha(100);
 		Button gift = view.findViewById(R.id.gift);
 			gift.setOnClickListener(new categoryListener(R.id.gift));
+			gift.getBackground().setAlpha(100);
 
 		Animation timeAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.time_animate);
 		Animation giftAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.gift_animate);
