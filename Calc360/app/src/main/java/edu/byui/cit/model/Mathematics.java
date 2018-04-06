@@ -6,7 +6,7 @@ public final class Mathematics {
 	}
 
 	public static long lcm(long a, long b) {
-		return a / gcd(a, b) *  b;
+		return a / gcd(a, b) * b;
 	}
 
 	public static long gcd(long a, long b) {
@@ -47,7 +47,7 @@ public final class Mathematics {
 
 		public static double[] imaginary(double a, double b, double discr) {
 			double twoA = 2.0 * a;
-			return new double[]{ -b / twoA, Math.sqrt(-discr) / twoA };
+			return new double[]{-b / twoA, Math.sqrt(-discr) / twoA};
 		}
 
 		public static double anyRoot(double a, double b, double c) {
@@ -117,6 +117,70 @@ public final class Mathematics {
 				}
 			}
 			return large;
+		}
+	}
+
+
+	public static final class Roman {
+		// Don't allow objects to be created from this class.
+		private Roman() {
+		}
+
+		private static final String[][] numerals = {
+			{"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},
+			{"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"},
+			{"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"},
+			{"", "M", "MM", "MMM"}
+		};
+
+		// Converts a base 10 Arabic number to Roman numerals.
+		public static String romanFromArabic(int arabic) {
+			StringBuilder roman = new StringBuilder();
+
+			// Count down from the thousands column (3) to the ones column (0).
+			for (int exponent = 3;  exponent >= 0;  exponent--) {
+				int divisor = (int)Math.pow(10, exponent);
+				int digit = arabic / divisor;
+				roman.append(numerals[exponent][digit]);
+				arabic -= digit * divisor;
+			}
+
+			return roman.toString();
+		}
+
+		// Converts Roman numerals to a base 10 Arabic number.
+		public static int arabicFromRoman(String roman) {
+			int arabic = 0;
+
+			// Count down from the thousands column (3) to the ones column (0).
+			for (int exponent = 3;  exponent >= 0;  exponent--) {
+
+				// The longest possible "single digit" Roman
+				// pattern has 4 characters, for example VIII
+				int length = Math.min(roman.length(), 4);
+
+				patternMatching:
+				for (; length > 0; length--) {
+					// Extract characters from the Roman number.
+					String chars = roman.substring(0, length);
+
+					// Find the extracted characters using linear search.
+					for (int digit = 0; digit < numerals[exponent].length; digit++) {
+						if (chars.equals(numerals[exponent][digit])) {
+
+							// Found a Roman pattern, so add the corresponding
+							// value to the Arabic number, and subtract the
+							// Roman characters from the Roman number.
+							arabic += digit * Math.pow(10, exponent);
+							roman = roman.substring(length);
+
+							break patternMatching;
+						}
+					}
+				}
+			}
+
+			return arabic;
 		}
 	}
 }

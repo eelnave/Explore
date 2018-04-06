@@ -8,26 +8,26 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/ohmsFormula"
+		android:text="@string/powFormula"
 		compat:layout_columnSpan="3"/>
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/decVolt"
-		android:text="@string/ohmsV"/>
+		android:labelFor="@+id/decPow"
+		android:text="@string/powP"/>
 
 	<EditText
-		android:id="@+id/decVolt"
+		android:id="@+id/decPow"
 		style="@style/SignedDecimal"
-		android:ems="7"
-		android:hint="@string/voltage">
+		android:ems="6"
+		android:hint="@string/power">
 
 		<requestFocus/>
 	</EditText>
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/volts"/>
+		android:text="@string/watts"/>
 
 	<TextView
 		style="@style/TextLabelCenter"
@@ -39,12 +39,12 @@
 	<TextView
 		style="@style/TextLabel"
 		android:labelFor="@+id/decCur"
-		android:text="@string/ohmsI"/>
+		android:text="@string/powI"/>
 
 	<EditText
 		android:id="@+id/decCur"
 		style="@style/SignedDecimal"
-		android:ems="7"
+		android:ems="6"
 		android:hint="@string/current"/>
 
 	<TextView
@@ -53,19 +53,18 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/decRes"
-		android:text="@string/ohmsR"/>
+		android:labelFor="@+id/decVolt"
+		android:text="@string/powV"/>
 
 	<EditText
-		android:id="@+id/decRes"
+		android:id="@+id/decVolt"
 		style="@style/SignedDecimal"
-		android:ems="7"
-		android:hint="@string/resistance"
-		android:imeOptions="actionDone"/>
+		android:ems="6"
+		android:hint="@string/voltage"/>
 
 	<TextView
 		style="@style/TextLabel"
-		android:text="@string/ohms"/>
+		android:text="@string/volts"/>
 
 	<Button
 		android:id="@+id/btnClear"

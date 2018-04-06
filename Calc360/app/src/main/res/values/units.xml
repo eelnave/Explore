@@ -8,6 +8,7 @@
 	<string name="length">length</string>
 	<string name="Distance">Distance</string>
 	<string name="distance">distance</string>
+	<string name="inches">inches</string>
 	<string name="millimeters">millimeters</string>
 	<string name="meters">meters</string>
 
@@ -16,6 +17,7 @@
 	<string name="grams">grams</string>
 	<string name="kilograms">kilograms</string>
 	<string name="kg_s2" translatable="false">kg / sec\u00b2</string>
+	<string name="pounds">pounds</string>
 
 	<string name="moles">moles</string>
 	<string name="molarMass">molar mass</string>
@@ -29,6 +31,7 @@
 	<string name="Days">Days</string>
 	<string name="Months">Months</string>
 	<string name="Years">Years</string>
+	<string name="years">years</string>
 
 	<string name="Current">Current</string>
 	<string name="current">current</string>
@@ -65,7 +68,6 @@
 	<string name="radians">radians</string>
 	<string name="gradians">gradians</string>
 
-	<string name="Voltage">Voltage</string>
 	<string name="voltage">voltage</string>
 	<string name="volts">volts</string>
 
@@ -77,10 +79,15 @@
 	<string name="pressure">pressure</string>
 	<string name="pascals">pascals</string>
 
+	<string name="Power">Power</string>
+	<string name="watts">watts</string>
+
 	<string name="Energy">Energy</string>
 	<string name="energy">energy</string>
 	<string name="kineticEnergy">kinetic energy</string>
 	<string name="joules">joules</string>
+	<string name="Calories">Calories</string>
+	<string name="wattHour">watt hour</string>
 
 	<string name="velocity">velocity</string>
 	<string name="speed">speed</string>

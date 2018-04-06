@@ -39,7 +39,8 @@ fuelEcon = 52,
 //		accel = 61,
 		force = 62,
 		data  = 70,
-		money = 71;
+		money = 71,
+		energy = 72;
 
 	private static World singleton;
 
@@ -68,7 +69,8 @@ fuelEcon = 52,
 			Speed.getInstance(),
 			Force.getInstance(),
 			DataSize.getInstance(),
-			Money.getInstance()
+			Money.getInstance(),
+			Energy.getInstance()
 		});
 	}
 
