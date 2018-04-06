@@ -66,7 +66,7 @@ public class TableCount extends CalcFragment{
 			else if (layout == 2) {
 				int tableChair1 = length + (width * 2);
 				int tableChair2 = width * 2;
-				double tableCount = 0;
+				double tableCount;
 
 				if (count > 2 * tableChair1) {
 					int newCount = count - (2 * tableChair1);
@@ -85,7 +85,7 @@ public class TableCount extends CalcFragment{
 			else if (layout == 3) {
 				int tableChair1 = width + (length * 2);
 				int tableChair2 = length * 2;
-				double tableCount = 0;
+				double tableCount;
 
 				if (count > 2 * tableChair1) {
 					int newCount = count - (2 * tableChair1);
