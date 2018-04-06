@@ -26,7 +26,7 @@ public class DaterCreator extends AppCompatActivity{
 
         ActionBar actBar = getSupportActionBar();
         actBar.setDisplayHomeAsUpEnabled(true);
-
+        actBar.setDisplayShowTitleEnabled(false);
         if(savedInstanceState == null) {
 
             DaterFrag daterFrag = new DaterFrag();

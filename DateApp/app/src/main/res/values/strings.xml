@@ -1,10 +1,17 @@
 <resources>
-    <string name="app_name">Date App</string>
+    <string name="app_name">Dater Creater</string>
+
+    <string name="contribs">Contributors</string>
+
+    <string name="logoCredit">We created the logo and icons for Dater Creater using the free tools at <a href="logomakr.com">logomakr.com</a></string>
+
+    <string name="winter2018">Winter 2018</string>
 
     <string name="quick">Quick Start</string>
     <string name="random">Random</string>
     <string name="custom">Custom</string>
     <string name="welcome">Welcome</string>
+    <string name="search">Search</string>
 
     <string name="spring">Spring</string>
     <string name="winter">Winter</string>
@@ -14,6 +21,9 @@
     <string name="outside">Outside</string>
     <string name="season">Season</string>
     <string name="season2">Choose a season:</string>
+
+    <string name="temp">Temperature</string>
+    <string name="size">Group size</string>
 
     <string name="venue">Venue</string>
     <string name="price">Price</string>
@@ -27,5 +37,9 @@
     <string name="add">Add a Date</string>
     <string name="imageAttribute">Watercolors Background</string>
     <string name="about">About</string>
+    <string name="Results">Results</string>
+    <string name="first">1st</string>
+    <string name="second">2nd</string>
+    <string name="third">3rd</string>
 
 </resources>

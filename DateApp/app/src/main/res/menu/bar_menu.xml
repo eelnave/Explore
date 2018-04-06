@@ -4,6 +4,12 @@
     xmlns:compat="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_search"
+        android:title="@string/search"
+        compat:actionViewClass="android.support.v7.widget.SearchView"
+        compat:showAsAction="always" />
+
+    <item
         android:id="@+id/actFive"
         android:title="@string/about"
         compat:showAsAction="ifRoom"/>

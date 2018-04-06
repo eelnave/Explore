@@ -37,6 +37,70 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
         Log.i("example", "We are in the dataHelper");
 
         sqLiteDatabase.execSQL(CREATE_USER_TABLE);
+
+
+        // do i need to add ''
+        // weather.. any?
+        // inside numbers?
+
+
+        /*
+        temp
+                + "("
+                + " \'\'" + ", "
+                + " \' \'" + ", "
+                + "1" + ", "
+                + "1" + ", "
+                + "\'any\'" + ", "
+                + "\'inside\'"
+                + "), "
+         */
+
+                                                    //dont know it this is right
+        final String INSERT_DATA = "INSERT INTO" +  DaterCreatorContract.DateInfo.TABLE_NAME + " ( "
+                + DaterCreatorContract.DateInfo.DATE_NAME_COLUMN + ", "
+                + DaterCreatorContract.DateInfo.DATE_DESCRIPTION_COLUMN + ", "
+                + DaterCreatorContract.DateInfo.DATE_COST_COLUMN_ + ", "
+                + DaterCreatorContract.DateInfo.DATE_ACTIVITY_LEVEL_COLUMN + ", "
+                + DaterCreatorContract.DateInfo.DATE_TEMP_COLUMN + ", "
+                + DaterCreatorContract.DateInfo.DATE_VENUE_COLUMN + ")"
+                + " VALUES "
+                + "("
+                + " \'Shooting star night Golf\'" + ", "
+                + " \'Grab some golf balls and glow sticks. Check you local DI for drivers. Head out to the sand dunes (or anywhere high) and break the glow stick open and cover golf balls in fluorescent light. See hoe far you can hit them and watch them soar \'" + ", "
+                + "2" + ", "
+                + "2" + ", "
+                + "\'warm\'" + ", "
+                + "\'outside\'"
+                + "), "
+
+                + "("
+                + " \'Netflix in Silence\'" + ", "
+                + " \'Watch a Netflix movie neither of you have seen and turn the sound off and see what kind of story you guys can come up with! You can spice it up by ordering take out or ice cream \'" + ", "
+                + "1" + ", "
+                + "1" + ", "
+                + "\'any\'" + ", "
+                + "\'inside\'"
+                + "), "
+
+                + "("
+                + " \'Arcade Night\'" + ", "
+                + " \'See how many tickets you can get and what fun prizes you can win!\'" + ", "
+                + "2" + ", "
+                + "2" + ", "
+                + "\'any\'" + ", "
+                + "\'inside\'"
+                + "), "
+
+                + "("
+                + " \'Paint night\'" + ", "
+                + " \'Go to Porters and pick out \'" + ", "
+                + "1" + ", "
+                + "1" + ", "
+                + "\'any\'" + ", "
+                + "\'inside\'"
+                + "), "
+                + ");";
     }
 
     @Override
@@ -75,3 +139,6 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
 
 
 }
+
+
+// String Insert
