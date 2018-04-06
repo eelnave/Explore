@@ -36,7 +36,7 @@
 			android:name="com.google.android.geo.API_KEY"
 			android:value="@string/google_maps_key" />
         <activity
-            android:name=".KindnessMap"
+            android:name="edu.byui.cit.kindness.KindnessMap"
             android:label="@string/map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
