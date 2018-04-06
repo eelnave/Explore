@@ -28,12 +28,15 @@ public class TableCount extends CalcFragment{
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		View view = inflater.inflate(R.layout.tablelayout, container,
+				false);
+
 		tblLength = new EditInteger(view, R.id.tblLength, this);
 		tblWidth = new EditInteger(view, R.id.tblWidth, this);
 		chairCount = new EditInteger(view, R.id.chairCount, this);
 
 
-			tableLayout = view.findViewById(R.id.tablelayout);
+			tableLayout = view.findViewById(R.id.tableLayout);
 			new RadioWrapper(view, R.id.S2S, this);
 			new RadioWrapper(view, R.id.Separate, this);
 			new RadioWrapper(view, R.id.E2E, this);
@@ -54,43 +57,53 @@ public class TableCount extends CalcFragment{
 			int width = tblWidth.getInt();
 			int count = chairCount.getInt();
 
-			if (layout = R.id.Separate) {
+			if (layout == 1) {
 				int tableChairs = length * 2 + width * 2;
-				double tableCount = count / tableChairs;
+				double tableCount = Math.ceil(count / tableChairs);
+				String result = tableCount + " tables needed";
+				txtResult.setText(result);
 			}
-			else if (layout = R.id.S2S) {
+			else if (layout == 2) {
 				int tableChair1 = length + (width * 2);
 				int tableChair2 = width * 2;
+				double tableCount = 0;
 
 				if (count > 2 * tableChair1) {
 					int newCount = count - (2 * tableChair1);
-					double tableCount = newCount / tableChair2;
-					tableCount = tableCount + 2;
+					tableCount = newCount / tableChair2;
+					tableCount = Math.ceil(tableCount + 2);
 				}
 				else if (count > (length * 2 + width * 2)) {
-					double tableCount = 2;
+					tableCount = 2;
 				}
 				else {
-					double tableCount = 1;
+					tableCount = 1;
 				}
+				String result = tableCount + " tables needed";
+				txtResult.setText(result);
 			}
-			else if (layout = R.id.E2E) {
+			else if (layout == 3) {
 				int tableChair1 = width + (length * 2);
 				int tableChair2 = length * 2;
+				double tableCount = 0;
 
 				if (count > 2 * tableChair1) {
 					int newCount = count - (2 * tableChair1);
-					double tableCount = newCount / tableChair2;
-					tableCount = tableCount + 2;
+					tableCount = newCount / tableChair2;
+					tableCount = Math.ceil(tableCount + 2);
 				}
 				else if (count > (length * 2 + width * 2)) {
-					double tableCount = 2;
+					tableCount = 2;
 				}
 				else {
-					double tableCount = 1;
+					tableCount = 1;
 				}
+				String result = tableCount + " tables needed";
+				txtResult.setText(result);
 			}
-
+			else {
+				clearOutput();
+			}
 		}
 	}
 }
