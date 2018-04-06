@@ -13,48 +13,62 @@ import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 
-public class ElectricPower extends SolveEquation {
+public class ElectricEnergy extends SolveEquation {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
-	private EditDecimal decPow, decCur, decVolt;
+	private EditDecimal decEner, decCur, decVolt, decTime;
 
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 							  Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.electric_power, container, false);
+		View view = inflater.inflate(R.layout.electric_energy, container, false);
 
-		decPow = new EditDecimal(view, R.id.decPower, this);
+		decEner = new EditDecimal(view, R.id.decEnergy, this);
 		decCur = new EditDecimal(view, R.id.decCurrent, this);
 		decVolt = new EditDecimal(view, R.id.decVoltage, this);
+		decTime = new EditDecimal(view, R.id.decTime, this);
 
-		EditWrapper[] inputs = {decPow, decCur, decVolt};
+		EditWrapper[] inputs = {decEner, decCur, decVolt, decTime};
 
-		SolveEquation.Solver[] solvers = new SolveEquation.Solver[]{
-			new SolveEquation.Solver() {
+		Solver[] solvers = new Solver[]{
+			new Solver() {
 				@Override
 				public void solve() {
 					double current = decCur.getDec();
 					double voltage = decVolt.getDec();
-					double power = current * voltage;
-					decPow.setText(fmtrDec.format(power));
+					double time = decTime.getDec();
+					double energy = current * voltage * time;
+					decEner.setText(fmtrDec.format(energy));
 				}
 			},
-			new SolveEquation.Solver() {
+			new Solver() {
 				@Override
 				public void solve() {
-					double power = decPow.getDec();
+					double energy = decEner.getDec();
 					double voltage = decVolt.getDec();
-					double current = power / voltage;
+					double time = decTime.getDec();
+					double current = energy / (voltage * time);
 					decCur.setText(fmtrDec.format(current));
 				}
 			},
-			new SolveEquation.Solver() {
+			new Solver() {
 				@Override
 				public void solve() {
-					double power = decPow.getDec();
+					double energy = decEner.getDec();
 					double current = decCur.getDec();
-					double voltage = power / current;
+					double time = decTime.getDec();
+					double voltage = energy / (current * time);
 					decVolt.setText(fmtrDec.format(voltage));
+				}
+			},
+			new Solver() {
+				@Override
+				public void solve() {
+					double energy = decEner.getDec();
+					double voltage = decVolt.getDec();
+					double current = decCur.getDec();
+					double time = energy / (voltage * current);
+					decVolt.setText(fmtrDec.format(time));
 				}
 			}
 		};

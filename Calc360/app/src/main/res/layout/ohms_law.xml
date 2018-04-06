@@ -13,11 +13,11 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/decVolt"
+		android:labelFor="@+id/decVoltage"
 		android:text="@string/ohmsV"/>
 
 	<EditText
-		android:id="@+id/decVolt"
+		android:id="@+id/decVoltage"
 		style="@style/SignedDecimal"
 		android:ems="7"
 		android:hint="@string/voltage">
@@ -38,11 +38,11 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/decCur"
+		android:labelFor="@+id/decCurrent"
 		android:text="@string/ohmsI"/>
 
 	<EditText
-		android:id="@+id/decCur"
+		android:id="@+id/decCurrent"
 		style="@style/SignedDecimal"
 		android:ems="7"
 		android:hint="@string/current"/>
@@ -53,11 +53,11 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/decRes"
+		android:labelFor="@+id/decResistance"
 		android:text="@string/ohmsR"/>
 
 	<EditText
-		android:id="@+id/decRes"
+		android:id="@+id/decResistance"
 		style="@style/SignedDecimal"
 		android:ems="7"
 		android:hint="@string/resistance"

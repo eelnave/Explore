@@ -28,9 +28,9 @@ public final class OhmsLaw extends SolveEquation {
 		// Inflate the layout for this calculator.
 		View view = inflater.inflate(R.layout.ohms_law, container, false);
 
-		decVolt = new EditDecimal(view, R.id.decVolt, this);
-		decCur = new EditDecimal(view, R.id.decCur, this);
-		decRes = new EditDecimal(view, R.id.decRes, this);
+		decVolt = new EditDecimal(view, R.id.decVoltage, this);
+		decCur = new EditDecimal(view, R.id.decCurrent, this);
+		decRes = new EditDecimal(view, R.id.decResistance, this);
 
 		// An array of all the inputs for this calculator.
 		EditWrapper[] inputs = { decVolt, decCur, decRes };
