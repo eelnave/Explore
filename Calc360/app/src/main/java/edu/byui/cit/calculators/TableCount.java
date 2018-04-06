@@ -107,3 +107,4 @@ public class TableCount extends CalcFragment{
 		}
 	}
 }
+
