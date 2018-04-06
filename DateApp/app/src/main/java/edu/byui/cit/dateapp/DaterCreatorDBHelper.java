@@ -70,7 +70,7 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
                 + "\'warm\'" + ", "
                 + "\'outside\'"
                 + "), "
-                ////////////////////////////// end of that date
+
                 + "("
                 + " \'Netflix in Silence\'" + ", "
                 + " \'Watch a Netflix movie neither of you have seen and turn the sound off and see what kind of story you guys can come up with! You can spice it up by ordering take out or ice cream \'" + ", "
@@ -79,16 +79,24 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
                 + "\'any\'" + ", "
                 + "\'inside\'"
                 + "), "
-                //////////////////////////end of that date
+
                 + "("
-                + " \'Arcade Game Night\'" + ", "
-                + " \'See how many ticket you can get for some little fun prizes\'" + ", "
+                + " \'Arcade Night\'" + ", "
+                + " \'See how many tickets you can get and what fun prizes you can win!\'" + ", "
                 + "2" + ", "
                 + "2" + ", "
                 + "\'any\'" + ", "
                 + "\'inside\'"
                 + "), "
 
+                + "("
+                + " \'Paint night\'" + ", "
+                + " \'Go to Porters and pick out \'" + ", "
+                + "1" + ", "
+                + "1" + ", "
+                + "\'any\'" + ", "
+                + "\'inside\'"
+                + "), "
                 + ");";
     }
 
