@@ -1,8 +1,11 @@
 package edu.byui.cit.kindness;
 
+import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,9 +25,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 
+
+
 public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 
-	private GoogleMap mMap;
+	public GoogleMap mMap;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,8 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 				.findFragmentById(R.id.map);
 		mapFragment.getMapAsync(this);
 	}
+
+
 
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
@@ -72,6 +79,22 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 		mMap.addMarker(mk);/*
 
 		/*mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
+		double lat = 0, lon = 0;
+		//getApplicationContext();
+		GPSTracker gps = new GPSTracker(getApplicationContext());
+		Location loc = gps.getLocation();
+		if (loc != null){
+			lat = loc.getLatitude();
+			lon = loc.getLongitude();
+			Toast.makeText(getApplicationContext(), "LAT: " + lat + " Lon: " + lon, Toast.LENGTH_LONG).show();
+		}
+
+		LatLng current = new LatLng(lat, lon);
+		mMap.addMarker(new MarkerOptions().position(current).icon(
+				BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
+		CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(current, 1);
+		mMap.animateCamera(yourLocation);
+
 	}
 
 
