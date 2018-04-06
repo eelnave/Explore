@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.TreeMap;
 
 
@@ -32,7 +33,6 @@ public class SubmitFragment extends InfoFragment {
 		longitudeView.setText("" + lon);
 
 		Report report = new Report(lat, lon);
-
 		report.addReport();
 	}
 
