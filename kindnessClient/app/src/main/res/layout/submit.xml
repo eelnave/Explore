@@ -94,7 +94,8 @@
 		android:paddingBottom="25dp"
 		android:orientation="vertical" >
 
-	<Button
+
+		<Button
 		android:id="@+id/submitButton"
 		android:layout_width="150dp"
 		android:layout_height="wrap_content"
