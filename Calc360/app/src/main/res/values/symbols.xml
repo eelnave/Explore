@@ -94,8 +94,5 @@
 	<string name="chairs" translatable="false">\Number of Chairs</string>
 	<string name="Length" translatable="false">\Length</string>
 	<string name="Width" translatable="false">\Width</string>
-	<string name="Separate" translatable="false">\Separate</string>
-	<string name="S2S" translatable="false">\Side by Side</string>
-	<string name="E2E" translatable="false">\End by End</string>
 
 </resources>
