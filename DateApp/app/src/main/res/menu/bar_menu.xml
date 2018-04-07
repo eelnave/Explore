@@ -17,5 +17,5 @@
     <item
         android:id="@+id/actAbout"
         android:title="@string/about"
-        compat:showAsAction="never"/>
+        compat:showAsAction="ifRoom"/>
 </menu>

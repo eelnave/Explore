@@ -5,8 +5,8 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/watercolor"
         android:contentDescription="@string/imageAttribute"/>
@@ -72,7 +72,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/title" />
 
-
     <Button
         android:id="@+id/filterBtn"
         android:layout_width="120dp"
@@ -89,9 +88,8 @@
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/addBtn"
-        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/randomBtn"
+        app:layout_constraintTop_toBottomOf="@+id/dateBtn"
         app:layout_constraintVertical_bias="0.162" />
 
     <Button
@@ -99,8 +97,6 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="16dp"
         android:layout_marginTop="28dp"
         android:drawableTop="@drawable/plus"
         android:gravity="center|bottom"
@@ -109,10 +105,11 @@
         android:text="@string/add"
         android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.775"
+        app:layout_constraintLeft_toLeftOf="@id/filterBtn"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/randomBtn"
-        app:layout_constraintVertical_bias="0.162" />
+        app:layout_constraintVertical_bias="0.163" />
 
 
 </android.support.constraint.ConstraintLayout>
