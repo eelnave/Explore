@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 public class DaterCreator extends AppCompatActivity{
     public  static final String TAG = "DaterCreator";
 
+    private InfoFragment about;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,19 +63,19 @@ public class DaterCreator extends AppCompatActivity{
                 // left-facing triangle icon on the main android toolbar.
                 onBackPressed();
                 return true;
-//            case R.id.actAbout:
-//                if (about == null || about.isDetached()) {
-//                    about = new About();
-//                    about.setDescripID(1);
-//                }
-//
-//                // Replace whatever is in the fragment_container
-//                // view with the About fragment.
-//                switchFragment(about);
-//
-//                // Return true to indicate that this
-//                // method handled the item selected event.
-//                return true;
+           case R.id.actAbout:
+                if (about == null || about.isDetached()) {
+                    about = new About();
+                    about.setDescripID(1);
+                }
+
+                // Replace whatever is in the fragment_container
+                // view with the About fragment.
+               switchFragment(about);
+
+                // Return true to indicate that this
+               // method handled the item selected event.
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

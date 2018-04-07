@@ -9,11 +9,11 @@
         compat:actionViewClass="android.support.v7.widget.SearchView"
         compat:showAsAction="always" />
 
-    <item
+<!--    <item
         android:id="@+id/actFive"
         android:title="@string/about"
         compat:showAsAction="ifRoom"/>
-
+!-->
     <item
         android:id="@+id/actAbout"
         android:title="@string/about"
