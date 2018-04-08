@@ -15,13 +15,10 @@ public final class Fitness {
 	public static String calcPace(double d, int h, int m, int s) {
 		String output;
 		double t = (h * 3600) + (m * 60) + s;
-		double p = t / d;
 		double sp = (t / d) % 60;
 		sp = Math.round(sp * 100) / 100.0;
-		int hp = (int)(h / d);
-		p = p - (hp * 3600);
-		int mp = (int) p / 60;
-
+		int mp = (int)(t / 60 / d) % 60;
+		int hp = (int)(t / 3600 / d) % 60;
 
 		output = hp + " Hrs: " + mp + " Mins: " + sp + " Secs";
 
