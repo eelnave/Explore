@@ -24,7 +24,7 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         final String CREATE_USER_TABLE = "CREATE TABLE " + DaterCreatorContract.UserEntry.TABLE_NAME + " ( " +
-                DaterCreatorContract.UserEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT;" ;
+                DaterCreatorContract.UserEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + DaterCreatorContract.UserEntry.COLUMN_NAME + "TEXT;";
         final String CREATE_DATE_INFO = "CREATE TABLE " + DaterCreatorContract.DateInfo.TABLE_NAME + " ( " +
                 DaterCreatorContract.DateInfo._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + DaterCreatorContract.DateInfo.DATE_NAME_COLUMN + " TEXT NOT NULL, " + DaterCreatorContract.DateInfo.DATE_GROUP_SIZE_COLUMN + " text,  "
@@ -33,7 +33,12 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
                 + DaterCreatorContract.DateInfo.DATE_ACTIVITY_LEVEL_COLUMN + " INTEGER, "
                 + DaterCreatorContract.DateInfo.DATE_COST_COLUMN_ + " INTEGER );";
         final String CREATE_DATES_DONE = "CREATE TABLE " + DaterCreatorContract.DatesDone.TABLE_NAME + " ( "
-                + DaterCreatorContract.DatesDone.DATE_INFO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT);";
+                + DaterCreatorContract.DatesDone._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + DaterCreatorContract.DatesDone.USER_ID_COLUMN
+                + " INTEGER NOT NULL" + DaterCreatorContract.DatesDone.DATE_INFO_ID + " INTEGER NOT NULL, " +
+                " FOREIGN KEY("+ DaterCreatorContract.DatesDone.USER_ID_COLUMN +") REFERENCES " + DaterCreatorContract.UserEntry.TABLE_NAME
+                + "(" + DaterCreatorContract.UserEntry._ID + "), "
+                + "FOREIGN KEY(" + DaterCreatorContract.DatesDone.DATE_INFO_ID + ") REFERENCES " + DaterCreatorContract.DateInfo.TABLE_NAME
+                + "(" + DaterCreatorContract.DateInfo._ID + ")" +");";
         Log.i("example", "We are in the dataHelper");
 
         sqLiteDatabase.execSQL(CREATE_USER_TABLE);
@@ -129,6 +134,7 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put(DaterCreatorContract.UserEntry.COLUMN_NAME, name);
         long result = 0;
         if(result == -1)
             return false;
@@ -136,6 +142,7 @@ public class DaterCreatorDBHelper extends SQLiteOpenHelper{
             return true;
 
     }
+
 
 
 }
