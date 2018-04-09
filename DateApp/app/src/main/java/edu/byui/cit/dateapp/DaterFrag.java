@@ -20,7 +20,7 @@ public class DaterFrag extends InfoFragment {
         Button filterBtn = view.findViewById(R.id.filterBtn);
         Button addBtn = view.findViewById(R.id.addBtn);
 
-//        randBtn.setOnClickListener(new RandomListener());
+        randBtn.setOnClickListener(new RandomListener());
         filterBtn.setOnClickListener(new FilterListener());
         addBtn.setOnClickListener(new AddListener());
 
@@ -93,6 +93,24 @@ public class DaterFrag extends InfoFragment {
             try {
                 if (fragment == null || fragment.isDetached()) {
                     fragment = FilterList.class.newInstance();
+                    //this is a random ID I gave it. Why does it need an ID? Beats me.
+                }
+            }
+            catch (Exception ex) {
+                // Log.e(KindnessActivity.TAG,
+                //            "cannot instantiate Categories fragment", ex);
+            }
+            switchFragment(fragment);
+        }
+    }
+
+    private final class RandomListener implements View.OnClickListener {
+        InfoFragment fragment;
+        @Override
+        public void onClick(View view) {
+            try {
+                if (fragment == null || fragment.isDetached()) {
+                    fragment = RandomResult.class.newInstance();
                     //this is a random ID I gave it. Why does it need an ID? Beats me.
                 }
             }
