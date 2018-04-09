@@ -87,4 +87,10 @@
 	<string name="collapsed" translatable="false">\u25b6</string>
 	<string name="expanded" translatable="false">\u25bc</string>
 	<string name="launch" translatable="false">\u003e</string>
+
+	<string name="num1" translatable="false">a</string>
+	<string name="num2" translatable="false">c</string>
+	<string name="den1" translatable="false">b</string>
+	<string name="den2" translatable="false">d</string>
+	<string name="rfraction" translatable="false">\?</string>
 </resources>

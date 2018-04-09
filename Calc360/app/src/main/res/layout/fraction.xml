@@ -13,7 +13,7 @@
 		android:layout_marginTop="5dp"
 		android:background="@drawable/border_top_bottom"
 		android:ems="5"
-		android:hint="a"
+		android:hint="@string/num1"
 		android:imeOptions="actionNext"
 		android:inputType="number|numberSigned"
 		android:textAlignment="center"/>
@@ -34,7 +34,7 @@
 		android:layout_marginTop="5dp"
 		android:background="@drawable/border_top_bottom"
 		android:ems="5"
-		android:hint="c"
+		android:hint="@string/num2"
 		android:imeOptions="actionNext"
 		android:inputType="number|numberSigned"
 		android:textAlignment="center"/>
@@ -53,7 +53,7 @@
 		android:layout_marginTop="5dp"
 		android:background="@drawable/border_top_bottom"
 		android:ems="5"
-		android:text="\?"
+		android:text="@string/rfraction"
 		android:textAlignment="center"/>
 
 	<EditText
@@ -62,7 +62,7 @@
 		android:layout_height="wrap_content"
 		android:background="@android:color/transparent"
 		android:ems="5"
-		android:hint="b"
+		android:hint="@string/den1"
 		android:imeOptions="actionNext"
 		android:inputType="number|numberSigned"
 		android:textAlignment="center"/>
@@ -73,7 +73,7 @@
 		android:layout_height="wrap_content"
 		android:background="@android:color/transparent"
 		android:ems="5"
-		android:hint="d"
+		android:hint="@string/den2"
 		android:imeOptions="actionDone"
 		android:inputType="number|numberSigned"
 		android:textAlignment="center"/>
@@ -83,7 +83,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:ems="5"
-		android:text="\?"
+		android:text="@string/rfraction"
 		android:textAlignment="center"/>
 
 	<Button
