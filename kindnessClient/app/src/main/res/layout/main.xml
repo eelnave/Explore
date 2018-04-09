@@ -7,15 +7,13 @@
 
 	<android.support.v7.widget.GridLayout
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_marginLeft="75dp"
-		android:layout_marginRight="75dp">
+		android:layout_height="match_parent">
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"
-			android:orientation="vertical"
-			android:gravity="center">
+			android:gravity="center"
+			android:orientation="vertical">
 
 			<edu.byui.cit.kindness.IconButton
 				android:id="@+id/report_kindness"
@@ -26,8 +24,9 @@
 			<edu.byui.cit.kindness.IconButton
 				android:id="@+id/see_kindness"
 				style="@style/MainIconButton"
+				android:layout_height="6dp"
 				android:background="@drawable/seekindness"
-				android:text="@string/see_kindness" />
+				android:text="@string/see_kindness"/>
 		</LinearLayout>
 
 	</android.support.v7.widget.GridLayout>
