@@ -5,7 +5,7 @@
 		<!-- Customize your theme here. -->
 		<item name="colorPrimaryDark">@color/colorYellowDark</item>
 		<item name="colorPrimary">@color/colorYellowMid</item>
-		<item name="colorAccent">@color/colorBlueMid</item>
+		<item name="colorAccent">@color/colorBlack</item>
 	</style>
 
 	<style name="IconButton" parent="@android:style/Widget.Material.Button">
