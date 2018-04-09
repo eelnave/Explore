@@ -3,8 +3,10 @@
 
     <string name="contribs">Contributors</string>
 
-    <string name="logoCredit">We created the logo and icons for Dater Creater using the free tools at <a href="logomakr.com">logomakr.com</a></string>
 
+    <string name="description">The Dater Creator app idea is to give users a way to organize and find date ideas for you and your special someone. You will have the app to specify certain parameters (Amount of money willing to spend, time you have, temperature, level of physical activity) to give the user a realistic date idea.</string>
+    <string name="logomakr">Logo Editor</string>
+    <string name="logoCredit">We created the logo and icons for Dater Creater using the free tools at <a href="logomakr.com">logomakr.com</a></string>
     <string name="winter2018">Winter 2018</string>
 
     <string name="quick">Quick Start</string>
