@@ -2,7 +2,9 @@ package edu.byui.cit.dateapp;
 
 
 import android.app.FragmentTransaction;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -15,7 +17,9 @@ import android.view.ViewGroup;
 public class DaterCreator extends AppCompatActivity{
     public  static final String TAG = "DaterCreator";
 
+    private InfoFragment about;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dater_creator);
@@ -23,13 +27,14 @@ public class DaterCreator extends AppCompatActivity{
 
         ActionBar actBar = getSupportActionBar();
         actBar.setDisplayHomeAsUpEnabled(true);
-
+        actBar.setDisplayShowTitleEnabled(false);
         if(savedInstanceState == null) {
 
             DaterFrag daterFrag = new DaterFrag();
             FragmentTransaction trans = getFragmentManager().beginTransaction();
             trans.add(R.id.fragContainer, daterFrag );
             trans.commit();
+            DaterCreatorDBHelper ourDB = new DaterCreatorDBHelper(daterFrag.getContext());
 
         }
 
@@ -58,19 +63,19 @@ public class DaterCreator extends AppCompatActivity{
                 // left-facing triangle icon on the main android toolbar.
                 onBackPressed();
                 return true;
-//            case R.id.actAbout:
-//                if (about == null || about.isDetached()) {
-//                    about = new About();
-//                    about.setDescripID(1);
-//                }
-//
-//                // Replace whatever is in the fragment_container
-//                // view with the About fragment.
-//                switchFragment(about);
-//
-//                // Return true to indicate that this
-//                // method handled the item selected event.
-//                return true;
+           case R.id.actAbout:
+                if (about == null || about.isDetached()) {
+                    about = new About();
+                    about.setDescripID(1);
+                }
+
+                // Replace whatever is in the fragment_container
+                // view with the About fragment.
+               switchFragment(about);
+
+                // Return true to indicate that this
+               // method handled the item selected event.
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
