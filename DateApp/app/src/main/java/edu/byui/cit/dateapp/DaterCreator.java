@@ -8,6 +8,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -24,10 +25,15 @@ public class DaterCreator extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dater_creator);
 
-
+    // this tells the app that the we want the menu bar
         ActionBar actBar = getSupportActionBar();
-        actBar.setDisplayHomeAsUpEnabled(true);
-        actBar.setDisplayShowTitleEnabled(false);
+        try {
+            actBar.setDisplayHomeAsUpEnabled(true);
+            actBar.setDisplayShowTitleEnabled(false);
+        }
+        catch (Exception ex) {
+            Log.v("Problem with meun", "You should fix it");
+        }
         if(savedInstanceState == null) {
 
             DaterFrag daterFrag = new DaterFrag();
@@ -39,6 +45,7 @@ public class DaterCreator extends AppCompatActivity{
         }
 
     }
+    // This is the menu bar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -51,7 +58,7 @@ public class DaterCreator extends AppCompatActivity{
     }
 
 
-    //TODO TEST THIS TO SEE WHAT IT DOES
+    // This is the buttons for the menu bar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
@@ -81,28 +88,6 @@ public class DaterCreator extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
     }
 
-
- // TODO I might need this
-//    protected View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                              Bundle savedInstState)   {
-//        View view = inflater.inflate(R.layout.dater_creator, container, false);
-//
-//
-//        return view;
-//    }
-
-
-    // TODO ASK IF I NEED THIS OR AT LEAST WHAT IS DOES
-//    private final class SeeListener implements  View.OnClickListener {
-//        InfoFragment fragment;
-//        @Override
-//        public void onClick(View view) {
-//            try{
-//                if(fragment == null || fragment.isDetached()) {
-//                fra
-//            }
-//        }
-//    }
 
     public void switchFragment(InfoFragment fragment) {
         FragmentTransaction trans = getFragmentManager().beginTransaction();

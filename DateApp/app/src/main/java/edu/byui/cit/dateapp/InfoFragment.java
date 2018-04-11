@@ -18,19 +18,12 @@ import org.jetbrains.annotations.NotNull;
 import edu.byui.cit.dateapp.R;
 
 public abstract class InfoFragment extends Fragment {
-    private static final String descripIDKey = "calcID";
-
-    //Descriptor descriptor;
+    private static final String descripIDKey = "DaterID";
 
     void setDescripID(int descripID) {
      //   descriptor = Descriptors.getDescrip(descripID);
     }
 
-//	@Override
-//	public void onAttach(Context ctx) {
-//		super.onAttach(ctx);
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onAttach()");
-//	}
 
     @Override
     public void onCreate(Bundle savedInstState) {
@@ -69,33 +62,12 @@ public abstract class InfoFragment extends Fragment {
     protected void restorePrefs(SharedPreferences prefs) {
     }
 
-//	@Override
-//	public void onActivityCreated(Bundle savedInstState) {
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onActivityCreated("
-// + (savedInstState == null ? "null" : savedInstState.size()) + ")");
-//		super.onActivityCreated(savedInstState);
-//	}
-//
-//	@Override
-//	public void onViewStateRestored(Bundle savedInstState) {
-//		super.onViewStateRestored(savedInstState);
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onViewStateRestored
-// (" + (savedInstState == null ? "null" : savedInstState.size()) + ")");
-//	}
-//
-//	@Override
-//	public void onStart() {
-//		super.onStart();
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onStart()");
-//	}
-
     @Override
     public void onResume() {
         super.onResume();
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onResume()");
         try {
             Activity act = getActivity();
-           // act.setTitle(descriptor.getTitle(getResources()));
             View focused = act.getCurrentFocus();
             if (focused instanceof EditText) {
                 InputMethodManager imm = (InputMethodManager)act
@@ -109,12 +81,6 @@ public abstract class InfoFragment extends Fragment {
     }
 
 
-//	@Override
-//	public void onPause() {
-//		super.onPause();
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onPause()");
-//	}
-
     @Override
     public void onSaveInstanceState(@NotNull Bundle savedInstState) {
         super.onSaveInstanceState(savedInstState);
@@ -124,7 +90,7 @@ public abstract class InfoFragment extends Fragment {
     }
 
 
-    // When this calculator is stopped by the Android system, save
+    // When this app is stopped by the Android system, save
     // the units chosen by the user into the preferences file.
    @Override
   public void onStop() {
@@ -155,23 +121,4 @@ public abstract class InfoFragment extends Fragment {
 
     protected void savePrefs(SharedPreferences.Editor editor) {
     }
-
-
-//	@Override
-//	public void onDestroyView() {
-//		super.onDestroyView();
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onDestroyView()");
-//	}
-//
-//	@Override
-//	public void onDestroy() {
-//		super.onDestroy();
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onDestroy()");
-//	}
-//
-//	@Override
-//	public void onDetach() {
-//		super.onDetach();
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onDetach()");
-//	}
 }

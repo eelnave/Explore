@@ -29,46 +29,7 @@ public class DaterFrag extends InfoFragment {
         return view;
     }
 
-//    private final class FilterListener implements View.OnClickListener {
-//        InfoFragment fragment;
-//        @Override
-//        public void onClick(View view) {
-//            try {
-//                if (fragment == null || fragment.isDetached()) {
-//                    fragment = FragGroup.class.newInstance();
-//                    //this is a random ID I gave it. Why does it need an ID? Beats me.
-//                    fragment.setDescripID(1010);
-//                }
-//            }
-//            catch (Exception ex) {
-//                // Log.e(KindnessActivity.TAG,
-//                //            "cannot instantiate Categories fragment", ex);
-//            }
-//            switchFragment(fragment);
-//        }
-//    }
-//
-//    private final class RandomListener implements View.OnClickListener {
-//        InfoFragment fragment;
-//        @Override
-//        public void onClick(View view) {
-//            try {
-//                if (fragment == null || fragment.isDetached()) {
-//                    fragment = FragGroup.class.newInstance();
-//                    //this is a random ID I gave it. Why does it need an ID? Beats me.
-//                    fragment.setDescripID(1011);
-//                }
-//            }
-//            catch (Exception ex) {
-//                // Log.e(KindnessActivity.TAG,
-//                //            "cannot instantiate Categories fragment", ex);
-//            }
-//            switchFragment(fragment);
-//        }
-//    }
-//
-//
-    //This method gives functionality for the Add Button
+    // This creates a listener for the add date button so it will switch the fragment
     private final class AddListener implements View.OnClickListener {
         InfoFragment fragment;
         @Override
@@ -76,7 +37,7 @@ public class DaterFrag extends InfoFragment {
             try {
                 if (fragment == null || fragment.isDetached()) {
                     fragment = NewDate.class.newInstance();
-                    //this is a random ID I gave it. Why does it need an ID? Beats me.
+
                 }
             }
             catch (Exception ex) {
@@ -95,7 +56,7 @@ public class DaterFrag extends InfoFragment {
             try {
                 if (fragment == null || fragment.isDetached()) {
                     fragment = FilterList.class.newInstance();
-                    //this is a random ID I gave it. Why does it need an ID? Beats me.
+
                 }
             }
             catch (Exception ex) {
@@ -105,7 +66,7 @@ public class DaterFrag extends InfoFragment {
             switchFragment(fragment);
         }
     }
-
+    // This creates a listener for the random button so it will switch the fragment
     private final class RandomListener implements View.OnClickListener {
         InfoFragment fragment;
         @Override
@@ -113,7 +74,6 @@ public class DaterFrag extends InfoFragment {
             try {
                 if (fragment == null || fragment.isDetached()) {
                     fragment = RandomResult.class.newInstance();
-                    //this is a random ID I gave it. Why does it need an ID? Beats me.
                 }
             }
             catch (Exception ex) {
@@ -124,6 +84,7 @@ public class DaterFrag extends InfoFragment {
         }
     }
 
+    // This is the function that switches between the the different fragments
     public void switchFragment(InfoFragment fragment) {
         FragmentTransaction trans = getFragmentManager().beginTransaction();
         trans.replace(R.id.fragContainer, fragment);
