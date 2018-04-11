@@ -13,4 +13,10 @@
 		android:id="@+id/actAbout"
 		android:title="@string/about"
 		compat:showAsAction="never"/>
+
+	<item
+		android:id="@+id/actFeedback"
+		android:title="@string/feedback"
+		compat:showAsAction="never"/>
+
 </menu>

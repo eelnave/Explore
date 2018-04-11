@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="compoundInterest">Interés compuesto</string>
+	<string name="Deposit">Depósito</string>
+	<string name="Interest">Interés</string>
+	<string name="depositHint">ex: 300.50</string>
+	<string name="interestHint">ex: 6.5</string>
+	<string name="yearsHint">ex: 7</string>
+	<string name="radioMonthly">Mensual</string>
+	<string name="radioQuarterly">Trimestralmente</string>
+	<string name="radioAnnually">Anualmente</string>
+
+	<string name="invest">Inversión</string>
+	<string name="pv">Principales</string>
+	<string name="periodPay">Pago periódico</string>
+	<string name="annRate">Tasa anual de</string>
+	<string name="annRateHint">ex: 4.875</string>
+	<string name="numYears">Número de años</string>
+	<string name="ppy">Períodos por año</string>
+	<string name="fv">Valor futuro</string>
+
+	<string name="loan">Préstamo</string>
+	<string name="amt">Cantidad prestada</string>
+	<string name="loanPPY">Pagos por año</string>
+	<string name="Payment">Pago</string>
+	<string name="Balance">Saldo</string>
+	<string name="ptd">Los pagos hasta la fecha</string>
+	<string name="Principal">Principales</string>
+	<string name="Period">Período</string>
+
+	<string name="roi">Retorno de la inversión</string>
+	<string name="income">Ingresos</string>
+	<string name="expenses">Gastos</string>
+	<string name="totalInvest">Inversión</string>
+	<string name="roiReturn">Devolver</string>
+	<string name="roiIncomeHint">ex: 5,000</string>
+	<string name="roiExpensesHint">ex: 3,255</string>
+	<string name="roiInvestHint">ex: 10,560</string>
+
+	<string name="laborCost">Costo mano de obra</string>
+	<string name="laborExplain">Esta calculadora convierte el coste de un elemento en la cantidad de su trabajo en el tiempo. ¿En otras palabras, cuánto de su trabajo un artículo cuesta?</string>
+	<string name="laborWage">Su salario por hora</string>
+	<string name="laborOR">O</string>
+	<string name="laborSalary">Su sueldo anual</string>
+	<string name="mustWork">Usted debe trabajar para</string>
+	<string name="mustGet">y usted debe conseguir</string>
+	<string name="somewhere">de algún lugar</string>
+
+	<string name="tithing">Diezmo</string>
+	<string name="charity">Oferta rápida (caridad)</string>
+	<string name="humanitarian">Ayuda humanitaria</string>
+	<string name="other">Otros</string>
+	<string name="incomeHint">ex: 5,000</string>
+	<string name="tithingHint">ex: 10</string>
+	<string name="offeringHint">ex: 100</string>
+	<string name="humanitarianHint">ex: 50</string>
+	<string name="otherHint">ex: 35</string>
+	<string name="tithingQuote">\"Para él es dar que recibir.\"\n~Santo Francisco</string>
+
+	<string name="stream">Servicio de streaming</string>
+	<string name="descrip1">Costo de servicios como de streaming:</string>
+	<string name="descrip2">Netflix, Hulu, Amazon, etcetera.</string>
+	<string name="servicePayment">Pago del servicio</string>
+	<string name="hours2_5">2.5 Horas</string>
+	<string name="hours2">2 Horas</string>
+	<string name="hours1_5">1.5 Horas</string>
+	<string name="minutes45">45 Minutos</string>
+	<string name="minutes22">22 Minutos</string>
+	<string name="totalTime">Total horas visto</string>
+	<string name="costPerHour">Costo por hora</string>
+	<string name="intHint1">ex: 1</string>
+	<string name="intHint2">ex: 2</string>
+	<string name="intHint5">ex: 5</string>
+</resources>

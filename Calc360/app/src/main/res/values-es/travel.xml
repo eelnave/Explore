@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="FuelEconomy">Eficiencia de combustible</string>
+	<string name="odometer">Odómetro</string>
+	<string name="start">Inicio</string>
+	<string name="end">final</string>
+	<string name="fuel">Combustible</string>
+	<string name="FuelEcon">Eficiencia de combustible</string>
+
+	<string name="foreignFuel">Combustible extranjero</string>
+	<string name="ffExplain">Si usted debe comprar gasolina en el extranjero, esta calculadora convertirá la cantidad y el costo de la gasolina de la medición exterior y moneda a su medida nativa y moneda.</string>
+
+	<string name="fuelCost">Costo del combustible</string>
+	<string name="vehicleEfficiency">Eficacia del vehículo</string>
+	<string name="fuelPrice">Precio del combustible</string>
+
+	<string name="currencyExch">Cambio de divisas</string>
+
+	<string name="travelTime">Tiempo de viaje</string>
+	<string name="ttExplain">Calcular el tiempo necesario para viajar por entrar en la distancia y media velocidad</string>
+	<string name="avgSpeed">Velocidad media</string>
+</resources>

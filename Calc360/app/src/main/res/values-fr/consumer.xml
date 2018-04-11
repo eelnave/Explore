@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="cost">Coût</string>
+	<string name="price">Prix</string>
+	<string name="quant">Quantité</string>
+	<string name="per">par</string>
+	<string name="tax">Taxe</string>
+	<string name="total">Total</string>
+
+	<string name="salesTax">Taxe de vente</string>
+	<string name="itemPrice">Prix de l’article</string>
+	<string name="priceHint">ex: 24.95</string>
+	<string name="salesTaxHint">ex: 6.5</string>
+	<string name="discHint">ex: 25</string>
+
+	<string name="discount">Remise</string>
+	<string name="discPrice">Prix réduit</string>
+	<string name="netSaved">Net enregistré</string>
+
+	<string name="cmpPrices">Comparer les prix</string>
+	<string name="unitType">Type d’unités</string>
+	<string name="prod1">Produit 1</string>
+	<string name="prod2">Produit 2</string>
+	<string name="prod3">Produit 3</string>
+
+	<!-- Properties used in the Compare Prices Calculator -->
+	<string-array name="cmpPricesProps" translatable="false">
+		<!--suppress CheckTagEmptyBody -->
+		<item></item>
+		<item>length</item>
+		<item>mass</item>
+		<item>time</item>
+		<item>area</item>
+		<item>volume</item>
+	</string-array>
+
+	<string name="tip">Pourboire</string>
+	<string name="costBeforeTax">Coût avant impôt</string>
+	<string name="taxAmt">Montant de la taxe</string>
+	<integer name="standardTip" translatable="false">15</integer>
+
+	<string name="usa">É.-U.</string>
+	<string name="euro">L’Europe</string>
+	<string name="shoeSize">Taille de chaussure</string>
+
+	<string name="ratio">Ratio</string>
+	<string name="XofY">A est à B comme X à Y</string>
+	<string name="A" translatable="false">A</string>
+	<string name="B" translatable="false">B</string>
+	<string name="X" translatable="false">X</string>
+	<string name="Y" translatable="false">Y</string>
+
+	<string name="percent">Pour cent</string>
+	<string name="XPercentOfY">Quoi de x% de y?</string>
+	<string name="percentOf">% de</string>
+	<string name="is" translatable="false">=</string>
+	<string name="to">to</string>
+	<string name="percentIsXofY">Est ce que % x de y?</string>
+	<string name="percentChange">Quel est le pourcentage passer de x à y?</string>
+</resources>

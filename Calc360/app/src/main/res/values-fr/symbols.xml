@@ -32,7 +32,7 @@
 	<string name="rcurly" translatable="false">}</string>
 	<string name="tilde" translatable="false">~</string>
 
-	<string name="fiveFunc">Five Function</string>
+	<string name="fiveFunc">Fonction de Cinq</string>
 	<string name="clearAll" translatable="false">C</string>
 	<string name="clearEntry" translatable="false">CE</string>
 	<string name="sqrt" translatable="false">\u221a</string>
@@ -53,7 +53,7 @@
 	<string name="eight" translatable="false">8</string>
 	<string name="nine" translatable="false">9</string>
 
-	<string name="scientific">Scientific</string>
+	<string name="scientific">Scientifique</string>
 	<string name="options" translatable="false">opts</string>
 	<string name="shift" translatable="false">shift</string>
 	<string name="FSE" translatable="false">FSE</string>
@@ -87,12 +87,4 @@
 	<string name="collapsed" translatable="false">\u25b6</string>
 	<string name="expanded" translatable="false">\u25bc</string>
 	<string name="launch" translatable="false">\u003e</string>
-
-	<string name="Separate" translatable="false">\Separate</string>
-	<string name="S2S" translatable="false">\Side by Side</string>
-	<string name="E2E" translatable="false">\End by End</string>
-	<string name="chairs" translatable="false">\Number of Chairs</string>
-	<string name="Length" translatable="false">\Length</string>
-	<string name="Width" translatable="false">\Width</string>
-
 </resources>

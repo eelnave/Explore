@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+	<string name="Metric">Métrique</string>
+	<string name="Imperial">Imperial</string>
+
+	<!-- Base Properties -->
+	<string name="Length">Longueur</string>
+	<string name="length">longueur</string>
+	<string name="Distance">Distance</string>
+	<string name="distance">distance</string>
+	<string name="millimeters">millimètres</string>
+	<string name="meters">mètres</string>
+
+	<string name="Mass">Masse</string>
+	<string name="mass">masse</string>
+	<string name="grams">grammes</string>
+	<string name="kilograms">kilogrammes</string>
+	<string name="kg_s2" translatable="false">kg / sec\u00b2</string>
+
+	<string name="moles">grains de beauté</string>
+	<string name="molarMass">masse molaire</string>
+	<string name="atomicMass">Masse atomique</string>
+	<string name="kg_mol" translatable="false">kg / mol</string>
+
+	<string name="Time">Temps</string>
+	<string name="time">temps</string>
+	<string name="seconds">secondes</string>
+	<string name="minutes">minutes</string>
+	<string name="Days">Jours</string>
+	<string name="Months">Mois</string>
+	<string name="Years">Années</string>
+
+	<string name="Current">Courant</string>
+	<string name="current">courant</string>
+	<string name="amps">ampères</string>
+
+	<string name="Charge">Charge</string>
+	<string name="charge">charge</string>
+	<string name="millicoulombs">millicoulombs</string>
+
+	<string name="Temperature">Température</string>
+	<string name="temperature">température</string>
+	<string name="Fahrenheit">Fahrenheit</string>
+	<string name="Celsius">Celsius</string>
+	<string name="Kelvin">Kelvin</string>
+
+	<string name="Luminosity">Luminosité</string>
+	<string name="luminosity">luminosité</string>
+
+	<!-- Derived Properties -->
+	<string name="Area">Superficie</string>
+	<string name="area">superficie</string>
+	<string name="metersSquared" translatable="false">m\u00b2</string>
+
+	<string name="Volume">Volume</string>
+	<string name="volume">volume</string>
+	<string name="metersCubed" translatable="false">m\u00b3</string>
+
+	<string name="Frequency">Fréquence</string>
+	<string name="frequency">fréquence</string>
+
+	<string name="Angle">Angle</string>
+	<string name="angle">angle</string>
+	<string name="degrees">degrés</string>
+	<string name="radians">radians</string>
+	<string name="gradians">grades</string>
+
+	<string name="Voltage">Voltage</string>
+	<string name="voltage">voltage</string>
+	<string name="volts">volts</string>
+
+	<string name="Resistance">Résistance</string>
+	<string name="resistance">résistance</string>
+	<string name="ohms">ohms</string>
+
+	<string name="Pressure">Pression</string>
+	<string name="pressure">pression</string>
+	<string name="pascals">pascals</string>
+
+	<string name="Energy">Énergie</string>
+	<string name="energy">énergie</string>
+	<string name="kineticEnergy">énergie cinétique</string>
+	<string name="joules">joules</string>
+
+	<string name="velocity">vélocité</string>
+	<string name="speed">vitesse</string>
+	<string name="m_s">meters / sec</string>
+
+	<string name="Accel">Acceleration</string>
+	<string name="accel">acceleration</string>
+	<string name="accelGravity">accel of gravity</string>
+	<string name="m_s2">mètres / sec\u00b2</string>
+
+	<string name="Force">Force</string>
+	<string name="force">force</string>
+	<string name="newtons">newtons</string>
+
+	<string name="Torque">Couple de serrage</string>
+	<string name="torque">couple de serrage</string>
+	<string name="newtonMeters">Newton / mètre</string>
+
+	<string name="gasConst">constante des gaz</string>
+	<string name="gasConstUnits" translatable="false">J / (mol K)</string>
+
+	<string name="power">puissance</string>
+	<string name="fuelEcon">consommation de carburant</string>
+
+	<string name="dataSize">taille des données</string>
+	<string name="gigabytes">gigaoctets</string>
+
+	<string name="money">devise</string>
+
+
+	<!-- Supported Properties -->
+	<string-array name="supportedProperties" translatable="false">
+		<item>length</item>
+		<item>mass</item>
+		<item>time</item>
+		<item>temperature</item>
+		<item>area</item>
+		<item>volume</item>
+		<item>frequency</item>
+		<item>angle</item>
+		<item>pressure</item>
+		<item>fuelEcon</item>
+		<item>speed</item>
+		<item>force</item>
+		<item>dataSize</item>
+		<item>money</item>
+	</string-array>
+
+	<!-- Units of Length -->
+	<string-array name="length">
+		<item>inch</item>
+		<item>foot</item>
+		<item>yard</item>
+		<item>rod</item>
+		<item>mile</item>
+		<item>millimeter</item>
+		<item>centimeter</item>
+		<item>meter</item>
+		<item>kilometer</item>
+	</string-array>
+
+	<plurals name="inch">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pouce</item>
+		<item quantity="other">pouces</item>
+	</plurals>
+	<plurals name="foot">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pied</item>
+		<item quantity="other">pieds</item>
+	</plurals>
+	<plurals name="yard">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mètre</item>
+		<item quantity="other">mètres</item>
+	</plurals>
+	<plurals name="rod">
+		<item quantity="one" tools:ignore="ImpliedQuantity">baguettte</item>
+		<item quantity="other">baguetttes</item>
+	</plurals>
+	<plurals name="mile">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mile</item>
+		<item quantity="other">miles</item>
+	</plurals>
+	<plurals name="millimeter">
+		<item quantity="one" tools:ignore="ImpliedQuantity">millimètre</item>
+		<item quantity="other">millimètres</item>
+	</plurals>
+	<plurals name="centimeter">
+		<item quantity="one" tools:ignore="ImpliedQuantity">centimètre</item>
+		<item quantity="other">centimètres</item>
+	</plurals>
+	<plurals name="meter">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mètre</item>
+		<item quantity="other">mètres</item>
+	</plurals>
+	<plurals name="kilometer">
+		<item quantity="one" tools:ignore="ImpliedQuantity">kilomètre</item>
+		<item quantity="other">kilomètres</item>
+	</plurals>
+
+	<!-- Units of Mass -->
+	<string-array name="mass">
+		<item>grain</item>
+		<item>ounce</item>
+		<item>pound</item>
+		<item>stone</item>
+		<item>shortTon</item>
+		<item>longTon</item>
+		<item>gram</item>
+		<item>kilogram</item>
+		<item>metricTon</item>
+	</string-array>
+
+	<plurals name="grain">
+		<item quantity="one" tools:ignore="ImpliedQuantity">grain</item>
+		<item quantity="other">grains</item>
+	</plurals>
+	<plurals name="ounce">
+		<item quantity="one" tools:ignore="ImpliedQuantity">once</item>
+		<item quantity="other">onces</item>
+	</plurals>
+	<plurals name="pound">
+		<item quantity="one" tools:ignore="ImpliedQuantity">livre</item>
+		<item quantity="other">livres</item>
+	</plurals>
+	<plurals name="stone">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pierre</item>
+		<item quantity="other">pierres</item>
+	</plurals>
+	<plurals name="shortTon">
+		<item quantity="one" tools:ignore="ImpliedQuantity">tonne courte (US)</item>
+		<item quantity="other">tonnes courte (US)</item>
+	</plurals>
+	<plurals name="longTon">
+		<item quantity="one" tools:ignore="ImpliedQuantity">tonne longue (UK)</item>
+		<item quantity="other">tonnes longue (UK)</item>
+	</plurals>
+	<plurals name="gram">
+		<item quantity="one" tools:ignore="ImpliedQuantity">gramme</item>
+		<item quantity="other">grammes</item>
+	</plurals>
+	<plurals name="kilogram">
+		<item quantity="one" tools:ignore="ImpliedQuantity">kilogramme</item>
+		<item quantity="other">kilogrammes</item>
+	</plurals>
+	<plurals name="metricTon">
+		<item quantity="one" tools:ignore="ImpliedQuantity">tonne métrique</item>
+		<item quantity="other">tonnes métrique</item>
+	</plurals>
+
+	<!-- Units of Time -->
+	<string-array name="time">
+		<item>millisecond</item>
+		<item>second</item>
+		<item>minute</item>
+		<item>hour</item>
+		<item>day</item>
+		<item>week</item>
+	</string-array>
+
+	<plurals name="millisecond">
+		<item quantity="one" tools:ignore="ImpliedQuantity">milliseconde</item>
+		<item quantity="other">millisecondes</item>
+	</plurals>
+	<plurals name="second">
+		<item quantity="one" tools:ignore="ImpliedQuantity">seconde</item>
+		<item quantity="other">secondes</item>
+	</plurals>
+	<plurals name="minute">
+		<item quantity="one" tools:ignore="ImpliedQuantity">minute</item>
+		<item quantity="other">minutes</item>
+	</plurals>
+	<plurals name="hour">
+		<item quantity="one" tools:ignore="ImpliedQuantity">heure</item>
+		<item quantity="other">heures</item>
+	</plurals>
+	<plurals name="day">
+		<item quantity="one" tools:ignore="ImpliedQuantity">jour</item>
+		<item quantity="other">jours</item>
+	</plurals>
+	<plurals name="week">
+		<item quantity="one" tools:ignore="ImpliedQuantity">semaine</item>
+		<item quantity="other">semaines</item>
+	</plurals>
+	<plurals name="month">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mois</item>
+		<item quantity="other">mois</item>
+	</plurals>
+	<plurals name="year">
+		<item quantity="one" tools:ignore="ImpliedQuantity">année</item>
+		<item quantity="other">années</item>
+	</plurals>
+
+
+	<!-- Units of Temperature -->
+	<string-array name="temperature">
+		<item>Kelvin</item>
+		<item>Celsius</item>
+		<item>Fahrenheit</item>
+	</string-array>
+
+	<plurals name="Kelvin">
+		<item quantity="one" tools:ignore="ImpliedQuantity">degré Kelvin</item>
+		<item quantity="other">degrés Kelvin</item>
+	</plurals>
+	<plurals name="Celsius">
+		<item quantity="one" tools:ignore="ImpliedQuantity">degré Celsius</item>
+		<item quantity="other">degrés Celsius</item>
+	</plurals>
+	<plurals name="Fahrenheit">
+		<item quantity="one" tools:ignore="ImpliedQuantity">degré Fahrenheit</item>
+		<item quantity="other">degrés Fahrenheit</item>
+	</plurals>
+
+	<!-- Units of Area -->
+	<string-array name="area">
+		<item>squareInch</item>
+		<item>squareFoot</item>
+		<item>squareYard</item>
+		<item>acre</item>
+		<item>squareMile</item>
+		<item>squareCentimeter</item>
+		<item>squareMeter</item>
+		<item>hectare</item>
+		<item>squareKilometer</item>
+	</string-array>
+
+	<plurals name="squareInch">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pouce carré</item>
+		<item quantity="other">pouces carrés
+</item>
+	</plurals>
+	<plurals name="squareFoot">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pied carré</item>
+		<item quantity="other">pieds carrés</item>
+	</plurals>
+	<plurals name="squareYard">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mètre carré</item>
+		<item quantity="other">mètres carrés</item>
+	</plurals>
+	<plurals name="acre">
+		<item quantity="one" tools:ignore="ImpliedQuantity">acre</item>
+		<item quantity="other">acres</item>
+	</plurals>
+	<plurals name="squareMile">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mille carré</item>
+		<item quantity="other">milles carrés</item>
+	</plurals>
+	<plurals name="squareCentimeter">
+		<item quantity="one" tools:ignore="ImpliedQuantity">centimètre carré</item>
+		<item quantity="other">centimètres carrés</item>
+	</plurals>
+	<plurals name="squareMeter">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mètre carré</item>
+		<item quantity="other">mètres carrés</item>
+	</plurals>
+	<plurals name="hectare">
+		<item quantity="one" tools:ignore="ImpliedQuantity">hectare</item>
+		<item quantity="other">hectares</item>
+	</plurals>
+	<plurals name="squareKilometer">
+		<item quantity="one" tools:ignore="ImpliedQuantity">kilomètre carré</item>
+		<item quantity="other">kilomètres carrés</item>
+	</plurals>
+
+	<!-- Units of Volume -->
+	<string-array name="volume">
+		<item>teaspoon</item>
+		<item>tablespoon</item>
+		<item>fluidOunce</item>
+		<item>cup</item>
+		<item>pint</item>
+		<item>quart</item>
+		<item>gallon</item>
+		<item>cubicInch</item>
+		<item>cubicFoot</item>
+		<item>milliliter</item>
+		<item>liter</item>
+		<item>cubicMeter</item>
+	</string-array>
+
+	<plurals name="teaspoon">
+		<item quantity="one" tools:ignore="ImpliedQuantity">cuillère à café</item>
+		<item quantity="other">cuillères à café</item>
+	</plurals>
+	<plurals name="tablespoon">
+		<item quantity="one" tools:ignore="ImpliedQuantity">cuillère à soupe</item>
+		<item quantity="other">cuillères à soupe</item>
+	</plurals>
+	<plurals name="fluidOunce">
+		<item quantity="one" tools:ignore="ImpliedQuantity">once liquide</item>
+		<item quantity="other">onces liquide</item>
+	</plurals>
+	<plurals name="cup">
+		<item quantity="one" tools:ignore="ImpliedQuantity">tasse</item>
+		<item quantity="other">tasses</item>
+	</plurals>
+	<plurals name="pint">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pinte</item>
+		<item quantity="other">pintes</item>
+	</plurals>
+	<plurals name="quart">
+		<item quantity="one" tools:ignore="ImpliedQuantity">litre</item>
+		<item quantity="other">litres</item>
+	</plurals>
+	<plurals name="gallon">
+		<item quantity="one" tools:ignore="ImpliedQuantity">gallon</item>
+		<item quantity="other">gallons</item>
+	</plurals>
+	<plurals name="cubicInch">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pouce cube</item>
+		<item quantity="other">pouces cubes</item>
+	</plurals>
+	<plurals name="cubicFoot">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pied cube</item>
+		<item quantity="other">pieds cubes</item>
+	</plurals>
+	<plurals name="milliliter">
+		<item quantity="one" tools:ignore="ImpliedQuantity">millilitre</item>
+		<item quantity="other">millilitres</item>
+	</plurals>
+	<plurals name="liter">
+		<item quantity="one" tools:ignore="ImpliedQuantity">litre</item>
+		<item quantity="other">litres</item>
+	</plurals>
+	<plurals name="cubicMeter">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mètre cube</item>
+		<item quantity="other">mètres cubes</item>
+	</plurals>
+
+	<!-- Units of Frequency -->
+	<string-array name="frequency">
+		<item>hertz</item>
+		<item>kilohertz</item>
+		<item>megahertz</item>
+		<item>gigahertz</item>
+		<item>terahertz</item>
+	</string-array>
+
+	<plurals name="hertz">
+		<item quantity="one" tools:ignore="ImpliedQuantity">hertz</item>
+		<item quantity="other">hertz</item>
+	</plurals>
+	<plurals name="kilohertz">
+		<item quantity="one" tools:ignore="ImpliedQuantity">kilohertz</item>
+		<item quantity="other">kilohertz</item>
+	</plurals>
+	<plurals name="megahertz">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mégahertz</item>
+		<item quantity="other">mégahertz</item>
+	</plurals>
+	<plurals name="gigahertz">
+		<item quantity="one" tools:ignore="ImpliedQuantity">gigahertz</item>
+		<item quantity="other">gigahertz</item>
+	</plurals>
+	<plurals name="terahertz">
+		<item quantity="one" tools:ignore="ImpliedQuantity">térahertz</item>
+		<item quantity="other">térahertz</item>
+	</plurals>
+
+	<!-- Units of Angle -->
+	<string-array name="angle">
+		<item>minuteArc</item>
+		<item>degree</item>
+		<item>radian</item>
+		<item>gradian</item>
+	</string-array>
+
+	<plurals name="minuteArc">
+		<item quantity="one" tools:ignore="ImpliedQuantity">minute d’arc</item>
+		<item quantity="other">minutes d’arc</item>
+	</plurals>
+	<plurals name="degree">
+		<item quantity="one" tools:ignore="ImpliedQuantity">degré</item>
+		<item quantity="other">degrés</item>
+	</plurals>
+	<plurals name="radian">
+		<item quantity="one" tools:ignore="ImpliedQuantity">radian</item>
+		<item quantity="other">radians</item>
+	</plurals>
+	<plurals name="gradian">
+		<item quantity="one" tools:ignore="ImpliedQuantity">gradien</item>
+		<item quantity="other">gradiens</item>
+	</plurals>
+
+	<!-- Units of Pressure -->
+	<string-array name="pressure">
+		<item>lbfPerSqIn</item>
+		<item>atmosphere</item>
+		<item>Pascal</item>
+		<item>Bar</item>
+	</string-array>
+
+	<plurals name="lbfPerSqIn">
+		<item quantity="one" tools:ignore="ImpliedQuantity">livre / pouce carré</item>
+		<item quantity="other">livres / pouces carrés</item>
+	</plurals>
+	<plurals name="atmosphere">
+		<item quantity="one" tools:ignore="ImpliedQuantity">atmosphère</item>
+		<item quantity="other">atmosphères</item>
+	</plurals>
+	<plurals name="Pascal">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pascal</item>
+		<item quantity="other">pascals</item>
+	</plurals>
+	<plurals name="Bar">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mesure</item>
+		<item quantity="other">mesures</item>
+	</plurals>
+
+	<!-- Units of Fuel Economy -->
+	<string-array name="fuelEcon">
+		<item>milePerGallon</item>
+		<item>kilometerPerLiter</item>
+		<item>literPer100kilometer</item>
+	</string-array>
+
+	<plurals name="milePerGallon">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mile / gallon</item>
+		<item quantity="other">miles / gallons</item>
+	</plurals>
+	<plurals name="kilometerPerLiter">
+		<item quantity="one" tools:ignore="ImpliedQuantity">kilomètre / litre</item>
+		<item quantity="other">kilomètres / litres</item>
+	</plurals>
+	<plurals name="literPer100kilometer">
+		<item quantity="one" tools:ignore="ImpliedQuantity">litre / 100 kilomètres</item>
+		<item quantity="other">litres / 100 kilomètres</item>
+	</plurals>
+
+	<!-- Units of Speed -->
+	<string-array name="speed">
+		<item>footPerSecond</item>
+		<item>milePerHour</item>
+		<item>knot</item>
+		<item>meterPerSecond</item>
+		<item>kilometerPerHour</item>
+	</string-array>
+
+	<plurals name="footPerSecond">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pied / seconde</item>
+		<item quantity="other">pieds / secondes</item>
+	</plurals>
+	<plurals name="milePerHour">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mile / heure</item>
+		<item quantity="other">miles / heures</item>
+	</plurals>
+	<plurals name="knot">
+		<item quantity="one" tools:ignore="ImpliedQuantity">nœud</item>
+		<item quantity="other">nœuds</item>
+	</plurals>
+	<plurals name="meterPerSecond">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mètre / seconde</item>
+		<item quantity="other">mètres / seconde</item>
+	</plurals>
+	<plurals name="kilometerPerHour">
+		<item quantity="one" tools:ignore="ImpliedQuantity">kilomètre / heure</item>
+		<item quantity="other">kilomètres / heure</item>
+	</plurals>
+
+	<!-- Units of Force -->
+	<string-array name="force">
+		<item>Newton</item>
+		<item>poundForce</item>
+	</string-array>
+
+	<plurals name="Newton">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Newton</item>
+		<item quantity="other">Newtons</item>
+	</plurals>
+	<plurals name="poundForce">
+		<item quantity="one" tools:ignore="ImpliedQuantity">livre-force</item>
+		<item quantity="other">livre-forces</item>
+	</plurals>
+
+	<!-- Units of Data Size -->
+	<string-array name="dataSize">
+		<item>bit</item>
+		<item>nibble</item>
+		<item>byt</item>
+		<item>hword</item>
+		<item>word</item>
+		<item>dword</item>
+		<item>kilobit</item>
+		<item>megabit</item>
+		<item>gigabit</item>
+		<item>terabit</item>
+		<item>petabit</item>
+		<item>exabit</item>
+		<item>kilobyte</item>
+		<item>megabyte</item>
+		<item>gigabyte</item>
+		<item>terabyte</item>
+		<item>petabyte</item>
+		<item>exabyte</item>
+	</string-array>
+
+	<plurals name="bit">
+		<item quantity="one" tools:ignore="ImpliedQuantity">bit</item>
+		<item quantity="other">bits</item>
+	</plurals>
+	<plurals name="nibble">
+		<item quantity="one" tools:ignore="ImpliedQuantity">nibble</item>
+		<item quantity="other">amuse-gueules</item>
+	</plurals>
+	<plurals name="byt">
+		<item quantity="one" tools:ignore="ImpliedQuantity">octet</item>
+		<item quantity="other">octets</item>
+	</plurals>
+	<plurals name="hword">
+		<item quantity="one" tools:ignore="ImpliedQuantity">moitié mot</item>
+		<item quantity="other">la moitié des mots</item>
+	</plurals>
+	<plurals name="word">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mot</item>
+		<item quantity="other">mots</item>
+	</plurals>
+	<plurals name="dword">
+		<item quantity="one" tools:ignore="ImpliedQuantity">double mot</item>
+		<item quantity="other">double mots</item>
+	</plurals>
+
+	<plurals name="kilobit">
+		<item quantity="one" tools:ignore="ImpliedQuantity">kilobit</item>
+		<item quantity="other">kilobits</item>
+	</plurals>
+	<plurals name="megabit">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mégabit</item>
+		<item quantity="other">mégabit</item>
+	</plurals>
+	<plurals name="gigabit">
+		<item quantity="one" tools:ignore="ImpliedQuantity">gigabit</item>
+		<item quantity="other">gigabits</item>
+	</plurals>
+	<plurals name="terabit">
+		<item quantity="one" tools:ignore="ImpliedQuantity">térabit</item>
+		<item quantity="other">térabits</item>
+	</plurals>
+	<plurals name="petabit">
+		<item quantity="one" tools:ignore="ImpliedQuantity">petabit</item>
+		<item quantity="other">petabits</item>
+	</plurals>
+	<plurals name="exabit">
+		<item quantity="one" tools:ignore="ImpliedQuantity">exabit</item>
+		<item quantity="other">exabits</item>
+	</plurals>
+
+	<plurals name="kilobyte">
+		<item quantity="one" tools:ignore="ImpliedQuantity">kilo-octet</item>
+		<item quantity="other">kilo-octets</item>
+	</plurals>
+	<plurals name="megabyte">
+		<item quantity="one" tools:ignore="ImpliedQuantity">mégaoctet</item>
+		<item quantity="other">mégaoctets</item>
+	</plurals>
+	<plurals name="gigabyte">
+		<item quantity="one" tools:ignore="ImpliedQuantity">giga-octet</item>
+		<item quantity="other">giga-octets</item>
+	</plurals>
+	<plurals name="terabyte">
+		<item quantity="one" tools:ignore="ImpliedQuantity">téraoctet</item>
+		<item quantity="other">téraoctets</item>
+	</plurals>
+	<plurals name="petabyte">
+		<item quantity="one" tools:ignore="ImpliedQuantity">pétaoctet</item>
+		<item quantity="other">pétaoctets</item>
+	</plurals>
+	<plurals name="exabyte">
+		<item quantity="one" tools:ignore="ImpliedQuantity">exaoctet</item>
+		<item quantity="other">exaoctets</item>
+	</plurals>
+
+	<!-- Units of Currency (Money) -->
+	<string-array name="money">
+		<item>AustralianDollar</item>
+		<item>BrazilianReal</item>
+		<item>BulgarianLev</item>
+		<item>CanadianDollar</item>
+		<item>ChineseYuanRenminbi</item>
+		<item>CroatianKuna</item>
+		<item>CzechKoruna</item>
+		<item>DanishKrone</item>
+		<item>EuropeanUnionEuro</item>
+		<item>HongKongDollar</item>
+		<item>HungarianForint</item>
+		<item>IndianRupee</item>
+		<item>IndonesianRupiah</item>
+		<item>IsraeliShekel</item>
+		<item>JapaneseYen</item>
+		<item>MalaysianRinggit</item>
+		<item>MexicanPeso</item>
+		<item>NewZealandDollar</item>
+		<item>NorwegianKrone</item>
+		<item>PhilippinePeso</item>
+		<item>PolishZloty</item>
+		<item>RomanianLeu</item>
+		<item>RussianRouble</item>
+		<item>SingaporeDollar</item>
+		<item>SouthAfricanRand</item>
+		<item>SouthKoreanWon</item>
+		<item>SwedishKrona</item>
+		<item>SwissFranc</item>
+		<item>ThaiBaht</item>
+		<item>TurkishLira</item>
+		<item>UKPoundSterling</item>
+		<item>USDollar</item>
+	</string-array>
+
+	<plurals name="AustralianDollar">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Dollar australien</item>
+		<item quantity="other">Dollars australien</item>
+	</plurals>
+	<plurals name="BrazilianReal">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Réal brésilien</item>
+		<item quantity="other">Réals brésilien</item>
+	</plurals>
+	<plurals name="BulgarianLev">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Lev bulgare</item>
+		<item quantity="other">Levs bulgare</item>
+	</plurals>
+	<plurals name="CanadianDollar">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Dollar canadien</item>
+		<item quantity="other">Dollars canadien</item>
+	</plurals>
+	<plurals name="ChineseYuanRenminbi">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Renminbi chinois d’yuan</item>
+		<item quantity="other">Renminbis chinois d’yuan</item>
+	</plurals>
+	<plurals name="CroatianKuna">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Kuna croate</item>
+		<item quantity="other">Kunas croate</item>
+	</plurals>
+	<plurals name="CzechKoruna">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Couronne tchèque</item>
+		<item quantity="other">Couronnes tchèques</item>
+	</plurals>
+	<plurals name="DanishKrone">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Couronne danoise</item>
+		<item quantity="other">Couronnes danoise</item>
+	</plurals>
+	<plurals name="EuropeanUnionEuro">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Union européenne euro</item>
+		<item quantity="other">Union européenne euroes</item>
+	</plurals>
+	<plurals name="HongKongDollar">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Dollar de Hong Kong</item>
+		<item quantity="other">Dollars de Hong Kong</item>
+	</plurals>
+	<plurals name="HungarianForint">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Forint hongrois</item>
+		<item quantity="other">Forints hongrois</item>
+	</plurals>
+	<plurals name="IndianRupee">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Roupie indienne</item>
+		<item quantity="other">Roupies indienne</item>
+	</plurals>
+	<plurals name="IndonesianRupiah">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Rupiah indonésienne</item>
+		<item quantity="other">Rupiahs indonésiennes</item>
+	</plurals>
+	<plurals name="IsraeliShekel">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Shekel israélien</item>
+		<item quantity="other">Shekels israélien</item>
+	</plurals>
+	<plurals name="JapaneseYen">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Yen japonais</item>
+		<item quantity="other">Yen japonais</item>
+	</plurals>
+	<plurals name="MalaysianRinggit">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Ringgit malaisien</item>
+		<item quantity="other">Ringgits malaisien</item>
+	</plurals>
+	<plurals name="MexicanPeso">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Peso mexicain</item>
+		<item quantity="other">Pesos mexicains</item>
+	</plurals>
+	<plurals name="NewZealandDollar">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Dollar néo-zélandais</item>
+		<item quantity="other">Dollars néo-zélandais</item>
+	</plurals>
+	<plurals name="NorwegianKrone">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Couronne norvégienne</item>
+		<item quantity="other">Couronnes norvégiennes</item>
+	</plurals>
+	<plurals name="PhilippinePeso">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Peso philippin</item>
+		<item quantity="other">Pesos philippin</item>
+	</plurals>
+	<plurals name="PolishZloty">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Zloty polonais</item>
+		<item quantity="other">Zlotys polonais</item>
+	</plurals>
+	<plurals name="RomanianLeu">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Leu roumain</item>
+		<item quantity="other">Leus roumains</item>
+	</plurals>
+	<plurals name="RussianRouble">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Rouble russe</item>
+		<item quantity="other">Roubles russe</item>
+	</plurals>
+	<plurals name="SingaporeDollar">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Dollar de Singapour</item>
+		<item quantity="other">Dollars de Singapour</item>
+	</plurals>
+	<plurals name="SouthAfricanRand">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Rand sud-africain</item>
+		<item quantity="other">Rands sud-africain</item>
+	</plurals>
+	<plurals name="SouthKoreanWon">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Corée du Sud a remporté</item>
+		<item quantity="other">Corée du Sud wons</item>
+	</plurals>
+	<plurals name="SwedishKrona">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Couronne suédoise</item>
+		<item quantity="other">Couronnes suédoises</item>
+	</plurals>
+	<plurals name="SwissFranc">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Franc suisse</item>
+		<item quantity="other">Francs suisses</item>
+	</plurals>
+	<plurals name="ThaiBaht">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Baht thaïlandais</item>
+		<item quantity="other">Bahts thaïlandais</item>
+	</plurals>
+	<plurals name="TurkishLira">
+		<item quantity="one" tools:ignore="ImpliedQuantity">Livre turque</item>
+		<item quantity="other">Livres turques</item>
+	</plurals>
+	<plurals name="UKPoundSterling">
+		<item quantity="one" tools:ignore="ImpliedQuantity">UK Livre sterling</item>
+		<item quantity="other">UK Livre sterlings</item>
+	</plurals>
+	<plurals name="USDollar">
+		<item quantity="one" tools:ignore="ImpliedQuantity">dollar américain</item>
+		<item quantity="other">dollars américain</item>
+	</plurals>
+</resources>

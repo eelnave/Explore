@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="musicDuration">Durée de la Musique</string>
+	<string name="totalMeasures">Total des Mesures</string>
+	<string name="tempo">Tempo</string>
+	<string name="timeSignature">Signature de temps</string>
+	<string name="measuresHint" translatable="false">85</string>
+	<string name="tempoHint" translatable="false">75</string>
+	<string name="timeSigHint" translatable="false">4</string>
+	<string name="tempoUnits">battements par minute</string>
+	<string name="timeSigUnits">comptages par mesure</string>
+	<string name="timeUnits">heures:mins:secs</string>
+</resources>

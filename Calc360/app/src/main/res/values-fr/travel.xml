@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="FuelEconomy">Consommation de carburant</string>
+	<string name="odometer">Compteur kilométrique</string>
+	<string name="start">début</string>
+	<string name="end">fin</string>
+	<string name="fuel">Carburant</string>
+	<string name="FuelEcon">Consommation de carburant</string>
+	<string-array name="feDistUnits" translatable="false">
+		<item>mile</item>
+		<item>kilometer</item>
+	</string-array>
+	<string-array name="feVolUnits" translatable="false">
+		<item>gallon</item>
+		<item>liter</item>
+	</string-array>
+
+	<string name="foreignFuel">Carburant étranger</string>
+	<string name="ffExplain">Si vous devez acheter de l’essence dans un pays étranger, Cette calculatrice permet de convertir le montant et le coût de l’essence de la mesure étranger et la monnaie à votre mesure native et la devise.</string>
+
+	<string name="fuelCost">Coût du carburant</string>
+	<string name="vehicleEfficiency">Efficacité des véhicules</string>
+	<string name="fuelPrice">Prix du carburant</string>
+
+	<string name="currencyExch">Bureau de change</string>
+
+	<string name="travelTime">Temps de trajet</string>
+	<string name="ttExplain">Calculer le temps nécessaire pour franchir en entrant la distance et moyenne vitesse</string>
+	<string name="avgSpeed">Vitesse moyenne</string>
+	<string-array name="ttSpeedUnits" translatable="false">
+		<item>milePerHour</item>
+		<item>kilometerPerHour</item>
+	</string-array>
+	<string-array name="ttDistUnits" translatable="false">
+		<item>mile</item>
+		<item>kilometer</item>
+	</string-array>
+</resources>

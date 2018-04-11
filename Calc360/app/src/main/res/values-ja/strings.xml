@@ -40,4 +40,5 @@
 	<string name="clear">除去する</string>
 
 	<string name="unitConvert">単位変換</string>
+	<string name="feedback">饋還</string>
 </resources>

@@ -36,6 +36,7 @@
 	<string name="kickboxing">Kickboxing</string>
 	<string name="weightLift">Weight Lifting</string>
 	<string name="television">Watching TV</string>
+	<string name="poundsBurned">3,500 calories is equal to 1lb of fat.</string>
 
 	<string name="calories">calories</string>
 	<string-array name="cbMassUnits" translatable="false">

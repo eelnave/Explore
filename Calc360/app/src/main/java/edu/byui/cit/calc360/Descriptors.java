@@ -59,6 +59,7 @@ final class Descriptors {
 				new CalcDescriptor(1056, R.string.dateDiff, R.drawable.calendar, DateDiff.class),
 				new CalcDescriptor(1007, R.string.counter, R.drawable.abacus, Counter.class),
 				new CalcDescriptor(1008, R.string.queueTime, R.drawable.queue, QueueTime.class),
+//				new CalcDescriptor(1009, R.string.tablelayout, R.drawable.tablelayout, TableCount.class),
 			}),
 			new GroupDescriptor(309, R.string.mathematics, R.drawable.folder_math, new CalcDescriptor[]{
 				new CalcDescriptor(1029, R.string.percent, R.drawable.percent, Percent.class),
@@ -138,6 +139,7 @@ final class Descriptors {
 		descriptors = new Descriptor[count];
 		storeDescrips(descriptors, 0, hierarchy);
 		descriptors[count - 1] = new CalcDescriptor(1, R.string.about, R.mipmap.calc360, About.class);
+		descriptors[count - 1] = new CalcDescriptor(2, R.string.feedback, R.mipmap.calc360, Feedback.class);
 		Arrays.sort(descriptors, Descriptor.compareID);
 	}
 
