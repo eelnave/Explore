@@ -28,6 +28,7 @@ public class CategoryFragment extends InfoFragment {
 		@Override
 		public void onClick(View v)
 		{
+
 			try {
 				if (fragment == null || fragment.isDetached()) {
 					fragment = SubmitFragment.class.newInstance();
@@ -40,7 +41,14 @@ public class CategoryFragment extends InfoFragment {
 				Log.e(KindnessActivity.TAG,
 						"cannot instantiate submit fragment", ex);
 			}
-			switchFragment(fragment);
+			Animation buttonAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.button_click);
+			v.startAnimation(buttonAnimate);
+			v.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					switchFragment(fragment);
+				}
+			}, buttonAnimate.getDuration());
 		}
 	}
 
@@ -51,8 +59,13 @@ public class CategoryFragment extends InfoFragment {
 				Animation logoAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.icon_zoom_in);
 				map.bringToFront();
 				map.startAnimation(logoAnimate);
-				Intent goToMap = new Intent(getActivity(), KindnessMap.class);
-				getActivity().startActivity(goToMap);
+				final Intent goToMap = new Intent(getActivity(), KindnessMap.class);
+				view.postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						getActivity().startActivity(goToMap);
+					}
+				}, logoAnimate.getDuration()-250);
 
 			}
 			catch (Exception ex) {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.byui.cit.kindness">
+    package="edu.byui.cit.kindness"
+	android:versionCode="2">
 
     <!-- When using ACCESS_COARSE_LOCATION you cannot use GPS_PROVIDER. You
      - must use NETWORK_PROVIDER instead. If you try to run a get location

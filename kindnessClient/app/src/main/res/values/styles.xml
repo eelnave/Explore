@@ -1,17 +1,17 @@
 <resources>
 
 	<!-- Base application theme. -->
-	<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+	<style name="AppTheme" parent="Theme.AppCompat.Light">
 		<!-- Customize your theme here. -->
 		<item name="colorPrimaryDark">@color/colorYellowDark</item>
 		<item name="colorPrimary">@color/colorYellowMid</item>
-		<item name="colorAccent">@color/colorBlueMid</item>
+		<item name="colorAccent">@color/colorBlack</item>
+		<item name="actionMenuTextColor">@color/colorBlack</item>
 	</style>
 
+
 	<style name="IconButton" parent="@android:style/Widget.Material.Button">
-		<item name="android:textAppearance">
-			@android:style/TextAppearance.Material.Medium
-		</item>
+		<item name="android:textAppearance">@android:style/TextAppearance.Material.Medium</item>
 		<item name="android:textSize">20sp</item>
 		<item name="android:textStyle">bold</item>
 		<item name="android:textColor">@color/colorBlack</item>
@@ -20,6 +20,20 @@
 		<item name="android:layout_margin">10dp</item>
 		<item name="android:gravity">bottom|center_horizontal</item>
 		<item name="android:padding">12dp</item>
+		<item name="layout_columnWeight">1</item>
+		<item name="layout_rowWeight">1</item>
+	</style>
+
+	<style name="MainIconButton" parent="@android:style/Widget.Material.Button">
+		<item name="android:textAppearance">@android:style/TextAppearance.Material.Medium</item>
+		<item name="android:textSize">20sp</item>
+		<item name="android:textStyle">bold</item>
+		<item name="android:textColor">@color/colorBlack</item>
+		<item name="android:layout_width">175dp</item>
+		<item name="android:layout_height">175dp</item>
+		<item name="android:layout_margin">20dp</item>
+		<item name="android:gravity">bottom|center_horizontal</item>
+		<item name="android:padding">15dp</item>
 		<item name="layout_columnWeight">1</item>
 		<item name="layout_rowWeight">1</item>
 	</style>

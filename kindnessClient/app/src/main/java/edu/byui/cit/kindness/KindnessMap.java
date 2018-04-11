@@ -10,10 +10,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -59,10 +57,9 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 
 				for(HashMap.Entry<String, Report> entry : reports.entrySet()) {
 					Report value = entry.getValue();
-					mMap.addMarker(new MarkerOptions().position(new LatLng(value.getLatitude(), value.getLongitude())));
+					mMap.addMarker(new MarkerOptions().position(new LatLng(value.getLatitude(), value.getLongitude())).icon(
+							BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
 				}
-
-				mMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(0,0)));
 			}
 
 			@Override
@@ -90,11 +87,8 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 		}
 
 		LatLng current = new LatLng(lat, lon);
-		mMap.addMarker(new MarkerOptions().position(current).icon(
-				BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
 		CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(current, 1);
 		mMap.animateCamera(yourLocation);
-
 	}
 
 

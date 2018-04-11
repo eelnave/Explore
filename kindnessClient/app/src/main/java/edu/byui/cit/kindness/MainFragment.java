@@ -1,5 +1,6 @@
 package edu.byui.cit.kindness;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
@@ -9,17 +10,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public final class MainFragment extends InfoFragment {
 	public static final String TAG = "Kindness";
 	private InfoFragment about;
+	private Button seekindness;
+	private Button reportkindness;
 
 	SharedPreferences firstTime;
 	SharedPreferences.Editor editor;
 	String firstTimeKey = "FirstTimeCheck";
 
 
+	@SuppressLint("CommitPrefEdits")
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -29,11 +35,12 @@ public final class MainFragment extends InfoFragment {
 		firstTimeTest();
 
 		View view = inflater.inflate(R.layout.main, container, false);
-		Button seekindness = view.findViewById(R.id.see_kindness);
-		Button reportkindness = view.findViewById(R.id.report_kindness);
-
+		seekindness = view.findViewById(R.id.see_kindness);
+		reportkindness = view.findViewById(R.id.report_kindness);
 		seekindness.setOnClickListener(new SeeListener());
 		reportkindness.setOnClickListener(new ReportListener());
+
+
 
 		return view;
 	}
@@ -44,8 +51,16 @@ public final class MainFragment extends InfoFragment {
 		@Override
 		public void onClick(View view) {
 			try {
-				Intent goToMap = new Intent(getActivity(), KindnessMap.class);
-				getActivity().startActivity(goToMap);
+				final Intent goToMap = new Intent(getActivity(), KindnessMap.class);
+				Animation buttonAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.icon_zoom_in);
+				seekindness.bringToFront();
+				seekindness.startAnimation(buttonAnimate);
+				view.postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						getActivity().startActivity(goToMap);
+					}
+				}, buttonAnimate.getDuration()-250);
 			}
 			catch (Exception ex) {
 				Log.e(KindnessActivity.TAG,
@@ -58,6 +73,7 @@ public final class MainFragment extends InfoFragment {
 		InfoFragment fragment;
 		@Override
 		public void onClick(View view) {
+
 			try {
 				if (fragment == null || fragment.isDetached()) {
 					fragment = CategoryFragment.class.newInstance();
@@ -69,7 +85,14 @@ public final class MainFragment extends InfoFragment {
 				Log.e(KindnessActivity.TAG,
 						"cannot instantiate Categories fragment", ex);
 			}
-			switchFragment(fragment);
+			Animation buttonAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.button_click);
+			reportkindness.startAnimation(buttonAnimate);
+			view.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					switchFragment(fragment);
+				}
+			}, buttonAnimate.getDuration());
 		}
 	}
 
