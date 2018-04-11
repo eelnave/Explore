@@ -14,12 +14,8 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.text.RadioWrapper;
 
-/**
- * Created by ibdch on 3/19/2018.
- */
 
-public class TableCount extends CalcFragment{
-
+public class TableCount extends CalcFragment {
 	private EditInteger tblLength, tblWidth, chairCount;
 	private RadioGroup tableLayout;
 	private TextWrapper txtResult;
@@ -27,24 +23,23 @@ public class TableCount extends CalcFragment{
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+							  Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.tablelayout, container,
-				false);
+			false);
 
 		tblLength = new EditInteger(view, R.id.tblLength, this);
 		tblWidth = new EditInteger(view, R.id.tblWidth, this);
 		chairCount = new EditInteger(view, R.id.chairCount, this);
 
-
-			tableLayout = view.findViewById(R.id.tableLayout);
-			new RadioWrapper(view, R.id.S2S, this);
-			new RadioWrapper(view, R.id.Separate, this);
-			new RadioWrapper(view, R.id.E2E, this);
+		tableLayout = view.findViewById(R.id.tableLayout);
+		new RadioWrapper(view, R.id.S2S, this);
+		new RadioWrapper(view, R.id.Separate, this);
+		new RadioWrapper(view, R.id.E2E, this);
 
 		txtResult = new TextWrapper(view, R.id.txtResult);
 
-		EditWrapper[] inputs = { tblLength, tblWidth, chairCount };
-		ControlWrapper[] toClear = { tblLength, tblWidth, chairCount, txtResult };
+		EditWrapper[] inputs = {tblLength, tblWidth, chairCount};
+		ControlWrapper[] toClear = {tblLength, tblWidth, chairCount, txtResult};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -107,4 +102,3 @@ public class TableCount extends CalcFragment{
 		}
 	}
 }
-

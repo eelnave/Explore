@@ -25,6 +25,7 @@
 	<string name="perimeter">perimeter</string>
 	<string name="surfaceArea">surface area</string>
 
+	<string name="Width">Width</string>
 	<string name="Height">Height</string>
 	<string name="Diagonal">Diagonal</string>
 	<string name="SideLength">Side Length</string>

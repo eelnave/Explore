@@ -27,5 +27,9 @@
 		<item>year</item>
 	</string-array>
 
-
+	<string name="tableCount">Table Count</string>
+	<string name="Separate">Separate</string>
+	<string name="S2S">Side by Side</string>
+	<string name="E2E">End by End</string>
+	<string name="chairs">Number of Chairs</string>
 </resources>
