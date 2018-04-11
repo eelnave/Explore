@@ -1,6 +1,5 @@
 package edu.byui.cit.calculators;
 
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,19 +7,13 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
-
-/**
- * Created by calie on 2/28/2018.
- */
 
 public final class DecimalFraction extends CalcFragment {
 
@@ -70,7 +63,6 @@ public final class DecimalFraction extends CalcFragment {
 		num = new EditDecimal(view, R.id.numerator,this);
 		denom = new EditDecimal(view, R.id.denominator,this);
 
-
 		EditWrapper[] inputs = { decimal, whole, num, denom };
 		ControlWrapper[] toClear = { decimal, whole, num, denom };
 		initialize(view, inputs, R.id.clearB, toClear);
@@ -79,7 +71,7 @@ public final class DecimalFraction extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		if (decimal.notEmpty()) {
+		if (decimal.hasUserInput()) {
 			double deci = decimal.getDec();
 			double left = Math.floor(deci);
 			double right = deci - left;
@@ -89,9 +81,8 @@ public final class DecimalFraction extends CalcFragment {
 			whole.setText(Double.toString(left));
 			num.setText(Double.toString(numer));
 			denom.setText(Double.toString(denomer));
-
 		}
-		if (whole.notEmpty() && num.notEmpty() && denom.notEmpty()) {
+		else if (whole.hasUserInput() && num.hasUserInput() && denom.hasUserInput()) {
 			double right = num.getDec() / denom.getDec();
 			double left = whole.getDec();
 			String deci = left + "." + right;
