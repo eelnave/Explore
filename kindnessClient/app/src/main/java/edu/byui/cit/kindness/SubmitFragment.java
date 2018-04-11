@@ -24,8 +24,8 @@ public class SubmitFragment extends InfoFragment {
 		GPSTracker gps = new GPSTracker(view.getContext());
 		Location loc = gps.getLocation();
 		if(loc != null){
-			lat = loc.getLatitude();
-			lon = loc.getLongitude();
+			lat = Math.floor(loc.getLatitude()*100)/100;
+			lon = Math.floor(loc.getLongitude()*100)/100;
 			Toast.makeText(view.getContext(), "LAT: " + lat + " Lon: " + lon, Toast.LENGTH_LONG).show();
 		}
 
