@@ -83,21 +83,18 @@ public final class DecimalFraction extends CalcFragment {
 			double deci = decimal.getDec();
 			double left = Math.floor(deci);
 			double right = deci - left;
-			double num = 
+			double denomer = 100;
+			double numer = right * denomer;
 
+			whole.setText(Double.toString(left));
+			num.setText(Double.toString(numer));
+			denom.setText(Double.toString(denomer));
 
-
-			double price = curPrice.getCur();
-			double taxRate = decTaxRate.getDec() / 100.0;
-			double taxAmt = Consumer.Ratio.amount(taxRate, price);
-			double total = Consumer.Ratio.total(taxRate, price);
-			curTaxAmt.setText(fmtrCur.format(taxAmt));
-			curTotal.setText(fmtrCur.format(total));
 		}
 		if (whole.notEmpty() && num.notEmpty() && denom.notEmpty()) {
-			double after = num.getDec() / denom.getDec();
-
-			String deci = "";
+			double right = num.getDec() / denom.getDec();
+			double left = whole.getDec();
+			String deci = left + "." + right;
 			decimal.setText(deci);
 		}
 	}
