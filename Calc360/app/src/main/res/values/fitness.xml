@@ -52,5 +52,22 @@
 	<string name="monthHint" translatable="false">2</string>
 	<string name="yearHint" translatable="false">1993</string>
 	<string name="basalMetabolicRate" translatable="false">BMR</string>
+	<string name="maxWeight" translatable="false">1 Rep Max</string>
+	<string name="reps" translatable="false">Reps</string>
+	<string name="liftedWeight" translatable="false">Weight</string>
+	<integer-array name="numReps" translatable="false">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+		<item>9</item>
+		<item>10</item>
+		<item>11</item>
+		<item>12</item>
+	</integer-array>
 
 </resources>
