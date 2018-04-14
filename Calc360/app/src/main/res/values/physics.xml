@@ -7,6 +7,7 @@
 	<string name="newtA" translatable="false">a</string>
 
 	<string name="harmonicMotion">Harmonic Motion</string>
+	<string name="decimalFraction">Decimal to Fraction</string>
 	<string name="hmFormula" translatable="false">T = 2\u03c0 \u221a(m/k)</string>
 	<string name="hmTime" translatable="false">T</string>
 	<string name="hmSpringConst" translatable="false">k</string>

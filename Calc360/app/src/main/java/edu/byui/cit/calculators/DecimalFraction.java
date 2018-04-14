@@ -75,9 +75,12 @@ public final class DecimalFraction extends CalcFragment {
 			double deci = decimal.getDec();
 			double left = Math.floor(deci);
 			double right = deci - left;
-			double denomer = 100;
+			double denomer = Math.pow(10,Double.toString(right).length());
 			double numer = right * denomer;
 
+			double[] outputs = simplify(numer, denomer);
+			numer = outputs[0];
+			denomer = outputs[1];
 			whole.setText(Double.toString(left));
 			num.setText(Double.toString(numer));
 			denom.setText(Double.toString(denomer));
@@ -85,9 +88,23 @@ public final class DecimalFraction extends CalcFragment {
 		else if (whole.hasUserInput() && num.hasUserInput() && denom.hasUserInput()) {
 			double right = num.getDec() / denom.getDec();
 			double left = whole.getDec();
-			String deci = left + "." + right;
+			String deci = Double.toString(left +  right);
 			decimal.setText(deci);
 		}
 	}
 
+	public double[] simplify(double n1, double n2){
+		double[] out = new double[2];
+		while (n1 % 2 == 0 || n2 % 2 == 0){
+			if(n1 % 2 == 0){
+				n1 = n1 / 2;
+			}
+			if(n2 % 2 == 0) {
+				n2 = n2 / 2;
+			}
+		}
+		out[0] = n1;
+		out[1] = n2;
+		return out;
+	}
 }
