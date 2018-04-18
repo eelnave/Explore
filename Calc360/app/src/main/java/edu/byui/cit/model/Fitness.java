@@ -3,7 +3,6 @@ package edu.byui.cit.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import edu.byui.cit.text.SpinInteger;
 
 public final class Fitness {
     private Fitness() {
@@ -29,6 +28,6 @@ public final class Fitness {
         for (int i = 0;  i < key.length;  ++i) {
             hashMap.put(key[i], weightRatio[i]);
         }
-        return (weight/hashMap.get(rep - 1) );
+        return (weight/hashMap.get(rep) );
     }
 }

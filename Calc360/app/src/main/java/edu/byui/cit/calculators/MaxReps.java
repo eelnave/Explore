@@ -11,7 +11,6 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.model.Fitness;
-import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.SpinInteger;
@@ -22,7 +21,7 @@ public class MaxReps extends CalcFragment {
 
     // variables for user input & formatting
     private static final String KEY_REPS = "Reps";
-    private EditDecimal decWieght;
+    private EditDecimal decWeight;
     private TextWrapper maxWeight;
     private SpinInteger numReps;
     private final NumberFormat fmtrDec;
@@ -45,7 +44,7 @@ public class MaxReps extends CalcFragment {
         View view = inflater.inflate(R.layout.maxreps, container, false);
 
         // Text input
-        decWieght = new EditDecimal(view, R.id.decWeight, this);
+        decWeight = new EditDecimal(view, R.id.decWeight, this);
 
         // result
         maxWeight = new TextWrapper(view, R.id.oneRep);
@@ -56,35 +55,26 @@ public class MaxReps extends CalcFragment {
                 R.array.numReps, KEY_REPS, this);
 
         // specifies to the super what the inputs and clear options are
-        EditWrapper[] inputs = {decWieght};
+        EditWrapper[] inputs = {decWeight};
 
         ControlWrapper[] toClear = {
-                decWieght, maxWeight };
+                decWeight, maxWeight };
 
         initialize(view, inputs, R.id.btnClear, toClear);
 
         return view;
     }
 
-    // activates computing when input is detected
-    private final class callCondition implements ClickListener {
-        @Override
-        public void clicked(View button) {
-            boolean selected = (decWieght.notEmpty() && numReps.notEmpty());
-            if (selected) {
-                callCompute();
-            }
-        }
-
-    }
-
-    // uses the Fitness module to compute 1 rep maximum
-    // Displays result
     @Override
     protected void compute() {
-        double weight = decWieght.getDec();
-        int reps = numReps.getInt();
-        double max = Fitness.repMax(reps, weight);
-        maxWeight.setText(fmtrDec.format(max));
+        if (decWeight.isEmpty()) {
+            maxWeight.setText(fmtrDec.format(0));
+        }
+        else {
+            double weight = decWeight.getDec();
+            int reps = numReps.getInt();
+            double max = Fitness.repMax(reps, weight);
+            maxWeight.setText(fmtrDec.format(max));
+        }
     }
 }
