@@ -17,8 +17,8 @@ import edu.byui.cit.text.SpinInteger;
 import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.text.ControlWrapper;
 
-public class MaxReps extends CalcFragment {
 
+public class MaxReps extends CalcFragment {
     // variables for user input & formatting
     private static final String KEY_REPS = "Reps";
     private EditDecimal decWeight;
@@ -56,12 +56,8 @@ public class MaxReps extends CalcFragment {
 
         // specifies to the super what the inputs and clear options are
         EditWrapper[] inputs = {decWeight};
-
-        ControlWrapper[] toClear = {
-                decWeight, maxWeight };
-
+        ControlWrapper[] toClear = {decWeight, maxWeight};
         initialize(view, inputs, R.id.btnClear, toClear);
-
         return view;
     }
 
@@ -69,8 +65,7 @@ public class MaxReps extends CalcFragment {
     protected void compute() {
         if (decWeight.isEmpty()) {
             maxWeight.setText(fmtrDec.format(0));
-        }
-        else {
+        } else {
             double weight = decWeight.getDec();
             int reps = numReps.getInt();
             double max = Fitness.repMax(reps, weight);

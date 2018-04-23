@@ -9,24 +9,24 @@
     <TextView
         style="@style/TextLabel"
         android:labelFor="@+id/weightUnit"
-        android:text="@string/liftedWeight"/>
+        android:text="@string/liftedWeight" />
 
     <EditText
         android:id="@+id/decWeight"
         style="@style/UnsignedDecimal"
         android:ems="5">
 
-        <requestFocus/>
+        <requestFocus />
     </EditText>
 
-    <Space/>
+    <Space />
 
     <TextView
         style="@style/TextLabel"
         android:layout_marginBottom="10dp"
         android:layout_marginTop="15dp"
         android:labelFor="@+id/repLabel"
-        android:text="@string/reps"/>
+        android:text="@string/reps" />
 
     <Spinner
         android:id="@+id/intReps"
@@ -35,26 +35,26 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="15dp"
         android:textAlignment="textEnd"
-        compat:layout_gravity="fill_horizontal"/>
+        compat:layout_gravity="fill_horizontal" />
 
-    <Space/>
+    <Space />
 
     <TextView
         style="@style/TextLabel"
         android:labelFor="@+id/maxWeight"
-        android:text="@string/maxWeight"/>
+        android:text="@string/maxWeight" />
 
     <TextView
         android:id="@+id/oneRep"
         style="@style/UnsignedDecimal"
         android:ems="5"
-        android:imeOptions="actionDone"/>
+        android:imeOptions="actionDone" />
 
-    <Space/>
+    <Space />
 
     <Button
         android:id="@+id/btnClear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/clear"/>
+        android:text="@string/clear" />
 </android.support.v7.widget.GridLayout>
