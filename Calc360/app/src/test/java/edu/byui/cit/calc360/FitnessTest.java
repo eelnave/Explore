@@ -8,7 +8,7 @@ import edu.byui.cit.model.Fitness;
 
 public final class FitnessTest {
 	@Test
-	public void testCalories() throws Exception {
+	public void testCalories() {
 		//calories burn per exercise
 		double swimming = .05;
 		double weightLift = .024;
@@ -34,25 +34,17 @@ public final class FitnessTest {
 
 	@Test
 	public void testCalcPace() {
+		final double delta = 0.005;
 
-		// Test the exact string that will be returned
-		assertEquals("0 Hrs: 6 Mins: 40.57 Secs", Fitness.calcPace(5.3, 0, 35, 23));
-		// check that the calcPace method doesn't rounding down
-		assertFalse(Fitness.calcPace(5.3, 0, 35, 23).contains("40.56"));
-		assertTrue(Fitness.calcPace(5.3, 0, 35, 23).contains("40.57"));
+		assertArrayEquals(new double[]{0, 6, 40.57}, Fitness.calcPace(5.3, 0, 35, 23), delta);
 
 		// Test values when hours are used and returned
-		assertEquals("0 Hrs: 8 Mins: 13.24 Secs", Fitness.calcPace(26.2, 3, 35, 23));
-		assertEquals("1 Hrs: 47 Mins: 41.5 Secs", Fitness.calcPace(2, 3, 35, 23));
+		assertArrayEquals(new double[]{0, 8, 13.24}, Fitness.calcPace(26.2, 3, 35, 23), delta);
+		assertArrayEquals(new double[]{1, 47, 41.5}, Fitness.calcPace(2, 3, 35, 23), delta);
 
 		// Test return when large numbers are inserted into seconds or minutes.
 		// Verifies that when values in minutes or seconds exceeds 60 that the
 		// values exceeding 60 are carried over to the correct unit.
-		assertEquals("26 Hrs: 6 Mins: 39.67 Secs", Fitness.calcPace(3, 0, 700, 239999));
-
-
-
-
-
+		assertArrayEquals(new double[]{26, 6, 39.67}, Fitness.calcPace(3, 0, 700, 239999), delta);
 	}
 }

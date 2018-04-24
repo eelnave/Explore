@@ -12,8 +12,8 @@
 	<string name="fall2017">Fall 2017</string>
 	<string name="winter2018">Winter 2018</string>
 
-	<string name="feedMessage">Thank you for using Calc360! Due to the experimental nature of this calculator, we would appreciate any comments, questions, or recommendations in order to further improve this application.</string>
-	<string name="feedLink">You can contact us through the Google Play Store or by clicking this link: <a href="">linknamehere.com</a></string>
+	<string name="feedMessage">Thank you for using Calc360! We appreciate your comments, questions, and recommendations to help us improve this app. You can contact us through the Google Play Store or by clicking this link: <a href="">linknamehere.com</a></string>
+
 	<string name="mistake">Well, this is embarrassing. Something is wrong with this calculator, and it isn\'t working. We apologize.</string>
 
 	<string name="currencyCredit">The currency exchange rates are courtesy of the European Central Bank.</string>

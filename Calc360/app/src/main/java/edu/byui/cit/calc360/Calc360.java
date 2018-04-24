@@ -26,7 +26,7 @@ public final class Calc360 extends AppCompatActivity {
 			KEY_INCOME_TAX_RATE = "incomeTaxRate",
 			KEY_ANGLE_UNITS = "angleUnits";
 
-	private InfoFragment about;
+	private InfoFragment about, feedback;
 	private InfoFragment fivefunc;
 //	OnTouchListener swipeHandler;
 
@@ -116,6 +116,13 @@ public final class Calc360 extends AppCompatActivity {
 
 				// Return true to indicate that this
 				// method handled the item selected event.
+				return true;
+			case R.id.actFeedback:
+				if (feedback == null || feedback.isDetached()) {
+					feedback = new Feedback();
+					feedback.setDescripID(1);
+				}
+				switchFragment(feedback);
 				return true;
 			case R.id.actFive:
 				if (fivefunc == null || fivefunc.isDetached()) {

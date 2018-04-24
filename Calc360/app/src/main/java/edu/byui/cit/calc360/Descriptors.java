@@ -20,12 +20,12 @@ final class Descriptors {
 			}),
 			new GroupDescriptor(308, R.string.sports, R.drawable.folder_sports, new CalcDescriptor[]{
 				new CalcDescriptor(1011, R.string.basketball, R.drawable.basketball, Basketball.class),
-				new CalcDescriptor(1012, R.string.bodyMassIndex, R.drawable.body_mass_index, BodyMassIndex.class),
-				new CalcDescriptor(1020, R.string.caloriesBurned, R.drawable.flame, CaloriesBurned.class),
-				new CalcDescriptor(1062, R.string.age, R.drawable.birthday_cake, Age.class),
-				new CalcDescriptor(1067, R.string.basalMetabolicRate, R.drawable.lightning, BasalMetabolicRate.class),
-				new CalcDescriptor(1072, R.string.oneRepMax, R.drawable.one_rep_max, OneRepMax.class),
 				new CalcDescriptor(1073, R.string.pace, R.drawable.lightning, Pace.class),
+				new CalcDescriptor(1072, R.string.oneRepMax, R.drawable.one_rep_max, OneRepMax.class),
+				new CalcDescriptor(1020, R.string.caloriesBurned, R.drawable.flame, CaloriesBurned.class),
+				new CalcDescriptor(1012, R.string.bodyMassIndex, R.drawable.body_mass_index, BodyMassIndex.class),
+				new CalcDescriptor(1067, R.string.basalMetabolicRate, R.drawable.lightning, BasalMetabolicRate.class),
+				new CalcDescriptor(1062, R.string.age, R.drawable.birthday_cake, Age.class),
 			}),
 			new GroupDescriptor(302, R.string.travel, R.drawable.folder_travel, new CalcDescriptor[]{
 				new CalcDescriptor(1003, R.string.FuelEcon, R.drawable.fuel_gauge, FuelEconomy.class),
@@ -137,10 +137,10 @@ final class Descriptors {
 	/** Copies the hierarchy of descriptors into an array so that
 	 * we can easily and quickly find a descriptor by its ID. */
 	static void initialize() {
-		int count = countDescrips(hierarchy) + 1;
+		int count = countDescrips(hierarchy) + 2;
 		descriptors = new Descriptor[count];
 		storeDescrips(descriptors, 0, hierarchy);
-		descriptors[count - 1] = new CalcDescriptor(1, R.string.about, R.mipmap.calc360, About.class);
+		descriptors[count - 2] = new CalcDescriptor(1, R.string.about, R.mipmap.calc360, About.class);
 		descriptors[count - 1] = new CalcDescriptor(2, R.string.feedback, R.mipmap.calc360, Feedback.class);
 		Arrays.sort(descriptors, Descriptor.compareID);
 	}
