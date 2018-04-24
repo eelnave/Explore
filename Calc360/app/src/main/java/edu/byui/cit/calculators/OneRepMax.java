@@ -18,7 +18,7 @@ import edu.byui.cit.text.TextWrapper;
 import edu.byui.cit.text.ControlWrapper;
 
 
-public class MaxReps extends CalcFragment {
+public class OneRepMax extends CalcFragment {
     // variables for user input & formatting
     private static final String KEY_REPS = "Reps";
     private EditDecimal decWeight;
@@ -27,7 +27,7 @@ public class MaxReps extends CalcFragment {
     private final NumberFormat fmtrDec;
 
 
-    public MaxReps() {
+    public OneRepMax() {
         // Will call the constructor in the parent class.
         super();
 
@@ -41,7 +41,7 @@ public class MaxReps extends CalcFragment {
                            Bundle savedInstanceState) {
 
         // Inflate the layout for this calculator.
-        View view = inflater.inflate(R.layout.maxreps, container, false);
+        View view = inflater.inflate(R.layout.one_rep_max, container, false);
 
         // Text input
         decWeight = new EditDecimal(view, R.id.decWeight, this);

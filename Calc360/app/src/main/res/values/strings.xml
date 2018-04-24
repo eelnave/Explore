@@ -43,8 +43,4 @@
 	<string name="clear">Clear</string>
 
 	<string name="unitConvert">Unit Conversion</string>
-	<string name="Female">Female</string>
-	<string name="Male">Male</string>
-	<string name="bmr">BMR</string>
-	<string name="maxReps">Max Weight</string>"
 </resources>
