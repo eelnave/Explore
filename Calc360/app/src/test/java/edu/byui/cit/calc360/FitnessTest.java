@@ -31,4 +31,28 @@ public final class FitnessTest {
 		assertEquals(378, ResultsRunning);
 		assertEquals(161, ResultsWalking);
 	}
+
+	@Test
+	public void testCalcPace() {
+
+		// Test the exact string that will be returned
+		assertEquals("0 Hrs: 6 Mins: 40.57 Secs", Fitness.calcPace(5.3, 0, 35, 23));
+		// check that the calcPace method doesn't rounding down
+		assertFalse(Fitness.calcPace(5.3, 0, 35, 23).contains("40.56"));
+		assertTrue(Fitness.calcPace(5.3, 0, 35, 23).contains("40.57"));
+
+		// Test values when hours are used and returned
+		assertEquals("0 Hrs: 8 Mins: 13.24 Secs", Fitness.calcPace(26.2, 3, 35, 23));
+		assertEquals("1 Hrs: 47 Mins: 41.5 Secs", Fitness.calcPace(2, 3, 35, 23));
+
+		// Test return when large numbers are inserted into seconds or minutes.
+		// Verifies that when values in minutes or seconds exceeds 60 that the
+		// values exceeding 60 are carried over to the correct unit.
+		assertEquals("26 Hrs: 6 Mins: 39.67 Secs", Fitness.calcPace(3, 0, 700, 239999));
+
+
+
+
+
+	}
 }

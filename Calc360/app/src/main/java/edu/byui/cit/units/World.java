@@ -32,7 +32,6 @@ public final class World extends Container<Property> {
 //		volt  = 30,
 //		resis = 31,
 		pres  = 40,
-//		ener  = 50,
 //		power = 51,
 fuelEcon = 52,
 		speed = 60,
