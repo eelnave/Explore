@@ -24,7 +24,7 @@ final class Descriptors {
 				new CalcDescriptor(1020, R.string.caloriesBurned, R.drawable.flame, CaloriesBurned.class),
 				new CalcDescriptor(1062, R.string.age, R.drawable.birthday_cake, Age.class),
 				new CalcDescriptor(1067, R.string.basalMetabolicRate, R.drawable.lightning, BasalMetabolicRate.class),
-				new CalcDescriptor(1067, R.string.oneRepMax, R.drawable.one_rep_max, OneRepMax.class),
+				new CalcDescriptor(1072, R.string.oneRepMax, R.drawable.one_rep_max, OneRepMax.class),
 			}),
 			new GroupDescriptor(302, R.string.travel, R.drawable.folder_travel, new CalcDescriptor[]{
 				new CalcDescriptor(1003, R.string.FuelEcon, R.drawable.fuel_gauge, FuelEconomy.class),

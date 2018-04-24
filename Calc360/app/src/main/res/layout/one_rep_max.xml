@@ -33,14 +33,14 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:layout_marginTop="10dp"
+		android:layout_marginTop="15dp"
 		android:labelFor="@+id/maxWeight"
 		android:text="@string/oneRepMax"/>
 
 	<TextView
 		android:id="@+id/oneRep"
 		style="@style/UnsignedDecimal"
-		android:layout_marginTop="10dp"
+		android:layout_marginTop="15dp"
 		android:ems="5"/>
 
 	<Button
