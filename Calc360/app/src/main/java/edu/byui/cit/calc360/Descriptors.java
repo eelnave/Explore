@@ -23,7 +23,7 @@ final class Descriptors {
 				new CalcDescriptor(1012, R.string.bodyMassIndex, R.drawable.body_mass_index, BodyMassIndex.class),
 				new CalcDescriptor(1020, R.string.caloriesBurned, R.drawable.flame, CaloriesBurned.class),
 				new CalcDescriptor(1062, R.string.age, R.drawable.birthday_cake, Age.class),
-				new CalcDescriptor(1067, R.string.paceCalc, R.drawable.lightning, RunPace.class),
+				new CalcDescriptor(1073, R.string.pace, R.drawable.lightning, Pace.class),
 			}),
 			new GroupDescriptor(302, R.string.travel, R.drawable.folder_travel, new CalcDescriptor[]{
 				new CalcDescriptor(1003, R.string.FuelEconomy, R.drawable.fuel_gauge, FuelEconomy.class),

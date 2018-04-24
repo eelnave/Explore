@@ -69,8 +69,7 @@ fuelEcon = 52,
 			Speed.getInstance(),
 			Force.getInstance(),
 			DataSize.getInstance(),
-			Money.getInstance(),
-			Pace.getInstance()
+			Money.getInstance()
 		});
 	}
 

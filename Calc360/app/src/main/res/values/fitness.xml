@@ -49,11 +49,6 @@
 	<string name="age">Age</string>
 	<string name="birthDate">Birth Date</string>
 
-	<string name="runPace">Find your pace by putting in the distance you ran and the time it took.</string>
 	<string name="pace">Pace</string>
-	<string name="paceCalc">Pace Calculator</string>
-	<string-array name="fPaceUnits" translatable="false">
-		<item>perMile</item>
-		<item>perKm</item>
-	</string-array>
+	<string name="paceDescrip">Find your pace by entering the distance you traveled and the time it took.</string>
 </resources>
