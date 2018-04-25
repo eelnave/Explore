@@ -1,57 +1,79 @@
 package edu.byui.cit.model;
 
+import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
 public final class Academic {
-
 	private Academic() {
-
 	}
 
-	public static final class GPA {
-		private GPA() {
+	public static final class Course {
+		private static final HashMap<String, Float> values = new HashMap<>();
+		private static final NumberFormat fmtrDec;
 
-		}
-		public static double calculateGPA(String letterGrade) {
-			double gpa = 0;
-
-			letterGrade = letterGrade.trim();
-
-			String[] letters = {
-					"A+","A", "A-",
-					"B+", "B", "B-",
-					"C+", "C", "C-",
-					"D+", "D", "D-",
-					"F+", "F", "F-"
-			};
-
-			double[] points = {
-					4.0, 4.0, 3.7,
-					3.4, 3.0, 2.7,
-					2.4, 2.0, 1.7,
-					1.4, 1.0, 0.7,
-					0.0, 0.0, 0.0
-			};
-
-			for (int i = 0; i < letters.length; i++) {
-				if (letterGrade.equals(letters[i])) {
-					gpa = points[i];
-				}
-			}
-
-			return Math.floor(gpa * 100) / 100;
+		static {
+			values.put("A", 4.0F);
+			values.put("A-", 3.7F);
+			values.put("B+", 3.4F);
+			values.put("B", 3.0F);
+			values.put("B-", 2.7F);
+			values.put("C+", 2.4F);
+			values.put("C", 2.0F);
+			values.put("C-", 1.7F);
+			values.put("D+", 1.4F);
+			values.put("D", 1.0F);
+			values.put("D-", 0.7F);
+			values.put("F", 0.0F);
+			values.put("UW", 0.0F);
+			values.put("W", 0.0F);
+			fmtrDec = NumberFormat.getInstance();
+			fmtrDec.setMinimumFractionDigits(1);
+			fmtrDec.setMaximumFractionDigits(1);
 		}
 
-		public static double calculateGPA(String[] grades) {
-			double gpa;
-			double totalPoints = 0;
-			int count = grades.length;
+		public static float getValue(String grade) {
+			return values.get(grade);
+		}
 
-			for (String grade : grades) {
-				totalPoints += calculateGPA(grade);
+		public static double computeGPA(
+				double gpa, double credits, ArrayList<Course> courses) {
+			double points = gpa * credits;
+			for (Course course : courses) {
+				points += course.value * course.credits;
+				credits += course.credits;
 			}
+			if (credits > 0) {
+				gpa = points / credits;
+			}
+			return gpa;
+		}
 
-			gpa = totalPoints / count;
+		public static String toGradeString(ArrayList<Course> courses) {
+			StringBuilder sb = new StringBuilder();
+			String sep = "";
+			for (Course c : courses) {
+				sb.append(sep).append(c.toString());
+				sep = "; ";
+			}
+			return sb.toString();
+		}
 
-			return Math.floor(gpa * 100) / 100;
+
+		private String grade;
+		private float value;
+		private float credits;
+
+		public Course(String grade, float credits) {
+			this.grade = grade;
+			this.value = values.get(grade);
+			this.credits = credits;
+		}
+
+		@Override
+		public String toString() {
+			return grade + " : " + fmtrDec.format(credits);
 		}
 	}
 }

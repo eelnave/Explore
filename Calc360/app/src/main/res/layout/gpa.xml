@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		compat:columnCount="2">
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/curGPA"
+			android:text="@string/curGPA"/>
+
+		<EditText
+			android:id="@+id/curGPA"
+			style="@style/UnsignedDecimal"
+			android:ems="4">
+
+			<requestFocus/>
+		</EditText>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/curCredits"
+			android:text="@string/curCredits"/>
+
+		<EditText
+			android:id="@+id/curCredits"
+			style="@style/UnsignedDecimal"
+			android:ems="4"
+			android:imeOptions="actionDone"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="20dp"
+			android:labelFor="@+id/spinGrade"
+			android:text="@string/letterGrade"/>
+
+		<Spinner
+			android:id="@+id/spinGrade"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
+			android:entries="@array/letterGrades"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/spinCredits"
+			android:text="@string/credits"/>
+
+		<Spinner
+			android:id="@+id/spinCredits"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+	</android.support.v7.widget.GridLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<Button
+			android:id="@+id/btnAdd"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/gpaAdd"/>
+
+		<Button
+			android:id="@+id/btnRemove"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/gpaRemove"/>
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/yourGrades"
+		style="@style/TextResult"
+		android:layout_marginStart="10dp"
+		android:layout_marginTop="10dp"/>
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		compat:columnCount="2">
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="15dp"
+			android:text="@string/semesterGPA"/>
+
+		<TextView
+			android:id="@+id/semGPA"
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"
+			android:layout_marginTop="15dp"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="10dp"
+			android:text="@string/cumulativeGPA"/>
+
+		<TextView
+			android:id="@+id/cumGPA"
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"
+			android:layout_marginTop="10dp"/>
+	</android.support.v7.widget.GridLayout>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"/>
+</LinearLayout>

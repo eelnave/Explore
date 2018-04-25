@@ -1,239 +1,135 @@
 package edu.byui.cit.calculators;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.text.NumberFormat;
+import java.util.ArrayList;
+
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.model.Academic;
+import edu.byui.cit.model.Academic.Course;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.RadioWrapper;
+import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.text.SpinDecimal;
+import edu.byui.cit.text.SpinString;
 import edu.byui.cit.text.TextWrapper;
 
 
 public final class GPA extends CalcFragment {
+	private EditDecimal decCurrGPA, decCurrCred;
+	private SpinString spinGrades;
+	private SpinDecimal spinCredits;
+	private TextWrapper yourGrades, semGPA, cumGPA;
 
-	private EditDecimal editCurrGPA, editCurrCred;
-	private TextWrapper yourGrades, semGPA, overallGPA;
+	private ArrayList<Course> courses = new ArrayList<>();
+	private final NumberFormat fmtrGPA;
 
-	private RadioWrapper radioA, radioB, radioC, radioD, radioF;
-	private RadioWrapper radioMinus, radioPlus, radioNone;
-	private RadioWrapper radioCred05, radioCred1, radioCred2, radioCred3, radioCred4;
+	public GPA() {
+		super();
+		fmtrGPA = NumberFormat.getInstance();
+		fmtrGPA.setMinimumFractionDigits(2);
+		fmtrGPA.setMaximumFractionDigits(2);
+	}
 
-	private String yourGradesString = "";
-
-	private Double semesterGPA;
-	private Double semesterCredits;
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.gpa_calc, container,
-				false);
+		View view = inflater.inflate(R.layout.gpa, container, false);
 
-		editCurrCred = new EditDecimal(view, R.id.curCredits, this);
-		editCurrGPA = new EditDecimal(view, R.id.curGPA, this);
+		decCurrGPA = new EditDecimal(view, R.id.curGPA, this);
+		decCurrCred = new EditDecimal(view, R.id.curCredits, this);
+
+		Activity act = getActivity();
+		spinGrades = new SpinString(view, R.id.spinGrade, null, this);
+		spinCredits = new SpinDecimal(act, view, R.id.spinCredits,
+				R.array.gpaCredits, null, this);
+		new ButtonWrapper(view, R.id.btnAdd, new AddHandler());
+		new ButtonWrapper(view, R.id.btnRemove, new RemoveHandler());
 
 		yourGrades = new TextWrapper(view, R.id.yourGrades);
 		semGPA = new TextWrapper(view, R.id.semGPA);
-		overallGPA = new TextWrapper(view, R.id.overallGPA);
+		cumGPA = new TextWrapper(view, R.id.cumGPA);
 
-		new ButtonWrapper(view, R.id.butGradeInput, new InputHandler());
-		new ButtonWrapper(view, R.id.gpaClear, new ClearHandler());
-		new ButtonWrapper(view, R.id.butGradeRemove, new RemoveHandler());
-
-		radioA = new RadioWrapper(view, R.id.letterA, this);
-		radioB = new RadioWrapper(view, R.id.letterB, this);
-		radioC = new RadioWrapper(view, R.id.letterC, this);
-		radioD = new RadioWrapper(view, R.id.letterD, this);
-		radioF = new RadioWrapper(view, R.id.letterF, this);
-
-		radioMinus = new RadioWrapper(view, R.id.gradeMinus, this);
-		radioPlus = new RadioWrapper(view, R.id.gradePlus, this);
-		radioNone = new RadioWrapper(view, R.id.gradeNone, this);
-
-		radioCred05 = new RadioWrapper(view, R.id.credit05, this);
-		radioCred1 = new RadioWrapper(view, R.id.credit1, this);
-		radioCred2 = new RadioWrapper(view, R.id.credit2, this);
-		radioCred3 = new RadioWrapper(view, R.id.credit3, this);
-		radioCred4 = new RadioWrapper(view, R.id.credit4, this);
-
+		new ButtonWrapper(view, R.id.btnClear, new ClearHandler());
 		return view;
 	}
 
-	@Override
-	protected void compute() {
-		calculateSemGPA();
-		calculateOverallGPA();
-	}
 
-	private void calculateOverallGPA() {
-		if (!editCurrGPA.isEmpty() && !editCurrCred.isEmpty()) {
-			double lastGPA = Double.parseDouble(editCurrGPA.getText());
-			double lastCreds = Double.parseDouble(editCurrCred.getText());
-
-			double currCreds = lastCreds + semesterCredits;
-
-			Double finalGPA = Math.floor(((semesterGPA * semesterCredits +
-					lastGPA * lastCreds) / currCreds) * 100) / 100;
-
-			overallGPA.setText(finalGPA.toString());
+	private final class AddHandler implements ClickListener {
+		@Override
+		public void clicked(View button) {
+			String grade = spinGrades.getSelectedItem();
+			float credits = spinCredits.getDec();
+			Course course = new Course(grade, credits);
+			courses.add(course);
+			yourGrades.setText(Course.toGradeString(courses));
+			callCompute();
 		}
-	}
-
-	private void calculateSemGPA() {
-		String[] gradeCreds = yourGradesString.split(",");
-
-		Double pointsCount = 0.0;
-		semesterCredits = 0.0;
-
-		for (String gradeCred : gradeCreds) {
-			String[] result = gradeCred.split(":");
-			String letter = result[0];
-			Double credits = Double.parseDouble(result[1].trim());
-			semesterCredits += credits;
-			Double points = Academic.GPA.calculateGPA(letter.trim()) * credits;
-			pointsCount += points;
-		}
-
-		semesterGPA = Math.floor((pointsCount / semesterCredits) * 100) / 100;
-
-		semGPA.setText(semesterGPA.toString());
-	}
-
-	private boolean isValid() {
-
-		boolean credits = radioCred05.isChecked() || radioCred1.isChecked() ||
-				radioCred2.isChecked() || radioCred3.isChecked() ||
-				radioCred4.isChecked();
-
-		boolean letters = radioA.isChecked() || radioB.isChecked() ||
-				radioC.isChecked() || radioD.isChecked() || radioF.isChecked();
-
-		boolean symbol = radioMinus.isChecked() || radioPlus.isChecked() ||
-				radioNone.isChecked();
-
-		return credits && letters && symbol;
-	}
-
-	private double getCredits() {
-		if (radioCred05.isChecked())
-			return 0.5;
-		else if (radioCred1.isChecked())
-			return 1.0;
-		else if (radioCred2.isChecked())
-			return 2.0;
-		else if (radioCred3.isChecked())
-			return 3.0;
-		else if (radioCred4.isChecked())
-			return 4.0;
-		else
-			return 0;
-	}
-
-	private String getLetter() {
-		if (radioA.isChecked())
-			return "A";
-		else if (radioB.isChecked())
-			return "B";
-		else if (radioC.isChecked())
-			return "C";
-		else if (radioD.isChecked())
-			return "D";
-		else if (radioF.isChecked())
-			return "F";
-		else
-			return "";
-	}
-
-	private String getSymbol() {
-		if (radioMinus.isChecked())
-			return "-";
-		else if (radioPlus.isChecked())
-			return "+";
-		else
-			return  "";
 	}
 
 	private final class RemoveHandler implements ClickListener {
 		@Override
 		public void clicked(View button) {
-			StringBuilder newGradeString = new StringBuilder();
-			if (!yourGradesString.contains(",")) {
-				clear();
-			}
-			else if(!yourGradesString.equals("")) {
-
-				String[] array = yourGradesString.split(",");
-
-				for (int i = 0; i < array.length - 1; i++) {
-					if (i == 0)
-						newGradeString = new StringBuilder(array[i]);
-					else
-						newGradeString.append(", ").append(array[i]);
-				}
-				yourGradesString = newGradeString.toString();
-
-
-				yourGrades.setText(yourGradesString);
-
-				calculateSemGPA();
-				calculateOverallGPA();
-			}
+			courses.remove(courses.size() - 1);
+			yourGrades.setText(Course.toGradeString(courses));
+			callCompute();
 		}
 	}
 
-	private final class InputHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			if (isValid()) {
-				String prior = yourGradesString;
-				String[] grades = yourGradesString.split(",");
-				String current;
-				String letter = getLetter();
-				String symbol = getSymbol();
-				Double credits = getCredits();
 
-				if (grades[0].equals(""))
-					current = letter + symbol + " : " + credits;
-				else
-					current = prior + ", " + letter + symbol + " : " + credits;
+	@Override
+	protected void compute() {
+		computeSemester();
+		computeCumulative();
+	}
 
-				yourGradesString = current;
+	private void computeSemester() {
+		if (courses.size() > 0) {
+			double gpa = Course.computeGPA(0, 0, courses);
+			semGPA.setText(fmtrGPA.format(gpa));
+		}
+		else {
+			semGPA.clear();
+		}
+	}
 
-				yourGrades.setText(yourGradesString);
+	private void computeCumulative() {
+		if (EditWrapper.allNotEmpty(decCurrGPA, decCurrCred) || courses.size() > 0) {
+			double gpa = 0;
+			double credits = 0;
 
-				calculateSemGPA();
-				calculateOverallGPA();
+			if (EditWrapper.allNotEmpty(decCurrGPA, decCurrCred)) {
+				gpa = decCurrGPA.getDec();
+				credits = decCurrCred.getDec();
 			}
+
+			gpa = Course.computeGPA(gpa, credits, courses);
+			cumGPA.setText(fmtrGPA.format(gpa));
+		}
+		else {
+			cumGPA.clear();
 		}
 	}
 
-	private void clear() {
-		ControlWrapper[] toClear = {
-				yourGrades, semGPA, overallGPA
-		};
-		for (ControlWrapper clear : toClear) {
-			clear.clear();
-		}
-		yourGradesString = "";
-	}
 
 	private final class ClearHandler implements ClickListener {
 		@Override
 		public void clicked(View button) {
 			ControlWrapper[] toClear = {
-					editCurrCred, editCurrGPA, yourGrades, semGPA, overallGPA
+					decCurrCred, decCurrGPA, yourGrades, semGPA, cumGPA
 			};
-			for (ControlWrapper clear : toClear) {
-				clear.clear();
+			for (ControlWrapper ctrl : toClear) {
+				ctrl.clear();
 			}
-			yourGradesString = "";
+			courses.clear();
 		}
 	}
 }
