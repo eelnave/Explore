@@ -1,6 +1,4 @@
-<resources
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
 	<!-- AppCompat attributes should not have a namespace. For example,
 	compat:layout_gravity should be written as just layout_gravity in a
 	style. -->
@@ -12,10 +10,14 @@
 		<item name="android:radioButtonStyle">@style/CalcRadioButton</item>
 		<item name="android:spinnerStyle">@style/CalcSpinner</item>
 		<item name="android:spinnerItemStyle">@style/CalcSpinnerItem</item>
-		<item name="android:spinnerDropDownItemStyle">@style/CalcSpinnerDropDownItem</item>
+		<item name="android:spinnerDropDownItemStyle">
+			@style/CalcSpinnerDropDownItem
+		</item>
 		<item name="android:dropDownItemStyle">@style/CalcDropDownItem</item>
-		<item name="android:dropDownListViewStyle">@style/CalcDropDownListView</item>
-		<item name="android:dropDownSpinnerStyle">@style/CalcDropDownSpinner</item>
+		<item name="android:dropDownListViewStyle">@style/CalcDropDownListView
+		</item>
+		<item name="android:dropDownSpinnerStyle">@style/CalcDropDownSpinner
+		</item>
 		<item name="android:absListViewStyle">@style/CalcAbsListView</item>
 		<item name="android:listViewStyle">@style/CalcListView</item>
 		<item name="android:textViewStyle">@style/CalcTextView</item>
@@ -128,10 +130,11 @@
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
 		<item name="android:focusable">true</item>
+		<item name="android:inputType">none</item>
 		<item name="android:longClickable">true</item>
 		<item name="android:selectAllOnFocus">true</item>
 		<item name="android:textIsSelectable">true</item>
-		<item name="android:inputType">none</item>
+		<item name="android:textAlignment">textEnd</item>
 		<item name="layout_gravity">end</item>
 	</style>
 
