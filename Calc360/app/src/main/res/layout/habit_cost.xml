@@ -10,11 +10,10 @@
 		style="@style/TextLabel"
 		android:text="@string/itemCost"/>
 
-
 	<EditText
 		android:id="@+id/costHabit"
 		style="@style/UnsignedDecimal"
-		android:ems="6"
+		android:ems="5"
 		android:hint="@string/costEx">
 
 		<requestFocus/>
@@ -29,14 +28,13 @@
 	<EditText
 		android:id="@+id/frequencyHabit"
 		style="@style/UnsignedDecimal"
-		android:ems="6"
-		android:hint="@string/frequencyEx"
-		android:inputType="numberDecimal"/>
+		android:ems="5"
+		android:hint="@string/frequencyEx"/>
 
 	<Space/>
 
 	<RadioGroup
-		android:layout_marginTop="20dp"
+		android:layout_marginTop="10dp"
 		android:checkedButton="@+id/radDaily"
 		android:orientation="horizontal"
 		compat:layout_columnSpan="3"
@@ -73,61 +71,49 @@
 
 	<TextView
 		style="@style/TextLabel"
-		android:layout_marginTop="20dp"
+		android:layout_marginTop="10dp"
 		android:text="@string/habitDaily"/>
 
 	<TextView
 		android:id="@+id/dailyAmount"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:ems="6"
-		android:layout_marginTop="20dp"
-		android:textAlignment="textEnd"/>
+		style="@style/TextResult"
+		android:layout_marginTop="10dp"/>
 
 	<Space/>
 
 	<TextView
 		style="@style/TextLabel"
-		android:layout_marginTop="20dp"
+		android:layout_marginTop="10dp"
 		android:text="@string/habitWeekly"/>
 
 	<TextView
 		android:id="@+id/weeklyAmount"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:ems="6"
-		android:layout_marginTop="20dp"
-		android:textAlignment="textEnd"/>
+		style="@style/TextResult"
+		android:layout_marginTop="10dp"/>
 
 	<Space/>
 
 	<TextView
 		style="@style/TextLabel"
-		android:layout_marginTop="20dp"
+		android:layout_marginTop="10dp"
 		android:text="@string/habitMonthly"/>
 
 	<TextView
 		android:id="@+id/monthlyAmount"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:ems="6"
-		android:layout_marginTop="20dp"
-		android:textAlignment="textEnd"/>
+		style="@style/TextResult"
+		android:layout_marginTop="10dp"/>
 
 	<Space/>
 
 	<TextView
 		style="@style/TextLabel"
-		android:layout_marginTop="20dp"
+		android:layout_marginTop="10dp"
 		android:text="@string/habitYearly"/>
 
 	<TextView
 		android:id="@+id/yearlyAmount"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:ems="6"
-		android:layout_marginTop="20dp"
-		android:textAlignment="textEnd"/>
+		style="@style/TextResult"
+		android:layout_marginTop="10dp"/>
 
 	<Space/>
 
@@ -135,7 +121,7 @@
 		android:id="@+id/btnClear"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="20dp"
+		android:layout_marginTop="15dp"
 		android:text="@string/clear"
 		compat:layout_columnSpan="3"/>
 </android.support.v7.widget.GridLayout>

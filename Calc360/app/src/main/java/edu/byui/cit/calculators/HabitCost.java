@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.text.NumberFormat;
+
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
@@ -50,7 +51,8 @@ public final class HabitCost extends CalcFragment {
 
 		EditWrapper[] inputs = { cost, frequency };
 		ControlWrapper[] toClear = {
-				cost, frequency, dailyAmount, weeklyAmount, monthlyAmount, yearlyAmount
+				cost, frequency,
+				dailyAmount, weeklyAmount, monthlyAmount, yearlyAmount
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
@@ -73,7 +75,6 @@ public final class HabitCost extends CalcFragment {
 				w = d * 7;
 				m = d * 30;
 				y = d * 365;
-
 			}
 			else if (radWeekly.isChecked()) {
 				w = c * f;
