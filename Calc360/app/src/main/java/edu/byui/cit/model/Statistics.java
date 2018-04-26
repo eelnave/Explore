@@ -13,7 +13,8 @@ public final class Statistics {
 		count = length;
 
 		if (length == 0) {
-			min = first = second = third = max = sum = mean = var = stdev = Double.NaN;
+			min = first = second = third = max = sum = mean = var = stdev =
+					Double.NaN;
 		}
 		else if (length == 1) {
 			min = first = second = third = max = sum = mean = data[0];
@@ -104,7 +105,7 @@ public final class Statistics {
 	public static double correlation(double[] dataX, double[] dataY) {
 		double sumX, sumY, sumX2, sumY2, sumXY;
 		sumX = sumY = sumX2 = sumY2 = sumXY = 0.0;
-		for (int i = 0;  i < dataX.length;  ++i) {
+		for (int i = 0; i < dataX.length; ++i) {
 			double x = dataX[i];
 			double y = dataY[i];
 			sumX += x;
@@ -122,34 +123,24 @@ public final class Statistics {
 		return covar / (sdevX * sdevY);
 	}
 
+
 	public static double binDistProb(int n, int x, double p) {
+		int n_x = n - x;
 
-		double probability;
-		Long numerator = 1L;
-		Long xDenominator = 1L;
-		Long nxDenominator = 1L;
-		Long denominator;
-
-		for (int i = 1; i <= n; i++) {
-			numerator *= i;
+		// Compute n! / (x! (n-x)!)
+		int limit = n_x >= x ? n_x : x;
+		long numer = n;
+		for (int i = n - 1;  i > limit;  --i) {
+			numer *= i;
 		}
-
-		for (int i = 1; i <= x; i++) {
-			xDenominator *= i;
+		long denom = n - limit;
+		for (int i = n - limit - 1;  i > 1;  --i) {
+			denom *= i;
 		}
+		double left = (double)numer / denom;
 
-		for (int i = 1; i <= (n - x); i++) {
-			nxDenominator *= i;
-		}
-
-		denominator = xDenominator * nxDenominator;
-
-		double left = numerator / denominator;
 		double middle = Math.pow(p, x);
-		double right = Math.pow((1-p), (n-x));
-
-		probability = left * middle * right;
-
-		return probability;
+		double right = Math.pow(1 - p, n_x);
+		return left * middle * right;
 	}
 }

@@ -1,31 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
 
-
-	<TextView
-		style="@style/TextLabel"
-		android:text="@string/binDis"/>
-
 	<ImageView
-		android:layout_width="220dp"
+		android:layout_width="300dp"
 		android:layout_height="wrap_content"
 		android:adjustViewBounds="true"
 		android:contentDescription="@string/binomialDistribution"
-		android:src="@drawable/binomial_probability_equation"/>
+		android:src="@drawable/formula_binomial_probability"/>
 
-	<LinearLayout
+	<android.support.v7.widget.GridLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:orientation="horizontal">
+		compat:columnCount="2">
 
 		<TextView
 			style="@style/TextLabel"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:labelFor="@+id/pro"
 			android:text="@string/defPro"/>
 
 		<EditText
@@ -38,17 +33,9 @@
 			<requestFocus/>
 		</EditText>
 
-	</LinearLayout>
-
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal">
-
 		<TextView
 			style="@style/TextLabel"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:labelFor="@+id/tri"
 			android:text="@string/numOfTrials"/>
 
 		<EditText
@@ -56,21 +43,11 @@
 			style="@style/UnsignedInteger"
 			android:ems="4"
 			android:hint="@string/numOfTrialsHint"
-			android:maxLength="5">
-
-		</EditText>
-
-	</LinearLayout>
-
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal">
+			android:maxLength="5"/>
 
 		<TextView
 			style="@style/TextLabel"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:labelFor="@+id/def"
 			android:text="@string/numOfDefects"/>
 
 		<EditText
@@ -79,27 +56,18 @@
 			android:ems="4"
 			android:hint="@string/numOfDefectsHint"
 			android:imeOptions="actionDone"
-			android:maxLength="5">
-
-		</EditText>
-
-	</LinearLayout>
-
-	<LinearLayout
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal">
+			android:maxLength="5"/>
 
 		<TextView
 			style="@style/TextLabel"
+			android:layout_marginTop="10dp"
 			android:text="@string/binPro"/>
 
 		<TextView
 			android:id="@+id/binPro"
 			style="@style/TextResult"
-			android:layout_marginStart="10dp"/>
-
-	</LinearLayout>
+			android:layout_marginTop="10dp"/>
+	</android.support.v7.widget.GridLayout>
 
 	<Button
 		android:id="@+id/btnClear"
@@ -107,5 +75,4 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"
 		android:text="@string/clear"/>
-
 </LinearLayout>
