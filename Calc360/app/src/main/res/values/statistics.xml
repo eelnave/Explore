@@ -16,4 +16,14 @@
 	<string name="sample1">Sample 1</string>
 	<string name="sample2">Sample 2</string>
 	<string name="mismatchedSamples">samples must be the same length</string>
+
+	<string name="binDis">Binomial Probability</string>
+	<string name="defPro">Defective Probability(p)</string>
+	<string name="numOfTrials">Number of Trials(n)</string>
+	<string name="numOfDefects">Number of Defectives(x)</string>
+	<string name="binPro">Binomial Probability:</string>
+	<string name="productionHint">ex: 0.08</string>
+	<string name="numOfTrialsHint">ex: 10</string>
+	<string name="numOfDefectsHint">ex: 3</string>
+	<string name="binomialDistribution">The Binomial Distribution Equation</string>
 </resources>

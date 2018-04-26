@@ -13,7 +13,8 @@ public final class Statistics {
 		count = length;
 
 		if (length == 0) {
-			min = first = second = third = max = sum = mean = var = stdev = Double.NaN;
+			min = first = second = third = max = sum = mean = var = stdev =
+					Double.NaN;
 		}
 		else if (length == 1) {
 			min = first = second = third = max = sum = mean = data[0];
@@ -104,7 +105,7 @@ public final class Statistics {
 	public static double correlation(double[] dataX, double[] dataY) {
 		double sumX, sumY, sumX2, sumY2, sumXY;
 		sumX = sumY = sumX2 = sumY2 = sumXY = 0.0;
-		for (int i = 0;  i < dataX.length;  ++i) {
+		for (int i = 0; i < dataX.length; ++i) {
 			double x = dataX[i];
 			double y = dataY[i];
 			sumX += x;
@@ -120,5 +121,26 @@ public final class Statistics {
 		double sdevY = Math.sqrt(sumY2 / n - meanY * meanY);
 		double covar = sumXY / n - meanX * meanY;
 		return covar / (sdevX * sdevY);
+	}
+
+
+	public static double binDistProb(int n, int x, double p) {
+		int n_x = n - x;
+
+		// Compute n! / (x! (n-x)!)
+		int limit = n_x >= x ? n_x : x;
+		long numer = n;
+		for (int i = n - 1;  i > limit;  --i) {
+			numer *= i;
+		}
+		long denom = n - limit;
+		for (int i = n - limit - 1;  i > 1;  --i) {
+			denom *= i;
+		}
+		double left = (double)numer / denom;
+
+		double middle = Math.pow(p, x);
+		double right = Math.pow(1 - p, n_x);
+		return left * middle * right;
 	}
 }
