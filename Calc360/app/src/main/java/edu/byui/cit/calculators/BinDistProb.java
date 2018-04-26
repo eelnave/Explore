@@ -24,7 +24,6 @@ public final class BinDistProb extends CalcFragment {
 	private TextWrapper resultProb;
 	private final NumberFormat fmtrPerc = NumberFormat.getInstance();
 
-
 	public BinDistProb() {
 		super();
 		fmtrPerc.setMaximumFractionDigits(5);
@@ -33,16 +32,15 @@ public final class BinDistProb extends CalcFragment {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.bin_dist_prob, container,
-				false);
+		View view = inflater.inflate(R.layout.bin_dist_prob, container, false);
 
 		editN = new EditInteger(view, R.id.tri, this);
 		editX = new EditInteger(view, R.id.def, this);
 		editP = new EditDecimal(view, R.id.pro, this);
 		resultProb = new TextWrapper(view, R.id.binPro);
 
-		inputs = new EditWrapper[]{ editN, editX, editP };
-		ControlWrapper[] toClear = { editN, editX, editP, resultProb };
+		inputs = new EditWrapper[]{ editP, editN, editX };
+		ControlWrapper[] toClear = { editP, editN, editX, resultProb };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
