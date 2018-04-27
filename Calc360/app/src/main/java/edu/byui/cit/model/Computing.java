@@ -1,15 +1,45 @@
 package edu.byui.cit.model;
 
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 
 public final class Computing {
+
 	private Computing() {
+
+	}
+
+	public static final class PasswordAttack {
+		private PasswordAttack() {
+
+		}
+
+		public static double getKeySpace(int domain, int length) {
+			return Math.pow(domain, length);
+		}
+
+		public static double getTimeSeconds(double keyspace, int keysSeconds, int machines) {
+			return keyspace / (keysSeconds * machines);
+		}
+
+		public static double getTimeHours(double keyspace, int keysSeconds, int machines) {
+			return getTimeSeconds(keyspace, keysSeconds, machines) / 3600;
+		}
+
+		public static double getTimeDays(double keyspace, int keysSeconds, int machines) {
+			return getTimeHours(keyspace, keysSeconds, machines) / 24;
+		}
+
+		public static double getTimeYears(double keyspace, int keysSeconds, int machines) {
+			return getTimeDays(keyspace, keysSeconds, machines) / 365;
+		}
 	}
 
 	public static final class Subnet {
 		private Subnet() {
+
 		}
 
 		public static String getBroadcast(String ip, String subnet) {

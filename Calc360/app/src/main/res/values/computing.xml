@@ -22,4 +22,20 @@
 	<string name="romanNumConvert">Roman Numerals</string>
 	<string name="romHint">ex: XVIII</string>
 	<string name="decimalNumber">Decimal Number</string>
+
+	<string name="passAttack">Password Attack</string>
+	<string name="passTitle">Password Attack Calculator</string>
+	<string name="charDomain">Possible Characters/Words:</string>
+	<string name="numWords">Password Characters/Words:</string>
+	<string name="keysTested">Keys Tested Per Second:</string>
+	<string name="numMachines">Number of Machines:</string>
+	<string name="keySpace">Size of Keyspace:</string>
+	<string name="timeSeconds">Time(seconds):</string>
+	<string name="timeHours">Time(hours):</string>
+	<string name="timeDays">Time(days):</string>
+	<string name="timeYears">Time(years):</string>
+	<string name="charHint">ex: 120000</string>
+	<string name="wordHint">ex: 4</string>
+	<string name="keysHint">ex: 1000000</string>
+	<string name="machinesHint">ex: 30</string>
 </resources>

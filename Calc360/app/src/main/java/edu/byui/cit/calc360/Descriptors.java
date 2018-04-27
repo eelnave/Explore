@@ -102,6 +102,7 @@ final class Descriptors {
 			new GroupDescriptor(312, R.string.computing, R.drawable.folder_computing, new CalcDescriptor[]{
 				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
 				new CalcDescriptor(1047, R.string.subnet, R.drawable.network, Subnet.class),
+				new CalcDescriptor(1077, R.string.passAttack, R.drawable.padlock, PasswordAttack.class),
 			}),
 			new GroupDescriptor(304, R.string.science, R.drawable.folder_science, new CalcDescriptor[]{
 				new CalcDescriptor(1040, R.string.NewtonsSecond, R.drawable.motion, NewtonsSecond.class),
