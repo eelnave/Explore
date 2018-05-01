@@ -93,4 +93,16 @@
 	<string name="habitMonthly">Monthly</string>
 	<string name="habitYearly">Yearly</string>
 	<string name="habitTotal">Total</string>
+
+	<string name="houseAff">House Affordability</string>
+	<string name="houseAnnSal">What is your Annual Salary?</string>
+	<string name="houseAnnSalHint">ex: 8758750000</string>
+	<string name="houseLoanYears">How many years would you like to be paying your mortgage?</string>
+	<string name="houseFifteen">15-Year</string>
+	<string name="houseThirty">30-Year</string>
+	<string name="housePercPay">What percentage of your income would you like to go towards the mortgage?</string>
+	<string name="housePercHint">ex: 20</string>
+	<string name="houseIntRate">What is the expected annual percentage rate?</string>
+	<string name="houseIntHint">ex: 4.12</string>
+	<string name="houseCost">Your Affordable Mortgage Amount:</string>
 </resources>

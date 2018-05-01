@@ -39,12 +39,13 @@ final class Descriptors {
 			new GroupDescriptor(303, R.string.finance, R.drawable.folder_finance, new CalcDescriptor[]{
 				new CalcDescriptor(1013, R.string.compoundInterest, R.drawable.compound_interest, CompoundInterest.class),
 				new CalcDescriptor(1004, R.string.invest, R.drawable.investment, Investment.class),
-				new CalcDescriptor(1005, R.string.loan, R.drawable.loan, Loan.class),
 				new CalcDescriptor(1016, R.string.roi, R.drawable.roi, ReturnOnInvestment.class),
+				new CalcDescriptor(1005, R.string.loan, R.drawable.loan, Loan.class),
+				new CalcDescriptor(1080, R.string.houseAff, R.drawable.house, HouseAffordability.class),
 				new CalcDescriptor(1022, R.string.laborCost, R.drawable.labor_cost, LaborCost.class),
 				new CalcDescriptor(1074, R.string.habitCost, R.drawable.habit_cost, HabitCost.class),
-				new CalcDescriptor(1018, R.string.tithing, R.drawable.coins, Tithing.class),
 				new CalcDescriptor(1066, R.string.stream, R.drawable.netflix, StreamingCost.class),
+				new CalcDescriptor(1018, R.string.tithing, R.drawable.coins, Tithing.class),
 			}),
 			new GroupDescriptor(311,R.string.cooking, R.drawable.folder_cooking, new CalcDescriptor[]{
 				new CalcDescriptor(1052, R.string.recipeMult, R.drawable.recipe_book, RecipeMultiplier.class),

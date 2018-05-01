@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/houseSalary"
+			android:text="@string/houseAnnSal"/>
+
+		<EditText
+			android:id="@+id/houseSalary"
+			style="@style/UnsignedInteger"
+			android:layout_marginStart="10dp"
+			android:ems="7"
+			android:hint="@string/houseAnnSalHint"
+			android:maxLength="7">
+
+			<requestFocus/>
+		</EditText>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/housePercentage"
+			android:text="@string/housePercPay"/>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<EditText
+				android:id="@+id/housePercentage"
+				style="@style/UnsignedDecimal"
+				android:layout_marginStart="10dp"
+				android:ems="3"
+				android:hint="@string/housePercHint"
+				android:imeOptions="actionNext"
+				android:maxLength="4"/>
+
+			<TextView
+				style="@style/TextLabel"
+				android:text="@string/perc"/>
+		</LinearLayout>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/houseInterest"
+			android:text="@string/houseIntRate"/>
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<EditText
+				android:id="@+id/houseInterest"
+				style="@style/UnsignedDecimal"
+				android:layout_marginStart="10dp"
+				android:ems="4"
+				android:hint="@string/houseIntHint"
+				android:imeOptions="actionDone"
+				android:maxLength="4"/>
+
+			<TextView
+				style="@style/TextLabel"
+				android:text="@string/perc"/>
+		</LinearLayout>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginEnd="10dp"
+			android:text="@string/houseLoanYears"/>
+
+		<RadioGroup
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="10dp"
+			android:checkedButton="@id/houseRadFif"
+			android:orientation="horizontal">
+
+			<RadioButton
+				android:id="@+id/houseRadFif"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/houseFifteen"/>
+
+			<RadioButton
+				android:id="@+id/houseRadThir"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@string/houseThirty"/>
+		</RadioGroup>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="15dp"
+			android:text="@string/houseCost"/>
+
+		<TextView
+			android:id="@+id/houseCost"
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"
+			android:layout_marginTop="5dp"/>
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:text="@string/clear"/>
+	</LinearLayout>
+</ScrollView>
