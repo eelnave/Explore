@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="animalAge">Animal Age</string>
+	<string name="humanYears">Human Years:</string>
+	<string name="bearYears">Bear:</string>
+	<string name="catYears">Cat:</string>
+	<string name="chickenYears">Chicken:</string>
+	<string name="cowYears">Cow:</string>
+	<string name="deerYears">Deer:</string>
+	<string name="dogYears">Dog:</string>
+	<string name="donkeyYears">Donkey:</string>
+	<string name="duckYears">Duck:</string>
+	<string name="elephantYears">Elephant:</string>
+	<string name="foxYears">Fox:</string>
+	<string name="goatYears">Goat:</string>
+	<string name="groundhogYears">Groundhog:</string>
+	<string name="guineaYears">Guinea Pig:</string>
+	<string name="hamsterYears">Hamster:</string>
+	<string name="hippoYears">Hippopotamus:</string>
+	<string name="horseYears">Horse:</string>
+	<string name="kangarooYears">Kangaroo:</string>
+	<string name="lionYears">Lion:</string>
+	<string name="monkeyYears">Monkey:</string>
+	<string name="mouseYears">Mouse:</string>
+	<string name="parakeetYears">Parakeet:</string>
+	<string name="pigYears">Pig:</string>
+	<string name="pigeonYears">Pigeon:</string>
+	<string name="rabbitYears">Rabbit:</string>
+	<string name="ratYears">Rat:</string>
+	<string name="sheepYears">Sheep:</string>
+	<string name="squirrelYears">Squirrel</string>
+	<string name="wolfYears">Wolf:</string>
+</resources>
