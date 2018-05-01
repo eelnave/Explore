@@ -1,6 +1,9 @@
 package edu.byui.cit.model;
 
 
+import java.util.regex.Pattern;
+
+
 public final class Mathematics {
 	private Mathematics() {
 	}
@@ -126,12 +129,20 @@ public final class Mathematics {
 		private Roman() {
 		}
 
+		// Roman numerals must follow this pattern.
+		private static final Pattern pattern = Pattern.compile(
+				"^M{0,3}(C[MD]|D?C{0,3})(X[CL]|L?X{0,3})(I[XV]|V?I{0,3})$");
+
 		private static final String[][] numerals = {
 			{"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"},
 			{"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"},
 			{"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"},
 			{"", "M", "MM", "MMM"}
 		};
+
+		public static boolean isValid(String roman) {
+			return pattern.matcher(roman).matches();
+		}
 
 		// Converts a base 10 Arabic number to Roman numerals.
 		public static String romanFromArabic(int arabic) {

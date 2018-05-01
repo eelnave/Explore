@@ -6,14 +6,12 @@ import java.util.regex.Pattern;
 
 
 public final class Computing {
-
 	private Computing() {
-
 	}
+
 
 	public static final class PasswordAttack {
 		private PasswordAttack() {
-
 		}
 
 		public static double getKeySpace(int domain, int length) {
@@ -37,9 +35,9 @@ public final class Computing {
 		}
 	}
 
+
 	public static final class Subnet {
 		private Subnet() {
-
 		}
 
 		public static String getBroadcast(String ip, String subnet) {

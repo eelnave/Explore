@@ -22,6 +22,7 @@
 	<string name="romanNumConvert">Roman Numerals</string>
 	<string name="romHint">ex: XVIII</string>
 	<string name="decimalNumber">Decimal Number</string>
+	<string name="invalid">invalid value</string>
 
 	<string name="passAttack">Password Attack</string>
 	<string name="passTitle">Password Attack Calculator</string>
