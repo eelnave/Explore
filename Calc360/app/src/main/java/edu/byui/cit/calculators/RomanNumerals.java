@@ -57,13 +57,33 @@ public final class RomanNumerals extends CalcFragment {
 	protected void compute() {
 		if (intDecimalNum.hasUserInput()) {
 			int arabic = intDecimalNum.getInt();
-			String roman = romanFromArabic(arabic);
-			strRomanNum.setText(roman);
+			//roman numerals can't be larger than 3999
+			if (arabic >= 4000){
+				strRomanNum.setText("Invalid input");
+			}
+			else {
+				String roman = romanFromArabic(arabic);
+				strRomanNum.setText(roman);
+			}
 		}
 		else if (strRomanNum.hasUserInput()) {
 			String roman = strRomanNum.getText();
-			int arabic = arabicFromRoman(roman);
-			intDecimalNum.setText(fmtrInt.format(arabic));
+			//Roman numerals must follow certain formats
+			if (!roman.matches("^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$")){
+				intDecimalNum.setText("Invalid input");
+			}
+			else {
+				int arabic = arabicFromRoman(roman);
+				intDecimalNum.setText(fmtrInt.format(arabic));
+			}
 		}
+		//clear inputs if one is empty
+		if (intDecimalNum.isEmpty()){
+			strRomanNum.clear();
+		}
+		if(strRomanNum.isEmpty()){
+			intDecimalNum.clear();
+		}
+
 	}
 }
