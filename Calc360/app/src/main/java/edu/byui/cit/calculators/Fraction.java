@@ -18,6 +18,7 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.model.Mathematics;
 
 
 public final class Fraction extends CalcFragment
@@ -83,18 +84,14 @@ public final class Fraction extends CalcFragment
 			den = (int)(b1.getDec() * c1.getDec());
 		}
 
-		int gcd = GCD(num, den);
+		int gcd = (int)Mathematics.gcd(num,den);
+
 		num = num / gcd;
 		den = den / gcd;
 
 		fn1.setText(fmtrDec.format(num));
 		fd1.setText(fmtrDec.format(den));
 
-	}
-
-	public int GCD(int a, int b) {
-		if (b == 0) return a;
-		return GCD(b, a % b);
 	}
 
 	@Override
