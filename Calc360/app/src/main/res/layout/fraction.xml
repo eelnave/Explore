@@ -13,7 +13,7 @@
 		android:layout_marginTop="5dp"
 		android:background="@drawable/border_top_bottom"
 		android:ems="5"
-		android:hint="@string/num1"
+		android:hint="@string/numer1"
 		android:imeOptions="actionNext"
 		android:inputType="number|numberSigned"
 		android:textAlignment="center"/>
@@ -23,6 +23,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:background="@android:drawable/btn_dropdown"
+		android:entries="@array/fractOps"
 		android:spinnerMode="dropdown"
 		compat:layout_gravity="center_vertical"
 		compat:layout_rowSpan="2"/>
@@ -34,7 +35,7 @@
 		android:layout_marginTop="5dp"
 		android:background="@drawable/border_top_bottom"
 		android:ems="5"
-		android:hint="@string/num2"
+		android:hint="@string/numer2"
 		android:imeOptions="actionNext"
 		android:inputType="number|numberSigned"
 		android:textAlignment="center"/>
@@ -53,7 +54,7 @@
 		android:layout_marginTop="5dp"
 		android:background="@drawable/border_top_bottom"
 		android:ems="5"
-		android:text="@string/rfraction"
+		android:text="@string/quest"
 		android:textAlignment="center"/>
 
 	<EditText
@@ -62,7 +63,7 @@
 		android:layout_height="wrap_content"
 		android:background="@android:color/transparent"
 		android:ems="5"
-		android:hint="@string/den1"
+		android:hint="@string/denom1"
 		android:imeOptions="actionNext"
 		android:inputType="number|numberSigned"
 		android:textAlignment="center"/>
@@ -73,7 +74,7 @@
 		android:layout_height="wrap_content"
 		android:background="@android:color/transparent"
 		android:ems="5"
-		android:hint="@string/den2"
+		android:hint="@string/denom2"
 		android:imeOptions="actionDone"
 		android:inputType="number|numberSigned"
 		android:textAlignment="center"/>
@@ -83,7 +84,7 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:ems="5"
-		android:text="@string/rfraction"
+		android:text="@string/quest"
 		android:textAlignment="center"/>
 
 	<Button
@@ -91,5 +92,6 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"
-		android:text="@string/clear"/>
+		android:text="@string/clear"
+		compat:layout_columnSpan="5"/>
 </android.support.v7.widget.GridLayout>

@@ -57,6 +57,4 @@
 	<string name="to">to</string>
 	<string name="percentIsXofY">What % is x of y?</string>
 	<string name="percentChange">What is the percent change from x to y?</string>
-
-	<string name="fraction">Fraction</string>
 </resources>

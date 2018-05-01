@@ -16,9 +16,21 @@
 	<string name="networkAddress">Network Address:</string>
 	<string name="broadcastAddress">Broadcast Address:</string>
 
+	<string name="fraction">Fraction</string>
+	<string name="numer1" translatable="false">a</string>
+	<string name="numer2" translatable="false">c</string>
+	<string name="denom1" translatable="false">b</string>
+	<string name="denom2" translatable="false">d</string>
+	<string-array name="fractOps">
+		<item>+</item>
+		<item>-</item>
+		<item>x</item>
+		<item>/</item>
+	</string-array>
+
 	<string name="decValue">Decimal Value</string>
 	<string name="decHint">ex: 1 - 3999</string>
-	<string name="romanNumeral">Roman Numeral  </string>
+	<string name="romanNumeral">Roman Numeral</string>
 	<string name="romanNumConvert">Roman Numerals</string>
 	<string name="romHint">ex: XVIII</string>
 	<string name="decimalNumber">Decimal Number</string>
