@@ -4,10 +4,10 @@
 	<string name="space">Espacio de Almacenamiento</string>
 	<string name="spaceHint">ex: 16</string>
 	<string name="Quality">Calidad</string>
-	<string name="fourKS" translatable="false">4k at 60 fps</string>
-	<string name="fourKT" translatable="false">4k at 30 fps</string>
-	<string name="tenEighty" translatable="false">1080p at 60 fps</string>
-	<string name="sevenTwenty" translatable="false">720p at 60 fps</string>
+	<string name="fourKS">4k à 60 fps</string>
+	<string name="fourKT">4k à 30 fps</string>
+	<string name="tenEighty">1080p à 60 fps</string>
+	<string name="sevenTwenty">720p à 60 fps</string>
 
 	<string name="starExposure">Exposición Estrella</string>
 	<string name="stxpFocalLength">Longitud Focal</string>

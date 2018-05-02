@@ -28,7 +28,4 @@
 
 	<string name="Weight">体重</string>
 	<string name="bodyWeight">体重</string>
-
-	<string name="age">Age</string>
-	<string name="birthDate">Birth Date</string>
 </resources>

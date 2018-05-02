@@ -15,12 +15,10 @@
 	<string name="mass">masse</string>
 	<string name="grams">grammes</string>
 	<string name="kilograms">kilogrammes</string>
-	<string name="kg_s2" translatable="false">kg / sec\u00b2</string>
 
 	<string name="moles">grains de beauté</string>
 	<string name="molarMass">masse molaire</string>
 	<string name="atomicMass">Masse atomique</string>
-	<string name="kg_mol" translatable="false">kg / mol</string>
 
 	<string name="Time">Temps</string>
 	<string name="time">temps</string>
@@ -50,11 +48,9 @@
 	<!-- Derived Properties -->
 	<string name="Area">Superficie</string>
 	<string name="area">superficie</string>
-	<string name="metersSquared" translatable="false">m\u00b2</string>
 
 	<string name="Volume">Volume</string>
 	<string name="volume">volume</string>
-	<string name="metersCubed" translatable="false">m\u00b3</string>
 
 	<string name="Frequency">Fréquence</string>
 	<string name="frequency">fréquence</string>
@@ -100,7 +96,6 @@
 	<string name="newtonMeters">Newton / mètre</string>
 
 	<string name="gasConst">constante des gaz</string>
-	<string name="gasConstUnits" translatable="false">J / (mol K)</string>
 
 	<string name="power">puissance</string>
 	<string name="fuelEcon">consommation de carburant</string>
@@ -110,38 +105,7 @@
 
 	<string name="money">devise</string>
 
-
-	<!-- Supported Properties -->
-	<string-array name="supportedProperties" translatable="false">
-		<item>length</item>
-		<item>mass</item>
-		<item>time</item>
-		<item>temperature</item>
-		<item>area</item>
-		<item>volume</item>
-		<item>frequency</item>
-		<item>angle</item>
-		<item>pressure</item>
-		<item>fuelEcon</item>
-		<item>speed</item>
-		<item>force</item>
-		<item>dataSize</item>
-		<item>money</item>
-	</string-array>
-
 	<!-- Units of Length -->
-	<string-array name="length">
-		<item>inch</item>
-		<item>foot</item>
-		<item>yard</item>
-		<item>rod</item>
-		<item>mile</item>
-		<item>millimeter</item>
-		<item>centimeter</item>
-		<item>meter</item>
-		<item>kilometer</item>
-	</string-array>
-
 	<plurals name="inch">
 		<item quantity="one" tools:ignore="ImpliedQuantity">pouce</item>
 		<item quantity="other">pouces</item>
@@ -180,18 +144,6 @@
 	</plurals>
 
 	<!-- Units of Mass -->
-	<string-array name="mass">
-		<item>grain</item>
-		<item>ounce</item>
-		<item>pound</item>
-		<item>stone</item>
-		<item>shortTon</item>
-		<item>longTon</item>
-		<item>gram</item>
-		<item>kilogram</item>
-		<item>metricTon</item>
-	</string-array>
-
 	<plurals name="grain">
 		<item quantity="one" tools:ignore="ImpliedQuantity">grain</item>
 		<item quantity="other">grains</item>
@@ -230,15 +182,6 @@
 	</plurals>
 
 	<!-- Units of Time -->
-	<string-array name="time">
-		<item>millisecond</item>
-		<item>second</item>
-		<item>minute</item>
-		<item>hour</item>
-		<item>day</item>
-		<item>week</item>
-	</string-array>
-
 	<plurals name="millisecond">
 		<item quantity="one" tools:ignore="ImpliedQuantity">milliseconde</item>
 		<item quantity="other">millisecondes</item>
@@ -272,14 +215,7 @@
 		<item quantity="other">années</item>
 	</plurals>
 
-
 	<!-- Units of Temperature -->
-	<string-array name="temperature">
-		<item>Kelvin</item>
-		<item>Celsius</item>
-		<item>Fahrenheit</item>
-	</string-array>
-
 	<plurals name="Kelvin">
 		<item quantity="one" tools:ignore="ImpliedQuantity">degré Kelvin</item>
 		<item quantity="other">degrés Kelvin</item>
@@ -294,22 +230,9 @@
 	</plurals>
 
 	<!-- Units of Area -->
-	<string-array name="area">
-		<item>squareInch</item>
-		<item>squareFoot</item>
-		<item>squareYard</item>
-		<item>acre</item>
-		<item>squareMile</item>
-		<item>squareCentimeter</item>
-		<item>squareMeter</item>
-		<item>hectare</item>
-		<item>squareKilometer</item>
-	</string-array>
-
 	<plurals name="squareInch">
 		<item quantity="one" tools:ignore="ImpliedQuantity">pouce carré</item>
-		<item quantity="other">pouces carrés
-</item>
+		<item quantity="other">pouces carrés</item>
 	</plurals>
 	<plurals name="squareFoot">
 		<item quantity="one" tools:ignore="ImpliedQuantity">pied carré</item>
@@ -345,21 +268,6 @@
 	</plurals>
 
 	<!-- Units of Volume -->
-	<string-array name="volume">
-		<item>teaspoon</item>
-		<item>tablespoon</item>
-		<item>fluidOunce</item>
-		<item>cup</item>
-		<item>pint</item>
-		<item>quart</item>
-		<item>gallon</item>
-		<item>cubicInch</item>
-		<item>cubicFoot</item>
-		<item>milliliter</item>
-		<item>liter</item>
-		<item>cubicMeter</item>
-	</string-array>
-
 	<plurals name="teaspoon">
 		<item quantity="one" tools:ignore="ImpliedQuantity">cuillère à café</item>
 		<item quantity="other">cuillères à café</item>
@@ -410,14 +318,6 @@
 	</plurals>
 
 	<!-- Units of Frequency -->
-	<string-array name="frequency">
-		<item>hertz</item>
-		<item>kilohertz</item>
-		<item>megahertz</item>
-		<item>gigahertz</item>
-		<item>terahertz</item>
-	</string-array>
-
 	<plurals name="hertz">
 		<item quantity="one" tools:ignore="ImpliedQuantity">hertz</item>
 		<item quantity="other">hertz</item>
@@ -440,13 +340,6 @@
 	</plurals>
 
 	<!-- Units of Angle -->
-	<string-array name="angle">
-		<item>minuteArc</item>
-		<item>degree</item>
-		<item>radian</item>
-		<item>gradian</item>
-	</string-array>
-
 	<plurals name="minuteArc">
 		<item quantity="one" tools:ignore="ImpliedQuantity">minute d’arc</item>
 		<item quantity="other">minutes d’arc</item>
@@ -465,13 +358,6 @@
 	</plurals>
 
 	<!-- Units of Pressure -->
-	<string-array name="pressure">
-		<item>lbfPerSqIn</item>
-		<item>atmosphere</item>
-		<item>Pascal</item>
-		<item>Bar</item>
-	</string-array>
-
 	<plurals name="lbfPerSqIn">
 		<item quantity="one" tools:ignore="ImpliedQuantity">livre / pouce carré</item>
 		<item quantity="other">livres / pouces carrés</item>
@@ -490,12 +376,6 @@
 	</plurals>
 
 	<!-- Units of Fuel Economy -->
-	<string-array name="fuelEcon">
-		<item>milePerGallon</item>
-		<item>kilometerPerLiter</item>
-		<item>literPer100kilometer</item>
-	</string-array>
-
 	<plurals name="milePerGallon">
 		<item quantity="one" tools:ignore="ImpliedQuantity">mile / gallon</item>
 		<item quantity="other">miles / gallons</item>
@@ -510,14 +390,6 @@
 	</plurals>
 
 	<!-- Units of Speed -->
-	<string-array name="speed">
-		<item>footPerSecond</item>
-		<item>milePerHour</item>
-		<item>knot</item>
-		<item>meterPerSecond</item>
-		<item>kilometerPerHour</item>
-	</string-array>
-
 	<plurals name="footPerSecond">
 		<item quantity="one" tools:ignore="ImpliedQuantity">pied / seconde</item>
 		<item quantity="other">pieds / secondes</item>
@@ -540,11 +412,6 @@
 	</plurals>
 
 	<!-- Units of Force -->
-	<string-array name="force">
-		<item>Newton</item>
-		<item>poundForce</item>
-	</string-array>
-
 	<plurals name="Newton">
 		<item quantity="one" tools:ignore="ImpliedQuantity">Newton</item>
 		<item quantity="other">Newtons</item>
@@ -555,27 +422,6 @@
 	</plurals>
 
 	<!-- Units of Data Size -->
-	<string-array name="dataSize">
-		<item>bit</item>
-		<item>nibble</item>
-		<item>byt</item>
-		<item>hword</item>
-		<item>word</item>
-		<item>dword</item>
-		<item>kilobit</item>
-		<item>megabit</item>
-		<item>gigabit</item>
-		<item>terabit</item>
-		<item>petabit</item>
-		<item>exabit</item>
-		<item>kilobyte</item>
-		<item>megabyte</item>
-		<item>gigabyte</item>
-		<item>terabyte</item>
-		<item>petabyte</item>
-		<item>exabyte</item>
-	</string-array>
-
 	<plurals name="bit">
 		<item quantity="one" tools:ignore="ImpliedQuantity">bit</item>
 		<item quantity="other">bits</item>
@@ -652,41 +498,6 @@
 	</plurals>
 
 	<!-- Units of Currency (Money) -->
-	<string-array name="money">
-		<item>AustralianDollar</item>
-		<item>BrazilianReal</item>
-		<item>BulgarianLev</item>
-		<item>CanadianDollar</item>
-		<item>ChineseYuanRenminbi</item>
-		<item>CroatianKuna</item>
-		<item>CzechKoruna</item>
-		<item>DanishKrone</item>
-		<item>EuropeanUnionEuro</item>
-		<item>HongKongDollar</item>
-		<item>HungarianForint</item>
-		<item>IndianRupee</item>
-		<item>IndonesianRupiah</item>
-		<item>IsraeliShekel</item>
-		<item>JapaneseYen</item>
-		<item>MalaysianRinggit</item>
-		<item>MexicanPeso</item>
-		<item>NewZealandDollar</item>
-		<item>NorwegianKrone</item>
-		<item>PhilippinePeso</item>
-		<item>PolishZloty</item>
-		<item>RomanianLeu</item>
-		<item>RussianRouble</item>
-		<item>SingaporeDollar</item>
-		<item>SouthAfricanRand</item>
-		<item>SouthKoreanWon</item>
-		<item>SwedishKrona</item>
-		<item>SwissFranc</item>
-		<item>ThaiBaht</item>
-		<item>TurkishLira</item>
-		<item>UKPoundSterling</item>
-		<item>USDollar</item>
-	</string-array>
-
 	<plurals name="AustralianDollar">
 		<item quantity="one" tools:ignore="ImpliedQuantity">Dollar australien</item>
 		<item quantity="other">Dollars australien</item>

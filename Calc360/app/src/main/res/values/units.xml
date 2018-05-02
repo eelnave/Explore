@@ -138,7 +138,7 @@
 	</string-array>
 
 	<!-- Units of Length -->
-	<string-array name="length">
+	<string-array name="length" translatable="false">
 		<item>inch</item>
 		<item>foot</item>
 		<item>yard</item>
@@ -188,7 +188,7 @@
 	</plurals>
 
 	<!-- Units of Mass -->
-	<string-array name="mass">
+	<string-array name="mass" translatable="false">
 		<item>grain</item>
 		<item>ounce</item>
 		<item>pound</item>
@@ -238,7 +238,7 @@
 	</plurals>
 
 	<!-- Units of Time -->
-	<string-array name="time">
+	<string-array name="time" translatable="false">
 		<item>millisecond</item>
 		<item>second</item>
 		<item>minute</item>
@@ -282,7 +282,7 @@
 
 
 	<!-- Units of Temperature -->
-	<string-array name="temperature">
+	<string-array name="temperature" translatable="false">
 		<item>Kelvin</item>
 		<item>Celsius</item>
 		<item>Fahrenheit</item>
@@ -302,7 +302,7 @@
 	</plurals>
 
 	<!-- Units of Area -->
-	<string-array name="area">
+	<string-array name="area" translatable="false">
 		<item>squareInch</item>
 		<item>squareFoot</item>
 		<item>squareYard</item>
@@ -352,7 +352,7 @@
 	</plurals>
 
 	<!-- Units of Volume -->
-	<string-array name="volume">
+	<string-array name="volume" translatable="false">
 		<item>teaspoon</item>
 		<item>tablespoon</item>
 		<item>fluidOunce</item>
@@ -417,7 +417,7 @@
 	</plurals>
 
 	<!-- Units of Frequency -->
-	<string-array name="frequency">
+	<string-array name="frequency" translatable="false">
 		<item>hertz</item>
 		<item>kilohertz</item>
 		<item>megahertz</item>
@@ -447,7 +447,7 @@
 	</plurals>
 
 	<!-- Units of Angle -->
-	<string-array name="angle">
+	<string-array name="angle" translatable="false">
 		<item>minuteArc</item>
 		<item>degree</item>
 		<item>radian</item>
@@ -472,7 +472,7 @@
 	</plurals>
 
 	<!-- Units of Pressure -->
-	<string-array name="pressure">
+	<string-array name="pressure" translatable="false">
 		<item>lbfPerSqIn</item>
 		<item>atmosphere</item>
 		<item>Pascal</item>
@@ -497,7 +497,7 @@
 	</plurals>
 
 	<!-- Units of Fuel Economy -->
-	<string-array name="fuelEcon">
+	<string-array name="fuelEcon" translatable="false">
 		<item>milePerGallon</item>
 		<item>kilometerPerLiter</item>
 		<item>literPer100kilometer</item>
@@ -517,7 +517,7 @@
 	</plurals>
 
 	<!-- Units of Speed -->
-	<string-array name="speed">
+	<string-array name="speed" translatable="false">
 		<item>footPerSecond</item>
 		<item>milePerHour</item>
 		<item>knot</item>
@@ -547,7 +547,7 @@
 	</plurals>
 
 	<!-- Units of Force -->
-	<string-array name="force">
+	<string-array name="force" translatable="false">
 		<item>Newton</item>
 		<item>poundForce</item>
 	</string-array>
@@ -562,7 +562,7 @@
 	</plurals>
 
 	<!-- Units of Data Size -->
-	<string-array name="dataSize">
+	<string-array name="dataSize" translatable="false">
 		<item>bit</item>
 		<item>nibble</item>
 		<item>byt</item>
@@ -659,7 +659,7 @@
 	</plurals>
 
 	<!-- Units of Currency (Money) -->
-	<string-array name="money">
+	<string-array name="money" translatable="false">
 		<item>AustralianDollar</item>
 		<item>BrazilianReal</item>
 		<item>BulgarianLev</item>

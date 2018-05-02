@@ -1,53 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="NewtonsSecond">Newton sa Deuxième</string>
-	<string name="newtonsEquation" translatable="false">F = ma</string>
-	<string name="newtF" translatable="false">F</string>
-	<string name="newtM" translatable="false">m</string>
-	<string name="newtA" translatable="false">a</string>
 
 	<string name="harmonicMotion">Mouvement Harmonique</string>
-	<string name="hmFormula" translatable="false">T = 2\u03c0 \u221a(m/k)</string>
-	<string name="hmTime" translatable="false">T</string>
-	<string name="hmSpringConst" translatable="false">k</string>
-	<string name="hmMass" translatable="false">m</string>
 	<string name="hmSpringConstHint">constante du ressort</string>
 
 	<string name="pendulum">Pendule</string>
-	<string name="penFormula" translatable="false">T = 2\u03c0 \u221a(L/g)</string>
-	<string name="penTime" translatable="false">T</string>
-	<string name="penLength" translatable="false">L</string>
-	<string name="penGravity" translatable="false">g</string>
-	<string name="earthGravity" translatable="false">9.807</string>
 
-	<string name="torqueFormula" translatable="false">T = F r sin \u03b8</string>
-	<string name="tqTorque" translatable="false">T</string>
-	<string name="tqForce" translatable="false">F</string>
-	<string name="tqRadius" translatable="false">r</string>
-	<string name="tqTheta" translatable="false">\u03b8</string>
 	<string name="tqThetaHint">angle thêta</string>
 
 	<string name="ohmsLaw">Loi d’Ohm</string>
-	<string name="ohmsFormula" translatable="false">V = IR</string>
-	<string name="ohmsV" translatable="false">V</string>
-	<string name="ohmsI" translatable="false">I</string>
-	<string name="ohmsR" translatable="false">R</string>
 
 	<string name="coulombsLaw">Loi de Coulomb</string>
-	<string name="coulFormula" translatable="false">F = k<sub><small>e</small></sub>q<sub><small>1</small></sub>q<sub><small>2</small></sub> / r\u00b2</string>
-	<string name="coulF" translatable="false"><i>F</i></string>
-	<string name="coulKe" translatable="false"><i>k<sub><small>e</small></sub></i></string>
-	<string name="coulConstant" translatable="false">8.987551787 \u00d7 10<sup><small>9</small></sup></string>
-	<string name="coulQ1" translatable="false"><i>q</i><sub><small>1</small></sub></string>
 	<string name="coulCharge1">charge 1</string>
-	<string name="coulQ2" translatable="false"><i>q</i><sub><small>2</small></sub></string>
 	<string name="coulCharge2">charge 2</string>
-	<string name="coulR" translatable="false"><i>r</i></string>
 
 	<string name="relativity">Relativité</string>
-	<string name="EinsteinsLaw" translatable="false">E = mc\u00b2</string>
-	<string name="relEnergy" translatable="false">E</string>
-	<string name="relMass" translatable="false">m</string>
-	<string name="relLightspeed" translatable="false">c</string>
-	<string name="lightSpeed" translatable="false">299792458</string>
 </resources>

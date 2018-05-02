@@ -36,12 +36,6 @@
 	<string name="triangle">Triángulo</string>
 	<string name="triSides">Lados</string>
 	<string name="triAngles">Ángulos</string>
-	<string name="triA" translatable="false">a</string>
-	<string name="triB" translatable="false">b</string>
-	<string name="triC" translatable="false">c</string>
-	<string name="triAlpha" translatable="false">\u03b1</string>
-	<string name="triBeta" translatable="false">\u03b2</string>
-	<string name="triGamma" translatable="false">\u03b3</string>
 	<string name="triDiagram">Diagrama de un triángulo</string>
 
 	<string name="rectangle">Rectángulo</string>

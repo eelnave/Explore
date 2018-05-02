@@ -20,7 +20,7 @@
 	<string name="duration">Duration</string>
 	<string name="difference">Difference</string>
 	<string name="today">Today</string>
-	<string-array name="durationChoices" translatable="false">
+	<string-array name="durationChoices">
 		<item>day</item>
 		<item>week</item>
 		<item>month</item>

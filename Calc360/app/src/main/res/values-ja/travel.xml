@@ -15,8 +15,4 @@
 	<string name="fuelPrice">合計金額</string>
 
 	<string name="currencyExch">為替</string>
-
-	<string name="travelTime">Travel Time</string>
-	<string name="ttExplain">Calculate the time required to travel by entering the distance and average speed</string>
-	<string name="avgSpeed">Average Speed</string>
 </resources>
