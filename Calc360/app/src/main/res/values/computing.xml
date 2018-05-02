@@ -10,7 +10,6 @@
 
 	<string name="decimalFraction">Decimal to Fraction</string>
 	<string name="decimalFractionInstructions">Enter a decimal number to convert to a fraction, or enter a fraction to convert to a decimal number.</string>
-	<string name="fraction">Fraction</string>
 	<string name="decimal">Decimal</string>
 
 	<string name="subnet">Subnets</string>

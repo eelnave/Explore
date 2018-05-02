@@ -19,8 +19,11 @@
 	<EditText
 		android:id="@+id/decimal"
 		style="@style/UnsignedDecimal"
-		android:ems="6"
-		compat:layout_columnSpan="2"/>
+		android:ems="7"
+		compat:layout_columnSpan="2">
+
+		<requestFocus/>
+	</EditText>
 
 	<TextView
 		style="@style/TextLabel"
@@ -42,7 +45,7 @@
 		android:ems="4"/>
 
 	<View
-		android:layout_width="65dp"
+		android:layout_width="80dp"
 		android:layout_height="1dp"
 		android:background="@android:color/black"/>
 

@@ -31,14 +31,20 @@ public final class DecimalFraction extends CalcFragment {
 	 * display decimal in numerator - and display new numerator
 	 */
 
-	private final NumberFormat
-			fmtrInt = NumberFormat.getIntegerInstance(),
-			fmtrDec = NumberFormat.getInstance();
+	private final NumberFormat fmtrInt, fmtrDec;
+	private final String decSepPat;
 
 	private EditDecimal decimal;
 	private EditInteger intWhole;
 	private EditInteger intNumer;
 	private EditInteger intDenom;
+
+	public DecimalFraction() {
+		fmtrInt = NumberFormat.getIntegerInstance();
+		fmtrDec = NumberFormat.getInstance();
+		fmtrDec.setMaximumFractionDigits(Integer.MAX_VALUE);
+		decSepPat = "\\" + fmtrDec.format(1.2).charAt(1);
+	}
 
 
 	@Override
@@ -59,18 +65,22 @@ public final class DecimalFraction extends CalcFragment {
 
 	@Override
 	protected void compute() {
-		if (decimal.hasFocus()) {
-			intWhole.clear();
-			intNumer.clear();
-			intDenom.clear();
-		}
-		else {
-			decimal.clear();
-		}
+//		if (decimal.hasFocus()) {
+//			intWhole.clear();
+//			intNumer.clear();
+//			intDenom.clear();
+//		}
+//		else {
+//			decimal.clear();
+//		}
 
-		if (decimal.notEmpty()) {
-			double deci = decimal.getDec();
-			double whole = Math.floor(deci);
+		if (decimal.hasFocus()) {
+			String text = decimal.getText();
+			String[] parts = text.split(decSepPat);
+			String left = parts[0];
+			String right = parts.length == 1 ? "" : parts[1];
+
+			long whole = EditInteger.getLong(left, 0);
 			if (whole > 0) {
 				intWhole.setText(fmtrInt.format(whole));
 			}
@@ -78,12 +88,11 @@ public final class DecimalFraction extends CalcFragment {
 				intWhole.clear();
 			}
 
-			double fract = deci - whole;
-			if (fract > 0) {
-				int digits = Double.toString(fract).length() - 2;
-				double denom = Math.pow(10, digits);
-				double numer = fract * denom;
-				double gcd = 100;  // TODO
+			if (right.length() > 0) {
+				int digits = right.length();
+				long denom = (long)Math.pow(10, digits);
+				long numer = EditInteger.getLong(right);
+				long gcd = edu.byui.cit.model.Mathematics.gcd(numer, denom);
 				numer /= gcd;
 				denom /= gcd;
 				intNumer.setText(fmtrInt.format(numer));
@@ -100,17 +109,20 @@ public final class DecimalFraction extends CalcFragment {
 				double deci = intWhole.getInt(0);
 
 				if (intDenom.notEmpty()) {
-					double denom = intDenom.getInt();
+					long denom = intDenom.getLong();
 					if (denom == 0) {
 						deci = Double.NaN;
 					}
 					else {
-						double numer = intNumer.getInt();
-						deci += numer / denom;
+						long numer = intNumer.getLong();
+						deci += numer / (double)denom;
 					}
 				}
 
 				decimal.setText(fmtrDec.format(deci));
+			}
+			else {
+				decimal.clear();
 			}
 		}
 	}

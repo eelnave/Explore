@@ -57,6 +57,10 @@ public class EditInteger extends EditWrapper {
 		return getInt(getText(), deflt);
 	}
 
+	public long getLong() throws NumberFormatException {
+		return getLong(getText());
+	}
+
 	public long getBin() throws NumberFormatException {
 		return Long.parseLong(getText(), 2);
 	}
@@ -66,12 +70,12 @@ public class EditInteger extends EditWrapper {
 	}
 
 
-	private static int getInt(String str, int deflt)
+	public static int getInt(String str, int deflt)
 			throws NumberFormatException {
 		return str.length() == 0 ? deflt : getInt(str);
 	}
 
-	private static int getInt(String str) throws NumberFormatException {
+	public static int getInt(String str) throws NumberFormatException {
 		Number val;
 		try {
 			val = intFmtr.parse(str);
@@ -80,5 +84,21 @@ public class EditInteger extends EditWrapper {
 			val = Integer.parseInt(str);
 		}
 		return val.intValue();
+	}
+
+	public static long getLong(String str, long deflt)
+			throws NumberFormatException {
+		return str.length() == 0 ? deflt : getLong(str);
+	}
+
+	public static long getLong(String str) throws NumberFormatException {
+		Number val;
+		try {
+			val = intFmtr.parse(str);
+		}
+		catch (Exception ex) {
+			val = Long.parseLong(str);
+		}
+		return val.longValue();
 	}
 }
