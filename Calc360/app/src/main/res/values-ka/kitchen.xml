@@ -10,6 +10,4 @@
 	<string name="amount">თანხა</string>
 	<string name="amountHint">მაგალითად 0.75</string>
 	<string name="multiplier">მულტიპლიკატორი</string>
-
-
 </resources>

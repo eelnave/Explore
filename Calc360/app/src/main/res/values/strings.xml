@@ -19,6 +19,7 @@
 	<string name="currencyCredit">The currency exchange rates are courtesy of the European Central Bank.</string>
 
 	<!-- Calculator Categories -->
+	<string name="academic">Academic</string>
 	<string name="art">Art &amp; Music</string>
 	<string name="computing">Computing</string>
 	<string name="cooking">Cooking</string>

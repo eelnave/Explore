@@ -105,20 +105,7 @@
 
 	<string name="money">ვალუტა</string>
 
-
 	<!-- Units of Length -->
-	<string-array name="length">
-		<item>დიუიმი</item>
-		<item>ფუტი</item>
-		<item>იარდი</item>
-		<item>ჩხირი</item>
-		<item>მილი</item>
-		<item>მილიმეტრი</item>
-		<item>სანტიმეტრი</item>
-		<item>მეტრი</item>
-		<item>კილომეტრი</item>
-	</string-array>
-
 	<plurals name="inch">
 		<item quantity="one">დიუიმი</item>
 		<item quantity="other">დიუიმები</item>
@@ -157,18 +144,6 @@
 	</plurals>
 
 	<!-- Units of Mass -->
-	<string-array name="mass">
-		<item>მარცვლეული</item>
-		<item>უნცია</item>
-		<item>გირვანქა</item>
-		<item>ქვა</item>
-		<item>მოკლე ტონა</item>
-		<item>ხანგრძლივი ტონა</item>
-		<item>გრამი</item>
-		<item>კილოგრამი</item>
-		<item>მეტრული ტონა</item>
-	</string-array>
-
 	<plurals name="grain">
 		<item quantity="one">მარცვლეული</item>
 		<item quantity="other">მარცვლეულები</item>
@@ -207,15 +182,6 @@
 	</plurals>
 
 	<!-- Units of Time -->
-	<string-array name="time">
-		<item>მილიწამი</item>
-		<item>მეორე</item>
-		<item>წუთი</item>
-		<item>საათი</item>
-		<item>დღე</item>
-		<item>კვირა</item>
-	</string-array>
-
 	<plurals name="millisecond">
 		<item quantity="one">მილიწამი</item>
 		<item quantity="other">მილიწამები</item>
@@ -249,14 +215,7 @@
 		<item quantity="other">წელები</item>
 	</plurals>
 
-
 	<!-- Units of Temperature -->
-	<string-array name="temperature">
-		<item>კელვინი</item>
-		<item>გრადუსი</item>
-		<item>ფარენჰეიტი</item>
-	</string-array>
-
 	<plurals name="Kelvin">
 		<item quantity="one">ხარისხი კელვინი</item>
 		<item quantity="other">ხარისხები კელვინი</item>
@@ -271,18 +230,6 @@
 	</plurals>
 
 	<!-- Units of Area -->
-	<string-array name="area">
-		<item>კვადრატული დიუმი</item>
-		<item>კვადრატული ფუტი</item>
-		<item>კვადრატული იარდი</item>
-		<item>აკრი</item>
-		<item>კვადრატული მილი</item>
-		<item>კვადრატული სანტიმეტრი</item>
-		<item>კვადრატული მეტრი</item>
-		<item>ჰექტარი</item>
-		<item>კვადრატული კილომეტრი</item>
-	</string-array>
-
 	<plurals name="squareInch">
 		<item quantity="one">კვადრატული დიუმი</item>
 		<item quantity="other">კვადრატული დიუმები</item>
@@ -321,21 +268,6 @@
 	</plurals>
 
 	<!-- Units of Volume -->
-	<string-array name="volume">
-		<item>ჩაის კოვზი</item>
-		<item>მაგიდის კოვზი</item>
-		<item>სითხის უნცია</item>
-		<item>თასი</item>
-		<item>პინტა</item>
-		<item>მეოთხედი</item>
-		<item>გალონი</item>
-		<item>კუბური ინჩი</item>
-		<item>კუბური ფეხი</item>
-		<item>მილილიტრები</item>
-		<item>ლეიტერი</item>
-		<item>კუბური მეტრი</item>
-	</string-array>
-
 	<plurals name="teaspoon">
 		<item quantity="one">ჩაის კოვზი</item>
 		<item quantity="other">ჩაის კოვზები</item>
@@ -386,14 +318,6 @@
 	</plurals>
 
 	<!-- Units of Frequency -->
-	<string-array name="frequency">
-		<item>ჰერცი</item>
-		<item>კილოჰესი</item>
-		<item>მეგაჰერცი</item>
-		<item>გიგაჰერცი</item>
-		<item>ტერაჰერცი</item>
-	</string-array>
-
 	<plurals name="hertz">
 		<item quantity="one">ჰერცი</item>
 		<item quantity="other">ჰერცები</item>
@@ -416,13 +340,6 @@
 	</plurals>
 
 	<!-- Units of Angle -->
-	<string-array name="angle">
-		<item>წუთი რკალის</item>
-		<item>ხარისხი</item>
-		<item>რადიანი</item>
-		<item>გრადიანი</item>
-	</string-array>
-
 	<plurals name="minuteArc">
 		<item quantity="one">წუთი რკალის</item>
 		<item quantity="other">წუთები რკალის</item>
@@ -441,13 +358,6 @@
 	</plurals>
 
 	<!-- Units of Pressure -->
-	<string-array name="pressure">
-		<item>კვადრატების თითო კვადრატული სანტიმეტრი</item>
-		<item>ატმოსფერო</item>
-		<item>პასკალი</item>
-		<item>ბარი</item>
-	</string-array>
-
 	<plurals name="lbfPerSqIn">
 		<item quantity="one">კვადრატების თითო კვადრატული სანტიმეტრი</item>
 		<item quantity="other">კვადრატების თითო კვადრატული სანტიმეტრი</item>
@@ -466,12 +376,6 @@
 	</plurals>
 
 	<!-- Units of Fuel Economy -->
-	<string-array name="fuelEcon">
-		<item>ერთი გალონი საწვავის დახარჯვით გავლილი მანძილი</item>
-		<item>კილომეტრი ლიტრი</item>
-		<item>ლიტრი 100 კმ</item>
-	</string-array>
-
 	<plurals name="milePerGallon">
 		<item quantity="one">ერთი გალონი საწვავის დახარჯვით გავლილი მანძილი</item>
 		<item quantity="other">ერთი გალონი საწვავის დახარჯვით გავლილი მანძილი</item>
@@ -486,14 +390,6 @@
 	</plurals>
 
 	<!-- Units of Speed -->
-	<string-array name="speed">
-		<item>ფეხზე წამში</item>
-		<item>მილი საათში</item>
-		<item>კვანძი</item>
-		<item>მეტრი მეორეში</item>
-		<item>კილომეტრი საათში</item>
-	</string-array>
-
 	<plurals name="footPerSecond">
 		<item quantity="one">ფეხზე წამში</item>
 		<item quantity="other">ფეხზეები წამში</item>
@@ -516,11 +412,6 @@
 	</plurals>
 
 	<!-- Units of Force -->
-	<string-array name="force">
-		<item>ნიუტონი</item>
-		<item>ფუნტი ძალა</item>
-	</string-array>
-
 	<plurals name="Newton">
 		<item quantity="one">ნიუტონი</item>
 		<item quantity="other">ნიუტონები</item>
@@ -531,27 +422,6 @@
 	</plurals>
 
 	<!-- Units of Data Size -->
-	<string-array name="dataSize">
-		<item>ბიტი</item>
-		<item>წაციცქნი</item>
-		<item>ბაიტი</item>
-		<item>ჰვორდ</item>
-		<item>ვორდ</item>
-		<item>დვორდ</item>
-		<item>კილომეტი</item>
-		<item>მეგაბიტი</item>
-		<item>გიგაბიტი</item>
-		<item>ტერაბიტი</item>
-		<item>პეტაბიტი</item>
-		<item>ექსაბიტი</item>
-		<item>კილომეტი</item>
-		<item>მეგაბაიტი</item>
-		<item>გიგაბაიტი</item>
-		<item>ტერაბაიტი</item>
-		<item>პეტაბაიტი</item>
-		<item>ექსაბაიტი</item>
-	</string-array>
-
 	<plurals name="bit">
 		<item quantity="one">ბიტი</item>
 		<item quantity="other">ბიტები</item>
@@ -628,41 +498,6 @@
 	</plurals>
 
 	<!-- Units of Currency (Money) -->
-	<string-array name="money">
-		<item>ავსტრალიელი დოლარი</item>
-		<item>ბრაზილიური რეალური</item>
-		<item>ბულგარეთის ლევ</item>
-		<item>კანადის დოლარი</item>
-		<item>ჩინური იუანრონმინები</item>
-		<item>ხორვატული კუნა</item>
-		<item>ჩეხური კორონა</item>
-		<item>დანიის კრონი</item>
-		<item>ევროკავშირი ევრო</item>
-		<item>ჰონკონგი დოლარი</item>
-		<item>უნგრული ფორინ</item>
-		<item>ინდური რუპია</item>
-		<item>ინდონეზიის რუპია</item>
-		<item>ისრაელის შექელი</item>
-		<item>იაპონიის იენი</item>
-		<item>მალაიზიის რინგიტი</item>
-		<item>მექსიკური პესო</item>
-		<item>ახალი ზელანდია დოლარი</item>
-		<item>ნორვეგიული კრონი</item>
-		<item>ფილიპინ პესო</item>
-		<item>პოლონური ზლოტი</item>
-		<item>რუმინული ლეუ</item>
-		<item>რუსული რუბლი</item>
-		<item>სინგაპურის დოლარი</item>
-		<item>სამხრეთ აფრიკის რენდი</item>
-		<item>სამხრეთ კორეის მოგება</item>
-		<item>შვედური კრონა</item>
-		<item>შვეიცარული ფრანკი</item>
-		<item>ტაილანდური ბატი</item>
-		<item>თურქული ლირა</item>
-		<item>ბრიტანული ფუნტი სტერლინგი</item>
-		<item>ამერიკული დოლარი</item>
-	</string-array>
-
 	<plurals name="AustralianDollar">
 		<item quantity="one">ავსტრალიელი დოლარი</item>
 		<item quantity="other">ავსტრალიელი დოლარი</item>

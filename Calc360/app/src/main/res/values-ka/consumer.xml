@@ -23,9 +23,6 @@
 	<string name="prod2">პროდუქტი 2</string>
 	<string name="prod3">პროდუქტი 3</string>
 
-	<!-- Properties used in the Compare Prices Calculator -->
-
-
 	<string name="tip">წვერი</string>
 	<string name="costBeforeTax">საგადასახადო ღირებულებამდე</string>
 	<string name="taxAmt">საგადასახადო თანხა</string>
