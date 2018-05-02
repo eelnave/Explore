@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="quadratic">კვადრატული განტოლება</string>
+	<string name="quadExplain1">ამ ფორმით კვადრატული განტოლების გათვალისწინებით</string>
+	<string name="quadExplain3">ჩვენ შეგვიძლია მოვძებნოთ განტოლების ფესვები კვადრატული ფორმულის გამოყენებით</string>
+	<string name="quadExplain4">კვადრატული ფორმულა</string>
+	<string name="roots">წარმოშობა</string>
+	<string name="noRoots">არ არსებობს რეალური წარმოშობა</string>
+	<string name="imaginary"><i>i</i></string>
+
+	<string name="radius">რადიუსი</string>
+	<string name="majorRadius">ძირითადი რადიუსი</string>
+	<string name="minorRadius">უმნიშვნელო რადიუსი</string>
+	<string name="innerRadius">შიდა რადიუსი</string>
+	<string name="outerRadius">გარე რადიუსი</string>
+	<string name="width">სიგანე</string>
+	<string name="height">სიმაღლე</string>
+	<string name="diagonal">დიაგონალი</string>
+	<string name="hypotenuse">ჰიპოტენუზა</string>
+	<string name="sideLength">გვერდითი სიგრძე</string>
+	<string name="perimeter">პერიმეტრი</string>
+	<string name="surfaceArea">ზედაპირის ფართობი</string>
+
+	<string name="Height">სიმაღლე</string>
+	<string name="Diagonal">დიაგონალი</string>
+	<string name="SideLength">გვერდითი სიგრძე</string>
+	<string name="Perimeter">პერიმეტრი</string>
+	<string name="SurfaceArea">ზედაპირის ფართობი</string>
+
+	<string name="pointsDist">მანძილი პუნქტებს შორის</string>
+	<string name="coordinate1">კოორდინირება 1</string>
+	<string name="coordinate2">კოორდინირება 2</string>
+
+	<string name="rightTriangle">მარჯვენა სამკუთხედი</string>
+	<string name="rtDiagram">მარჯვენა სამკუთხედის სწორი დიაგრამა</string>
+
+	<string name="triangle">სამკუთხედი</string>
+	<string name="triSides">გვერდი</string>
+	<string name="triAngles">კუთხე</string>
+	<string name="triDiagram">სამკუთხედის დიაგრამა</string>
+
+	<string name="rectangle">მართკუთხედი</string>
+	<string name="rectDiagFormula">დიაგონალი  d = \u221a(w\u00b2 + h\u00b2)</string>
+	<string name="rectPerimFormula">პერიმეტრი  P = 2(w + h)</string>
+	<string name="rectAreaFormula">ტერიტორია  A = w * h</string>
+
+	<string name="sphere">სფერო</string>
+
+	<string name="torus">ტორუსი</string>
+	<string name="torDiagram">ტორუს დიაგრამა</string>
+
+	<string name="cylinder">ცილინდრი</string>
+
+	<string name="cone">კონუსი</string>
+
+	<string name="rectPrism">მართკუთხა პრიზმა</string>
+
+	<string name="pyramid">პირამიდა</string>
+</resources>

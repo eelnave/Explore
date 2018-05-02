@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="compoundInterest">საერთო ინტერესი</string>
+	<string name="Deposit">ანაბარი</string>
+	<string name="Interest">ინტერესი</string>
+	<string name="depositHint">მაგალითად 300.50</string>
+	<string name="interestHint">მაგალითად 6.5</string>
+	<string name="yearsHint">მაგალითად 7</string>
+	<string name="radioMonthly">თვეში</string>
+	<string name="radioQuarterly">კვარტალში</string>
+	<string name="radioAnnually">ყოველწლიურად</string>
+
+	<string name="invest">საინვესტიციო</string>
+	<string name="pv">ძირითადი</string>
+	<string name="periodPay">პერიოდული გადახდა</string>
+	<string name="annRate">წლიური განაკვეთი</string>
+	<string name="annRateHint">მაგალითად 4.875</string>
+	<string name="numYears">წლების რაოდენობა</string>
+	<string name="ppy">პერიოდები წელიწადში</string>
+
+	<string name="fv">მომავალი ღირებულება</string>
+
+	<string name="loan">სესხი</string>
+	<string name="amt">თანხა ნასესხები</string>
+	<string name="loanPPY">გადახდები წელიწადში</string>
+	<string name="Payment">გადახდა</string>
+	<string name="Balance">ბალანსი</string>
+	<string name="ptd">გადახდები დასრულდა</string>
+	<string name="Principal">ძირითადი</string>
+	<string name="Period">პერიოდი</string>
+
+	<string name="roi">ინვესტიციის დაბრუნება</string>
+	<string name="income">შემოსავალი</string>
+	<string name="expenses">ხარჯები</string>
+	<string name="totalInvest">საინვესტიციო</string>
+	<string name="roiReturn">დაბრუნების</string>
+	<string name="roiIncomeHint">მაგალითად 5,000</string>
+	<string name="roiExpensesHint">მაგალითად 3,255</string>
+	<string name="roiInvestHint">მაგალითად 10,560</string>
+
+	<string name="laborCost">შრომის ღირებულება</string>
+	<string name="laborExplain">ეს კალკულატორი გარდაქმნის ღირებულება ნივთი თქვენს ოდენობით თქვენი შრომა დროულად. სხვა სიტყვებით რომ ვთქვათ, რამდენად შრომაა თქვენი შრომის ღირებულება?</string>
+	<string name="laborWage">საათობრივი ანაზღაურება</string>
+	<string name="laborOR">ან</string>
+	<string name="laborSalary">წლიური ხელფასი</string>
+	<string name="mustWork">თქვენ უნდა იმუშაოთ</string>
+	<string name="mustGet">და თქვენ უნდა მიიღოთ</string>
+	<string name="somewhere">სადღაც</string>
+	<plurals name="cent">
+		<item quantity="one">თეთრი</item>
+		<item quantity="other">თეთრი</item>
+	</plurals>
+
+	<string name="tithing">მეათედი</string>
+	<string name="charity">შესამწვირლობა</string>
+	<string name="humanitarian">ჰუმანიტარული დახმარება</string>
+	<string name="other">სხვა</string>
+	<string name="incomeHint">მაგალითად 5,000</string>
+	<string name="tithingHint">მაგალითად 10</string>
+	<string name="offeringHint">მაგალითად 100</string>
+	<string name="humanitarianHint">მაგალითად 50</string>
+	<string name="otherHint">მაგალითად 35</string>
+	<string name="tithingQuote">ვინაიდან ჩვენ ვაძლევთ მას. ~ წმინდა ფრენსის</string>
+
+	<string name="stream">ნაკადი სერვისი</string>
+	<string name="descrip1">ნაკადი მომსახურების ღირებულება, როგორიცაა:</string>
+	<string name="descrip2">ნეთფლიქსი, ჰულუ, ამაზონი, სხვა</string>
+	<string name="servicePayment">გადახდა</string>
+	<string name="hours2_5">2.5 საათი</string>
+	<string name="hours2">2 საათი</string>
+	<string name="hours1_5">1.5 საათი</string>
+	<string name="minutes45">45 წუთი</string>
+	<string name="minutes22">22 წუთი</string>
+	<string name="totalTime">სულ საათი უყურეს</string>
+	<string name="costPerHour">ღირებულება საათში</string>
+	<string name="intHint1">მაგალითად 1</string>
+	<string name="intHint2">მაგალითად 2</string>
+	<string name="intHint5">მაგალითად 5</string>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="musicDuration">მუსიკა ხანგრძლივობა</string>
+	<string name="totalMeasures">სულ გაზომვები</string>
+	<string name="tempo">დრო</string>
+	<string name="timeSignature">დრო ხელმოწერა</string>
+	<string name="tempoUnits">დრო</string>
+	<string name="timeSigUnits">დრო ხელმოწერა</string>
+	<string name="timeUnits">საათიანი:წუთი:მეორე</string>
+</resources>

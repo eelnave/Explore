@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="NewtonsSecond">ნიუტონის მეორე კანონი</string>
+
+	<string name="harmonicMotion">ჰარმონიული შუამდგომლობა</string>
+	<string name="hmSpringConstHint">გაზაფხულის მუდმივი</string>
+
+	<string name="pendulum">საათი</string>
+
+	<string name="tqThetaHint">კუთხე</string>
+
+	<string name="ohmsLaw">ომის კანონი</string>
+
+	<string name="coulombsLaw">კოლუმბიის კანონი</string>
+	<string name="coulCharge1">ბრალდება 1</string>
+	<string name="coulCharge2">ბრალდება 2</string>
+
+	<string name="relativity">ფარდობითობა</string>
+</resources>

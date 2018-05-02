@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="basketball">კალათბურთი</string>
+	<string name="make">წერტილი</string>
+	<string name="miss">მენატრები</string>
+
+	<string name="bodyMassIndex">სხეულის მასის ინდექსი</string>
+	<string name="bmi">სხეულის მასის ინდექსი</string>
+	<string name="category">კატეგორია</string>
+
+	<string-array name="bmiCategories">
+		<item>დაბალი</item>
+		<item>ნორმალური</item>
+		<item>მეტი წონა</item>
+		<item>სიმსუქნე</item>
+		<item>ძალიან სიმსუქნე</item>
+	</string-array>
+
+	<string name="caloriesBurned">გამოყენებული კალორია</string>
+	<string name="walking">ფეხით</string>
+	<string name="running">სირბილი</string>
+	<string name="cycling">ველოსიპედით</string>
+	<string name="swimming">ცურვა</string>
+	<string name="dancing">ცეკვა</string>
+	<string name="kickboxing">კიკ-ბოქსინგი</string>
+	<string name="weightLift">სიმძიმის აწევა</string>
+	<string name="television">ტელევიზორის ყურება</string>
+
+	<string name="calories">კალორია</string>
+
+	<string name="Weight">წონა</string>
+	<string name="bodyWeight">სხეულის წონა</string>
+
+	<string name="age">ასაკი</string>
+	<string name="birthDate">დაბადების თარიღი</string>
+
+</resources>

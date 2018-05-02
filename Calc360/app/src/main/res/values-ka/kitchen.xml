@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="tempConvert">ტემპერატურის კონვერტორი</string>
+	<string name="massConvert">წონის კონვერტერი</string>
+	<string name="lengthConvert">სიგრძე კონვერტორი</string>
+	<string name="areaConvert">ფართობი კონვერტორი</string>
+	<string name="volumeConvert">მოცულობის კონვერტორი</string>
+
+	<string name="recipeMult">რეცეპტი გაფართოება</string>
+	<string name="amount">თანხა</string>
+	<string name="amountHint">მაგალითად 0.75</string>
+	<string name="multiplier">მულტიპლიკატორი</string>
+
+
+</resources>

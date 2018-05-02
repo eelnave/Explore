@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="videoStorage">ვიდეო შენახვის</string>
+	<string name="space">შესანახი მოცულობა</string>
+	<string name="spaceHint">მაგალითად 16</string>
+	<string name="Quality">ხარისხი</string>
+
+	<string name="starExposure">ვარსკვლავი ექსპოზიცია</string>
+	<string name="stxpFocalLength">ფოკალური სიგრძე</string>
+	<string name="stxpCropFactor">შემცირების ფაქტორი</string>
+	<string name="stxpExposure">ექსპოზიცია</string>
+	<string name="stxpFocalHint">მაგალითად 18</string>
+	<string name="stxpCropHint">მაგალითად 1.5</string>
+</resources>
