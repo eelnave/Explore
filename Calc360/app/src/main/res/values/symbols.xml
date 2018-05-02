@@ -52,8 +52,6 @@
 	<string name="seven" translatable="false">7</string>
 	<string name="eight" translatable="false">8</string>
 	<string name="nine" translatable="false">9</string>
-	<string name="twentyFive" translatable="false">25</string>
-	<string name="zeroDecimalTwentyFive" translatable="false">0.25</string>
 
 	<string name="scientific">Scientific</string>
 	<string name="options" translatable="false">opts</string>

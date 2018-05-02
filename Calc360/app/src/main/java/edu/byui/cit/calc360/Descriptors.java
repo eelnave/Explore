@@ -54,7 +54,7 @@ final class Descriptors {
 				new CalcDescriptor(1030, R.string.ratio, R.drawable.golden_ratio, Ratio.class),
 				new CalcDescriptor(1024, R.string.quadratic, R.drawable.quadratic, Quadratic.class),
 				new CalcDescriptor(1028, R.string.modulo, R.drawable.division, Modulo.class),
-				new CalcDescriptor(1070, R.string.modulo, R.drawable.lightning, DecimalFraction.class),
+				new CalcDescriptor(1080, R.string.decimalFraction, R.drawable.lightning, DecimalFraction.class),
 				new CalcDescriptor(1023, R.string.rightTriangle, R.drawable.right_triangle, RightTriangle.class),
 				new CalcDescriptor(1050, R.string.triangle, R.drawable.triangle, Triangle.class),
 				new CalcDescriptor(1042, R.string.rectangle, R.drawable.rectangle, Rectangle.class),

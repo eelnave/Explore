@@ -11,83 +11,107 @@ import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ControlWrapper;
 import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.text.EditInteger;
 import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
 
 
 public final class DecimalFraction extends CalcFragment {
-
 	/*
-	* fraction -> decimal
-	* numerator/denominator
-	*
-	*
-	* decimal -> fraction
-	* if 1 decimal place then put over 10 (compare)
-	* 	loop 1-10
-	* 		if % of (10/i) = 0
-	* 		and if % of (decimal/i) = 0
-	* 		then divide (10/i) and (decimal/i)
-* loop again using new denominator instead of 10
-* if % never = 0 then end loop
-* display decimal in numerator - and display new numerator
-	* */
+	 * fraction -> decimal
+	 * numerator/denominator
+	 *
+	 * decimal -> fraction
+	 * if 1 decimal place then put over 10 (compare)
+	 * 	loop 1-10
+	 * 		if % of (10/i) = 0
+	 * 		and if % of (decimal/i) = 0
+	 * 		then divide (10/i) and (decimal/i)
+	 * loop again using new denominator instead of 10
+	 * if % never = 0 then end loop
+	 * display decimal in numerator - and display new numerator
+	 */
 
-	private final NumberFormat fmtrDec;
-	private TextWrapper dec;
+	private final NumberFormat
+			fmtrInt = NumberFormat.getIntegerInstance(),
+			fmtrDec = NumberFormat.getInstance();
 
 	private EditDecimal decimal;
-	private EditDecimal whole;
-	private EditDecimal num;
-	private EditDecimal denom;
+	private EditInteger intWhole;
+	private EditInteger intNumer;
+	private EditInteger intDenom;
 
-
-	public DecimalFraction() {
-		// Call the constructor in the parent class CalcFragment.
-		super();
-
-		// Create the two NumberFormat objects that this calculator will
-		// use to format numbers before they are displayed to the user.
-		fmtrDec = NumberFormat.getInstance();
-
-	}
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
+		View view = inflater.inflate(R.layout.decimal_fraction, container,
+				false);
+		decimal = new EditDecimal(view, R.id.decimal, this);
+		intWhole = new EditInteger(view, R.id.wholeNumF, this);
+		intNumer = new EditInteger(view, R.id.numerator, this);
+		intDenom = new EditInteger(view, R.id.denominator, this);
 
-
-		View view = inflater.inflate(R.layout.decimal_fraction, container, false);
-		decimal = new EditDecimal(view, R.id.decimal,this);
-		whole = new EditDecimal(view, R.id.wholeNumF,this);
-		num = new EditDecimal(view, R.id.numerator,this);
-		denom = new EditDecimal(view, R.id.denominator,this);
-
-		EditWrapper[] inputs = { decimal, whole, num, denom };
-		ControlWrapper[] toClear = { decimal, whole, num, denom };
-		initialize(view, inputs, R.id.clearB, toClear);
+		EditWrapper[] inputs = { decimal, intWhole, intNumer, intDenom };
+		ControlWrapper[] toClear = { decimal, intWhole, intNumer, intDenom };
+		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
 	@Override
 	protected void compute() {
-		if (decimal.hasUserInput()) {
-			double deci = decimal.getDec();
-			double left = Math.floor(deci);
-			double right = deci - left;
-			double denomer = 100;
-			double numer = right * denomer;
-
-			whole.setText(Double.toString(left));
-			num.setText(Double.toString(numer));
-			denom.setText(Double.toString(denomer));
+		if (decimal.hasFocus()) {
+			intWhole.clear();
+			intNumer.clear();
+			intDenom.clear();
 		}
-		else if (whole.hasUserInput() && num.hasUserInput() && denom.hasUserInput()) {
-			double right = num.getDec() / denom.getDec();
-			double left = whole.getDec();
-			String deci = left + "." + right;
-			decimal.setText(deci);
+		else {
+			decimal.clear();
+		}
+
+		if (decimal.notEmpty()) {
+			double deci = decimal.getDec();
+			double whole = Math.floor(deci);
+			if (whole > 0) {
+				intWhole.setText(fmtrInt.format(whole));
+			}
+			else {
+				intWhole.clear();
+			}
+
+			double fract = deci - whole;
+			if (fract > 0) {
+				int digits = Double.toString(fract).length() - 2;
+				double denom = Math.pow(10, digits);
+				double numer = fract * denom;
+				double gcd = 100;  // TODO
+				numer /= gcd;
+				denom /= gcd;
+				intNumer.setText(fmtrInt.format(numer));
+				intDenom.setText(fmtrInt.format(denom));
+			}
+			else {
+				intNumer.clear();
+				intDenom.clear();
+			}
+		}
+		else if (intWhole.notEmpty() ||
+				intNumer.notEmpty() || intDenom.notEmpty()) {
+			if (intNumer.isEmpty() == intDenom.isEmpty()) {
+				double deci = intWhole.getInt(0);
+
+				if (intDenom.notEmpty()) {
+					double denom = intDenom.getInt();
+					if (denom == 0) {
+						deci = Double.NaN;
+					}
+					else {
+						double numer = intNumer.getInt();
+						deci += numer / denom;
+					}
+				}
+
+				decimal.setText(fmtrDec.format(deci));
+			}
 		}
 	}
-
 }
