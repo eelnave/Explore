@@ -8,6 +8,11 @@
 	<string name="modulo">Modulo</string>
 	<string name="modExplain">The modulo operator returns the remainder of a division operation. For example, 14\u00a0/\u00a03\u00a0=\u00a04.67, while 14\u00a0%\u00a03\u00a0=\u00a02. This is because 3 divides into 14, 4 times, with 2 left over. Remember, we don\u2019t need to pay attention to the quotient of the division, only the remainder.</string>
 
+	<string name="decimalFraction">Decimal to Fraction</string>
+	<string name="decimalFractionInstructions">Enter a decimal number to convert to a fraction, or enter a fraction to convert to a decimal number.</string>
+	<string name="fraction">Fraction</string>
+	<string name="decimal">Decimal</string>
+
 	<string name="subnet">Subnets</string>
 	<string name="IPAddress">Enter an IP address or Network ID</string>
 	<string name="subnetMask">Enter a Subnet Mask</string>
