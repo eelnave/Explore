@@ -25,7 +25,7 @@
 	<string name="rightWhole" translatable="false">d</string>
 	<string name="rightNumer" translatable="false">e</string>
 	<string name="rightDenom" translatable="false">f</string>
-	<string-array name="fractOps">
+	<string-array name="fractOps" transltable="false">
 		<item>@string/add</item>
 		<item>@string/subt</item>
 		<item>@string/mult</item>

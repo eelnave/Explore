@@ -29,12 +29,6 @@
 			android:layout_marginTop="10dp"
 			android:text="@string/eula"/>
 
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp"
-			android:text="@string/logoCredit"/>
-
 		<RelativeLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -103,5 +97,17 @@
 				android:layout_toEndOf="@+id/lblFall2017A"
 				android:text="@string/contribsFall2017B"/>
 		</RelativeLayout>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:text="@string/logoCredit"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:text="@string/apacheCredit"/>
 	</LinearLayout>
 </ScrollView>

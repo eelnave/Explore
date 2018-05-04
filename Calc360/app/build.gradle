@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "edu.byui.cit.calc360"
         minSdkVersion 21
-        targetSdkVersion 26
-        versionCode 36
-        versionName "2.2"
+        targetSdkVersion 27
+        versionCode 37
+        versionName "2.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -29,8 +29,8 @@ android {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support:gridlayout-v7:26.1.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'com.android.volley:volley:1.0.0'
     implementation 'org.jetbrains:annotations-java5:15.0'
     implementation 'com.google.code.findbugs:jsr305:2.0.1'
