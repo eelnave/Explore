@@ -8,10 +8,6 @@
 	<string name="modulo">Modulo</string>
 	<string name="modExplain">The modulo operator returns the remainder of a division operation. For example, 14\u00a0/\u00a03\u00a0=\u00a04.67, while 14\u00a0%\u00a03\u00a0=\u00a02. This is because 3 divides into 14, 4 times, with 2 left over. Remember, we don\u2019t need to pay attention to the quotient of the division, only the remainder.</string>
 
-	<string name="decimalFraction">Decimal to Fraction</string>
-	<string name="decimalFractionInstructions">Enter a decimal number to convert to a fraction, or enter a fraction to convert to a decimal number.</string>
-	<string name="decimal">Decimal</string>
-
 	<string name="subnet">Subnets</string>
 	<string name="IPAddress">Enter an IP address or Network ID</string>
 	<string name="subnetMask">Enter a Subnet Mask</string>
@@ -20,20 +16,24 @@
 	<string name="networkAddress">Network Address:</string>
 	<string name="broadcastAddress">Broadcast Address:</string>
 
-	<string name="fraction">Fraction</string>
-	<string name="numer1" translatable="false">a</string>
-	<string name="numer2" translatable="false">c</string>
-	<string name="denom1" translatable="false">b</string>
-	<string name="denom2" translatable="false">d</string>
+	<string name="fractions">Fractions</string>
+	<string name="fractConvertDescr">Convert a real number to a fraction or vice versa</string>
+	<string name="fractCalcDescr">Calculate with fractions</string>
+	<string name="leftWhole" translatable="false">a</string>
+	<string name="leftNumer" translatable="false">b</string>
+	<string name="leftDenom" translatable="false">c</string>
+	<string name="rightWhole" translatable="false">d</string>
+	<string name="rightNumer" translatable="false">e</string>
+	<string name="rightDenom" translatable="false">f</string>
 	<string-array name="fractOps">
-		<item>+</item>
-		<item>-</item>
-		<item>x</item>
-		<item>/</item>
+		<item>@string/add</item>
+		<item>@string/subt</item>
+		<item>@string/mult</item>
+		<item>@string/div</item>
 	</string-array>
 
 	<string name="decValue">Decimal Value</string>
-	<string name="decHint">ex: 1 - 3999</string>
+	<string name="decHint">ex: 1 \u2013 3999</string>
 	<string name="romanNumeral">Roman Numeral</string>
 	<string name="romanNumConvert">Roman Numerals</string>
 	<string name="romHint">ex: XVIII</string>

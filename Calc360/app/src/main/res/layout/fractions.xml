@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		compat:columnCount="3">
+
+		<EditText
+			android:id="@+id/leftWhole"
+			style="@style/SignedInteger"
+			android:layout_marginEnd="10dp"
+			android:background="@android:color/transparent"
+			android:ems="4"
+			android:hint="@string/leftWhole"
+			compat:layout_gravity="center_vertical"
+			compat:layout_rowSpan="2">
+
+			<requestFocus/>
+		</EditText>
+
+		<EditText
+			android:id="@+id/leftNumer"
+			style="@style/UnsignedInteger"
+			android:background="@drawable/border_top_bottom"
+			android:ems="5"
+			android:hint="@string/leftNumer"
+			android:textAlignment="center"/>
+
+		<Space/>
+
+		<EditText
+			android:id="@+id/leftDenom"
+			style="@style/UnsignedInteger"
+			android:background="@android:color/transparent"
+			android:ems="5"
+			android:hint="@string/leftDenom"
+			android:textAlignment="center"/>
+
+		<EditText
+			android:id="@+id/leftReal"
+			style="@style/SignedDecimal"
+			android:layout_marginStart="10dp"
+			android:ems="9"/>
+
+
+		<Spinner
+			android:id="@+id/spinner"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="15dp"
+			android:layout_marginTop="15dp"
+			android:background="@android:drawable/btn_dropdown"
+			android:entries="@array/fractOps"
+			android:spinnerMode="dropdown"
+			compat:layout_columnSpan="3"
+			compat:layout_gravity="center_horizontal"/>
+
+
+		<EditText
+			android:id="@+id/rightWhole"
+			style="@style/SignedInteger"
+			android:layout_marginEnd="10dp"
+			android:background="@android:color/transparent"
+			android:ems="4"
+			android:hint="@string/rightWhole"
+			compat:layout_gravity="center_vertical"
+			compat:layout_rowSpan="2"/>
+
+		<EditText
+			android:id="@+id/rightNumer"
+			style="@style/UnsignedInteger"
+			android:background="@drawable/border_top_bottom"
+			android:ems="5"
+			android:hint="@string/rightNumer"
+			android:textAlignment="center"/>
+
+		<Space/>
+
+		<EditText
+			android:id="@+id/rightDenom"
+			style="@style/UnsignedInteger"
+			android:background="@android:color/transparent"
+			android:ems="5"
+			android:hint="@string/rightDenom"
+			android:textAlignment="center"/>
+
+		<EditText
+			android:id="@+id/rightReal"
+			style="@style/SignedDecimal"
+			android:layout_marginStart="10dp"
+			android:ems="9"
+			android:imeOptions="actionDone"/>
+
+
+		<TextView
+			style="@style/TextLabelCenter"
+			android:layout_marginBottom="15dp"
+			android:layout_marginTop="15dp"
+			android:text="@string/eq"
+			compat:layout_columnSpan="3"
+			compat:layout_gravity="center_horizontal"/>
+
+
+		<TextView
+			android:id="@+id/resultWhole"
+			style="@style/TextResult"
+			android:layout_marginEnd="10dp"
+			android:ems="4"
+			android:text="@string/quest"
+			compat:layout_gravity="center_vertical"
+			compat:layout_rowSpan="2"/>
+
+		<TextView
+			android:id="@+id/resultNumer"
+			style="@style/TextResult"
+			android:background="@drawable/border_top_bottom"
+			android:ems="5"
+			android:text="@string/quest"
+			android:textAlignment="center"/>
+
+		<Space/>
+
+		<TextView
+			android:id="@+id/resultDenom"
+			style="@style/TextResult"
+			android:ems="5"
+			android:text="@string/quest"
+			android:textAlignment="center"/>
+
+		<TextView
+			android:id="@+id/resultReal"
+			style="@style/TextResult"/>
+
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:text="@string/clear"
+			compat:layout_columnSpan="3"/>
+	</android.support.v7.widget.GridLayout>
+</ScrollView>

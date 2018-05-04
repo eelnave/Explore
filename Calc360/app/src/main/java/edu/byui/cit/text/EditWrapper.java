@@ -134,6 +134,7 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	}
 
 	/** Sets the text in this EditText as output. */
+	@Override
 	public void setText(CharSequence text) {
 		edit.removeTextChangedListener(this);
 		edit.setText(text);
@@ -166,6 +167,17 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 		return "input: " + hasUserInput() + "  empty: " + isEmpty() + "  text: " + getText();
 	}
 
+
+	public static boolean anyHaveFocus(EditWrapper... inputs) {
+		boolean any = false;
+		for (EditWrapper in : inputs) {
+			any = in.hasFocus();
+			if (any) {
+				break;
+			}
+		}
+		return any;
+	}
 
 
 	public static int countEmpty(EditWrapper... inputs) {
@@ -209,6 +221,18 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 			}
 		}
 		return all;
+	}
+
+
+	public static boolean anyHaveInput(EditWrapper... inputs) {
+		boolean any = false;
+		for (EditWrapper in : inputs) {
+			any = in.hasUserInput();
+			if (any) {
+				break;
+			}
+		}
+		return any;
 	}
 
 	public static boolean allHaveInput(EditWrapper... inputs) {

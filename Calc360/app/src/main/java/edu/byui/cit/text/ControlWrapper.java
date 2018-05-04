@@ -61,6 +61,9 @@ public abstract class ControlWrapper implements OnFocusChangeListener {
 	public void clear() {
 	}
 
+	public void setText(CharSequence str) {
+	}
+
 
 	public static int indexOfFocus(ControlWrapper... controls) {
 		int focus = -1;

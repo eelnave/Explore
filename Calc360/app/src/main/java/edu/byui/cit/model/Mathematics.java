@@ -1,6 +1,5 @@
 package edu.byui.cit.model;
 
-
 import java.util.regex.Pattern;
 
 

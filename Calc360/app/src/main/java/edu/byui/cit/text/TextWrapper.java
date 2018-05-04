@@ -36,9 +36,9 @@ public final class TextWrapper extends ControlWrapper {
 		view.requestFocus();
 	}
 
-	public final double setText(CharSequence str) {
+	@Override
+	public final void setText(CharSequence str) {
 		view.setText(str);
-		return 0;
 	}
 
 	public final void setText(int resID) {
