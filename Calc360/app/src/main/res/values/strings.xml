@@ -2,6 +2,7 @@
 <resources>
 	<string name="appName">Calc 360</string>
 
+	<string name="help">Hint</string>
 	<string name="about">About</string>
 	<string name="feedback">Feedback</string>
 	<string name="contribs">Contributors</string>
@@ -43,6 +44,7 @@
 
 	<string name="compute">Compute</string>
 	<string name="clear">Clear</string>
+	<string name="hideDescr">Got it!</string>
 
 	<string name="unitConvert">Unit Conversion</string>
 </resources>

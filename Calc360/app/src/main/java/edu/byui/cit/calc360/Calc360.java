@@ -2,13 +2,17 @@ package edu.byui.cit.calc360;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.FrameLayout;
 
 import java.lang.reflect.Field;
 
@@ -22,6 +26,7 @@ public final class Calc360 extends AppCompatActivity {
 			TAG = "Calc360",
 
 			// Keys to store the user preferences.
+			KEY_SHOW_HELP = "showHelp",
 			KEY_SALES_TAX_RATE = "salesTaxRate",
 			KEY_INCOME_TAX_RATE = "incomeTaxRate",
 			KEY_ANGLE_UNITS = "angleUnits";
@@ -104,6 +109,27 @@ public final class Calc360 extends AppCompatActivity {
 				// left-facing triangle icon on the main android toolbar.
 				onBackPressed();
 				return true;
+			case R.id.actFive:
+				if (fivefunc == null || fivefunc.isDetached()) {
+					fivefunc = new FiveFunction();
+					fivefunc.setDescripID(1021);
+				}
+				switchFragment(fivefunc);
+				return true;
+			case R.id.actHelp:
+				FrameLayout fragCont = findViewById(R.id.fragContainer);
+				View descrip = fragCont.findViewById(R.id.descrip);
+				if (descrip != null) {
+					descrip.setVisibility(View.VISIBLE);
+				}
+				SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
+				SharedPreferences.Editor editor = prefs.edit();
+				int childID = fragCont.getChildAt(0).getId();
+				String name = getResources().getResourceEntryName(childID);
+				String key = name + '.' + KEY_SHOW_HELP;
+				editor.putBoolean(key, true);
+				editor.apply();
+				return true;
 			case R.id.actAbout:
 				if (about == null || about.isDetached()) {
 					about = new About();
@@ -124,13 +150,6 @@ public final class Calc360 extends AppCompatActivity {
 				}
 				switchFragment(feedback);
 				return true;
-			case R.id.actFive:
-				if (fivefunc == null || fivefunc.isDetached()) {
-					fivefunc = new FiveFunction();
-					fivefunc.setDescripID(1021);
-				}
-				switchFragment(fivefunc);
-				return true;
 		}
 
 		return super.onOptionsItemSelected(item);
@@ -141,7 +160,7 @@ public final class Calc360 extends AppCompatActivity {
 		// fragment, and add the transaction to the back stack so
 		// that the user can navigate back.
 		FragmentTransaction trans = getFragmentManager().beginTransaction();
-		trans.replace(R.id.fragContainer, fragment);
+		trans.replace(R.id.fragContainer, fragment, "thing");
 		trans.addToBackStack(null);
 		trans.commit();
 	}
@@ -181,5 +200,11 @@ public final class Calc360 extends AppCompatActivity {
 		throws NoSuchFieldException, IllegalAccessException {
 		Field field = clss.getDeclaredField(name);
 		return field.getInt(null);
+	}
+
+	public static int getID(Context ctx, String type, String name) {
+		Resources res = ctx.getResources();
+		String pkg = ctx.getPackageName();
+		return res.getIdentifier(name, type, pkg);
 	}
 }

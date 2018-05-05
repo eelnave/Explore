@@ -5,8 +5,14 @@
 
 	<item
 		android:id="@+id/actFive"
-		android:title="@string/about"
+		android:title="@string/fiveFunc"
 		android:icon="@drawable/act_bar_five_func"
+		compat:showAsAction="ifRoom"/>
+
+	<item
+		android:id="@+id/actHelp"
+		android:title="@string/help"
+		android:icon="@drawable/act_bar_help"
 		compat:showAsAction="ifRoom"/>
 
 	<item
@@ -18,5 +24,4 @@
 		android:id="@+id/actFeedback"
 		android:title="@string/feedback"
 		compat:showAsAction="never"/>
-
 </menu>

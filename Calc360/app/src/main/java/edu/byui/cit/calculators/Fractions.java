@@ -24,20 +24,37 @@ import edu.byui.cit.text.TextWrapper;
 
 public final class Fractions extends CalcFragment {
 	private static final int WHOLE = 0, NUMER = 1, DENOM = 2;
-	private static final HashMap<String, Operator> operators;
 
 	private interface Operator {
 		Fraction compute(Fraction left, Fraction right);
 	}
 
-	static {
+	private final NumberFormat fmtrInt, fmtrDec;
+	private final Pattern separator;
+	private final HashMap<String, Operator> operators;
+
+	private EditInteger[] lefts, rights;
+	private EditDecimal leftReal, rightReal;
+	private SpinString spinner;
+	private TextWrapper[] results;
+	private TextWrapper resultReal;
+
+	public Fractions() {
+		super();
+		fmtrInt = NumberFormat.getIntegerInstance();
+		fmtrDec = NumberFormat.getInstance();
+		fmtrDec.setMaximumFractionDigits(Integer.MAX_VALUE);
+
+		char decimal = fmtrDec.format(1.2).charAt(1);
+		separator = Pattern.compile("\\" + decimal);
+
 		operators = new HashMap<>(6);
 		operators.put("+", new Operator() {
-					@Override
-					public Fraction compute(Fraction left, Fraction right) {
-						return left.add(right);
-					}
-				});
+			@Override
+			public Fraction compute(Fraction left, Fraction right) {
+				return left.add(right);
+			}
+		});
 		operators.put("\u2212",
 				new Operator() {
 					@Override
@@ -65,28 +82,11 @@ public final class Fractions extends CalcFragment {
 				});
 	}
 
-	private final Pattern separator;
-	private final NumberFormat fmtrInt, fmtrDec;
-
-	private EditInteger[] lefts, rights;
-	private EditDecimal leftReal, rightReal;
-	private SpinString spinner;
-	private TextWrapper[] results;
-	private TextWrapper resultReal;
-
-	public Fractions() {
-		super();
-		fmtrInt = NumberFormat.getIntegerInstance();
-		fmtrDec = NumberFormat.getInstance();
-		fmtrDec.setMaximumFractionDigits(Integer.MAX_VALUE);
-		separator = Pattern.compile("\\" + fmtrDec.format(1.2).charAt(1));
-	}
-
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
-		View view = inflater.inflate(R.layout.fractions, container, false);
+		View view = inflater.inflate(R.layout.fractions2, container, false);
 
 		lefts = new EditInteger[]{
 				new EditInteger(view, R.id.leftWhole, this),

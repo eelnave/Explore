@@ -17,8 +17,7 @@
 	<string name="broadcastAddress">Broadcast Address:</string>
 
 	<string name="fractions">Fractions</string>
-	<string name="fractConvertDescr">Convert a real number to a fraction or vice versa</string>
-	<string name="fractCalcDescr">Calculate with fractions</string>
+	<string name="fractDescr">This calculator can add, subtract, multiply, and divide fractions, including mixed fractions. It can also convert from a fraction to a real number and vice versa. To add, subtract, multiply, or divide two fractions, enter the whole part, numerator, and denominator of both fractions, then select an operator from the dropdown list. To convert from a fraction to a real number, simply enter the parts of the fraction. To convert from a real number to a fraction, simply enter the real number in the one of the text fields on the right side of this calculator.</string>
 	<string name="leftWhole" translatable="false">a</string>
 	<string name="leftNumer" translatable="false">b</string>
 	<string name="leftDenom" translatable="false">c</string>
