@@ -86,7 +86,7 @@ public final class Fractions extends CalcFragment {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
-		View view = inflater.inflate(R.layout.fractions2, container, false);
+		View view = inflater.inflate(R.layout.fractions, container, false);
 
 		lefts = new EditInteger[]{
 				new EditInteger(view, R.id.leftWhole, this),
