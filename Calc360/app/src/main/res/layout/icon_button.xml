@@ -7,5 +7,4 @@
 	android:gravity="bottom|center_horizontal"
 	compat:layout_columnWeight="1"
 	compat:layout_rowWeight="1">
-
 </Button>

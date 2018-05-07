@@ -26,9 +26,10 @@ import edu.byui.cit.units.Volume;
 public final class FuelEconomy extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
-			KEY_DIST_UNITS = "FuelEconomy.distUnits",
-			KEY_VOL_UNITS = "FuelEconomy.volUnits",
-			KEY_ECON_UNITS = "FuelEconomy.econUnits";
+			KEY_PREFIX = "FuelEconomy",
+			KEY_DIST_UNITS = KEY_PREFIX + ".distUnits",
+			KEY_VOL_UNITS = KEY_PREFIX + ".volUnits",
+			KEY_ECON_UNITS = KEY_PREFIX + ".econUnits";
 
 	private final NumberFormat fmtrDist, fmtrEcon;
 	private EditDecimal decBegin, decEnd, decDist, decVol;

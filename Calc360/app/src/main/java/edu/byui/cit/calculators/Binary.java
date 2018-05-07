@@ -26,8 +26,7 @@ public final class Binary extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate layout
-		View view = inflater.inflate(R.layout.binary, container,
-				false);
+		View view = inflater.inflate(R.layout.binary, container, false);
 
 		decimal = new EditDecimal(view, R.id.decimal, this);
 		binary = new EditInteger(view, R.id.binary, this);

@@ -26,10 +26,11 @@ import edu.byui.cit.units.Unit;
 public final class OilChange extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
-			KEY_ODOMETER_UNITS ="OilChange.decBegin",
-			KEY_DIST_UNITS = "OilChange.distUnits",
-			KEY_OIL_UNITS = "OilChange.oilUnits",
-			KEY_DRIVE_UNITS = "OilChange.econUnits";
+			KEY_PREFIX = "OilChange",
+			KEY_ODOMETER_UNITS = KEY_PREFIX + ".decBegin",
+			KEY_DIST_UNITS = KEY_PREFIX + ".distUnits",
+			KEY_OIL_UNITS = KEY_PREFIX + ".oilUnits",
+			KEY_DRIVE_UNITS = KEY_PREFIX + ".econUnits";
 
 	private final NumberFormat fmtrDist;
 	private EditDecimal decBegin, decEnd, decDist;

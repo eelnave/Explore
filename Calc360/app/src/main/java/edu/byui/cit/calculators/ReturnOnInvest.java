@@ -15,14 +15,14 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
-public final class ReturnOnInvestment extends CalcFragment {
+public final class ReturnOnInvest extends CalcFragment {
 	private final NumberFormat fmtrPerc;
 	private EditCurrency curIncome, curExpenses, curInvest;
 	private EditWrapper[] inputs;
 	private TextWrapper percROI;
 
 
-	public ReturnOnInvestment() {
+	public ReturnOnInvest() {
 		super();
 		fmtrPerc = NumberFormat.getPercentInstance();
 		fmtrPerc.setMaximumFractionDigits(1);
@@ -31,7 +31,7 @@ public final class ReturnOnInvestment extends CalcFragment {
 
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.roi, container, false);
+		View view = inflater.inflate(R.layout.return_on_invest, container, false);
 
 		curIncome = new EditCurrency(view, R.id.curIncome, this);
 		curExpenses = new EditCurrency(view, R.id.curExpenses, this);

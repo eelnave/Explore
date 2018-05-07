@@ -270,7 +270,7 @@ public final class GeometryTest {
 		assertEquals(g, RectangularPrism.sideSSV(w, h, V), delta);
 
 		assertEquals(h, RectangularPrism.sideSAV(w, A, V), delta);
-//		assertEquals(w, RectangularPrism.sideSAV(h, A, V), delta);
+//		assertEquals(w, RectPrism.sideSAV(h, A, V), delta);
 		assertEquals(h, RectangularPrism.sideSAV(g, A, V), delta);
 
 		assertEquals(A, RectangularPrism.surfArea(w, h, g), delta);

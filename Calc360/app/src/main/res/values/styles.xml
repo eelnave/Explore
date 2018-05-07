@@ -1,4 +1,6 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools">
+
 	<!-- AppCompat attributes should not have a namespace. For example,
 	compat:layout_gravity should be written as just layout_gravity in a
 	style. -->
@@ -119,6 +121,7 @@
 	</style>
 
 	<style name="TextLabelCenter" parent="TextLabel">
+		<item name="android:layout_gravity">center_horizontal</item>
 		<item name="layout_gravity">center_horizontal</item>
 	</style>
 

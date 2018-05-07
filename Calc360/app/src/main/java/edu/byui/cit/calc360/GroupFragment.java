@@ -15,7 +15,7 @@ import android.support.v7.widget.GridLayout.LayoutParams;
 import android.widget.TextView;
 
 
-public class GroupFragment extends CalcFragment {
+public class GroupFragment extends InfoFragment {
 	public GroupFragment() {
 		super();
 	}
@@ -85,7 +85,7 @@ public class GroupFragment extends CalcFragment {
 //	}
 
 
-	private void populate(GridLayout grid, Descriptor[] descriptors) {
+	private void populate(GridLayout grid, Descriptor[] children) {
 		grid.removeAllViewsInLayout();
 
 //		OnTouchListener swipeHandler = new OnTouchListener() {
@@ -99,18 +99,18 @@ public class GroupFragment extends CalcFragment {
 		Resources res = grid.getResources();
 		Context ctx = grid.getContext();
 		Resources.Theme theme = ctx.getTheme();
-		for (Descriptor descriptor : descriptors) {
-			Button button = makeButton(descriptor, ctx, res, theme);
+		for (Descriptor child : children) {
+			Button button = makeButton(child, ctx, res, theme);
 //			button.setOnTouchListener(swipeHandler);
 			grid.addView(button);
 		}
 
-		// If there are fewer than cols descriptors in this GroupDescriptor
+		// If there are fewer than cols children in this GroupDescriptor
 		// then the GridLayout will cause the icons to grow freakishly
 		// large. To prevent that, add empty components to fill at least
 		// one row of the GridLayout.
 		int cols = grid.getColumnCount();
-		for (int i = cols - descriptors.length;  i > 0;  --i) {
+		for (int i = cols - children.length;  i > 0;  --i) {
 			TextView text = makeEmpty(ctx);
 			grid.addView(text);
 		}
@@ -142,7 +142,7 @@ public class GroupFragment extends CalcFragment {
 			try {
 				if (fragment == null || fragment.isDetached()) {
 					fragment = descriptor.getCalcClass().newInstance();
-					fragment.setDescripID(descriptor.getID());
+					fragment.setDescrip(descriptor.getID());
 				}
 			}
 			catch (Exception ex) {

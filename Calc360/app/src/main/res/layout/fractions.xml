@@ -12,7 +12,7 @@
 		android:orientation="vertical">
 
 		<LinearLayout
-			android:id="@+id/descrip"
+			android:id="@+id/explain"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="15dp"
@@ -21,14 +21,14 @@
 
 			<TextView
 				style="@style/TextLabel"
-				android:text="@string/fractDescr"/>
+				android:text="@string/fractExplain"/>
 
 			<Button
 				android:id="@+id/btnHide"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="end"
-				android:text="@string/hideDescr"/>
+				android:text="@string/hideExplain"/>
 		</LinearLayout>
 
 		<android.support.constraint.ConstraintLayout

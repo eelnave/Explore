@@ -2,6 +2,8 @@
 <ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/Cone"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
@@ -19,7 +21,8 @@
 			android:id="@+id/decRadius"
 			style="@style/UnsignedDecimal"
 			android:ems="6"
-			android:hint="@string/radius">
+			android:hint="@string/radius"
+			tools:ignore="LabelFor">
 
 			<requestFocus/>
 		</EditText>
@@ -43,7 +46,8 @@
 			android:id="@+id/decHeight"
 			style="@style/UnsignedDecimal"
 			android:ems="6"
-			android:hint="@string/height"/>
+			android:hint="@string/height"
+			tools:ignore="LabelFor"/>
 
 		<TextView
 			style="@style/TextLabel"
@@ -65,7 +69,8 @@
 			android:id="@+id/decSide"
 			style="@style/UnsignedDecimal"
 			android:ems="6"
-			android:hint="@string/sideLength"/>
+			android:hint="@string/sideLength"
+			tools:ignore="LabelFor"/>
 
 		<TextView
 			style="@style/TextLabel"
@@ -89,7 +94,8 @@
 			style="@style/UnsignedDecimal"
 			android:ems="7"
 			android:hint="@string/surfaceArea"
-			compat:layout_columnSpan="2"/>
+			compat:layout_columnSpan="2"
+			tools:ignore="LabelFor"/>
 
 		<TextView
 			style="@style/TextLabel"
@@ -113,7 +119,8 @@
 			android:ems="7"
 			android:hint="@string/volume"
 			android:imeOptions="actionDone"
-			compat:layout_columnSpan="2"/>
+			compat:layout_columnSpan="2"
+			tools:ignore="LabelFor"/>
 
 		<Button
 			android:id="@+id/btnClear"

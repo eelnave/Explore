@@ -14,13 +14,22 @@ import android.widget.EditText;
 
 import org.jetbrains.annotations.NotNull;
 
+import edu.byui.cit.text.ButtonWrapper;
+import edu.byui.cit.text.ClickListener;
+
 
 public abstract class InfoFragment extends Fragment {
 	private static final String descripIDKey = "calcID";
 
 	Descriptor descriptor;
+	View explain;
 
-	void setDescripID(int descripID) {
+
+	public InfoFragment() {
+		super();
+	}
+
+	void setDescrip(String descripID) {
 		descriptor = Descriptors.getDescrip(descripID);
 	}
 
@@ -36,7 +45,7 @@ public abstract class InfoFragment extends Fragment {
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onCreate(" +
 //			(savedInstState == null ? "null" : savedInstState.size()) + ")");
 		if (savedInstState != null) {
-			setDescripID(savedInstState.getInt(descripIDKey));
+			setDescrip(savedInstState.getString(descripIDKey));
 		}
 	}
 
@@ -49,6 +58,24 @@ public abstract class InfoFragment extends Fragment {
 		View view;
 		try {
 			view = createView(inflater, container, savedInstState);
+
+			// If this calculator contains a description, show it to the user
+			// if this is the first time the user has opened this calculator
+			// or the user prefers it open.
+			explain = view.findViewById(R.id.explain);
+			if (explain != null) {
+				SharedPreferences prefs = getActivity().getPreferences(
+						Context.MODE_PRIVATE);
+				String key = getPrefsPrefix() + Calc360.KEY_SHOW_HELP;
+				int vis = View.VISIBLE;
+				if (prefs.contains(key)) {
+					vis = prefs.getBoolean(key, false) ?
+							View.VISIBLE : View.GONE;
+				}
+				explain.setVisibility(vis);
+				new ButtonWrapper(explain, R.id.btnHide, new HideHandler());
+			}
+
 			if (savedInstState == null) {
 				SharedPreferences prefs = getActivity()
 						.getPreferences(Context.MODE_PRIVATE);
@@ -65,7 +92,33 @@ public abstract class InfoFragment extends Fragment {
 	protected abstract View createView(LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstState);
 
+
+	/** Handles a click on the hide help (Got it!) button. */
+	class HideHandler implements ClickListener {
+		@Override
+		public void clicked(View button) {
+			if (explain != null) {
+				explain.setVisibility(View.GONE);
+
+				SharedPreferences prefs = getActivity().getPreferences(
+						Context.MODE_PRIVATE);
+				SharedPreferences.Editor editor = prefs.edit();
+				String key = getPrefsPrefix() + Calc360.KEY_SHOW_HELP;
+				editor.putBoolean(key, false);
+				editor.apply();
+			}
+		}
+	}
+
+
+	final String getPrefsPrefix() {
+		return getClass().getSimpleName();
+	}
+
 	protected void restorePrefs(SharedPreferences prefs) {
+	}
+
+	protected void savePrefs(SharedPreferences.Editor editor) {
 	}
 
 //	@Override
@@ -132,7 +185,7 @@ public abstract class InfoFragment extends Fragment {
 		super.onSaveInstanceState(savedInstState);
 //		Log.v(Calc360.TAG, getClass().getSimpleName() +
 //				".onSaveInstanceState(" + savedInstState.size() + ")");
-		savedInstState.putInt(descripIDKey, descriptor.getID());
+		savedInstState.putString(descripIDKey, descriptor.getID());
 	}
 
 //	void logBundle(Bundle savedInstState) {
@@ -167,9 +220,6 @@ public abstract class InfoFragment extends Fragment {
 		finally {
 			super.onStop();
 		}
-	}
-
-	protected void savePrefs(SharedPreferences.Editor editor) {
 	}
 
 

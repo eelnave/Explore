@@ -33,8 +33,8 @@
 	<string name="SurfaceArea">Surface Area</string>
 
 	<string name="pointsDist">Distance between Points</string>
-	<string name="coordinate1">Coordinate 1</string>
-	<string name="coordinate2">Coordinate 2</string>
+	<string name="point1">Point 1</string>
+	<string name="point2">Point 2</string>
 
 	<string name="rightTriangle">Right Triangle</string>
 	<string name="triHyp" translatable="false">hyp</string>

@@ -55,9 +55,9 @@ public final class ConsumerTest {
 		double tipAmt = cost * tipRate;
 		double total = cost + taxAmt + tipAmt;
 		assertEquals(tipAmt, Ratio.amount(tipRate, cost), delta);
-		assertEquals(tipAmt, Tip.tipAmount(cost, taxAmt, total), delta);
+		assertEquals(tipAmt, Gratuity.gratuity(cost, taxAmt, total), delta);
 		assertEquals(tipRate, Ratio.rate(tipAmt, cost), delta);
-		assertEquals(total, Tip.total(cost, taxAmt, tipAmt), delta);
+		assertEquals(total, Gratuity.total(cost, taxAmt, tipAmt), delta);
 	}
 
 	@Test

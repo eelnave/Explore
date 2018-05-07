@@ -23,7 +23,7 @@
 	<string name="prod2">Produto 2</string>
 	<string name="prod3">Produto 3</string>
 
-	<string name="tip">Propina</string>
+	<string name="gratuity">Propina</string>
 	<string name="costBeforeTax">Costo antes de Impuestos</string>
 	<string name="taxAmt">Cantidad de Impuesto</string>
 

@@ -24,7 +24,7 @@ public class TableCount extends CalcFragment {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 							  Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.tablelayout, container,
+		View view = inflater.inflate(R.layout.table_count, container,
 			false);
 
 		tblLength = new EditInteger(view, R.id.tblLength, this);

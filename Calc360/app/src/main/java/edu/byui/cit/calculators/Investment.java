@@ -24,7 +24,7 @@ import static edu.byui.cit.model.Finance.investFutureValue;
 
 
 public final class Investment extends SolveEquation {
-	private static final String KEY_PPY = "Invest.ppy";
+	private static final String KEY_PPY = "Investment.ppy";
 	private final NumberFormat fmtrCur, fmtrRate, fmtrYears;
 	private EditCurrency curPV, curPay;
 	private EditDecimal decAR, decYears;

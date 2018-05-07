@@ -15,7 +15,7 @@ import edu.byui.cit.units.Money;
 
 public final class CurrencyExchange extends Converter {
 	public CurrencyExchange() {
-		super("CurrExch", Money.getInstance(), R.array.money);
+		super("CurrencyExchange", Money.getInstance(), R.array.money);
 		this.fmtrDec.setMaximumFractionDigits(2);
 	}
 

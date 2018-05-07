@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="appName">Calc 360</string>
+	<string name="explain">Explain</string>
 
-	<string name="help">Hint</string>
 	<string name="about">About</string>
-	<string name="feedback">Feedback</string>
-	<string name="contribs">Contributors</string>
-
+	<string name="version">version</string>
 	<string name="appDescr">A collection of easy to use specific calculators designed, written, and maintained by students at Brigham Young University - Idaho</string>
 	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
+	<string name="contribs">Contributors</string>
 	<string name="fall2017">Fall 2017</string>
 	<string name="winter2018">Winter 2018</string>
-	<string name="logoCredit">We created the logo and icons for Calc360 using the free tools at <a href="logomakr.com">logomakr.com</a></string>
+	<string name="logoCredit">We created the logo and icons for Calc360 using the free tools at <a href="https://logomakr.com">logomakr.com</a></string>
 	<string name="apacheCredit">Some of the calculators in this app use the Appache Commons Math library version 3.6</string>
 
-	<string name="feedMessage">Thank you for using Calc360! We appreciate your comments, questions, and recommendations to help us improve this app. You can contact us through the Google Play Store or by clicking this link: <a href="">linknamehere.com</a></string>
+	<string name="feedback">Feedback</string>
+	<string name="feedMessage">Thank you for using Calc360! We appreciate your comments, questions, and recommendations to help us improve this app. You can contact us through the <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.calc360">Google Play Store</a>.</string>
 
 	<string name="mistake">Well, this is embarrassing. Something is wrong with this calculator, and it isn\'t working. We apologize.</string>
 
@@ -28,6 +28,7 @@
 	<string name="data">Data</string>
 	<string name="events">Events</string>
 	<string name="finance">Finance</string>
+	<string name="fitness">Fitness</string>
 	<string name="general">General</string>
 	<string name="geometry">Geometry</string>
 	<string name="mathematics">Math</string>
@@ -44,7 +45,7 @@
 
 	<string name="compute">Compute</string>
 	<string name="clear">Clear</string>
-	<string name="hideDescr">Got it!</string>
+	<string name="hideExplain">Got it!</string>
 
 	<string name="unitConvert">Unit Conversion</string>
 </resources>

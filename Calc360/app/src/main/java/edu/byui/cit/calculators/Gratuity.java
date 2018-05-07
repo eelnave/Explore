@@ -17,9 +17,10 @@ import edu.byui.cit.text.EditDecimal;
 import edu.byui.cit.text.EditWrapper;
 
 
-/** A calculator that computes tip rate, tip amount, and total amount. */
-public final class Tip extends CalcFragment {
-	private static final String KEY_TIP_RATE = "Tip.tipRate";
+/** A calculator that computes gratuity rate,
+ * gratuity amount, and total amount. */
+public final class Gratuity extends CalcFragment {
+	private static final String KEY_TIP_RATE = "Gratuity.rate";
 
 	// These formatters are used to format numbers
 	// before the numbers are shown to the user.
@@ -33,7 +34,7 @@ public final class Tip extends CalcFragment {
 	private EditWrapper[] inputs;
 
 
-	public Tip() {
+	public Gratuity() {
 		// Call the parent constructor.
 		super();
 
@@ -48,7 +49,7 @@ public final class Tip extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this calculator.
-		View view = inflater.inflate(R.layout.tip, container, false);
+		View view = inflater.inflate(R.layout.gratuity, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
 		curCost = new EditCurrency(view, R.id.curCost, this);
@@ -142,4 +143,3 @@ public final class Tip extends CalcFragment {
 		}
 	}
 }
-

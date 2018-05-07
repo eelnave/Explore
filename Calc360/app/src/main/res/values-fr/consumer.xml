@@ -34,7 +34,7 @@
 		<item>volume</item>
 	</string-array>
 
-	<string name="tip">Pourboire</string>
+	<string name="gratuity">Pourboire</string>
 	<string name="costBeforeTax">Coût avant impôt</string>
 	<string name="taxAmt">Montant de la taxe</string>
 	<integer name="standardTip" translatable="false">15</integer>

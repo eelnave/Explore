@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer.Ratio;
@@ -52,7 +51,7 @@ public final class Discount extends CalcFragment {
 		curDiscAmt = new EditCurrency(view, R.id.curDiscAmt, this);
 		curDiscPrice = new TextWrapper(view, R.id.curDiscPrice);
 		decTaxRate = new EditDecimal(view, R.id.decTaxRate,
-				Calc360.KEY_SALES_TAX_RATE, this);
+				SalesTax.KEY_SALES_TAX_RATE, this);
 		curTaxAmt = new TextWrapper(view, R.id.curTaxAmt);
 		curTotal = new TextWrapper(view, R.id.curTotal);
 		curSaved = new TextWrapper(view, R.id.curSaved);

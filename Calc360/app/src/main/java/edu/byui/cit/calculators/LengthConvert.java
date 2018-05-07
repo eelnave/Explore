@@ -7,6 +7,6 @@ import edu.byui.cit.units.Length;
 
 public final class LengthConvert extends Converter {
 	public LengthConvert() {
-		super("LenConv", Length.getInstance(), R.array.kitchenLength);
+		super("LengthConvert", Length.getInstance(), R.array.kitchenLength);
 	}
 }

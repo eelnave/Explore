@@ -7,7 +7,7 @@ import edu.byui.cit.units.Temperature;
 
 public final class TemperatureConvert extends Converter {
 	public TemperatureConvert() {
-		super("TempConv",
+		super("TemperatureConvert",
 				Temperature.getInstance(), R.array.kitchenTemperature);
 		this.fmtrDec.setMaximumFractionDigits(2);
 	}

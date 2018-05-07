@@ -55,6 +55,6 @@
 	<string name="pyramid">Pirâmide</string>
 
 	<string name="pointsDist">Distância entre Pontos</string>
-	<string name="coordinate1">Coordenada 1</string>
-	<string name="coordinate2">Coordenada 2</string>
+	<string name="point1">Coordenada 1</string>
+	<string name="point2">Coordenada 2</string>
 </resources>

@@ -35,7 +35,7 @@ import edu.byui.cit.units.Unit;
 
 public final class ComparePrices extends CalcFragment {
 	private static final String
-			KEY_PREFIX = ComparePrices.class.getSimpleName(),
+			KEY_PREFIX = "ComparePrices",
 			KEY_PROP = KEY_PREFIX + ".prop";
 
 	private SpinProperty spinProp;
@@ -108,19 +108,9 @@ public final class ComparePrices extends CalcFragment {
 		SpinUnit spinUnits;
 		TextWrapper curPer;
 
-		void init(View view, int which)
-				throws NoSuchFieldException, IllegalAccessException {
+		void init(View view, int which) {
 			Activity act = getActivity();
-//			Class clss = R.id.class;
 			ComparePrices parent = ComparePrices.this;
-//			curPrice = new EditCurrency(view,
-//					Calc360.getID(clss, "curPrice" + which), parent);
-//			decQuant = new EditDecimal(view,
-//					Calc360.getID(clss, "decQuant" + which), parent);
-//			spinUnits = new SpinUnit(view,
-//					Calc360.getID(clss, "spinUnits" + which), parent);
-//			curPer = new TextWrapper(view,
-//					Calc360.getID(clss, "curPer" + which));
 			curPrice = new EditCurrency(view,
 					Calc360.getID(act, "id", "curPrice" + which), parent);
 			decQuant = new EditDecimal(view,

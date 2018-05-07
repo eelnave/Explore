@@ -25,8 +25,9 @@ import edu.byui.cit.model.Fitness;
 
 public class Pace extends CalcFragment {
 	private static final String
-			KEY_DIST_UNITS = "Pace.distUnits",
-			KEY_PACE_UNITS = "Pace.paceUnits";
+			KEY_PREFIX = "Pace",
+			KEY_DIST_UNITS = KEY_PREFIX + ".distUnits",
+			KEY_PACE_UNITS = KEY_PREFIX + ".paceUnits";
 
 	private final NumberFormat fmtrInt, fmtrDec;
 	private EditDecimal distance;

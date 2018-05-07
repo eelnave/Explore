@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="appName">Calc 360</string>
+	<string name="explain">Explique</string>
 
 	<string name="about">Sobre</string>
-	<string name="feedback">Comentarios</string>
-	<string name="contribs">Colaboradores</string>
-
+	<string name="version">versión</string>
 	<string name="appDescr">Una colección de calculadoras específicas fácil de usar diseñado, escrito y mantenido por los estudiantes en la Universidad de Brigham Young - Idaho.</string>
 	<string name="eula">En la medida permitida por la ley, este software viene con ninguna garantía, expresa o implícita. Por instalar o usar este software usted acepta inofensivo Universidad Brigham Young - Idaho y sus patrocinadores, empleados y estudiantes.</string>
-	<string name="logoCredit">Creamos el logotipo y los iconos de Calc360 usando las herramientas gratuitas en <a href="logomakr.com">logomakr.com</a></string>
+	<string name="contribs">Colaboradores</string>
 	<string name="fall2017">Otoño 2017</string>
 	<string name="winter2018">Invierno 2018</string>
+	<string name="logoCredit">Creamos el logotipo y los iconos de Calc360 usando las herramientas gratuitas en <a href="logomakr.com">logomakr.com</a></string>
 
+	<string name="feedback">Comentarios</string>
 	<string name="feedMessage">¡Gracias por utilizar Calc360! Debido a la naturaleza experimental de esta calculadora, apreciaríamos cualquier comentario, preguntas o recomendaciones con el fin de mejorar aún más esta aplicación.</string>
 	<string name="feedLink">Puede contactar con nosotros a través de Google Play Store o haciendo clic en este enlace: <a href="">linknamehere.com</a></string>
+
 	<string name="mistake">Bueno, esto es vergonzoso. Algo está mal con esta calculadora, y no funciona. Le pedimos disculpas.</string>
 
 	<string name="currencyCredit">Los tipos de cambio de moneda son cortesía del Banco Central Europeo.</string>

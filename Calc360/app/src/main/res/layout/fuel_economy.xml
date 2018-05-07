@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/FuelEconomy"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	android:orientation="vertical">
@@ -21,7 +23,8 @@
 			android:layout_alignBaseline="@+id/empty1"
 			android:layout_toEndOf="@+id/empty1"
 			android:ems="4"
-			android:hint="@string/start">
+			android:hint="@string/start"
+			tools:ignore="LabelFor">
 
 			<requestFocus/>
 		</EditText>
@@ -72,9 +75,9 @@
 		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/empty2"
 			android:layout_alignEnd="@+id/decDist"
 			android:layout_alignStart="@+id/decDist"
+			android:layout_below="@+id/empty2"
 			android:labelFor="@+id/decDist"
 			android:text="@string/Distance"
 			android:textAlignment="center"/>

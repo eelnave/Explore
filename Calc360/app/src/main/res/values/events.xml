@@ -7,6 +7,7 @@
 	<string name="plusFive" translatable="false">+5</string>
 
 	<string name="queueTime">Queue Time</string>
+	<string name="queueExplain">If you are waiting in a long queue, this calculator will estimate how much time will pass before you are served.</string>
 	<string name="people">Number of People</string>
 	<string name="next">Next Person</string>
 	<string name="person">Average Time per Person</string>

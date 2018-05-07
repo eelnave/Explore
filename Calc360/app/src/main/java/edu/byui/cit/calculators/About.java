@@ -15,7 +15,9 @@ public final class About extends InfoFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.about, container, false);
-		String nameAndVersion = getString(R.string.appName) + " " + getString(R.string.versionName);
+		String nameAndVersion = getString(R.string.appName) + ' '
+				+ getString(R.string.version) + ' '
+				+ getString(R.string.versionName);
 		TextView version = view.findViewById(R.id.txtVersion);
 		version.setText(nameAndVersion);
 		return view;

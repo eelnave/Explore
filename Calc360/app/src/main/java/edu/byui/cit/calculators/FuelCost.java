@@ -24,9 +24,10 @@ import edu.byui.cit.units.Volume;
 
 public final class FuelCost extends CalcFragment {
 	private static final String
-			KEY_DIST_UNITS = "FuelCost.distUnits",
-			KEY_ECON_UNITS = "FuelCost.econUnits",
-			KEY_VOL_UNITS = "FuelCost.volUnits";
+			KEY_PREFIX = "FuelCost",
+			KEY_DIST_UNITS = KEY_PREFIX + ".distUnits",
+			KEY_ECON_UNITS = KEY_PREFIX + ".econUnits",
+			KEY_VOL_UNITS = KEY_PREFIX + ".volUnits";
 
 	private final NumberFormat fmtrCur = NumberFormat.getCurrencyInstance();
 	private EditDecimal decDist;

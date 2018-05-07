@@ -76,5 +76,5 @@
     </integer-array>
 
 	<string name="pace">Pace</string>
-	<string name="paceDescrip">Find your pace by entering the distance you traveled and the time it took.</string>
+	<string name="paceExplain">Find your pace by entering the distance you traveled and the elapsed time.</string>
 </resources>

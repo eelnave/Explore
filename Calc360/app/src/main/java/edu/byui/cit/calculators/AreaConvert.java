@@ -7,6 +7,6 @@ import edu.byui.cit.units.Area;
 
 public final class AreaConvert extends Converter {
 	public AreaConvert() {
-		super("AreaConv", Area.getInstance(), R.array.kitchenArea);
+		super("AreaConvert", Area.getInstance(), R.array.kitchenArea);
 	}
 }

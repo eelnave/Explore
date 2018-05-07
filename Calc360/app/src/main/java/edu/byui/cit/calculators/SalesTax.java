@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
@@ -20,6 +19,8 @@ import edu.byui.cit.text.TextWrapper;
 
 
 public final class SalesTax extends CalcFragment {
+	public static final String KEY_SALES_TAX_RATE = "SalesTax.rate";
+
 	// NumberFormat is a Java class that is part of the standard Java library.
 	// A NumberFormat object will convert a number (double, float, long, int,
 	// etc) into a String, and it will convert it appropriately for the locale
@@ -63,7 +64,7 @@ public final class SalesTax extends CalcFragment {
 		// EditCurrency object to the xml element that has an id of "curPrice".
 		curPrice = new EditCurrency(view, R.id.curPrice, this);
 		decTaxRate = new EditDecimal(view, R.id.decTaxRate,
-				Calc360.KEY_SALES_TAX_RATE, this);
+				KEY_SALES_TAX_RATE, this);
 
 		// Get a reference to each of the TextViews
 		// where this calculator will display output.

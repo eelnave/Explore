@@ -34,7 +34,7 @@
 		<item>volume</item>
 	</string-array>
 
-	<string name="tip">Tip</string>
+	<string name="gratuity">Gratuity</string>
 	<string name="costBeforeTax">Cost before Tax</string>
 	<string name="taxAmt">Tax Amount</string>
 	<integer name="standardTip" translatable="false">15</integer>

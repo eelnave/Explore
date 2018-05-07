@@ -27,10 +27,11 @@ import edu.byui.cit.units.Volume;
 public final class ForeignFuel extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
-			KEY_UNITS_COST_FROM = "ForeignFuel.unitsCostFrom",
-			KEY_UNITS_VOL_FROM = "ForeignFuel.unitsVolFrom",
-			KEY_UNITS_COST_TO = "ForeignFuel.unitsCostTo",
-			KEY_UNITS_VOL_TO = "ForeignFuel.unitsVolTo";
+			KEY_PREFIX = "ForeignFuel",
+			KEY_UNITS_COST_FROM = KEY_PREFIX + ".unitsCostFrom",
+			KEY_UNITS_VOL_FROM = KEY_PREFIX + ".unitsVolFrom",
+			KEY_UNITS_COST_TO = KEY_PREFIX + ".unitsCostTo",
+			KEY_UNITS_VOL_TO = KEY_PREFIX + ".unitsVolTo";
 
 	private final NumberFormat fmtrCost, fmtrVol;
 	private EditCurrency curCostFrom;

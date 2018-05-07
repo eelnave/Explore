@@ -16,8 +16,15 @@ public abstract class CalcFragment extends InfoFragment {
 	EditWrapper[] inputs;
 	EditWrapper[][] groups;
 	ControlWrapper[] toClear;
-	View descrip;
 
+	@Override
+	void setDescrip(String descripID) {
+		if (! getClass().getSimpleName().equals(descripID)) {
+			throw new IllegalArgumentException(
+					"mismatched descriptor ID " + descripID);
+		}
+		super.setDescrip(descripID);
+	}
 
 	protected void initialize(View view, EditWrapper[] inputs,
 			int btnClearID, ControlWrapper[] toClear) {
@@ -43,23 +50,6 @@ public abstract class CalcFragment extends InfoFragment {
 		this.inputs = inputs;
 		this.groups = groups;
 		this.toClear = toClear;
-
-		// If this calculator contains a description, show it to the user
-		// if this is the first time the user has opened this calculator
-		// or the user prefers it open.
-		descrip = view.findViewById(R.id.descrip);
-		if (descrip != null) {
-			SharedPreferences prefs = getActivity().getPreferences(
-					Context.MODE_PRIVATE);
-			String key = getClass().getSimpleName() + '.' + Calc360.KEY_SHOW_HELP;
-			int vis = View.VISIBLE;
-			if (prefs.contains(key)) {
-				vis = prefs.getBoolean(key, false) ?
-						View.VISIBLE : View.GONE;
-			}
-			descrip.setVisibility(vis);
-			new ButtonWrapper(descrip, R.id.btnHide, new HideHandler());
-		}
 
 		// Add a button click listener to the Clear button.
 		new ButtonWrapper(view, btnClearID, new ClearHandler());
@@ -121,24 +111,6 @@ public abstract class CalcFragment extends InfoFragment {
 	protected void compute() {
 	}
 
-
-	/** Handles a click on the hide help (Got it!) button. */
-	class HideHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			if (descrip != null) {
-				descrip.setVisibility(View.GONE);
-
-				SharedPreferences prefs = getActivity().getPreferences(
-						Context.MODE_PRIVATE);
-				SharedPreferences.Editor editor = prefs.edit();
-				String key = CalcFragment.this.getClass().getSimpleName() +
-						'.' + Calc360.KEY_SHOW_HELP;
-				editor.putBoolean(key, false);
-				editor.apply();
-			}
-		}
-	}
 
 	/** Handles a click on the clear button. */
 	class ClearHandler implements ClickListener {

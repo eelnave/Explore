@@ -7,6 +7,6 @@ import edu.byui.cit.units.Mass;
 
 public final class MassConvert extends Converter {
 	public MassConvert() {
-		super("MassConv", Mass.getInstance(), R.array.kitchenMass);
+		super("MassConvert", Mass.getInstance(), R.array.kitchenMass);
 	}
 }

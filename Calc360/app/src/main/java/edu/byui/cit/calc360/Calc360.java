@@ -22,14 +22,15 @@ import edu.byui.cit.units.World;
 
 
 public final class Calc360 extends AppCompatActivity {
-	public static final String
-			TAG = "Calc360",
+	public static final String TAG = "Calc360";
 
-			// Keys to store the user preferences.
-			KEY_SHOW_HELP = "showHelp",
-			KEY_SALES_TAX_RATE = "salesTaxRate",
-			KEY_INCOME_TAX_RATE = "incomeTaxRate",
-			KEY_ANGLE_UNITS = "angleUnits";
+	// Keys to store the user preferences.
+	private static final String KEY_PREFIX = TAG;
+	public static final String
+			KEY_VERSION_CODE = KEY_PREFIX + ".versionCode",
+			KEY_ANGLE_UNITS = KEY_PREFIX + ".angleUnits",
+			KEY_SHOW_HELP = ".showHelp";
+	private static final int MIN_PREFS_VERSION = 38;
 
 	private InfoFragment about, feedback;
 	private InfoFragment fivefunc;
@@ -43,6 +44,15 @@ public final class Calc360 extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstState) {
 		super.onCreate(savedInstState);
+
+		SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
+		if (prefs.getInt(KEY_VERSION_CODE, 0) < MIN_PREFS_VERSION) {
+			// Clean the user preferences file.
+			SharedPreferences.Editor editor = prefs.edit();
+			editor.clear();
+			editor.putInt(KEY_VERSION_CODE, MIN_PREFS_VERSION);
+			editor.apply();
+		}
 
 //		Log.v(TAG, getClass().getSimpleName() + ".onCreateOptionsMenu()");
 		setContentView(R.layout.calc360);
@@ -58,9 +68,10 @@ public final class Calc360 extends AppCompatActivity {
 			// Create a fragment that contains all the folders
 			// and place it as the first fragment in this activity.
 			GroupFragment frag = new GroupFragment();
-			frag.setDescripID(0);
+			frag.setDescrip("Calc360");
 
-			FragmentTransaction trans = getFragmentManager().beginTransaction();
+			FragmentTransaction trans = getFragmentManager()
+					.beginTransaction();
 			trans.add(R.id.fragContainer, frag);
 			trans.commit();
 		}
@@ -84,7 +95,8 @@ public final class Calc360 extends AppCompatActivity {
 //	@Override
 //	public void onSaveInstanceState(Bundle savedInstState) {
 //		super.onSaveInstanceState(savedInstState);
-//		Log.v(TAG, getClass().getSimpleName() + ".onSaveInstanceState(" + (savedInstState == null ? "null" : savedInstState.size()) + ")");
+//		Log.v(TAG, getClass().getSimpleName() + ".onSaveInstanceState(" +
+// (savedInstState == null ? "null" : savedInstState.size()) + ")");
 //	}
 
 	@Override
@@ -112,28 +124,29 @@ public final class Calc360 extends AppCompatActivity {
 			case R.id.actFive:
 				if (fivefunc == null || fivefunc.isDetached()) {
 					fivefunc = new FiveFunction();
-					fivefunc.setDescripID(1021);
+					fivefunc.setDescrip(fivefunc.getPrefsPrefix());
 				}
 				switchFragment(fivefunc);
 				return true;
 			case R.id.actHelp:
 				FrameLayout fragCont = findViewById(R.id.fragContainer);
-				View descrip = fragCont.findViewById(R.id.descrip);
-				if (descrip != null) {
-					descrip.setVisibility(View.VISIBLE);
+				View explain = fragCont.findViewById(R.id.explain);
+				if (explain != null) {
+					explain.setVisibility(View.VISIBLE);
+					SharedPreferences prefs = getPreferences(
+							Context.MODE_PRIVATE);
+					SharedPreferences.Editor editor = prefs.edit();
+					int childID = fragCont.getChildAt(0).getId();
+					String name = getResources().getResourceEntryName(childID);
+					String key = name + KEY_SHOW_HELP;
+					editor.putBoolean(key, true);
+					editor.apply();
 				}
-				SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
-				SharedPreferences.Editor editor = prefs.edit();
-				int childID = fragCont.getChildAt(0).getId();
-				String name = getResources().getResourceEntryName(childID);
-				String key = name + '.' + KEY_SHOW_HELP;
-				editor.putBoolean(key, true);
-				editor.apply();
 				return true;
 			case R.id.actAbout:
 				if (about == null || about.isDetached()) {
 					about = new About();
-					about.setDescripID(1);
+					about.setDescrip(about.getPrefsPrefix());
 				}
 
 				// Replace whatever is in the fragment_container
@@ -146,7 +159,7 @@ public final class Calc360 extends AppCompatActivity {
 			case R.id.actFeedback:
 				if (feedback == null || feedback.isDetached()) {
 					feedback = new Feedback();
-					feedback.setDescripID(1);
+					feedback.setDescrip(feedback.getPrefsPrefix());
 				}
 				switchFragment(feedback);
 				return true;
@@ -197,7 +210,7 @@ public final class Calc360 extends AppCompatActivity {
 
 	// Uses reflection to get an id from R.id, R.array, R.plurals, etc.
 	public static int getID(Class clss, String name)
-		throws NoSuchFieldException, IllegalAccessException {
+			throws NoSuchFieldException, IllegalAccessException {
 		Field field = clss.getDeclaredField(name);
 		return field.getInt(null);
 	}

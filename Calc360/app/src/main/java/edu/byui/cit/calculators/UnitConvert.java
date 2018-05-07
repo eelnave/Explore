@@ -31,7 +31,7 @@ import android.widget.ArrayAdapter;
 
 public final class UnitConvert extends CalcFragment {
 	private static final String
-			KEY_PREFIX = "UnitConv",
+			KEY_PREFIX = "UnitConvert",
 			KEY_PROP = KEY_PREFIX + ".prop",
 			KEY_TOP = "top",
 			KEY_BOTTOM = "bottom";

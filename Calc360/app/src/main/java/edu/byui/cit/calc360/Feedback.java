@@ -10,7 +10,6 @@ public class Feedback extends InfoFragment {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.feedback, container, false);
-		return view;
+		return inflater.inflate(R.layout.feedback, container, false);
 	}
 }

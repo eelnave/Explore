@@ -12,126 +12,123 @@ final class Descriptors {
 	 * 1000.
 	 */
 	private static final GroupDescriptor hierarchy =
-		new GroupDescriptor(0, R.string.appName, R.mipmap.calc360, new Descriptor[]{
-			new GroupDescriptor(307, R.string.shopping, R.drawable.folder_shopping, new CalcDescriptor[]{
-				new CalcDescriptor(1017, R.string.salesTax, R.drawable.sales_tax, SalesTax.class),
-				new CalcDescriptor(1014, R.string.discount, R.drawable.discount, Discount.class),
-				new CalcDescriptor(1001, R.string.cmpPrices, R.drawable.balance, ComparePrices.class),
+		new GroupDescriptor("Calc360", R.string.appName, R.mipmap.calc360, new Descriptor[]{
+			new GroupDescriptor("Shopping", R.string.shopping, R.drawable.folder_shopping, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.salesTax, R.drawable.sales_tax, SalesTax.class),
+				new CalcDescriptor(R.string.discount, R.drawable.discount, Discount.class),
+				new CalcDescriptor(R.string.cmpPrices, R.drawable.balance, ComparePrices.class),
 			}),
-			new GroupDescriptor(308, R.string.sports, R.drawable.folder_sports, new CalcDescriptor[]{
-				new CalcDescriptor(1011, R.string.basketball, R.drawable.basketball, Basketball.class),
-				new CalcDescriptor(1073, R.string.pace, R.drawable.lightning, Pace.class),
-				new CalcDescriptor(1072, R.string.oneRepMax, R.drawable.one_rep_max, OneRepMax.class),
-				new CalcDescriptor(1020, R.string.caloriesBurned, R.drawable.flame, CaloriesBurned.class),
-				new CalcDescriptor(1012, R.string.bodyMassIndex, R.drawable.body_mass_index, BodyMassIndex.class),
-				new CalcDescriptor(1067, R.string.basalMetabolicRate, R.drawable.lightning, BasalMetabolicRate.class),
-				new CalcDescriptor(1062, R.string.age, R.drawable.birthday_cake, Age.class),
-			}),
-			new GroupDescriptor(302, R.string.travel, R.drawable.folder_travel, new CalcDescriptor[]{
-				new CalcDescriptor(1003, R.string.FuelEcon, R.drawable.fuel_gauge, FuelEconomy.class),
-				new CalcDescriptor(1031, R.string.fuelCost, R.drawable.fuel_cost, FuelCost.class),
-				new CalcDescriptor(1026, R.string.foreignFuel, R.drawable.fuel_pump, ForeignFuel.class),
-				new CalcDescriptor(1079, R.string.OilChange, R.drawable.oil_change, OilChange.class),
-				new CalcDescriptor(1063, R.string.travelTime, R.drawable.travel_time, TravelTime.class),
-				new CalcDescriptor(1036, R.string.currencyExch, R.drawable.currency_exchange, CurrencyExchange.class),
-				new CalcDescriptor(1002, R.string.tip, R.drawable.tip, Tip.class),
-			}),
-			new GroupDescriptor(303, R.string.finance, R.drawable.folder_finance, new CalcDescriptor[]{
-				new CalcDescriptor(1013, R.string.compoundInterest, R.drawable.compound_interest, CompoundInterest.class),
-				new CalcDescriptor(1004, R.string.invest, R.drawable.investment, Investment.class),
-				new CalcDescriptor(1016, R.string.roi, R.drawable.roi, ReturnOnInvestment.class),
-				new CalcDescriptor(1005, R.string.loan, R.drawable.loan, Loan.class),
-				new CalcDescriptor(1080, R.string.houseAff, R.drawable.house, HouseAffordability.class),
-				new CalcDescriptor(1022, R.string.laborCost, R.drawable.labor_cost, LaborCost.class),
-				new CalcDescriptor(1074, R.string.habitCost, R.drawable.habit_cost, HabitCost.class),
-				new CalcDescriptor(1066, R.string.stream, R.drawable.netflix, StreamingCost.class),
-				new CalcDescriptor(1018, R.string.tithing, R.drawable.coins, Tithing.class),
-			}),
-			new GroupDescriptor(311,R.string.cooking, R.drawable.folder_cooking, new CalcDescriptor[]{
-				new CalcDescriptor(1052, R.string.recipeMult, R.drawable.recipe_book, RecipeMultiplier.class),
-				new CalcDescriptor(1048, R.string.tempConvert, R.drawable.temperature, TemperatureConvert.class),
-				new CalcDescriptor(1049, R.string.massConvert, R.drawable.scale, MassConvert.class),
-				new CalcDescriptor(1053, R.string.lengthConvert, R.drawable.ruler, LengthConvert.class),
-				new CalcDescriptor(1054, R.string.areaConvert, R.drawable.baking_sheet, AreaConvert.class),
-				new CalcDescriptor(1055, R.string.volumeConvert, R.drawable.volume, VolumeConvert.class),
+			new GroupDescriptor("Cooking", R.string.cooking, R.drawable.folder_cooking, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.recipeMult, R.drawable.recipe_book, RecipeMult.class),
+				new CalcDescriptor(R.string.tempConvert, R.drawable.temperature, TemperatureConvert.class),
+				new CalcDescriptor(R.string.massConvert, R.drawable.scale, MassConvert.class),
+				new CalcDescriptor(R.string.lengthConvert, R.drawable.ruler, LengthConvert.class),
+				new CalcDescriptor(R.string.areaConvert, R.drawable.baking_sheet, AreaConvert.class),
+				new CalcDescriptor(R.string.volumeConvert, R.drawable.volume, VolumeConvert.class),
 				/*
-				new CalcDescriptor(?, "Food Amount", R.drawable.food_amount, FoodAmount.class),
+				new CalcDescriptor("FoodAmount", R.string.foodAmount, R.drawable.food_amount, FoodAmount.class),
 				 */
 			}),
-			new GroupDescriptor(305, R.string.events, R.drawable.folder_events, new CalcDescriptor[]{
-				new CalcDescriptor(1033, R.string.dateArith, R.drawable.calendar, DateArith.class),
-				new CalcDescriptor(1056, R.string.dateDiff, R.drawable.calendar, DateDiff.class),
-				new CalcDescriptor(1007, R.string.counter, R.drawable.abacus, Counter.class),
-				new CalcDescriptor(1008, R.string.queueTime, R.drawable.queue, QueueTime.class),
-				new CalcDescriptor(1071, R.string.tableCount, R.drawable.table_with_chairs, TableCount.class),
+			new GroupDescriptor("Events", R.string.events, R.drawable.folder_events, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.age, R.drawable.birthday_cake, Age.class),
+				new CalcDescriptor(R.string.animalAge, R.drawable.dog, AnimalAge.class),
+				new CalcDescriptor(R.string.tableCount, R.drawable.table_with_chairs, TableCount.class),
+				new CalcDescriptor(R.string.dateArith, R.drawable.calendar, DateArith.class),
+				new CalcDescriptor(R.string.dateDiff, R.drawable.calendar, DateDiff.class),
+				new CalcDescriptor(R.string.romanNumConvert, R.drawable.roman_num, RomanNumerals.class),
+				new CalcDescriptor(R.string.counter, R.drawable.abacus, Counter.class),
+				new CalcDescriptor(R.string.queueTime, R.drawable.queue, QueueTime.class),
 			}),
-			new GroupDescriptor(309, R.string.mathematics, R.drawable.folder_math, new CalcDescriptor[]{
-				new CalcDescriptor(1029, R.string.percent, R.drawable.percent, Percent.class),
-				new CalcDescriptor(1082, R.string.fractions, R.drawable.fraction, Fractions.class),
-				new CalcDescriptor(1030, R.string.ratio, R.drawable.golden_ratio, Ratio.class),
-				new CalcDescriptor(1024, R.string.quadratic, R.drawable.quadratic, Quadratic.class),
-				new CalcDescriptor(1028, R.string.modulo, R.drawable.division, Modulo.class),
-				new CalcDescriptor(1064, R.string.pointsDist, R.drawable.points_dist, DistanceBetweenPoints.class),
-				new CalcDescriptor(1023, R.string.rightTriangle, R.drawable.right_triangle, RightTriangle.class),
-				new CalcDescriptor(1050, R.string.triangle, R.drawable.triangle, Triangle.class),
-				new CalcDescriptor(1042, R.string.rectangle, R.drawable.rectangle, Rectangle.class),
-				new CalcDescriptor(1037, R.string.sphere, R.drawable.sphere, Sphere.class),
-				new CalcDescriptor(1057, R.string.torus, R.drawable.torus, Torus.class),
-				new CalcDescriptor(1044, R.string.cylinder, R.drawable.cylinder, Cylinder.class),
-				new CalcDescriptor(1046, R.string.cone, R.drawable.cone, Cone.class),
-				new CalcDescriptor(1058, R.string.rectPrism, R.drawable.box, RectangularPrism.class),
-				new CalcDescriptor(1034, R.string.pyramid, R.drawable.pyramid, Pyramid.class),
-				/*
-				new CalcDescriptor(?, "GCM and LCM", R.drawable.gcmlcm, GCMandLCM.class),
-				 */
+			new GroupDescriptor("Fitness", R.string.fitness, R.drawable.folder_sports, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.bodyMassIndex, R.drawable.body_mass_index, BodyMassIndex.class),
+				new CalcDescriptor(R.string.basalMetabolicRate, R.drawable.lightning, BasalMetabolicRate.class),
+				new CalcDescriptor(R.string.caloriesBurned, R.drawable.flame, CaloriesBurned.class),
+				new CalcDescriptor(R.string.basketball, R.drawable.basketball, Basketball.class),
+				new CalcDescriptor(R.string.pace, R.drawable.lightning, Pace.class),
+				new CalcDescriptor(R.string.oneRepMax, R.drawable.barbell, OneRepMax.class),
+			}),
+			new GroupDescriptor("Travel", R.string.travel, R.drawable.folder_travel, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.FuelEcon, R.drawable.fuel_gauge, FuelEconomy.class),
+				new CalcDescriptor(R.string.fuelCost, R.drawable.fuel_cost, FuelCost.class),
+				new CalcDescriptor(R.string.foreignFuel, R.drawable.fuel_pump, ForeignFuel.class),
+				new CalcDescriptor(R.string.travelTime, R.drawable.travel_time, TravelTime.class),
+				new CalcDescriptor(R.string.OilChange, R.drawable.oil_change, OilChange.class),
+				new CalcDescriptor(R.string.currencyExch, R.drawable.currency_exchange, CurrencyExchange.class),
+				new CalcDescriptor(R.string.gratuity, R.drawable.gratuity, Gratuity.class),
+			}),
+			new GroupDescriptor("Finance", R.string.finance, R.drawable.folder_finance, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.compoundInterest, R.drawable.compound_interest, CompoundInterest.class),
+				new CalcDescriptor(R.string.invest, R.drawable.investment, Investment.class),
+				new CalcDescriptor(R.string.roi, R.drawable.roi, ReturnOnInvest.class),
+				new CalcDescriptor(R.string.loan, R.drawable.loan, Loan.class),
+				new CalcDescriptor(R.string.houseAff, R.drawable.house, HouseAffordability.class),
+				new CalcDescriptor(R.string.laborCost, R.drawable.labor_cost, LaborCost.class),
+				new CalcDescriptor(R.string.habitCost, R.drawable.habit_cost, HabitCost.class),
+				new CalcDescriptor(R.string.stream, R.drawable.netflix, StreamingCost.class),
+				new CalcDescriptor(R.string.tithing, R.drawable.coins, Tithing.class),
+			}),
+			new GroupDescriptor("Academic", R.string.academic, R.drawable.folder_academic, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.gpaCalc, R.drawable.gpa, GPA.class),
+			}),
+			new GroupDescriptor("Science", R.string.science, R.drawable.folder_science, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.NewtonsSecond, R.drawable.motion, NewtonsSecond.class),
+				new CalcDescriptor(R.string.pendulum, R.drawable.pendulum, Pendulum.class),
+				new CalcDescriptor(R.string.harmonicMotion, R.drawable.spring, HarmonicMotion.class),
+				new CalcDescriptor(R.string.Torque, R.drawable.gear, Torque.class),
+				new CalcDescriptor(R.string.ohmsLaw, R.drawable.omega, OhmsLaw.class),
+				new CalcDescriptor(R.string.electricPower, R.drawable.electric, ElectricPower.class),
+				new CalcDescriptor(R.string.electricEnergy, R.drawable.electric, ElectricEnergy.class),
+				new CalcDescriptor(R.string.coulombsLaw, R.drawable.charges, CoulombsLaw.class),
+				new CalcDescriptor(R.string.idealGas, R.drawable.ideal_gas, IdealGas.class),
+				new CalcDescriptor(R.string.gasEnergy, R.drawable.gas_energy, GasEnergy.class),
+				new CalcDescriptor(R.string.gasVelocity, R.drawable.gas_velocity, GasVelocity.class),
+				new CalcDescriptor(R.string.relativity, R.drawable.einstein, Relativity.class),
+			}),
+			new GroupDescriptor("Art", R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.videoStorage, R.drawable.film, VideoStorage.class),
+				new CalcDescriptor(R.string.starExposure, R.drawable.star_exposure, StarExposure.class),
+				new CalcDescriptor(R.string.musicDuration, R.drawable.music_notes, MusicDuration.class),
+			}),
+			new GroupDescriptor("Math", R.string.mathematics, R.drawable.folder_math, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.percent, R.drawable.percent, Percent.class),
+				new CalcDescriptor(R.string.fractions, R.drawable.fraction, Fractions.class),
+				new CalcDescriptor(R.string.ratio, R.drawable.golden_ratio, Ratio.class),
+				new CalcDescriptor(R.string.quadratic, R.drawable.quadratic, Quadratic.class),
+				new CalcDescriptor(R.string.modulo, R.drawable.division, Modulo.class),
+				new CalcDescriptor(R.string.pointsDist, R.drawable.points_dist, DistBetweenPoints.class),
+				new CalcDescriptor(R.string.rightTriangle, R.drawable.right_triangle, RightTriangle.class),
+				new CalcDescriptor(R.string.triangle, R.drawable.triangle, Triangle.class),
+				new CalcDescriptor(R.string.rectangle, R.drawable.rectangle, Rectangle.class),
+				new CalcDescriptor(R.string.sphere, R.drawable.sphere, Sphere.class),
+				new CalcDescriptor(R.string.torus, R.drawable.torus, Torus.class),
+				new CalcDescriptor(R.string.cylinder, R.drawable.cylinder, Cylinder.class),
+				new CalcDescriptor(R.string.cone, R.drawable.cone, Cone.class),
+				new CalcDescriptor(R.string.rectPrism, R.drawable.box, RectPrism.class),
+				new CalcDescriptor(R.string.pyramid, R.drawable.pyramid, Pyramid.class),
 			}),
 			/*
-			new GroupDescriptor(?, "Geometry", R.drawable.geometryfolder, new CalcDescriptor[] {
-				new CalcDescriptor(?, "Points", R.drawable.points, Points.class),
-				new CalcDescriptor(?, "Circle", R.drawable.circle, Circle.class),
-				new CalcDescriptor(?, "Ellipse", R.drawable.ellipse, Ellipse.class),
-				new CalcDescriptor(?, "Square", R.drawable.square, Square.class),
-				new CalcDescriptor(?, "Rhombus", R.drawable.rhombus, Rhombus.class),
-				new CalcDescriptor(?, "Cube", R.drawable.cube, Cube.class),
-				new CalcDescriptor(?, "Triangular Prism", R.drawable.triprism, TriPrism.class),
+			new GroupDescriptor("Geometry", R.string.geometry, R.drawable.geometry_folder, new CalcDescriptor[] {
+				new CalcDescriptor("Points", R.string.points, R.drawable.points, Points.class),
+				new CalcDescriptor("Circle", R.string.circle, R.drawable.circle, Circle.class),
+				new CalcDescriptor("Ellipse", R.string.ellipse, R.drawable.ellipse, Ellipse.class),
+				new CalcDescriptor("Square", R.string.square, R.drawable.square, Square.class),
+				new CalcDescriptor("Rhombus", R.string.rhombus, R.drawable.rhombus, Rhombus.class),
+				new CalcDescriptor("Cube", R.string.cube, R.drawable.cube, Cube.class),
+				new CalcDescriptor("TriPrism", R.string.tri_prism, R.drawable.tri_prism, TriPrism.class),
 			}), */
-			new GroupDescriptor(306, R.string.stats, R.drawable.folder_stats, new CalcDescriptor[]{
-				new CalcDescriptor(1009, R.string.meanEtc, R.drawable.mean_etc, MeanEtc.class),
-				new CalcDescriptor(1010, R.string.correl, R.drawable.correlation, Correlation.class),
-				new CalcDescriptor(1076, R.string.binDis, R.drawable.normal_distrib, BinDistProb.class),
+			new GroupDescriptor("Statistics", R.string.stats, R.drawable.folder_stats, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.meanEtc, R.drawable.mean_etc, MeanEtc.class),
+				new CalcDescriptor(R.string.correl, R.drawable.correlation, Correlation.class),
+				new CalcDescriptor(R.string.binDis, R.drawable.normal_distrib, BinDistProb.class),
 			}),
-			new GroupDescriptor(312, R.string.computing, R.drawable.folder_computing, new CalcDescriptor[]{
-				new CalcDescriptor(1015, R.string.binaryConvert, R.drawable.binary, Binary.class),
-				new CalcDescriptor(1047, R.string.subnet, R.drawable.network, Subnet.class),
-				new CalcDescriptor(1077, R.string.passAttack, R.drawable.padlock, PasswordAttack.class),
+			new GroupDescriptor("Computing", R.string.computing, R.drawable.folder_computing, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.binaryConvert, R.drawable.binary, Binary.class),
+				new CalcDescriptor(R.string.subnet, R.drawable.network, Subnet.class),
+				new CalcDescriptor(R.string.passAttack, R.drawable.padlock, PasswordAttack.class),
 			}),
-			new GroupDescriptor(304, R.string.science, R.drawable.folder_science, new CalcDescriptor[]{
-				new CalcDescriptor(1040, R.string.NewtonsSecond, R.drawable.motion, NewtonsSecond.class),
-				new CalcDescriptor(1043, R.string.pendulum, R.drawable.pendulum, Pendulum.class),
-				new CalcDescriptor(1039, R.string.harmonicMotion, R.drawable.spring, HarmonicMotion.class),
-				new CalcDescriptor(1051, R.string.Torque, R.drawable.gear, Torque.class),
-				new CalcDescriptor(1006, R.string.ohmsLaw, R.drawable.omega, OhmsLaw.class),
-				new CalcDescriptor(1069, R.string.electricPower, R.drawable.electric, ElectricPower.class),
-				new CalcDescriptor(1070, R.string.electricEnergy, R.drawable.electric, ElectricEnergy.class),
-				new CalcDescriptor(1035, R.string.coulombsLaw, R.drawable.charges, CoulombsLaw.class),
-				new CalcDescriptor(1027, R.string.idealGas, R.drawable.ideal_gas, IdealGas.class),
-				new CalcDescriptor(1045, R.string.gasEnergy, R.drawable.gas_energy, GasEnergy.class),
-				new CalcDescriptor(1038, R.string.gasVelocity, R.drawable.gas_velocity, GasVelocity.class),
-				new CalcDescriptor(1059, R.string.relativity, R.drawable.einstein, Relativity.class),
-			}),
-			new GroupDescriptor(313, R.string.art, R.drawable.folder_art, new CalcDescriptor[]{
-				new CalcDescriptor(1065, R.string.videoStorage, R.drawable.film, VideoStorage.class),
-				new CalcDescriptor(1061, R.string.starExposure, R.drawable.star_exposure, StarExposure.class),
-				new CalcDescriptor(1060, R.string.musicDuration, R.drawable.music_notes, MusicDuration.class),
-			}),
-			new GroupDescriptor(314,R.string.academic, R.drawable.folder_academic, new CalcDescriptor[]{
-				new CalcDescriptor(1075, R.string.gpaCalc, R.drawable.gpa, GPA.class),
-			}),
-			new GroupDescriptor(310, R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
-				new CalcDescriptor(1032, R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),
-				new CalcDescriptor(1021, R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
-				new CalcDescriptor(1068, R.string.romanNumConvert, R.drawable.roman_num, RomanNumerals.class),
-				new CalcDescriptor(1078, R.string.animalAge, R.drawable.dog, AnimalAge.class),
+			new GroupDescriptor("General", R.string.general, R.drawable.folder_general, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.unitConvert, R.drawable.unit_convert, UnitConvert.class),
+				new CalcDescriptor(R.string.fiveFunc, R.drawable.five_func, FiveFunction.class),
 			}),
 		});
 
@@ -148,8 +145,8 @@ final class Descriptors {
 		int count = countDescrips(hierarchy) + 2;
 		descriptors = new Descriptor[count];
 		storeDescrips(descriptors, 0, hierarchy);
-		descriptors[count - 2] = new CalcDescriptor(1, R.string.about, R.mipmap.calc360, About.class);
-		descriptors[count - 1] = new CalcDescriptor(2, R.string.feedback, R.mipmap.calc360, Feedback.class);
+		descriptors[count - 2] = new CalcDescriptor(R.string.about, R.mipmap.calc360, About.class);
+		descriptors[count - 1] = new CalcDescriptor(R.string.feedback, R.mipmap.calc360, Feedback.class);
 		Arrays.sort(descriptors, Descriptor.compareID);
 	}
 
@@ -168,13 +165,6 @@ final class Descriptors {
 	/** Stores in array, the descriptors in the
 	 * hierarchy that includes and is below descrip. */
 	private static int storeDescrips(Descriptor[] array, int index, Descriptor descrip) {
-		// Check for duplicated ID's.
-//		for (int i = 0;  i < index;  ++i) {
-//			if (array[i].getID() == descrip.getID()) {
-//				throw new IllegalArgumentException("duplicated ID: " + descrip.getID());
-//			}
-//		}
-
 		array[index++] = descrip;
 		if (descrip instanceof GroupDescriptor) {
 			for (Descriptor child : ((GroupDescriptor)descrip).getChildren()) {
@@ -185,8 +175,8 @@ final class Descriptors {
 	}
 
 	/** Finds a descriptor by its ID and returns the descriptor. */
-	static Descriptor getDescrip(int descrID) {
-		Descriptor key = new CalcDescriptor(descrID, 0, 0, null);
+	static Descriptor getDescrip(String descrID) {  //int descrID) {
+		Descriptor key = new CalcDescriptor(descrID);
 		int index = Arrays.binarySearch(descriptors, key, Descriptor.compareID);
 		return index >= 0 ? descriptors[index] : null;
 	}

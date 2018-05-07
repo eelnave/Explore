@@ -27,8 +27,8 @@
 	<string name="SurfaceArea">área de la superficie</string>
 
 	<string name="pointsDist">Distancia entre puntos</string>
-	<string name="coordinate1">coordinar 1</string>
-	<string name="coordinate2">coordinar 2</string>
+	<string name="point1">coordinar 1</string>
+	<string name="point2">coordinar 2</string>
 
 	<string name="rightTriangle">Triángulo rectángulo</string>
 	<string name="rtDiagram">Diagrama de un triángulo rectángulo</string>

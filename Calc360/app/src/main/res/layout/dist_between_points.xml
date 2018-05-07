@@ -2,6 +2,7 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/DistBetweenPoints"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	compat:columnCount="6">
@@ -9,7 +10,7 @@
 	<TextView
 		style="@style/TextLabel"
 		android:labelFor="@+id/oneX"
-		android:text="@string/coordinate1"/>
+		android:text="@string/point1"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -43,7 +44,7 @@
 	<TextView
 		style="@style/TextLabel"
 		android:labelFor="@+id/twoX"
-		android:text="@string/coordinate2"/>
+		android:text="@string/point2"/>
 
 	<TextView
 		style="@style/TextLabel"

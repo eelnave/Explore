@@ -1,116 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	android:layout_marginStart="10dp"
-	android:layout_marginTop="@dimen/default_gap"
-	android:orientation="vertical">
+	android:id="@+id/TravelTime"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
 
-	<TextView
-		style="@style/TextLabel"
-		android:text="@string/ttExplain"/>
-
-	<RelativeLayout
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp">
+		android:orientation="vertical">
 
-		<TextView
-			android:id="@+id/empty1"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
+		<LinearLayout
+			android:id="@+id/explain"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="15dp"
+			android:orientation="vertical"
+			android:visibility="gone">
 
-		<EditText
-			android:id="@+id/decDist"
-			style="@style/UnsignedDecimal"
-			android:layout_alignBaseline="@+id/empty1"
-			android:layout_toEndOf="@+id/empty1"
-			android:ems="4">
+			<TextView
+				style="@style/TextLabel"
+				android:text="@string/ttExplain"/>
 
-			<requestFocus/>
-		</EditText>
+			<Button
+				android:id="@+id/btnHide"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="end"
+				android:text="@string/hideExplain"/>
+		</LinearLayout>
 
-		<Spinner
-			android:id="@+id/spinDistUnits"
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp">
+
+			<TextView
+				android:id="@+id/empty1"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+			<EditText
+				android:id="@+id/decDist"
+				style="@style/UnsignedDecimal"
+				android:layout_alignBaseline="@+id/empty1"
+				android:layout_toEndOf="@+id/empty1"
+				android:ems="4">
+
+				<requestFocus/>
+			</EditText>
+
+			<Spinner
+				android:id="@+id/spinDistUnits"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignBaseline="@+id/empty1"
+				android:layout_toEndOf="@+id/decDist"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignEnd="@+id/decDist"
+				android:layout_alignStart="@+id/decDist"
+				android:layout_below="@+id/empty1"
+				android:labelFor="@+id/decDist"
+				android:text="@string/Distance"
+				android:textAlignment="center"/>
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp">
+
+			<TextView
+				android:id="@+id/empty2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+
+			<EditText
+				android:id="@+id/decSpeed"
+				style="@style/UnsignedDecimal"
+				android:layout_alignBaseline="@+id/empty2"
+				android:layout_toEndOf="@+id/empty2"
+				android:ems="4"
+				android:imeOptions="actionDone"/>
+
+			<Spinner
+				android:id="@+id/spinSpeedUnits"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignBaseline="@+id/empty2"
+				android:layout_toEndOf="@+id/decSpeed"/>
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignEnd="@+id/decSpeed"
+				android:layout_alignStart="@+id/decSpeed"
+				android:layout_below="@+id/empty2"
+				android:labelFor="@+id/decSpeed"
+				android:text="@string/avgSpeed"
+				android:textAlignment="center"/>
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp">
+
+			<TextView
+				android:id="@+id/decTime"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentTop="true"
+				android:layout_marginStart="@dimen/default_gap"
+				android:layout_toEndOf="@+id/lblTime"
+				android:textAlignment="textEnd"/>
+
+			<TextView
+				android:id="@+id/lblTime"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:labelFor="@+id/decTime"
+				android:text="@string/travelTime"/>
+		</RelativeLayout>
+
+		<Button
+			android:id="@+id/btnClear"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_alignBaseline="@+id/empty1"
-			android:layout_toEndOf="@+id/decDist"/>
-
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignEnd="@+id/decDist"
-			android:layout_alignStart="@+id/decDist"
-			android:layout_below="@+id/empty1"
-			android:labelFor="@+id/decDist"
-			android:text="@string/Distance"
-			android:textAlignment="center"/>
-	</RelativeLayout>
-
-	<RelativeLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp">
-
-		<TextView
-			android:id="@+id/empty2"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"/>
-
-		<EditText
-			android:id="@+id/decSpeed"
-			style="@style/UnsignedDecimal"
-			android:layout_alignBaseline="@+id/empty2"
-			android:layout_toEndOf="@+id/empty2"
-			android:ems="4"
-			android:imeOptions="actionDone"/>
-
-		<Spinner
-			android:id="@+id/spinSpeedUnits"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignBaseline="@+id/empty2"
-			android:layout_toEndOf="@+id/decSpeed"/>
-
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignEnd="@+id/decSpeed"
-			android:layout_alignStart="@+id/decSpeed"
-			android:layout_below="@+id/empty2"
-			android:labelFor="@+id/decSpeed"
-			android:text="@string/avgSpeed"
-			android:textAlignment="center"/>
-	</RelativeLayout>
-
-	<RelativeLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp">
-
-		<TextView
-			android:id="@+id/decTime"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentTop="true"
-			android:layout_marginStart="@dimen/default_gap"
-			android:layout_toEndOf="@+id/lblTime"
-			android:textAlignment="textEnd"/>
-
-		<TextView
-			android:id="@+id/lblTime"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:labelFor="@+id/decTime"
-			android:text="@string/travelTime"/>
-	</RelativeLayout>
-
-	<Button
-		android:id="@+id/btnClear"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp"
-		android:text="@string/clear"/>
-</LinearLayout>
+			android:layout_marginTop="15dp"
+			android:text="@string/clear"/>
+	</LinearLayout>
+</ScrollView>

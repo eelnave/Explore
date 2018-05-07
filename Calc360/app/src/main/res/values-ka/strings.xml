@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="appName">კალკულატორი 360</string>
+	<string name="explain">ახსენით</string>
 
 	<string name="about">დაახლოებით</string>
-	<string name="contribs">ავტორები</string>
-
+	<string name="version">ვერსია</string>
 	<string name="appDescr">კოლექციის ადვილად გამოსაყენებელი კონკრეტული კალკულატორები შექმნილია, დაწერილი და შენარჩუნებულია სტუდენტების მიერ ბრიგჰემ იანგის უნივერსიტეტი - იდაჰო</string>
 	<string name="eula">კანონით დაშვებული სრული მოცულობით, ეს პროგრამული უზრუნველყოფა არ არის გარანტია, გამოხატული ან ნაგულისხმევი. ამ პროგრამული უზრუნველყოფის ინსტალაციით და / ან გამოყენებით თქვენ თანახმა ხართ გამართოთ უვნებელი ბრიგემის ახალგაზრდა უნივერსიტეტი - იდაჰო და მისი სპონსორები, თანამშრომლები და სტუდენტები.</string>
-	<string name="logoCredit">ჩვენ შევქმენით ლოგო და ხატები Calc360- ის უფასო იარაღის გამოყენებით logomakr.com- ზე</string>
+	<string name="contribs">ავტორები</string>
 	<string name="fall2017">შემოდგომა 2017</string>
 	<string name="winter2018">ზამთარი 2018</string>
+	<string name="logoCredit">ჩვენ შევქმენით ლოგო და ხატები Calc360- ის უფასო იარაღის გამოყენებით logomakr.com- ზე</string>
 
 	<string name="mistake">ეს უხერხულია. რაღაც არასწორია ამ კალკულატორით და არ მუშაობს. ბოდიშს გიხდით.</string>
 

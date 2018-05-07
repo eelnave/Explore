@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
@@ -22,8 +21,9 @@ import edu.byui.cit.text.TextWrapper;
 
 public class LaborCost extends CalcFragment {
 	private static final String
-			KEY_WAGE = "LaborCost.wage",
-			KEY_SALARY = "LaborCost.salary";
+			KEY_PREFIX = "LaborCost",
+			KEY_WAGE = KEY_PREFIX + ".wage",
+			KEY_SALARY = KEY_PREFIX + ".salary";
 
 	private final NumberFormat fmtrRate, fmtrCur, fmtrInt;
 	private EditCurrency curPrice, curSalesTaxAmt, curWage, curSalary;
@@ -47,7 +47,7 @@ public class LaborCost extends CalcFragment {
 
 		curPrice = new EditCurrency(view, R.id.curPrice, this);
 		decSalesTaxRate = new EditDecimal(view, R.id.decSalesTaxRate,
-				Calc360.KEY_SALES_TAX_RATE, this);
+				SalesTax.KEY_SALES_TAX_RATE, this);
 		curSalesTaxAmt = new EditCurrency(view, R.id.curSalesTaxAmt, this);
 		curWage = new EditCurrency(view, R.id.curWage, KEY_WAGE, this);
 		curSalary = new EditCurrency(view, R.id.curSalary, KEY_SALARY, this);

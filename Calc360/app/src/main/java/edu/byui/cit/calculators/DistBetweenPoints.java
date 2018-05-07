@@ -15,7 +15,7 @@ import edu.byui.cit.text.EditWrapper;
 import edu.byui.cit.text.TextWrapper;
 
 
-public final class DistanceBetweenPoints extends CalcFragment {
+public final class DistBetweenPoints extends CalcFragment {
 	private final NumberFormat fmtrDec;
 
 	// Each of these variables is a reference to
@@ -26,7 +26,7 @@ public final class DistanceBetweenPoints extends CalcFragment {
 	private TextWrapper decDist;
 
 
-	public DistanceBetweenPoints() {
+	public DistBetweenPoints() {
 		// Call the constructor in the parent class.
 		super();
 
@@ -38,7 +38,7 @@ public final class DistanceBetweenPoints extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
 		// Inflate the layout for this calculator.
-		View view = inflater.inflate(R.layout.distance_between_points, container, false);
+		View view = inflater.inflate(R.layout.dist_between_points, container, false);
 
 		// Get a reference to each of the text fields in this calculator.
 		oneX = new EditDecimal(view, R.id.oneX, this);

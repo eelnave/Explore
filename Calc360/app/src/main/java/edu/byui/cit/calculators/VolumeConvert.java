@@ -7,6 +7,6 @@ import edu.byui.cit.units.Volume;
 
 public final class VolumeConvert extends Converter {
 	public VolumeConvert() {
-		super("VolConv", Volume.getInstance(), R.array.kitchenVolume);
+		super("VolumeConvert", Volume.getInstance(), R.array.kitchenVolume);
 	}
 }

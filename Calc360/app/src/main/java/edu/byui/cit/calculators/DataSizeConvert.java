@@ -7,6 +7,6 @@ import edu.byui.cit.units.DataSize;
 
 public final class DataSizeConvert extends Converter {
 	public DataSizeConvert() {
-		super("DataSizeConv", DataSize.getInstance(), R.array.dataSize);
+		super("DataSizeConvert", DataSize.getInstance(), R.array.dataSize);
 	}
 }

@@ -26,8 +26,9 @@ import edu.byui.cit.units.Unit;
 public final class TravelTime extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
 	private static final String
-			KEY_DIST_UNITS = "TravelTime.distUnits",
-			KEY_SPE_UNITS = "TravelTime.speUnits";
+			KEY_PREFIX = "TravelTime",
+			KEY_DIST_UNITS = KEY_PREFIX + ".distUnits",
+			KEY_SPE_UNITS = KEY_PREFIX + ".speUnits";
 
 	private final NumberFormat fmtrInt = NumberFormat.getIntegerInstance();
 	private EditDecimal decDist, decSpeed;

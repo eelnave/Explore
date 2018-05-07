@@ -16,7 +16,7 @@ import edu.byui.cit.text.EditWrapper;
 import static edu.byui.cit.model.Geometry.RectangularPrism.*;
 
 
-public final class RectangularPrism extends SolveSeries {
+public final class RectPrism extends SolveSeries {
 	private final NumberFormat fmtrDec = NumberFormat.getInstance();
 	private EditDecimal decWidth, decHeight, decLength, decSurfArea, decVolume;
 
@@ -25,7 +25,7 @@ public final class RectangularPrism extends SolveSeries {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		View view = inflater.inflate(R.layout.rectangular_prism, container,
+		View view = inflater.inflate(R.layout.rect_prism, container,
 				false);
 
 		decWidth = new EditDecimal(view, R.id.decWidth, this);

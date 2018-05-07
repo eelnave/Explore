@@ -2,6 +2,8 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/ReturnOnInvest"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
 	compat:columnCount="2">
@@ -15,7 +17,8 @@
 		android:id="@+id/curIncome"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/roiIncomeHint">
+		android:hint="@string/roiIncomeHint"
+		tools:ignore="LabelFor">
 
 		<requestFocus/>
 	</EditText>
@@ -29,7 +32,8 @@
 		android:id="@+id/curExpenses"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/roiExpensesHint"/>
+		android:hint="@string/roiExpensesHint"
+		tools:ignore="LabelFor"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -40,7 +44,8 @@
 		android:id="@+id/curInvest"
 		style="@style/UnsignedDecimal"
 		android:ems="5"
-		android:hint="@string/roiInvestHint"/>
+		android:hint="@string/roiInvestHint"
+		tools:ignore="LabelFor"/>
 
 	<TextView
 		style="@style/TextLabel"

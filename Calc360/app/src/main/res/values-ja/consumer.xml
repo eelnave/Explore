@@ -23,7 +23,7 @@
 	<string name="prod2">製品 2</string>
 	<string name="prod3">製品 3</string>
 
-	<string name="tip">チップ</string>
+	<string name="gratuity">チップ</string>
 	<string name="costBeforeTax">税引前の費用</string>
 	<string name="taxAmt">税金</string>
 

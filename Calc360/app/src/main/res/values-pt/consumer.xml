@@ -23,7 +23,7 @@
 	<string name="prod2">Produto 2</string>
 	<string name="prod3">Produto 3</string>
 
-	<string name="tip">Gorjeta</string>
+	<string name="gratuity">Gorjeta</string>
 	<string name="costBeforeTax">Custo antes de Impostos</string>
 	<string name="taxAmt">Montante do Imposto</string>
 

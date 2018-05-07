@@ -29,6 +29,7 @@ import edu.byui.cit.units.Unit;
 
 public final class CaloriesBurned extends CalcFragment {
 	private static final String KEY_MASS_UNITS = "CaloriesBurned.massUnits";
+
 	private final NumberFormat fmtrDec;
 	private EditDecimal decWeight;
 	private SpinUnit spinMass;

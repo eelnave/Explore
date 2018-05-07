@@ -10,7 +10,8 @@ import java.util.Comparator;
  * information about a calculator or a group (folder) of calculators.
  */
 abstract class Descriptor {
-	private final int id, titleID, iconID;
+	private final String id;
+	private final int titleID, iconID;
 	private final Class<? extends InfoFragment> calcClass;
 	private String title;
 
@@ -24,7 +25,7 @@ abstract class Descriptor {
 	 *                  should be opened when the user clicks
 	 *                  this descriptor
 	 */
-	Descriptor(int id, int titleID, int iconID,
+	Descriptor(String id, int titleID, int iconID,
 			   Class<? extends InfoFragment> calcClass) {
 		this.id = id;
 		this.titleID = titleID;
@@ -32,7 +33,7 @@ abstract class Descriptor {
 		this.calcClass = calcClass;
 	}
 
-	int getID() {
+	String getID() {
 		return id;
 	}
 
@@ -56,10 +57,16 @@ abstract class Descriptor {
 		return calcClass.getSimpleName();
 	}
 
+//	static final Comparator<Descriptor> compareID = new Comparator<Descriptor>() {
+//		@Override
+//		public int compare(Descriptor ch1, Descriptor ch2) {
+//			return ch1.id - ch2.id;
+//		}
+//	};
 	static final Comparator<Descriptor> compareID = new Comparator<Descriptor>() {
 		@Override
-		public int compare(Descriptor ch1, Descriptor ch2) {
-			return ch1.id - ch2.id;
+		public int compare(Descriptor one, Descriptor two) {
+			return one.id.compareTo(two.id);
 		}
 	};
 }

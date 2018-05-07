@@ -2,6 +2,8 @@
 <ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/Cylinder"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
@@ -19,7 +21,8 @@
 			android:id="@+id/decRadius"
 			style="@style/UnsignedDecimal"
 			android:ems="5"
-			android:hint="@string/radius">
+			android:hint="@string/radius"
+			tools:ignore="LabelFor">
 
 			<requestFocus/>
 		</EditText>
@@ -33,7 +36,8 @@
 			android:id="@+id/decHeight"
 			style="@style/UnsignedDecimal"
 			android:ems="5"
-			android:hint="@string/height"/>
+			android:hint="@string/height"
+			tools:ignore="LabelFor"/>
 
 		<TextView
 			style="@style/TextLabel"
@@ -55,7 +59,8 @@
 			android:id="@+id/decSurfArea"
 			style="@style/UnsignedDecimal"
 			android:ems="7"
-			android:hint="@string/surfaceArea"/>
+			android:hint="@string/surfaceArea"
+			tools:ignore="LabelFor"/>
 
 		<TextView
 			style="@style/TextLabel"
@@ -78,7 +83,8 @@
 			style="@style/UnsignedDecimal"
 			android:ems="7"
 			android:hint="@string/volume"
-			android:imeOptions="actionDone"/>
+			android:imeOptions="actionDone"
+			tools:ignore="LabelFor"/>
 
 		<Button
 			android:id="@+id/btnClear"

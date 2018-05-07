@@ -28,8 +28,8 @@
 	<string name="SurfaceArea">Surface Spécifique</string>
 
 	<string name="pointsDist">Distance entre les Points</string>
-	<string name="coordinate1">coordonnées 1</string>
-	<string name="coordinate2">coordonnées 2</string>
+	<string name="point1">coordonnées 1</string>
+	<string name="point2">coordonnées 2</string>
 
 	<string name="rightTriangle">Triangle rectangle</string>
 	<string name="rtDiagram">Diagramme d’un triangle rectangle</string>

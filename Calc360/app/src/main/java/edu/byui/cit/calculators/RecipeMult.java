@@ -26,7 +26,7 @@ import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 
 
-public class RecipeMultiplier extends CalcFragment {
+public class RecipeMult extends CalcFragment {
 	private static final String
 			KEY_PREFIX = "RecipeMult",
 			KEY_MULT = KEY_PREFIX + ".mult",
@@ -48,7 +48,7 @@ public class RecipeMultiplier extends CalcFragment {
 	private SpinString spinMult;
 	private TextWrapper decResult;
 
-	public RecipeMultiplier() {
+	public RecipeMult() {
 		super();
 		fmtrDec = NumberFormat.getInstance();
 		fmtrDec.setMaximumFractionDigits(2);
@@ -59,7 +59,7 @@ public class RecipeMultiplier extends CalcFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// Inflate the layout for this fragment.
-		View view = inflater.inflate(R.layout.recipe_multiplier, container,
+		View view = inflater.inflate(R.layout.recipe_mult, container,
 				false);
 
 		spinProp = new SpinProperty(getActivity(), view, R.id.spinProp,

@@ -20,7 +20,7 @@ import edu.byui.cit.text.ControlWrapper;
 
 public class OneRepMax extends CalcFragment {
 	// variables for user input & formatting
-	private static final String KEY_REPS = "Reps";
+	private static final String KEY_REPS = "OneRepMax.reps";
 	private EditDecimal decWeight;
 	private TextWrapper maxWeight;
 	private SpinInteger numReps;

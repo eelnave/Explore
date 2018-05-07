@@ -2,6 +2,7 @@
 <ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/LaborCost"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent">
 
@@ -10,9 +11,25 @@
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
 
-		<TextView
-			style="@style/TextLabel"
-			android:text="@string/laborExplain"/>
+		<LinearLayout
+			android:id="@+id/explain"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="15dp"
+			android:orientation="vertical"
+			android:visibility="gone">
+
+			<TextView
+				style="@style/TextLabel"
+				android:text="@string/laborExplain"/>
+
+			<Button
+				android:id="@+id/btnHide"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="end"
+				android:text="@string/hideExplain"/>
+		</LinearLayout>
 
 		<android.support.v7.widget.GridLayout
 			android:layout_width="match_parent"
@@ -99,8 +116,8 @@
 			android:id="@+id/output"
 			style="@style/TextResult"
 			android:layout_marginTop="20dp"
-			android:textAlignment="textStart"
-			android:minHeight="36pt"/>
+			android:minHeight="36pt"
+			android:textAlignment="textStart"/>
 
 		<Button
 			android:id="@+id/btnClear"

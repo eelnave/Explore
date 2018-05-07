@@ -43,15 +43,15 @@ public final class Consumer {
 	}
 
 
-	public static final class Tip {
-		private Tip() {
+	public static final class Gratuity {
+		private Gratuity() {
 		}
 
 		/** Computes the tip amount from a known cost, taxAmt, and total. In
 		 * other words, this function is used when the consumer knows the
 		 * total, including tip that he wants to spend, and the calculator is
 		 * supposed to compute the tip amount for the consumer's information. */
-		public static double tipAmount(
+		public static double gratuity(
 				double cost, double taxAmt, double total) {
 			return total - (cost + taxAmt);
 		}
