@@ -30,14 +30,4 @@
 	<string name="usa">米国</string>
 	<string name="euro">欧州</string>
 	<string name="shoeSize">靴のサイズ</string>
-
-	<string name="ratio">比</string>
-	<string name="XofY">XがYにあるとき、AはBにあります</string>
-
-	<string name="percent">パーセント</string>
-	<string name="XPercentOfY">yのx％は何ですか？</string>
-	<string name="percentOf">% の</string>
-	<string name="to">に</string>
-	<string name="percentIsXofY">yのx％は何ですか？</string>
-	<string name="percentChange">xからyへの変化率はどのくらいですか？</string>
 </resources>

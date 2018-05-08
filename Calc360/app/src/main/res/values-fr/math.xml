@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="ratio">Ratio</string>
+	<string name="XofY">A est à B comme X à Y</string>
+
+	<string name="percent">Pour cent</string>
+	<string name="XPercentOfY">Quoi de x% de y?</string>
+	<string name="percentOf">% de</string>
+	<string name="to">to</string>
+	<string name="percentIsXofY">Est ce que % x de y?</string>
+	<string name="percentChange">Quel est le pourcentage passer de x à y?</string>
+</resources>

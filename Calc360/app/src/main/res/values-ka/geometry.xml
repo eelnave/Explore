@@ -27,7 +27,7 @@
 	<string name="Perimeter">პერიმეტრი</string>
 	<string name="SurfaceArea">ზედაპირის ფართობი</string>
 
-	<string name="pointsDist">მანძილი პუნქტებს შორის</string>
+	<string name="points">შორის</string>
 	<string name="point1">კოორდინირება 1</string>
 	<string name="point2">კოორდინირება 2</string>
 

@@ -27,6 +27,10 @@
 	<string name="Perimeter">Perímetro</string>
 	<string name="SurfaceArea">Superfície</string>
 
+	<string name="points">Pontos</string>
+	<string name="point1">Coordenada 1</string>
+	<string name="point2">Coordenada 2</string>
+
 	<string name="rightTriangle">Triângulo Direito</string>
 	<string name="rtDiagram">Diagrama de um triângulo direito</string>
 
@@ -53,8 +57,4 @@
 	<string name="rectPrism">Prisma Retângular</string>
 
 	<string name="pyramid">Pirâmide</string>
-
-	<string name="pointsDist">Distância entre Pontos</string>
-	<string name="point1">Coordenada 1</string>
-	<string name="point2">Coordenada 2</string>
 </resources>

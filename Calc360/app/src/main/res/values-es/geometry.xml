@@ -26,11 +26,11 @@
 	<string name="Perimeter">perímetro</string>
 	<string name="SurfaceArea">área de la superficie</string>
 
-	<string name="pointsDist">Distancia entre puntos</string>
-	<string name="point1">coordinar 1</string>
-	<string name="point2">coordinar 2</string>
+	<string name="points">Puntos</string>
+	<string name="point1">Coordinar 1</string>
+	<string name="point2">Coordinar 2</string>
 
-	<string name="rightTriangle">Triángulo rectángulo</string>
+	<string name="rightTriangle">Triángulo Rectángulo</string>
 	<string name="rtDiagram">Diagrama de un triángulo rectángulo</string>
 
 	<string name="triangle">Triángulo</string>

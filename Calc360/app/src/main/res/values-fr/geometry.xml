@@ -27,11 +27,11 @@
 	<string name="Perimeter">Périmètre</string>
 	<string name="SurfaceArea">Surface Spécifique</string>
 
-	<string name="pointsDist">Distance entre les Points</string>
-	<string name="point1">coordonnées 1</string>
-	<string name="point2">coordonnées 2</string>
+	<string name="points">Points</string>
+	<string name="point1">Coordonnées 1</string>
+	<string name="point2">Coordonnées 2</string>
 
-	<string name="rightTriangle">Triangle rectangle</string>
+	<string name="rightTriangle">Triangle Rectangle</string>
 	<string name="rtDiagram">Diagramme d’un triangle rectangle</string>
 
 	<string name="triangle">Triangle</string>

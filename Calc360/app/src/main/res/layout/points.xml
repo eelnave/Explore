@@ -2,10 +2,10 @@
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
-	android:id="@+id/DistBetweenPoints"
+	android:id="@+id/Points"
 	android:layout_width="wrap_content"
 	android:layout_height="wrap_content"
-	compat:columnCount="6">
+	compat:columnCount="8">
 
 	<TextView
 		style="@style/TextLabel"
@@ -20,22 +20,31 @@
 	<EditText
 		android:id="@+id/oneX"
 		style="@style/SignedDecimal"
-		android:ems="5"
-		android:hint="@string/X">
+		android:ems="4"
+		android:hint="@string/x">
 
 		<requestFocus/>
 	</EditText>
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/oneY"
 		android:text="@string/comma"/>
 
 	<EditText
 		android:id="@+id/oneY"
 		style="@style/SignedDecimal"
-		android:ems="5"
-		android:hint="@string/Y"/>
+		android:ems="4"
+		android:hint="@string/y"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/comma"/>
+
+	<EditText
+		android:id="@+id/oneZ"
+		style="@style/SignedDecimal"
+		android:ems="4"
+		android:hint="@string/z"/>
 
 	<TextView
 		style="@style/TextLabel"
@@ -54,23 +63,73 @@
 	<EditText
 		android:id="@+id/twoX"
 		style="@style/SignedDecimal"
-		android:ems="5"
-		android:hint="@string/X"/>
+		android:ems="4"
+		android:hint="@string/x"/>
 
 	<TextView
 		style="@style/TextLabel"
-		android:labelFor="@+id/twoY"
 		android:text="@string/comma"/>
 
 	<EditText
 		android:id="@+id/twoY"
 		style="@style/SignedDecimal"
-		android:ems="5"
-		android:hint="@string/Y"
+		android:ems="4"
+		android:hint="@string/y"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/comma"/>
+
+	<EditText
+		android:id="@+id/twoZ"
+		style="@style/SignedDecimal"
+		android:ems="4"
+		android:hint="@string/z"
 		android:imeOptions="actionDone"/>
 
 	<TextView
 		style="@style/TextLabel"
+		android:text="@string/rparen"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/midpoint"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginStart="10dp"
+		android:layout_marginTop="15dp"
+		android:text="@string/lparen"/>
+
+	<TextView
+		android:id="@+id/midX"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/comma"/>
+
+	<TextView
+		android:id="@+id/midY"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/comma"/>
+
+	<TextView
+		android:id="@+id/midZ"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
 		android:text="@string/rparen"/>
 
 	<TextView
@@ -84,7 +143,7 @@
 		android:layout_marginTop="15dp"
 		compat:layout_columnSpan="3"/>
 
-	<Space compat:layout_columnSpan="2"/>
+	<Space compat:layout_columnSpan="4"/>
 
 	<Button
 		android:id="@+id/btnClear"
@@ -92,5 +151,5 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"
 		android:text="@string/clear"
-		compat:layout_columnSpan="6"/>
+		compat:layout_columnSpan="8"/>
 </android.support.v7.widget.GridLayout>

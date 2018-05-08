@@ -30,14 +30,4 @@
 	<string name="usa">აშშ</string>
 	<string name="euro">ევროპა</string>
 	<string name="shoeSize">ფეხსაცმლის ზომა</string>
-
-	<string name="ratio">პროპორცია</string>
-	<string name="XofY">A არიის B როგორც X არის Y</string>
-
-	<string name="percent">პროცენტი</string>
-	<string name="XPercentOfY">რა არის X% Y-ის</string>
-	<string name="percentOf">%</string>
-	<string name="to">ზე</string>
-	<string name="percentIsXofY">რა არის % X Y-ის</string>
-	<string name="percentChange">რა არის პროცენტული ცვლილება x- დან y-ანდე</string>
 </resources>

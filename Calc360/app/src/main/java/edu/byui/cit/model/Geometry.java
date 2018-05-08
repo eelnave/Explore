@@ -7,6 +7,14 @@ public final class Geometry {
 	private Geometry() {
 	}
 
+	private static double absDiff(double v1, double v2) {
+		return Math.abs(v1 - v2);
+	}
+
+	private static double epsilon(double v1, double v2) {
+		return Math.min(Math.abs(v1), Math.abs(v2)) * 1e-3;
+	}
+
 
 	public static final class Point2D {
 		public final double x, y;
@@ -26,14 +34,6 @@ public final class Geometry {
 						absDiff(p1.y, p2.y) < epsilon(p1.y, p2.y);
 			}
 			return eq;
-		}
-
-		private static double absDiff(double v1, double v2) {
-			return Math.abs(v1 - v2);
-		}
-
-		private static double epsilon(double v1, double v2) {
-			return Math.min(Math.abs(v1), Math.abs(v2)) * 1e-3;
 		}
 
 		public double distance(Point2D p2) {
@@ -359,6 +359,35 @@ public final class Geometry {
 			this.x = x;
 			this.y = y;
 			this.z = z;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			boolean eq = false;
+			if (obj instanceof Point3D) {
+				Point3D p1 = this;
+				Point3D p2 = (Point3D)obj;
+				eq = absDiff(p1.x, p2.x) < epsilon(p1.x, p2.x) &&
+						absDiff(p1.y, p2.y) < epsilon(p1.y, p2.y) &&
+						absDiff(p1.z, p2.z) < epsilon(p1.z, p2.z);
+			}
+			return eq;
+		}
+
+		public double distance(Point3D p2) {
+			Point3D p1 = this;
+			double dx = p2.x - p1.x;
+			double dy = p2.y - p1.y;
+			double dz = p2.z - p1.z;
+			return Math.sqrt(dx * dx + dy * dy + dz * dz);
+		}
+
+		public Point3D midpoint(Point3D p2) {
+			Point3D p1 = this;
+			return new Point3D(
+					(p1.x + p2.x) / 2.0,
+					(p1.y + p2.y) / 2.0,
+					(p1.z + p2.z) / 2.0);
 		}
 	}
 

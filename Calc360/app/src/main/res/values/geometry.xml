@@ -32,9 +32,13 @@
 	<string name="Perimeter">Perimeter</string>
 	<string name="SurfaceArea">Surface Area</string>
 
-	<string name="pointsDist">Distance between Points</string>
+	<string name="points">Points</string>
 	<string name="point1">Point 1</string>
 	<string name="point2">Point 2</string>
+	<string name="midpoint">Midpoint</string>
+	<string name="x">x</string>
+	<string name="y">y</string>
+	<string name="z">z</string>
 
 	<string name="rightTriangle">Right Triangle</string>
 	<string name="triHyp" translatable="false">hyp</string>

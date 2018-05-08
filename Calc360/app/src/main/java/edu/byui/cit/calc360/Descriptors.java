@@ -95,7 +95,9 @@ final class Descriptors {
 				new CalcDescriptor(R.string.ratio, R.drawable.golden_ratio, Ratio.class),
 				new CalcDescriptor(R.string.quadratic, R.drawable.quadratic, Quadratic.class),
 				new CalcDescriptor(R.string.modulo, R.drawable.division, Modulo.class),
-				new CalcDescriptor(R.string.pointsDist, R.drawable.points_dist, DistBetweenPoints.class),
+			}),
+			new GroupDescriptor("Geometry", R.string.geometry, R.drawable.folder_geometry, new CalcDescriptor[]{
+				new CalcDescriptor(R.string.points, R.drawable.points, Points.class),
 				new CalcDescriptor(R.string.rightTriangle, R.drawable.right_triangle, RightTriangle.class),
 				new CalcDescriptor(R.string.triangle, R.drawable.triangle, Triangle.class),
 				new CalcDescriptor(R.string.rectangle, R.drawable.rectangle, Rectangle.class),
@@ -105,9 +107,7 @@ final class Descriptors {
 				new CalcDescriptor(R.string.cone, R.drawable.cone, Cone.class),
 				new CalcDescriptor(R.string.rectPrism, R.drawable.box, RectPrism.class),
 				new CalcDescriptor(R.string.pyramid, R.drawable.pyramid, Pyramid.class),
-			}),
-			/*
-			new GroupDescriptor("Geometry", R.string.geometry, R.drawable.geometry_folder, new CalcDescriptor[] {
+				/*
 				new CalcDescriptor("Points", R.string.points, R.drawable.points, Points.class),
 				new CalcDescriptor("Circle", R.string.circle, R.drawable.circle, Circle.class),
 				new CalcDescriptor("Ellipse", R.string.ellipse, R.drawable.ellipse, Ellipse.class),
@@ -115,7 +115,8 @@ final class Descriptors {
 				new CalcDescriptor("Rhombus", R.string.rhombus, R.drawable.rhombus, Rhombus.class),
 				new CalcDescriptor("Cube", R.string.cube, R.drawable.cube, Cube.class),
 				new CalcDescriptor("TriPrism", R.string.tri_prism, R.drawable.tri_prism, TriPrism.class),
-			}), */
+				*/
+			}),
 			new GroupDescriptor("Statistics", R.string.stats, R.drawable.folder_stats, new CalcDescriptor[]{
 				new CalcDescriptor(R.string.meanEtc, R.drawable.mean_etc, MeanEtc.class),
 				new CalcDescriptor(R.string.correl, R.drawable.correlation, Correlation.class),

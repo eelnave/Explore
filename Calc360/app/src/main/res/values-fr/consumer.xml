@@ -42,19 +42,4 @@
 	<string name="usa">É.-U.</string>
 	<string name="euro">L’Europe</string>
 	<string name="shoeSize">Taille de chaussure</string>
-
-	<string name="ratio">Ratio</string>
-	<string name="XofY">A est à B comme X à Y</string>
-	<string name="A" translatable="false">A</string>
-	<string name="B" translatable="false">B</string>
-	<string name="X" translatable="false">X</string>
-	<string name="Y" translatable="false">Y</string>
-
-	<string name="percent">Pour cent</string>
-	<string name="XPercentOfY">Quoi de x% de y?</string>
-	<string name="percentOf">% de</string>
-	<string name="is" translatable="false">=</string>
-	<string name="to">to</string>
-	<string name="percentIsXofY">Est ce que % x de y?</string>
-	<string name="percentChange">Quel est le pourcentage passer de x à y?</string>
 </resources>
