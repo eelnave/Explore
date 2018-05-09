@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorBlueDark">#007ac1</color>
+    <color name="colorBlueMid">#03a9f4</color>
+
+
+    <!-- blue shades for icons-->
+    <color name="colorBlueOne">#00caff</color>
+    <color name="colorBlueTwo">#00b2ff</color>
+    <color name="colorBlueThree">#009de3</color>
+    <color name="colorBlueFour">#008dce</color>
+    <color name="colorBlueFive">#007cb5</color>
+    <color name="colorBlueSix">#006ea3</color>
+
+
+    <color name="colorYellowDark">#c9bc1f</color>
+    <color name="colorYellowMid">#ffee58</color>
+    <color name="colorYellowLight">#ffff8b</color>
+    <color name="colorYellowBackground">#fffff9</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#ffffff</color>
+
+
 </resources>

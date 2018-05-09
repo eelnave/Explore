@@ -1,35 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.byui.cit.kindness">
+    package="edu.byui.cit.kindness"
+	android:versionCode="2">
 
-    <!--When using ACCESS_COARSE_LOCATION you cannot use GPS_PROVIDER, you must use NETWORK_PROVIDER.
-     - If you try to run a get location method on the android emulator, IT WILL NOT WORK because the android
-     emulator does not have a network.  You need to test it on an real android phone that is connected to a
-     network for testing to work.-->
+    <!-- When using ACCESS_COARSE_LOCATION you cannot use GPS_PROVIDER. You
+     - must use NETWORK_PROVIDER instead. If you try to run a get location
+     - method on the android emulator, IT WILL NOT WORK because the android
+     - emulator does not have a network. You need to test it on a real
+     - android phone that is connected to a network for testing to work. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+	<permission android:name="edu.byui.cit.kindness.permission.MAPS_RECIEVE"
+		android:protectionLevel="signature"
+		/>
+	<uses-permission android:name="edu.byui.cit.kindness.permission.MAPS_RECIEVE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appName"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/kindnesslogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="edu.byui.cit.kindness.MainActivity">
+        <activity android:name="edu.byui.cit.kindness.KindnessActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="edu.byui.cit.kindness.SubmitActivity">
+		<meta-data
+			android:name="com.google.android.geo.API_KEY"
+			android:value="@string/google_maps_key" />
+        <activity
+            android:name="edu.byui.cit.kindness.KindnessMap"
+            android:label="@string/map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
-
 </manifest>
