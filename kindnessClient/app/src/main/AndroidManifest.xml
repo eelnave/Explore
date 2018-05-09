@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.byui.cit.kindness">
+    package="edu.byui.cit.kindness"
+	android:versionCode="2">
 
     <!-- When using ACCESS_COARSE_LOCATION you cannot use GPS_PROVIDER. You
      - must use NETWORK_PROVIDER instead. If you try to run a get location
@@ -22,7 +23,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appName"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/kindnesslogo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="edu.byui.cit.kindness.KindnessActivity">
@@ -36,7 +37,7 @@
 			android:name="com.google.android.geo.API_KEY"
 			android:value="@string/google_maps_key" />
         <activity
-            android:name=".KindnessMap"
+            android:name="edu.byui.cit.kindness.KindnessMap"
             android:label="@string/map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

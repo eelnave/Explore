@@ -1,36 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:compat="http://schemas.android.com/apk/res-auto"
-	xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:background="#ffffff"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context="edu.byui.cit.kindness.KindnessActivity">
+	android:layout_height="match_parent">
 
 	<android.support.v7.widget.GridLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginLeft="75dp"
-		android:layout_marginRight="75dp"
-		compat:columnCount="1"
-		compat:rowCount="2">
+		android:layout_height="match_parent">
 
-		<edu.byui.cit.kindness.IconButton
-			android:id="@+id/report_kindness"
-			style="@style/IconButton"
-			android:layout_height="wrap_content"
-			android:background="@drawable/reportkindness"
-			android:text="@string/report_kindness"/>
-
-		<edu.byui.cit.kindness.IconButton
-			android:id="@+id/see_kindness"
-			style="@style/IconButton"
+		<LinearLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:background="@drawable/seekindness"
-			android:text="@string/see_kindness"/>
+			android:layout_height="match_parent"
+			android:gravity="center"
+			android:orientation="vertical">
+
+			<edu.byui.cit.kindness.IconButton
+				android:id="@+id/report_kindness"
+				style="@style/MainIconButton"
+				android:background="@drawable/reportkindness"
+				android:text="@string/report_kindness" />
+
+			<edu.byui.cit.kindness.IconButton
+				android:id="@+id/see_kindness"
+				style="@style/MainIconButton"
+				android:layout_height="6dp"
+				android:background="@drawable/seekindness"
+				android:text="@string/see_kindness"/>
+		</LinearLayout>
 
 	</android.support.v7.widget.GridLayout>
 
-</ScrollView>
+</android.support.constraint.ConstraintLayout>

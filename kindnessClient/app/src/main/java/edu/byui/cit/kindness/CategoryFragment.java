@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 public class CategoryFragment extends InfoFragment {
+	private Button map;
 
 	public class categoryListener implements View.OnClickListener
 	{
@@ -27,6 +28,7 @@ public class CategoryFragment extends InfoFragment {
 		@Override
 		public void onClick(View v)
 		{
+
 			try {
 				if (fragment == null || fragment.isDetached()) {
 					fragment = SubmitFragment.class.newInstance();
@@ -39,24 +41,39 @@ public class CategoryFragment extends InfoFragment {
 				Log.e(KindnessActivity.TAG,
 						"cannot instantiate submit fragment", ex);
 			}
-			switchFragment(fragment);
+			Animation buttonAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.button_click);
+			v.startAnimation(buttonAnimate);
+			v.postDelayed(new Runnable() {
+				@Override
+				public void run() {
+					switchFragment(fragment);
+				}
+			}, buttonAnimate.getDuration());
 		}
 	}
 
-//	private final class SeeListener implements View.OnClickListener {
-//		@Override
-//		public void onClick(View view) {
-//			try {
-//				Intent goToMap = new Intent(getActivity(), KindnessMap.class);
-//				getActivity().startActivity(goToMap);
-//
-//			}
-//			catch (Exception ex) {
-//				Log.e(KindnessActivity.TAG,
-//						"cannot instantiate KindnessMap ActivityFragment", ex);
-//			}
-//		}
-//	}
+	private final class SeeListener implements View.OnClickListener {
+		@Override
+		public void onClick(final View view) {
+			try {
+				Animation logoAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.icon_zoom_in);
+				map.bringToFront();
+				map.startAnimation(logoAnimate);
+				final Intent goToMap = new Intent(getActivity(), KindnessMap.class);
+				view.postDelayed(new Runnable() {
+					@Override
+					public void run() {
+						getActivity().startActivity(goToMap);
+					}
+				}, logoAnimate.getDuration()-250);
+
+			}
+			catch (Exception ex) {
+				Log.e(KindnessActivity.TAG,
+						"cannot instantiate KindnessMap ActivityFragment", ex);
+			}
+		}
+	}
 
 	public CategoryFragment() {
 		// Required empty public constructor
@@ -75,27 +92,30 @@ public class CategoryFragment extends InfoFragment {
 				false);
 
 		//Save buttons from view, add event listeners
-//		Button map = view.findViewById(R.id.logo);
-//			map.setOnClickListener(new SeeListener());
+			map = view.findViewById(R.id.logo);
+			map.setOnClickListener(new SeeListener());
 		Button service = view.findViewById(R.id.service);
 			service.setOnClickListener(new categoryListener(R.id.service));
+			service.getBackground().setAlpha(100);
 		Button time = view.findViewById(R.id.time);
 			time.setOnClickListener(new categoryListener(R.id.time));
+			time.getBackground().setAlpha(100);
 		Button touch = view.findViewById(R.id.touch);
 			touch.setOnClickListener(new categoryListener(R.id.touch));
+			touch.getBackground().setAlpha(100);
 		Button words = view.findViewById(R.id.words);
 			words.setOnClickListener(new categoryListener(R.id.words));
+			words.getBackground().setAlpha(100);
 		Button gift = view.findViewById(R.id.gift);
 			gift.setOnClickListener(new categoryListener(R.id.gift));
+			gift.getBackground().setAlpha(100);
 
-//		Animation logoAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.category_map_enlarge);
 		Animation timeAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.time_animate);
 		Animation giftAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.gift_animate);
 		Animation serviceAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.service_animate);
 		Animation wordsAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.words_animate);
 		Animation touchAnimate = AnimationUtils.loadAnimation(getActivity(),R.anim.touch_animate);
 
-//		map.startAnimation(logoAnimate);
 		time.startAnimation(timeAnimate);
 		gift.startAnimation(giftAnimate);
 		service.startAnimation(serviceAnimate);
