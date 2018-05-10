@@ -24,11 +24,14 @@ public class EditInteger extends EditWrapper {
 
 	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
-		restore(prefs, fmtr, 0);
+		if (!hasUserInput() && prefs.contains(prefsKey)) {
+			int val = prefs.getInt(prefsKey, 0);
+			setInput(fmtr.format(val));
+		}
 	}
 
 	public void restore(SharedPreferences prefs, NumberFormat fmtr, int deflt) {
-		if (!hasUserInput() && prefs.contains(prefsKey)) {
+		if (!hasUserInput()) {
 			int val = prefs.getInt(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}

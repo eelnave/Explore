@@ -36,13 +36,9 @@ public final class SpinInteger extends SpinWrapper {
 
 	public void restore(SharedPreferences prefs, int deflt) {
 		int preferred = prefs.getInt(prefsKey, deflt);
-		SpinnerAdapter adapter = spinner.getAdapter();
-		for (int i = 0, len = adapter.getCount();  i < len;  ++i) {
-			int item = (Integer)adapter.getItem(i);
-			if (item == preferred) {
-				setSelection(i);
-				break;
-			}
+		int pos = positionOf(preferred);
+		if (pos != -1) {
+			setSelection(pos);
 		}
 	}
 

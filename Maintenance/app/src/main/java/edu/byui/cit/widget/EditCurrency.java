@@ -25,12 +25,15 @@ public class EditCurrency extends EditWrapper {
 
 	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
-		restore(prefs, fmtr, 0);
+		if (!hasUserInput() && prefs.contains(prefsKey)) {
+			float val = prefs.getFloat(prefsKey, 0);
+			setInput(fmtr.format(val));
+		}
 	}
 
 	public void restore(
 			SharedPreferences prefs, NumberFormat fmtr, float deflt) {
-		if (!hasUserInput() && prefs.contains(prefsKey)) {
+		if (!hasUserInput()) {
 			float val = prefs.getFloat(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}

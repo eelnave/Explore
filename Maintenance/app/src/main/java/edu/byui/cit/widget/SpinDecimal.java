@@ -18,7 +18,7 @@ public final class SpinDecimal extends SpinWrapper {
 		String[] array = ctx.getResources().getStringArray(arrayID);
 		ArrayList<Float> list = new ArrayList<>(array.length);
 		for (String item : array) {
-			float num = Float.parseFloat(item);
+			Float num = Float.parseFloat(item);
 			list.add(num);
 		}
 		ArrayAdapter<Float> adapter = new ArrayAdapter<>(ctx,
@@ -35,12 +35,13 @@ public final class SpinDecimal extends SpinWrapper {
 		editor.putFloat(prefsKey, getDec());
 	}
 
-	public void restore(SharedPreferences prefs, int deflt) {
-		int preferred = prefs.getInt(prefsKey, deflt);
+	public void restore(SharedPreferences prefs, float deflt) {
+		float preferred = prefs.getFloat(prefsKey, deflt);
 		SpinnerAdapter adapter = spinner.getAdapter();
+		float delta = Math.min(preferred, deflt) * 1e-3F;
 		for (int i = 0, len = adapter.getCount();  i < len;  ++i) {
-			int item = (Integer)adapter.getItem(i);
-			if (item == preferred) {
+			float item = (Float)adapter.getItem(i);
+			if (Math.abs(item - preferred) < delta) {
 				setSelection(i);
 				break;
 			}
