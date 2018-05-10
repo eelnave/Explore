@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import edu.byui.cit.calc360.InfoFragment;
+import edu.byui.cit.calc360.CITFragment;
 import edu.byui.cit.calc360.R;
 
 
-public final class About extends InfoFragment {
+public final class About extends CITFragment {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

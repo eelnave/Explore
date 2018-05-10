@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/ChooseVehicle"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	compat:columnCount="3">
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		style="@style/VehicleButton"
+		android:text="2002 Mazda 626"/>
+
+	<Button
+		android:id="@+id/btnAdd"
+		style="@style/VehicleButton"
+		android:text="@string/add"/>
+</android.support.v7.widget.GridLayout>

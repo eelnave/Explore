@@ -32,8 +32,8 @@ public final class Calc360 extends AppCompatActivity {
 			KEY_SHOW_HELP = ".showHelp";
 	private static final int MIN_PREFS_VERSION = 38;
 
-	private InfoFragment about, feedback;
-	private InfoFragment fivefunc;
+	private CITFragment about, feedback;
+	private CITFragment fivefunc;
 //	OnTouchListener swipeHandler;
 
 	public Calc360() {
@@ -168,7 +168,7 @@ public final class Calc360 extends AppCompatActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void switchFragment(InfoFragment fragment) {
+	public void switchFragment(CITFragment fragment) {
 		// Replace whatever is in the fragment_container view with
 		// fragment, and add the transaction to the back stack so
 		// that the user can navigate back.

@@ -7,14 +7,14 @@ import android.view.ViewGroup;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.InfoFragment;
+import edu.byui.cit.calc360.CITFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.text.ButtonWrapper;
 import edu.byui.cit.text.ClickListener;
 import edu.byui.cit.text.TextWrapper;
 
 
-public final class Counter extends InfoFragment {
+public final class Counter extends CITFragment {
 	private final NumberFormat fmtrInt = NumberFormat.getIntegerInstance();
 	private int count;
 	private TextWrapper intCount;

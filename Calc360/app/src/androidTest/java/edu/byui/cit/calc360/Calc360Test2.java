@@ -116,16 +116,16 @@ public class Calc360Test2 {
 		//onView(withId(R.id.starExpValField)).check(matches(withText("19")));
 		textView.check(matches(withText("19")));
 
-		ViewInteraction appCompatImageButton = onView(
-				allOf(withContentDescription("Navigate up"),
-						childAtPosition(
-								allOf(withId(R.id.toolbar),
-										childAtPosition(
-												withId(R.id.calc360),
-												0)),
-								1),
-						isDisplayed()));
-		appCompatImageButton.perform(click());
+//		ViewInteraction appCompatImageButton = onView(
+//				allOf(withContentDescription("Navigate up"),
+//						childAtPosition(
+//								allOf(withId(R.id.toolbar),
+//										childAtPosition(
+//												withId(R.id.calc360),
+//												0)),
+//								1),
+//						isDisplayed()));
+//		appCompatImageButton.perform(click());
 
 	}
 

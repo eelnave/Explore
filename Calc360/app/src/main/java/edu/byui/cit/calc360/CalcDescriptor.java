@@ -7,7 +7,7 @@ final class CalcDescriptor extends Descriptor {
 	}
 
 	CalcDescriptor(int titleID, int iconID,
-			Class<? extends InfoFragment> calcClass) {
+			Class<? extends CITFragment> calcClass) {
 		super(calcClass.getSimpleName(), titleID, iconID, calcClass);
 	}
 }

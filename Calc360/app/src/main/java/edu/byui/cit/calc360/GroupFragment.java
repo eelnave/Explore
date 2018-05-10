@@ -15,7 +15,7 @@ import android.support.v7.widget.GridLayout.LayoutParams;
 import android.widget.TextView;
 
 
-public class GroupFragment extends InfoFragment {
+public class GroupFragment extends CITFragment {
 	public GroupFragment() {
 		super();
 	}
@@ -131,7 +131,7 @@ public class GroupFragment extends InfoFragment {
 
 	private final class Click implements OnClickListener {
 		private final Descriptor descriptor;
-		private InfoFragment fragment;
+		private CITFragment fragment;
 
 		Click(Descriptor descriptor) {
 			this.descriptor = descriptor;

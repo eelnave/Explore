@@ -1,7 +1,5 @@
 package edu.byui.cit.calc360;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
 
@@ -12,7 +10,7 @@ import edu.byui.cit.text.EditWrapper;
 
 
 /** The parent (or grandparent) class of all calculators. */
-public abstract class CalcFragment extends InfoFragment {
+public abstract class CalcFragment extends CITFragment {
 	EditWrapper[] inputs;
 	EditWrapper[][] groups;
 	ControlWrapper[] toClear;

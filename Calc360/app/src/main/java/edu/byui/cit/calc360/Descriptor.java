@@ -12,7 +12,7 @@ import java.util.Comparator;
 abstract class Descriptor {
 	private final String id;
 	private final int titleID, iconID;
-	private final Class<? extends InfoFragment> calcClass;
+	private final Class<? extends CITFragment> calcClass;
 	private String title;
 
 	/**
@@ -26,7 +26,7 @@ abstract class Descriptor {
 	 *                  this descriptor
 	 */
 	Descriptor(String id, int titleID, int iconID,
-			   Class<? extends InfoFragment> calcClass) {
+			   Class<? extends CITFragment> calcClass) {
 		this.id = id;
 		this.titleID = titleID;
 		this.iconID = iconID;
@@ -41,7 +41,7 @@ abstract class Descriptor {
 		return iconID;
 	}
 
-	Class<? extends InfoFragment> getCalcClass() {
+	Class<? extends CITFragment> getCalcClass() {
 		return calcClass;
 	}
 

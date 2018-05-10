@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/AddVehicle"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	compat:columnCount="2">
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/year"
+		android:text="@string/year"/>
+
+	<EditText
+		android:id="@+id/year"
+		style="@style/UnsignedDecimal"
+		android:ems="5"/>
+</android.support.v7.widget.GridLayout>
