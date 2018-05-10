@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">Simple</string>
-    <string name="action_settings">Settings</string>
+	<string name="app_name">Simple</string>
+	<string name="action_settings">Settings</string>
+
+	<string name="prompt">Enter a number</string>
+	<string name="prompt2">Here is your number</string>
+
+	<string name="compute">Click me</string>
+	<string name="clear">Clear</string>
 </resources>
