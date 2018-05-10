@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import edu.byui.cit.widget.CITFragment;
+
 
 public class ChooseVehicle extends CITFragment {
 	@Override

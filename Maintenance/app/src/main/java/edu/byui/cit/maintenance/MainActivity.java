@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 
+import edu.byui.cit.widget.CITFragment;
+
 
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Maintenance";
