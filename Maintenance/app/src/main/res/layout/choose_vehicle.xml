@@ -20,50 +20,6 @@
 		android:text="2002 Mazda 626"/>
 
 	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
-		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
-
-	<Button
 		android:id="@+id/btnAdd"
 		style="@style/VehicleButton"
 		android:text="@string/add"/>

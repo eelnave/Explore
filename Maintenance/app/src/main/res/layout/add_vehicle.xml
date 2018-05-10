@@ -1,19 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.GridLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/AddVehicle"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	compat:columnCount="2">
+	android:orientation="vertical">
 
-	<TextView
-		style="@style/TextLabel"
-		android:labelFor="@+id/year"
-		android:text="@string/year"/>
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		compat:columnCount="2">
 
-	<EditText
-		android:id="@+id/year"
-		style="@style/UnsignedDecimal"
-		android:ems="5"/>
-</android.support.v7.widget.GridLayout>
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/year"
+			android:text="@string/year"/>
+
+		<EditText
+			android:id="@+id/year"
+			style="@style/UnsignedDecimal"
+			android:ems="5">
+
+			<requestFocus/>
+		</EditText>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/make"
+			android:text="@string/make"/>
+
+		<EditText
+			android:id="@+id/make"
+			style="@style/EditText"
+			android:ems="10"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/model"
+			android:text="@string/model"/>
+
+		<EditText
+			android:id="@+id/model"
+			style="@style/EditText"
+			android:ems="10"
+			android:imeOptions="actionDone"/>
+	</android.support.v7.widget.GridLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<Button
+			android:id="@+id/btnAdd"
+			style="@style/CommandButton"
+			android:text="@string/add"/>
+
+		<Button
+			android:id="@+id/btnReset"
+			style="@style/CommandButton"
+			android:text="@string/reset"/>
+	</LinearLayout>
+</LinearLayout>

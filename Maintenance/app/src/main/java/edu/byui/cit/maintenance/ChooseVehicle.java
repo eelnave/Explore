@@ -21,7 +21,7 @@ public class ChooseVehicle extends CITFragment {
 
 	@Override
 	protected String getTitle() {
-		return getActivity().getString(R.string.chooseVehicle);
+		return getActivity().getString(R.string.appName);
 	}
 
 
