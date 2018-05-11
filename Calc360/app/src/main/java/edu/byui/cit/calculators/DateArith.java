@@ -11,14 +11,14 @@ import java.util.Calendar;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.DateWrapper;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.DateWrapper;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.Time;
 
 
@@ -56,7 +56,7 @@ public final class DateArith extends CalcFragment {
 		dateResult = new TextWrapper(view, R.id.dateResult);
 
 		EditWrapper[] inputs = { intDuration };
-		ControlWrapper[] toClear = { intDuration, dateResult };
+		WidgetWrapper[] toClear = { intDuration, dateResult };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -77,7 +77,7 @@ public final class DateArith extends CalcFragment {
 	private final class TodayHandler implements ClickListener {
 		/** Handles a click on the Today button. */
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			// Get today's date.
 			Calendar calendar = Calendar.getInstance();
 			// Set the datePicker to the current date
@@ -91,7 +91,7 @@ public final class DateArith extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (intDuration.notEmpty()) {
 			// Set the date to what the user has selected
 			Calendar calendar = Calendar.getInstance();

@@ -11,15 +11,15 @@ import java.util.regex.Pattern;
 
 import edu.byui.cit.model.Fraction;
 import edu.byui.cit.model.Mathematics;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinString;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinString;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class Fractions extends CalcFragment {
@@ -115,7 +115,7 @@ public final class Fractions extends CalcFragment {
 				lefts[WHOLE], lefts[NUMER], lefts[DENOM], leftReal,
 				rights[WHOLE], rights[NUMER], rights[DENOM], leftReal
 		};
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				lefts[WHOLE], lefts[NUMER], lefts[DENOM], leftReal,
 				rights[WHOLE], rights[NUMER], rights[DENOM], leftReal,
 				results[WHOLE], results[NUMER], results[DENOM], resultReal
@@ -126,7 +126,7 @@ public final class Fractions extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		Fraction leftFract = readFractionOrReal(lefts, leftReal);
 		Fraction rightFract = readFractionOrReal(rights, rightReal);
 		if (leftFract != null && rightFract != null) {
@@ -214,7 +214,7 @@ public final class Fractions extends CalcFragment {
 	}
 
 
-	private void showFraction(ControlWrapper[] ctrls, Fraction fract) {
+	private void showFraction(WidgetWrapper[] ctrls, Fraction fract) {
 		int sign = fract.getSign();
 		int whole = fract.getWhole();
 		String text = "";
@@ -241,7 +241,7 @@ public final class Fractions extends CalcFragment {
 	}
 
 
-	private void showReal(ControlWrapper ctrl, Fraction fract) {
+	private void showReal(WidgetWrapper ctrl, Fraction fract) {
 		ctrl.setText(fmtrDec.format(fract.doubleValue()));
 	}
 }

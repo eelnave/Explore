@@ -10,10 +10,10 @@ import java.util.Calendar;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.DateWrapper;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.DateWrapper;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class Age extends CalcFragment {
@@ -44,14 +44,14 @@ public final class Age extends CalcFragment {
 		exactDays = new TextWrapper(view, R.id.exactDays);
 
 		EditWrapper[] inputs = {};
-		ControlWrapper[] toClear = { exactYears, exactMonths, exactDays };
+		WidgetWrapper[] toClear = { exactYears, exactMonths, exactDays };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		Calendar now = Calendar.getInstance();
 		Calendar birth = Calendar.getInstance();
 		birth.set(pickBirth.getYear(), pickBirth.getMonth(),

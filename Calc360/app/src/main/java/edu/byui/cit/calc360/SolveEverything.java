@@ -5,10 +5,11 @@ import android.view.View;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.InputWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.InputWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public abstract class SolveEverything extends CalcFragment {
@@ -45,7 +46,7 @@ public abstract class SolveEverything extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		try {
 			// Todo: allow user to choose number of decimal places.
 
@@ -114,7 +115,7 @@ public abstract class SolveEverything extends CalcFragment {
 	/** Handles a click on the clear button. */
 	private final class ClearHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			for (InputWrapper in : inputs) {
 				in.clear();
 			}

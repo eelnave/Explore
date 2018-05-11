@@ -7,21 +7,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.ItemSelectedHandler;
-import edu.byui.cit.text.SpinProperty;
-import edu.byui.cit.text.SpinString;
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ItemSelectedListener;
+import edu.byui.cit.widget.SpinWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinProperty;
+import edu.byui.cit.widget.SpinString;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
 
@@ -72,7 +72,7 @@ public class RecipeMult extends CalcFragment {
 		decResult = new TextWrapper(view, R.id.decResult);
 
 		EditWrapper[] inputs = { decOrigAmt };
-		ControlWrapper[] toClear = { decOrigAmt, decResult };
+		WidgetWrapper[] toClear = { decOrigAmt, decResult };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -102,10 +102,9 @@ public class RecipeMult extends CalcFragment {
 	}
 
 
-	private final class ChangeProperty extends ItemSelectedHandler {
+	private final class ChangeProperty implements ItemSelectedListener {
 		@Override
-		public void itemSelected(
-				AdapterView<?> parent, View view, int pos, long id) {
+		public void itemSelected(SpinWrapper source, int pos, long id) {
 			Activity act = getActivity();
 			SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
 			SharedPreferences.Editor editor = prefs.edit();
@@ -113,7 +112,7 @@ public class RecipeMult extends CalcFragment {
 			editor.apply();
 			initUnits();
 			restoreUnits(prefs);
-			callCompute();
+			compute(source);
 		}
 	}
 
@@ -150,7 +149,7 @@ public class RecipeMult extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		double origAmt = decOrigAmt.getDec();
 		int index = spinMult.getSelectedItemPosition();
 		double ratio = ratios[index];

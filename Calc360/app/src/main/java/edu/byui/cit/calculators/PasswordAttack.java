@@ -10,10 +10,10 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Computing;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public class PasswordAttack extends CalcFragment {
@@ -48,7 +48,7 @@ public class PasswordAttack extends CalcFragment {
 		inputs = new EditWrapper[]{
 				editDomain, editLength, editKeysSeconds, editMachines
 		};
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				editDomain, editLength, editKeysSeconds,
 				editMachines, resKeySpace, resSec, resHour, resDay, resYear
 		};
@@ -57,7 +57,7 @@ public class PasswordAttack extends CalcFragment {
 	}
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (EditWrapper.allNotEmpty(inputs)) {
 			int domain = editDomain.getInt();
 			int length = editLength.getInt();

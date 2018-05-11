@@ -13,12 +13,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import java.lang.reflect.Field;
 
 import edu.byui.cit.calculators.About;
 import edu.byui.cit.calculators.FiveFunction;
 import edu.byui.cit.units.World;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public final class Calc360 extends AppCompatActivity {
@@ -30,10 +35,14 @@ public final class Calc360 extends AppCompatActivity {
 			KEY_VERSION_CODE = KEY_PREFIX + ".versionCode",
 			KEY_ANGLE_UNITS = KEY_PREFIX + ".angleUnits",
 			KEY_SHOW_HELP = ".showHelp";
-	private static final int MIN_PREFS_VERSION = 38;
+	private static final int MIN_PREFS_VERSION = 41;
 
-	private CITFragment about, feedback;
-	private CITFragment fivefunc;
+	private LinearLayout layExplain;
+	private TextWrapper txtExplain;
+	private FrameLayout fragContain;
+
+	private CITFragment about;
+	private CITFragment fiveFunc;
 //	OnTouchListener swipeHandler;
 
 	public Calc360() {
@@ -41,8 +50,11 @@ public final class Calc360 extends AppCompatActivity {
 		Descriptors.initialize();
 	}
 
+
 	@Override
 	protected void onCreate(Bundle savedInstState) {
+//		Log.v(TAG, getClass().getSimpleName() + ".onCreate("
+//				+ savedInstState.size() + ")");
 		super.onCreate(savedInstState);
 
 		SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
@@ -54,7 +66,6 @@ public final class Calc360 extends AppCompatActivity {
 			editor.apply();
 		}
 
-//		Log.v(TAG, getClass().getSimpleName() + ".onCreateOptionsMenu()");
 		setContentView(R.layout.calc360);
 
 		Toolbar bar = findViewById(R.id.toolbar);
@@ -64,14 +75,19 @@ public final class Calc360 extends AppCompatActivity {
 		actBar.setDisplayHomeAsUpEnabled(true);
 //		actBar.setDisplayShowTitleEnabled(false);
 
+		layExplain = findViewById(R.id.layExplain);
+		txtExplain = new TextWrapper(layExplain, R.id.txtExplain);
+		fragContain = findViewById(R.id.fragContainer);
+		new ButtonWrapper(layExplain, R.id.btnHide, new HideHandler());
+
 		if (savedInstState == null) {
 			// Create a fragment that contains all the folders
 			// and place it as the first fragment in this activity.
 			GroupFragment frag = new GroupFragment();
-			frag.setDescrip("Calc360");
+			frag.setDescriptor(R.id.Calc360);
 
-			FragmentTransaction trans = getFragmentManager()
-					.beginTransaction();
+			FragmentTransaction trans =
+					getFragmentManager().beginTransaction();
 			trans.add(R.id.fragContainer, frag);
 			trans.commit();
 		}
@@ -79,6 +95,7 @@ public final class Calc360 extends AppCompatActivity {
 		// Initialize the physical properties and their units.
 		World.getInstance().initialize(this);
 	}
+
 
 //	@Override
 //	public void onStart() {
@@ -98,6 +115,7 @@ public final class Calc360 extends AppCompatActivity {
 //		Log.v(TAG, getClass().getSimpleName() + ".onSaveInstanceState(" +
 // (savedInstState == null ? "null" : savedInstState.size()) + ")");
 //	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -122,31 +140,32 @@ public final class Calc360 extends AppCompatActivity {
 				onBackPressed();
 				return true;
 			case R.id.actFive:
-				if (fivefunc == null || fivefunc.isDetached()) {
-					fivefunc = new FiveFunction();
-					fivefunc.setDescrip(fivefunc.getPrefsPrefix());
+				if (fiveFunc == null || fiveFunc.isDetached()) {
+					fiveFunc = new FiveFunction();
+					fiveFunc.setDescriptor(R.id.FiveFunction);
 				}
-				switchFragment(fivefunc);
+				switchFragment(fiveFunc);
 				return true;
-			case R.id.actHelp:
-				FrameLayout fragCont = findViewById(R.id.fragContainer);
-				View explain = fragCont.findViewById(R.id.explain);
+			case R.id.actExplain:
+				int calcID = fragContain.getChildAt(0).getId();
+				Descriptor descrip = Descriptors.getDescriptor(calcID);
+				Resources res = getResources();
+				String explain = descrip.getExplanation(res);
 				if (explain != null) {
-					explain.setVisibility(View.VISIBLE);
-					SharedPreferences prefs = getPreferences(
-							Context.MODE_PRIVATE);
+					String key = descrip.getPrefsPrefix(res) + KEY_SHOW_HELP;
+					SharedPreferences prefs =
+							getPreferences(Context.MODE_PRIVATE);
 					SharedPreferences.Editor editor = prefs.edit();
-					int childID = fragCont.getChildAt(0).getId();
-					String name = getResources().getResourceEntryName(childID);
-					String key = name + KEY_SHOW_HELP;
 					editor.putBoolean(key, true);
 					editor.apply();
+
+					showExplanation(explain);
 				}
 				return true;
 			case R.id.actAbout:
 				if (about == null || about.isDetached()) {
 					about = new About();
-					about.setDescrip(about.getPrefsPrefix());
+					about.setDescriptor(R.id.About);
 				}
 
 				// Replace whatever is in the fragment_container
@@ -156,19 +175,39 @@ public final class Calc360 extends AppCompatActivity {
 				// Return true to indicate that this
 				// method handled the item selected event.
 				return true;
-			case R.id.actFeedback:
-				if (feedback == null || feedback.isDetached()) {
-					feedback = new Feedback();
-					feedback.setDescrip(feedback.getPrefsPrefix());
-				}
-				switchFragment(feedback);
-				return true;
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void switchFragment(CITFragment fragment) {
+
+	/** Handles a click on the hide help (Got it!) button. */
+	private class HideHandler implements ClickListener {
+		@Override
+		public void clicked(WidgetWrapper source) {
+			hideExplanation();
+
+			int calcID = fragContain.getChildAt(0).getId();
+			Descriptor descrip = Descriptors.getDescriptor(calcID);
+			String key = descrip.getPrefsPrefix(getResources()) + KEY_SHOW_HELP;
+			SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
+			SharedPreferences.Editor editor = prefs.edit();
+			editor.putBoolean(key, false);
+			editor.apply();
+		}
+	}
+
+	final void showExplanation(String explain) {
+		txtExplain.setText(explain);
+		layExplain.setVisibility(View.VISIBLE);
+	}
+
+	final void hideExplanation() {
+		layExplain.setVisibility(View.GONE);
+	}
+
+
+	final void switchFragment(CITFragment fragment) {
 		// Replace whatever is in the fragment_container view with
 		// fragment, and add the transaction to the back stack so
 		// that the user can navigate back.
@@ -177,6 +216,7 @@ public final class Calc360 extends AppCompatActivity {
 		trans.addToBackStack(null);
 		trans.commit();
 	}
+
 
 	@Override
 	public void onBackPressed() {
@@ -192,21 +232,34 @@ public final class Calc360 extends AppCompatActivity {
 
 //	@Override
 //	public void onPause() {
-//		super.onPause();
 //		Log.v(TAG, getClass().getSimpleName() + ".onPause()");
+//		super.onPause();
 //	}
 //
 //	@Override
 //	public void onStop() {
-//		super.onStop();
 //		Log.v(TAG, getClass().getSimpleName() + ".onStop()");
+//		super.onStop();
 //	}
 //
 //	@Override
 //	public void onDestroy() {
-//		super.onDestroy();
 //		Log.v(TAG, getClass().getSimpleName() + ".onDestroy()");
+//		super.onDestroy();
 //	}
+//
+//	static void logBundle(Bundle savedInstState) {
+//		Log.v(Calc360.TAG, savedInstState == null ? "null" : savedInstState.toString());
+//	}
+//
+//	static void logPreferences(SharedPreferences prefs) {
+//		Log.i(TAG, "All user preferences");
+//		Map<String, ?> all = prefs.getAll();
+//		for (String key : all.keySet()) {
+//			Log.i(TAG, key + ": " + all.get(key).toString());
+//		}
+//	}
+
 
 	// Uses reflection to get an id from R.id, R.array, R.plurals, etc.
 	public static int getID(Class clss, String name)
@@ -215,6 +268,8 @@ public final class Calc360 extends AppCompatActivity {
 		return field.getInt(null);
 	}
 
+	// Uses android functionality to get an
+	// ID from R.id, R.array, R.plurals, etc.
 	public static int getID(Context ctx, String type, String name) {
 		Resources res = ctx.getResources();
 		String pkg = ctx.getPackageName();

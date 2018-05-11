@@ -1,4 +1,4 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.Context;
 import android.view.View;

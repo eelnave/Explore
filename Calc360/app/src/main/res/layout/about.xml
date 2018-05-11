@@ -1,114 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/About"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content">
+	android:layout_height="wrap_content"
+	android:layout_marginEnd="5dp"
+	android:layout_marginStart="5dp"
+	android:orientation="vertical">
 
-	<LinearLayout
+	<TextView
+		android:id="@+id/txtVersion"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginEnd="5dp"
-		android:layout_marginStart="5dp"
-		android:orientation="vertical">
+		android:textStyle="bold"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/appDescr"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/eula"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/feedback"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10sp">
 
 		<TextView
-			android:id="@+id/txtVersion"
-			android:layout_width="match_parent"
+			android:id="@+id/lblContribs"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:layout_alignParentStart="true"
+			android:text="@string/contribs"
 			android:textStyle="bold"/>
 
 		<TextView
-			android:layout_width="match_parent"
+			android:id="@+id/lblWinter2018"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp"
-			android:text="@string/appDescr"/>
+			android:layout_alignEnd="@+id/lblWinter2018B"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblContribs"
+			android:text="@string/winter2018"
+			android:textAlignment="center"
+			android:textSize="14sp"
+			android:textStyle="bold"/>
 
 		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp"
-			android:text="@string/eula"/>
-
-		<RelativeLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10sp">
-
-			<TextView
-				android:id="@+id/lblContribs"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignParentStart="true"
-				android:text="@string/contribs"
-				android:textStyle="bold"/>
-
-			<TextView
-				android:id="@+id/lblWinter2018"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignEnd="@+id/lblWinter2018B"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblContribs"
-				android:text="@string/winter2018"
-				android:textAlignment="center"
-				android:textSize="14sp"
-				android:textStyle="bold"/>
-
-			<TextView
-				android:id="@+id/lblWinter2018A"
-				style="@style/Contributors"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblWinter2018"
-				android:text="@string/contribsWinter2018A"/>
-
-			<TextView
-				android:id="@+id/lblWinter2018B"
-				style="@style/Contributors"
-				android:layout_alignBaseline="@+id/lblWinter2018A"
-				android:layout_marginStart="5dp"
-				android:layout_toEndOf="@+id/lblWinter2018A"
-				android:text="@string/contribsWinter2018B"/>
-
-			<TextView
-				android:id="@+id/lblFall2017"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignEnd="@+id/lblFall2017B"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblWinter2018A"
-				android:layout_marginTop="10dp"
-				android:text="@string/fall2017"
-				android:textAlignment="center"
-				android:textSize="14sp"
-				android:textStyle="bold"/>
-
-			<TextView
-				android:id="@+id/lblFall2017A"
-				style="@style/Contributors"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblFall2017"
-				android:text="@string/contribsFall2017A"/>
-
-			<TextView
-				android:id="@+id/lblFall2017B"
-				style="@style/Contributors"
-				android:layout_alignBaseline="@+id/lblFall2017A"
-				android:layout_marginStart="5dp"
-				android:layout_toEndOf="@+id/lblFall2017A"
-				android:text="@string/contribsFall2017B"/>
-		</RelativeLayout>
+			android:id="@+id/lblWinter2018A"
+			style="@style/Contributors"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblWinter2018"
+			android:text="@string/contribsWinter2018A"/>
 
 		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp"
-			android:text="@string/logoCredit"/>
+			android:id="@+id/lblWinter2018B"
+			style="@style/Contributors"
+			android:layout_alignBaseline="@+id/lblWinter2018A"
+			android:layout_marginStart="5dp"
+			android:layout_toEndOf="@+id/lblWinter2018A"
+			android:text="@string/contribsWinter2018B"/>
 
 		<TextView
-			android:layout_width="match_parent"
+			android:id="@+id/lblFall2017"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:layout_alignEnd="@+id/lblFall2017B"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblWinter2018A"
 			android:layout_marginTop="10dp"
-			android:text="@string/apacheCredit"/>
-	</LinearLayout>
-</ScrollView>
+			android:text="@string/fall2017"
+			android:textAlignment="center"
+			android:textSize="14sp"
+			android:textStyle="bold"/>
+
+		<TextView
+			android:id="@+id/lblFall2017A"
+			style="@style/Contributors"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblFall2017"
+			android:text="@string/contribsFall2017A"/>
+
+		<TextView
+			android:id="@+id/lblFall2017B"
+			style="@style/Contributors"
+			android:layout_alignBaseline="@+id/lblFall2017A"
+			android:layout_marginStart="5dp"
+			android:layout_toEndOf="@+id/lblFall2017A"
+			android:text="@string/contribsFall2017B"/>
+	</RelativeLayout>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/logoCredit"/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/apacheCredit"/>
+</LinearLayout>

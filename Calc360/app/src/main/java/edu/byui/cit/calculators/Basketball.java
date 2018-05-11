@@ -9,9 +9,10 @@ import android.view.ViewGroup;
 
 import edu.byui.cit.calc360.CITFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public final class Basketball extends CITFragment {
@@ -58,14 +59,14 @@ public final class Basketball extends CITFragment {
 		Stats() {
 			lisMake = new ClickListener() {
 				@Override
-				public void clicked(View button) {
+				public void clicked(WidgetWrapper source) {
 					make++;
 					show();
 				}
 			};
 			lisMiss = new ClickListener() {
 				@Override
-				public void clicked(View button) {
+				public void clicked(WidgetWrapper source) {
 					miss++;
 					show();
 				}
@@ -123,7 +124,7 @@ public final class Basketball extends CITFragment {
 	/** Handles a click on the clear button. */
 	private final class ClearHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			threePoint.clear();
 			fieldGoal.clear();
 			freeThrow.clear();

@@ -2,15 +2,15 @@ package edu.byui.cit.calc360;
 
 import android.view.View;
 
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditWrapper;
 
 
 public abstract class SolveEquation extends SolveSeries {
 	@Override
 	public void initialize(View view, EditWrapper[] all,
 			SolveSeries.Solver[] solvers,
-			int btnClearID, ControlWrapper[] toClear) {
+			int btnClearID, WidgetWrapper[] toClear) {
 
 		// Create the list of inputs for each solver.
 		int inLen = all.length - 1;
@@ -29,7 +29,7 @@ public abstract class SolveEquation extends SolveSeries {
 	@Override
 	public void initialize(View view, EditWrapper[] inputs,
 			EditWrapper[][] groups, SolveSeries.Solver[] solvers,
-			int btnClearID, ControlWrapper[] toClear) {
+			int btnClearID, WidgetWrapper[] toClear) {
 		throw new UnsupportedOperationException();
 	}
 

@@ -10,9 +10,9 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
 
 import static edu.byui.cit.model.Physics.MassEnergy.*;
 
@@ -32,7 +32,7 @@ public final class Relativity extends SolveSeries {
 		EditWrapper[] inputs = { decEnergy, decMass };
 
 		Solver[] solvers = new Solver[]{
-				new Solver(new EditWrapper[]{ decMass }, new ControlWrapper[]{ decEnergy }) {
+				new Solver(new EditWrapper[]{ decMass }, new WidgetWrapper[]{ decEnergy }) {
 					@Override
 					public void solve() {
 						double m = decMass.getDec();
@@ -40,7 +40,7 @@ public final class Relativity extends SolveSeries {
 						decEnergy.setText(format(e));
 					}
 				},
-				new Solver(new EditWrapper[]{ decEnergy }, new ControlWrapper[]{ decMass }) {
+				new Solver(new EditWrapper[]{ decEnergy }, new WidgetWrapper[]{ decMass }) {
 					@Override
 					public void solve() {
 						double e = decEnergy.getDec();

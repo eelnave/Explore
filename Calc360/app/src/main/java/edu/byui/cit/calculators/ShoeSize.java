@@ -12,7 +12,8 @@ import java.util.Map;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public final class ShoeSize extends CalcFragment {
@@ -64,7 +65,7 @@ public final class ShoeSize extends CalcFragment {
 	}
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		String usa = decUSA.getText().toString();
 		String metric = decMetric.getText().toString();
 		if (usa.length() > 0) {

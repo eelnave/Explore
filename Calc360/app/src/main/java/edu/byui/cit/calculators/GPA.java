@@ -12,14 +12,14 @@ import java.util.ArrayList;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Academic.Course;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinDecimal;
-import edu.byui.cit.text.SpinString;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinDecimal;
+import edu.byui.cit.widget.SpinString;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class GPA extends CalcFragment {
@@ -65,28 +65,28 @@ public final class GPA extends CalcFragment {
 
 	private final class AddHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			String grade = spinGrades.getSelectedItem();
 			float credits = spinCredits.getDec();
 			Course course = new Course(grade, credits);
 			courses.add(course);
 			yourGrades.setText(Course.toGradeString(courses));
-			callCompute();
+			compute(source);
 		}
 	}
 
 	private final class RemoveHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			courses.remove(courses.size() - 1);
 			yourGrades.setText(Course.toGradeString(courses));
-			callCompute();
+			compute(source);
 		}
 	}
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		computeSemester();
 		computeCumulative();
 	}
@@ -122,11 +122,11 @@ public final class GPA extends CalcFragment {
 
 	private final class ClearHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
-			ControlWrapper[] toClear = {
+		public void clicked(WidgetWrapper source) {
+			WidgetWrapper[] toClear = {
 					decCurrCred, decCurrGPA, yourGrades, semGPA, cumGPA
 			};
-			for (ControlWrapper ctrl : toClear) {
+			for (WidgetWrapper ctrl : toClear) {
 				ctrl.clear();
 			}
 			courses.clear();

@@ -1,122 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/RectPrism"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	compat:columnCount="3">
 
-	<android.support.v7.widget.GridLayout
-		android:layout_width="match_parent"
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decWidth"
+		android:text="@string/rpWid"/>
+
+	<EditText
+		android:id="@+id/decWidth"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/width"
+		tools:ignore="LabelFor">
+
+		<requestFocus/>
+	</EditText>
+
+	<ImageView
+		android:id="@+id/imageView"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		compat:columnCount="3">
+		android:adjustViewBounds="true"
+		android:contentDescription="@string/cone"
+		compat:layout_gravity="fill_horizontal"
+		compat:layout_rowSpan="4"
+		compat:srcCompat="@drawable/box"/>
 
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decWidth"
-			android:text="@string/rpWid"/>
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decLength"
+		android:text="@string/rpLen"/>
 
-		<EditText
-			android:id="@+id/decWidth"
-			style="@style/UnsignedDecimal"
-			android:ems="6"
-			android:hint="@string/width"
-			tools:ignore="LabelFor">
+	<EditText
+		android:id="@+id/decLength"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/length"
+		tools:ignore="LabelFor"/>
 
-			<requestFocus/>
-		</EditText>
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decHeight"
+		android:text="@string/rpHei"/>
 
-		<ImageView
-			android:id="@+id/imageView"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:adjustViewBounds="true"
-			android:contentDescription="@string/cone"
-			compat:layout_gravity="fill_horizontal"
-			compat:layout_rowSpan="4"
-			compat:srcCompat="@drawable/box"/>
+	<EditText
+		android:id="@+id/decHeight"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/height"
+		tools:ignore="LabelFor"/>
 
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decLength"
-			android:text="@string/rpLen"/>
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/SurfaceArea"
+		compat:layout_columnSpan="2"
+		compat:layout_gravity="bottom"/>
 
-		<EditText
-			android:id="@+id/decLength"
-			style="@style/UnsignedDecimal"
-			android:ems="6"
-			android:hint="@string/length"
-			tools:ignore="LabelFor"/>
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/rpAreaFormula"
+		compat:layout_columnSpan="3"/>
 
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decHeight"
-			android:text="@string/rpHei"/>
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decSurfArea"
+		android:text="@string/rpSurf"/>
 
-		<EditText
-			android:id="@+id/decHeight"
-			style="@style/UnsignedDecimal"
-			android:ems="6"
-			android:hint="@string/height"
-			tools:ignore="LabelFor"/>
+	<EditText
+		android:id="@+id/decSurfArea"
+		style="@style/UnsignedDecimal"
+		android:ems="7"
+		android:hint="@string/surfaceArea"
+		compat:layout_columnSpan="2"
+		tools:ignore="LabelFor"/>
 
-		<TextView
-			style="@style/TextLabel"
-			android:layout_marginTop="15dp"
-			android:text="@string/SurfaceArea"
-			compat:layout_columnSpan="2"
-			compat:layout_gravity="bottom"/>
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/Volume"
+		compat:layout_columnSpan="3"/>
 
-		<TextView
-			style="@style/TextLabel"
-			android:text="@string/rpAreaFormula"
-			compat:layout_columnSpan="3"/>
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/rpVolumeFormula"
+		compat:layout_columnSpan="3"/>
 
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decSurfArea"
-			android:text="@string/rpSurf"/>
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decVolume"
+		android:text="@string/rpVol"/>
 
-		<EditText
-			android:id="@+id/decSurfArea"
-			style="@style/UnsignedDecimal"
-			android:ems="7"
-			android:hint="@string/surfaceArea"
-			compat:layout_columnSpan="2"
-			tools:ignore="LabelFor"/>
+	<EditText
+		android:id="@+id/decVolume"
+		style="@style/UnsignedDecimal"
+		android:ems="7"
+		android:hint="@string/volume"
+		android:imeOptions="actionDone"
+		compat:layout_columnSpan="2"
+		tools:ignore="LabelFor"/>
 
-		<TextView
-			style="@style/TextLabel"
-			android:layout_marginTop="15dp"
-			android:text="@string/Volume"
-			compat:layout_columnSpan="3"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:text="@string/rpVolumeFormula"
-			compat:layout_columnSpan="3"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decVolume"
-			android:text="@string/rpVol"/>
-
-		<EditText
-			android:id="@+id/decVolume"
-			style="@style/UnsignedDecimal"
-			android:ems="7"
-			android:hint="@string/volume"
-			android:imeOptions="actionDone"
-			compat:layout_columnSpan="2"
-			tools:ignore="LabelFor"/>
-
-		<Button
-			android:id="@+id/btnClear"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp"
-			android:text="@string/clear"
-			compat:layout_columnSpan="3"/>
-	</android.support.v7.widget.GridLayout>
-</ScrollView>
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="3"/>
+</android.support.v7.widget.GridLayout>

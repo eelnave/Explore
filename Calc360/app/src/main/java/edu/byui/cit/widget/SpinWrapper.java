@@ -1,61 +1,56 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
-import edu.byui.cit.calc360.CalcFragment;
+import edu.byui.cit.calc360.Calc360;
 
 
-abstract class SpinWrapper extends InputWrapper
+public abstract class SpinWrapper extends InputWrapper
 		implements OnItemSelectedListener {
 	private final Handler handler;
 	final Spinner spinner;
 	private final ItemSelectedListener listener;
 
 	SpinWrapper(View parent, int spinID,
-			String prefsKey, CalcFragment calculator) {
-		this(parent, spinID, prefsKey, calculator, null);
-	}
-
-	SpinWrapper(View parent, int spinID,
 			String prefsKey, ItemSelectedListener listener) {
-		this(parent, spinID, prefsKey, null, listener);
-	}
-
-
-	private SpinWrapper(View parent, int spinID, String prefsKey,
-			CalcFragment calculator, ItemSelectedListener listener) {
-		super(parent, spinID, prefsKey, calculator);
+		super(parent, spinID, prefsKey);
 		this.handler = new Handler();
 		this.spinner = parent.findViewById(spinID);
 		this.listener = listener;
 	}
 
 	@Override
-	public boolean isEnabled() {
+	public final Spinner getView() {
+		return spinner;
+	}
+
+	@Override
+	public final boolean isEnabled() {
 		return spinner.isEnabled();
 	}
 
 	@Override
-	public void setEnabled(boolean enabled) {
+	public final void setEnabled(boolean enabled) {
 		spinner.setEnabled(enabled);
 	}
 
 	@Override
-	public boolean hasFocus() {
+	public final boolean hasFocus() {
 		return spinner.hasFocus();
 	}
 
 	@Override
-	public void requestFocus() {
+	public final void requestFocus() {
 		spinner.requestFocus();
 	}
 
 	@Override
-	public void onFocusChange(View view, boolean hasFocus) {
+	public final void onFocusChange(View view, boolean hasFocus) {
 		if (hasFocus) {
 			hideKeyboard(view);
 		}
@@ -73,12 +68,15 @@ abstract class SpinWrapper extends InputWrapper
 	@Override
 	public final void onItemSelected(
 			AdapterView<?> parent, View view, int pos, long id) {
-		if (! isProgrammatic()) {
-			if (calculator != null) {
-				calculator.callCompute();
+		if (!isProgrammatic() && listener != null) {
+			try {
+				listener.itemSelected(this, pos, id);
 			}
-			else {
-				listener.itemSelected(parent, view, pos, id);
+			catch (NumberFormatException ex) {
+				// Do nothing.
+			}
+			catch (Exception ex) {
+				Log.e(Calc360.TAG, "exception", ex);
 			}
 		}
 	}

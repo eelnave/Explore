@@ -1,275 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/ComparePrices"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:orientation="horizontal">
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/spinProp"
+			android:text="@string/unitType"/>
 
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/spinProp"
-				android:text="@string/unitType"/>
-
-			<Spinner
-				android:id="@+id/spinProp"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:nextFocusDown="@+id/spinUnit1"
-				android:nextFocusForward="@+id/spinUnit1"
-				android:nextFocusUp="@+id/decQuant3"/>
-		</LinearLayout>
-
-		<RelativeLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp">
-
-			<TextView
-				android:id="@+id/lblProd1"
-				style="@style/TextLabel"
-				android:layout_alignParentStart="true"
-				android:layout_alignParentTop="true"
-				android:text="@string/prod1"/>
-
-			<TextView
-				android:id="@+id/lblEmpty1"
-				style="@style/TextLabel"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblProd1"/>
-
-			<EditText
-				android:id="@+id/curPrice1"
-				style="@style/UnsignedDecimal"
-				android:layout_alignBaseline="@+id/lblEmpty1"
-				android:layout_marginStart="20dp"
-				android:ems="5"
-				android:nextFocusDown="@+id/decQuant1"
-				android:nextFocusForward="@+id/decQuant1"
-				android:nextFocusUp="@+id/btnClear">
-
-				<requestFocus/>
-			</EditText>
-
-			<EditText
-				android:id="@+id/decQuant1"
-				style="@style/UnsignedDecimal"
-				android:layout_alignBaseline="@+id/lblEmpty1"
-				android:layout_toEndOf="@+id/curPrice1"
-				android:ems="4"
-				android:nextFocusDown="@+id/curPrice2"
-				android:nextFocusForward="@+id/curPrice2"
-				android:nextFocusUp="@id/curPrice1"/>
-
-			<Spinner
-				android:id="@+id/spinUnits1"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBaseline="@+id/lblEmpty1"
-				android:layout_toEndOf="@+id/decQuant1"
-				android:imeOptions="actionNext"
-				android:nextFocusDown="@+id/spinUnits2"
-				android:nextFocusForward="@+id/spinUnits2"
-				android:nextFocusUp="@id/spinProp"/>
-
-			<TextView
-				android:id="@+id/lblPrice1"
-				style="@style/TextLabel"
-				android:layout_alignEnd="@+id/curPrice1"
-				android:layout_alignStart="@+id/curPrice1"
-				android:layout_below="@+id/lblEmpty1"
-				android:labelFor="@+id/curPrice1"
-				android:text="@string/price"
-				android:textAlignment="center"/>
-
-			<TextView
-				android:id="@+id/lblQuant1"
-				style="@style/TextLabel"
-				android:layout_alignBaseline="@+id/lblPrice1"
-				android:layout_alignEnd="@+id/decQuant1"
-				android:layout_alignStart="@+id/decQuant1"
-				android:labelFor="@+id/decQuant1"
-				android:text="@string/quant"
-				android:textAlignment="center"/>
-
-			<TextView
-				android:id="@+id/curPer1"
-				style="@style/TextLabel"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblPrice1"
-				android:layout_marginStart="20dp"/>
-		</RelativeLayout>
-
-		<RelativeLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp">
-
-			<TextView
-				android:id="@+id/lblProd2"
-				style="@style/TextLabel"
-				android:layout_alignParentStart="true"
-				android:layout_alignParentTop="true"
-				android:text="@string/prod2"/>
-
-			<TextView
-				android:id="@+id/lblEmpty2"
-				style="@style/TextLabel"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblProd2"/>
-
-			<EditText
-				android:id="@+id/curPrice2"
-				style="@style/UnsignedDecimal"
-				android:layout_alignBaseline="@+id/lblEmpty2"
-				android:layout_marginStart="20dp"
-				android:ems="5"
-				android:nextFocusDown="@+id/decQuant2"
-				android:nextFocusForward="@+id/decQuant2"
-				android:nextFocusUp="@id/decQuant1"/>
-
-			<EditText
-				android:id="@+id/decQuant2"
-				style="@style/UnsignedDecimal"
-				android:layout_alignBaseline="@+id/lblEmpty2"
-				android:layout_toEndOf="@+id/curPrice2"
-				android:ems="4"
-				android:nextFocusDown="@+id/curPrice3"
-				android:nextFocusForward="@+id/curPrice3"
-				android:nextFocusUp="@id/curPrice2"/>
-
-			<Spinner
-				android:id="@+id/spinUnits2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBaseline="@+id/lblEmpty2"
-				android:layout_toEndOf="@+id/decQuant2"
-				android:imeOptions="actionNext"
-				android:nextFocusDown="@+id/spinUnits3"
-				android:nextFocusForward="@+id/spinUnits3"
-				android:nextFocusUp="@id/spinUnits1"/>
-
-			<TextView
-				android:id="@+id/lblPrice2"
-				style="@style/TextLabel"
-				android:layout_alignEnd="@+id/curPrice2"
-				android:layout_alignStart="@+id/curPrice2"
-				android:layout_below="@+id/lblEmpty2"
-				android:labelFor="@+id/curPrice2"
-				android:text="@string/price"
-				android:textAlignment="center"/>
-
-			<TextView
-				android:id="@+id/lblQuant2"
-				style="@style/TextLabel"
-				android:layout_alignBaseline="@+id/lblPrice2"
-				android:layout_alignEnd="@+id/decQuant2"
-				android:layout_alignStart="@+id/decQuant2"
-				android:labelFor="@+id/decQuant2"
-				android:text="@string/quant"
-				android:textAlignment="center"/>
-
-			<TextView
-				android:id="@+id/curPer2"
-				style="@style/TextLabel"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblPrice2"
-				android:layout_marginStart="20dp"/>
-		</RelativeLayout>
-
-		<RelativeLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp">
-
-			<TextView
-				android:id="@+id/lblProd3"
-				style="@style/TextLabel"
-				android:layout_alignParentStart="true"
-				android:layout_alignParentTop="true"
-				android:text="@string/prod3"/>
-
-			<TextView
-				android:id="@+id/lblEmpty3"
-				style="@style/TextLabel"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblProd3"/>
-
-			<EditText
-				android:id="@+id/curPrice3"
-				style="@style/UnsignedDecimal"
-				android:layout_alignBaseline="@+id/lblEmpty3"
-				android:layout_marginStart="20dp"
-				android:ems="5"
-				android:nextFocusDown="@+id/decQuant3"
-				android:nextFocusForward="@+id/decQuant3"
-				android:nextFocusUp="@id/decQuant2"/>
-
-			<EditText
-				android:id="@+id/decQuant3"
-				style="@style/UnsignedDecimal"
-				android:layout_alignBaseline="@+id/lblEmpty3"
-				android:layout_toEndOf="@+id/curPrice3"
-				android:ems="4"
-				android:imeOptions="actionDone"
-				android:nextFocusDown="@id/spinProp"
-				android:nextFocusForward="@id/spinProp"
-				android:nextFocusUp="@id/curPrice3"/>
-
-			<Spinner
-				android:id="@+id/spinUnits3"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_alignBaseline="@+id/lblEmpty3"
-				android:layout_toEndOf="@+id/decQuant3"
-				android:imeOptions="actionDone"
-				android:nextFocusDown="@+id/btnClear"
-				android:nextFocusForward="@+id/btnClear"
-				android:nextFocusUp="@id/spinUnits2"/>
-
-			<TextView
-				android:id="@+id/lblPrice3"
-				style="@style/TextLabel"
-				android:layout_alignEnd="@+id/curPrice3"
-				android:layout_alignStart="@+id/curPrice3"
-				android:layout_below="@+id/lblEmpty3"
-				android:labelFor="@+id/curPrice3"
-				android:text="@string/price"
-				android:textAlignment="center"/>
-
-			<TextView
-				android:id="@+id/lblQuant3"
-				style="@style/TextLabel"
-				android:layout_alignBaseline="@+id/lblPrice3"
-				android:layout_alignEnd="@+id/decQuant3"
-				android:layout_alignStart="@+id/decQuant3"
-				android:labelFor="@+id/decQuant3"
-				android:text="@string/quant"
-				android:textAlignment="center"/>
-
-			<TextView
-				android:id="@+id/curPer3"
-				style="@style/TextLabel"
-				android:layout_alignParentStart="true"
-				android:layout_below="@+id/lblPrice3"
-				android:layout_marginStart="20dp"/>
-		</RelativeLayout>
-
-		<Button
-			android:id="@+id/btnClear"
+		<Spinner
+			android:id="@+id/spinProp"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp"
-			android:nextFocusUp="@id/spinUnits3"
-			android:text="@string/clear"/>
+			android:nextFocusDown="@+id/spinUnit1"
+			android:nextFocusForward="@+id/spinUnit1"
+			android:nextFocusUp="@+id/decQuant3"/>
 	</LinearLayout>
-</ScrollView>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<TextView
+			android:id="@+id/lblProd1"
+			style="@style/TextLabel"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:text="@string/prod1"/>
+
+		<TextView
+			android:id="@+id/lblEmpty1"
+			style="@style/TextLabel"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblProd1"/>
+
+		<EditText
+			android:id="@+id/curPrice1"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/lblEmpty1"
+			android:layout_marginStart="20dp"
+			android:ems="5"
+			android:nextFocusDown="@+id/decQuant1"
+			android:nextFocusForward="@+id/decQuant1"
+			android:nextFocusUp="@+id/btnClear">
+
+			<requestFocus/>
+		</EditText>
+
+		<EditText
+			android:id="@+id/decQuant1"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/lblEmpty1"
+			android:layout_toEndOf="@+id/curPrice1"
+			android:ems="4"
+			android:nextFocusDown="@+id/curPrice2"
+			android:nextFocusForward="@+id/curPrice2"
+			android:nextFocusUp="@id/curPrice1"/>
+
+		<Spinner
+			android:id="@+id/spinUnits1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/lblEmpty1"
+			android:layout_toEndOf="@+id/decQuant1"
+			android:imeOptions="actionNext"
+			android:nextFocusDown="@+id/spinUnits2"
+			android:nextFocusForward="@+id/spinUnits2"
+			android:nextFocusUp="@id/spinProp"/>
+
+		<TextView
+			android:id="@+id/lblPrice1"
+			style="@style/TextLabel"
+			android:layout_alignEnd="@+id/curPrice1"
+			android:layout_alignStart="@+id/curPrice1"
+			android:layout_below="@+id/lblEmpty1"
+			android:labelFor="@+id/curPrice1"
+			android:text="@string/price"
+			android:textAlignment="center"/>
+
+		<TextView
+			android:id="@+id/lblQuant1"
+			style="@style/TextLabel"
+			android:layout_alignBaseline="@+id/lblPrice1"
+			android:layout_alignEnd="@+id/decQuant1"
+			android:layout_alignStart="@+id/decQuant1"
+			android:labelFor="@+id/decQuant1"
+			android:text="@string/quant"
+			android:textAlignment="center"/>
+
+		<TextView
+			android:id="@+id/curPer1"
+			style="@style/TextLabel"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblPrice1"
+			android:layout_marginStart="20dp"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<TextView
+			android:id="@+id/lblProd2"
+			style="@style/TextLabel"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:text="@string/prod2"/>
+
+		<TextView
+			android:id="@+id/lblEmpty2"
+			style="@style/TextLabel"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblProd2"/>
+
+		<EditText
+			android:id="@+id/curPrice2"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/lblEmpty2"
+			android:layout_marginStart="20dp"
+			android:ems="5"
+			android:nextFocusDown="@+id/decQuant2"
+			android:nextFocusForward="@+id/decQuant2"
+			android:nextFocusUp="@id/decQuant1"/>
+
+		<EditText
+			android:id="@+id/decQuant2"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/lblEmpty2"
+			android:layout_toEndOf="@+id/curPrice2"
+			android:ems="4"
+			android:nextFocusDown="@+id/curPrice3"
+			android:nextFocusForward="@+id/curPrice3"
+			android:nextFocusUp="@id/curPrice2"/>
+
+		<Spinner
+			android:id="@+id/spinUnits2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/lblEmpty2"
+			android:layout_toEndOf="@+id/decQuant2"
+			android:imeOptions="actionNext"
+			android:nextFocusDown="@+id/spinUnits3"
+			android:nextFocusForward="@+id/spinUnits3"
+			android:nextFocusUp="@id/spinUnits1"/>
+
+		<TextView
+			android:id="@+id/lblPrice2"
+			style="@style/TextLabel"
+			android:layout_alignEnd="@+id/curPrice2"
+			android:layout_alignStart="@+id/curPrice2"
+			android:layout_below="@+id/lblEmpty2"
+			android:labelFor="@+id/curPrice2"
+			android:text="@string/price"
+			android:textAlignment="center"/>
+
+		<TextView
+			android:id="@+id/lblQuant2"
+			style="@style/TextLabel"
+			android:layout_alignBaseline="@+id/lblPrice2"
+			android:layout_alignEnd="@+id/decQuant2"
+			android:layout_alignStart="@+id/decQuant2"
+			android:labelFor="@+id/decQuant2"
+			android:text="@string/quant"
+			android:textAlignment="center"/>
+
+		<TextView
+			android:id="@+id/curPer2"
+			style="@style/TextLabel"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblPrice2"
+			android:layout_marginStart="20dp"/>
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp">
+
+		<TextView
+			android:id="@+id/lblProd3"
+			style="@style/TextLabel"
+			android:layout_alignParentStart="true"
+			android:layout_alignParentTop="true"
+			android:text="@string/prod3"/>
+
+		<TextView
+			android:id="@+id/lblEmpty3"
+			style="@style/TextLabel"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblProd3"/>
+
+		<EditText
+			android:id="@+id/curPrice3"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/lblEmpty3"
+			android:layout_marginStart="20dp"
+			android:ems="5"
+			android:nextFocusDown="@+id/decQuant3"
+			android:nextFocusForward="@+id/decQuant3"
+			android:nextFocusUp="@id/decQuant2"/>
+
+		<EditText
+			android:id="@+id/decQuant3"
+			style="@style/UnsignedDecimal"
+			android:layout_alignBaseline="@+id/lblEmpty3"
+			android:layout_toEndOf="@+id/curPrice3"
+			android:ems="4"
+			android:imeOptions="actionDone"
+			android:nextFocusDown="@id/spinProp"
+			android:nextFocusForward="@id/spinProp"
+			android:nextFocusUp="@id/curPrice3"/>
+
+		<Spinner
+			android:id="@+id/spinUnits3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignBaseline="@+id/lblEmpty3"
+			android:layout_toEndOf="@+id/decQuant3"
+			android:imeOptions="actionDone"
+			android:nextFocusDown="@+id/btnClear"
+			android:nextFocusForward="@+id/btnClear"
+			android:nextFocusUp="@id/spinUnits2"/>
+
+		<TextView
+			android:id="@+id/lblPrice3"
+			style="@style/TextLabel"
+			android:layout_alignEnd="@+id/curPrice3"
+			android:layout_alignStart="@+id/curPrice3"
+			android:layout_below="@+id/lblEmpty3"
+			android:labelFor="@+id/curPrice3"
+			android:text="@string/price"
+			android:textAlignment="center"/>
+
+		<TextView
+			android:id="@+id/lblQuant3"
+			style="@style/TextLabel"
+			android:layout_alignBaseline="@+id/lblPrice3"
+			android:layout_alignEnd="@+id/decQuant3"
+			android:layout_alignStart="@+id/decQuant3"
+			android:labelFor="@+id/decQuant3"
+			android:text="@string/quant"
+			android:textAlignment="center"/>
+
+		<TextView
+			android:id="@+id/curPer3"
+			style="@style/TextLabel"
+			android:layout_alignParentStart="true"
+			android:layout_below="@+id/lblPrice3"
+			android:layout_marginStart="20dp"/>
+	</RelativeLayout>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:nextFocusUp="@id/spinUnits3"
+		android:text="@string/clear"/>
+</LinearLayout>

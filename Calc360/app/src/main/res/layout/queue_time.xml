@@ -1,104 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/QueueTime"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
 
 	<LinearLayout
-		android:layout_width="match_parent"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:orientation="horizontal">
 
-		<LinearLayout
-			android:id="@+id/explain"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="15dp"
-			android:orientation="vertical"
-			android:visibility="gone">
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/intPeople"
+			android:text="@string/people"/>
 
-			<TextView
-				style="@style/TextLabel"
-				android:text="@string/queueExplain"/>
+		<EditText
+			android:id="@+id/intPeople"
+			style="@style/UnsignedInteger"
+			android:ems="5"
+			android:imeOptions="actionDone">
 
-			<Button
-				android:id="@+id/btnHide"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="end"
-				android:text="@string/hideExplain"/>
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
-
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/intPeople"
-				android:text="@string/people"/>
-
-			<EditText
-				android:id="@+id/intPeople"
-				style="@style/UnsignedInteger"
-				android:ems="5"
-				android:imeOptions="actionDone">
-
-				<requestFocus/>
-			</EditText>
-		</LinearLayout>
-
-		<Button
-			android:id="@+id/btnNext"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:enabled="false"
-			android:text="@string/next"/>
-
-		<android.support.v7.widget.GridLayout
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			compat:columnCount="2">
-
-			<TextView
-				style="@style/QueueLabel"
-				android:labelFor="@+id/timAvg"
-				android:text="@string/person"/>
-
-			<TextView
-				android:id="@+id/timAvg"
-				style="@style/QueueLabel"
-				android:layout_marginStart="10dp"/>
-
-			<TextView
-				style="@style/QueueLabel"
-				android:labelFor="@+id/timRemain"
-				android:text="@string/remain"/>
-
-			<TextView
-				android:id="@+id/timRemain"
-				style="@style/QueueLabel"
-				android:layout_marginStart="10dp"/>
-
-			<TextView
-				style="@style/QueueLabel"
-				android:labelFor="@+id/timServed"
-				android:text="@string/served"/>
-
-			<TextView
-				android:id="@+id/timServed"
-				style="@style/QueueLabel"
-				android:layout_marginStart="10dp"/>
-		</android.support.v7.widget.GridLayout>
-
-		<Button
-			android:id="@+id/btnClear"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp"
-			android:text="@string/clear"/>
+			<requestFocus/>
+		</EditText>
 	</LinearLayout>
-</ScrollView>
+
+	<Button
+		android:id="@+id/btnNext"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:enabled="false"
+		android:text="@string/next"/>
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		compat:columnCount="2">
+
+		<TextView
+			style="@style/QueueLabel"
+			android:labelFor="@+id/timAvg"
+			android:text="@string/person"/>
+
+		<TextView
+			android:id="@+id/timAvg"
+			style="@style/QueueLabel"
+			android:layout_marginStart="10dp"/>
+
+		<TextView
+			style="@style/QueueLabel"
+			android:labelFor="@+id/timRemain"
+			android:text="@string/remain"/>
+
+		<TextView
+			android:id="@+id/timRemain"
+			style="@style/QueueLabel"
+			android:layout_marginStart="10dp"/>
+
+		<TextView
+			style="@style/QueueLabel"
+			android:labelFor="@+id/timServed"
+			android:text="@string/served"/>
+
+		<TextView
+			android:id="@+id/timServed"
+			style="@style/QueueLabel"
+			android:layout_marginStart="10dp"/>
+	</android.support.v7.widget.GridLayout>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:text="@string/clear"/>
+</LinearLayout>

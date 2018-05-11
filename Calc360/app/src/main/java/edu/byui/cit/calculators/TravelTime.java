@@ -12,11 +12,11 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Speed;
@@ -61,7 +61,7 @@ public final class TravelTime extends CalcFragment {
 		decTime = new TextWrapper(view, R.id.decTime);
 
 		EditWrapper[] inputs = { decDist, decSpeed };
-		ControlWrapper[] toClear = { decDist, decSpeed, decTime };
+		WidgetWrapper[] toClear = { decDist, decSpeed, decTime };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -84,7 +84,7 @@ public final class TravelTime extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (decDist.notEmpty() && decSpeed.notEmpty()) {
 			double dist = decDist.getDec();
 			double spe = decSpeed.getDec();

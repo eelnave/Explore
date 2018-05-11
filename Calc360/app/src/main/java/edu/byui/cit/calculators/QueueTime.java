@@ -1,7 +1,6 @@
 package edu.byui.cit.calculators;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +10,15 @@ import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.TextChangeHandler;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextChangeListener;
+import edu.byui.cit.widget.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public final class QueueTime extends CalcFragment {
@@ -55,36 +55,28 @@ public final class QueueTime extends CalcFragment {
 	}
 
 
-	private final class PeopleHandler extends TextChangeHandler {
+	private final class PeopleHandler implements TextChangeListener {
 		@Override
-		public void textChanged(CharSequence s) {
-			try {
-				prevClick = System.currentTimeMillis();
-				sum = 0;
-				count = 0;
-				people = 0;
-				if (intPeople.notEmpty()) {
-					people = intPeople.getInt();
-					if (people > 0) {
-						btnNext.setEnabled(true);
-					}
-				}
-				if (people == 0) {
-					clearResults();
+		public void textChanged(EditWrapper source) {
+			prevClick = System.currentTimeMillis();
+			sum = 0;
+			count = 0;
+			people = 0;
+			if (intPeople.notEmpty()) {
+				people = intPeople.getInt();
+				if (people > 0) {
+					btnNext.setEnabled(true);
 				}
 			}
-			catch (NumberFormatException ex) {
-				// Do nothing
-			}
-			catch (Exception ex) {
-				Log.e(Calc360.TAG, "exception", ex);
+			if (people == 0) {
+				clearResults();
 			}
 		}
 	}
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		long click = System.currentTimeMillis();
 		if (intPeople.isEnabled()) {
 			intPeople.setEnabled(false);
@@ -122,7 +114,7 @@ public final class QueueTime extends CalcFragment {
 
 	private final class ClearHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			prevClick = 0;
 			people = 0;
 			count = 0;

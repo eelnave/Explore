@@ -6,20 +6,20 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 
 import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditAngle;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.ItemSelectedHandler;
-import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.text.SpinUnit;
+import edu.byui.cit.widget.ItemSelectedListener;
+import edu.byui.cit.widget.SpinWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditAngle;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
+import edu.byui.cit.widget.SpinUnit;
 import edu.byui.cit.units.Angle;
 import edu.byui.cit.units.Unit;
 
@@ -68,14 +68,14 @@ public class RightTriangle extends SolveSeries {
 		decGamma.getRad(Angle.getInstance().get(Angle.deg));
 
 		EditWrapper[] inputs = { decA, decB, decHyp, decAlpha, decBeta };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				decA, decB, decHyp, decAlpha, decBeta, decPerim, decArea
 		};
 
 		Solver[] solvers = new Solver[]{
 				// side1 && side2
 				new Solver(new EditWrapper[]{ decA, decB },
-						new ControlWrapper[]{ decHyp, decAlpha, decBeta, decPerim, decArea }) {
+						new WidgetWrapper[]{ decHyp, decAlpha, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSS();
@@ -84,14 +84,14 @@ public class RightTriangle extends SolveSeries {
 
 				// side && hypotenuse
 				new Solver(new EditWrapper[]{ decA, decHyp },
-						new ControlWrapper[]{ decB, decAlpha, decBeta, decPerim, decArea }) {
+						new WidgetWrapper[]{ decB, decAlpha, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSH(decA, decAlpha, decB, decBeta);
 					}
 				},
 				new Solver(new EditWrapper[]{ decB, decHyp },
-						new ControlWrapper[]{ decA, decAlpha, decBeta, decPerim, decArea }) {
+						new WidgetWrapper[]{ decA, decAlpha, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSH(decB, decBeta, decA, decAlpha);
@@ -100,14 +100,14 @@ public class RightTriangle extends SolveSeries {
 
 				// side && opposite angle
 				new Solver(new EditWrapper[]{ decA, decAlpha },
-						new ControlWrapper[]{ decB, decHyp, decBeta, decPerim, decArea }) {
+						new WidgetWrapper[]{ decB, decHyp, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSO(decA, decAlpha, decB, decBeta);
 					}
 				},
 				new Solver(new EditWrapper[]{ decB, decBeta },
-						new ControlWrapper[]{ decA, decHyp, decAlpha, decPerim, decArea }) {
+						new WidgetWrapper[]{ decA, decHyp, decAlpha, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSO(decB, decBeta, decA, decAlpha);
@@ -116,14 +116,14 @@ public class RightTriangle extends SolveSeries {
 
 				// side && adjacent angle
 				new Solver(new EditWrapper[]{ decA, decBeta },
-						new ControlWrapper[]{ decB, decHyp, decAlpha, decPerim, decArea }) {
+						new WidgetWrapper[]{ decB, decHyp, decAlpha, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSA(decA, decBeta, decB, decAlpha);
 					}
 				},
 				new Solver(new EditWrapper[]{ decB, decAlpha },
-						new ControlWrapper[]{ decA, decHyp, decBeta, decPerim, decArea }) {
+						new WidgetWrapper[]{ decA, decHyp, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSA(decB, decAlpha, decA, decBeta);
@@ -132,14 +132,14 @@ public class RightTriangle extends SolveSeries {
 
 				// hypotenuse && angle
 				new Solver(new EditWrapper[]{ decHyp, decAlpha },
-						new ControlWrapper[]{ decA, decB, decBeta, decPerim, decArea }) {
+						new WidgetWrapper[]{ decA, decB, decBeta, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveHA(decAlpha, decA, decB, decBeta);
 					}
 				},
 				new Solver(new EditWrapper[]{ decHyp, decBeta },
-						new ControlWrapper[]{ decA, decB, decAlpha, decPerim, decArea }) {
+						new WidgetWrapper[]{ decA, decB, decAlpha, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveHA(decBeta, decB, decA, decAlpha);
@@ -148,14 +148,14 @@ public class RightTriangle extends SolveSeries {
 
 				// one angle only
 				new Solver(new EditWrapper[]{ decAlpha },
-						new ControlWrapper[]{ decBeta }) {
+						new WidgetWrapper[]{ decBeta }) {
 					@Override
 					public void solve() {
 						solveA(decAlpha, decBeta);
 					}
 				},
 				new Solver(new EditWrapper[]{ decBeta },
-						new ControlWrapper[]{ decAlpha }) {
+						new WidgetWrapper[]{ decAlpha }) {
 					@Override
 					public void solve() {
 						solveA(decBeta, decAlpha);
@@ -264,10 +264,9 @@ public class RightTriangle extends SolveSeries {
 	}
 
 
-	private final class AngleUnits extends ItemSelectedHandler {
+	private final class AngleUnits implements ItemSelectedListener {
 		@Override
-		public void itemSelected(
-				AdapterView<?> parent, View view, int pos, long id) {
+		public void itemSelected(SpinWrapper source, int pos, long id) {
 			Unit user = spinner.getSelectedItem();
 			for (EditAngle edit : angles) {
 				if (edit.notEmpty()) {

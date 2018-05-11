@@ -1,4 +1,4 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 class Handler {
 	/* progs, nextIsProgrammatic, and replacing onItemSelected with

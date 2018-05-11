@@ -9,47 +9,66 @@ import java.util.Comparator;
  * A Descriptor is either a CalcDescriptor or a GroupDescriptor and stores
  * information about a calculator or a group (folder) of calculators.
  */
-abstract class Descriptor {
-	private final String id;
-	private final int titleID, iconID;
+class Descriptor {
+	private final int id;
+	private final int titleID, iconID, explainID;
 	private final Class<? extends CITFragment> calcClass;
-	private String title;
+	private String prefix, title, explain;
+
+	Descriptor(int id) {
+		this(id, 0, 0, null, 0);
+	}
 
 	/**
 	 * Params:
 	 * @param id        - ID of this node. Must be unique and stable
 	 *                  across all releases of the app
 	 * @param titleID   - an ID from R.string
-	 * @param iconID    -
+	 * @param iconID    - an ID from R.drawable
 	 * @param calcClass - the Java class for the calculator that
-	 *                  should be opened when the user clicks
-	 *                  this descriptor
+*                  should be opened when the user clicks
+	 * @param explainID - an ID from R.string
 	 */
-	Descriptor(String id, int titleID, int iconID,
-			   Class<? extends CITFragment> calcClass) {
+	Descriptor(int id, int titleID, int iconID,
+			Class<? extends CITFragment> calcClass, int explainID) {
 		this.id = id;
 		this.titleID = titleID;
 		this.iconID = iconID;
 		this.calcClass = calcClass;
+		this.explainID = explainID;
 	}
 
-	String getID() {
+	final int getID() {
 		return id;
 	}
 
-	int getIconID() {
+	final int getIconID() {
 		return iconID;
 	}
 
-	Class<? extends CITFragment> getCalcClass() {
+	final Class<? extends CITFragment> getCalcClass() {
 		return calcClass;
 	}
 
-	String getTitle(Resources res) {
+	final String getPrefsPrefix(Resources res) {
+		if (prefix == null) {
+			prefix = res.getResourceEntryName(id);
+		}
+		return prefix;
+	}
+
+	final String getTitle(Resources res) {
 		if (title == null) {
 			title = res.getString(titleID);
 		}
 		return title;
+	}
+
+	final String getExplanation(Resources res) {
+		if (explainID != 0 && explain == null) {
+			explain = res.getString(explainID);
+		}
+		return explain;
 	}
 
 	@Override
@@ -57,16 +76,11 @@ abstract class Descriptor {
 		return calcClass.getSimpleName();
 	}
 
-//	static final Comparator<Descriptor> compareID = new Comparator<Descriptor>() {
-//		@Override
-//		public int compare(Descriptor ch1, Descriptor ch2) {
-//			return ch1.id - ch2.id;
-//		}
-//	};
-	static final Comparator<Descriptor> compareID = new Comparator<Descriptor>() {
+	static final Comparator<Descriptor> compareID
+			= new Comparator<Descriptor>() {
 		@Override
 		public int compare(Descriptor one, Descriptor two) {
-			return one.id.compareTo(two.id);
+			return one.id - two.id;
 		}
 	};
 }

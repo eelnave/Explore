@@ -10,10 +10,10 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Computing;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 public class Subnet extends CalcFragment {
 	private EditInteger ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8;
@@ -49,7 +49,7 @@ public class Subnet extends CalcFragment {
 		broadcastAddress = new TextWrapper(view, R.id.broadcast);
 
 		inputs = new EditWrapper[]{ ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8 };
-		ControlWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8,
+		WidgetWrapper[] toClear = { ip1, ip2, ip3, ip4, ip5, ip6, ip7, ip8,
 				availableHosts, numberOfSubnets, networkAddress, broadcastAddress };
 		initialize(view, inputs, R.id.btnClear, toClear);
 
@@ -57,7 +57,7 @@ public class Subnet extends CalcFragment {
 	}
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (EditWrapper.allNotEmpty(inputs)) {
 
 			String ip = ip1.getInt() + "." + ip2.getInt() + "." +

@@ -13,18 +13,49 @@
 		android:background="?attr/colorPrimary"
 		android:minHeight="?attr/actionBarSize"
 		android:theme="?attr/actionBarTheme">
-<!--
-		<Spinner
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:entries="@array/possiblePPY">
-		</Spinner>
--->
+		<!--
+				<Spinner
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:entries="@array/possiblePPY">
+				</Spinner>
+		-->
 	</android.support.v7.widget.Toolbar>
 
-	<FrameLayout
-		android:id="@+id/fragContainer"
+	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:layout_margin="3dp"/>
+		android:layout_margin="3dp">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical">
+
+			<LinearLayout
+				android:id="@+id/layExplain"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="15dp"
+				android:orientation="vertical"
+				android:visibility="gone">
+
+				<TextView
+					android:id="@+id/txtExplain"
+					style="@style/TextLabel"/>
+
+				<Button
+					android:id="@+id/btnHide"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="end"
+					android:text="@string/hideExplain"/>
+			</LinearLayout>
+
+			<FrameLayout
+				android:id="@+id/fragContainer"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"/>
+		</LinearLayout>
+	</ScrollView>
 </LinearLayout>

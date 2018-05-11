@@ -11,17 +11,17 @@ import java.util.Set;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public class AnimalAge extends CalcFragment {
 	private final HashMap<TextWrapper, Double> animals;
 	private final NumberFormat fmtrDec;
 	private EditInteger editHuman;
-	private ControlWrapper[] toClear;
+	private WidgetWrapper[] toClear;
 
 	public AnimalAge() {
 		super();
@@ -70,7 +70,7 @@ public class AnimalAge extends CalcFragment {
 
 		EditWrapper[] inputs = { editHuman };
 		Set<TextWrapper> keys = animals.keySet();
-		toClear = new ControlWrapper[inputs.length + keys.size()];
+		toClear = new WidgetWrapper[inputs.length + keys.size()];
 		System.arraycopy(inputs, 0, toClear, 0, inputs.length);
 		int i = inputs.length;
 		for (TextWrapper key : keys) {
@@ -82,7 +82,7 @@ public class AnimalAge extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (editHuman.notEmpty()) {
 			int human = editHuman.getInt();
 			for (TextWrapper key : animals.keySet()) {

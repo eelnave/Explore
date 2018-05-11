@@ -11,12 +11,12 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditCurrency;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.FuelEcon;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Volume;
@@ -64,7 +64,7 @@ public final class FuelCost extends CalcFragment {
 		curFuelCost = new TextWrapper(view, R.id.curFuelCost);
 
 		EditWrapper[] inputs = { decDist, decEcon, curPrice };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				decDist, decEcon, curPrice, curFuelCost
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -92,7 +92,7 @@ public final class FuelCost extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		String output = null;
 		if (EditWrapper.allNotEmpty(decDist, decEcon, curPrice)) {
 			double dist = decDist.getDec();

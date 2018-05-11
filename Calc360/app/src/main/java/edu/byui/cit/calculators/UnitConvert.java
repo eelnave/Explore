@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -14,16 +13,18 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.ItemSelectedHandler;
-import edu.byui.cit.text.SpinProperty;
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextChangeHandler;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.ItemSelectedListener;
+import edu.byui.cit.widget.SpinProperty;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.SpinWrapper;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
+import edu.byui.cit.widget.TextChangeListener;
+import edu.byui.cit.widget.WidgetWrapper;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;
@@ -50,22 +51,22 @@ public final class UnitConvert extends CalcFragment {
 		View view = inflater.inflate(R.layout.unit_convert, container,
 				false);
 
-		decTop = new EditDecimal(view, R.id.decTop, new TextChangeHandler() {
+		decTop = new EditDecimal(view, R.id.decTop, new TextChangeListener() {
 			@Override
-			public void textChanged(CharSequence s) {
+			public void textChanged(EditWrapper source) {
 				compute(decBottom, spinBottom, decTop, spinTop);
 			}
 		});
-		decBottom = new EditDecimal(view, R.id.decBottom, new TextChangeHandler() {
+		decBottom = new EditDecimal(view, R.id.decBottom, new TextChangeListener() {
 			@Override
-			public void textChanged(CharSequence s) {
+			public void textChanged(EditWrapper source) {
 				compute(decTop, spinTop, decBottom, spinBottom);
 			}
 		});
 
 		new ButtonWrapper(view, R.id.btnSwap, new ClickListener() {
 			@Override
-			public void clicked(View button) {
+			public void clicked(WidgetWrapper source) {
 				int posTop = spinTop.getSelectedItemPosition();
 				String txtTop = decTop.getText();
 				spinTop.setSelection(spinBottom.getSelectedItemPosition());
@@ -79,10 +80,9 @@ public final class UnitConvert extends CalcFragment {
 				R.array.supportedProperties, KEY_PROP,
 				new ChangeProperty());
 
-		ItemSelectedHandler handler = new ItemSelectedHandler() {
+		ItemSelectedListener handler = new ItemSelectedListener() {
 			@Override
-			public void itemSelected(AdapterView<?> parent,
-					View view, int pos, long id) {
+			public void itemSelected(SpinWrapper source, int pos, long id) {
 				compute(decBottom, spinBottom, decTop, spinTop);
 			}
 		};
@@ -116,10 +116,9 @@ public final class UnitConvert extends CalcFragment {
 	}
 
 
-	private final class ChangeProperty extends ItemSelectedHandler {
+	private final class ChangeProperty implements ItemSelectedListener {
 		@Override
-		public void itemSelected(
-				AdapterView<?> parent, View view, int pos, long id) {
+		public void itemSelected(SpinWrapper source, int pos, long id) {
 			Activity act = getActivity();
 			SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
 			SharedPreferences.Editor editor = prefs.edit();

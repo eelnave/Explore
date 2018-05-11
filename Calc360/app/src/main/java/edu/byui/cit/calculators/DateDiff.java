@@ -12,12 +12,12 @@ import java.util.Calendar;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.DateWrapper;
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.DateWrapper;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.Time;
 
 
@@ -55,7 +55,7 @@ public final class DateDiff extends CalcFragment {
 
 		decDiff = new TextWrapper(view, R.id.decDiff);
 
-		ControlWrapper[] toClear = { decDiff };
+		WidgetWrapper[] toClear = { decDiff };
 		initialize(view, null, R.id.btnClear, toClear);
 		return view;
 	}
@@ -81,7 +81,7 @@ public final class DateDiff extends CalcFragment {
 		}
 
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			// Get today's date.
 			Calendar calendar = Calendar.getInstance();
 			// Set the datePicker to the current date
@@ -94,7 +94,7 @@ public final class DateDiff extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		// Set the date to what the user has selected
 		Calendar start = Calendar.getInstance();
 		start.set(pickStart.getYear(), pickStart.getMonth(),

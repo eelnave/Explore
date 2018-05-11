@@ -10,9 +10,9 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Geometry.Point3D;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class Points extends CalcFragment {
@@ -55,7 +55,7 @@ public final class Points extends CalcFragment {
 				decOne[0], decOne[1], decOne[2],
 				decTwo[0], decTwo[1], decTwo[2]
 		};
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				decOne[0], decOne[1], decOne[2],
 				decTwo[0], decTwo[1], decTwo[2],
 				txtMid[0], txtMid[1], txtMid[2],
@@ -67,7 +67,7 @@ public final class Points extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		txtMid[0].clear();
 		txtMid[1].clear();
 		txtMid[2].clear();

@@ -9,9 +9,9 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.RectangularPrism.*;
 
@@ -39,7 +39,7 @@ public final class RectPrism extends SolveSeries {
 
 		Solver[] solvers = new Solver[]{
 				new Solver(new EditWrapper[]{ decWidth, decHeight, decLength },
-						new ControlWrapper[]{ decSurfArea, decVolume }) {
+						new WidgetWrapper[]{ decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double w = decWidth.getDec();
@@ -50,35 +50,35 @@ public final class RectPrism extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decWidth, decHeight, decSurfArea },
-						new ControlWrapper[]{ decLength, decVolume }) {
+						new WidgetWrapper[]{ decLength, decVolume }) {
 					@Override
 					public void solve() {
 						solveSSA(decWidth, decHeight, decLength);
 					}
 				},
 				new Solver(new EditWrapper[]{ decWidth, decHeight, decVolume },
-						new ControlWrapper[]{ decLength, decSurfArea }) {
+						new WidgetWrapper[]{ decLength, decSurfArea }) {
 					@Override
 					public void solve() {
 						solveSSV(decWidth, decHeight, decLength);
 					}
 				},
 				new Solver(new EditWrapper[]{ decWidth, decLength, decSurfArea },
-						new ControlWrapper[]{ decHeight, decVolume }) {
+						new WidgetWrapper[]{ decHeight, decVolume }) {
 					@Override
 					public void solve() {
 						solveSSA(decWidth, decLength, decHeight);
 					}
 				},
 				new Solver(new EditWrapper[]{ decWidth, decLength, decVolume },
-						new ControlWrapper[]{ decHeight, decSurfArea }) {
+						new WidgetWrapper[]{ decHeight, decSurfArea }) {
 					@Override
 					public void solve() {
 						solveSSV(decWidth, decLength, decHeight);
 					}
 				},
 				new Solver(new EditWrapper[]{ decWidth, decSurfArea, decVolume },
-						new ControlWrapper[]{ decHeight, decLength }) {
+						new WidgetWrapper[]{ decHeight, decLength }) {
 					@Override
 					public void solve() {
 						solveSAV(decWidth, decHeight, decLength);
@@ -86,21 +86,21 @@ public final class RectPrism extends SolveSeries {
 				},
 
 				new Solver(new EditWrapper[]{ decHeight, decLength, decSurfArea },
-						new ControlWrapper[]{ decWidth, decVolume }) {
+						new WidgetWrapper[]{ decWidth, decVolume }) {
 					@Override
 					public void solve() {
 						solveSSA(decHeight, decLength, decWidth);
 					}
 				},
 				new Solver(new EditWrapper[]{ decHeight, decLength, decVolume },
-						new ControlWrapper[]{ decWidth, decSurfArea }) {
+						new WidgetWrapper[]{ decWidth, decSurfArea }) {
 					@Override
 					public void solve() {
 						solveSSV(decHeight, decLength, decWidth);
 					}
 				},
 				new Solver(new EditWrapper[]{ decHeight, decSurfArea, decVolume },
-						new ControlWrapper[]{ decWidth, decLength }) {
+						new WidgetWrapper[]{ decWidth, decLength }) {
 					@Override
 					public void solve() {
 						solveSAV(decHeight, decWidth, decLength);
@@ -108,7 +108,7 @@ public final class RectPrism extends SolveSeries {
 				},
 
 				new Solver(new EditWrapper[]{ decLength, decSurfArea, decVolume },
-						new ControlWrapper[]{ decWidth, decHeight }) {
+						new WidgetWrapper[]{ decWidth, decHeight }) {
 					@Override
 					public void solve() {
 						solveSAV(decLength, decWidth, decHeight);

@@ -1,109 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/Rectangle"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	compat:columnCount="3">
 
-	<android.support.v7.widget.GridLayout
-		android:layout_width="match_parent"
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decWidth"
+		android:text="@string/rectWid"/>
+
+	<EditText
+		android:id="@+id/decWidth"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:hint="@string/width">
+
+		<requestFocus/>
+	</EditText>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decHeight"
+		android:text="@string/rectHei"/>
+
+	<EditText
+		android:id="@+id/decHeight"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:hint="@string/height"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="20dp"
+		android:text="@string/rectDiagFormula"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decDiag"
+		android:text="@string/rectDiag"/>
+
+	<EditText
+		android:id="@+id/decDiag"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:hint="@string/diagonal"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="20dp"
+		android:text="@string/rectPerimFormula"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decPerim"
+		android:text="@string/rectPerim"/>
+
+	<EditText
+		android:id="@+id/decPerim"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/perimeter"/>
+
+	<Space/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="20dp"
+		android:text="@string/rectAreaFormula"
+		compat:layout_columnSpan="3"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/decArea"
+		android:text="@string/rectArea"/>
+
+	<EditText
+		android:id="@+id/decArea"
+		style="@style/UnsignedDecimal"
+		android:ems="6"
+		android:hint="@string/area"
+		android:imeOptions="actionDone"/>
+
+	<Space/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		compat:columnCount="3">
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decWidth"
-			android:text="@string/rectWid"/>
-
-		<EditText
-			android:id="@+id/decWidth"
-			style="@style/UnsignedDecimal"
-			android:ems="5"
-			android:hint="@string/width">
-
-			<requestFocus/>
-		</EditText>
-
-		<Space/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decHeight"
-			android:text="@string/rectHei"/>
-
-		<EditText
-			android:id="@+id/decHeight"
-			style="@style/UnsignedDecimal"
-			android:ems="5"
-			android:hint="@string/height"/>
-
-		<Space/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:layout_marginTop="20dp"
-			android:text="@string/rectDiagFormula"
-			compat:layout_columnSpan="3"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decDiag"
-			android:text="@string/rectDiag"/>
-
-		<EditText
-			android:id="@+id/decDiag"
-			style="@style/UnsignedDecimal"
-			android:ems="5"
-			android:hint="@string/diagonal"/>
-
-		<Space/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:layout_marginTop="20dp"
-			android:text="@string/rectPerimFormula"
-			compat:layout_columnSpan="3"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decPerim"
-			android:text="@string/rectPerim"/>
-
-		<EditText
-			android:id="@+id/decPerim"
-			style="@style/UnsignedDecimal"
-			android:ems="6"
-			android:hint="@string/perimeter"/>
-
-		<Space/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:layout_marginTop="20dp"
-			android:text="@string/rectAreaFormula"
-			compat:layout_columnSpan="3"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/decArea"
-			android:text="@string/rectArea"/>
-
-		<EditText
-			android:id="@+id/decArea"
-			style="@style/UnsignedDecimal"
-			android:ems="6"
-			android:hint="@string/area"
-			android:imeOptions="actionDone"/>
-
-		<Space/>
-
-		<Button
-			android:id="@+id/btnClear"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp"
-			android:text="@string/clear"
-			compat:layout_columnSpan="3"/>
-	</android.support.v7.widget.GridLayout>
-</ScrollView>
+		android:layout_marginTop="10dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="3"/>
+</android.support.v7.widget.GridLayout>

@@ -10,7 +10,7 @@
 		compat:showAsAction="ifRoom"/>
 
 	<item
-		android:id="@+id/actHelp"
+		android:id="@+id/actExplain"
 		android:title="@string/explain"
 		android:icon="@drawable/act_bar_help"
 		compat:showAsAction="ifRoom"/>
@@ -18,10 +18,5 @@
 	<item
 		android:id="@+id/actAbout"
 		android:title="@string/about"
-		compat:showAsAction="never"/>
-
-	<item
-		android:id="@+id/actFeedback"
-		android:title="@string/feedback"
 		compat:showAsAction="never"/>
 </menu>

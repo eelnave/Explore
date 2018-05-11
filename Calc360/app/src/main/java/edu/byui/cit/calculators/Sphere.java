@@ -9,9 +9,9 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Sphere.*;
 
@@ -33,7 +33,7 @@ public final class Sphere extends SolveSeries {
 
 		Solver[] solvers = new Solver[]{
 				new Solver(new EditWrapper[]{ decVol },
-						new ControlWrapper[]{ decRad, decSur }) {
+						new WidgetWrapper[]{ decRad, decSur }) {
 					@Override
 					public void solve() {
 						double v = decVol.getDec();
@@ -44,7 +44,7 @@ public final class Sphere extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decSur },
-						new ControlWrapper[]{ decRad, decVol }) {
+						new WidgetWrapper[]{ decRad, decVol }) {
 					@Override
 					public void solve() {
 						double s = decSur.getDec();
@@ -55,7 +55,7 @@ public final class Sphere extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decRad },
-						new ControlWrapper[]{ decSur, decVol }) {
+						new WidgetWrapper[]{ decSur, decVol }) {
 					@Override
 					public void solve() {
 						double r = decRad.getDec();

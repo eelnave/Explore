@@ -1,21 +1,26 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.SpinnerAdapter;
 
 import java.util.ArrayList;
 
-import edu.byui.cit.calc360.CalcFragment;
-
 
 public final class SpinInteger extends SpinWrapper {
+	public SpinInteger(Context ctx, View parent, int spinID, int arrayID) {
+		this(ctx, parent, spinID, arrayID, null, null);
+	}
 
 	public SpinInteger(Context ctx, View parent, int spinID, int arrayID,
-			String prefsKey, CalcFragment calculator) {
-		super(parent, spinID, prefsKey, calculator);
+			String prefsKey) {
+		this(ctx, parent, spinID, arrayID, prefsKey, null);
+	}
+
+	public SpinInteger(Context ctx, View parent, int spinID, int arrayID,
+			String prefsKey, ItemSelectedListener listener) {
+		super(parent, spinID, prefsKey, listener);
 
 		int[] array = ctx.getResources().getIntArray(arrayID);
 		ArrayList<Integer> list = new ArrayList<>(array.length);
@@ -38,13 +43,9 @@ public final class SpinInteger extends SpinWrapper {
 
 	public void restore(SharedPreferences prefs, int deflt) {
 		int preferred = prefs.getInt(prefsKey, deflt);
-		SpinnerAdapter adapter = spinner.getAdapter();
-		for (int i = 0, len = adapter.getCount();  i < len;  ++i) {
-			int item = (Integer)adapter.getItem(i);
-			if (item == preferred) {
-				setSelection(i);
-				break;
-			}
+		int pos = positionOf(preferred);
+		if (pos != -1) {
+			setSelection(pos);
 		}
 	}
 

@@ -9,10 +9,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 import static edu.byui.cit.model.Consumer.StreamingCost.*;
 
@@ -53,7 +53,7 @@ public final class StreamingCost extends CalcFragment {
 		timeInputs = new EditWrapper[]{
 				decHours2_5, decHours2, decHours1_5, decMins45, decMins22
 		};
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				curPayment, decHours2_5, decHours2, decHours1_5, decMins45, decMins22, ttw, spentPer
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -62,7 +62,7 @@ public final class StreamingCost extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (curPayment.notEmpty() && EditWrapper.anyNotEmpty(timeInputs)) {
 			double payment = 0;
 			double hours2_5 = 0;

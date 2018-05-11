@@ -12,13 +12,13 @@ import java.text.NumberFormat;
 import edu.byui.cit.model.Finance;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinInteger;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditCurrency;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinInteger;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class Loan extends SolveSeries {
@@ -75,7 +75,7 @@ public final class Loan extends SolveSeries {
 		txtPrinc = new TextWrapper(view, R.id.txtPrinc);
 		txtBal = new TextWrapper(view, R.id.txtBal);
 		EditWrapper[] inputs = { curAmt, decAR, decYears, curPay, intPTD };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				curAmt, decAR, decYears, curPay, intPTD,
 				curBal, txtPeriod, txtInter, txtPrinc, txtBal
 		};
@@ -83,7 +83,7 @@ public final class Loan extends SolveSeries {
 		Solver[] solvers = new Solver[]{
 				// Solve for the loan amount.
 				new Solver(new EditWrapper[]{ decAR, decYears, curPay },
-						new ControlWrapper[]{ curAmt, txtPeriod, txtInter, txtPrinc, txtBal }) {
+						new WidgetWrapper[]{ curAmt, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeAmount();
@@ -93,7 +93,7 @@ public final class Loan extends SolveSeries {
 
 				// Solve for the annual rate.
 				new Solver(new EditWrapper[]{ curAmt, decYears, curPay },
-						new ControlWrapper[]{ decAR, txtPeriod, txtInter, txtPrinc, txtBal }) {
+						new WidgetWrapper[]{ decAR, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeAnnualRate();
@@ -103,7 +103,7 @@ public final class Loan extends SolveSeries {
 
 				// Solve for the number of years.
 				new Solver(new EditWrapper[]{ curAmt, decAR, curPay },
-						new ControlWrapper[]{ decYears, txtPeriod, txtInter, txtPrinc, txtBal }) {
+						new WidgetWrapper[]{ decYears, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computeYears();
@@ -113,7 +113,7 @@ public final class Loan extends SolveSeries {
 
 				// Solve for the payment amount.
 				new Solver(new EditWrapper[]{ curAmt, decAR, decYears },
-						new ControlWrapper[]{ curPay, txtPeriod, txtInter, txtPrinc, txtBal }) {
+						new WidgetWrapper[]{ curPay, txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
 						computePayment();
@@ -123,7 +123,7 @@ public final class Loan extends SolveSeries {
 
 				// Solve for the remaining balance.
 				new Solver(new EditWrapper[]{ decAR, decYears, curPay, intPTD },
-						new ControlWrapper[]{ curAmt, curBal,
+						new WidgetWrapper[]{ curAmt, curBal,
 								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
@@ -133,7 +133,7 @@ public final class Loan extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ curAmt, decYears, curPay, intPTD },
-						new ControlWrapper[]{ decAR, curBal,
+						new WidgetWrapper[]{ decAR, curBal,
 								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
@@ -143,7 +143,7 @@ public final class Loan extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ curAmt, decAR, curPay, intPTD },
-						new ControlWrapper[]{ decYears, curBal,
+						new WidgetWrapper[]{ decYears, curBal,
 								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {
@@ -153,7 +153,7 @@ public final class Loan extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ curAmt, decAR, decYears, intPTD },
-						new ControlWrapper[]{ curPay, curBal,
+						new WidgetWrapper[]{ curPay, curBal,
 								txtPeriod, txtInter, txtPrinc, txtBal }) {
 					@Override
 					public void solve() {

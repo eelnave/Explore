@@ -9,9 +9,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CITFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public final class Counter extends CITFragment {
@@ -47,7 +48,7 @@ public final class Counter extends CITFragment {
 		}
 
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			count += quant;
 			intCount.setText(fmtrInt.format(count));
 		}
@@ -57,7 +58,7 @@ public final class Counter extends CITFragment {
 	/** Handles a click on the clear button. */
 	private final class ClearHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			count = 0;
 			intCount.setText(fmtrInt.format(count));
 		}

@@ -11,10 +11,11 @@ import java.text.NumberFormat;
 import edu.byui.cit.model.Statistics;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public final class Correlation extends CalcFragment {
@@ -44,7 +45,7 @@ public final class Correlation extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		String str1 = txtSamp1.getText().toString().trim();
 		String str2 = txtSamp2.getText().toString().trim();
 		if (str1.length() > 0 && str2.length() > 0) {
@@ -70,7 +71,7 @@ public final class Correlation extends CalcFragment {
 
 	private final class ClearHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			txtSamp1.getText().clear();
 			txtSamp2.getText().clear();
 			txtCorrel.clear();

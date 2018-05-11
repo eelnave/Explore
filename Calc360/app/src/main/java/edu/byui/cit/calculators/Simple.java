@@ -9,10 +9,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class Simple extends CalcFragment {
@@ -47,7 +47,7 @@ public final class Simple extends CalcFragment {
 
 		// Initialize this calculator.
 		EditWrapper[] inputs = { decimal1, decimal2 };
-		ControlWrapper[] toClear = { decimal1, decimal2, result };
+		WidgetWrapper[] toClear = { decimal1, decimal2, result };
 		initialize(view, inputs, R.id.btnClear, toClear);
 
 		return view;
@@ -55,7 +55,7 @@ public final class Simple extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		// If there is text in both text fields
 		if (decimal1.notEmpty() && decimal2.notEmpty()) {
 			// Get the numbers from the text fields.

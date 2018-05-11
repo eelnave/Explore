@@ -11,10 +11,10 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditCurrency;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
 
 
 /** A calculator that computes gratuity rate,
@@ -62,7 +62,7 @@ public final class Gratuity extends CalcFragment {
 				curCost, curTaxAmt, percTipRate, curTipAmt, curTotal
 		};
 		EditWrapper[][] groups = {{ percTipRate, curTipAmt, curTotal }};
-		ControlWrapper[] toClear = { curCost, curTaxAmt, curTipAmt, curTotal };
+		WidgetWrapper[] toClear = { curCost, curTaxAmt, curTipAmt, curTotal };
 		initialize(view, inputs, groups, R.id.btnClear, toClear);
 		return view;
 	}
@@ -82,7 +82,7 @@ public final class Gratuity extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (curCost.hasUserInput()) {
 			double cost = curCost.getCur();
 

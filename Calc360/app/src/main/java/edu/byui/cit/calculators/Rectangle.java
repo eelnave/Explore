@@ -9,9 +9,9 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Rectangle.*;
 
@@ -39,7 +39,7 @@ public final class Rectangle extends SolveSeries {
 		Solver[] solvers = new Solver[]{
 				// width && (height || diag || perim || area)
 				new Solver(new EditWrapper[]{ decWidth, decHeight },
-						new ControlWrapper[]{ decDiag, decPerim, decArea }) {
+						new WidgetWrapper[]{ decDiag, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						double width = decWidth.getDec();
@@ -53,21 +53,21 @@ public final class Rectangle extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decWidth, decDiag },
-						new ControlWrapper[]{ decHeight, decPerim, decArea }) {
+						new WidgetWrapper[]{ decHeight, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSideDiag(decWidth, decHeight);
 					}
 				},
 				new Solver(new EditWrapper[]{ decWidth, decPerim },
-						new ControlWrapper[]{ decHeight, decDiag, decArea }) {
+						new WidgetWrapper[]{ decHeight, decDiag, decArea }) {
 					@Override
 					public void solve() {
 						solveSidePerim(decWidth, decHeight);
 					}
 				},
 				new Solver(new EditWrapper[]{ decWidth, decArea },
-						new ControlWrapper[]{ decHeight, decDiag, decPerim }) {
+						new WidgetWrapper[]{ decHeight, decDiag, decPerim }) {
 					@Override
 					public void solve() {
 						solveSideArea(decWidth, decHeight);
@@ -76,21 +76,21 @@ public final class Rectangle extends SolveSeries {
 
 				// height && (diag || perim || area)
 				new Solver(new EditWrapper[]{ decHeight, decDiag },
-						new ControlWrapper[]{ decWidth, decPerim, decArea }) {
+						new WidgetWrapper[]{ decWidth, decPerim, decArea }) {
 					@Override
 					public void solve() {
 						solveSideDiag(decHeight, decWidth);
 					}
 				},
 				new Solver(new EditWrapper[]{ decHeight, decPerim },
-						new ControlWrapper[]{ decWidth, decDiag, decArea }) {
+						new WidgetWrapper[]{ decWidth, decDiag, decArea }) {
 					@Override
 					public void solve() {
 						solveSidePerim(decHeight, decWidth);
 					}
 				},
 				new Solver(new EditWrapper[]{ decHeight, decArea },
-						new ControlWrapper[]{ decWidth, decDiag, decPerim }) {
+						new WidgetWrapper[]{ decWidth, decDiag, decPerim }) {
 					@Override
 					public void solve() {
 						solveSideArea(decHeight, decWidth);
@@ -99,7 +99,7 @@ public final class Rectangle extends SolveSeries {
 
 				// diag && (perim || area)
 				new Solver(new EditWrapper[]{ decDiag, decPerim },
-						new ControlWrapper[]{ decWidth, decHeight, decArea }) {
+						new WidgetWrapper[]{ decWidth, decHeight, decArea }) {
 					@Override
 					public void solve() {
 						double diag = decDiag.getDec();
@@ -113,7 +113,7 @@ public final class Rectangle extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decDiag, decArea },
-						new ControlWrapper[]{ decWidth, decHeight, decPerim }) {
+						new WidgetWrapper[]{ decWidth, decHeight, decPerim }) {
 					@Override
 					public void solve() {
 						double diag = decDiag.getDec();
@@ -129,7 +129,7 @@ public final class Rectangle extends SolveSeries {
 
 				// perim && area
 				new Solver(new EditWrapper[]{ decPerim, decArea },
-						new ControlWrapper[]{ decWidth, decHeight, decDiag }) {
+						new WidgetWrapper[]{ decWidth, decHeight, decDiag }) {
 					@Override
 					public void solve() {
 						double perim = decPerim.getDec();

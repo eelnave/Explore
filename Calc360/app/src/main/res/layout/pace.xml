@@ -1,120 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/Pace"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:orientation="horizontal">
 
-		<LinearLayout
-			android:id="@+id/explain"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="15dp"
-			android:orientation="vertical"
-			android:visibility="gone">
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decDist"
+			android:text="@string/Distance"/>
 
-			<TextView
-				style="@style/TextLabel"
-				android:text="@string/paceExplain"/>
+		<EditText
+			android:id="@+id/decDist"
+			style="@style/UnsignedDecimal"
+			android:ems="7"/>
 
-			<Button
-				android:id="@+id/btnHide"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="end"
-				android:text="@string/hideExplain"/>
-		</LinearLayout>
+		<Spinner
+			android:id="@+id/spinDistUnits"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+	</LinearLayout>
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
 
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/decDist"
-				android:text="@string/Distance"/>
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/Time"/>
 
-			<EditText
-				android:id="@+id/decDist"
-				style="@style/UnsignedDecimal"
-				android:ems="7"/>
+		<EditText
+			android:id="@+id/hours"
+			style="@style/UnsignedInteger"
+			android:ems="5"
+			android:hint="@string/hours"/>
 
-			<Spinner
-				android:id="@+id/spinDistUnits"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"/>
-		</LinearLayout>
+		<EditText
+			android:id="@+id/minutes"
+			style="@style/UnsignedInteger"
+			android:ems="5"
+			android:hint="@string/minutes"/>
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
+		<EditText
+			android:id="@+id/seconds"
+			style="@style/UnsignedInteger"
+			android:ems="5"
+			android:hint="@string/seconds"/>
+	</LinearLayout>
 
-			<TextView
-				style="@style/TextLabel"
-				android:text="@string/Time"/>
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="10dp"
+		android:orientation="horizontal">
 
-			<EditText
-				android:id="@+id/hours"
-				style="@style/UnsignedInteger"
-				android:ems="5"
-				android:hint="@string/hours"/>
-
-			<EditText
-				android:id="@+id/minutes"
-				style="@style/UnsignedInteger"
-				android:ems="5"
-				android:hint="@string/minutes"/>
-
-			<EditText
-				android:id="@+id/seconds"
-				style="@style/UnsignedInteger"
-				android:ems="5"
-				android:hint="@string/seconds"/>
-		</LinearLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp"
-			android:orientation="horizontal">
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginEnd="10dp"
-				android:text="@string/pace"/>
-
-			<TextView
-				android:id="@+id/paceOutput"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:minEms="4"/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginEnd="10dp"
-				android:layout_marginStart="10dp"
-				android:text="@string/per"/>
-
-			<Spinner
-				android:id="@+id/spinPaceUnits"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"/>
-		</LinearLayout>
-
-		<Button
-			android:id="@+id/btnClear"
+		<TextView
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp"
-			android:text="@string/clear"/>
+			android:layout_marginEnd="10dp"
+			android:text="@string/pace"/>
+
+		<TextView
+			android:id="@+id/paceOutput"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:minEms="4"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginEnd="10dp"
+			android:layout_marginStart="10dp"
+			android:text="@string/per"/>
+
+		<Spinner
+			android:id="@+id/spinPaceUnits"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
 	</LinearLayout>
-</ScrollView>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"/>
+</LinearLayout>

@@ -1,17 +1,18 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.view.View;
 import android.widget.TextView;
 
 
-public final class TextWrapper extends ControlWrapper {
+public final class TextWrapper extends WidgetWrapper {
 	private final TextView view;
 
 	public TextWrapper(View parent, int resID) {
-		super(parent, resID, null);
+		super(parent, resID);
 		this.view = parent.findViewById(resID);
 	}
 
+	@Override
 	public final TextView getView() {
 		return view;
 	}

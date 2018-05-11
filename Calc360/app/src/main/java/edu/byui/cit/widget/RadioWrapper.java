@@ -1,31 +1,31 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RadioButton;
 
-import edu.byui.cit.calc360.CalcFragment;
+import edu.byui.cit.calc360.Calc360;
 
 
-public final class RadioWrapper extends ControlWrapper implements OnClickListener {
+public final class RadioWrapper extends WidgetWrapper implements OnClickListener {
 	private final RadioButton radio;
 	private final ClickListener listener;
 
-
-	public RadioWrapper(View parent, int resID, CalcFragment calculator) {
-		this(parent, resID, calculator, null);
+	public RadioWrapper(View parent, int resID) {
+		this(parent, resID, null);
 	}
 
 	public RadioWrapper(View parent, int resID, ClickListener listener) {
-		this(parent, resID, null, listener);
-	}
-
-	private RadioWrapper(View parent, int resID,
-			CalcFragment calculator, ClickListener listener) {
-		super(parent, resID, calculator);
+		super(parent, resID);
 		this.radio = parent.findViewById(resID);
 		this.listener = listener;
 		radio.setOnClickListener(this);
+	}
+
+	@Override
+	public final RadioButton getView() {
+		return radio;
 	}
 
 	public final boolean isChecked() {
@@ -58,11 +58,16 @@ public final class RadioWrapper extends ControlWrapper implements OnClickListene
 
 	@Override
 	public final void onClick(View button) {
-		if (calculator != null) {
-			calculator.callCompute();
-		}
-		else {
-			listener.clicked(button);
+		if (listener != null) {
+			try {
+				listener.clicked(this);
+			}
+			catch (NumberFormatException ex) {
+				// Do nothing.
+			}
+			catch (Exception ex) {
+				Log.e(Calc360.TAG, "exception", ex);
+			}
 		}
 	}
 }

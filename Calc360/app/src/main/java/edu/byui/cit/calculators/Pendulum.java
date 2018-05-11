@@ -9,8 +9,8 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.SolveEquation;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
 
 import static edu.byui.cit.model.Physics.Pendulum.*;
 

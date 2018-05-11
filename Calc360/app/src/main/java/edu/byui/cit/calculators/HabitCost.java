@@ -9,12 +9,12 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.RadioWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditCurrency;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.RadioWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class HabitCost extends CalcFragment {
@@ -50,7 +50,7 @@ public final class HabitCost extends CalcFragment {
 		yearlyAmount = new TextWrapper(view, R.id.yearlyAmount);
 
 		EditWrapper[] inputs = { cost, frequency };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				cost, frequency,
 				dailyAmount, weeklyAmount, monthlyAmount, yearlyAmount
 		};
@@ -60,7 +60,7 @@ public final class HabitCost extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (EditWrapper.allNotEmpty(cost, frequency)) {
 			double c = cost.getCur();
 			double f = frequency.getDec();

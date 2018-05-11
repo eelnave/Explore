@@ -1,4 +1,4 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,17 +8,11 @@ import android.widget.ArrayAdapter;
 
 import java.util.List;
 
-import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.units.Container;
 import edu.byui.cit.units.Named;
 
 
 abstract class SpinContainer<P extends Named> extends SpinWrapper {
-	SpinContainer(View parent, int spinID, CalcFragment calculator) {
-		super(parent, spinID, null, calculator);
-		spinner.setOnItemSelectedListener(this);
-	}
-
 	SpinContainer(View parent, int spinID, ItemSelectedListener listener) {
 		super(parent, spinID, null, listener);
 		spinner.setOnItemSelectedListener(this);
@@ -26,26 +20,11 @@ abstract class SpinContainer<P extends Named> extends SpinWrapper {
 
 	/** Initializes a spinner with all the objects in the given container. */
 	SpinContainer(Context ctx, View parent, int spinID,
-			Container<P> cont, String prefsKey, CalcFragment calculator) {
-		super(parent, spinID, prefsKey, calculator);
+			Container<P> cont, String prefsKey, ItemSelectedListener listener) {
+		super(parent, spinID, prefsKey, listener);
 
 		// Set the spinner's adapter.
 		spinner.setAdapter(makeAdapter(ctx, cont.getAll()));
-
-		spinner.setOnItemSelectedListener(this);
-	}
-
-	/** Initializes a spinner with the objects in the given
-	 * container that are listed in the given array. */
-	SpinContainer(Context ctx, View parent, int spinID,
-			Container<P> cont, int arrayID, String prefsKey,
-			CalcFragment calculator) {
-		super(parent, spinID, prefsKey, calculator);
-
-		// Set the spinner's adapter.
-		Resources res = ctx.getResources();
-		String[] childNames = res.getStringArray(arrayID);
-		spinner.setAdapter(makeAdapter(ctx, cont.getByName(childNames)));
 
 		spinner.setOnItemSelectedListener(this);
 	}

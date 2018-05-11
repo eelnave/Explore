@@ -1,4 +1,4 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.SharedPreferences;
 import android.view.View;
@@ -6,13 +6,25 @@ import android.widget.EditText;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.CalcFragment;
-
 
 public final class EditFraction extends EditWrapper {
-	public EditFraction(View parent, int resID, CalcFragment calculator) {
-		super(parent, resID, null, calculator);
+	public EditFraction(View parent, int resID) {
+		super(parent, resID, null, null);
 	}
+
+	public EditFraction(View parent, int resID, String prefsKey) {
+		super(parent, resID, prefsKey, null);
+	}
+
+	public EditFraction(View parent, int resID, TextChangeListener listener) {
+		super(parent, resID, null, listener);
+	}
+
+	public EditFraction(View parent, int resID,
+			String prefsKey, TextChangeListener listener) {
+		super(parent, resID, prefsKey, listener);
+	}
+
 
 	@Override
 	public void save(SharedPreferences.Editor editor) {
@@ -20,14 +32,15 @@ public final class EditFraction extends EditWrapper {
 			editor.remove(prefsKey);
 		}
 		else {
-			// ToDo
+			// TODO
 		}
 	}
 
 	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
-		// ToDo
+		// TODO
 	}
+
 
 	public double getDec() throws NumberFormatException {
 		return getDec(getText());

@@ -1,21 +1,18 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.SharedPreferences;
 import android.view.View;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.CalcFragment;
-
 
 public class EditCurrency extends EditWrapper {
-	public EditCurrency(View parent, int resID, CalcFragment calculator) {
-		super(parent, resID, null, calculator);
+	public EditCurrency(View parent, int resID) {
+		super(parent, resID, null, null);
 	}
 
-	public EditCurrency(
-			View parent, int resID, String prefsKey, CalcFragment calculator) {
-		super(parent, resID, prefsKey, calculator);
+	public EditCurrency(View parent, int resID, String prefsKey) {
+		super(parent, resID, prefsKey, null);
 	}
 
 	public EditCurrency(View parent, int resID, TextChangeListener listener) {
@@ -26,6 +23,7 @@ public class EditCurrency extends EditWrapper {
 			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}
+
 
 	@Override
 	public void save(SharedPreferences.Editor editor) {
@@ -40,12 +38,15 @@ public class EditCurrency extends EditWrapper {
 
 	@Override
 	public void restore(SharedPreferences prefs, NumberFormat fmtr) {
-		restore(prefs, fmtr, 0);
+		if (!hasUserInput() && prefs.contains(prefsKey)) {
+			float val = prefs.getFloat(prefsKey, 0);
+			setInput(fmtr.format(val));
+		}
 	}
 
 	public void restore(
 			SharedPreferences prefs, NumberFormat fmtr, float deflt) {
-		if (!hasUserInput() && prefs.contains(prefsKey)) {
+		if (!hasUserInput()) {
 			float val = prefs.getFloat(prefsKey, deflt);
 			setInput(fmtr.format(val));
 		}

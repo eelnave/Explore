@@ -9,10 +9,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 import static edu.byui.cit.model.Mathematics.Quadratic.*;
 
@@ -42,14 +42,14 @@ public final class Quadratic extends CalcFragment {
 		decRoot2 = new TextWrapper(view, R.id.decRoot2);
 
 		EditWrapper[] inputs = { decA, decB, decC };
-		ControlWrapper[] toClear = { decA, decB, decC, decRoot1, decRoot2 };
+		WidgetWrapper[] toClear = { decA, decB, decC, decRoot1, decRoot2 };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (EditWrapper.allNotEmpty(decA, decB, decC)) {
 			String s1, s2 = null;
 			double a = decA.getDec();

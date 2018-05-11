@@ -25,11 +25,19 @@ public class GroupFragment extends CITFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
 		View view = inflater.inflate(R.layout.group, container, false);
-		GridLayout grid = view.findViewById(R.id.gridThing);
-		populate(grid, ((GroupDescriptor)descriptor).getChildren());
+
+		GroupDescriptor descrip = getDescriptor();
+		view.setId(descrip.getID());
+
+		GridLayout grid = (GridLayout)view;
+		populate(grid, descrip.getChildren());
 		return view;
 	}
 
+	@Override
+	final GroupDescriptor getDescriptor() {
+		return (GroupDescriptor)super.getDescriptor();
+	}
 
 	// Wow detecting a user swiping left or right is convoluted in Android.
 //	private final class GestureHandler implements GestureDetector.OnGestureListener {
@@ -142,7 +150,7 @@ public class GroupFragment extends CITFragment {
 			try {
 				if (fragment == null || fragment.isDetached()) {
 					fragment = descriptor.getCalcClass().newInstance();
-					fragment.setDescrip(descriptor.getID());
+					fragment.setDescriptor(descriptor.getID());
 				}
 			}
 			catch (Exception ex) {

@@ -1,4 +1,4 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.SharedPreferences;
 import android.view.View;
@@ -7,27 +7,25 @@ import android.widget.EditText;
 import java.text.NumberFormat;
 import java.util.Arrays;
 
-import edu.byui.cit.calc360.CalcFragment;
-
 
 public class EditDecimal extends EditWrapper {
-	public EditDecimal(View parent, int resID, CalcFragment calculator) {
-		super(parent, resID, null, calculator);
+	public EditDecimal(View parent, int resID) {
+		super(parent, resID, null, null);
 	}
 
-	public EditDecimal(
-			View parent, int resID, String prefsKey, CalcFragment calculator) {
-		super(parent, resID, prefsKey, calculator);
+	public EditDecimal(View parent, int resID, String prefsKey) {
+		super(parent, resID, prefsKey, null);
 	}
 
 	public EditDecimal(View parent, int resID, TextChangeListener listener) {
 		super(parent, resID, null, listener);
 	}
 
-	public EditDecimal(
-			View parent, int resID, String prefsKey, TextChangeListener listener) {
+	public EditDecimal(View parent, int resID,
+			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}
+
 
 	@Override
 	public void save(SharedPreferences.Editor editor) {
@@ -55,6 +53,7 @@ public class EditDecimal extends EditWrapper {
 			setInput(fmtr.format(val));
 		}
 	}
+
 
 	public double getDec() throws NumberFormatException {
 		return getDec(getText());

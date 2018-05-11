@@ -1,76 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/Age"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
 
-	<LinearLayout
-		android:layout_width="match_parent"
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/birthDate"
+		android:text="@string/birthDate"
+		compat:layout_columnSpan="3"/>
+
+	<DatePicker
+		android:id="@+id/birthDate"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:calendarViewShown="false"
+		android:datePickerMode="spinner"
+		compat:layout_columnSpan="3">
+
+		<requestFocus/>
+	</DatePicker>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/age"/>
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		compat:columnCount="2">
 
 		<TextView
 			style="@style/TextLabel"
-			android:labelFor="@+id/birthDate"
-			android:text="@string/birthDate"
-			compat:layout_columnSpan="3"/>
+			android:text="@string/Years"/>
 
-		<DatePicker
-			android:id="@+id/birthDate"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:calendarViewShown="false"
-			android:datePickerMode="spinner"
-			compat:layout_columnSpan="3">
-
-			<requestFocus/>
-		</DatePicker>
+		<TextView
+			android:id="@+id/exactYears"
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"/>
 
 		<TextView
 			style="@style/TextLabel"
-			android:text="@string/age"/>
+			android:text="@string/Months"/>
 
-		<android.support.v7.widget.GridLayout
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			compat:columnCount="2">
+		<TextView
+			android:id="@+id/exactMonths"
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"/>
 
-			<TextView
-				style="@style/TextLabel"
-				android:text="@string/Years"/>
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/Days"/>
 
-			<TextView
-				android:id="@+id/exactYears"
-				style="@style/TextResult"
-				android:layout_marginStart="10dp"/>
+		<TextView
+			android:id="@+id/exactDays"
+			style="@style/TextResult"
+			android:layout_marginStart="10dp"/>
+	</android.support.v7.widget.GridLayout>
 
-			<TextView
-				style="@style/TextLabel"
-				android:text="@string/Months"/>
-
-			<TextView
-				android:id="@+id/exactMonths"
-				style="@style/TextResult"
-				android:layout_marginStart="10dp"/>
-
-			<TextView
-				style="@style/TextLabel"
-				android:text="@string/Days"/>
-
-			<TextView
-				android:id="@+id/exactDays"
-				style="@style/TextResult"
-				android:layout_marginStart="10dp"/>
-		</android.support.v7.widget.GridLayout>
-
-		<Button
-			android:id="@+id/btnClear"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp"
-			android:text="@string/clear"
-			compat:layout_columnSpan="3"/>
-	</LinearLayout>
-</ScrollView>
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"/>
+</LinearLayout>

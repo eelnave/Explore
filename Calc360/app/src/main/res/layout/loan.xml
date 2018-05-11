@@ -1,178 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/Loan"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		compat:columnCount="3">
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:labelFor="@+id/curAmt"
+			android:text="@string/amt"/>
+
+		<EditText
+			android:id="@+id/curAmt"
+			style="@style/UnsignedDecimal"
+			android:ems="5"
+			android:imeOptions="actionNext">
+
+			<requestFocus/>
+		</EditText>
+
+		<Space/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:labelFor="@+id/decAR"
+			android:text="@string/annRate"/>
+
+		<EditText
+			android:id="@+id/decAR"
+			style="@style/UnsignedDecimal"
+			android:ems="5"
+			android:hint="@string/annRateHint"
+			android:imeOptions="actionNext"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/perc"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:labelFor="@+id/decYears"
+			android:text="@string/Years"/>
+
+		<EditText
+			android:id="@+id/decYears"
+			style="@style/UnsignedDecimal"
+			android:ems="5"
+			android:imeOptions="actionNext"/>
+
+		<Space/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="15dp"
+			android:labelFor="@+id/spinPPY"
+			android:text="@string/loanPPY"/>
+
+		<Spinner
+			android:id="@+id/spinPPY"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="15dp"
+			android:textAlignment="textEnd"
+			compat:layout_gravity="fill_horizontal"/>
+
+		<Space/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="10dp"
+			android:labelFor="@+id/curPay"
+			android:text="@string/Payment"/>
+
+		<EditText
+			android:id="@+id/curPay"
+			style="@style/UnsignedDecimal"
+			android:ems="5"
+			android:imeOptions="actionNext"/>
+
+		<Space/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:labelFor="@+id/intPTD"
+			android:text="@string/ptd"/>
+
+		<EditText
+			android:id="@+id/intPTD"
+			style="@style/UnsignedInteger"
+			android:ems="5"
+			android:imeOptions="actionDone"/>
+
+		<Space/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="10dp"
+			android:labelFor="@+id/curBal"
+			android:text="@string/Balance"/>
+
+		<TextView
+			android:id="@+id/curBal"
+			style="@style/TextResultOld"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="10dp"/>
+
+		<Space/>
+	</android.support.v7.widget.GridLayout>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/clear"/>
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:orientation="horizontal">
 
-		<android.support.v7.widget.GridLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			compat:columnCount="3">
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:labelFor="@+id/curAmt"
-				android:text="@string/amt"/>
-
-			<EditText
-				android:id="@+id/curAmt"
-				style="@style/UnsignedDecimal"
-				android:ems="5"
-				android:imeOptions="actionNext">
-
-				<requestFocus/>
-			</EditText>
-
-			<Space/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:labelFor="@+id/decAR"
-				android:text="@string/annRate"/>
-
-			<EditText
-				android:id="@+id/decAR"
-				style="@style/UnsignedDecimal"
-				android:ems="5"
-				android:hint="@string/annRateHint"
-				android:imeOptions="actionNext"/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="@string/perc"/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:labelFor="@+id/decYears"
-				android:text="@string/Years"/>
-
-			<EditText
-				android:id="@+id/decYears"
-				style="@style/UnsignedDecimal"
-				android:ems="5"
-				android:imeOptions="actionNext"/>
-
-			<Space/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="10dp"
-				android:layout_marginTop="15dp"
-				android:labelFor="@+id/spinPPY"
-				android:text="@string/loanPPY"/>
-
-			<Spinner
-				android:id="@+id/spinPPY"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="10dp"
-				android:layout_marginTop="15dp"
-				android:textAlignment="textEnd"
-				compat:layout_gravity="fill_horizontal"/>
-
-			<Space/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="10dp"
-				android:layout_marginTop="10dp"
-				android:labelFor="@+id/curPay"
-				android:text="@string/Payment"/>
-
-			<EditText
-				android:id="@+id/curPay"
-				style="@style/UnsignedDecimal"
-				android:ems="5"
-				android:imeOptions="actionNext"/>
-
-			<Space/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:labelFor="@+id/intPTD"
-				android:text="@string/ptd"/>
-
-			<EditText
-				android:id="@+id/intPTD"
-				style="@style/UnsignedInteger"
-				android:ems="5"
-				android:imeOptions="actionDone"/>
-
-			<Space/>
-
-			<TextView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginBottom="10dp"
-				android:layout_marginTop="10dp"
-				android:labelFor="@+id/curBal"
-				android:text="@string/Balance"/>
-
-			<TextView
-				android:id="@+id/curBal"
-				style="@style/TextResultOld"
-				android:layout_marginBottom="10dp"
-				android:layout_marginTop="10dp"/>
-
-			<Space/>
-		</android.support.v7.widget.GridLayout>
-
-		<Button
-			android:id="@+id/btnClear"
+		<TextView
+			android:id="@+id/txtPeriod"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@string/clear"
-			compat:layout_columnSpan="3"/>
+			android:minLines="5"
+			android:textAlignment="textEnd"/>
 
-		<LinearLayout
-			android:layout_width="match_parent"
+		<TextView
+			android:id="@+id/txtInter"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:orientation="horizontal">
+			android:layout_marginStart="10dp"
+			android:minLines="5"
+			android:textAlignment="textEnd"/>
 
-			<TextView
-				android:id="@+id/txtPeriod"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:minLines="5"
-				android:textAlignment="textEnd"/>
+		<TextView
+			android:id="@+id/txtPrinc"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="10dp"
+			android:minLines="5"
+			android:textAlignment="textEnd"/>
 
-			<TextView
-				android:id="@+id/txtInter"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="10dp"
-				android:minLines="5"
-				android:textAlignment="textEnd"/>
-
-			<TextView
-				android:id="@+id/txtPrinc"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="10dp"
-				android:minLines="5"
-				android:textAlignment="textEnd"/>
-
-			<TextView
-				android:id="@+id/txtBal"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="10dp"
-				android:minLines="5"
-				android:textAlignment="textEnd"/>
-		</LinearLayout>
+		<TextView
+			android:id="@+id/txtBal"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="10dp"
+			android:minLines="5"
+			android:textAlignment="textEnd"/>
 	</LinearLayout>
-</ScrollView>
+</LinearLayout>

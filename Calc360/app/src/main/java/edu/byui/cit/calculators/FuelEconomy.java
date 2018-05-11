@@ -11,12 +11,12 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextChangeHandler;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.TextChangeListener;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.FuelEcon;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Unit;
@@ -80,7 +80,7 @@ public final class FuelEconomy extends CalcFragment {
 		decEcon = new TextWrapper(view, R.id.decEcon);
 
 		EditWrapper[] inputs = { decBegin, decEnd, decDist, decVol };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				decBegin, decEnd, decDist, decVol, decEcon
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -106,31 +106,31 @@ public final class FuelEconomy extends CalcFragment {
 	}
 
 
-	private final class OdometerChanged extends TextChangeHandler {
+	private final class OdometerChanged implements TextChangeListener {
 		@Override
-		public void textChanged(CharSequence s) {
+		public void textChanged(EditWrapper source) {
 			if (decBegin.notEmpty() || decEnd.notEmpty()) {
 				decDist.clear();
 			}
-			callCompute();
+			compute(source);
 		}
 	}
 
 
-	private final class DistanceChanged extends TextChangeHandler {
+	private final class DistanceChanged implements TextChangeListener {
 		@Override
-		public void textChanged(CharSequence s) {
+		public void textChanged(EditWrapper source) {
 			if (decDist.notEmpty()) {
 				decBegin.clear();
 				decEnd.clear();
 			}
-			callCompute();
+			compute(source);
 		}
 	}
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		double dist = 0;
 		if (decBegin.notEmpty() && decEnd.notEmpty()) {
 			double begin = decBegin.getDec();

@@ -10,12 +10,12 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.RadioWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.RadioWrapper;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
@@ -63,7 +63,7 @@ public final class BodyMassIndex extends CalcFragment {
 		radImperial.performClick();
 
 		EditWrapper[] inputs = { decHeight, decWeight };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				decHeight, decWeight, txtBMI, txtCategory
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -73,10 +73,11 @@ public final class BodyMassIndex extends CalcFragment {
 
 	private final class RadioClick implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			Property length = Length.getInstance();
 			Property mass = Mass.getInstance();
-			boolean selected = ((RadioButton)button).isChecked();
+			RadioButton button = (RadioButton)source.getView();
+			boolean selected = button.isChecked();
 			if (selected) {
 				Unit unitLength, unitMass;
 				switch (button.getId()) {
@@ -92,13 +93,13 @@ public final class BodyMassIndex extends CalcFragment {
 				txtHeightUnit.setText(unitLength.getLocalName());
 				txtWeightUnit.setText(unitMass.getLocalName());
 			}
-			callCompute();
+			compute(source);
 		}
 	}
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (decHeight.notEmpty() && decWeight.notEmpty()) {
 			double height = decHeight.getDec();
 			double weight = decWeight.getDec();

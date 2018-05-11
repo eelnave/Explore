@@ -1,6 +1,5 @@
 package edu.byui.cit.calc360;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,23 +13,35 @@ import android.widget.EditText;
 
 import org.jetbrains.annotations.NotNull;
 
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-
 
 public abstract class CITFragment extends Fragment {
-	private static final String descripIDKey = "calcID";
+	private static final String PAGE_ID_KEY = "pageID";
 
-	Descriptor descriptor;
-	View explain;
+	private Descriptor descriptor;
 
 
 	public CITFragment() {
 		super();
 	}
 
-	void setDescrip(String descripID) {
-		descriptor = Descriptors.getDescrip(descripID);
+	void setDescriptor(int descripID) {
+		descriptor = Descriptors.getDescriptor(descripID);
+	}
+
+	Descriptor getDescriptor() {
+		return descriptor;
+	}
+
+	final String getTitle() {
+		return descriptor.getTitle(getResources());
+	}
+
+	final String getExplanation() {
+		return descriptor.getExplanation(getResources());
+	}
+
+	final String getPrefsPrefix() {
+		return descriptor.getPrefsPrefix(getResources());
 	}
 
 //	@Override
@@ -41,44 +52,28 @@ public abstract class CITFragment extends Fragment {
 
 	@Override
 	public void onCreate(Bundle savedInstState) {
-		super.onCreate(savedInstState);
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onCreate(" +
 //			(savedInstState == null ? "null" : savedInstState.size()) + ")");
+		super.onCreate(savedInstState);
 		if (savedInstState != null) {
-			setDescrip(savedInstState.getString(descripIDKey));
+			setDescriptor(savedInstState.getInt(PAGE_ID_KEY));
 		}
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
-		super.onCreateView(inflater, container, savedInstState);
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onCreateView(" +
 //			(savedInstState == null ? "null" : savedInstState.size()) + ")");
+		super.onCreateView(inflater, container, savedInstState);
 		View view;
 		try {
 			view = createView(inflater, container, savedInstState);
 
-			// If this calculator contains a description, show it to the user
-			// if this is the first time the user has opened this calculator
-			// or the user prefers it open.
-			explain = view.findViewById(R.id.explain);
-			if (explain != null) {
-				SharedPreferences prefs = getActivity().getPreferences(
-						Context.MODE_PRIVATE);
-				String key = getPrefsPrefix() + Calc360.KEY_SHOW_HELP;
-				int vis = View.VISIBLE;
-				if (prefs.contains(key)) {
-					vis = prefs.getBoolean(key, false) ?
-							View.VISIBLE : View.GONE;
-				}
-				explain.setVisibility(vis);
-				new ButtonWrapper(explain, R.id.btnHide, new HideHandler());
-			}
-
+			// If this calculator is being opened, restore its user preferences.
 			if (savedInstState == null) {
-				SharedPreferences prefs = getActivity()
-						.getPreferences(Context.MODE_PRIVATE);
+				SharedPreferences prefs =
+						getActivity().getPreferences(Context.MODE_PRIVATE);
 				restorePrefs(prefs);
 			}
 		}
@@ -93,61 +88,64 @@ public abstract class CITFragment extends Fragment {
 			ViewGroup container, Bundle savedInstState);
 
 
-	/** Handles a click on the hide help (Got it!) button. */
-	class HideHandler implements ClickListener {
-		@Override
-		public void clicked(View button) {
-			if (explain != null) {
-				explain.setVisibility(View.GONE);
-
-				SharedPreferences prefs = getActivity().getPreferences(
-						Context.MODE_PRIVATE);
-				SharedPreferences.Editor editor = prefs.edit();
-				String key = getPrefsPrefix() + Calc360.KEY_SHOW_HELP;
-				editor.putBoolean(key, false);
-				editor.apply();
-			}
-		}
-	}
-
-
-	final String getPrefsPrefix() {
-		return getClass().getSimpleName();
-	}
-
 	protected void restorePrefs(SharedPreferences prefs) {
 	}
 
 	protected void savePrefs(SharedPreferences.Editor editor) {
 	}
 
+
 //	@Override
 //	public void onActivityCreated(Bundle savedInstState) {
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onActivityCreated("
-// + (savedInstState == null ? "null" : savedInstState.size()) + ")");
+//		Log.v(Calc360.TAG, getClass().getSimpleName()
+//				+ ".onActivityCreated("
+//				+ (savedInstState == null ? "null" : savedInstState.size())
+//				+ ")");
 //		super.onActivityCreated(savedInstState);
 //	}
 //
 //	@Override
 //	public void onViewStateRestored(Bundle savedInstState) {
+//		Log.v(Calc360.TAG, getClass().getSimpleName()
+//				+ ".onViewStateRestored("
+//				+ (savedInstState == null ? "null" : savedInstState.size())
+//				+ ")");
 //		super.onViewStateRestored(savedInstState);
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onViewStateRestored
-// (" + (savedInstState == null ? "null" : savedInstState.size()) + ")");
 //	}
 //
 //	@Override
 //	public void onStart() {
-//		super.onStart();
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onStart()");
+//		super.onStart();
 //	}
 
 	@Override
 	public void onResume() {
-		super.onResume();
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onResume()");
+		super.onResume();
 		try {
-			Activity act = getActivity();
+			Calc360 act = (Calc360)getActivity();
 			act.setTitle(descriptor.getTitle(getResources()));
+
+			// If this calculator contains an explanation and this is the
+			// first time the user has opened this calculator or the user
+			// prefers to see the explanation, then show the explanation
+			// to the user.
+			String explain = getExplanation();
+			if (explain != null) {
+				SharedPreferences prefs =
+						act.getPreferences(Context.MODE_PRIVATE);
+				String key = getPrefsPrefix() + Calc360.KEY_SHOW_HELP;
+				if (prefs.contains(key) && !prefs.getBoolean(key, false)) {
+					explain = null;
+				}
+			}
+			if (explain != null) {
+				act.showExplanation(explain);
+			}
+			else {
+				act.hideExplanation();
+			}
 
 			InputMethodManager imm = (InputMethodManager)act
 					.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -176,24 +174,20 @@ public abstract class CITFragment extends Fragment {
 
 //	@Override
 //	public void onPause() {
-//		super.onPause();
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onPause()");
+//		super.onPause();
 //	}
 
 	@Override
 	public void onSaveInstanceState(@NotNull Bundle savedInstState) {
+//		Log.v(Calc360.TAG, getClass().getSimpleName()
+//				+ ".onSaveInstanceState(" + savedInstState.size() + ")");
 		super.onSaveInstanceState(savedInstState);
-//		Log.v(Calc360.TAG, getClass().getSimpleName() +
-//				".onSaveInstanceState(" + savedInstState.size() + ")");
-		savedInstState.putString(descripIDKey, descriptor.getID());
+		savedInstState.putInt(PAGE_ID_KEY, descriptor.getID());
 	}
 
-//	void logBundle(Bundle savedInstState) {
-//		Log.v(Calc360.TAG, savedInstState == null ? "null" : savedInstState.toString());
-//	}
 
-
-	// When this calculator is stopped by the Android system, save
+	// When this fragment is stopped by the Android system, save
 	// the units chosen by the user into the preferences file.
 	@Override
 	public void onStop() {
@@ -225,19 +219,19 @@ public abstract class CITFragment extends Fragment {
 
 //	@Override
 //	public void onDestroyView() {
-//		super.onDestroyView();
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onDestroyView()");
+//		super.onDestroyView();
 //	}
 //
 //	@Override
 //	public void onDestroy() {
-//		super.onDestroy();
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onDestroy()");
+//		super.onDestroy();
 //	}
 //
 //	@Override
 //	public void onDetach() {
-//		super.onDetach();
 //		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onDetach()");
+//		super.onDetach();
 //	}
 }

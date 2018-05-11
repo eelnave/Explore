@@ -11,7 +11,7 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditDecimal;
+import edu.byui.cit.widget.EditDecimal;
 
 
 public final class FiveFunction extends CalcFragment {

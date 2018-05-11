@@ -10,12 +10,12 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Finance;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.RadioWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.RadioWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public class HouseAffordability extends CalcFragment {
@@ -43,7 +43,7 @@ public class HouseAffordability extends CalcFragment {
 		resCost = new TextWrapper(view, R.id.houseCost);
 
 		inputs = new EditWrapper[]{ editSal, editMortPerc, editLoanRate };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				editSal, editLoanRate, editMortPerc, resCost
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -52,7 +52,7 @@ public class HouseAffordability extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (EditWrapper.allNotEmpty(inputs) &&
 				(radioFifteen.isChecked() || radioThirty.isChecked())) {
 

@@ -13,15 +13,15 @@ import java.text.NumberFormat;
 import edu.byui.cit.model.Fitness;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
 
-import edu.byui.cit.text.RadioWrapper;
+import edu.byui.cit.widget.RadioWrapper;
 
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.Mass;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
@@ -70,7 +70,7 @@ public final class CaloriesBurned extends CalcFragment {
 		txtResult = new TextWrapper(view, R.id.txtResult);
 
 		EditWrapper[] inputs = { decWeight, intTime };
-		ControlWrapper[] toClear = { decWeight, intTime, txtResult };
+		WidgetWrapper[] toClear = { decWeight, intTime, txtResult };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -124,7 +124,7 @@ public final class CaloriesBurned extends CalcFragment {
 
 
 	@Override
-	public void compute() {
+	public void compute(WidgetWrapper source) {
 		if (decWeight.notEmpty() && intTime.notEmpty()) {
 			int id = grpExercise.getCheckedRadioButtonId();
 			double ratio = getRatio(id);

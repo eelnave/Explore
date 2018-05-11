@@ -1,13 +1,13 @@
 package edu.byui.cit.calc360;
 
-import android.util.Log;
 import android.view.View;
 
 import java.util.HashMap;
 
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.InputWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditWrapper;
 
 
 public abstract class SolveSeries extends CalcFragment {
@@ -15,13 +15,13 @@ public abstract class SolveSeries extends CalcFragment {
 	OrderedIndexArray indicesOfGivens;
 
 	protected void initialize(View view, EditWrapper[] inputs,
-			Solver[] solvers, int btnClearID, ControlWrapper[] toClear) {
+			Solver[] solvers, int btnClearID, WidgetWrapper[] toClear) {
 		this.initialize(view, inputs, null, solvers, btnClearID, toClear);
 	}
 
 	protected void initialize(View view, EditWrapper[] inputs,
 			EditWrapper[][] groups,
-			Solver[] solvers, int btnClearID, ControlWrapper[] toClear) {
+			Solver[] solvers, int btnClearID, WidgetWrapper[] toClear) {
 		super.initialize(view, inputs, groups, btnClearID, toClear);
 		int maxInputs = -1;
 		int len = inputs.length;
@@ -53,7 +53,7 @@ public abstract class SolveSeries extends CalcFragment {
 			EditWrapper[] group = findGroup(groups, input);
 			if (group != null) {
 				int i;
-				for (i = 0;  group[i] != input;  ++i) {
+				for (i = 0; group[i] != input; ++i) {
 					clearGroupHelper(group[i]);
 				}
 				while (++i < group.length) {
@@ -71,41 +71,31 @@ public abstract class SolveSeries extends CalcFragment {
 
 
 	@Override
-	public void callCompute(EditWrapper input) {
-		try {
-			int index = indexOf(inputs, input);
-			if (input.isEmpty()) {
-				if (indicesOfGivens.contains(index)) {
-					long bits = indicesOfGivens.bitset();
-					Solver solver = solvers.get(bits);
-					if (solver != null) {
-						solver.clearOutputs();
-					}
-					indicesOfGivens.remove(index);
-					compute();
+	public void compute(WidgetWrapper source) {
+		int index = indexOf(inputs, source);
+		if (((InputWrapper)source).isEmpty()) {
+			if (indicesOfGivens.contains(index)) {
+				long bits = indicesOfGivens.bitset();
+				Solver solver = solvers.get(bits);
+				if (solver != null) {
+					solver.clearOutputs();
 				}
-			}
-			else {
-				indicesOfGivens.add(index);
-				compute();
+				indicesOfGivens.remove(index);
+				compute2();
 			}
 		}
-		catch (NumberFormatException ex) {
-			// Do nothing.
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
+		else {
+			indicesOfGivens.add(index);
+			compute2();
 		}
 	}
 
-
-	@Override
-	protected void compute() {
+	private void compute2() {
 		long bitset = indicesOfGivens.bitset();
 		Solver solver = solvers.get(bitset);
 //		if (solver == null) {
-			// There is no solver that is an exact match to the
-			// inputs given by the user. Search for a partial match.
+		// There is no solver that is an exact match to the
+		// inputs given by the user. Search for a partial match.
 //			for (Long key : solvers.keySet()) {
 //				long skey = key;
 //				if ((bits & skey) == skey) {
@@ -167,8 +157,8 @@ public abstract class SolveSeries extends CalcFragment {
 
 	private final class ClearHandler extends CalcFragment.ClearHandler {
 		@Override
-		public void clicked(View button) {
-			super.clicked(button);
+		public void clicked(WidgetWrapper source) {
+			super.clicked(source);
 			indicesOfGivens.clear();
 		}
 	}
@@ -176,20 +166,20 @@ public abstract class SolveSeries extends CalcFragment {
 
 	protected static abstract class Solver {
 		protected EditWrapper[] inputs;
-		private ControlWrapper[] outputs;
+		private WidgetWrapper[] outputs;
 
-		protected Solver(EditWrapper[] inputs, ControlWrapper[] outputs) {
+		protected Solver(EditWrapper[] inputs, WidgetWrapper[] outputs) {
 			init(inputs, outputs);
 		}
 
-		void init(EditWrapper[] inputs, ControlWrapper[] outputs) {
+		void init(EditWrapper[] inputs, WidgetWrapper[] outputs) {
 			checkInputs(inputs, outputs);
 			this.inputs = inputs;
 			this.outputs = outputs;
 		}
 
 		private static void checkInputs(EditWrapper[] inputs,
-				ControlWrapper[] outputs) {
+				WidgetWrapper[] outputs) {
 			if (inputs != null && outputs != null) {
 				for (int i = 0; i < inputs.length; ++i) {
 					EditWrapper in = inputs[i];
@@ -205,7 +195,7 @@ public abstract class SolveSeries extends CalcFragment {
 
 		private void clearOutputs() {
 			if (outputs != null) {
-				for (ControlWrapper ctrl : outputs) {
+				for (WidgetWrapper ctrl : outputs) {
 					ctrl.clear();
 				}
 			}

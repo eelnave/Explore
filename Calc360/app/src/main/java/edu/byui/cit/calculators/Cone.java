@@ -9,9 +9,9 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Cone.*;
 
@@ -39,7 +39,7 @@ public final class Cone extends SolveSeries {
 
 		Solver[] solvers = new Solver[]{
 				new Solver(new EditWrapper[]{ decRadius, decHeight },
-						new ControlWrapper[]{ decSide, decSurfArea, decVolume }) {
+						new WidgetWrapper[]{ decSide, decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -50,7 +50,7 @@ public final class Cone extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decRadius, decSide },
-						new ControlWrapper[]{ decHeight, decSurfArea, decVolume }) {
+						new WidgetWrapper[]{ decHeight, decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -62,7 +62,7 @@ public final class Cone extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decHeight, decSide },
-						new ControlWrapper[]{ decRadius, decSurfArea, decVolume }) {
+						new WidgetWrapper[]{ decRadius, decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();
@@ -74,7 +74,7 @@ public final class Cone extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decRadius, decSurfArea },
-						new ControlWrapper[]{ decHeight, decSide, decVolume }) {
+						new WidgetWrapper[]{ decHeight, decSide, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -86,7 +86,7 @@ public final class Cone extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decRadius, decVolume },
-						new ControlWrapper[]{ decHeight, decSide, decSurfArea }) {
+						new WidgetWrapper[]{ decHeight, decSide, decSurfArea }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -98,7 +98,7 @@ public final class Cone extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decHeight, decSurfArea },
-						new ControlWrapper[]{ decRadius, decSide, decVolume }) {
+						new WidgetWrapper[]{ decRadius, decSide, decVolume }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();
@@ -110,7 +110,7 @@ public final class Cone extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decHeight, decVolume },
-						new ControlWrapper[]{ decRadius, decSide, decSurfArea }) {
+						new WidgetWrapper[]{ decRadius, decSide, decSurfArea }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();

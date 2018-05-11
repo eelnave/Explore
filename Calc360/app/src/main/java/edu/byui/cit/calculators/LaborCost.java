@@ -12,11 +12,11 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditCurrency;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public class LaborCost extends CalcFragment {
@@ -60,7 +60,7 @@ public class LaborCost extends CalcFragment {
 				{ decSalesTaxRate, curSalesTaxAmt },
 				{ curWage, curSalary }
 		};
-		ControlWrapper[] toClear = { curPrice, curSalesTaxAmt, txtOutput };
+		WidgetWrapper[] toClear = { curPrice, curSalesTaxAmt, txtOutput };
 
 		initialize(view, inputs, groups, R.id.btnClear, toClear);
 		return view;
@@ -87,7 +87,7 @@ public class LaborCost extends CalcFragment {
 	}
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (curPrice.hasUserInput()) {
 			double price = curPrice.getCur();
 

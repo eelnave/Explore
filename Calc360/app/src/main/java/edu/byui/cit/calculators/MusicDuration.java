@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Art;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class MusicDuration extends CalcFragment {
@@ -36,7 +36,7 @@ public final class MusicDuration extends CalcFragment {
 		musicDuration = new TextWrapper(view, R.id.musicDuration);
 
 		inputs = new EditWrapper[]{ totalMeasures, beatsPerMinute };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				totalMeasures, beatsPerMinute, timeSignature, musicDuration
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -45,7 +45,7 @@ public final class MusicDuration extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (EditWrapper.allNotEmpty(inputs)) {
 			double measures = totalMeasures.getInt();
 			double bpm = beatsPerMinute.getInt();

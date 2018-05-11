@@ -9,9 +9,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public final class Binary extends CalcFragment {
@@ -39,7 +40,7 @@ public final class Binary extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		clearOutput();
 
 		if (decimal.hasUserInput()) {

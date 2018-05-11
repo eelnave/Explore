@@ -1,14 +1,17 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.SharedPreferences;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
 import java.text.NumberFormat;
 
+import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
+import edu.byui.cit.calc360.SolveSeries;
 
 
 /** A wrapper class that contains both an EditText and a corresponding
@@ -17,21 +20,11 @@ import edu.byui.cit.calc360.CalcFragment;
 public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	private final EditText edit;
 	private final TextChangeListener listener;
-	private boolean userInput;
-
-	EditWrapper(View parent, int resID,
-			String prefsKey, CalcFragment calculator) {
-		this(parent, resID, prefsKey, calculator, null);
-	}
+	private boolean userInput, meaningful;
 
 	EditWrapper(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
-		this(parent, resID, prefsKey, null, listener);
-	}
-
-	private EditWrapper(View parent, int resID, String prefsKey,
-			CalcFragment calculator, TextChangeListener listener) {
-		super(parent, resID, prefsKey, calculator);
+		super(parent, resID, prefsKey);
 		this.edit = parent.findViewById(resID);
 		this.listener = listener;
 		this.userInput = false;
@@ -43,7 +36,12 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	public abstract void restore(SharedPreferences prefs, NumberFormat fmtr);
 
 	@Override
-	public boolean isEnabled() {
+	public final EditText getView() {
+		return edit;
+	}
+
+	@Override
+	public final boolean isEnabled() {
 		return edit.isEnabled();
 	}
 
@@ -52,14 +50,14 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 		edit.setEnabled(enabled);
 	}
 
+
 	@Override
-	public boolean hasFocus() {
+	public final boolean hasFocus() {
 		return edit.hasFocus();
 	}
 
-
 	@Override
-	public void requestFocus() {
+	public final void requestFocus() {
 		if (edit.hasFocus()) {
 			showKeyboard(edit);
 		}
@@ -69,7 +67,7 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	}
 
 	@Override
-	public void onFocusChange(View view, boolean hasFocus) {
+	public final void onFocusChange(View view, boolean hasFocus) {
 		if (hasFocus) {
 			showKeyboard(view);
 		}
@@ -87,36 +85,39 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 		 * afterTextChanged even for text that is being "restored"
 		 * from blank to blank. To detect this problem, we check that
 		 * either count or after is not zero. */
-		if ((count != 0 || after != 0) && calculator != null) {
-			calculator.clearGroup(this);
+		if ((count != 0 || after != 0) &&
+				listener != null && listener instanceof CalcFragment) {
+			((CalcFragment)listener).clearGroup(this);
 		}
 	}
 
 	@Override
 	public final void onTextChanged(
 			CharSequence s, int start, int before, int count) {
-		userInput = notEmpty();
-		if (before != 0 || count != 0) {
-			if (calculator != null) {
-				calculator.callCompute(this);
-			}
-			else {
-				listener.textChanged(s);
-			}
-		}
+		meaningful = before != 0 || count != 0;
+//		if ((before != 0 || count != 0) && listener != null) {
+//		}
 	}
 
 	@Override
 	public final void afterTextChanged(Editable edit) {
+		userInput = notEmpty();
+		if (meaningful && listener != null) {
+			try {
+				listener.textChanged(this);
+			}
+			catch (NumberFormatException ex) {
+				// Do nothing.
+			}
+			catch (Exception ex) {
+				Log.e(Calc360.TAG, "exception", ex);
+			}
+		}
 	}
 
 	public boolean hasUserInput() {
 		return userInput;
 	}
-
-//	public EditText getEdit() {
-//		return edit;
-//	}
 
 	@Override
 	public boolean isEmpty() {

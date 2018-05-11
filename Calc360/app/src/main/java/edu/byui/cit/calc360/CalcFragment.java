@@ -1,31 +1,29 @@
 package edu.byui.cit.calc360;
 
-import android.util.Log;
 import android.view.View;
 
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.DateChangeListener;
+import edu.byui.cit.widget.DateWrapper;
+import edu.byui.cit.widget.ItemSelectedListener;
+import edu.byui.cit.widget.SpinWrapper;
+import edu.byui.cit.widget.TextChangeListener;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditWrapper;
 
 
 /** The parent (or grandparent) class of all calculators. */
-public abstract class CalcFragment extends CITFragment {
+public abstract class CalcFragment extends CITFragment
+	implements ClickListener, DateChangeListener,
+		ItemSelectedListener, TextChangeListener {
+
 	EditWrapper[] inputs;
 	EditWrapper[][] groups;
-	ControlWrapper[] toClear;
-
-	@Override
-	void setDescrip(String descripID) {
-		if (! getClass().getSimpleName().equals(descripID)) {
-			throw new IllegalArgumentException(
-					"mismatched descriptor ID " + descripID);
-		}
-		super.setDescrip(descripID);
-	}
+	WidgetWrapper[] toClear;
 
 	protected void initialize(View view, EditWrapper[] inputs,
-			int btnClearID, ControlWrapper[] toClear) {
+			int btnClearID, WidgetWrapper[] toClear) {
 		this.initialize(view, inputs, null, btnClearID, toClear);
 	}
 
@@ -44,7 +42,7 @@ public abstract class CalcFragment extends CITFragment {
 	 *                   calculator.
 	 */
 	protected void initialize(View view, EditWrapper[] inputs,
-			EditWrapper[][] groups, int btnClearID, ControlWrapper[] toClear) {
+			EditWrapper[][] groups, int btnClearID, WidgetWrapper[] toClear) {
 		this.inputs = inputs;
 		this.groups = groups;
 		this.toClear = toClear;
@@ -71,49 +69,36 @@ public abstract class CalcFragment extends CITFragment {
 	}
 
 
-	/**
-	 * Contains try and catch so that individual calculators are not
-	 * required to include try and catch. Called from Controls that do
-	 * not extend EditWrapper.
-	 */
-	public void callCompute() {
-		try {
-			compute();
-		}
-		catch (NumberFormatException ex) {
-			// Do nothing.
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
-		}
+	@Override
+	public void clicked(WidgetWrapper source) {
+		compute(source);
+	}
+
+	@Override
+	public void afterChanged(DateWrapper source,
+			int year, int month, int dayOfMonth) {
+		compute(source);
+	}
+
+	@Override
+	public void itemSelected(SpinWrapper source, int pos, long id) {
+		compute(source);
+	}
+
+	@Override
+	public void textChanged(EditWrapper source) {
+		compute(source);
 	}
 
 
-	/**
-	 * Contains try and catch so that individual calculators are not
-	 * required to include try and catch. Called from Controls that
-	 * extend EditWrapper.
-	 */
-	public void callCompute(EditWrapper input) {
-		try {
-			compute();
-		}
-		catch (NumberFormatException ex) {
-			// Do nothing.
-		}
-		catch (Exception ex) {
-			Log.e(Calc360.TAG, "exception", ex);
-		}
-	}
-
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 	}
 
 
 	/** Handles a click on the clear button. */
 	class ClearHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			if (toClear != null) {
 				clearAll(toClear);
 			}
@@ -123,9 +108,9 @@ public abstract class CalcFragment extends CITFragment {
 		}
 	}
 
-	protected final void clearAll(ControlWrapper[] controls) {
-		for (ControlWrapper ctrl : controls) {
-			ctrl.clear();
+	protected final void clearAll(WidgetWrapper[] widgets) {
+		for (WidgetWrapper widget : widgets) {
+			widget.clear();
 		}
 	}
 
@@ -135,17 +120,17 @@ public abstract class CalcFragment extends CITFragment {
 		}
 	}
 
-	protected final void clearOutput(ControlWrapper[] controls) {
-		for (ControlWrapper ctrl : controls) {
-			if (! (ctrl instanceof EditWrapper &&
-					((EditWrapper)ctrl).hasUserInput())) {
-				ctrl.clear();
+	protected final void clearOutput(WidgetWrapper[] widgets) {
+		for (WidgetWrapper widget : widgets) {
+			if (! (widget instanceof EditWrapper &&
+					((EditWrapper)widget).hasUserInput())) {
+				widget.clear();
 			}
 		}
 	}
 
 
-	static int indexOf(ControlWrapper[] controls, ControlWrapper key) {
+	static int indexOf(WidgetWrapper[] controls, WidgetWrapper key) {
 		int index = -1;
 		for (int i = 0; i < controls.length; ++i) {
 			if (controls[i] == key) {

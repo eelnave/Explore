@@ -10,10 +10,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.DataSize;
 
 
@@ -48,7 +48,7 @@ public final class VideoStorage extends CalcFragment {
 		sevenTwenty = new TextWrapper(view, R.id.sevenTwenty);
 
 		EditWrapper[] inputs = { space };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				space, fourKSixty, fourKThirty, tenEighty, sevenTwenty
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -68,7 +68,7 @@ public final class VideoStorage extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (space.notEmpty()) {
 			double reSpace = space.getDec();
 			double asMb = DataSize.getInstance()

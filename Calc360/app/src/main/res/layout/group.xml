@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/gridChildren"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	compat:columnCount="3"
+	compat:useDefaultMargins="false">
 
-	<android.support.v7.widget.GridLayout
-		android:id="@+id/gridThing"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		compat:columnCount="3"
-		compat:useDefaultMargins="false">
-
-	</android.support.v7.widget.GridLayout>
-</ScrollView>
+</android.support.v7.widget.GridLayout>

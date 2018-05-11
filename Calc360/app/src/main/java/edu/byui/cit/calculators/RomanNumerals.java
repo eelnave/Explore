@@ -10,11 +10,11 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Mathematics.Roman;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditString;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditString;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class RomanNumerals extends CalcFragment {
@@ -45,7 +45,7 @@ public final class RomanNumerals extends CalcFragment {
 		invalidRoman = new TextWrapper(view, R.id.invalidRoman);
 
 		EditWrapper[] inputs = { intDecimalNum, strRomanNum };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				intDecimalNum, strRomanNum, invalidDecimal, invalidRoman
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -54,7 +54,7 @@ public final class RomanNumerals extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		invalidDecimal.clear();
 		invalidRoman.clear();
 		if (intDecimalNum.hasFocus() && intDecimalNum.hasUserInput()) {

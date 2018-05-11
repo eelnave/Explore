@@ -1,13 +1,14 @@
 package edu.byui.cit.calc360;
 
-/**  A CalcDescriptor holds information about a folder or a calculator. */
+/**  A CalcDescriptor holds information about a calculator. */
 final class CalcDescriptor extends Descriptor {
-	CalcDescriptor(String calcID) {
-		super(calcID, 0, 0, null);
+	CalcDescriptor(int calcID, int titleID, int iconID,
+			Class<? extends CITFragment> calcClass) {
+		super(calcID, titleID, iconID, calcClass, 0);
 	}
 
-	CalcDescriptor(int titleID, int iconID,
-			Class<? extends CITFragment> calcClass) {
-		super(calcClass.getSimpleName(), titleID, iconID, calcClass);
+	CalcDescriptor(int calcID, int titleID, int iconID,
+			Class<? extends CITFragment> calcClass, int explainID) {
+		super(calcID, titleID, iconID, calcClass, explainID);
 	}
 }

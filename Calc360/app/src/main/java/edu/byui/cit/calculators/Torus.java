@@ -10,10 +10,10 @@ import java.text.NumberFormat;
 import edu.byui.cit.model.Geometry;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditAngle;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditAngle;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
 
 
 public final class Torus extends SolveSeries {
@@ -62,7 +62,7 @@ public final class Torus extends SolveSeries {
 	private final class MajorMinor extends Solver {
 		MajorMinor() {
 			super(new EditWrapper[]{ decMajor, decMinor },
-					new ControlWrapper[]{ decInner, decOuter, decArea, decVolume });
+					new WidgetWrapper[]{ decInner, decOuter, decArea, decVolume });
 		}
 
 		@Override
@@ -83,7 +83,7 @@ public final class Torus extends SolveSeries {
 	private final class MajorInner extends Solver {
 		MajorInner() {
 			super(new EditWrapper[]{ decMajor, decInner },
-					new ControlWrapper[]{ decMinor, decOuter, decArea, decVolume });
+					new WidgetWrapper[]{ decMinor, decOuter, decArea, decVolume });
 		}
 
 		@Override
@@ -104,7 +104,7 @@ public final class Torus extends SolveSeries {
 	private final class MajorOuter extends Solver {
 		MajorOuter() {
 			super(new EditWrapper[]{ decMajor, decOuter },
-					new ControlWrapper[]{ decMinor, decInner, decArea, decVolume });
+					new WidgetWrapper[]{ decMinor, decInner, decArea, decVolume });
 		}
 
 		@Override
@@ -125,7 +125,7 @@ public final class Torus extends SolveSeries {
 	private final class MajorArea extends Solver {
 		MajorArea() {
 			super(new EditWrapper[]{ decMajor, decArea },
-					new ControlWrapper[]{ decMinor, decInner, decOuter, decVolume });
+					new WidgetWrapper[]{ decMinor, decInner, decOuter, decVolume });
 		}
 
 		@Override
@@ -146,7 +146,7 @@ public final class Torus extends SolveSeries {
 	private final class MajorVolume extends Solver {
 		MajorVolume() {
 			super(new EditWrapper[]{ decMajor, decVolume },
-					new ControlWrapper[]{ decMinor, decInner, decOuter, decArea });
+					new WidgetWrapper[]{ decMinor, decInner, decOuter, decArea });
 		}
 
 		@Override
@@ -167,7 +167,7 @@ public final class Torus extends SolveSeries {
 	private final class MinorInner extends Solver {
 		MinorInner() {
 			super(new EditWrapper[]{ decMinor, decInner },
-					new ControlWrapper[]{ decMajor, decOuter, decArea, decVolume });
+					new WidgetWrapper[]{ decMajor, decOuter, decArea, decVolume });
 		}
 
 		@Override
@@ -188,7 +188,7 @@ public final class Torus extends SolveSeries {
 	private final class MinorOuter extends Solver {
 		MinorOuter() {
 			super(new EditWrapper[]{ decMinor, decOuter },
-					new ControlWrapper[]{ decMajor, decInner, decArea, decVolume });
+					new WidgetWrapper[]{ decMajor, decInner, decArea, decVolume });
 		}
 
 		@Override
@@ -209,7 +209,7 @@ public final class Torus extends SolveSeries {
 	private final class MinorArea extends Solver {
 		MinorArea() {
 			super(new EditWrapper[]{ decMinor, decArea },
-					new ControlWrapper[]{ decMajor, decInner, decOuter, decVolume });
+					new WidgetWrapper[]{ decMajor, decInner, decOuter, decVolume });
 		}
 
 		@Override
@@ -230,7 +230,7 @@ public final class Torus extends SolveSeries {
 	private final class MinorVolume extends Solver {
 		MinorVolume() {
 			super(new EditWrapper[]{ decMinor, decVolume },
-					new ControlWrapper[]{ decMajor, decInner, decOuter, decArea });
+					new WidgetWrapper[]{ decMajor, decInner, decOuter, decArea });
 		}
 
 		@Override
@@ -251,7 +251,7 @@ public final class Torus extends SolveSeries {
 	private final class InnerOuter extends Solver {
 		InnerOuter() {
 			super(new EditWrapper[]{ decInner, decOuter },
-					new ControlWrapper[]{ decMajor, decMinor, decArea, decVolume });
+					new WidgetWrapper[]{ decMajor, decMinor, decArea, decVolume });
 		}
 
 		@Override
@@ -272,7 +272,7 @@ public final class Torus extends SolveSeries {
 	private final class InnerArea extends Solver {
 		InnerArea() {
 			super(new EditWrapper[]{ decInner, decArea },
-					new ControlWrapper[]{ decMajor, decMinor, decOuter, decVolume });
+					new WidgetWrapper[]{ decMajor, decMinor, decOuter, decVolume });
 		}
 
 		@Override
@@ -293,7 +293,7 @@ public final class Torus extends SolveSeries {
 	private final class InnerVolume extends Solver {
 		InnerVolume() {
 			super(new EditWrapper[]{ decInner, decVolume },
-					new ControlWrapper[]{ decMajor, decMinor, decOuter, decArea });
+					new WidgetWrapper[]{ decMajor, decMinor, decOuter, decArea });
 		}
 
 		@Override
@@ -314,7 +314,7 @@ public final class Torus extends SolveSeries {
 	private final class OuterArea extends Solver {
 		OuterArea() {
 			super(new EditWrapper[]{ decOuter, decArea },
-					new ControlWrapper[]{ decMajor, decMinor, decInner, decVolume });
+					new WidgetWrapper[]{ decMajor, decMinor, decInner, decVolume });
 		}
 
 		@Override
@@ -335,7 +335,7 @@ public final class Torus extends SolveSeries {
 	private final class OuterVolume extends Solver {
 		OuterVolume() {
 			super(new EditWrapper[]{ decOuter, decVolume },
-					new ControlWrapper[]{ decMajor, decMinor, decInner, decArea });
+					new WidgetWrapper[]{ decMajor, decMinor, decInner, decArea });
 		}
 
 		@Override

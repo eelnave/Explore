@@ -48,7 +48,7 @@ public class AstroPhotographytest {
 		ViewInteraction calcButton = onView(
 				allOf(withText("Art"),
 						childAtPosition(
-								allOf(withId(R.id.gridThing),
+								allOf(withId(R.id.gridChildren),
 										childAtPosition(
 												withClassName(
 														is("android.widget.ScrollView")),
@@ -58,7 +58,7 @@ public class AstroPhotographytest {
 
 		ViewInteraction button = onView(
 				allOf(childAtPosition(
-						allOf(withId(R.id.gridThing),
+						allOf(withId(R.id.gridChildren),
 								childAtPosition(
 										IsInstanceOf.<View>instanceOf(
 												android.widget.ScrollView.class),
@@ -70,7 +70,7 @@ public class AstroPhotographytest {
 		ViewInteraction calcButton2 = onView(
 				allOf(withText("Star Exposure"),
 						childAtPosition(
-								allOf(withId(R.id.gridThing),
+								allOf(withId(R.id.gridChildren),
 										childAtPosition(
 												withClassName(
 														is("android.widget.ScrollView")),

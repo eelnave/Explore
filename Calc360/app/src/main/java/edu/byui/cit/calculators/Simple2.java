@@ -9,10 +9,10 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.SolveSeries;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class Simple2 extends SolveSeries {
@@ -40,11 +40,11 @@ public final class Simple2 extends SolveSeries {
 		final TextWrapper result = new TextWrapper(view, R.id.result);
 
 		EditWrapper[] inputs = { decimal1, decimal2 };
-		ControlWrapper[] toClear = { decimal1, decimal2, result };
+		WidgetWrapper[] toClear = { decimal1, decimal2, result };
 
 		Solver[] solvers = new Solver[]{
 				new Solver(new EditWrapper[]{ decimal1, decimal2 },
-						new ControlWrapper[]{ result }) {
+						new WidgetWrapper[]{ result }) {
 					@Override
 					public void solve() {
 						double num1 = decimal1.getDec();

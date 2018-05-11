@@ -10,11 +10,11 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditCurrency;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class Tithing extends CalcFragment {
@@ -52,7 +52,7 @@ public final class Tithing extends CalcFragment {
 		EditWrapper[] inputs = {
 				curIncome, decRate, curCharity, curHumanAid, curOther
 		};
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				curIncome, curTithing,
 				curCharity, curHumanAid, curOther, curTotal
 		};
@@ -75,7 +75,7 @@ public final class Tithing extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		EditWrapper[] offerings = { curCharity, curHumanAid, curOther };
 		if ((curIncome.notEmpty() && decRate.notEmpty()) ||
 				EditWrapper.anyNotEmpty(offerings)) {

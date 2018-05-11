@@ -1,79 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:id="@+id/Modulo"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:gravity="center_horizontal"
+		android:orientation="horizontal">
 
-		<LinearLayout
-			android:id="@+id/explain"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="15dp"
-			android:orientation="vertical"
-			android:visibility="gone">
+		<EditText
+			android:id="@+id/decX"
+			style="@style/UnsignedDecimal"
+			android:ems="5"
+			android:textAlignment="center">
 
-			<TextView
-				style="@style/TextLabel"
-				android:text="@string/modExplain"/>
+			<requestFocus/>
+		</EditText>
 
-			<Button
-				android:id="@+id/btnHide"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="end"
-				android:text="@string/hideExplain"/>
-		</LinearLayout>
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decX"
+			android:text="@string/perc"/>
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:gravity="center_horizontal"
-			android:orientation="horizontal">
+		<EditText
+			android:id="@+id/decY"
+			style="@style/UnsignedDecimal"
+			android:ems="5"
+			android:imeOptions="actionDone"
+			android:textAlignment="center"/>
 
-			<EditText
-				android:id="@+id/decX"
-				style="@style/UnsignedDecimal"
-				android:ems="5"
-				android:textAlignment="center">
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decY"
+			android:text="@string/eq"/>
 
-				<requestFocus/>
-			</EditText>
-
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/decX"
-				android:text="@string/perc"/>
-
-			<EditText
-				android:id="@+id/decY"
-				style="@style/UnsignedDecimal"
-				android:ems="5"
-				android:imeOptions="actionDone"
-				android:textAlignment="center"/>
-
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/decY"
-				android:text="@string/eq"/>
-
-			<TextView
-				android:id="@+id/decRemain"
-				style="@style/TextLabel"
-				android:ems="5"
-				android:textAlignment="center"/>
-		</LinearLayout>
-
-		<Button
-			android:id="@+id/btnClear"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp"
-			android:text="@string/clear"/>
+		<TextView
+			android:id="@+id/decRemain"
+			style="@style/TextLabel"
+			android:ems="5"
+			android:textAlignment="center"/>
 	</LinearLayout>
-</ScrollView>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"/>
+</LinearLayout>

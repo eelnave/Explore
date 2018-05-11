@@ -1,122 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/StreamingCost"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	compat:columnCount="2">
 
-	<android.support.v7.widget.GridLayout
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/descrip1"
+		compat:layout_columnSpan="2"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:text="@string/descrip2"
+		compat:layout_columnSpan="2"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/ssp"
+		android:text="@string/servicePayment"/>
+
+	<EditText
+		android:id="@+id/ssp"
+		style="@style/UnsignedDecimal"
+		android:ems="5"
+		android:hint="@string/priceHint">
+
+		<requestFocus/>
+	</EditText>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/hours2_5"
+		android:text="@string/hours2_5"/>
+
+	<EditText
+		android:id="@+id/hours2_5"
+		style="@style/UnsignedInteger"
+		android:ems="5"
+		android:hint="@string/intHint1"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/hours2"
+		android:text="@string/hours2"/>
+
+	<EditText
+		android:id="@+id/hours2"
+		style="@style/UnsignedInteger"
+		android:ems="5"
+		android:hint="@string/intHint2"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/hours1_5"
+		android:text="@string/hours1_5"/>
+
+	<EditText
+		android:id="@+id/hours1_5"
+		style="@style/UnsignedInteger"
+		android:ems="5"
+		android:hint="@string/intHint2"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/minutes45"
+		android:text="@string/minutes45"/>
+
+	<EditText
+		android:id="@+id/minutes45"
+		style="@style/UnsignedInteger"
+		android:ems="5"
+		android:hint="@string/intHint5"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:labelFor="@+id/minutes22"
+		android:text="@string/minutes22"/>
+
+	<EditText
+		android:id="@+id/minutes22"
+		style="@style/UnsignedInteger"
+		android:ems="5"
+		android:hint="@string/intHint5"
+		android:imeOptions="actionDone"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/totalTime"/>
+
+	<TextView
+		android:id="@+id/ttw"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<TextView
+		style="@style/TextLabel"
+		android:layout_marginTop="15dp"
+		android:text="@string/costPerHour"/>
+
+	<TextView
+		android:id="@+id/spentPer"
+		style="@style/TextResult"
+		android:layout_marginTop="15dp"/>
+
+	<Button
+		android:id="@+id/btnClear"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		compat:columnCount="2">
-
-		<TextView
-			style="@style/TextLabel"
-			android:text="@string/descrip1"
-			compat:layout_columnSpan="2"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:text="@string/descrip2"
-			compat:layout_columnSpan="2"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/ssp"
-			android:text="@string/servicePayment"/>
-
-		<EditText
-			android:id="@+id/ssp"
-			style="@style/UnsignedDecimal"
-			android:ems="5"
-			android:hint="@string/priceHint">
-
-			<requestFocus/>
-		</EditText>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/hours2_5"
-			android:text="@string/hours2_5"/>
-
-		<EditText
-			android:id="@+id/hours2_5"
-			style="@style/UnsignedInteger"
-			android:ems="5"
-			android:hint="@string/intHint1"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/hours2"
-			android:text="@string/hours2"/>
-
-		<EditText
-			android:id="@+id/hours2"
-			style="@style/UnsignedInteger"
-			android:ems="5"
-			android:hint="@string/intHint2"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/hours1_5"
-			android:text="@string/hours1_5"/>
-
-		<EditText
-			android:id="@+id/hours1_5"
-			style="@style/UnsignedInteger"
-			android:ems="5"
-			android:hint="@string/intHint2"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/minutes45"
-			android:text="@string/minutes45"/>
-
-		<EditText
-			android:id="@+id/minutes45"
-			style="@style/UnsignedInteger"
-			android:ems="5"
-			android:hint="@string/intHint5"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:labelFor="@+id/minutes22"
-			android:text="@string/minutes22"/>
-
-		<EditText
-			android:id="@+id/minutes22"
-			style="@style/UnsignedInteger"
-			android:ems="5"
-			android:hint="@string/intHint5"
-			android:imeOptions="actionDone"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:layout_marginTop="15dp"
-			android:text="@string/totalTime"/>
-
-		<TextView
-			android:id="@+id/ttw"
-			style="@style/TextResult"
-			android:layout_marginTop="15dp"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:layout_marginTop="15dp"
-			android:text="@string/costPerHour"/>
-
-		<TextView
-			android:id="@+id/spentPer"
-			style="@style/TextResult"
-			android:layout_marginTop="15dp"/>
-
-		<Button
-			android:id="@+id/btnClear"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="15dp"
-			android:text="@string/clear"
-			compat:layout_columnSpan="2"/>
-	</android.support.v7.widget.GridLayout>
-</ScrollView>
+		android:layout_marginTop="15dp"
+		android:text="@string/clear"
+		compat:layout_columnSpan="2"/>
+</android.support.v7.widget.GridLayout>

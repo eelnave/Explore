@@ -11,11 +11,11 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.model.Consumer;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditCurrency;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class SalesTax extends CalcFragment {
@@ -72,7 +72,7 @@ public final class SalesTax extends CalcFragment {
 		curTotal = new TextWrapper(view, R.id.curTotal);
 
 		EditWrapper[] inputs = { curPrice, decTaxRate };
-		ControlWrapper[] toClear = { curPrice, curTaxAmt, curTotal };
+		WidgetWrapper[] toClear = { curPrice, curTaxAmt, curTotal };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
@@ -92,7 +92,7 @@ public final class SalesTax extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (curPrice.notEmpty() && decTaxRate.notEmpty()) {
 			double price = curPrice.getCur();
 			double taxRate = decTaxRate.getDec() / 100.0;

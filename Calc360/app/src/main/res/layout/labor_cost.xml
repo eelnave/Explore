@@ -1,128 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/LaborCost"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		compat:columnCount="4">
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/curPrice"
+			android:text="@string/itemPrice"/>
+
+		<EditText
+			android:id="@+id/curPrice"
+			style="@style/UnsignedDecimal"
+			android:ems="6"
+			compat:layout_columnSpan="3">
+
+			<requestFocus/>
+		</EditText>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decSalesTaxRate"
+			android:text="@string/salesTax"/>
+
+		<EditText
+			android:id="@+id/decSalesTaxRate"
+			style="@style/UnsignedDecimal"
+			android:ems="2"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/curSalesTaxAmt"
+			android:text="@string/perc"/>
+
+		<EditText
+			android:id="@+id/curSalesTaxAmt"
+			style="@style/UnsignedDecimal"
+			android:layout_marginStart="15dp"
+			android:ems="4"/>
+	</android.support.v7.widget.GridLayout>
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical">
-
-		<LinearLayout
-			android:id="@+id/explain"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginBottom="15dp"
-			android:orientation="vertical"
-			android:visibility="gone">
-
-			<TextView
-				style="@style/TextLabel"
-				android:text="@string/laborExplain"/>
-
-			<Button
-				android:id="@+id/btnHide"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_gravity="end"
-				android:text="@string/hideExplain"/>
-		</LinearLayout>
-
-		<android.support.v7.widget.GridLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			compat:columnCount="4">
-
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/curPrice"
-				android:text="@string/itemPrice"/>
-
-			<EditText
-				android:id="@+id/curPrice"
-				style="@style/UnsignedDecimal"
-				android:ems="6"
-				compat:layout_columnSpan="3">
-
-				<requestFocus/>
-			</EditText>
-
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/decSalesTaxRate"
-				android:text="@string/salesTax"/>
-
-			<EditText
-				android:id="@+id/decSalesTaxRate"
-				style="@style/UnsignedDecimal"
-				android:ems="2"/>
-
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/curSalesTaxAmt"
-				android:text="@string/perc"/>
-
-			<EditText
-				android:id="@+id/curSalesTaxAmt"
-				style="@style/UnsignedDecimal"
-				android:layout_marginStart="15dp"
-				android:ems="4"/>
-		</android.support.v7.widget.GridLayout>
-
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="25dp"
-			android:orientation="horizontal">
-
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/curWage"
-				android:text="@string/laborWage"/>
-
-			<EditText
-				android:id="@+id/curWage"
-				style="@style/UnsignedDecimal"
-				android:ems="5"/>
-		</LinearLayout>
+		android:layout_marginTop="25dp"
+		android:orientation="horizontal">
 
 		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/laborOR"
-			android:textAlignment="center"/>
+			style="@style/TextLabel"
+			android:labelFor="@+id/curWage"
+			android:text="@string/laborWage"/>
 
-		<LinearLayout
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
-
-			<TextView
-				style="@style/TextLabel"
-				android:labelFor="@+id/curSalary"
-				android:text="@string/laborSalary"/>
-
-			<EditText
-				android:id="@+id/curSalary"
-				style="@style/UnsignedDecimal"
-				android:ems="6"
-				android:imeOptions="actionDone"/>
-		</LinearLayout>
-
-		<TextView
-			android:id="@+id/output"
-			style="@style/TextResult"
-			android:layout_marginTop="20dp"
-			android:minHeight="36pt"
-			android:textAlignment="textStart"/>
-
-		<Button
-			android:id="@+id/btnClear"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/clear"/>
+		<EditText
+			android:id="@+id/curWage"
+			style="@style/UnsignedDecimal"
+			android:ems="5"/>
 	</LinearLayout>
-</ScrollView>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/laborOR"
+		android:textAlignment="center"/>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/curSalary"
+			android:text="@string/laborSalary"/>
+
+		<EditText
+			android:id="@+id/curSalary"
+			style="@style/UnsignedDecimal"
+			android:ems="6"
+			android:imeOptions="actionDone"/>
+	</LinearLayout>
+
+	<TextView
+		android:id="@+id/output"
+		style="@style/TextResult"
+		android:layout_marginTop="20dp"
+		android:minHeight="36pt"
+		android:textAlignment="textStart"/>
+
+	<Button
+		android:id="@+id/btnClear"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/clear"/>
+</LinearLayout>

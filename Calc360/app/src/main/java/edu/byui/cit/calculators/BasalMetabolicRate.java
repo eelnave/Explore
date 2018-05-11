@@ -9,11 +9,11 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.RadioWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.RadioWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 public final class BasalMetabolicRate extends CalcFragment {
 	private RadioWrapper radFemale;
@@ -46,7 +46,7 @@ public final class BasalMetabolicRate extends CalcFragment {
 		radFemale.performClick();
 
 		EditWrapper[] inputs = { decHeight, decWeight, decAge };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				decHeight, decWeight, decAge, txtBMR
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -54,7 +54,7 @@ public final class BasalMetabolicRate extends CalcFragment {
 	}
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (decHeight.notEmpty() && decWeight.notEmpty() && decAge.notEmpty()) {
 			double height = decHeight.getDec();
 			double weight = decWeight.getDec();

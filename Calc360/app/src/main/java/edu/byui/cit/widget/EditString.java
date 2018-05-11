@@ -1,16 +1,27 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.SharedPreferences;
 import android.view.View;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.CalcFragment;
-
 
 public class EditString extends EditWrapper {
-	public EditString(View parent, int resID, CalcFragment calculator) {
-		super(parent, resID, null, calculator);
+	public EditString(View parent, int resID) {
+		super(parent, resID, null, null);
+	}
+
+	public EditString(View parent, int resID, String prefsKey) {
+		super(parent, resID, prefsKey, null);
+	}
+
+	public EditString(View parent, int resID, TextChangeListener listener) {
+		super(parent, resID, null, listener);
+	}
+
+	public EditString(View parent, int resID,
+			String prefsKey, TextChangeListener listener) {
+		super(parent, resID, prefsKey, listener);
 	}
 
 

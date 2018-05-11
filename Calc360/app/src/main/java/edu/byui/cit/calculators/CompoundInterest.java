@@ -10,13 +10,13 @@ import java.text.NumberFormat;
 import edu.byui.cit.model.Finance;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditInteger;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.RadioWrapper;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditCurrency;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditInteger;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.RadioWrapper;
+import edu.byui.cit.widget.TextWrapper;
 
 
 public final class CompoundInterest extends CalcFragment {
@@ -51,7 +51,7 @@ public final class CompoundInterest extends CalcFragment {
 		totalAmount = new TextWrapper(view, R.id.totalAmount);
 
 		EditWrapper[] inputs = { deposit, interestRate, numberOfYears };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				deposit, interestRate, numberOfYears, totalAmount
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -60,7 +60,7 @@ public final class CompoundInterest extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (EditWrapper.allNotEmpty(deposit, interestRate, numberOfYears)) {
 			double a = deposit.getCur();
 			double ir = interestRate.getDec();

@@ -12,12 +12,12 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditCurrency;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditCurrency;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.Money;
 import edu.byui.cit.units.Property;
 import edu.byui.cit.units.Unit;
@@ -83,7 +83,7 @@ public final class ForeignFuel extends CalcFragment {
 		unitsRatioTo = new TextWrapper(view, R.id.unitsRatioTo);
 
 		EditWrapper[] inputs = { curCostFrom, decVolFrom };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				curCostFrom, decVolFrom, decRatioFrom, unitsRatioFrom,
 				curCostTo, decVolTo, decRatioTo, unitsRatioTo
 		};
@@ -115,7 +115,7 @@ public final class ForeignFuel extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		clearOutput();
 
 		double costFrom = 0;

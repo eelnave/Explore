@@ -11,17 +11,16 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinString;
-import edu.byui.cit.text.SpinUnit;
-import edu.byui.cit.text.TextChangeHandler;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.TextChangeListener;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinString;
+import edu.byui.cit.widget.SpinUnit;
+import edu.byui.cit.widget.TextWrapper;
 import edu.byui.cit.units.Length;
 import edu.byui.cit.units.Unit;
 
-// Format output
 
 public final class OilChange extends CalcFragment {
 	// Keys for getting user preferences from the preferences file.
@@ -76,7 +75,7 @@ public final class OilChange extends CalcFragment {
 		decResult = new TextWrapper(view, R.id.decResult);
 
 		EditWrapper[] inputs = { decBegin, decEnd, decDist };
-		ControlWrapper[] toClear = {
+		WidgetWrapper[] toClear = {
 				decBegin, decEnd, decDist
 		};
 		initialize(view, inputs, R.id.btnClear, toClear);
@@ -94,10 +93,6 @@ public final class OilChange extends CalcFragment {
 
 	@Override
 	protected void savePrefs(SharedPreferences.Editor editor) {
-		// Write the IDs of the units chosen by
-		// the user into the preferences file.
-		// Get from the spinners, the units chosen by the user.
-
 		if (decBegin.hasUserInput()) {
 			decBegin.save(editor);
 		}
@@ -108,31 +103,31 @@ public final class OilChange extends CalcFragment {
 	}
 
 
-	private final class OdometerChanged extends TextChangeHandler {
+	private final class OdometerChanged implements TextChangeListener {
 		@Override
-		public void textChanged(CharSequence s) {
+		public void textChanged(EditWrapper source) {
 			if (decBegin.notEmpty() || decEnd.notEmpty()) {
 				decDist.clear();
 			}
-			callCompute();
+			compute(source);
 		}
 	}
 
 
-	private final class DistanceChanged extends TextChangeHandler {
+	private final class DistanceChanged implements TextChangeListener {
 		@Override
-		public void textChanged(CharSequence s) {
+		public void textChanged(EditWrapper source) {
 			if (decDist.notEmpty()) {
 				decBegin.clear();
 				decEnd.clear();
 			}
-			callCompute();
+			compute(source);
 		}
 	}
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		double dist;
 		double recommend = 0;
 		if (decBegin.notEmpty() && decEnd.notEmpty()) {
@@ -163,7 +158,6 @@ public final class OilChange extends CalcFragment {
 				else if (spinDriveUnits.getSelectedItem().equals("Highway Driving") ) {
 					recommend = 10000;
 				}
-
 			}
 
 			double distLeft = recommend - dist;
@@ -185,8 +179,6 @@ public final class OilChange extends CalcFragment {
 			}
 
 			decResult.setText(result);
-
-
 		}
 	}
 }

@@ -1,15 +1,25 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.SharedPreferences;
 import android.view.View;
 
-import edu.byui.cit.calc360.CalcFragment;
-
 
 public final class SpinString extends SpinWrapper {
-	public SpinString(View parent, int spinID, String prefsKey,
-			CalcFragment calculator) {
-		super(parent, spinID, prefsKey, calculator);
+	public SpinString(View parent, int spinID) {
+		this(parent, spinID, null, null);
+	}
+
+	public SpinString(View parent, int spinID, String prefsKey) {
+		this(parent, spinID, prefsKey, null);
+	}
+
+	public SpinString(View parent, int spinID, ItemSelectedListener listener) {
+		this(parent, spinID, null, listener);
+	}
+
+	public SpinString(View parent, int spinID,
+			String prefsKey, ItemSelectedListener listener) {
+		super(parent, spinID, prefsKey, listener);
 		spinner.setOnItemSelectedListener(this);
 	}
 

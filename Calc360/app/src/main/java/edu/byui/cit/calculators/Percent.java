@@ -9,10 +9,11 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 import static edu.byui.cit.model.Consumer.Ratio.*;
 
@@ -53,7 +54,7 @@ public final class Percent extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		// Check which text field was edited and
 		// perform the calculations accordingly.
 		if (decPerc1.hasFocus() || decPerc2.hasFocus()) {
@@ -103,7 +104,7 @@ public final class Percent extends CalcFragment {
 	/** Handles a click on the clear button. */
 	private final class ClearHandler1 implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			decPerc1.clear();
 			decPerc2.clear();
 			percResult1.clear();
@@ -113,7 +114,7 @@ public final class Percent extends CalcFragment {
 
 	private final class ClearHandler2 implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			decPerc3.clear();
 			decPerc4.clear();
 			percResult2.clear();
@@ -123,7 +124,7 @@ public final class Percent extends CalcFragment {
 
 	private final class ClearHandler3 implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			decPerc5.clear();
 			decPerc6.clear();
 			percResult3.clear();

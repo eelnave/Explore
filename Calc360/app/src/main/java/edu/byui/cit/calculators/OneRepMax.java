@@ -11,11 +11,11 @@ import java.text.NumberFormat;
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.model.Fitness;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
-import edu.byui.cit.text.SpinInteger;
-import edu.byui.cit.text.TextWrapper;
-import edu.byui.cit.text.ControlWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
+import edu.byui.cit.widget.SpinInteger;
+import edu.byui.cit.widget.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public class OneRepMax extends CalcFragment {
@@ -57,13 +57,13 @@ public class OneRepMax extends CalcFragment {
 
 		// specifies to the super what the inputs and clear options are
 		EditWrapper[] inputs = { decWeight };
-		ControlWrapper[] toClear = { decWeight, maxWeight };
+		WidgetWrapper[] toClear = { decWeight, maxWeight };
 		initialize(view, inputs, R.id.btnClear, toClear);
 		return view;
 	}
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		if (decWeight.hasUserInput()) {
 			double weight = decWeight.getDec();
 			int reps = numReps.getInt();

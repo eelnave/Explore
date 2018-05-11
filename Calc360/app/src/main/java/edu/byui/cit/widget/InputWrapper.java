@@ -1,14 +1,12 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
 import android.content.SharedPreferences;
 import android.view.View;
 
 import java.text.NumberFormat;
 
-import edu.byui.cit.calc360.CalcFragment;
 
-
-public abstract class InputWrapper extends ControlWrapper {
+public abstract class InputWrapper extends WidgetWrapper {
 	// These formatters are used for parsing numbers.
 	static final NumberFormat
 			intFmtr = NumberFormat.getIntegerInstance(),
@@ -17,8 +15,8 @@ public abstract class InputWrapper extends ControlWrapper {
 			curFmtr = NumberFormat.getCurrencyInstance();
 	final String prefsKey;
 
-	InputWrapper(View parent, int resID, String prefsKey, CalcFragment calculator) {
-		super(parent, resID, calculator);
+	InputWrapper(View parent, int resID, String prefsKey) {
+		super(parent, resID);
 		this.prefsKey = prefsKey;
 	}
 

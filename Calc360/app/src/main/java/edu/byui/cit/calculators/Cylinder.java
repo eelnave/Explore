@@ -9,9 +9,9 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.R;
 import edu.byui.cit.calc360.SolveSeries;
-import edu.byui.cit.text.ControlWrapper;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.EditWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.EditWrapper;
 
 import static edu.byui.cit.model.Geometry.Cylinder.*;
 
@@ -34,7 +34,7 @@ public class Cylinder extends SolveSeries {
 
 		Solver[] solvers = new Solver[]{
 				new Solver(new EditWrapper[]{ decRadius, decHeight },
-						new ControlWrapper[]{ decSurfArea, decVolume }) {
+						new WidgetWrapper[]{ decSurfArea, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -46,7 +46,7 @@ public class Cylinder extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decRadius, decSurfArea },
-						new ControlWrapper[]{ decHeight, decVolume }) {
+						new WidgetWrapper[]{ decHeight, decVolume }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -58,7 +58,7 @@ public class Cylinder extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decRadius, decVolume },
-						new ControlWrapper[]{ decHeight, decSurfArea }) {
+						new WidgetWrapper[]{ decHeight, decSurfArea }) {
 					@Override
 					public void solve() {
 						double r = decRadius.getDec();
@@ -70,7 +70,7 @@ public class Cylinder extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decHeight, decSurfArea },
-						new ControlWrapper[]{ decRadius, decVolume }) {
+						new WidgetWrapper[]{ decRadius, decVolume }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();
@@ -82,7 +82,7 @@ public class Cylinder extends SolveSeries {
 					}
 				},
 				new Solver(new EditWrapper[]{ decHeight, decVolume },
-						new ControlWrapper[]{ decRadius, decSurfArea }) {
+						new WidgetWrapper[]{ decRadius, decSurfArea }) {
 					@Override
 					public void solve() {
 						double h = decHeight.getDec();

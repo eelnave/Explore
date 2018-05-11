@@ -11,10 +11,11 @@ import java.text.NumberFormat;
 import edu.byui.cit.model.Statistics;
 import edu.byui.cit.calc360.CalcFragment;
 import edu.byui.cit.calc360.R;
-import edu.byui.cit.text.ButtonWrapper;
-import edu.byui.cit.text.ClickListener;
-import edu.byui.cit.text.EditDecimal;
-import edu.byui.cit.text.TextWrapper;
+import edu.byui.cit.widget.ButtonWrapper;
+import edu.byui.cit.widget.ClickListener;
+import edu.byui.cit.widget.EditDecimal;
+import edu.byui.cit.widget.TextWrapper;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public final class MeanEtc extends CalcFragment {
@@ -55,7 +56,7 @@ public final class MeanEtc extends CalcFragment {
 
 
 	@Override
-	protected void compute() {
+	protected void compute(WidgetWrapper source) {
 		String str = decData.getText().toString().trim();
 		if (str.length() > 0) {
 			double[] numbers = EditDecimal.getDecimals(str);
@@ -84,7 +85,7 @@ public final class MeanEtc extends CalcFragment {
 
 	private final class ClearHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			decData.getText().clear();
 			clearResults();
 			decData.requestFocus();

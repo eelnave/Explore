@@ -1,31 +1,28 @@
-package edu.byui.cit.text;
+package edu.byui.cit.widget;
 
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import edu.byui.cit.calc360.CalcFragment;
+import edu.byui.cit.calc360.Calc360;
 
 
-public final class ButtonWrapper extends ControlWrapper
+public final class ButtonWrapper extends WidgetWrapper
 		implements OnClickListener {
 	private final Button button;
 	private final ClickListener listener;
 
-	public ButtonWrapper(View parent, int resID, CalcFragment calculator) {
-		this(parent, resID, calculator, null);
-	}
-
 	public ButtonWrapper(View parent, int resID, ClickListener listener) {
-		this(parent, resID, null, listener);
-	}
-
-	private ButtonWrapper(View parent, int resID,
-			CalcFragment calculator, ClickListener listener) {
-		super(parent, resID, calculator);
+		super(parent, resID);
 		this.button = parent.findViewById(resID);
 		this.listener = listener;
 		button.setOnClickListener(this);
+	}
+
+	@Override
+	public final Button getView() {
+		return button;
 	}
 
 	@Override
@@ -50,11 +47,14 @@ public final class ButtonWrapper extends ControlWrapper
 
 	@Override
 	public final void onClick(View button) {
-		if (calculator != null) {
-			calculator.callCompute();
+		try {
+			listener.clicked(this);
 		}
-		else {
-			listener.clicked(button);
+		catch (NumberFormatException ex) {
+			// Do nothing.
+		}
+		catch (Exception ex) {
+			Log.e(Calc360.TAG, "exception", ex);
 		}
 	}
 }
