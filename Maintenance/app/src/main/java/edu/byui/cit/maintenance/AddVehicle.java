@@ -10,6 +10,7 @@ import edu.byui.cit.widget.CITFragment;
 import edu.byui.cit.widget.ClickListener;
 import edu.byui.cit.widget.EditDecimal;
 import edu.byui.cit.widget.EditString;
+import edu.byui.cit.widget.WidgetWrapper;
 
 
 public class AddVehicle extends CITFragment {
@@ -40,7 +41,7 @@ public class AddVehicle extends CITFragment {
 
 	private final class AddHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			float year = (float)decYear.getDec();
 			String make = strMake.getText();
 			String model = strModel.getText().toString();
@@ -53,7 +54,7 @@ public class AddVehicle extends CITFragment {
 
 	private final class ResetHandler implements ClickListener {
 		@Override
-		public void clicked(View button) {
+		public void clicked(WidgetWrapper source) {
 			decYear.clear();
 			strMake.clear();
 			strModel.clear();

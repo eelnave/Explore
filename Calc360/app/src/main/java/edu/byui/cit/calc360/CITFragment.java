@@ -20,10 +20,6 @@ public abstract class CITFragment extends Fragment {
 	private Descriptor descriptor;
 
 
-	public CITFragment() {
-		super();
-	}
-
 	void setDescriptor(int descripID) {
 		descriptor = Descriptors.getDescriptor(descripID);
 	}

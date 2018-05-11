@@ -18,7 +18,7 @@ import edu.byui.cit.maintenance.MainActivity;
 public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	private final EditText edit;
 	private final TextChangeListener listener;
-	private boolean userInput;
+	private boolean userInput, meaningful;
 
 	EditWrapper(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
@@ -34,23 +34,28 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	public abstract void restore(SharedPreferences prefs, NumberFormat fmtr);
 
 	@Override
-	public boolean isEnabled() {
+	public final EditText getView() {
+		return edit;
+	}
+
+	@Override
+	public final boolean isEnabled() {
 		return edit.isEnabled();
 	}
 
 	@Override
-	public void setEnabled(boolean enabled) {
+	public final void setEnabled(boolean enabled) {
 		edit.setEnabled(enabled);
 	}
 
+
 	@Override
-	public boolean hasFocus() {
+	public final boolean hasFocus() {
 		return edit.hasFocus();
 	}
 
-
 	@Override
-	public void requestFocus() {
+	public final void requestFocus() {
 		if (edit.hasFocus()) {
 			showKeyboard(edit);
 		}
@@ -60,7 +65,7 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	}
 
 	@Override
-	public void onFocusChange(View view, boolean hasFocus) {
+	public final void onFocusChange(View view, boolean hasFocus) {
 		if (hasFocus) {
 			showKeyboard(view);
 		}
@@ -78,18 +83,27 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 		 * afterTextChanged even for text that is being "restored"
 		 * from blank to blank. To detect this problem, we check that
 		 * either count or after is not zero. */
-		if (count != 0 || after != 0) {
-//			listener.clearGroup(this);
-		}
+//		if ((count != 0 || after != 0) &&
+//				listener != null && listener instanceof CalcFragment) {
+//			((CalcFragment)listener).clearGroup(this);
+//		}
 	}
 
 	@Override
 	public final void onTextChanged(
 			CharSequence s, int start, int before, int count) {
+		meaningful = before != 0 || count != 0;
+	}
+
+	@Override
+	public final void afterTextChanged(Editable edit) {
 		userInput = notEmpty();
-		if ((before != 0 || count != 0) && listener != null) {
+		if (meaningful && listener != null) {
 			try {
-				listener.textChanged(s);
+				listener.textChanged(this);
+			}
+			catch (NumberFormatException ex) {
+				// Do nothing.
 			}
 			catch (Exception ex) {
 				Log.e(MainActivity.TAG, "exception", ex);
@@ -97,17 +111,9 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 		}
 	}
 
-	@Override
-	public final void afterTextChanged(Editable edit) {
-	}
-
 	public boolean hasUserInput() {
 		return userInput;
 	}
-
-//	public EditText getEdit() {
-//		return edit;
-//	}
 
 	@Override
 	public boolean isEmpty() {

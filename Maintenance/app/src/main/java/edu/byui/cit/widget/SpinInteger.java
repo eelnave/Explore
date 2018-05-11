@@ -4,12 +4,19 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.SpinnerAdapter;
 
 import java.util.ArrayList;
 
 
 public final class SpinInteger extends SpinWrapper {
+	public SpinInteger(Context ctx, View parent, int spinID, int arrayID) {
+		this(ctx, parent, spinID, arrayID, null, null);
+	}
+
+	public SpinInteger(Context ctx, View parent, int spinID, int arrayID,
+			String prefsKey) {
+		this(ctx, parent, spinID, arrayID, prefsKey, null);
+	}
 
 	public SpinInteger(Context ctx, View parent, int spinID, int arrayID,
 			String prefsKey, ItemSelectedListener listener) {

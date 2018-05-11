@@ -10,6 +10,14 @@ import java.util.ArrayList;
 
 
 public final class SpinDecimal extends SpinWrapper {
+	public SpinDecimal(Context ctx, View parent, int spinID, int arrayID) {
+		this(ctx, parent, spinID, arrayID, null, null);
+	}
+
+	public SpinDecimal(Context ctx, View parent, int spinID, int arrayID,
+			String prefsKey) {
+		this(ctx, parent, spinID, arrayID, prefsKey, null);
+	}
 
 	public SpinDecimal(Context ctx, View parent, int spinID, int arrayID,
 			String prefsKey, ItemSelectedListener listener) {

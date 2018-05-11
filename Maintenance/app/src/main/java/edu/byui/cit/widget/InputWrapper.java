@@ -11,7 +11,6 @@ public abstract class InputWrapper extends WidgetWrapper {
 	static final NumberFormat
 			intFmtr = NumberFormat.getIntegerInstance(),
 			decFmtr = NumberFormat.getInstance(),
-			perFmtr = NumberFormat.getPercentInstance(),
 			curFmtr = NumberFormat.getCurrencyInstance();
 	final String prefsKey;
 

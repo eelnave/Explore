@@ -5,6 +5,18 @@ import android.view.View;
 
 
 public final class SpinString extends SpinWrapper {
+	public SpinString(View parent, int spinID) {
+		this(parent, spinID, null, null);
+	}
+
+	public SpinString(View parent, int spinID, String prefsKey) {
+		this(parent, spinID, prefsKey, null);
+	}
+
+	public SpinString(View parent, int spinID, ItemSelectedListener listener) {
+		this(parent, spinID, null, listener);
+	}
+
 	public SpinString(View parent, int spinID,
 			String prefsKey, ItemSelectedListener listener) {
 		super(parent, spinID, prefsKey, listener);

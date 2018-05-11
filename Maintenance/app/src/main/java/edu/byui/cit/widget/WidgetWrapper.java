@@ -8,6 +8,12 @@ import android.view.View.OnFocusChangeListener;
 import android.view.inputmethod.InputMethodManager;
 
 
+/** The CIT Widgets automatically handle the following
+ * 1. Show and hide the virtual keyboard when focus changes.
+ * 2. Save and restore user preferences.
+ * 3. Differentiate between user input and values that are restored
+ * 	from the preferences file and when the device is rotated.
+ */
 public abstract class WidgetWrapper implements OnFocusChangeListener {
 	private final InputMethodManager imm;
 
@@ -28,6 +34,8 @@ public abstract class WidgetWrapper implements OnFocusChangeListener {
 		}
 		return null;
 	}
+
+	public abstract View getView();
 
 	public abstract boolean isEnabled();
 	public abstract void setEnabled(boolean enabled);

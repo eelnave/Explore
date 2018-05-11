@@ -12,12 +12,20 @@ public final class RadioWrapper extends WidgetWrapper implements OnClickListener
 	private final RadioButton radio;
 	private final ClickListener listener;
 
-	public RadioWrapper(View parent, int resID,
-			String prefsKey, ClickListener listener) {
+	public RadioWrapper(View parent, int resID) {
+		this(parent, resID, null);
+	}
+
+	public RadioWrapper(View parent, int resID, ClickListener listener) {
 		super(parent, resID);
 		this.radio = parent.findViewById(resID);
 		this.listener = listener;
 		radio.setOnClickListener(this);
+	}
+
+	@Override
+	public final RadioButton getView() {
+		return radio;
 	}
 
 	public final boolean isChecked() {
@@ -50,11 +58,16 @@ public final class RadioWrapper extends WidgetWrapper implements OnClickListener
 
 	@Override
 	public final void onClick(View button) {
-		try {
-			listener.clicked(button);
-		}
-		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "exception", ex);
+		if (listener != null) {
+			try {
+				listener.clicked(this);
+			}
+			catch (NumberFormatException ex) {
+				// Do nothing.
+			}
+			catch (Exception ex) {
+				Log.e(MainActivity.TAG, "exception", ex);
+			}
 		}
 	}
 }

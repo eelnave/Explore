@@ -43,7 +43,7 @@ public final class SpinDecimal extends SpinWrapper {
 		editor.putFloat(prefsKey, getDec());
 	}
 
-	public void restore(SharedPreferences prefs, int deflt) {
+	public void restore(SharedPreferences prefs, float deflt) {
 		float preferred = prefs.getFloat(prefsKey, deflt);
 		SpinnerAdapter adapter = spinner.getAdapter();
 		float delta = Math.min(preferred, deflt) * 1e-3F;

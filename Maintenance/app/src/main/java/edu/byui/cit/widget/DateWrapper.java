@@ -15,6 +15,20 @@ public class DateWrapper extends InputWrapper implements OnDateChangedListener {
 	private final DatePicker picker;
 	private final DateChangeListener listener;
 
+	public DateWrapper(View parent, int resID, Calendar calendar) {
+		this(parent, resID, calendar, null, null);
+	}
+
+	public DateWrapper(View parent, int resID, Calendar calendar,
+			String prefsKey) {
+		this(parent, resID, calendar, prefsKey, null);
+	}
+
+	public DateWrapper(View parent, int resID, Calendar calendar,
+			DateChangeListener listener) {
+		this(parent, resID, calendar, null, listener);
+	}
+
 	public DateWrapper(View parent, int resID, Calendar calendar,
 			String prefsKey, DateChangeListener listener) {
 		super(parent, resID, prefsKey);
@@ -27,8 +41,14 @@ public class DateWrapper extends InputWrapper implements OnDateChangedListener {
 		this.listener = listener;
 	}
 
+
 	@Override
 	public void save(SharedPreferences.Editor editor) {
+	}
+
+	@Override
+	public final DatePicker getView() {
+		return picker;
 	}
 
 	@Override
@@ -59,11 +79,16 @@ public class DateWrapper extends InputWrapper implements OnDateChangedListener {
 	@Override
 	public void onDateChanged(
 			DatePicker view, int year, int month, int dayOfMonth) {
-		try {
-			listener.afterChanged(view, year, month, dayOfMonth);
-		}
-		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "exception", ex);
+		if (listener != null) {
+			try {
+				listener.afterChanged(this, year, month, dayOfMonth);
+			}
+			catch (NumberFormatException ex) {
+				// Do nothing.
+			}
+			catch (Exception ex) {
+				Log.e(MainActivity.TAG, "exception", ex);
+			}
 		}
 	}
 

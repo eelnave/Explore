@@ -12,6 +12,7 @@ public final class TextWrapper extends WidgetWrapper {
 		this.view = parent.findViewById(resID);
 	}
 
+	@Override
 	public final TextView getView() {
 		return view;
 	}

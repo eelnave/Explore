@@ -21,6 +21,11 @@ public final class ButtonWrapper extends WidgetWrapper
 	}
 
 	@Override
+	public final Button getView() {
+		return button;
+	}
+
+	@Override
 	public final boolean isEnabled() {
 		return button.isEnabled();
 	}
@@ -43,7 +48,10 @@ public final class ButtonWrapper extends WidgetWrapper
 	@Override
 	public final void onClick(View button) {
 		try {
-			listener.clicked(button);
+			listener.clicked(this);
+		}
+		catch (NumberFormatException ex) {
+			// Do nothing.
 		}
 		catch (Exception ex) {
 			Log.e(MainActivity.TAG, "exception", ex);

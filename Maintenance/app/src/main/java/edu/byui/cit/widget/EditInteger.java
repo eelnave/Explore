@@ -7,10 +7,23 @@ import java.text.NumberFormat;
 
 
 public class EditInteger extends EditWrapper {
+	public EditInteger(View parent, int resID) {
+		super(parent, resID, null, null);
+	}
+
+	public EditInteger(View parent, int resID, String prefsKey) {
+		super(parent, resID, prefsKey, null);
+	}
+
+	public EditInteger(View parent, int resID, TextChangeListener listener) {
+		super(parent, resID, null, listener);
+	}
+
 	public EditInteger(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}
+
 
 	@Override
 	public void save(SharedPreferences.Editor editor) {
@@ -36,6 +49,7 @@ public class EditInteger extends EditWrapper {
 			setInput(fmtr.format(val));
 		}
 	}
+
 
 	public int getInt() throws NumberFormatException {
 		return getInt(getText());

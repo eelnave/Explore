@@ -25,27 +25,32 @@ abstract class SpinWrapper extends InputWrapper
 	}
 
 	@Override
-	public boolean isEnabled() {
+	public final Spinner getView() {
+		return spinner;
+	}
+
+	@Override
+	public final boolean isEnabled() {
 		return spinner.isEnabled();
 	}
 
 	@Override
-	public void setEnabled(boolean enabled) {
+	public final void setEnabled(boolean enabled) {
 		spinner.setEnabled(enabled);
 	}
 
 	@Override
-	public boolean hasFocus() {
+	public final boolean hasFocus() {
 		return spinner.hasFocus();
 	}
 
 	@Override
-	public void requestFocus() {
+	public final void requestFocus() {
 		spinner.requestFocus();
 	}
 
 	@Override
-	public void onFocusChange(View view, boolean hasFocus) {
+	public final void onFocusChange(View view, boolean hasFocus) {
 		if (hasFocus) {
 			hideKeyboard(view);
 		}
@@ -63,9 +68,12 @@ abstract class SpinWrapper extends InputWrapper
 	@Override
 	public final void onItemSelected(
 			AdapterView<?> parent, View view, int pos, long id) {
-		if (! isProgrammatic()) {
+		if (!isProgrammatic() && listener != null) {
 			try {
-				listener.itemSelected(parent, view, pos, id);
+				listener.itemSelected(this, pos, id);
+			}
+			catch (NumberFormatException ex) {
+				// Do nothing.
 			}
 			catch (Exception ex) {
 				Log.e(MainActivity.TAG, "exception", ex);

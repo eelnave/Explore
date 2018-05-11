@@ -39,8 +39,8 @@ public abstract class CITFragment extends Fragment {
 			view = createView(inflater, container, savedInstState);
 
 			if (savedInstState == null) {
-				SharedPreferences prefs = getActivity()
-						.getPreferences(Context.MODE_PRIVATE);
+				SharedPreferences prefs =
+						getActivity().getPreferences(Context.MODE_PRIVATE);
 				restorePrefs(prefs);
 			}
 		}
@@ -70,7 +70,6 @@ public abstract class CITFragment extends Fragment {
 	@Override
 	public void onResume() {
 		super.onResume();
-//		Log.v(Calc360.TAG, getClass().getSimpleName() + ".onResume()");
 		try {
 			Activity act = getActivity();
 			act.setTitle(getTitle());
@@ -107,7 +106,7 @@ public abstract class CITFragment extends Fragment {
 	}
 
 
-	// When this calculator is stopped by the Android system, save
+	// When this fragment is stopped by the Android system, save
 	// some things chosen by the user into the preferences file.
 	@Override
 	public void onStop() {

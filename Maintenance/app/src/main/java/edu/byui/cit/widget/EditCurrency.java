@@ -7,10 +7,23 @@ import java.text.NumberFormat;
 
 
 public class EditCurrency extends EditWrapper {
+	public EditCurrency(View parent, int resID) {
+		super(parent, resID, null, null);
+	}
+
+	public EditCurrency(View parent, int resID, String prefsKey) {
+		super(parent, resID, prefsKey, null);
+	}
+
+	public EditCurrency(View parent, int resID, TextChangeListener listener) {
+		super(parent, resID, null, listener);
+	}
+
 	public EditCurrency(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}
+
 
 	@Override
 	public void save(SharedPreferences.Editor editor) {

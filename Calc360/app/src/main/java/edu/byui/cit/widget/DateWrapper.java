@@ -46,7 +46,6 @@ public class DateWrapper extends InputWrapper implements OnDateChangedListener {
 	public void save(SharedPreferences.Editor editor) {
 	}
 
-
 	@Override
 	public final DatePicker getView() {
 		return picker;
@@ -67,7 +66,6 @@ public class DateWrapper extends InputWrapper implements OnDateChangedListener {
 		picker.setEnabled(enabled);
 	}
 
-
 	@Override
 	public final boolean hasFocus() {
 		return picker.hasFocus();
@@ -78,13 +76,11 @@ public class DateWrapper extends InputWrapper implements OnDateChangedListener {
 		picker.requestFocus();
 	}
 
-
 	@Override
 	public void onDateChanged(
 			DatePicker view, int year, int month, int dayOfMonth) {
 		if (listener != null) {
 			try {
-//				listener.afterChanged(view, year, month, dayOfMonth);
 				listener.afterChanged(this, year, month, dayOfMonth);
 			}
 			catch (NumberFormatException ex) {

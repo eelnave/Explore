@@ -11,6 +11,14 @@ public class EditString extends EditWrapper {
 		super(parent, resID, null, null);
 	}
 
+	public EditString(View parent, int resID, String prefsKey) {
+		super(parent, resID, prefsKey, null);
+	}
+
+	public EditString(View parent, int resID, TextChangeListener listener) {
+		super(parent, resID, null, listener);
+	}
+
 	public EditString(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);

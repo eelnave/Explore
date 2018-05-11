@@ -11,7 +11,6 @@ import java.text.NumberFormat;
 
 import edu.byui.cit.calc360.Calc360;
 import edu.byui.cit.calc360.CalcFragment;
-import edu.byui.cit.calc360.SolveSeries;
 
 
 /** A wrapper class that contains both an EditText and a corresponding
@@ -46,7 +45,7 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	}
 
 	@Override
-	public void setEnabled(boolean enabled) {
+	public final void setEnabled(boolean enabled) {
 		edit.setEnabled(enabled);
 	}
 
@@ -95,8 +94,6 @@ public abstract class EditWrapper extends InputWrapper implements TextWatcher {
 	public final void onTextChanged(
 			CharSequence s, int start, int before, int count) {
 		meaningful = before != 0 || count != 0;
-//		if ((before != 0 || count != 0) && listener != null) {
-//		}
 	}
 
 	@Override

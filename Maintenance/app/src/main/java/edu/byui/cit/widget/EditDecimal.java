@@ -13,10 +13,19 @@ public class EditDecimal extends EditWrapper {
 		super(parent, resID, null, null);
 	}
 
+	public EditDecimal(View parent, int resID, String prefsKey) {
+		super(parent, resID, prefsKey, null);
+	}
+
+	public EditDecimal(View parent, int resID, TextChangeListener listener) {
+		super(parent, resID, null, listener);
+	}
+
 	public EditDecimal(View parent, int resID,
 			String prefsKey, TextChangeListener listener) {
 		super(parent, resID, prefsKey, listener);
 	}
+
 
 	@Override
 	public void save(SharedPreferences.Editor editor) {
@@ -44,6 +53,7 @@ public class EditDecimal extends EditWrapper {
 			setInput(fmtr.format(val));
 		}
 	}
+
 
 	public double getDec() throws NumberFormatException {
 		return getDec(getText());
