@@ -1,8 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Dater Creater</string>
 
     <string name="contribs">Contributors</string>
-
 
     <string name="description">The Dater Creator app idea is to give users a way to organize and find date ideas for you and your special someone. You will have the app to specify certain parameters (Amount of money willing to spend, time you have, temperature, level of physical activity) to give the user a realistic date idea.</string>
     <string name="logomakr">Logo Editor</string>
@@ -44,5 +44,4 @@
     <string name="first">1st</string>
     <string name="second">2nd</string>
     <string name="third">3rd</string>
-
 </resources>
