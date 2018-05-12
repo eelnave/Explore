@@ -11,7 +11,7 @@ final class Descriptors {
 	 * calcID must be unique.
 	 */
 	private static final GroupDescriptor hierarchy =
-		new GroupDescriptor(R.id.Calc360, R.string.appName, R.mipmap.calc360, R.string.appDescr, new Descriptor[]{
+		new GroupDescriptor(R.id.Calc360, R.string.appName, R.mipmap.calc360, R.string.helpExplain, new Descriptor[]{
 			new GroupDescriptor(R.id.Shopping, R.string.shopping, R.drawable.folder_shopping, new CalcDescriptor[]{
 				new CalcDescriptor(R.id.SalesTax, R.string.salesTax, R.drawable.sales_tax, SalesTax.class),
 				new CalcDescriptor(R.id.Discount, R.string.discount, R.drawable.discount, Discount.class),

@@ -2,6 +2,7 @@
 <resources>
 	<string name="appName">Calc 360</string>
 	<string name="explain">Explain</string>
+	<string name="helpExplain">When using a specific calculator, if you tap the help icon (the question mark above), a short help message will appear which will briefly explain the purpose and how to use that calculator.</string>
 
 	<string name="about">About</string>
 	<string name="version">version</string>
