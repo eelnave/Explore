@@ -20,7 +20,7 @@
 		<item name="layout_rowWeight">1</item>
 	</style>
 
-	<style name="CommandButton" parent="@android:style/Widget.Material.Button">
+	<style name="Button" parent="@android:style/Widget.Material.Button">
 		<item name="android:textAppearance">
 			@android:style/TextAppearance.Material.Medium
 		</item>
@@ -32,6 +32,7 @@
 	<style name="TextLabel" parent="@android:style/TextAppearance.Material.Medium">
 		<item name="android:layout_width">wrap_content</item>
 		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textAlignment">textStart</item>
 	</style>
 
 	<style name="EditText" parent="@android:style/TextAppearance.Material.Medium">

@@ -3,7 +3,7 @@
 	<string name="appName">Maintenance</string>
 
 	<string name="about">About</string>
-	<string name="appDescr">A collection of easy to use specific calculators designed, written, and maintained by students at Brigham Young University - Idaho</string>
+	<string name="appDescr">An app to schedule and record maintenance of cars, motorcycles, boats, and other vehicles</string>
 	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
 
 	<string name="contribs">Contributors</string>
