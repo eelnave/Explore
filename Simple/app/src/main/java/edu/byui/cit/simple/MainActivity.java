@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.text.NumberFormat;
+
 
 public class MainActivity extends AppCompatActivity {
 	private EditText txtOne, txtTwo;
@@ -68,8 +70,17 @@ public class MainActivity extends AppCompatActivity {
 	private final class ComputeHandler implements View.OnClickListener {
 		@Override
 		public void onClick(View button) {
-			double one = Double.parseDouble(txtOne.getText().toString());
-			txtTwo.setText(Double.toString(one));
+			NumberFormat formatter = NumberFormat.getInstance();
+			String input = txtOne.getText().toString();
+			try {
+				Number number = formatter.parse(input);
+				double one = number.doubleValue();
+				double result = one;
+				txtTwo.setText(formatter.format(result));
+			}
+			catch (Exception ex) {
+				// Do nothing.
+			}
 		}
 	}
 
