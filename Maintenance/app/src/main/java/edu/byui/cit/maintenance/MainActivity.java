@@ -2,10 +2,10 @@ package edu.byui.cit.maintenance;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
@@ -16,51 +16,43 @@ import edu.byui.cit.widget.CITFragment;
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Maintenance";
 
+	private ChooseVehicle fragChoose;
+	private AddVehicle fragAdd;
+	private About fragAbout;
+
 	@Override
 	protected void onCreate(Bundle savedInstState) {
-		// Call onCreate in the parent class.
 		super.onCreate(savedInstState);
-
-		// Inflate the main_activity xml layout and set it as the content
-		// view for this activity so that the user will see it.
 		setContentView(R.layout.main_activity);
-
-		// Setup the action bar at the top of the window.
-		Toolbar bar = findViewById(R.id.toolbar);
-		setSupportActionBar(bar);
-//		bar.setNavigationOnClickListener();
+		Toolbar toolbar = findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
 		ActionBar actBar = getSupportActionBar();
 		actBar.setDisplayHomeAsUpEnabled(true);
-//		actBar.setDisplayShowTitleEnabled(false);
 
 		if (savedInstState == null) {
-			// Create a fragment that contains all the folders
+			// Create a fragment that contains all the vehicles
 			// and place it as the first fragment in this activity.
-			CITFragment frag = new ChooseVehicle();
-
-			FragmentTransaction trans = getFragmentManager()
-					.beginTransaction();
-			trans.add(R.id.fragContainer, frag);
+			fragChoose = new ChooseVehicle();
+			FragmentTransaction trans =
+					getFragmentManager().beginTransaction();
+			trans.add(R.id.fragContainer, fragChoose);
 			trans.commit();
 		}
 	}
 
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		super.onCreateOptionsMenu(menu);
-//		Log.v(TAG, getClass().getSimpleName() + ".onCreateOptionsMenu()");
-
-		// Inflate our menu from the resources by using the menu inflater.
+		// Inflate the menu; this adds items
+		// to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.action_menu, menu);
 		return true;
 	}
 
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		super.onOptionsItemSelected(item);
-//		Log.v(TAG, getClass().getSimpleName() + ".onOptionsItemSelected()");
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
 		switch (item.getItemId()) {
 			case android.R.id.home:
 				// Respond to the user pressing the "back/up" button on the
@@ -68,18 +60,27 @@ public class MainActivity extends AppCompatActivity {
 				// left-facing triangle icon on the main android toolbar.
 				onBackPressed();
 				return true;
-			case R.id.actAbout:
-//				if (about == null || about.isDetached()) {
-//					about = new About();
-//					about.setDescrip(about.getPrefsPrefix());
-//				}
-//
-//				// Replace whatever is in the fragContainer
-//				// with the About fragment.
-//				switchFragment(about);
+			case R.id.actAdd:
+				if (fragAdd == null || fragAdd.isDetached()) {
+					fragAdd = new AddVehicle();
+				}
+
+				// Replace whatever is in the
+				// fragContainer with the Add fragment.
+				switchFragment(fragAdd);
 
 				// Return true to indicate that this
 				// method handled the item selected event.
+				return true;
+
+			case R.id.actHelp:
+				return true;
+
+			case R.id.actAbout:
+				if (fragAbout == null || fragAbout.isDetached()) {
+					fragAbout = new About();
+				}
+				switchFragment(fragAbout);
 				return true;
 		}
 

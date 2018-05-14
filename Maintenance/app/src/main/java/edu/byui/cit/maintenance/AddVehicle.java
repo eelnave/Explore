@@ -44,7 +44,7 @@ public class AddVehicle extends CITFragment {
 		public void clicked(WidgetWrapper source) {
 			float year = (float)decYear.getDec();
 			String make = strMake.getText();
-			String model = strModel.getText().toString();
+			String model = strModel.getText();
 
 			// TODO: Store the values in local storage.
 			strModel.setText(year + " " + make + " " + model);

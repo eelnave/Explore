@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.GridLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:compat="http://schemas.android.com/apk/res-auto"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/ChooseVehicle"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
-	compat:columnCount="3">
+	app:columnCount="3">
 
 	<Button
 		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
+		android:text="2001 Mazda 626"/>
 
 	<Button
 		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
+		android:text="2004 Jeep Liberty"/>
 
 	<Button
 		style="@style/VehicleButton"
-		android:text="2002 Mazda 626"/>
+		android:text="2011 Toyota 4 Runner"/>
 
-	<Button
-		android:id="@+id/btnAdd"
-		style="@style/VehicleButton"
-		android:text="@string/add"/>
+	<ImageButton
+		android:layout_width="0dp"
+		android:layout_height="150dp"
+		android:gravity="bottom|center_horizontal"
+		android:src="@drawable/f150"
+		android:text="2015 Ford F150"
+		android:textSize="20sp"
+		app:layout_columnWeight="1"
+		app:layout_rowWeight="1"/>
 </android.support.v7.widget.GridLayout>
