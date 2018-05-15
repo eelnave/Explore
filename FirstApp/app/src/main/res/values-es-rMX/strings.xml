@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FirstApp</string>
+    <string name="number1">Numero 1:</string>
+    <string name="number2">Numbero 2:</string>
+    <string name="calculate">Calcular</string>
+    <string name="clear">Borrar</string>
+    <string name="result">Resultado:</string>
+    <string name="action_settings">Configuracion</string>
+</resources>
