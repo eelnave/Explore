@@ -1,36 +1,16 @@
 <resources>
-    <string name="appName">Kindness</string>
 
-    <string name="about">Di</string>
-    <string name="contribs">Contributori</string>
-
-    <string name="appDescr">A simple way to report acts of kindness designed, written, and maintained by students at Brigham Young University - Idaho</string>
-    <string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
-    <string name="logoCredit">We created the logo and icons for Kindness using the free tools at <a href="logomakr.com">logomakr.com</a></string>
-    <string name="fall2017">Autunno 2017</string>
-    <string name="winter2018">Inverno 2018</string>
-
-    <string name="mistake">Well, this is embarrassing. Something is wrong with this calculator, and it isn\'t working. We apologize.</string>
-
-
-    <string name="longitude">Longitdue</string>
-    <string name="latitude">Latitudine</string>
-    <string name="category">Categoria</string>
+    <string name="gifts">I Regalia</string>
     <string name="service">Servizio</string>
     <string name="time">Tempo</string>
     <string name="touch">Toccare</string>
-    <string name="gift">I Regalia</string>
     <string name="words">parole</string>
 
-    <string name="emotion">Emozione</string>
-    <string name="food">Cibo</string>
-    <string name="labor">Lavora</string>
-    <string name="money">I Soldi</string>
-    <string name="travel">Viaggio</string>
-    <string name="other">Altro</string>
+    <string name="category">Categoria</string>
+    <string name="longitude">Longitdue</string>
+    <string name="latitude">Latitudine</string>
 
-    <string name="submit">Scottoscrivi</string>
-	<string name="map">Carta Geografica</string>
-    <string name="seeKindness">See Kindness</string>
-    <string name="reportKindness">Report Kindness</string>
+    <string name="about">Di</string>
+    <string name="contribs">Contributori</string>
+    <string name="winter2018">Inverno 2018</string>
 </resources>

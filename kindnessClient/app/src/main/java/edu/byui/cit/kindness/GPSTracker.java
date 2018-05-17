@@ -21,23 +21,24 @@ public class GPSTracker implements LocationListener {
 
 	public Location getLocation() {
 		if (ContextCompat.checkSelfPermission(context,
-				Manifest.permission.ACCESS_COARSE_LOCATION) !=
+				Manifest.permission.ACCESS_FINE_LOCATION) !=
 				PackageManager.PERMISSION_GRANTED) {
 			Toast.makeText(context,
-					"Permission not granted", Toast.LENGTH_SHORT).show();
+					"GPS permission not granted", Toast.LENGTH_LONG).show();
 			return null;
 		}
 
 		LocationManager lm = (LocationManager)
 				context.getSystemService(Context.LOCATION_SERVICE);
+//		boolean isGPSEnabled =
+//				lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 		boolean isGPSEnabled =
-				lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+				lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
 		if (isGPSEnabled) {
-			lm.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 6000,
+			lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 6000,
 					500, this);
-			Location l = lm.getLastKnownLocation(
-					LocationManager.NETWORK_PROVIDER);
-			return l;
+			Location loc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+			return loc;
 		}
 		else {
 			Toast.makeText(context,

@@ -56,7 +56,7 @@
 		android:id="@+id/gifts"
 		style="@style/IconButton"
 		android:background="@drawable/gift"
-		android:text="@string/gift"
+		android:text="@string/gifts"
 		app:layout_constraintCircle="@+id/logo"
 		app:layout_constraintCircleAngle="288"
 		app:layout_constraintCircleRadius="125dp"/>

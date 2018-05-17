@@ -1,10 +1,10 @@
 package edu.byui.cit.kindness;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,17 +14,6 @@ import android.widget.EditText;
 
 
 public abstract class CITFragment extends Fragment {
-	private static final String PAGE_ID_KEY = "pageID";
-
-	@Override
-	public void onCreate(Bundle savedInstState) {
-		super.onCreate(savedInstState);
-		if (savedInstState != null) {
-			// TODO: This currently does nothing. Do we need to keep it?
-			savedInstState.getString(PAGE_ID_KEY);
-		}
-	}
-
 
 	@Override
 	public View onCreateView(LayoutInflater inflater,
@@ -41,25 +30,20 @@ public abstract class CITFragment extends Fragment {
 			}
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "exception", ex);
+			Log.e(KindnessActivity.TAG, "exception", ex);
 			view = inflater.inflate(R.layout.mistake, container, false);
 		}
-		//keep from stacking
-		if (container != null) {
-			container.removeAllViews();
-		}
-
 		return view;
 	}
 
 	protected abstract View createView(LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstState);
 
-	protected abstract String getTitle();
-
-	final String getPrefsPrefix() {
-		return getClass().getSimpleName();
+	protected final AppCompatActivity getSupportActivity() {
+		return (AppCompatActivity)super.getActivity();
 	}
+
+	protected abstract String getTitle();
 
 	protected void restorePrefs(SharedPreferences prefs) {
 	}
@@ -69,11 +53,13 @@ public abstract class CITFragment extends Fragment {
 
 
 	@Override
-	public void onResume() {
-		super.onResume();
+	public void onStart() {
+		super.onStart();
 		try {
-			Activity act = getActivity();
+			AppCompatActivity act = getSupportActivity();
+			act.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 			act.setTitle(getTitle());
+			getActivity().findViewById(R.id.fabAdd).setVisibility(View.GONE);
 
 			InputMethodManager imm = (InputMethodManager)
 					act.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -95,15 +81,8 @@ public abstract class CITFragment extends Fragment {
 			}
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "exception", ex);
+			Log.e(KindnessActivity.TAG, "exception", ex);
 		}
-	}
-
-
-	@Override
-	public void onSaveInstanceState(Bundle savedInstState) {
-		super.onSaveInstanceState(savedInstState);
-		savedInstState.putString(PAGE_ID_KEY, getPrefsPrefix());
 	}
 
 
@@ -112,9 +91,12 @@ public abstract class CITFragment extends Fragment {
 	@Override
 	public void onStop() {
 		try {
+			AppCompatActivity act = getSupportActivity();
+			act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+			getActivity().findViewById(R.id.fabAdd).setVisibility(View.VISIBLE);
+
 			// Open the Android system preferences file for Calc360.
-			SharedPreferences prefs =
-					getActivity().getPreferences(Context.MODE_PRIVATE);
+			SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
 
 			// Get an editor for the preferences files
 			// so that we can write values into that file.
@@ -128,7 +110,7 @@ public abstract class CITFragment extends Fragment {
 			editor.apply();
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "exception", ex);
+			Log.e(KindnessActivity.TAG, "exception", ex);
 		}
 		finally {
 			super.onStop();

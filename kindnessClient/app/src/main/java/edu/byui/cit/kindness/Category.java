@@ -2,8 +2,8 @@ package edu.byui.cit.kindness;
 
 public enum Category {
 	None,
-	Service,
 	Gifts,
+	Service,
 	Time,
 	Touch,
 	Words;

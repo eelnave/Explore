@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appName">Kindness</string>
+	<string name="appName">Kindness</string>
 
-    <string name="about">About</string>
-    <string name="appDescr">A simple way to report acts of kindness designed, written, and maintained by students at Brigham Young University - Idaho</string>
-    <string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
-    <string name="contribs">Contributors</string>
-    <string name="winter2018">Winter 2018</string>
-    <string name="spring2018">Spring 2018</string>
-    <string name="logoCredit">We created the logo and icons for Kindness using the free tools at <a href="https://logomakr.com">logomakr.com</a></string>
+	<string name="reportKindness">Report Kindness</string>
+	<string name="gifts">Gifts</string>
+	<string name="service">Service</string>
+	<string name="time">Time</string>
+	<string name="touch">Touch</string>
+	<string name="words">Words</string>
 
-    <string name="mistake">Well, this is embarrassing. Something is wrong with this page, and it isn\'t working. We apologize.</string>
+	<string name="category">category</string>
+	<string name="latitude">latitude</string>
+	<string name="longitude">longitude</string>
+	<string name="thanks">Thank you for reporting an act of kindness.</string>
+	<string name="toMap">Return to Map</string>
 
-    <string name="longitude">Longitude</string>
-    <string name="latitude">Latitude</string>
-    <string name="category">Category</string>
-    <string name="service">Service</string>
-    <string name="time">Time</string>
-    <string name="touch">Touch</string>
-    <string name="gift">Gifts</string>
-    <string name="words">Words</string>
-    <string name="kindnessLogo">KindnessLogo</string>
-    <string name="map">Map</string>
+	<string name="howTo">How to Use</string>
+	<string name="instruction1">Tap \"See Kindness\" to view acts of kindness near you, or tap \"Report Kindness\" to add to the map.</string>
+	<string name="instruction2">Tap the icon that best reflects the kindness you would like to report.</string>
+	<string name="instruction3">Tap \"Submit\" to add your kindness to the map at your location.</string>
 
-    <string name="reportKindness">Report\nKindness</string>
-    <string name="submit">Submit</string>
+	<string name="privacy">Privacy</string>
 
-    <string name="seeKindness">See\nKindness</string>
+	<string name="about">About</string>
+	<string name="appDescr">A simple way to report acts of kindness designed, written, and maintained by students at Brigham Young University - Idaho</string>
+	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
+	<string name="feedback">Thank you for using Kindness! We appreciate your comments, questions, and recommendations to help us improve this app. You can contact us through the <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.kindness">Google Play Store</a>.</string>
+	<string name="contribs">Contributors</string>
+	<string name="winter2018">Winter 2018</string>
+	<string name="spring2018">Spring 2018</string>
+	<string name="logoCredit">We created the logo and icons for Kindness using the free tools at <a href="https://logomakr.com">logomakr.com</a></string>
 
-    <string name="howTo">How to Use</string>
-    <string name="instruction1">Tap \"See Kindness\" to view acts of kindness near you, or tap \"Report Kindness\" to add to the map.</string>
-    <string name="instruction2">Tap the icon that best reflects the kindness you would like to report.</string>
-    <string name="instruction3">Tap \"Submit\" to add your kindness to the map at your location.</string>
+	<string name="mistake">Well, this is embarrassing. Something is wrong with this page, and it isn\'t working. We apologize.</string>
 </resources>

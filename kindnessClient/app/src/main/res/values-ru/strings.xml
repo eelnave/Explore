@@ -1,19 +1,11 @@
 <resources>
-	<string name="about">Около</string>
-	<string name="contribs">Авторы</string>
-
-	<string name="appDescr">
-Простой способ сообщить о доброжелательности, разработанной, написанной и поддерживаемой студентами в Университете Brigham Young University - Idaho</string>
-
-	<string name="winter2018">Зима 2018</string>
 
 	<string name="longitude">Долгота</string>
 	<string name="latitude">Широта</string>
 
-	<string name="emotion">Эмоциональный</string>
-	<string name="food">Питание</string>
-	<string name="labor">Труд</string>
-	<string name="money">Деньги</string>
-	<string name="travel">Путешествовать</string>
-	<string name="other">Другие</string>
+	<string name="about">Около</string>
+	<string name="appDescr">
+Простой способ сообщить о доброжелательности, разработанной, написанной и поддерживаемой студентами в Университете Brigham Young University - Idaho</string>
+	<string name="contribs">Авторы</string>
+	<string name="winter2018">Зима 2018</string>
 </resources>
