@@ -23,22 +23,18 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 
-
-
-public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
-
+public class MapActivity extends FragmentActivity implements OnMapReadyCallback{
 	public GoogleMap mMap;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.map);
+		setContentView(R.layout.map_activity);
 		// Obtain the SupportMapFragment and get notified when the map is ready to be used.
 		SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.map);
 		mapFragment.getMapAsync(this);
 	}
-
 
 
 	@Override
@@ -55,10 +51,14 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 				GenericTypeIndicator<HashMap<String, Report>> t = new GenericTypeIndicator<HashMap<String, Report>>() {};
 				HashMap<String, Report> reports = dataSnapshot.getValue(t);
 
-				for(HashMap.Entry<String, Report> entry : reports.entrySet()) {
+				for (HashMap.Entry<String, Report> entry : reports.entrySet()) {
 					Report value = entry.getValue();
-					mMap.addMarker(new MarkerOptions().position(new LatLng(value.getLatitude(), value.getLongitude())).icon(
-							BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
+					MarkerOptions opts = new MarkerOptions();
+					opts.position(new LatLng(value.getLatitude(), value.getLongitude()));
+					opts.icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicon));
+					mMap.addMarker(opts);
+//					mMap.addMarker(new MarkerOptions().position(new LatLng(value.getLatitude(), value.getLongitude())).icon(
+//							BitmapDescriptorFactory.fromResource(R.drawable.mapicon)));
 				}
 			}
 
@@ -90,6 +90,4 @@ public class KindnessMap extends FragmentActivity implements OnMapReadyCallback{
 		CameraUpdate yourLocation = CameraUpdateFactory.newLatLngZoom(current, 1);
 		mMap.animateCamera(yourLocation);
 	}
-
-
 }

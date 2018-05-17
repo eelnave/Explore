@@ -39,4 +39,22 @@
 		<item name="layout_rowWeight">1</item>
 	</style>
 
+	<style name="Heading2" parent="@android:style/TextAppearance.Material.Medium">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<style name="Semester" parent="@android:style/TextAppearance.Material.Small">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginTop">10dp</item>
+		<item name="android:textAlignment">center</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+
+	<style name="Contributors" parent="@android:style/TextAppearance.Material.Small">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+	</style>
 </resources>

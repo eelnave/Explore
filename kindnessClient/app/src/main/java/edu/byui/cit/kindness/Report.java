@@ -3,8 +3,8 @@ package edu.byui.cit.kindness;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class Report {
 
+public class Report {
 	private double latitude;
 	private double longitude;
 	private Category category;
@@ -19,13 +19,21 @@ public class Report {
 		this.longitude = longitude;
 	}
 
-	public Category getCategory() {
-		return this.category;
+	public int getCategory() {
+		return this.category.ordinal();
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategory(int cat) {
+		this.category = Category.get(cat);
 	}
+//
+//	public Category getCategory() {
+//		return this.category;
+//	}
+//
+//	public void setCategory(Category category) {
+//		this.category = category;
+//	}
 
 	public double getLatitude() {
 		return this.latitude;
@@ -43,12 +51,10 @@ public class Report {
 		this.longitude = longitude;
 	}
 
+
 	public void addReport() {
-		//test FB connection
 		FirebaseDatabase database = FirebaseDatabase.getInstance();
 		DatabaseReference myRef = database.getReference("report");
 		myRef.push().setValue(this);
 	}
-
-
 }

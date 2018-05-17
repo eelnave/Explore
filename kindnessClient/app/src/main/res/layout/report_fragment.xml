@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:background="#ffffff"
 	android:layout_width="match_parent"
-	android:layout_height="match_parent">
-
+	android:layout_height="match_parent"
+	android:background="#ffffff">
 
 	<edu.byui.cit.kindness.IconButton
 		android:id="@+id/logo"
@@ -53,13 +53,11 @@
 		app:layout_constraintCircleRadius="125dp"/>
 
 	<edu.byui.cit.kindness.IconButton
-		android:id="@+id/gift"
+		android:id="@+id/gifts"
 		style="@style/IconButton"
 		android:background="@drawable/gift"
 		android:text="@string/gift"
 		app:layout_constraintCircle="@+id/logo"
 		app:layout_constraintCircleAngle="288"
 		app:layout_constraintCircleRadius="125dp"/>
-
-
 </android.support.constraint.ConstraintLayout>

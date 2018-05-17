@@ -31,6 +31,6 @@
 
     <string name="submit">Scottoscrivi</string>
 	<string name="map">Carta Geografica</string>
-    <string name="see_kindness">See Kindness</string>
-    <string name="report_kindness">Report Kindness</string>
+    <string name="seeKindness">See Kindness</string>
+    <string name="reportKindness">Report Kindness</string>
 </resources>
