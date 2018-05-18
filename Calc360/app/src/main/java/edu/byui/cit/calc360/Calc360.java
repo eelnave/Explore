@@ -86,8 +86,7 @@ public final class Calc360 extends AppCompatActivity {
 			GroupFragment frag = new GroupFragment();
 			frag.setDescriptor(R.id.Calc360);
 
-			FragmentTransaction trans =
-					getFragmentManager().beginTransaction();
+			FragmentTransaction trans = getFragmentManager().beginTransaction();
 			trans.add(R.id.fragContainer, frag);
 			trans.commit();
 		}
