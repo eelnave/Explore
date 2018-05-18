@@ -23,7 +23,7 @@
 	<string name="privacy">Privacy</string>
 
 	<string name="about">About</string>
-	<string name="appDescr">A simple way to report acts of kindness designed, written, and maintained by students at Brigham Young University - Idaho</string>
+	<string name="appDescr">A simple way to report acts of kindness. This app is designed, written, and maintained by students at Brigham Young University - Idaho.</string>
 	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
 	<string name="feedback">Thank you for using Kindness! We appreciate your comments, questions, and recommendations to help us improve this app. You can contact us through the <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.kindness">Google Play Store</a>.</string>
 	<string name="contribs">Contributors</string>

@@ -14,7 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
 
-public class ReportFragment extends CITFragment {
+public final class ReportFragment extends CITFragment {
 	private static final int[] views = {
 			R.id.gifts,
 			R.id.service,
@@ -29,12 +29,12 @@ public class ReportFragment extends CITFragment {
 			R.anim.touch_animate,
 			R.anim.words_animate
 	};
-	private static final Category[] categories = {
-			Category.Gifts,
-			Category.Service,
-			Category.Time,
-			Category.Touch,
-			Category.Words
+	private static final Report.Category[] categories = {
+			Report.Category.Gifts,
+			Report.Category.Service,
+			Report.Category.Time,
+			Report.Category.Touch,
+			Report.Category.Words
 	};
 
 
@@ -56,23 +56,35 @@ public class ReportFragment extends CITFragment {
 		Activity act = getActivity();
 		for (int i = 0;  i < views.length;  ++i) {
 			Button button = view.findViewById(views[i]);
-			button.setOnClickListener(new CategoryListener(categories[i]));
+			button.setOnClickListener(new CategoryClickHandler(categories[i]));
 			button.getBackground().setAlpha(100);
 			Animation animation =
 					AnimationUtils.loadAnimation(act, animations[i]);
 			button.startAnimation(animation);
 		}
 
-//		map = view.findViewById(R.id.logo);
-//		map.setOnClickListener(new SeeListener());
+//		btnLogo = view.findViewById(R.id.logo);
+//		btnLogo.setOnClickListener(new SeeListener());
 		return view;
 	}
 
 
-	private final class CategoryListener implements View.OnClickListener {
-		private final Category category;
 
-		CategoryListener(Category category) {
+	@Override
+	public void onResume() {
+		super.onResume();
+		if (fragReported == null || fragReported.isDetached()) {
+			fragReported = new ReportedFragment();
+		}
+	}
+
+
+	// Handles a click on one of the category buttons.
+	private final class CategoryClickHandler
+			implements View.OnClickListener, Runnable {
+		private final Report.Category category;
+
+		CategoryClickHandler(Report.Category category) {
 			this.category = category;
 		}
 
@@ -82,27 +94,27 @@ public class ReportFragment extends CITFragment {
 				Animation buttonAnimate = AnimationUtils.loadAnimation(
 						getActivity(), R.anim.button_click);
 				button.startAnimation(buttonAnimate);
-				button.postDelayed(new Runnable() {
-					@Override
-					public void run() {
-						GPSTracker gps = new GPSTracker(getSupportActivity());
-						Location loc = gps.getLocation();
-						if (loc == null) {
-							throw new RuntimeException("cannot get location");
-						}
-						Report report = new Report(category, loc);
-						report.submit();
+				button.postDelayed(this, buttonAnimate.getDuration());
+			}
+			catch (Exception ex) {
+				Log.e(KindnessActivity.TAG, "cannot submit report", ex);
+				getActivity().onBackPressed();
+			}
+		}
 
-						if (fragReported == null || fragReported.isDetached()) {
-							fragReported = new ReportedFragment();
-						}
-						fragReported.setReport(report);
-						AppCompatActivity act = getSupportActivity();
-						FragmentManager mgr = act.getSupportFragmentManager();
-						mgr.popBackStack();
-						((KindnessActivity)act).switchFragment(fragReported);
-					}
-				}, buttonAnimate.getDuration());
+
+		@Override
+		public void run() {
+			try {
+				Location loc = LocationTracker.getInstance().getLocation();
+				Report report = new Report(category, loc);
+				report.submit();
+
+				fragReported.setReport(report);
+				AppCompatActivity act = getSupportActivity();
+				FragmentManager mgr = act.getSupportFragmentManager();
+				mgr.popBackStack();
+				((KindnessActivity)act).switchFragment(fragReported);
 			}
 			catch (Exception ex) {
 				Log.e(KindnessActivity.TAG, "cannot submit report", ex);

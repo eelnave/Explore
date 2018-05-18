@@ -11,23 +11,40 @@ import com.google.firebase.database.ServerValue;
 import java.util.HashMap;
 
 
-public class Report {
+public final class Report {
+	enum Category {
+		None,
+		Gifts,
+		Service,
+		Time,
+		Touch,
+		Words;
+
+		static Category get(int ordinal) {
+			return Category.values()[ordinal];
+		}
+	}
+
+
 	private Object timestamp = ServerValue.TIMESTAMP;
 	private Category category;
 	private double latitude;
 	private double longitude;
 
+
+	@SuppressWarnings("unused")  // Used by firebase
 	public Report() {
 		this.category = Category.None;
 		this.latitude = 0;
 		this.longitude = 0;
 	}
 
-	public Report(Category category, Location loc) {
+	Report(Category category, Location loc) {
 		this.category = category;
 		this.latitude = loc.getLatitude();
 		this.longitude = loc.getLongitude();
 	}
+
 
 	public void setCategory(int cat) {
 		this.category = Category.get(cat);
@@ -41,6 +58,7 @@ public class Report {
 		this.longitude = longitude;
 	}
 
+	@SuppressWarnings("unused")  // Used by firebase
 	public Object getTimestamp() {
 		return timestamp;
 	}
@@ -57,29 +75,28 @@ public class Report {
 		return this.longitude;
 	}
 
+
 	@Exclude
-	public long timestamp() {
+	long timestamp() {
 		return timestamp instanceof Long ? ((Long)timestamp) : Long.MIN_VALUE;
 	}
 
 	@Exclude
-	public Category category() {
+	Category category() {
 		return category;
 	}
 
 	@Exclude
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder(80);
-		sb.append("Report: ").append(timestamp())
-				.append(" cat ").append(category.name())
-				.append(" lat ").append(latitude)
-				.append(" long ").append(longitude);
-		return sb.toString();
+		return "Report: " + timestamp() +
+				" cat " + category.name() +
+				" lat " + latitude +
+				" long " + longitude;
 	}
 
 	@Exclude
-	public void submit() {
+	void submit() {
 		FirebaseDatabase database = FirebaseDatabase.getInstance();
 		DatabaseReference reports = database.getReference(KindnessActivity.REPORTS_KEY);
 //		reports.push().setValue(this);

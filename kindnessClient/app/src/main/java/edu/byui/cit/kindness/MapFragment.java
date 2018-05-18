@@ -1,38 +1,50 @@
 package edu.byui.cit.kindness;
 
-import android.content.Context;
+import android.app.Activity;
 import android.location.Location;
-import android.support.v4.app.SupportActivity;
 import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
-
-import edu.byui.cit.exception.LocationException;
-import edu.byui.cit.exception.PermissionException;
-import edu.byui.cit.exception.ProviderException;
-import edu.byui.cit.exception.ServiceException;
+import java.util.TreeMap;
 
 
-public class MapFragment extends SupportMapFragment implements OnMapReadyCallback {
+public final class MapFragment extends SupportMapFragment
+		implements OnMapReadyCallback {
+	private final TreeMap<String, Report> allReports;
+	private final HashMap<String, TreeMap<String, Report>> indexes;
+
 	private GoogleMap mMap;
+	private BitmapDescriptor heart;
+	private DatabaseReference dbReports;
 
 
 	public MapFragment() {
 		super();
+
+		// Create the list (TreeMap) that will hold all reports.
+		allReports = new TreeMap<>();
+
+		// Create the category indexes that will hold references to the reports.
+		indexes = new HashMap<>();
+		for (Report.Category cat : Report.Category.values()) {
+			indexes.put(cat.name(), new TreeMap<String, Report>());
+		}
+
 		// Get notified when the map is ready to be used.
 		this.getMapAsync(this);
 	}
@@ -41,7 +53,7 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 	@Override
 	public void onResume() {
 		super.onResume();
-		SupportActivity act = getActivity();
+		Activity act = getActivity();
 		act.setTitle(getString(R.string.appName));
 	}
 
@@ -63,58 +75,110 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 		try {
 			mMap = googleMap;
 
-			FirebaseDatabase database = FirebaseDatabase.getInstance();
-			DatabaseReference myRef = database.getReference(
-					KindnessActivity.REPORTS_KEY);
+			// Load the icons to put on the map.
+			if (heart == null) {
+				heart = BitmapDescriptorFactory.fromResource(R.drawable.mapicon);
+			}
 
-			// Read from the database
-			myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-				@Override
-				public void onDataChange(DataSnapshot dataSnapshot) {
-					GenericTypeIndicator<HashMap<String, Report>> type =
-							new GenericTypeIndicator<HashMap<String, Report>>() {
+			if (dbReports == null) {
+				// Get a reference to the /reports node in the database.
+				FirebaseDatabase database = FirebaseDatabase.getInstance();
+				dbReports = database.getReference(KindnessActivity.REPORTS_KEY);
 
-							};
-					HashMap<String, Report> reports = dataSnapshot.getValue(
-							type);
-					if (reports != null) {
-						for (Report value : reports.values()) {
-							MarkerOptions opts = new MarkerOptions();
-							opts.position(new LatLng(value.getLatitude(),
-									value.getLongitude()));
-							opts.icon(BitmapDescriptorFactory.fromResource(
-									R.drawable.mapicon));
-							mMap.addMarker(opts);
-						}
-					}
-				}
-
-				@Override
-				public void onCancelled(DatabaseError error) {
-					// Failed to read value
-					Log.e(KindnessActivity.TAG,
-							"DB error: " + error.toString());
-				}
-			});
+				// Read from the database asynchronously
+//				dbReports.addListenerForSingleValueEvent(new SingleReadHandler());
+				dbReports.addChildEventListener(new ReportAddedHandler());
+			}
 
 			// Move the camera to the user's location.
-			Context ctx = getActivity().getApplicationContext();
-			GPSTracker gps = new GPSTracker(ctx);
-			Location loc = gps.getLocation();
+			Location loc = LocationTracker.getInstance().getLocation();
 			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 		}
-		catch (PermissionException ex) {
+		catch (DatabaseException ex) {
 			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
 		}
-		catch (ServiceException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+	}
+
+
+//	private final class SingleReadHandler implements ValueEventListener {
+//		@Override
+//		public void onDataChange(DataSnapshot dataSnapshot) {
+//			try {
+//				GenericTypeIndicator<HashMap<String, Report>> type =
+//						new GenericTypeIndicator<HashMap<String, Report>>() {
+//						};
+//				HashMap<String, Report> reports = dataSnapshot.getValue(type);
+//				if (reports != null) {
+//					for (Report value : reports.values()) {
+//						MarkerOptions opts = new MarkerOptions();
+//						opts.position(new LatLng(
+//								value.getLatitude(), value.getLongitude()));
+//						opts.icon(heart);
+//						mMap.addMarker(opts);
+//					}
+//				}
+//			}
+//			catch (DatabaseException ex) {
+//				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+//			}
+//			catch (Exception ex) {
+//				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+//			}
+//		}
+//
+//		@Override
+//		public void onCancelled(DatabaseError error) {
+//			// Failed to read value
+//			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
+//		}
+//	}
+
+
+	private final class ReportAddedHandler implements ChildEventListener {
+		@Override
+		public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+			try {
+				// Get the report that was added.
+				String key = dataSnapshot.getKey();
+				Report report = dataSnapshot.getValue(Report.class);
+
+				// Add this report to the list of all reports and to the
+				// category index that corresponds to this report's category.
+				allReports.put(key, report);
+				indexes.get(report.category().name()).put(key, report);
+
+				// Draw a marker for this report on the map.
+				MarkerOptions opts = new MarkerOptions();
+				opts.position(
+						new LatLng(report.getLatitude(), report.getLongitude()));
+				opts.icon(heart);
+				mMap.addMarker(opts);
+			}
+			catch (DatabaseException ex) {
+				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			}
+			catch (Exception ex) {
+				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			}
 		}
-		catch (ProviderException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+
+		@Override
+		public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 		}
-		catch (LocationException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+
+		@Override
+		public void onChildRemoved(DataSnapshot dataSnapshot) {
+		}
+
+		@Override
+		public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+		}
+
+		@Override
+		public void onCancelled(DatabaseError error) {
+			// Failed to read value
+			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
 		}
 	}
 }

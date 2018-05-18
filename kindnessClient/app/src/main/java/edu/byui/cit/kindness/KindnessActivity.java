@@ -10,11 +10,17 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.firebase.FirebaseApp;
+
+import edu.byui.cit.exception.LocationException;
+import edu.byui.cit.exception.PermissionException;
+import edu.byui.cit.exception.ProviderException;
+import edu.byui.cit.exception.ServiceException;
 
 /* TODO:
  * 1. Add a privacy fragment that explains to the user, the data that Kindness collects.
@@ -28,7 +34,7 @@ import com.google.firebase.FirebaseApp;
  * 8. Add missing strings to the translated strings.xml files
  */
 
-public class KindnessActivity extends AppCompatActivity {
+public final class KindnessActivity extends AppCompatActivity {
 	public static final String TAG = "Kindness";
 	private static final String FIRST_TIME_KEY = "FirstTime";
 	public static final String
@@ -133,6 +139,42 @@ public class KindnessActivity extends AppCompatActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+
+	@Override
+	public void onResume() {
+		try {
+			super.onResume();
+			LocationTracker tracker = LocationTracker.getInstance();
+			tracker.start(this);
+		}
+		catch (PermissionException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (ServiceException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (ProviderException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (LocationException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (Exception ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+	}
+
+	@Override
+	public void onPause() {
+		try {
+			LocationTracker tracker = LocationTracker.getInstance();
+			tracker.stop();
+		}
+		finally {
+			super.onPause();
+		}
 	}
 
 
