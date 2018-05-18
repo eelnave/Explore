@@ -14,42 +14,34 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
 
-    public void sum(View v)
+    public void power(View v)
     {
 
         //get the edit text
         EditText t1=(EditText)findViewById(R.id.editText);
         EditText t2=(EditText)findViewById(R.id.editText2);
 
-        //convert value into int
-        int x=Integer.parseInt(t1.getText().toString());
-        int y=Integer.parseInt(t2.getText().toString());
+        if (t1.getText().toString().isEmpty() == false &&
+                t2.getText().toString().isEmpty() == false) {
+            //convert value into int
+            double x = Double.parseDouble(t1.getText().toString());
+            double y = Double.parseDouble(t2.getText().toString());
 
-        //sum these two numbers
-        double z=(Math.pow(x,y));
+            //sum these two numbers
+            double z = (Math.pow(x, y));
 
-        //display this text to TextView
-        TextView tv_data=(TextView)findViewById(R.id.tv_result);
-        tv_data.setText("The answer is " + z);
-
+            //display this text to TextView
+//            TextView tv_data = (TextView) findViewById(R.id.tv_result);
+//            tv_data.setText("The answer is " + z);
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
