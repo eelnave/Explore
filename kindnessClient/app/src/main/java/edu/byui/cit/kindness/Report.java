@@ -8,6 +8,8 @@ import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 
+import java.util.HashMap;
+
 
 public class Report {
 	private Object timestamp = ServerValue.TIMESTAMP;
@@ -79,8 +81,13 @@ public class Report {
 	@Exclude
 	public void submit() {
 		FirebaseDatabase database = FirebaseDatabase.getInstance();
-		DatabaseReference myRef = database.getReference(KindnessActivity.REPORTS_KEY);
-		myRef.push().setValue(this);
+		DatabaseReference reports = database.getReference(KindnessActivity.REPORTS_KEY);
+//		reports.push().setValue(this);
+		String key = reports.push().getKey();
+		HashMap<String, Object> updates = new HashMap<>();
+		updates.put("/" + KindnessActivity.REPORTS_KEY + "/" + key, this);
+		updates.put("/" + KindnessActivity.CATEGORIES_KEY + "/" + getCategory() + "/" + KindnessActivity.REPORTS_KEY + "/" + key, true);
+		database.getReference().updateChildren(updates);
 		Log.i(KindnessActivity.TAG, toString());
 	}
 }

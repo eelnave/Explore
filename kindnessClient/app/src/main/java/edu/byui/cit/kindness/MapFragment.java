@@ -1,7 +1,9 @@
 package edu.byui.cit.kindness;
 
+import android.content.Context;
 import android.location.Location;
 import android.support.v4.app.SupportActivity;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,6 +20,11 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
+
+import edu.byui.cit.exception.LocationException;
+import edu.byui.cit.exception.PermissionException;
+import edu.byui.cit.exception.ProviderException;
+import edu.byui.cit.exception.ServiceException;
 
 
 public class MapFragment extends SupportMapFragment implements OnMapReadyCallback {
@@ -53,40 +60,61 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 	 */
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
-		mMap = googleMap;
+		try {
+			mMap = googleMap;
 
-		FirebaseDatabase database = FirebaseDatabase.getInstance();
-		DatabaseReference myRef = database.getReference(KindnessActivity.REPORTS_KEY);
+			FirebaseDatabase database = FirebaseDatabase.getInstance();
+			DatabaseReference myRef = database.getReference(
+					KindnessActivity.REPORTS_KEY);
 
-		// Read from the database
-		myRef.addListenerForSingleValueEvent(new ValueEventListener() {
-			@Override
-			public void onDataChange(DataSnapshot dataSnapshot) {
-				GenericTypeIndicator<HashMap<String, Report>> type =
-						new GenericTypeIndicator<HashMap<String, Report>>() {};
-				HashMap<String, Report> reports = dataSnapshot.getValue(type);
-				if (reports != null) {
-					for (Report value : reports.values()) {
-						MarkerOptions opts = new MarkerOptions();
-						opts.position(new LatLng(value.getLatitude(),
-								value.getLongitude()));
-						opts.icon(BitmapDescriptorFactory.fromResource(
-								R.drawable.mapicon));
-						mMap.addMarker(opts);
+			// Read from the database
+			myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+				@Override
+				public void onDataChange(DataSnapshot dataSnapshot) {
+					GenericTypeIndicator<HashMap<String, Report>> type =
+							new GenericTypeIndicator<HashMap<String, Report>>() {
+
+							};
+					HashMap<String, Report> reports = dataSnapshot.getValue(
+							type);
+					if (reports != null) {
+						for (Report value : reports.values()) {
+							MarkerOptions opts = new MarkerOptions();
+							opts.position(new LatLng(value.getLatitude(),
+									value.getLongitude()));
+							opts.icon(BitmapDescriptorFactory.fromResource(
+									R.drawable.mapicon));
+							mMap.addMarker(opts);
+						}
 					}
 				}
-			}
 
-			@Override
-			public void onCancelled(DatabaseError error) {
-				// Failed to read value
-			}
-		});
+				@Override
+				public void onCancelled(DatabaseError error) {
+					// Failed to read value
+					Log.e(KindnessActivity.TAG,
+							"DB error: " + error.toString());
+				}
+			});
 
-		// Move the camera to the user's location.
-		GPSTracker gps = new GPSTracker(getActivity());
-		Location loc = gps.getLocation();
-		LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
-		mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+			// Move the camera to the user's location.
+			Context ctx = getActivity().getApplicationContext();
+			GPSTracker gps = new GPSTracker(ctx);
+			Location loc = gps.getLocation();
+			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
+			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+		}
+		catch (PermissionException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (ServiceException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (ProviderException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (LocationException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
 	}
 }

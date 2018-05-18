@@ -8,7 +8,11 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.widget.Toast;
+
+import edu.byui.cit.exception.LocationException;
+import edu.byui.cit.exception.PermissionException;
+import edu.byui.cit.exception.ProviderException;
+import edu.byui.cit.exception.ServiceException;
 
 
 public class GPSTracker implements LocationListener {
@@ -20,31 +24,33 @@ public class GPSTracker implements LocationListener {
 
 
 	public Location getLocation() {
-		if (ContextCompat.checkSelfPermission(context,
-				Manifest.permission.ACCESS_FINE_LOCATION) !=
+//		String permission = Manifest.permission.ACCESS_COARSE_LOCATION;
+		String permission = Manifest.permission.ACCESS_FINE_LOCATION;
+		if (ContextCompat.checkSelfPermission(context, permission) !=
 				PackageManager.PERMISSION_GRANTED) {
-			Toast.makeText(context,
-					"GPS permission not granted", Toast.LENGTH_LONG).show();
-			return null;
+			throw new PermissionException("GPS permission not granted");
 		}
 
-		LocationManager lm = (LocationManager)
-				context.getSystemService(Context.LOCATION_SERVICE);
-//		boolean isGPSEnabled =
-//				lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
-		boolean isGPSEnabled =
-				lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
-		if (isGPSEnabled) {
-			lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 6000,
-					500, this);
-			Location loc = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-			return loc;
+		String service = Context.LOCATION_SERVICE;
+		LocationManager locMgr = (LocationManager)
+				context.getSystemService(service);
+		if (locMgr == null) {
+			throw new ServiceException(service + " not found");
 		}
-		else {
-			Toast.makeText(context,
-					"Please enable GPS", Toast.LENGTH_LONG).show();
+
+//		String provider = LocationManager.NETWORK_PROVIDER;
+		String provider = LocationManager.GPS_PROVIDER;
+		boolean enabled = locMgr.isProviderEnabled(provider);
+		if (!enabled) {
+			throw new ProviderException(provider + " is not enabled");
 		}
-		return null;
+
+		locMgr.requestLocationUpdates(provider, 6000, 500, this);
+		Location loc = locMgr.getLastKnownLocation(provider);
+		if (loc == null) {
+			throw new LocationException("last location unknown");
+		}
+		return loc;
 	}
 
 
