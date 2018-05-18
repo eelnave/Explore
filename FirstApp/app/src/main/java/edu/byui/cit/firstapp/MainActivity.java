@@ -26,11 +26,11 @@ public class MainActivity extends AppCompatActivity {
         int y=Integer.parseInt(t2.getText().toString());
 
         //sum these two numbers
-        int z=x+y;
+        double z=(Math.pow(x,y));
 
         //display this text to TextView
         TextView tv_data=(TextView)findViewById(R.id.tv_result);
-        tv_data.setText("The sum is " + z);
+        tv_data.setText("The answer is " + z);
 
     }
     @Override
