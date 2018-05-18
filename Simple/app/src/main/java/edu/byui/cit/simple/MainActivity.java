@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity {
 				num1.getText().clear();
 				num2.getText().clear();
 				result.setText("");
-				num1.requestFocus();
 
 
 			}
