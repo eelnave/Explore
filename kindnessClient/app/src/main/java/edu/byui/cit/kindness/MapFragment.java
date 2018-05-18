@@ -65,11 +65,15 @@ public class MapFragment extends SupportMapFragment implements OnMapReadyCallbac
 				GenericTypeIndicator<HashMap<String, Report>> type =
 						new GenericTypeIndicator<HashMap<String, Report>>() {};
 				HashMap<String, Report> reports = dataSnapshot.getValue(type);
-				for (Report value : reports.values()) {
-					MarkerOptions opts = new MarkerOptions();
-					opts.position(new LatLng(value.getLatitude(), value.getLongitude()));
-					opts.icon(BitmapDescriptorFactory.fromResource(R.drawable.mapicon));
-					mMap.addMarker(opts);
+				if (reports != null) {
+					for (Report value : reports.values()) {
+						MarkerOptions opts = new MarkerOptions();
+						opts.position(new LatLng(value.getLatitude(),
+								value.getLongitude()));
+						opts.icon(BitmapDescriptorFactory.fromResource(
+								R.drawable.mapicon));
+						mMap.addMarker(opts);
+					}
 				}
 			}
 
