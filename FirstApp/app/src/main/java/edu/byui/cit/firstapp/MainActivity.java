@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
             txtTwo.getText().clear();
             txtThree.getText().clear();
             txtOne.requestFocus();
+            txtTwo.requestFocus();
         }
     }
 }
