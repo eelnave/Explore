@@ -32,6 +32,15 @@ public class MainActivity extends AppCompatActivity {
         btnCompute.setOnClickListener(new ComputeHandler());
         btnClear.setOnClickListener(new ClearHandler());
 
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action",
+                        Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
     @Override
@@ -62,9 +71,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View button) {
             double one = Double.parseDouble(txtOne.getText().toString());
-            double two = Double.parseDouble(txtTwo.getText().toString());
-            double three = Math.pow(one, two);
-            txtThree.setText(Double.toString(three));
+            double three = Double.parseDouble(txtThree.getText().toString());
+            txtTwo.setText(Double.toString(Math.pow(one, three)));
         }
     }
 
@@ -72,10 +80,9 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View button) {
             txtOne.getText().clear();
-            txtTwo.getText().clear();
             txtThree.getText().clear();
+            txtTwo.getText().clear();
             txtOne.requestFocus();
-            txtTwo.requestFocus();
         }
     }
 }
