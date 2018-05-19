@@ -2,6 +2,8 @@ package cit360.calc_app;
 
 import org.junit.Test;
 
+import java.util.regex.Pattern;
+
 import static org.junit.Assert.*;
 
 /**
@@ -14,4 +16,13 @@ public class ExampleUnitTest {
     public void addition_isCorrect() {
         assertEquals(4, 2 + 2);
     }
+
+
+    @Test
+    public boolean boolIfDouble (){
+        assertArrayEquals(true,"12.3");
+        return true;
+    }
 }
+
+
