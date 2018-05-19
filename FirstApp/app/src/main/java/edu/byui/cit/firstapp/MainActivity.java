@@ -8,43 +8,45 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
 
 public class MainActivity extends AppCompatActivity {
+    private EditText txtOne, txtTwo, txtThree;
 
-
-    public void power(View v)
-    {
-
-        //get the edit text
-        EditText t1=(EditText)findViewById(R.id.editText);
-        EditText t2=(EditText)findViewById(R.id.editText2);
-
-        if (t1.getText().toString().isEmpty() == false &&
-                t2.getText().toString().isEmpty() == false) {
-            //convert value into int
-            double x = Double.parseDouble(t1.getText().toString());
-            double y = Double.parseDouble(t2.getText().toString());
-
-            //sum these two numbers
-            double z = (Math.pow(x, y));
-
-            //display this text to TextView
-//            TextView tv_data = (TextView) findViewById(R.id.tv_result);
-//            tv_data.setText("The answer is " + z);
-        }
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        txtOne = findViewById(R.id.editText);
+        txtTwo = findViewById(R.id.editText2);
+        txtThree = findViewById(R.id.editText3);
 
 
+        Button btnCompute = findViewById(R.id.button);
+        Button btnClear = findViewById(R.id.button2);
+        btnCompute.setOnClickListener(new ComputeHandler());
+        btnClear.setOnClickListener(new ClearHandler());
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action",
+                        Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu; this adds items
+        // to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -62,5 +64,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    private final class ComputeHandler implements View.OnClickListener {
+        @Override
+        public void onClick(View button) {
+            double one = Double.parseDouble(txtOne.getText().toString());
+            double two = Double.parseDouble(txtTwo.getText().toString());
+            double three = Math.pow(one, two);
+            txtThree.setText(Double.toString(three));
+        }
+    }
+
+    private final class ClearHandler implements View.OnClickListener {
+        @Override
+        public void onClick(View button) {
+            txtOne.getText().clear();
+            txtTwo.getText().clear();
+            txtThree.getText().clear();
+            txtOne.requestFocus();
+        }
     }
 }
