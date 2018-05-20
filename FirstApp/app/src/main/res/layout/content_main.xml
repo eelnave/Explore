@@ -79,7 +79,6 @@
             app:layout_constraintStart_toEndOf="@+id/textView"
             app:layout_constraintTop_toTopOf="parent">
 
-            <requestFocus />
         </EditText>
 
         <TextView
