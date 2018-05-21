@@ -7,18 +7,15 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+
 
 public class DaterCreator extends AppCompatActivity{
-    public  static final String TAG = "DaterCreator";
+    public static final String TAG = "DaterCreator";
 
-    private InfoFragment about;
+    private CITFragment about;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +70,6 @@ public class DaterCreator extends AppCompatActivity{
            case R.id.actAbout:
                 if (about == null || about.isDetached()) {
                     about = new About();
-                    about.setDescripID(1);
                 }
 
                 // Replace whatever is in the fragment_container
@@ -89,7 +85,7 @@ public class DaterCreator extends AppCompatActivity{
     }
 
 
-    public void switchFragment(InfoFragment fragment) {
+    public void switchFragment(CITFragment fragment) {
         FragmentTransaction trans = getFragmentManager().beginTransaction();
         trans.replace(R.id.fragContainer, fragment);
         trans.addToBackStack(null);

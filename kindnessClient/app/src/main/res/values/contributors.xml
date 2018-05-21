@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="contribsSpring2018A" translatable="false">
+		Alex Raia</string>
+	<string name="contribsSpring2018B" translatable="false">
+		James Worthen</string>
 	<string name="contribsWinter2018A" translatable="false">
 		Jordan Aquino Fernandez\n
 		Kristina Darroch\n

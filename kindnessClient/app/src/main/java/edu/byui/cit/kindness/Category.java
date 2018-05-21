@@ -1,9 +1,14 @@
 package edu.byui.cit.kindness;
 
 public enum Category {
-	Service,
+	None,
 	Gifts,
+	Service,
 	Time,
 	Touch,
-	Words
+	Words;
+
+	public static Category get(int ordinal) {
+		return Category.values()[ordinal];
+	}
 }
