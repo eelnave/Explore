@@ -62,7 +62,7 @@ public final class Calc360 extends AppCompatActivity {
 			// Clean the user preferences file.
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.clear();
-			editor.putInt(KEY_VERSION_CODE, MIN_PREFS_VERSION);
+			editor.putInt(KEY_VERSION_CODE, getResources().getInteger(R.integer.versionCode));
 			editor.apply();
 		}
 

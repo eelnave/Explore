@@ -9,6 +9,8 @@ android {
         targetSdkVersion 27
         versionCode 43
         versionName "2.4.1"
+        resValue "integer", "versionCode", "${defaultConfig.versionCode}"
+        resValue "string", "versionName", "${defaultConfig.versionName}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -20,9 +22,6 @@ android {
     }
     lintOptions {
         abortOnError false
-    }
-    applicationVariants.all {
-        variant -> variant.resValue "string", "versionName", variant.versionName
     }
 }
 
