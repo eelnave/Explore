@@ -2,12 +2,14 @@ package edu.byui.cit.kindness;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -44,33 +46,45 @@ public final class KindnessActivity extends AppCompatActivity {
 	private Fragment fragHowTo, fragAbout, fragReport;
 
 
+	public KindnessActivity() {
+		super();
+	}
+
+
 	@Override
 	protected void onCreate(Bundle savedInstState) {
 		super.onCreate(savedInstState);
-		setContentView(R.layout.kindness_activity);
 
 		ActivityCompat.requestPermissions(this,
-				new String[] { Manifest.permission.ACCESS_FINE_LOCATION },
+				new String[] { Manifest.permission.ACCESS_COARSE_LOCATION },
 				1);
-		FirebaseApp.initializeApp(this);
+		Context ctx = getApplicationContext();
+		try {
+			// Try to start the LocationTracker early so that the
+			// current location will be ready for the MapFragment
+			// to move the camera to the current location.
+			LocationTracker tracker = LocationTracker.getInstance();
+			tracker.start(ctx);
+		}
+		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
+			// Do nothing
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (Exception ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
 
+		FirebaseApp.initializeApp(ctx);
+
+		setContentView(R.layout.kindness_activity);
 		Toolbar toolbar = findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
-
 		FloatingActionButton fab = findViewById(R.id.fabAdd);
-		fab.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				if (fragReport == null || fragReport.isDetached()) {
-					fragReport = new ReportFragment();
-				}
-				switchFragment(fragReport);
-			}
-		});
+		fab.setOnClickListener(new ReportHandler());
 
 		if (savedInstState == null) {
-			// Create a fragment that contains all the vehicles
-			// and place it as the first fragment in this activity.
+			// Create a fragment the map fragment and place
+			// it as the first fragment in this activity.
 			MapFragment fragMap = new MapFragment();
 			FragmentTransaction trans =
 					getSupportFragmentManager().beginTransaction();
@@ -101,6 +115,26 @@ public final class KindnessActivity extends AppCompatActivity {
 		// Inflate our menu from the resources by using the menu inflater.
 		getMenuInflater().inflate(R.menu.action_menu, menu);
 		return true;
+	}
+
+
+	@Override
+	public void onStart() {
+		super.onStart();
+		try {
+			// In case the LocationTracker was stopped in onStop, try to
+			// start it again. If the LocationTracker was successfully
+			// started in onCreate, this call will have not effect.
+			LocationTracker tracker = LocationTracker.getInstance();
+			tracker.start(getApplicationContext());
+		}
+		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
+			// Do nothing
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (Exception ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
 	}
 
 
@@ -142,38 +176,63 @@ public final class KindnessActivity extends AppCompatActivity {
 	}
 
 
-	@Override
-	public void onResume() {
-		try {
-			super.onResume();
-			LocationTracker tracker = LocationTracker.getInstance();
-			tracker.start(this);
-		}
-		catch (PermissionException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
-		}
-		catch (ServiceException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
-		}
-		catch (ProviderException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
-		}
-		catch (LocationException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
-		}
-		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+	private final class ReportHandler implements View.OnClickListener {
+		@Override
+		public void onClick(View view) {
+			try {
+				// Try to start the LocationTracker again. If it was
+				// successfully started in onCreate, this call will
+				// have no effect. If it wasn't successfully started
+				// in onCreate and can't be started here, show an
+				// AlertDialog and don't switch to the ReportFragment.
+				LocationTracker tracker = LocationTracker.getInstance();
+				tracker.start(getApplicationContext());
+				if (fragReport == null || fragReport.isDetached()) {
+					fragReport = new ReportFragment();
+				}
+				switchFragment(fragReport);
+			}
+			catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
+				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				showAlertDialog(R.string.locationError, R.string.locationErrMsg);
+			}
+			catch (Exception ex) {
+				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				showAlertDialog(R.string.locationError, R.string.unknownErrMsg);
+			}
 		}
 	}
 
+	private void showAlertDialog(int titleID, int messageID) {
+		AlertDialog.Builder builder =
+				new AlertDialog.Builder(KindnessActivity.this,
+						android.R.style.Theme_Material_Dialog_Alert);
+		builder.setTitle(titleID)
+				.setIcon(android.R.drawable.ic_dialog_alert)
+				.setMessage(messageID)
+				.setCancelable(false)
+				.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// When this button is clicked,
+								// just close the dialog box.
+								dialog.cancel();
+							}
+						});
+		AlertDialog alert = builder.create();
+		alert.show();
+	}
+
+
 	@Override
-	public void onPause() {
+	public void onStop() {
 		try {
 			LocationTracker tracker = LocationTracker.getInstance();
 			tracker.stop();
 		}
 		finally {
-			super.onPause();
+			super.onStop();
 		}
 	}
 

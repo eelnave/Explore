@@ -2,6 +2,10 @@
 <resources>
 	<string name="appName">Kindness</string>
 
+	<string name="locationError">Location Error</string>
+	<string name="locationErrMsg">In order to report kindness, you must enable location services on your device and grant location permissions to this app.</string>
+	<string name="unknownErrMsg">Unknown location services error. You will not be able to report kindness until the error is fixed.</string>
+
 	<string name="reportKindness">Report Kindness</string>
 	<string name="gifts">Gifts</string>
 	<string name="service">Service</string>

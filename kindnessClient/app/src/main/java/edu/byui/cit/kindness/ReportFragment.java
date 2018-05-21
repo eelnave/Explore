@@ -1,6 +1,7 @@
 package edu.byui.cit.kindness;
 
 import android.app.Activity;
+import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
@@ -58,24 +59,13 @@ public final class ReportFragment extends CITFragment {
 			Button button = view.findViewById(views[i]);
 			button.setOnClickListener(new CategoryClickHandler(categories[i]));
 			button.getBackground().setAlpha(100);
-			Animation animation =
-					AnimationUtils.loadAnimation(act, animations[i]);
-			button.startAnimation(animation);
+			Animation anim = AnimationUtils.loadAnimation(act, animations[i]);
+			button.startAnimation(anim);
 		}
 
 //		btnLogo = view.findViewById(R.id.logo);
 //		btnLogo.setOnClickListener(new SeeListener());
 		return view;
-	}
-
-
-
-	@Override
-	public void onResume() {
-		super.onResume();
-		if (fragReported == null || fragReported.isDetached()) {
-			fragReported = new ReportedFragment();
-		}
 	}
 
 
@@ -98,7 +88,7 @@ public final class ReportFragment extends CITFragment {
 			}
 			catch (Exception ex) {
 				Log.e(KindnessActivity.TAG, "cannot submit report", ex);
-				getActivity().onBackPressed();
+				getCompatActivity().onBackPressed();
 			}
 		}
 
@@ -106,19 +96,23 @@ public final class ReportFragment extends CITFragment {
 		@Override
 		public void run() {
 			try {
-				Location loc = LocationTracker.getInstance().getLocation();
+				AppCompatActivity act = getCompatActivity();
+				Context ctx = act.getApplicationContext();
+				Location loc = LocationTracker.getInstance().getLocation(ctx);
 				Report report = new Report(category, loc);
 				report.submit();
 
+				if (fragReported == null || fragReported.isDetached()) {
+					fragReported = new ReportedFragment();
+				}
 				fragReported.setReport(report);
-				AppCompatActivity act = getSupportActivity();
 				FragmentManager mgr = act.getSupportFragmentManager();
 				mgr.popBackStack();
 				((KindnessActivity)act).switchFragment(fragReported);
 			}
 			catch (Exception ex) {
 				Log.e(KindnessActivity.TAG, "cannot submit report", ex);
-				getActivity().onBackPressed();
+				getCompatActivity().onBackPressed();
 			}
 		}
 	}

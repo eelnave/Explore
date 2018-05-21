@@ -1,7 +1,9 @@
 package edu.byui.cit.kindness;
 
 import android.app.Activity;
+import android.content.Context;
 import android.location.Location;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -21,6 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 import java.util.TreeMap;
+
+import edu.byui.cit.exception.LocationException;
 
 
 public final class MapFragment extends SupportMapFragment
@@ -44,17 +48,19 @@ public final class MapFragment extends SupportMapFragment
 		for (Report.Category cat : Report.Category.values()) {
 			indexes.put(cat.name(), new TreeMap<String, Report>());
 		}
-
-		// Get notified when the map is ready to be used.
-		this.getMapAsync(this);
 	}
 
 
 	@Override
-	public void onResume() {
-		super.onResume();
+	public void onStart() {
+		super.onStart();
 		Activity act = getActivity();
 		act.setTitle(getString(R.string.appName));
+
+		if (mMap == null) {
+			// Get notified when the map is ready to be used.
+			this.getMapAsync(this);
+		}
 	}
 
 
@@ -91,11 +97,18 @@ public final class MapFragment extends SupportMapFragment
 			}
 
 			// Move the camera to the user's location.
-			Location loc = LocationTracker.getInstance().getLocation();
+			Context ctx = getActivity().getApplicationContext();
+			Location loc = LocationTracker.getInstance().getLocation(ctx);
 			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 		}
 		catch (DatabaseException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (LocationException ex) {
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+		}
+		catch (Exception ex) {
 			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
 		}
 	}

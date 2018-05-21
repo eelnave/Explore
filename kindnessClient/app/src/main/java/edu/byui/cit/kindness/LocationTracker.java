@@ -9,14 +9,17 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 
+import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
 import edu.byui.cit.exception.ServiceException;
 
 
 final class LocationTracker implements LocationListener {
+	private static final int INTERVAL = 15 * 60 * 1000;  // 15 minutes
+	private static final float DISTANCE = 500;  // 500 meters
+
 	private static LocationTracker singleton;
 
 	static LocationTracker getInstance() {
@@ -29,6 +32,8 @@ final class LocationTracker implements LocationListener {
 
 	private final Criteria criteria;
 	private LocationManager locMgr;
+	private String provider;
+	private boolean started;
 	private Location location;
 
 
@@ -37,61 +42,64 @@ final class LocationTracker implements LocationListener {
 		criteria.setAccuracy(Criteria.ACCURACY_COARSE);
 		criteria.setAltitudeRequired(false);
 		criteria.setBearingRequired(false);
-		criteria.setCostAllowed(false);
-//		criteria.setHorizontalAccuracy(Criteria.ACCURACY_LOW);
-		criteria.setPowerRequirement(Criteria.NO_REQUIREMENT);
 		criteria.setSpeedRequired(false);
+		criteria.setCostAllowed(false);
+		criteria.setPowerRequirement(Criteria.NO_REQUIREMENT);
 	}
 
 
 	void start(Context context) {
-		if (locMgr == null) {
-			String permission = Manifest.permission.ACCESS_COARSE_LOCATION;
-			//		String permission = Manifest.permission.ACCESS_FINE_LOCATION;
-			if (ContextCompat.checkSelfPermission(context, permission) !=
-					PackageManager.PERMISSION_GRANTED) {
-				throw new PermissionException(
-						"GPS permission " + permission + " not granted");
-			}
+		String permission = Manifest.permission.ACCESS_COARSE_LOCATION;
+		//		String permission = Manifest.permission.ACCESS_FINE_LOCATION;
+		if (ContextCompat.checkSelfPermission(context, permission) !=
+				PackageManager.PERMISSION_GRANTED) {
+			throw new PermissionException(
+					"Location permission " + permission + " not granted");
+		}
 
+		if (locMgr == null) {
 			String service = Context.LOCATION_SERVICE;
 			locMgr = (LocationManager)context.getSystemService(service);
 			if (locMgr == null) {
 				throw new ServiceException(service + " not found");
 			}
+		}
 
+		if (!started) {
 			//		String provider = LocationManager.NETWORK_PROVIDER;
 			//		String provider = LocationManager.GPS_PROVIDER;
 			//		boolean enabled = locMgr.isProviderEnabled(provider);
 			//		if (!enabled) {
 			//			throw new ProviderException(provider + " is not enabled");
 			//		}
-			String provider = locMgr.getBestProvider(criteria, true);
-			Log.i(KindnessActivity.TAG, "best provider " + provider);
+			provider = locMgr.getBestProvider(criteria, true);
 			if (provider == null || provider.isEmpty()) {
 				locMgr = null;
 				throw new ProviderException("Location provider is not enabled");
 			}
 
+			locMgr.requestLocationUpdates(provider, INTERVAL, DISTANCE, this);
+			started = true;
+
 			location = locMgr.getLastKnownLocation(provider);
-			if (location == null) {
-				location = new Location(provider);
-			}
-			locMgr.requestLocationUpdates(provider, 5 * 60 * 1000, 500, this);
 		}
 	}
 
 
-	synchronized Location getLocation() {
+	Location getLocation(Context context) {
+		if (locMgr == null || !started || location == null) {
+			start(context);
+		}
+		if (location == null) {
+			throw new LocationException("Last location unknown");
+		}
 		return location;
 	}
 
 
 	@Override
-	public synchronized void onLocationChanged(Location loc) {
+	public void onLocationChanged(Location loc) {
 		location = loc;
-		Log.i(KindnessActivity.TAG, "location updated " + loc.getTime()
-				+ ", " + loc.getLatitude() + ", " + loc.getLongitude());
 	}
 
 	@Override
@@ -110,7 +118,8 @@ final class LocationTracker implements LocationListener {
 	void stop() {
 		if (locMgr != null) {
 			locMgr.removeUpdates(this);
-			locMgr = null;
 		}
+		started = false;
+		locMgr = null;
 	}
 }
