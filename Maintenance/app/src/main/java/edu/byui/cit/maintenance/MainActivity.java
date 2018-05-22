@@ -1,6 +1,7 @@
 package edu.byui.cit.maintenance;
 
 import android.app.FragmentTransaction;
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -15,6 +16,7 @@ import edu.byui.cit.widget.CITFragment;
 
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Maintenance";
+	public static MyAppDatabase myAppDatabase;
 
 	private ChooseVehicle fragChoose;
 	private AddVehicle fragAdd;
@@ -28,6 +30,8 @@ public class MainActivity extends AppCompatActivity {
 		setSupportActionBar(toolbar);
 		ActionBar actBar = getSupportActionBar();
 		actBar.setDisplayHomeAsUpEnabled(true);
+
+		myAppDatabase = Room.databaseBuilder(getApplicationContext(),MyAppDatabase.class,"userDB").allowMainThreadQueries().build();
 
 		if (savedInstState == null) {
 			// Create a fragment that contains all the vehicles
