@@ -8,6 +8,7 @@
 	<string name="length">სიგრძე</string>
 	<string name="Distance">მანძილი</string>
 	<string name="distance">მანძილი</string>
+	<string name="inches">დიუიმი</string>
 	<string name="millimeters">მილიმეტრი</string>
 	<string name="meters">მეტრი</string>
 
@@ -15,6 +16,7 @@
 	<string name="mass">მასა</string>
 	<string name="grams">გრამი</string>
 	<string name="kilograms">კილოგრამი</string>
+	<string name="pounds">ფუნტი</string>
 
 	<string name="moles">მოლი</string>
 	<string name="molarMass">მოლური მასა</string>
@@ -27,6 +29,7 @@
 	<string name="Days">დღე</string>
 	<string name="Months">თვე</string>
 	<string name="Years">წელი</string>
+	<string name="years">წლები</string>
 
 	<string name="Current">დენი</string>
 	<string name="current">დენი</string>
@@ -77,6 +80,8 @@
 	<string name="energy">ენერგია</string>
 	<string name="kineticEnergy">კინეტიკური ენერგია</string>
 	<string name="joules">ჯოლები</string>
+	<string name="calories">კალორია</string>
+	<string name="Calories">კალორია</string>
 
 	<string name="velocity">სიჩქარე</string>
 	<string name="speed">სიჩქარე</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="appName">Calc 360</string>
 	<string name="explain">Explicar</string>
 
 	<string name="about">Sobre</string>
@@ -10,24 +9,28 @@
 	<string name="contribs">Colaboradores</string>
 	<string name="fall2017">Outono 2017</string>
 	<string name="winter2018">Inverno 2018</string>
+	<string name="spring2018">Primavera 2018</string>
 	<string name="logoCredit">Criamos o logotipo e os ícones do Calc360 usando as ferramentas gratuitas em <a href="logomakr.com"> logomakr.com </a></string>
+
+	<string name="feedback">Obrigado por usar o Calc360! Agradecemos seus comentários, perguntas e recomendações para nos ajudar a melhorar este aplicativo. Você pode entrar em contato conosco através da <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.calc360">Google Play Store</a>.</string>
 
 	<string name="mistake">Bem, isso é constrangedor. Algo está errado com esta calculadora, e não está funcionando. Nós pedimos desculpas.</string>
 
 	<string name="currencyCredit">As taxas de câmbio são cortesia do Banco Central da Europa.</string>
 
+	<!-- Human readable names for the calculator groups -->
+	<string name="academic">Acadêmico</string>
 	<string name="art">Arte &amp; Música</string>
-	<string name="computing">Computing</string>
+	<string name="computing">Computação</string>
 	<string name="cooking">Cozinha</string>
-	<string name="data">Dados</string>
 	<string name="events">Eventos</string>
 	<string name="finance">Finança</string>
+	<string name="fitness">Esportes</string>
 	<string name="general">Geral</string>
 	<string name="geometry">Geometria</string>
 	<string name="mathematics">Matemática</string>
 	<string name="science">Ciência</string>
 	<string name="shopping">Compras</string>
-	<string name="sports">Esportes</string>
 	<string name="stats">Estatisticas</string>
 	<string name="travel">Viagem</string>
 
@@ -38,7 +41,7 @@
 
 	<string name="compute">Calcular</string>
 	<string name="clear">Clar</string>
+	<string name="hideExplain">Entendo!</string>
 
 	<string name="unitConvert">Conversão de Unidades</string>
-	<string name="feedback">Parecer</string>
 </resources>

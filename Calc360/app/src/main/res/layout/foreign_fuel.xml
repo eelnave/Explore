@@ -1,103 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.GridLayout
+<ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/ForeignFuel"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	compat:columnCount="3">
+	android:layout_height="match_parent">
 
-	<TextView
-		style="@style/TextLabel"
-		android:labelFor="@+id/curCostFrom"
-		android:text="@string/cost"/>
-
-	<EditText
-		android:id="@+id/curCostFrom"
-		style="@style/UnsignedDecimal"
-		android:ems="4">
-
-		<requestFocus/>
-	</EditText>
-
-	<Spinner
-		android:id="@+id/unitsCostFrom"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:labelFor="@+id/decVolFrom"
-		android:text="@string/Volume"/>
-
-	<EditText
-		android:id="@+id/decVolFrom"
-		style="@style/UnsignedDecimal"
-		android:ems="4"
-		android:imeOptions="actionDone"/>
-
-	<Spinner
-		android:id="@+id/unitsVolFrom"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
-
-	<Space/>
-
-	<TextView
-		android:id="@+id/decRatioFrom"
-		style="@style/TextResult"/>
-
-	<TextView
-		android:id="@+id/unitsRatioFrom"
-		style="@style/TextLabel"
-		android:layout_marginStart="10dp"/>
-
-	<Space
-		android:layout_width="wrap_content"
-		android:layout_height="16pt"
-		compat:layout_columnSpan="3"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:text="@string/cost"/>
-
-	<TextView
-		android:id="@+id/curCostTo"
-		style="@style/TextResult"/>
-
-	<Spinner
-		android:id="@+id/unitsCostTo"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:text="@string/Volume"/>
-
-	<TextView
-		android:id="@+id/decVolTo"
-		style="@style/TextResult"/>
-
-	<Spinner
-		android:id="@+id/unitsVolTo"
-		style="@style/TextLabel"/>
-
-	<Space/>
-
-	<TextView
-		android:id="@+id/decRatioTo"
-		style="@style/TextResult"/>
-
-	<TextView
-		android:id="@+id/unitsRatioTo"
-		style="@style/TextLabel"
-		android:layout_marginStart="10dp"/>
-
-	<Button
-		android:id="@+id/btnClear"
-		android:layout_width="wrap_content"
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp"
-		android:text="@string/clear"
-		compat:layout_columnSpan="3"/>
-</android.support.v7.widget.GridLayout>
+		compat:columnCount="3">
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/curCostFrom"
+			android:text="@string/cost"/>
+
+		<EditText
+			android:id="@+id/curCostFrom"
+			style="@style/UnsignedDecimal"
+			android:ems="4">
+
+			<requestFocus/>
+		</EditText>
+
+		<Spinner
+			android:id="@+id/unitsCostFrom"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decVolFrom"
+			android:text="@string/Volume"/>
+
+		<EditText
+			android:id="@+id/decVolFrom"
+			style="@style/UnsignedDecimal"
+			android:ems="4"
+			android:imeOptions="actionDone"/>
+
+		<Spinner
+			android:id="@+id/unitsVolFrom"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<Space/>
+
+		<TextView
+			android:id="@+id/decRatioFrom"
+			style="@style/TextResult"/>
+
+		<TextView
+			android:id="@+id/unitsRatioFrom"
+			style="@style/TextLabel"
+			android:layout_marginStart="10dp"/>
+
+		<Space
+			android:layout_width="wrap_content"
+			android:layout_height="16pt"
+			compat:layout_columnSpan="3"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/cost"/>
+
+		<TextView
+			android:id="@+id/curCostTo"
+			style="@style/TextResult"/>
+
+		<Spinner
+			android:id="@+id/unitsCostTo"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:text="@string/Volume"/>
+
+		<TextView
+			android:id="@+id/decVolTo"
+			style="@style/TextResult"/>
+
+		<Spinner
+			android:id="@+id/unitsVolTo"
+			style="@style/TextLabel"/>
+
+		<Space/>
+
+		<TextView
+			android:id="@+id/decRatioTo"
+			style="@style/TextResult"/>
+
+		<TextView
+			android:id="@+id/unitsRatioTo"
+			style="@style/TextLabel"
+			android:layout_marginStart="10dp"/>
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:text="@string/clear"
+			compat:layout_columnSpan="3"/>
+	</android.support.v7.widget.GridLayout>
+</ScrollView>

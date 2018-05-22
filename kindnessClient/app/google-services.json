@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "535591703733",
-    "firebase_url": "https://kindness-db.firebaseio.com",
-    "project_id": "kindness-db",
-    "storage_bucket": "kindness-db.appspot.com"
+    "project_number": "606210075954",
+    "firebase_url": "https://kindness-360.firebaseio.com",
+    "project_id": "kindness-360",
+    "storage_bucket": "kindness-360.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:535591703733:android:59da62dc873fa646",
+        "mobilesdk_app_id": "1:606210075954:android:536c8b7db75844fa",
         "android_client_info": {
           "package_name": "edu.byui.cit.kindness"
         }
       },
       "oauth_client": [
         {
-          "client_id": "535591703733-ja7r8obsk13c9pbinrmhcnlo9pc7f5ed.apps.googleusercontent.com",
+          "client_id": "606210075954-27cdum9vmpv7e55i1ve86j5n7i1u559h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCP7M5J5UQOthqZ07aGM9UTlUXoQlEajao"
+          "current_key": "AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s"
         }
       ],
       "services": {

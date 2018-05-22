@@ -8,6 +8,8 @@ android {
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+        resValue "integer", "versionCode", "${defaultConfig.versionCode}"
+        resValue "string", "versionName", "${defaultConfig.versionName}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -16,9 +18,6 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    applicationVariants.all {
-        variant -> variant.resValue "string", "versionName", variant.versionName
     }
 }
 
