@@ -1,41 +1,38 @@
 package edu.byui.cit.firstapp;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.EditText;
 
+import java.text.NumberFormat;
 
 public class MainActivity extends AppCompatActivity {
-    private EditText txtOne, txtTwo, txtThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        txtOne = findViewById(R.id.editText);
-        txtTwo = findViewById(R.id.editText2);
-        txtThree = findViewById(R.id.editText3);
-
-
-        Button btnCompute = findViewById(R.id.button);
-        Button btnClear = findViewById(R.id.button2);
-        btnCompute.setOnClickListener(new ComputeHandler());
-        btnClear.setOnClickListener(new ClearHandler());
-
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items
-        // to the action bar if it is present.
+        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -55,21 +52,23 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
     private final class ComputeHandler implements View.OnClickListener {
         @Override
         public void onClick(View button) {
-            double one = Double.parseDouble(txtOne.getText().toString());
-            double three = Double.parseDouble(txtThree.getText().toString());
-            txtTwo.setText(Double.toString(Math.pow(one, three)));
-        }
-    }
 
-    private final class ClearHandler implements View.OnClickListener {
+            NumberFormat formatter = NumberFormat.getInstance();
+            String input = txtOne.getText().toString();
+            Number number = formatter.parse(input);
+            double one = number.doubleValue();
+            double result = one;
+            txtTwo.setText(formatter.format(result));
+        }
+        }
+
+        private final class ClearHandler implements View.OnClickListener {
         @Override
-        public void onClick(View button) {
+            public void onClick(View button) {
             txtOne.getText().clear();
-            txtThree.getText().clear();
             txtTwo.getText().clear();
             txtOne.requestFocus();
         }
