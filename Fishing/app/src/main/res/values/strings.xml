@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Fishing</string>
+    <string name="appDescr"> Giving fisherman the best chance. </string>
+    <string-array name ="water">
+        		<item>Henry's Fork</item>
+        		<item>Snake River</item>
+        		<item>Teton River</item>
+        		<item>Warm River</item>
+        		<item>Fall River</item>
+        	</string-array>
+
+    	<string-array name ="species">
+    		<item>Rainbow Trout</item>
+    		<item>Brown Trout</item>
+    		<item>Cutthroat Trout</item>
+    		<item>Brook trout</item>
+    	</string-array>
+
+    	<string-array name ="season">
+    		<item>Winter</item>
+    		<item>Spring</item>
+    		<item>Summer</item>
+    		<item>Fall</item>
+    	</string-array>
 </resources>
