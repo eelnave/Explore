@@ -11,6 +11,7 @@
 	<string name="contribs">Contributors</string>
 	<string name="fall2017">Fall 2017</string>
 	<string name="winter2018">Winter 2018</string>
+	<string name="spring2018">Spring 2018</string>
 	<string name="logoCredit">We created the logo and icons for Calc360 using the free tools at <a href="https://logomakr.com">logomakr.com</a></string>
 	<string name="apacheCredit">Some of the calculators in this app use the Appache Commons Math library version 3.6</string>
 

@@ -29,7 +29,7 @@ public class GroupFragment extends CITFragment {
 		GroupDescriptor descrip = getDescriptor();
 		view.setId(descrip.getID());
 
-		GridLayout grid = (GridLayout)view;
+		GridLayout grid = view.findViewById(R.id.gridChildren);
 		populate(grid, descrip.getChildren());
 		return view;
 	}

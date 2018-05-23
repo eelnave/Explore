@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="appName">Calc 360</string>
 	<string name="explain">Explique</string>
 
 	<string name="about">Sobre</string>
@@ -12,9 +11,7 @@
 	<string name="winter2018">Invierno 2018</string>
 	<string name="logoCredit">Creamos el logotipo y los iconos de Calc360 usando las herramientas gratuitas en <a href="logomakr.com">logomakr.com</a></string>
 
-	<string name="feedback">Comentarios</string>
-	<string name="feedMessage">¡Gracias por utilizar Calc360! Debido a la naturaleza experimental de esta calculadora, apreciaríamos cualquier comentario, preguntas o recomendaciones con el fin de mejorar aún más esta aplicación.</string>
-	<string name="feedLink">Puede contactar con nosotros a través de Google Play Store o haciendo clic en este enlace: <a href="">linknamehere.com</a></string>
+	<string name="feedback">¡Gracias por utilizar Calc360! Debido a la naturaleza experimental de esta calculadora, apreciaríamos cualquier comentario, preguntas o recomendaciones con el fin de mejorar aún más esta aplicación.</string>
 
 	<string name="mistake">Bueno, esto es vergonzoso. Algo está mal con esta calculadora, y no funciona. Le pedimos disculpas.</string>
 
@@ -24,7 +21,6 @@
 	<string name="art">Arte y Música</string>
 	<string name="computing">Informática</string>
 	<string name="cooking">Cocina</string>
-	<string name="data">Datos</string>
 	<string name="events">Eventos</string>
 	<string name="finance">Finanzas</string>
 	<string name="general">General</string>

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-public class ReportedFragment extends CITFragment {
+public final class ReportedFragment extends CITFragment {
 	private TextView txtCategory, txtLatitude, txtLongitude;
 	private Report report;
 
