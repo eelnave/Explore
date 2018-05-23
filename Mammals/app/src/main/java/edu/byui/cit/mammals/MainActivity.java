@@ -19,20 +19,7 @@ public class MainActivity extends AppCompatActivity {
 		System.setOut(new PrintStream(new TextViewWriter(console)));
 	}
 
-
-	@Override
-	protected void onStart() {
-		super.onStart();
-
-		/* Write your code in this function as if this function were
-		 * public static void main(String[] args)
-		 */
-		System.out.println("Elephants are big.");
-		System.out.println("Spaceships are expensive.");
-	}
-
-
-	private final class TextViewWriter extends OutputStream {
+	private static final class TextViewWriter extends OutputStream {
 		private final StringBuilder buffer;
 		private final TextView console;
 
@@ -52,5 +39,20 @@ public class MainActivity extends AppCompatActivity {
 			buffer.append(new String(b, offs, len));
 			console.setText(buffer);
 		}
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		main();
+	}
+
+
+	private void main() {
+		/* Write your code in this function as if this function were
+		 * public static void main(String[] args)
+		 */
+		System.out.println("Elephants are big.");
+		System.out.println("Spaceships are expensive.");
 	}
 }
