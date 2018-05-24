@@ -1,125 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.GridLayout
+<ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/Discount"
 	android:layout_width="wrap_content"
-	android:layout_height="wrap_content"
-	compat:columnCount="5">
+	android:layout_height="wrap_content">
 
-	<TextView
-		style="@style/TextLabel"
-		android:labelFor="@+id/curPrice"
-		android:text="@string/itemPrice"
-		compat:layout_columnSpan="3"/>
-
-	<EditText
-		android:id="@+id/curPrice"
-		style="@style/UnsignedDecimal"
-		android:ems="6"
-		android:hint="@string/priceHint"
-		compat:layout_columnSpan="2"
-		tools:ignore="LabelFor">
-
-		<requestFocus/>
-	</EditText>
-
-	<TextView
-		style="@style/TextLabel"
-		android:labelFor="@+id/decDiscRate"
-		android:text="@string/discount"/>
-
-	<EditText
-		android:id="@+id/decDiscRate"
-		style="@style/UnsignedDecimal"
-		android:ems="3"
-		android:hint="@string/discHint"
-		tools:ignore="LabelFor"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginEnd="20dp"
-		android:labelFor="@+id/decDiscRate"
-		android:text="@string/perc"/>
-
-	<TextView
-		style="@style/TextLabelEnd"
-		android:labelFor="@+id/curDiscAmt"
-		android:text="@string/subt"/>
-
-	<EditText
-		android:id="@+id/curDiscAmt"
-		style="@style/UnsignedDecimal"
-		android:ems="5"
-		compat:layout_gravity="end"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginTop="5dp"
-		android:text="@string/discPrice"
-		compat:layout_columnSpan="3"/>
-
-	<TextView
-		android:id="@+id/curDiscPrice"
-		style="@style/TextLabelEnd"
-		android:layout_marginTop="5dp"
-		compat:layout_columnSpan="2"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:labelFor="@+id/decTaxRate"
-		android:text="@string/tax"/>
-
-	<EditText
-		android:id="@+id/decTaxRate"
-		style="@style/UnsignedDecimal"
-		android:ems="3"
-		android:hint="@string/salesTaxHint"
-		android:imeOptions="actionDone"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginEnd="20dp"
-		android:text="@string/perc"/>
-
-	<Space/>
-
-	<TextView
-		android:id="@+id/curTaxAmt"
-		style="@style/TextLabelEnd"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginTop="5dp"
-		android:text="@string/total"
-		compat:layout_columnSpan="3"/>
-
-	<TextView
-		android:id="@+id/curTotal"
-		style="@style/TextLabelEnd"
-		android:layout_marginTop="5dp"
-		compat:layout_columnSpan="2"/>
-
-	<TextView
-		style="@style/TextLabel"
-		android:layout_marginTop="15dp"
-		android:text="@string/netSaved"
-		compat:layout_columnSpan="3"/>
-
-	<Space/>
-
-	<TextView
-		android:id="@+id/curSaved"
-		style="@style/TextLabelEnd"
-		android:layout_marginTop="15dp"
-		android:background="@color/best"/>
-
-	<Button
-		android:id="@+id/btnClear"
-		android:layout_width="wrap_content"
+	<android.support.v7.widget.GridLayout
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp"
-		android:text="@string/clear"
-		compat:layout_columnSpan="4"/>
-</android.support.v7.widget.GridLayout>
+		compat:columnCount="5">
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/curPrice"
+			android:text="@string/itemPrice"
+			compat:layout_columnSpan="3"/>
+
+		<EditText
+			android:id="@+id/curPrice"
+			style="@style/UnsignedDecimal"
+			android:ems="6"
+			android:hint="@string/priceHint"
+			compat:layout_columnSpan="2"
+			tools:ignore="LabelFor">
+
+			<requestFocus/>
+		</EditText>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decDiscRate"
+			android:text="@string/discount"/>
+
+		<EditText
+			android:id="@+id/decDiscRate"
+			style="@style/UnsignedDecimal"
+			android:ems="3"
+			android:hint="@string/discHint"
+			tools:ignore="LabelFor"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginEnd="20dp"
+			android:labelFor="@+id/decDiscRate"
+			android:text="@string/perc"/>
+
+		<TextView
+			style="@style/TextLabelEnd"
+			android:labelFor="@+id/curDiscAmt"
+			android:text="@string/subt"/>
+
+		<EditText
+			android:id="@+id/curDiscAmt"
+			style="@style/UnsignedDecimal"
+			android:ems="5"
+			compat:layout_gravity="end"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="5dp"
+			android:text="@string/discPrice"
+			compat:layout_columnSpan="3"/>
+
+		<TextView
+			android:id="@+id/curDiscPrice"
+			style="@style/TextLabelEnd"
+			android:layout_marginTop="5dp"
+			compat:layout_columnSpan="2"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/decTaxRate"
+			android:text="@string/tax"/>
+
+		<EditText
+			android:id="@+id/decTaxRate"
+			style="@style/UnsignedDecimal"
+			android:ems="3"
+			android:hint="@string/salesTaxHint"
+			android:imeOptions="actionDone"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginEnd="20dp"
+			android:text="@string/perc"/>
+
+		<Space/>
+
+		<TextView
+			android:id="@+id/curTaxAmt"
+			style="@style/TextLabelEnd"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="5dp"
+			android:text="@string/total"
+			compat:layout_columnSpan="3"/>
+
+		<TextView
+			android:id="@+id/curTotal"
+			style="@style/TextLabelEnd"
+			android:layout_marginTop="5dp"
+			compat:layout_columnSpan="2"/>
+
+		<TextView
+			style="@style/TextLabel"
+			android:layout_marginTop="15dp"
+			android:text="@string/netSaved"
+			compat:layout_columnSpan="3"/>
+
+		<Space/>
+
+		<TextView
+			android:id="@+id/curSaved"
+			style="@style/TextLabelEnd"
+			android:layout_marginTop="15dp"
+			android:background="@color/best"/>
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:text="@string/clear"
+			compat:layout_columnSpan="4"/>
+	</android.support.v7.widget.GridLayout>
+</ScrollView>

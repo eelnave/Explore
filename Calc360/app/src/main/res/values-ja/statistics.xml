@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="meanEtc">平均など</string>
+	<string name="data">データ</string>
 	<string name="count">カウント</string>
 	<string name="min">最小</string>
 	<string name="first">第1四分位</string>
