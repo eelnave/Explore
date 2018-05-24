@@ -39,7 +39,7 @@ public class TestGoal {
 	}
 
 	@Test
-	public void testWriteUserAndReadInList() {
+	public void writeUserAndReadInList() {
 		Goal goal = new Goal();
 		goal.setType(Goal.Type.bool);
 		goal.setFrequency(Goal.Frequency.weekly);
