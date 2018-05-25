@@ -17,13 +17,6 @@
 	<string name="annRateHint">ex: 4.875</string>
 	<string name="numYears">Nombre d’années</string>
 	<string name="ppy">Périodes par année</string>
-	<integer-array name="possiblePPY" translatable="false">
-		<item>1</item>
-		<item>2</item>
-		<item>4</item>
-		<item>6</item>
-		<item>12</item>
-	</integer-array>
 	<string name="fv">Valeur Future</string>
 
 	<string name="loan">Prêt</string>

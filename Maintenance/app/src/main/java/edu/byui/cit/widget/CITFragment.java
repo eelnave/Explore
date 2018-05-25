@@ -37,7 +37,6 @@ public abstract class CITFragment extends Fragment {
 		View view;
 		try {
 			view = createView(inflater, container, savedInstState);
-
 			if (savedInstState == null) {
 				SharedPreferences prefs =
 						getActivity().getPreferences(Context.MODE_PRIVATE);
@@ -112,8 +111,8 @@ public abstract class CITFragment extends Fragment {
 	public void onStop() {
 		try {
 			// Open the Android system preferences file for Calc360.
-			SharedPreferences prefs = getActivity().getPreferences(
-					Context.MODE_PRIVATE);
+			SharedPreferences prefs =
+					getActivity().getPreferences(Context.MODE_PRIVATE);
 
 			// Get an editor for the preferences files
 			// so that we can write values into that file.

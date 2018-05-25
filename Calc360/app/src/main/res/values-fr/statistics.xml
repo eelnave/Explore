@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="meanEtc">Moyenne, etc.</string>
+	<string name="data">Données</string>
 	<string name="count">Comte</string>
 	<string name="min">Le minimum</string>
 	<string name="first">1st Quartile</string>
