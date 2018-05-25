@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="basketball">Basquetebol</string>
-	<string name="make">Make</string>
-	<string name="miss">Miss</string>
 
 	<string name="bodyMassIndex">BMI</string>
 	<string name="bmi">BMI</string>
@@ -24,8 +22,6 @@
 	<string name="kickboxing">Kickboxing</string>
 	<string name="weightLift">Levantar Pesos</string>
 	<string name="television">Ver Televisão</string>
-
-	<string name="calories">calorias</string>
 
 	<string name="Weight">Peso</string>
 	<string name="bodyWeight">Peso Corporal</string>

@@ -20,7 +20,6 @@
 	<string name="art">ხელოვნება და მუსიკა</string>
 	<string name="computing">გამოთვლითი</string>
 	<string name="cooking">სამზარეულო</string>
-	<string name="data">მონაცემები</string>
 	<string name="events">ივენთი</string>
 	<string name="finance">ფინანსები</string>
 	<string name="general">ზოგადი</string>
@@ -41,11 +40,4 @@
 	<string name="clear">ნათელია</string>
 
 	<string name="unitConvert">ერთეული კონვერსია</string>
-	<string name="Female">ქალი</string>
-	<string name="Male">კაცი</string>
-	<string name="Calories">კალორია</string>
-	<string name="bmr">ბაზალური მეტაბოლური კურსი</string>
-	<string name="inches">დიუიმი</string>
-	<string name="pounds">ფუნტი</string>
-	<string name="years">წლები</string>
 </resources>

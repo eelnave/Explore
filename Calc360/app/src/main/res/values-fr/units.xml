@@ -77,6 +77,8 @@
 	<string name="energy">énergie</string>
 	<string name="kineticEnergy">énergie cinétique</string>
 	<string name="joules">joules</string>
+	<string name="Calories">Calories</string>
+	<string name="calories">calories</string>
 
 	<string name="velocity">vélocité</string>
 	<string name="speed">vitesse</string>

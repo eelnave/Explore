@@ -88,6 +88,7 @@
 	<string name="kineticEnergy">kinetic energy</string>
 	<string name="joules">joules</string>
 	<string name="Calories">Calories</string>
+	<string name="calories">calories</string>
 	<string name="wattHour">watt hour</string>
 
 	<string name="velocity">velocity</string>
