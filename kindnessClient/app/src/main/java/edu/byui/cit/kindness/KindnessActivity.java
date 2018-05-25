@@ -19,7 +19,6 @@ import com.google.firebase.FirebaseApp;
 /* TODO:
  * 1. Add a privacy fragment that explains to the user, the data that Kindness collects.
  * 2. Rewrite the how to fragment so that it matches the latest changes to this app.
- * 3. Change the icon on the floating action button to be a plus symbol instead of an envelope.
  * 4. Create and add a different map icon for each category
  * 5. Change MapFragment.onMapReady to draw the correct map icon for each report instead of the heart icon.
  * 6. Add dropdown lists at the top of the map to filter by category and date
