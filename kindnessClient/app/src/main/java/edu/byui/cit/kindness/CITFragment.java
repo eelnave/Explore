@@ -39,7 +39,7 @@ public abstract class CITFragment extends Fragment {
 	protected abstract View createView(LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstState);
 
-	protected final AppCompatActivity getSupportActivity() {
+	protected final AppCompatActivity getCompatActivity() {
 		return (AppCompatActivity)super.getActivity();
 	}
 
@@ -56,7 +56,7 @@ public abstract class CITFragment extends Fragment {
 	public void onStart() {
 		super.onStart();
 		try {
-			AppCompatActivity act = getSupportActivity();
+			AppCompatActivity act = getCompatActivity();
 			act.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 			act.setTitle(getTitle());
 			getActivity().findViewById(R.id.fabAdd).setVisibility(View.GONE);
@@ -91,7 +91,7 @@ public abstract class CITFragment extends Fragment {
 	@Override
 	public void onStop() {
 		try {
-			AppCompatActivity act = getSupportActivity();
+			AppCompatActivity act = getCompatActivity();
 			act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 			getActivity().findViewById(R.id.fabAdd).setVisibility(View.VISIBLE);
 

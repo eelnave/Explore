@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#263238"
+    tools:context=".MainActivity"
+    >
+
+    <EditText
+        android:id="@+id/input1"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="55dp"
+        android:text="@string/prompt1"
+        android:inputType="number|numberSigned|numberDecimal"
+        android:layout_marginLeft="34dp"
+        android:layout_alignParentLeft="true"
+        android:background="#000"
+        android:textColor="#FB8C00"/>
+
+
+    <EditText
+        android:id="@+id/input2"
+        android:layout_width="182dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/input1"
+        android:layout_marginTop="111dp"
+        android:text="@string/prompt2"
+        android:inputType="number|numberSigned|numberDecimal"
+        android:layout_alignLeft="@+id/input1"
+        android:background="#000"
+        android:textColor="#FB8C00"/>
+
+    <Button
+        android:id="@+id/btnCompute"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/input1"
+        android:layout_centerVertical="true"
+        android:text="Compute"
+        android:layout_alignLeft="@+id/input1"
+        android:background="#FB8C00"/>
+
+    <Button
+        android:id="@+id/btnClear"
+        android:layout_width="121dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="57dp"
+        android:text="Clear"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="57dp"
+        android:background="#FB8C00"/>
+
+    <TextView
+        android:id="@+id/solution"
+        android:layout_width="183dp"
+        android:layout_height="38dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/input1"
+        android:layout_marginTop="175dp"
+        android:text="@string/prompt3"
+        android:layout_alignLeft="@+id/input1"
+        android:background="#000"
+        android:textColor="#FB8C00"/>
+
+
+</RelativeLayout>

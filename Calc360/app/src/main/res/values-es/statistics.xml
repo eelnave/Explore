@@ -8,9 +8,8 @@
 	<string name="third">3rd cuartil</string>
 	<string name="max">Máximo</string>
 	<string name="sum">Suma</string>
-	<string name="mean">Significa</string>
+	<string name="mean">Promedio</string>
 	<string name="var">Varianza</string>
-	<string name="stdDev">Std Dev</string>
 
 	<string name="correl">Correlación</string>
 	<string name="sample1">Muestra 1</string>

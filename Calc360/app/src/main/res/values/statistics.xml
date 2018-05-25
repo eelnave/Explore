@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="meanEtc">Mean, etc.</string>
+	<string name="data">Data</string>
 	<string name="count">Count</string>
 	<string name="min">Minimum</string>
 	<string name="first">1st Quartile</string>

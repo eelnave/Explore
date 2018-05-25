@@ -20,7 +20,6 @@
 	<string name="art">芸術と音楽</string>
 	<string name="computing">コンピューター</string>
 	<string name="cooking">料理</string>
-	<string name="data">データ</string>
 	<string name="events">イベント</string>
 	<string name="finance">経済</string>
 	<string name="general">一般</string>
@@ -41,5 +40,4 @@
 	<string name="clear">除去する</string>
 
 	<string name="unitConvert">単位変換</string>
-	<string name="feedback">饋還</string>
 </resources>

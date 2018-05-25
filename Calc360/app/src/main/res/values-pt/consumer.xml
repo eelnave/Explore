@@ -15,7 +15,7 @@
 
 	<string name="discount">Desconto</string>
 	<string name="discPrice">Preço com Desconto</string>
-	<string name="netSaved">Net Saved</string>
+	<string name="netSaved">Quantidade Economizada</string>
 
 	<string name="cmpPrices">Comparar os Preços</string>
 	<string name="unitType">Tipo de Unidades</string>

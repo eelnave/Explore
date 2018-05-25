@@ -7,7 +7,6 @@
 	<string name="bodyMassIndex">სხეულის მასის ინდექსი</string>
 	<string name="bmi">სხეულის მასის ინდექსი</string>
 	<string name="category">კატეგორია</string>
-
 	<string-array name="bmiCategories">
 		<item>დაბალი</item>
 		<item>ნორმალური</item>
@@ -26,11 +25,13 @@
 	<string name="weightLift">სიმძიმის აწევა</string>
 	<string name="television">ტელევიზორის ყურება</string>
 
-	<string name="calories">კალორია</string>
-
 	<string name="Weight">წონა</string>
 	<string name="bodyWeight">სხეულის წონა</string>
 
 	<string name="age">ასაკი</string>
 	<string name="birthDate">დაბადების თარიღი</string>
+
+	<string name="basalMetabolicRate">ბაზალური მეტაბოლური კურსი</string>
+	<string name="Female">ქალი</string>
+	<string name="Male">კაცი</string>
 </resources>

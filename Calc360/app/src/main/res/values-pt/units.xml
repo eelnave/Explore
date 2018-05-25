@@ -80,6 +80,8 @@
 	<string name="energy">energia</string>
 	<string name="kineticEnergy">energia cinética</string>
 	<string name="joules">joules</string>
+	<string name="Calories">Calorias</string>
+	<string name="calories">calorias</string>
 
 	<string name="velocity">velocidade</string>
 	<string name="speed">rapidez</string>

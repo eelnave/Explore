@@ -15,12 +15,10 @@
 	<string name="mass">masa</string>
 	<string name="grams">gramos</string>
 	<string name="kilograms">kilogramos</string>
-	<string name="kg_s2" translatable="false">kg/seg</string>
 
 	<string name="moles">moles</string>
 	<string name="molarMass">masa molar</string>
 	<string name="atomicMass">masa atómica</string>
-	<string name="kg_mol" translatable="false">kg / mol</string>
 
 	<string name="Time">Tiempo</string>
 	<string name="time">tiempo</string>
@@ -50,11 +48,9 @@
 	<!-- Derived Properties -->
 	<string name="Area">área</string>
 	<string name="area">área</string>
-	<string name="metersSquared" translatable="false">m\u00b2</string>
 
 	<string name="Volume">Volumen</string>
 	<string name="volume">volumen</string>
-	<string name="metersCubed" translatable="false">m\u00b3</string>
 
 	<string name="Frequency">Frecuencia</string>
 	<string name="frequency">frecuencia</string>
@@ -81,6 +77,8 @@
 	<string name="energy">energía</string>
 	<string name="kineticEnergy">energía cinética</string>
 	<string name="joules">julios</string>
+	<string name="Calories">Calorías</string>
+	<string name="calories">calorías</string>
 
 	<string name="velocity">velocidad</string>
 	<string name="speed">velocidad</string>
@@ -100,7 +98,6 @@
 	<string name="newtonMeters">Newton metros</string>
 
 	<string name="gasConst">constante de gas</string>
-	<string name="gasConstUnits" translatable="false">J / (mol K)</string>
 
 	<string name="power">energía</string>
 	<string name="fuelEcon">eficiencia de combustible</string>
