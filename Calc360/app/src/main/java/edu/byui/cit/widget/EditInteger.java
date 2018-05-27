@@ -67,6 +67,10 @@ public class EditInteger extends EditWrapper {
 		return Long.parseLong(getText(), 2);
 	}
 
+	public long getBase8() throws NumberFormatException {
+		return Long.parseLong(getText(), 8);
+	}
+
 	public long getHex() throws NumberFormatException {
 		return Long.parseLong(getText(), 16);
 	}

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/Binary"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -65,12 +66,34 @@
 		android:imeOptions="actionDone"
 		android:inputType="text"
 		android:singleLine="true"
-		android:textAlignment="textEnd"/>
+		android:textAlignment="textEnd" />
+
+	<TextView
+		android:id="@+id/base8Text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="30dp"
+		android:labelFor="@id/base8"
+		android:text="@string/hex"
+		android:textAlignment="center"
+		tools:text="Base 8" />
+
+	<EditText
+		android:id="@+id/base8"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="20dp"
+		android:layout_marginStart="20dp"
+		android:digits="01234567"
+		android:imeOptions="actionDone"
+		android:inputType="text"
+		android:singleLine="true"
+		android:textAlignment="textEnd" />
 
 	<Button
 		android:id="@+id/btnClear"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="15dp"
-		android:text="@string/clear"/>
+		android:text="@string/clear" />
 </LinearLayout>
