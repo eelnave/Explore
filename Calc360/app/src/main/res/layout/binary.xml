@@ -69,14 +69,12 @@
 		android:textAlignment="textEnd" />
 
 	<TextView
-		android:id="@+id/base8Text"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="30dp"
 		android:labelFor="@id/base8"
-		android:text="@string/hex"
 		android:textAlignment="center"
-		tools:text="Base 8" />
+		tools:text="Octal" />
 
 	<EditText
 		android:id="@+id/base8"
