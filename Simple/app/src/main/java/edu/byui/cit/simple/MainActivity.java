@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 		num1 =findViewById(R.id.etNum1);
 		num2 =findViewById(R.id.etNum2);
 		final Button btnClear =findViewById(R.id.btnClear);
-		result = findViewById(R.id.tvAnswer);
+		result = findViewById(R.id.tvClear);
 
 		btnClear.setOnClickListener(new View.OnClickListener() {
 
