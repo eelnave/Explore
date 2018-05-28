@@ -1,11 +1,22 @@
 <resources>
-	<string name="appName">Record</string>
+    <string name="appName">Record</string>
 
-	<string name="about">About</string>
-	<string name="appDescr">An app to help you record recurring events such as exercise, training, instrument practice, reading, and study.</string>
-	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
+    <string name="about">About</string>
+    <string name="appDescr">An app to help you record recurring events such as exercise, training, instrument practice, reading, and study.</string>
+    <string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
 
-	<string name="contribs">Contributors</string>
+    <string name="contribs">Contributors</string>
 
-	<string name="mistake">Well, this is embarrassing. Something is wrong with this part of the app, and it isn\'t working. We apologize.</string>
+    <string name="mistake">Well, this is embarrassing. Something is wrong with this part of the app, and it isn\'t working. We apologize.</string>
+    <string name="addNewGoaltxt1">What Do You Want To Accomplish?</string>
+    <string name="addNewGoalDate">2. To Be Completed By:</string>
+    <string name="addNewGoaltxt0">1. Pick a Goal:</string>
+    <string name="addNewGoaldate2">(date)</string>
+    <string name="addNewGoaltxt3">3. Accountability Frequency:</string>
+    <string name="addNewGoalOngoing">Onngoing?</string>
+    <string name="addNewGoalradio1">Weekly</string>
+    <string name="addNewGoalradio2">Daily</string>
+    <string name="addNewGoalradio3">Morning and Night</string>
+    <string name="addNewGoalBtn">Record!</string>
+
 </resources>
