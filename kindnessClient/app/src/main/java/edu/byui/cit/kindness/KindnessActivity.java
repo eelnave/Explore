@@ -43,7 +43,7 @@ public final class KindnessActivity extends AppCompatActivity {
 			REPORTS_KEY = "reports",
 			CATEGORIES_KEY = "categories";
 
-	private Fragment fragHowTo, fragAbout, fragReport;
+	private Fragment fragHowTo, fragAbout, fragReport, fragPrivate;
 
 
 	public KindnessActivity() {
@@ -155,6 +155,11 @@ public final class KindnessActivity extends AppCompatActivity {
 				return true;
 
 			case R.id.actPrivacy:
+				if (fragPrivate == null || fragPrivate.isDetached()) {
+					fragPrivate = new PrivateFragment();
+				}
+
+				switchFragment(fragPrivate);
 				return true;
 
 			case R.id.actAbout:
