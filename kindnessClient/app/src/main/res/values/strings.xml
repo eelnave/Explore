@@ -26,8 +26,9 @@
 
 	<string name="privacy">Privacy</string>
 	<string name="sharingLocation">Determining and Sharing Location</string>
-	<string name="privacyTest">Determing your location - The Services deal with location, so in order to work, the Services need to know your location. Whenever you open and use/interact with this app on your mobile device, we use the location information from your mobile device (e.g., latitude and longitude) The information will only be used when you
-	accept to enable your GPS location. Your location will then be used to pin point on the map where an act of kindness occurs. We do not use your GPS location for other reasons. Only when you add a Random act of kindness occurence. If you wish to turn off these services, you are able to turn off your GPS location by going to settings. Next open the Apps tab. Then scroll down and select Configure Apps or App Settings, then App permissions. Here you can select what inforamtion the apps have access to including you location.  </string>
+	<string name="privacyTest">Determining your location - These services deal with location, so in order to work, the services need to know your location. Whenever you open and use this app on your mobile device, we use the location information from your mobile device (e.g., latitude and longitude). The information will only be used when you
+	enable the app to use your GPS location. Your location will then be used to pin point on the map where an act of kindness occurs within one block of your current location. We do not use your GPS location for other reasons. If you wish to turn off these services, you are able to turn off your GPS location by going to settings.
+		Next open the Apps tab. Then scroll down and select Configure Apps or App Settings, then App permissions. Here you can select what information the app has access to including your location. If you do this, however, you will not be able to record an act of kindness at your location.  </string>
 
 	<string name="about">About</string>
 	<string name="appDescr">A simple way to report acts of kindness. This app is designed, written, and maintained by students at Brigham Young University - Idaho.</string>
