@@ -1,4 +1,6 @@
 <resources>
+
+	<string name = "mistake">mistake</string>
     <string name="app_name">Fishing</string>
     <string name="appDescr"> Giving fisherman the best chance. </string>
     <string-array name ="water">
