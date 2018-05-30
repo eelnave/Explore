@@ -45,7 +45,7 @@ public final class Binary extends CalcFragment {
 	protected void compute(WidgetWrapper source) {
 		clearOutput();
 
-		if (decimal.hasUserInput()) {
+		if (decimal.hasFocus()) {
 			double num = decimal.getDec();
 			String binStr, hexStr, base8Str;
 			if (isInteger(num)) {
@@ -64,7 +64,7 @@ public final class Binary extends CalcFragment {
 			hexadecimal.setText(hexStr);
 			base8.setText(base8Str);
 		}
-		else if (binary.hasUserInput()) {
+		else if (binary.hasFocus()) {
 			long num = binary.getBin();
 			String decStr = fmtrInt.format(num);
 			String hexStr = Long.toHexString(num);
@@ -73,7 +73,7 @@ public final class Binary extends CalcFragment {
 			hexadecimal.setText(hexStr);
 			base8.setText(base8Str);
 		}
-		else if (hexadecimal.hasUserInput()) {
+		else if (hexadecimal.hasFocus()) {
 			long num = hexadecimal.getHex();
 			String decStr = fmtrInt.format(num);
 			String binStr = Long.toBinaryString(num);
@@ -83,7 +83,7 @@ public final class Binary extends CalcFragment {
 			base8.setText(base8Str);
 
 		}
-		else if (base8.hasUserInput()) {
+		else if (base8.hasFocus()) {
 			long num = base8.getBase8();
 			String decStr = fmtrInt.format(num);
 			String binStr = Long.toBinaryString(num);
