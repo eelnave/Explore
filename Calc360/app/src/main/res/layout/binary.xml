@@ -13,7 +13,7 @@
 		android:layout_marginTop="30dp"
 		android:labelFor="@id/decimal"
 		android:text="@string/base10"
-		android:textAlignment="center"/>
+		android:textAlignment="center" />
 
 	<EditText
 		android:id="@+id/decimal"
@@ -72,12 +72,12 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginTop="30dp"
-		android:labelFor="@id/base8"
-		android:textAlignment="center"
-		tools:text="Octal" />
+		android:labelFor="@id/octal"
+		android:text="@string/octal"
+		android:textAlignment="center" />
 
 	<EditText
-		android:id="@+id/base8"
+		android:id="@+id/octal"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_marginEnd="20dp"
