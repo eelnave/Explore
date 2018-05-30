@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import edu.byui.cit.model.AppDatabase;
+import edu.byui.cit.model.Vehicle;
+import edu.byui.cit.model.VehicleDAO;
 import edu.byui.cit.widget.ButtonWrapper;
 import edu.byui.cit.widget.CITFragment;
 import edu.byui.cit.widget.ClickListener;
@@ -47,7 +50,15 @@ public class AddVehicle extends CITFragment {
 			String model = strModel.getText();
 
 			// TODO: Store the values in local storage.
-			strModel.setText(year + " " + make + " " + model);
+			// strModel.setText(year + " " + make + " " + model);
+			Vehicle newVehicle = new Vehicle();
+			newVehicle.setVin("111-222-3333");
+			newVehicle.setYear((int)year);
+			newVehicle.setMake(make);
+			newVehicle.setModel(model);
+			newVehicle.setColor("Red");
+
+            // VehicleDAO.insert(newVehicle);
 		}
 	}
 
