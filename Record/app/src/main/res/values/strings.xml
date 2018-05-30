@@ -21,5 +21,8 @@
     <string name="Button1">New Goal</string>
     <string name="Button2">Delete Goal</string>
     <string name="Textbox1">Current Goals:</string>
+    <string name="title_activity_add_eatinggoal">add_eatinggoal</string>
+    <string name="title_activity_add_excercisegoal">add_excercisegoal</string>
+    <string name="title_activity_add_readinggoal">add_readinggoal</string>
 
 </resources>

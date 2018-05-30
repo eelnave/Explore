@@ -3,11 +3,11 @@ package edu.byui.cit.record;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class add_goal extends AppCompatActivity {
+public class add_customgoal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_goal);
+        setContentView(R.layout.activity_add_customgoal);
     }
 }
