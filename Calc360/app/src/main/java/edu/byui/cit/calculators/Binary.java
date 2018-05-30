@@ -33,7 +33,7 @@ public final class Binary extends CalcFragment {
 		decimal = new EditDecimal(view, R.id.decimal, this);
 		binary = new EditInteger(view, R.id.binary, this);
 		hexadecimal = new EditInteger(view, R.id.hexadecimal, this);
-		base8 = new EditInteger(view, R.id.base8, this);
+		base8 = new EditInteger(view, R.id.octal, this);
 
 		EditWrapper[] inputs = { decimal, binary, hexadecimal, base8 };
 		initialize(view, inputs, R.id.btnClear, inputs);
