@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Simple</string>
 	<string name="action_settings">Settings</string>
@@ -6,10 +7,5 @@
 	<string name="prompt2">Here is your number</string>
 
 	<string name="compute">Click me</string>
-	<!--<string name="clear">Clear</string>-->
-	<string name="num1">Number1</string>
-	<string name="num2">Number2</string>
-	<string name="result">Answer</string>
-	<string name="Button">Clear</string>
 	<string name="clear">Clear</string>
 </resources>
