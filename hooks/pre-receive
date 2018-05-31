@@ -1,0 +1,13 @@
+#!/bin/sh
+
+read oldrev newrev refname
+git show --format=format:%H --quiet ${oldrev}..${newrev} | \
+while read commit ; do
+	git diff --name-only ${commit}^..${commit} | \
+	grep -e 'codeStyle'
+	if [ $? -eq 0 ] ; then
+		echo "push rejected: cannot add or change code style configuration files" >&2
+		exit 1
+	fi
+done
+exit 0
