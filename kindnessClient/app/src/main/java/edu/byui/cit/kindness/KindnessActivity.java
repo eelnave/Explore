@@ -37,12 +37,13 @@ import edu.byui.cit.exception.ServiceException;
 
 public final class KindnessActivity extends AppCompatActivity {
 	public static final String TAG = "Kindness";
-	private static final String FIRST_TIME_KEY = "FirstTime";
+	//REMOVING THE FIRST TIME RUN--> Want our users to be engaged.
+	//private static final String FIRST_TIME_KEY = "FirstTime";
 	public static final String
 			REPORTS_KEY = "reports",
 			CATEGORIES_KEY = "categories";
 
-	private Fragment fragHowTo, fragAbout, fragReport;
+	private Fragment fragHowTo, fragAbout, fragReport, fragPrivate;
 
 
 	public KindnessActivity() {
@@ -93,17 +94,10 @@ public final class KindnessActivity extends AppCompatActivity {
 			// If this is the first time that this app has
 			// been run on the current device, open the
 			// tutorial that explains how to use this app.
+			// REMOVED THE FIRST TIME
+			// NOW TO TEXT
 			SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
-			if (prefs.getBoolean(FIRST_TIME_KEY, true)) {
-				SharedPreferences.Editor editor = prefs.edit();
-				editor.putBoolean(FIRST_TIME_KEY, false);
-				editor.apply();
 
-				if (fragHowTo == null || fragHowTo.isDetached()) {
-					fragHowTo = new HowToFragment();
-				}
-				switchFragment(fragHowTo);
-			}
 		}
 	}
 
@@ -161,6 +155,11 @@ public final class KindnessActivity extends AppCompatActivity {
 				return true;
 
 			case R.id.actPrivacy:
+				if (fragPrivate == null || fragPrivate.isDetached()) {
+					fragPrivate = new PrivateFragment();
+				}
+
+				switchFragment(fragPrivate);
 				return true;
 
 			case R.id.actAbout:
