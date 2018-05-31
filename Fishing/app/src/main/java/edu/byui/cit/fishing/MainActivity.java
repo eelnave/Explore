@@ -14,21 +14,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
-        Spinner mySpinner1 = (Spinner) findViewById(R.id.spinner1);
+        Spinner mySpinner1 = findViewById(R.id.spinner1);
 
         ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.water));
         myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner1.setAdapter(myAdapter1);
 
-        Spinner mySpinner2 = (Spinner) findViewById(R.id.spinner2);
+        Spinner mySpinner2 = findViewById(R.id.spinner2);
 
         ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.species));
         myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner2.setAdapter(myAdapter2);
 
-        Spinner mySpinner3 = (Spinner) findViewById(R.id.spinner3);
+        Spinner mySpinner3 = findViewById(R.id.spinner3);
 
         ArrayAdapter<String> myAdapter3 = new ArrayAdapter<String>(MainActivity.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.season));

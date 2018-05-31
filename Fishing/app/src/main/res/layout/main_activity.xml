@@ -69,3 +69,25 @@
     		android:layout_marginBottom="40dp"/>
 
     </RelativeLayout>
+
+    	<TextView
+    		android:id="@+id/textView3"
+    		android:layout_width="350dp"
+    		android:layout_height="60dp"
+    		android:layout_alignParentBottom="true"
+    		android:layout_centerHorizontal="true"
+    		android:layout_marginBottom="120dp"
+    		android:fontFamily="casual"
+    		android:padding="16dp"
+    		android:text="Please choose a season: "
+    		android:textSize="20sp"/>
+
+    	<Spinner
+    		android:id="@+id/spinner3"
+    		android:layout_width="350dp"
+    		android:layout_height="60dp"
+    		android:layout_alignParentBottom="true"
+    		android:layout_centerHorizontal="true"
+    		android:layout_marginBottom="40dp"/>
+
+    </RelativeLayout>
