@@ -1,7 +1,45 @@
 <resources>
+	<string name="appName">
+		Bondade</string>
 
-	<string name="about">Informações</string>
-	<string name="appDescr">Uma maneira simples de relatar atos de bondade. O applicativo é projetado, escrito e mantido por estudantes da Brigham Young University - Idaho</string>
-	<string name="contribs">Contribuidores</string>
+	<string name="locationError">Erro de localização</string>
+	<string name="locationErrMsg">Para denunciar a gentileza, você deve ativar os serviços de localização no seu dispositivo e conceder permissões de localização a esse aplicativo.</string>
+	<string name="unknownErrMsg">Erro de serviços de localização desconhecidos. Você não poderá reportar gentileza até que o erro seja corrigido.</string>
+
+	<string name="reportKindness">Denunciar gentileza</string>
+	<string name="gifts">Presentes</string>
+	<string name="service">Serviço</string>
+	<string name="time">Tempo</string>
+	<string name="touch">Tocar</string>
+	<string name="words">Palavras</string>
+
+	<string name="category">categoria</string>
+	<string name="latitude">latitude</string>
+	<string name="longitude">longitude</string>
+	<string name="thanks">
+		Obrigado por denunciar um ato de bondade.</string>
+	<string name="toMap">Regressar ao mapa</string>
+
+	<string name="howTo">How to Use</string>
+	<string name="instruction1">Toque no ícone de mais para reportar gentileza perto de você. Ou simplesmente explore detalhes sobre os / atos de bondade / de outros, ampliando o mapa.</string>
+	<string name="instruction2">Toque no ícone que melhor reflete a gentileza que você deseja denunciar.</string>
+	<string name="instruction3">Volte ao mapa para ver seu novo ato de bondade adicionado ao seu local.</string>
+
+	<string name="privacy">Privacidade</string>
+	<string name="sharingLocation">
+		Determinando e compartilhando local</string>
+	<string name="privacyTest">
+		Este aplicativo coleta sua localização GPS aproximada enquanto o aplicativo está ativo. Este aplicativo não coleta dados fora da localização do GPS do seu dispositivo. (Número de telefone E.G, contatos ou fotos) Os dados de GPS coletados são
+		usado exclusivamente para serviços prestados por este aplicativo e site e não é solicitado.  </string>
+
+	<string name="about">Sobre</string>
+	<string name="appDescr">Uma maneira simples de denunciar atos de bondade. Este aplicativo é projetado, escrito e mantido por alunos da Universidade Brigham Young - Idaho.</string>
+	<string name="eula">Até ao limite máximo permitido por lei, este software não oferece garantia expressa ou implícita. Ao instalar e / ou usar este software, você concorda em isentar a Brigham Young University - Idaho e seus patrocinadores, funcionários e estudantes.</string>
+	<string name="feedback">Obrigado por usar a bondade! Agradecemos seus comentários, perguntas e recomendações para nos ajudar a melhorar este aplicativo. Você pode nos contatar através do <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.kindness">Google Play Store</a>.</string>
+	<string name="contribs">Colaboradores</string>
 	<string name="winter2018">Inverno 2018</string>
+	<string name="spring2018">Primavera de 2018</string>
+	<string name="logoCredit">Criamos o logotipo e os ícones para o Kindness usando as ferramentas gratuitas em <a href="https://logomakr.com">logomakr.com</a></string>
+
+	<string name="mistake">Bem, isso é embaraçoso. Algo está errado nesta página e não está funcionando. Nós pedimos desculpas.</string>
 </resources>
