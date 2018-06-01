@@ -1,93 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-	android:padding="16dp"
-	tools:context="edu.byui.cit.fishing.MainActivity">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context="edu.byui.cit.fishing.MainActivity">
 
-<TextView
-    		android:id="@+id/textView1"
-    		android:layout_width="350dp"
-    		android:layout_height="60dp"
-    		android:layout_alignParentTop="true"
-    		android:layout_centerHorizontal="true"
-    		android:layout_marginTop="10dp"
-    		android:fontFamily="casual"
-    		android:padding="16dp"
-    		android:text="Please choose a body of water: "
-    		android:textSize="20sp"/>
+    <TextView
+            android:id="@+id/textView1"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="casual"
+            android:padding="16dp"
+            android:text="Please choose a body of water: "
+            android:textSize="20sp"/>
 
-    	<Spinner
-    		android:id="@+id/spinner1"
-    		android:layout_width="350dp"
-    		android:layout_height="60dp"
-    		android:layout_alignParentTop="true"
-    		android:layout_centerHorizontal="true"
-    		android:layout_marginTop="80dp"/>
+    <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"/>
 
-    	<TextView
-    		android:id="@+id/textView2"
-    		android:layout_width="350dp"
-    		android:layout_height="60dp"
-    		android:layout_alignParentTop="true"
-    		android:layout_below="@+id/spinner1"
-    		android:layout_centerHorizontal="true"
-    		android:layout_marginTop="150dp"
-    		android:fontFamily="casual"
-    		android:padding="16dp"
-    		android:text="Please choose a fish species: "
-    		android:textSize="20sp"/>
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_below="@+id/spinner1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="150dp"
+            android:fontFamily="casual"
+            android:padding="16dp"
+            android:text="Please choose a fish species: "
+            android:textSize="20sp"/>
 
-    	<Spinner
-    	android:id="@+id/spinner2"
-    		android:layout_width="350dp"
-    		android:layout_height="60dp"
-    		android:layout_alignParentBottom="true"
-    		android:layout_centerHorizontal="true"
-    		android:layout_marginBottom="190dp"/>
+    <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="190dp"/>
 
-    	<TextView
-    		android:id="@+id/textView3"
-    		android:layout_width="350dp"
-    		android:layout_height="60dp"
-    		android:layout_alignParentBottom="true"
-    		android:layout_centerHorizontal="true"
-    		android:layout_marginBottom="120dp"
-    		android:fontFamily="casual"
-    		android:padding="16dp"
-    		android:text="Please choose a season: "
-    		android:textSize="20sp"/>
+    <TextView
+            android:id="@+id/textView3"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="120dp"
+            android:fontFamily="casual"
+            android:padding="16dp"
+            android:text="Please choose a season: "
+            android:textSize="20sp"/>
 
-    	<Spinner
-    		android:id="@+id/spinner3"
-    		android:layout_width="350dp"
-    		android:layout_height="60dp"
-    		android:layout_alignParentBottom="true"
-    		android:layout_centerHorizontal="true"
-    		android:layout_marginBottom="40dp"/>
-
-    </RelativeLayout>
-
-    	<TextView
-    		android:id="@+id/textView3"
-    		android:layout_width="350dp"
-    		android:layout_height="60dp"
-    		android:layout_alignParentBottom="true"
-    		android:layout_centerHorizontal="true"
-    		android:layout_marginBottom="120dp"
-    		android:fontFamily="casual"
-    		android:padding="16dp"
-    		android:text="Please choose a season: "
-    		android:textSize="20sp"/>
-
-    	<Spinner
-    		android:id="@+id/spinner3"
-    		android:layout_width="350dp"
-    		android:layout_height="60dp"
-    		android:layout_alignParentBottom="true"
-    		android:layout_centerHorizontal="true"
-    		android:layout_marginBottom="40dp"/>
-
-    </RelativeLayout>
+    <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dp"/>
+</RelativeLayout>
