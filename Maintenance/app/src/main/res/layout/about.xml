@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/About"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
@@ -9,67 +10,12 @@
 	android:orientation="vertical">
 
 	<TextView
-		android:id="@+id/txtVersion"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:textStyle="bold"/>
-
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10dp"
-		android:text="@string/appDescr"/>
-
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10dp"
-		android:text="@string/eula"/>
-
-	<TextView
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10dp"
-		android:text="@string/feedback"/>
-
-	<RelativeLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="10sp">
-
-		<TextView
-			android:id="@+id/lblContribs"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentStart="true"
-			android:text="@string/contribs"
-			android:textStyle="bold"/>
-
-		<TextView
-			android:id="@+id/lblSpring2018"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignEnd="@+id/lblSpring2018B"
-			android:layout_alignParentStart="true"
-			android:layout_below="@+id/lblContribs"
-			android:text="@string/winter2018"
-			android:textAlignment="center"
-			android:textSize="14sp"
-			android:textStyle="bold"/>
-
-		<TextView
-			android:id="@+id/lblSpring2018A"
-			style="@style/Contributors"
-			android:layout_alignParentStart="true"
-			android:layout_below="@+id/lblSpring2018"
-			android:text="@string/contribsSpring2018A"/>
-
-		<TextView
-			android:id="@+id/lblSpring2018B"
-			style="@style/Contributors"
-			android:layout_alignBaseline="@+id/lblSpring2018A"
-			android:layout_marginStart="5dp"
-			android:layout_toEndOf="@+id/lblSpring2018A"
-			android:text="@string/contribsSpring2018B"/>
-	</RelativeLayout>
-</LinearLayout>
+		android:id="@+id/textView"
+		android:layout_width="324dp"
+		android:layout_height="51dp"
+		android:layout_marginTop="33dp"
+		android:text="@string/appDescr"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintLeft_toLeftOf="parent"
+		app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>
