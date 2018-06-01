@@ -60,4 +60,14 @@
             android:layout_height="60dp"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/textView3"/>
+    <TextView
+            android:text="Here is your recommended fly:"
+            android:layout_width="350dp"
+            android:layout_height="60dp" android:layout_below="@+id/spinner3"
+            android:layout_alignStart="@+id/textView1" android:id="@+id/textView4" android:fontFamily="casual"
+            android:textSize="20sp"/>
+    <TextView
+            android:layout_width="360sp"
+            android:layout_height="60sp" android:layout_below="@+id/textView4"
+            android:layout_alignStart="@+id/textView1" android:id="@+id/textView5"/>
 </RelativeLayout>
