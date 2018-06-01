@@ -13,7 +13,7 @@
             android:layout_height="60dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="11dp"
             android:fontFamily="casual"
             android:padding="16dp"
             android:text="Please choose a body of water: "
@@ -23,18 +23,15 @@
             android:id="@+id/spinner1"
             android:layout_width="350dp"
             android:layout_height="60dp"
-            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="80dp"/>
+            android:layout_below="@+id/textView1"/>
 
     <TextView
             android:id="@+id/textView2"
             android:layout_width="350dp"
             android:layout_height="60dp"
-            android:layout_alignParentTop="true"
             android:layout_below="@+id/spinner1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="150dp"
             android:fontFamily="casual"
             android:padding="16dp"
             android:text="Please choose a fish species: "
@@ -44,27 +41,23 @@
             android:id="@+id/spinner2"
             android:layout_width="350dp"
             android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="214dp"/>
+            android:layout_below="@+id/textView2"/>
 
     <TextView
             android:id="@+id/textView3"
             android:layout_width="350dp"
             android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="120dp"
             android:fontFamily="casual"
             android:padding="16dp"
             android:text="Please choose a season: "
-            android:textSize="20sp"/>
+            android:textSize="20sp" android:layout_below="@+id/spinner2"/>
 
     <Spinner
             android:id="@+id/spinner3"
             android:layout_width="350dp"
             android:layout_height="60dp"
-            android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="40dp"/>
+            android:layout_below="@+id/textView3"/>
 </RelativeLayout>
