@@ -1,9 +1,12 @@
 package edu.byui.cit.maintenance;
 
+import android.arch.persistence.room.Room;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+//import android.support.test.InstrumentationRegistry;
 
 import edu.byui.cit.model.AppDatabase;
 import edu.byui.cit.model.Vehicle;
@@ -19,6 +22,11 @@ import edu.byui.cit.widget.WidgetWrapper;
 public class AddVehicle extends CITFragment {
 	private EditDecimal decYear;
 	private EditString strMake, strModel;
+	private AppDatabase db;
+	private VehicleDAO vehicleDAO;
+
+
+
 
 	@Override
 	protected View createView(LayoutInflater inflater,
@@ -36,6 +44,8 @@ public class AddVehicle extends CITFragment {
 	}
 
 
+
+
 	@Override
 	protected String getTitle() {
 		return getActivity().getString(R.string.addVehicle);
@@ -49,8 +59,7 @@ public class AddVehicle extends CITFragment {
 			String make = strMake.getText();
 			String model = strModel.getText();
 
-			// TODO: Store the values in local storage.
-			// strModel.setText(year + " " + make + " " + model);
+
 			Vehicle newVehicle = new Vehicle();
 			newVehicle.setVin("111-222-3333");
 			newVehicle.setYear((int)year);
@@ -58,7 +67,14 @@ public class AddVehicle extends CITFragment {
 			newVehicle.setModel(model);
 			newVehicle.setColor("Red");
 
-            // VehicleDAO.insert(newVehicle);
+			//Context context = InstrumentationRegistry.getTargetContext();
+
+			db = AppDatabase.getInstance(getActivity().getApplicationContext());
+			vehicleDAO = db.getVehicleDAO();
+            vehicleDAO.insert(newVehicle);
+
+
+
 		}
 	}
 
