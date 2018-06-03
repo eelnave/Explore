@@ -24,5 +24,27 @@
     <string name="title_activity_add_eatinggoal">add_eatinggoal</string>
     <string name="title_activity_add_excercisegoal">add_excercisegoal</string>
     <string name="title_activity_add_readinggoal">add_readinggoal</string>
+    <string name="eatingGoalCreate">Create</string>
+    <string name="eatingGoalHeader">Daily Goals:</string>
+    <string name="caloriesLabel">Calories:</string>
+    <string name="fatLabel">Fat:</string>
+    <string name="cholesterolLabel">Cholesterol:</string>
+    <string name="sodiumLabel">Sodium:</string>
+    <string name="carbLabel">Carboydrates:</string>
+    <string name="proteinLabel">Protein:</string>
+    <string name="eatingGoalCancel">Cancel</string>
+    <string name="frequencyLabel">Frequency:</string>
+    <string name="everydayLabel">Everyday</string>
+    <string name="weekdaysLabel">M-F</string>
+    <string name="weekendLabel">Weekends</string>
+    <string name="mondayLabel">M</string>
+    <string name="tuesdayLabel">T</string>
+    <string name="wednesdayLabel">W</string>
+    <string name="thursdayLabel">Th</string>
+    <string name="fridayLabel">F</string>
+    <string name="saturdayLabel">Sat</string>
+    <string name="sundayLabel">Sun</string>
+    <string name="intensityLabel">Intensity:</string>
+    <string name="durationLabel">Duration:</string>
 
 </resources>
