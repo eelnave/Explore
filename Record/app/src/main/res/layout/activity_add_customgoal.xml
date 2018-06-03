@@ -66,13 +66,14 @@
         app:layout_constraintTop_toBottomOf="@+id/finishDate" />
 
     <CheckBox
-        android:id="@+id/checkBox"
+        android:id="@+id/checkBoxOngoing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:buttonTint="@android:color/holo_blue_bright"
+        android:onClick="onCheckBoxClicked"
         android:text="@string/addNewGoalOngoing"
         app:layout_constraintEnd_toStartOf="@+id/finishDate"
         app:layout_constraintHorizontal_bias="1.0"
@@ -80,54 +81,58 @@
         app:layout_constraintTop_toTopOf="@+id/finishDate" />
 
     <RadioGroup
-        android:layout_width="wrap_content"
+        android:id="@+id/radioGroup"
+        android:layout_width="376dp"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="112dp"
-        tools:layout_editor_absoluteY="349dp"
+        android:layout_marginStart="16dp"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
-    <RadioButton
-        android:id="@+id/radioButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/addNewGoalradio1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        <RadioButton
+            android:id="@+id/weekly"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="20dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/addNewGoalradio1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <RadioButton
-        android:id="@+id/radioButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/addNewGoalradio2"
-        app:layout_constraintStart_toEndOf="@+id/radioButton4"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        <RadioButton
+            android:id="@+id/daily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/addNewGoalradio2"
+            app:layout_constraintStart_toEndOf="@+id/radioButton4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
-    <RadioButton
-        android:id="@+id/radioButton6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/addNewGoalradio3"
-        app:layout_constraintStart_toEndOf="@+id/radioButton5"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        <RadioButton
+            android:id="@+id/morningAndNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/addNewGoalradio3"
+            app:layout_constraintStart_toEndOf="@+id/radioButton5"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/submitFormButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginTop="36dp"
         android:background="@android:color/holo_green_light"
         android:text="@string/addNewGoalBtn"
         android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton6" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <View
         android:id="@+id/divider"
