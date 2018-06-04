@@ -2,37 +2,81 @@ package edu.byui.cit.fishing;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.ExpandableListView.OnGroupCollapseListener;
+import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "Fishing";
 
-    @Override
+
+            ExpandableListAdapter listAdapter;
+   ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
+
+            @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_activity);
+                    super.onCreate(savedInstanceState);
+                    setContentView(R.layout.main_activity);
 
-        Spinner mySpinner1 = findViewById(R.id.spinner1);
+                           // get the listview
+                                    expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
-        ArrayAdapter<String> myAdapter1 = new ArrayAdapter<String>(MainActivity.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.water));
-        myAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner1.setAdapter(myAdapter1);
+                            // preparing list data
+                                    prepareListData();
 
-        Spinner mySpinner2 = findViewById(R.id.spinner2);
+                            listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
-        ArrayAdapter<String> myAdapter2 = new ArrayAdapter<String>(MainActivity.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.species));
-        myAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner2.setAdapter(myAdapter2);
+                            // setting list adapter
+                                    expListView.setAdapter(listAdapter);
+                }
 
-        Spinner mySpinner3 = findViewById(R.id.spinner3);
+            /*
+     * Preparing the list data
+     */
+            private void prepareListData() {
+                    listDataHeader = new ArrayList<String>();
+                    listDataChild = new HashMap<String, List<String>>();
 
-        ArrayAdapter<String> myAdapter3 = new ArrayAdapter<String>(MainActivity.this,
-                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.season));
-        myAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mySpinner3.setAdapter(myAdapter3);
-    }
+                            // Adding child data
+                                    listDataHeader.add("Bodies of Water");
+                    listDataHeader.add("Species of Choice");
+                    listDataHeader.add("Season");
+
+                            // Adding child data
+                                    List<String> water = new ArrayList<String>();
+                   water.add("Henry's Fork");
+                    water.add("Snake River");
+                    water.add("Teton River");
+                    water.add("Fall River");
+                    water.add("Warm River");
+
+                            List<String> species = new ArrayList<String>();
+                    species.add("Rainbow Trout");
+                    species.add("Brown Trout");
+                    species.add("Cutthroat Trout");
+                    species.add("Brook Trout");
+
+                            List<String> season = new ArrayList<String>();
+                    season.add("Spring");
+                    season.add("Summer");
+                    season.add("Fall");
+                    season.add("Winter");
+
+                            listDataChild.put(listDataHeader.get(0), water); // Header, Child data
+                    listDataChild.put(listDataHeader.get(1), species);
+                    listDataChild.put(listDataHeader.get(2), season);
+               }
 }
