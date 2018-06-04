@@ -159,6 +159,8 @@ public final class MapFragment extends SupportMapFragment
 				// Add this report to the list of all reports and to the
 				// category index that corresponds to this report's category.
 				allReports.put(key, report);
+				// use the indexes to do the filtering
+				// report of the data and the index
 				indexes.get(report.category().name()).put(key, report);
 
 				// Draw a marker for this report on the map.

@@ -37,14 +37,21 @@ function readFbRtDb() {
 		}
 	});
 
-	var reps = db.ref('/reports');
-	reps.once('value', function(snapshot) {
-		var reports = snapshot.val();
-		for (var key in reports) {
-			var report = reports[key];
-			append('output', stringFromReport(report));
-		}
-	});
+	var reports = db.ref('/reports');
+	//reps.once('value', function(snapshot) {
+	//	var reports = snapshot.val();
+	//	for (var key in reports) {
+	//		var report = reports[key];
+	//		append('output', stringFromReport(report));
+	//	}
+	//
+	//});
+	reports.on(child_aded, readOneReport());
+}
+
+function readOneReport(snapshot){
+	var report = snapshot.val();
+	console.log(JSON.stringify(report));
 }
 
 
@@ -99,7 +106,7 @@ function append(id, msg) {
 <script>
 		 // Initialize and add the map
 function initMap() {
-  // The location of rexburg
+  // The location of Uluru
   var rexburg = {lat: 43.82  , lng: -111.742};
   // The map, centered at rexburg
   var map = new google.maps.Map(
