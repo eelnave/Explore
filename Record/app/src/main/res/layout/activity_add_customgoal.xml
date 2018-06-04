@@ -16,7 +16,6 @@
         android:ems="10"
         android:hint="@string/addNewGoaltxt1"
         android:inputType="textPersonName"
-        android:text="@string/addNewGoaltxt1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -24,20 +23,20 @@
         android:id="@+id/finishDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="144dp"
         android:ems="10"
         android:hint="@string/addNewGoaldate2"
         android:inputType="date"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
+        android:layout_width="63dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="12dp"
         android:text="@string/addNewGoalDate"
         android:textAppearance="@android:style/TextAppearance.Holo.Large"
         app:layout_constraintStart_toStartOf="parent"
@@ -135,15 +134,6 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <View
-        android:id="@+id/divider"
-        android:layout_width="389dp"
-        android:layout_height="8dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goalName" />
-
-    <View
         android:id="@+id/divider2"
         android:layout_width="385dp"
         android:layout_height="8dp"
@@ -151,5 +141,13 @@
         android:background="@android:color/darker_gray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/finishDate" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="265dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
 
 </android.support.constraint.ConstraintLayout>
