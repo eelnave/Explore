@@ -10,6 +10,19 @@
               tools:context=".MainActivity">
 
 
+    <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="138dp" app:srcCompat="@drawable/fishinglogo"
+            android:paddingTop="40px"
+            android:id="@+id/imageView3"/>
+    <TextView
+           android:text="East Idaho Anglers"
+           android:textAlignment="center"
+           android:padding="20px"
+           android:textSize="70px"
+           android:textColor="#237EA0"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content" android:id="@+id/textView"/>
    <ExpandableListView
         android:id="@+id/lvExp"
         android:layout_height="match_parent"
