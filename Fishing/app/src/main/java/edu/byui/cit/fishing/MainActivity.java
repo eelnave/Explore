@@ -62,6 +62,10 @@ public class MainActivity extends AppCompatActivity {
                     species.add("Brown Trout");
                     species.add("Cutthroat Trout");
                     species.add("Brook Trout");
+                    species.add("Lake Trout");
+                    species.add("Smallmouth Bass");
+                    species.add("Largemouth Bass");
+                    species.add("Kokanee Salmon");
 
 
                                     List<String> water = new ArrayList<String>();
@@ -71,6 +75,11 @@ public class MainActivity extends AppCompatActivity {
                     water.add("Teton River");
                     water.add("Fall River");
                     water.add("Warm River");
+                    water.add("Palisades Reservoir");
+                    water.add("Ririe Reservoir");
+                    water.add("Island Park Reservoir");
+                    water.add("Henry's Lake");
+                    water.add("Ashton Reservoir");
 
 
                             List<String> month = new ArrayList<String>();
