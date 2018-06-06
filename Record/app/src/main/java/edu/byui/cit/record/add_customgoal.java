@@ -42,27 +42,26 @@ public class add_customgoal extends AppCompatActivity {
         Button submitButton = findViewById(R.id.submitFormButton);
         submitButton.setOnClickListener(new NewGenericGoal());
     }
-
-    public void onRadioButtonClicked(View view) {
-        boolean checked = ((RadioButton) view).isChecked();
-
+    //this code is commented out because we got rid of the radio buttons.
+//    public void onRadioButtonClicked(View view) {
+//        boolean checked = ((RadioButton) view).isChecked();
         //check which button was clicked and assign the corresponding value to the buttonSelection variable
         //1=daily, 2=weekly, 3=morning and night
-        switch (view.getId()){
-            case R.id.daily:
-                if (checked){
-                    buttonSelection = 1;
-                }
-            case R.id.weekly:
-                if (checked){
-                    buttonSelection = 2;
-                }
-            case R.id.morningAndNight:
-                if (checked){
-                    buttonSelection = 3;
-                }
-        }
-    }
+//        switch (view.getId()){
+//            case R.id.daily:
+//                if (checked){
+//                    buttonSelection = 1;
+//                }
+//            case R.id.weekly:
+//                if (checked){
+//                    buttonSelection = 2;
+//                }
+//            case R.id.morningAndNight:
+//                if (checked){
+//                    buttonSelection = 3;
+//                }
+//        }
+//    }
 
     public void onCheckBoxClicked(View view) {
         boolean isChecked = ((CheckBox) view).isChecked();
