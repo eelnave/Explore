@@ -16,16 +16,17 @@
             android:paddingTop="40px"
             android:id="@+id/imageView3"/>
     <TextView
-           android:text="East Idaho Anglers"
-           android:textAlignment="center"
-           android:padding="20px"
-           android:textSize="70px"
-           android:textColor="#237EA0"
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content" android:id="@+id/textView"/>
+            android:text="   East Idaho Anglers"
+            android:padding="20px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView" android:textAppearance="@style/EditText"
+            android:textSize="40sp"
+            android:textColor="#6495ED" android:textStyle="bold"/>
+
    <ExpandableListView
         android:id="@+id/lvExp"
         android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        android:layout_width="match_parent"
+        android:paddingTop = "5dp"/>
 
 </LinearLayout>
