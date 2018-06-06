@@ -20,16 +20,8 @@
             android:name=".add_customgoal"
             android:label="Add New Goal" />
         <activity
-            android:name=".add_eatinggoal"
-            android:label="@string/title_activity_add_eatinggoal"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".add_excercisegoal"
-            android:label="@string/title_activity_add_excercisegoal"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".add_readinggoal"
-            android:label="@string/title_activity_add_readinggoal"
+            android:name=".ViewGoal"
+            android:label="@string/title_activity_view_goal"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
