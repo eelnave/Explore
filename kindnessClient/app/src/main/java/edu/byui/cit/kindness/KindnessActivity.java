@@ -25,14 +25,11 @@ import edu.byui.cit.exception.ProviderException;
 import edu.byui.cit.exception.ServiceException;
 
 /* TODO:
- * 1. Add a privacy fragment that explains to the user, the data that Kindness collects.
- * 2. Rewrite the how to fragment so that it matches the latest changes to this app.
  * 4. Create and add a different map icon for each category
  * 5. Change MapFragment.onMapReady to draw the correct map icon for each report instead of the heart icon.
  * 6. Modify ReportedFragment, ReportFragment, or MapFragment so that the app draws an icon for a report immediately after the user submits a report.
- * 6. Add dropdown lists at the top of the map to filter by category and date
- * 7. Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
- * 8. Add missing strings to the translated strings.xml files
+ * 7. Add dropdown lists at the top of the map to filter by category and date
+ * 		-Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
  */
 
 public final class KindnessActivity extends AppCompatActivity {
