@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                             // Adding child data
                                     List<String> water = new ArrayList<String>();
-                   water.add("Henry's Fork");
+                    water.add("Henry's Fork");
                     water.add("Snake River");
                     water.add("Teton River");
                     water.add("Fall River");
