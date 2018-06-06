@@ -26,8 +26,6 @@ public class AddVehicle extends CITFragment {
 	private VehicleDAO vehicleDAO;
 
 
-
-
 	@Override
 	protected View createView(LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstState) {
@@ -42,8 +40,6 @@ public class AddVehicle extends CITFragment {
 		new ButtonWrapper(view, R.id.btnReset, new ResetHandler());
 		return view;
 	}
-
-
 
 
 	@Override
@@ -74,10 +70,12 @@ public class AddVehicle extends CITFragment {
             vehicleDAO.insert(newVehicle);
 
 
+			Vehicle found = vehicleDAO.getByVIN("111-222-3333");
+
+			System.out.println(found.getColor());
 
 		}
 	}
-
 
 	private final class ResetHandler implements ClickListener {
 		@Override
