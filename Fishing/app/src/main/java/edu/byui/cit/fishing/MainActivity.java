@@ -66,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 species.add("Smallmouth Bass");
 
                                     List<String> water = new ArrayList<String>();
-                    water.add("Henry's Fork");
+                    water.add("Upper Henry's Fork");
+                    water.add("Lower Henry's Fork");
                     water.add("Snake River");
                     water.add("Teton River");
                     water.add("Fall River");
