@@ -41,7 +41,7 @@ public class MainActivity extends Activity {
         // Listview Group click listener
         expListView.setOnGroupClickListener(new OnGroupClickListener() {
 
-            @Override
+           @Override
             public boolean onGroupClick(ExpandableListView parent, View v,
                                         int groupPosition, long id) {
                 // Toast.makeText(getApplicationContext(),
@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
+                 Toast.makeText(getApplicationContext(),
                         listDataHeader.get(groupPosition) + " Collapsed",
                         Toast.LENGTH_SHORT).show();
 
