@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="binaryConvert">Binary Conversion</string>
-	<string name="base10">Base 10</string>
-	<string name="binary">Binary</string>
-	<string name="hex">Hexadecimal</string>
+	<string name="base10">Decimal (Base 10)</string>
+	<string name="binary">Binary (Base 2)</string>
+	<string name="hex">Hexadecimal (Base 16)</string>
+	<string name="octal">Octal (Base 8)</string>
 
 	<string name="modulo">Modulo</string>
 	<string name="modExplain">The modulo operator returns the remainder of a division operation. For example, 14\u00a0/\u00a03\u00a0=\u00a04.67, while 14\u00a0%\u00a03\u00a0=\u00a02. This is because 3 divides into 14, 4 times, with 2 left over. Remember, we don\u2019t need to pay attention to the quotient of the division, only the remainder.</string>

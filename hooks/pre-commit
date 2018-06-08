@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git update-index --skip-worktree */.idea/codeStyles/*
+exit 0
