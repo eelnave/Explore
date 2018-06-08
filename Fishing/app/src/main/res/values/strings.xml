@@ -3,7 +3,8 @@
     <string name="app_name">East Idaho Anglers</string>
     <string name="appDescr">Giving fisherman the best chance.</string>
     <string-array name="water">
-        <item>Henry's Fork</item>
+        <item>Upper Henry's Fork</item>
+        <item>Lower Henry's Fork</item>
         <item>Snake River</item>
         <item>Teton River</item>
         <item>Warm River</item>
@@ -12,16 +13,28 @@
 
     <string-array name="species">
         <item>Rainbow Trout</item>
-        <item>Brown Trout</item>
         <item>Cutthroat Trout</item>
+        <item>Brown Trout</item>
         <item>Brook trout</item>
+        <item>Lake Trout</item>
+        <item>Smallmouth Bass</item>
+        <item>Largemouth Bass</item>
+        <item>Kokanee Salmon</item>
     </string-array>
 
-    <string-array name="season">
-        <item>Winter</item>
-        <item>Spring</item>
-        <item>Summer</item>
-        <item>Fall</item>
+    <string-array name="month">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
     </string-array>
 
     <string name="about">About</string>
