@@ -1,9 +1,5 @@
 package edu.byui.cit.fishing;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,31 +13,86 @@ import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
+
     public static final String TAG = "Fishing";
 
-
-            ExpandableListAdapter listAdapter;
-   ExpandableListView expListView;
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
 
-            @Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
-                    super.onCreate(savedInstanceState);
-                    setContentView(R.layout.main_activity);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_activity);
 
-                           // get the listview
-                                    expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        // get the listview
+        expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
-                            // preparing list data
-                                    prepareListData();
+        // preparing list data
+        prepareListData();
 
-                            listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
-                            // setting list adapter
-                                    expListView.setAdapter(listAdapter);
-                }
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
+
+        // Listview Group click listener
+        expListView.setOnGroupClickListener(new OnGroupClickListener() {
+
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
+                // Toast.makeText(getApplicationContext(),
+                // "Group Clicked " + listDataHeader.get(groupPosition),
+                // Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        });
+
+        // Listview Group expanded listener
+        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
+
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                Toast.makeText(getApplicationContext(),
+                        listDataHeader.get(groupPosition) + " Expanded",
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // Listview Group collasped listener
+        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+
+            @Override
+            public void onGroupCollapse(int groupPosition) {
+                Toast.makeText(getApplicationContext(),
+                        listDataHeader.get(groupPosition) + " Collapsed",
+                        Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        // Listview on child click listener
+        expListView.setOnChildClickListener(new OnChildClickListener() {
+
+            @Override
+            public boolean onChildClick(ExpandableListView parent, View v,
+                                        int groupPosition, int childPosition, long id) {
+                // TODO Auto-generated method stub
+                Toast.makeText(
+                        getApplicationContext(),
+                        listDataHeader.get(groupPosition)
+                                + " : "
+                                + listDataChild.get(
+                                listDataHeader.get(groupPosition)).get(
+                                childPosition), Toast.LENGTH_SHORT)
+                        .show();
+                return false;
+            }
+        });
+    }
 
             /*
      * Preparing the list data
@@ -52,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
 
                             // Adding child data
                 listDataHeader.add("Species");
-                listDataHeader.add("Water Body");
                 listDataHeader.add("Month");
+                listDataHeader.add("Body of Water");
 
                             // Adding child data
                 List<String> species = new ArrayList<String>();
@@ -64,22 +115,9 @@ public class MainActivity extends AppCompatActivity {
                 species.add("Lake Trout");
                 species.add("Kokanee Salmon");
                 species.add("Smallmouth Bass");
+                species.add("Largemouth Bass");
 
-                                    List<String> water = new ArrayList<String>();
-                    water.add("Upper Henry's Fork");
-                    water.add("Lower Henry's Fork");
-                    water.add("Snake River");
-                    water.add("Teton River");
-                    water.add("Fall River");
-                    water.add("Warm River");
-                    water.add("Henry's Lake");
-                    water.add("Island Park Reservoir");
-                    water.add("Ashton Reservoir");
-                    water.add("Ririe Reservoir");
-
-
-
-                            List<String> month = new ArrayList<String>();
+                List<String> month = new ArrayList<String>();
                 month.add("January");
                 month.add("February");
                 month.add("March");
@@ -93,9 +131,25 @@ public class MainActivity extends AppCompatActivity {
                 month.add("November");
                 month.add("December");
 
+                                    List<String> water = new ArrayList<String>();
+                    water.add("Upper Henry's Fork");
+                    water.add("Lower Henry's Fork");
+                    water.add("Snake River");
+                    water.add("Teton River");
+                    water.add("Fall River");
+                    water.add("Warm River");
+                    water.add("Henry's Lake");
+                    water.add("Island Park Reservoir");
+                    water.add("Ashton Reservoir");
+                    water.add("Ririe Reservoir");
+                    water.add("Wakeside Lake");
+                    water.add("Mud Lake");
+
+
 
                 listDataChild.put(listDataHeader.get(0), species);
-                listDataChild.put(listDataHeader.get(1), water); // Header, Child data
-                listDataChild.put(listDataHeader.get(2), month);
+                listDataChild.put(listDataHeader.get(1), month);
+                listDataChild.put(listDataHeader.get(2), water); // Header, Child data
+
                }
 }
