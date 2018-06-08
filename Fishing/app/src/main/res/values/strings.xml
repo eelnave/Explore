@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">East Idaho Anglers</string>
     <string name="appDescr">Giving fisherman the best chance.</string>
+
+
     <string-array name="water">
         <item>Upper Henry's Fork</item>
         <item>Lower Henry's Fork</item>

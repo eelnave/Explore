@@ -12,8 +12,9 @@
 
     <ImageView
             android:layout_width="match_parent"
-            android:layout_height="138dp" app:srcCompat="@drawable/fishinglogo"
-
+            android:layout_height="138dp"
+            android:src="@drawable/fishinglogo"
+            android:paddingTop="20dp"
             android:id="@+id/imageView3" android:contentDescription="Logo"/>
     <TextView
             android:text="   East Idaho Anglers"
