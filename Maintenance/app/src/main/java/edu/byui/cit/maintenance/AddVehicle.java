@@ -1,11 +1,11 @@
 package edu.byui.cit.maintenance;
 
-import android.arch.persistence.room.Room;
-import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 //import android.support.test.InstrumentationRegistry;
 
 import edu.byui.cit.model.AppDatabase;
@@ -51,13 +51,45 @@ public class AddVehicle extends CITFragment {
 	private final class AddHandler implements ClickListener {
 		@Override
 		public void clicked(WidgetWrapper source) {
+/**
+			new AsyncTask<Void, Void, Void>() {
+				@Override
+				protected Void doInBackground(Void... voids) {
+					float year = (float)decYear.getDec();
+					String make = strMake.getText();
+					String model = strModel.getText();
+
+
+					Vehicle newVehicle = new Vehicle();
+					newVehicle.setVin("111-222-3333");
+					newVehicle.setYear((int)year);
+					newVehicle.setMake(make);
+					newVehicle.setModel(model);
+					newVehicle.setColor("Red");
+
+					db = AppDatabase.getInstance(getActivity().getApplicationContext());
+					vehicleDAO = db.getVehicleDAO();
+					vehicleDAO.insert(newVehicle);
+
+
+					Vehicle found = vehicleDAO.getByVIN("111-222-3333");
+
+					System.out.println(found.getColor());
+
+					Toast.makeText(getActivity().getApplicationContext(),found.getColor(), Toast.LENGTH_LONG).show();
+
+					return null;
+				}
+			}.execute();
+
+ **/
 			float year = (float)decYear.getDec();
 			String make = strMake.getText();
 			String model = strModel.getText();
 
 
 			Vehicle newVehicle = new Vehicle();
-			newVehicle.setVin("111-222-3333");
+			newVehicle.setVin(Integer.toString((int)Math.round(Math.random() * 5000000)));
 			newVehicle.setYear((int)year);
 			newVehicle.setMake(make);
 			newVehicle.setModel(model);
@@ -69,10 +101,14 @@ public class AddVehicle extends CITFragment {
 			vehicleDAO = db.getVehicleDAO();
             vehicleDAO.insert(newVehicle);
 
-
+/**
 			Vehicle found = vehicleDAO.getByVIN("111-222-3333");
 
 			System.out.println(found.getColor());
+
+			Toast.makeText(getActivity().getApplicationContext(),found.getColor(), Toast.LENGTH_LONG).show();
+
+**/
 
 		}
 	}
