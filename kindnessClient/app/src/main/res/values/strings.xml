@@ -20,11 +20,15 @@
 	<string name="toMap">Return to Map</string>
 
 	<string name="howTo">How to Use</string>
-	<string name="instruction1">Tap \"See Kindness\" to view acts of kindness near you, or tap \"Report Kindness\" to add to the map.</string>
+	<string name="instruction1">Tap the plus icon to report kindness near you. Or simply explore details about the /acts of kindness/ of others by zooming in on the map.</string>
 	<string name="instruction2">Tap the icon that best reflects the kindness you would like to report.</string>
-	<string name="instruction3">Tap \"Submit\" to add your kindness to the map at your location.</string>
+	<string name="instruction3">Return to the map to see your new act of kindness added at your location.</string>
 
 	<string name="privacy">Privacy</string>
+	<string name="sharingLocation">Determining and Sharing Location</string>
+	<string name="privacyTest">Determining your location - These services deal with location, so in order to work, the services need to know your location. Whenever you open and use this app on your mobile device, we use the location information from your mobile device (e.g., latitude and longitude). The information will only be used when you
+	enable the app to use your GPS location. Your location will then be used to pin point on the map where an act of kindness occurs within one block of your current location. We do not use your GPS location for other reasons. If you wish to turn off these services, you are able to turn off your GPS location by going to settings.
+		Next open the Apps tab. Then scroll down and select Configure Apps or App Settings, then App permissions. Here you can select what information the app has access to including your location. If you do this, however, you will not be able to record an act of kindness at your location.  </string>
 
 	<string name="about">About</string>
 	<string name="appDescr">A simple way to report acts of kindness. This app is designed, written, and maintained by students at Brigham Young University - Idaho.</string>
