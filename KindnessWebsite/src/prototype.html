@@ -59,7 +59,8 @@ function appendFbRtDb() {
 	// Get a reference to the database service
 	var db = firebase.database();
 
-	var cat = 4;
+	var cat = document.getElementById("cat").value;
+	console.log(cat);
 	var now = new Date().getTime();
 	var report = {category:cat, latitude:7.9, longitude:-1.0, timestamp:now};
 	var reps = db.ref('/reports');
@@ -124,7 +125,17 @@ function initMap() {
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s&callback=initMap">
 </script>
 <h2>Kindness Map</h2>
+<form>
+        <label>Report the Act of kindness that you saw</label><br>
+        <select id="cat">
+            <option value="1">Gifts</option>
+            <option value="2">Service</option>
+            <option value="3">Time</option>
+            <option value="4">Touch</option>
+            <option value="5">Words</option>
+        </select><br>
 <button type="button" onclick="appendFbRtDb()">Add</button>
+<form></form>
 <button type="button" onclick="readFbRtDb()">Read</button>
 <div id="output"></div>
 </body>
