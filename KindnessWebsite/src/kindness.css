@@ -31,11 +31,29 @@ button{
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     font-weight: bold;
-    width: 500px;
+    width: 500px;s
 }
 
+select { 
+    width: 500px;
+    font-size: 1.1em;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 1%;
+}
 
+form input{
+    margin: 1%;
+    padding: 10px;
+}
 
+form{
+margin: 2%;
+}
 
+label{
+    color: navy;
+}
 
 

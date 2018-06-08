@@ -37,14 +37,21 @@ function readFbRtDb() {
 		}
 	});
 
-	var reps = db.ref('/reports');
-	reps.once('value', function(snapshot) {
-		var reports = snapshot.val();
-		for (var key in reports) {
-			var report = reports[key];
-			append('output', stringFromReport(report));
-		}
-	});
+	var reports = db.ref('/reports');
+	//reps.once('value', function(snapshot) {
+	//	var reports = snapshot.val();
+	//	for (var key in reports) {
+	//		var report = reports[key];
+	//		append('output', stringFromReport(report));
+	//	}
+	//
+	//});
+	reports.on(child_aded, readOneReport());
+}
+
+function readOneReport(snapshot){
+	var report = snapshot.val();
+	console.log(JSON.stringify(report));
 }
 
 
@@ -52,7 +59,8 @@ function appendFbRtDb() {
 	// Get a reference to the database service
 	var db = firebase.database();
 
-	var cat = 4;
+	var cat = document.getElementById("cat").value;
+	console.log(cat);
 	var now = new Date().getTime();
 	var report = {category:cat, latitude:7.9, longitude:-1.0, timestamp:now};
 	var reps = db.ref('/reports');
@@ -97,20 +105,37 @@ function append(id, msg) {
 <body onload="initFbRtDb()">
 <div id="map"></div>
 <script>
-		  var map;
-		  function initMap() {
-			map = new google.maps.Map(document.getElementById('map'), {
-			  zoom: 2,
-			  center: new google.maps.LatLng(2.8,-187.3),
-			  mapTypeId: 'terrain'
-			});
-		  }
-		</script>
+		 // Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var rexburg = {lat: 43.82  , lng: -111.742};
+  // The map, centered at rexburg
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: rexburg});
+  // The marker, positioned at rexburg
+  var marker = new google.maps.Marker({position: rexburg, map: map});
+}
+    </script>
+<!--Load the API from the specified URL
+* The async attribute allows the browser to render the page while the API loads
+* The key parameter will contain your own API key (which is not needed for this tutorial)
+* The callback parameter executes the initMap() function
+-->
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s&callback=initMap">
 </script>
 <h2>Kindness Map</h2>
+<form>
+        <label>Report the Act of kindness that you saw</label><br>
+        <select id="cat">
+            <option value="1">Gifts</option>
+            <option value="2">Service</option>
+            <option value="3">Time</option>
+            <option value="4">Touch</option>
+            <option value="5">Words</option>
+        </select><br>
 <button type="button" onclick="appendFbRtDb()">Add</button>
+</form>
 <button type="button" onclick="readFbRtDb()">Read</button>
 <div id="output"></div>
 </body>
