@@ -9,6 +9,13 @@
         <item>Teton River</item>
         <item>Warm River</item>
         <item>Fall River</item>
+        <item>Ashton Reservoir</item>
+        <item>Island Park Reservoir</item>
+        <item>Henry's Lake</item>
+        <item>Ririe Reservoir</item>
+        <item>Wakeside Lake</item>
+        <item>Mud Lake</item>
+        <item>Palisades Reservoir</item>
     </string-array>
 
     <string-array name="species">
@@ -17,9 +24,10 @@
         <item>Brown Trout</item>
         <item>Brook trout</item>
         <item>Lake Trout</item>
+        <item>Kokanee Salmon</item>
         <item>Smallmouth Bass</item>
         <item>Largemouth Bass</item>
-        <item>Kokanee Salmon</item>
+
     </string-array>
 
     <string-array name="month">

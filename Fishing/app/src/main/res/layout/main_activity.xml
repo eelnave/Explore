@@ -12,8 +12,9 @@
 
     <ImageView
             android:layout_width="match_parent"
-            android:layout_height="138dp" app:srcCompat="@drawable/fishinglogo"
-            android:paddingTop="40px"
+            android:layout_height="138dp"
+            android:src="@drawable/fishinglogo"
+            android:paddingTop="20dp"
             android:id="@+id/imageView3"/>
     <TextView
             android:text="   East Idaho Anglers"
@@ -23,10 +24,10 @@
             android:textSize="40sp"
             android:textColor="#6495ED" android:textStyle="bold" />
 
-   <ExpandableListView
-        android:id="@+id/lvExp"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:paddingTop = "5dp"/>
+    <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"/>
 
 </LinearLayout>
