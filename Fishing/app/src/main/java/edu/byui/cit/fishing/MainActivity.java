@@ -89,7 +89,7 @@ public class MainActivity extends Activity {
                                 listDataHeader.get(groupPosition)).get(
                                 childPosition), Toast.LENGTH_SHORT)
                         .show();
-                return false;
+                return true;
             }
         });
     }
