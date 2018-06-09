@@ -1,6 +1,8 @@
 package edu.byui.cit.fishing;
 
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import android.app.Activity;
@@ -107,45 +109,11 @@ public class MainActivity extends Activity {
                 listDataHeader.add("Body of Water");
 
                             // Adding child data
-                List<String> species = new ArrayList<String>();
-                species.add("Rainbow Trout");
-                species.add("Brown Trout");
-                species.add("Cutthroat Trout");
-                species.add("Brook Trout");
-                species.add("Lake Trout");
-                species.add("Kokanee Salmon");
-                species.add("Smallmouth Bass");
-                species.add("Largemouth Bass");
 
-                List<String> month = new ArrayList<String>();
-                month.add("January");
-                month.add("February");
-                month.add("March");
-                month.add("April");
-                month.add("May");
-                month.add("June");
-                month.add("July");
-                month.add("August");
-                month.add("September");
-                month.add("October");
-                month.add("November");
-                month.add("December");
-
-                                    List<String> water = new ArrayList<String>();
-                    water.add("Upper Henry's Fork");
-                    water.add("Lower Henry's Fork");
-                    water.add("Snake River");
-                    water.add("Teton River");
-                    water.add("Fall River");
-                    water.add("Warm River");
-                    water.add("Henry's Lake");
-                    water.add("Island Park Reservoir");
-                    water.add("Ashton Reservoir");
-                    water.add("Ririe Reservoir");
-                    water.add("Wakeside Lake");
-                    water.add("Mud Lake");
-
-
+                // Stores array values from strings.xml into string list.
+                List<String> species = Arrays.asList(getResources().getStringArray(R.array.species));
+                List<String> month = Arrays.asList(getResources().getStringArray(R.array.month));
+                List<String> water = Arrays.asList(getResources().getStringArray(R.array.water));
 
                 listDataChild.put(listDataHeader.get(0), species);
                 listDataChild.put(listDataHeader.get(1), month);
