@@ -24,5 +24,5 @@
     <string name="ex_20000">Ex. 20000</string>
 	<string name="enter_current_mileage">Enter Current Mileage</string>
     <string name="submit_mileage">Submit Mileage</string>
-	<string name="Vin">VIN</string>
+	<string name="color">Color</string>
 </resources>

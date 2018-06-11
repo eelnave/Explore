@@ -50,7 +50,7 @@
 		<TextView
 			style="@style/TextLabel"
 			android:labelFor="@+id/year"
-			android:text="@string/Vin" />
+			android:text="@string/vin" />
 
 		<EditText
 			android:id="@+id/vin"
@@ -60,6 +60,22 @@
 
 			<requestFocus />
 		</EditText>
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/year"
+			android:text="@string/color" />
+
+		<EditText
+			android:id="@+id/color"
+			style="@style/UnsignedDecimal"
+			android:layout_width="215dp"
+			android:ems="5">
+
+			<requestFocus />
+		</EditText>
+
+
 
 	</android.support.v7.widget.GridLayout>
 
