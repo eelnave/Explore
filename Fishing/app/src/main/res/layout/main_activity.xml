@@ -9,20 +9,23 @@
               android:background="#FFFFFF"
               tools:context=".MainActivity">
 
-
     <ImageView
             android:layout_width="match_parent"
             android:layout_height="138dp"
             android:src="@drawable/fishinglogo"
             android:paddingTop="20dp"
-            android:id="@+id/imageView3" android:contentDescription="Logo"/>
+            android:id="@+id/imageView3"
+            android:contentDescription="Logo"/>
     <TextView
             android:text="   East Idaho Anglers"
             android:padding="20px"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView" android:textAppearance="@style/EditText"
-            android:textSize="40sp"
-            android:textColor="#6495ED" android:textStyle="bold" />
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:textAppearance="@style/EditText"
+            android:textSize="40dp"
+            android:textColor="#6495ED"
+            android:textStyle="bold" />
 
     <ExpandableListView
             android:id="@+id/lvExp"
