@@ -19,6 +19,31 @@ function initFbRtDb() {
 	firebase.initializeApp(config);
 }
 
+// place geolocation functions outside of append function to get the info upon load.
+// the window onload doesn't seem to be working with the map. Is there a better way?
+window.onload = getLocation; 
+// the permissions
+	var geo = navigator.geolocation;     /*     Here we will check if the browser supports the Geolocation API; if exists, then we will display the location     */    
+// the get location function
+function getLocation() {       
+    if( geo ) {    
+        geo.getCurrentPosition( displayLocation );       
+           } 
+           else  { alert( "Oops, Geolocation API is not supported");        
+           }     
+}
+
+/*     This function displays the latitude and longitude when the browser has a location. 
+	Should we just try to collect the lat and long outside of this display function???     */   
+
+    function displayLocation(position) {         
+        var lati = position.coords.latitude;        
+        var longi = position.coords.longitude; 
+		// check to see if these are holding values
+		    var div = document.getElementById( 'location' );     
+        div.innerHTML = "You are at Latitude: " + latitude + ", Longitude: " + longitude; 
+}
+
 
 function readFbRtDb() {
 	// Get a reference to the database service
@@ -46,7 +71,7 @@ function readFbRtDb() {
 	//	}
 	//
 	//});
-	reports.on(child_aded, readOneReport());
+	reports.on(child_added, readOneReport());
 }
 
 function readOneReport(snapshot){
@@ -54,14 +79,16 @@ function readOneReport(snapshot){
 	console.log(JSON.stringify(report));
 }
 
-
-function appendFbRtDb() {
+// theoretically pass in lati and longi from the geolocation function
+function appendFbRtDb(lati, longi) {
 	// Get a reference to the database service
 	var db = firebase.database();
-
-	var cat = 4;
-	var now = new Date().getTime();
-	var report = {category:cat, latitude:7.9, longitude:-1.0, timestamp:now};
+// take away the hardcoded values and get the actual ones.
+	var cat = document.getElementById("cat").value;
+	
+	var now = new Date().getTime();       
+// tried placing lati and long in place of numbers, but that broke it. For now will do some more R&D
+	var report = {category:cat, latitude:-111, longitude:43.82, timestamp:now};
 	var reps = db.ref('/reports');
 	var node = reps.push();
 	var key = node.key;
@@ -124,8 +151,23 @@ function initMap() {
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s&callback=initMap">
 </script>
 <h2>Kindness Map</h2>
+<form>
+        <label>Report the Act of kindness that you saw</label><br>
+        <select id="cat">
+            <option value="1">Gifts</option>
+            <option value="2">Service</option>
+            <option value="3">Time</option>
+            <option value="4">Touch</option>
+            <option value="5">Words</option>
+        </select><br>
 <button type="button" onclick="appendFbRtDb()">Add</button>
+</form>
+<hr>
 <button type="button" onclick="readFbRtDb()">Read</button>
 <div id="output"></div>
+<hr>
+<div id="location">
+You are at Latitude: _________, Longitude: _________    
+</div>
 </body>
 </html>
