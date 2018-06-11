@@ -2,51 +2,6 @@
 <resources>
     <string name="app_name">East Idaho Anglers</string>
     <string name="appDescr">Giving fisherman the best chance.</string>
-
-
-    <string-array name="water">
-        <item>Upper Henry's Fork</item>
-        <item>Lower Henry's Fork</item>
-        <item>Snake River</item>
-        <item>Teton River</item>
-        <item>Warm River</item>
-        <item>Fall River</item>
-        <item>Ashton Reservoir</item>
-        <item>Island Park Reservoir</item>
-        <item>Henry's Lake</item>
-        <item>Ririe Reservoir</item>
-        <item>Wakeside Lake</item>
-        <item>Mud Lake</item>
-        <item>Palisades Reservoir</item>
-    </string-array>
-
-    <string-array name="species">
-        <item>Rainbow Trout</item>
-        <item>Cutthroat Trout</item>
-        <item>Brown Trout</item>
-        <item>Brook trout</item>
-        <item>Lake Trout</item>
-        <item>Kokanee Salmon</item>
-        <item>Smallmouth Bass</item>
-        <item>Largemouth Bass</item>
-
-    </string-array>
-
-    <string-array name="month">
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>September</item>
-        <item>October</item>
-        <item>November</item>
-        <item>December</item>
-    </string-array>
-
     <string name="about">About</string>
     <string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
     <string name="contribs">Contributors</string>
