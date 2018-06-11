@@ -15,36 +15,52 @@
 		<TextView
 			style="@style/TextLabel"
 			android:labelFor="@+id/year"
-			android:text="@string/year"/>
+			android:text="@string/year" />
 
 		<EditText
 			android:id="@+id/year"
 			style="@style/UnsignedDecimal"
 			android:ems="5">
 
-			<requestFocus/>
+			<requestFocus />
 		</EditText>
 
 		<TextView
 			style="@style/TextLabel"
 			android:labelFor="@+id/make"
-			android:text="@string/make"/>
+			android:text="@string/make" />
 
 		<EditText
 			android:id="@+id/make"
 			style="@style/EditText"
-			android:ems="10"/>
+			android:ems="10" />
 
 		<TextView
 			style="@style/TextLabel"
 			android:labelFor="@+id/model"
-			android:text="@string/model"/>
+			android:text="@string/model" />
 
 		<EditText
 			android:id="@+id/model"
 			style="@style/EditText"
 			android:ems="10"
-			android:imeOptions="actionDone"/>
+			android:imeOptions="actionDone" />
+
+
+		<TextView
+			style="@style/TextLabel"
+			android:labelFor="@+id/year"
+			android:text="@string/Vin" />
+
+		<EditText
+			android:id="@+id/vin"
+			style="@style/UnsignedDecimal"
+			android:layout_width="215dp"
+			android:ems="5">
+
+			<requestFocus />
+		</EditText>
+
 	</android.support.v7.widget.GridLayout>
 
 	<LinearLayout
@@ -55,11 +71,14 @@
 		<Button
 			android:id="@+id/btnAdd"
 			style="@style/Button"
-			android:text="@string/add"/>
+			android:layout_width="397dp"
+			android:text="@string/add" />
 
-		<Button
-			android:id="@+id/btnReset"
-			style="@style/Button"
-			android:text="@string/reset"/>
 	</LinearLayout>
+
+	<Button
+		android:id="@+id/btnReset"
+		style="@style/Button"
+		android:layout_width="match_parent"
+		android:text="@string/reset" />
 </LinearLayout>
