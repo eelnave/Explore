@@ -25,25 +25,22 @@ import edu.byui.cit.exception.ProviderException;
 import edu.byui.cit.exception.ServiceException;
 
 /* TODO:
- * 1. Add a privacy fragment that explains to the user, the data that Kindness collects.
- * 2. Rewrite the how to fragment so that it matches the latest changes to this app.
- * 3. Change the icon on the floating action button to be a plus symbol instead of an envelope.
  * 4. Create and add a different map icon for each category
  * 5. Change MapFragment.onMapReady to draw the correct map icon for each report instead of the heart icon.
  * 6. Modify ReportedFragment, ReportFragment, or MapFragment so that the app draws an icon for a report immediately after the user submits a report.
- * 6. Add dropdown lists at the top of the map to filter by category and date
- * 7. Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
- * 8. Add missing strings to the translated strings.xml files
+ * 7. Add dropdown lists at the top of the map to filter by category and date
+ * 		-Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
  */
 
 public final class KindnessActivity extends AppCompatActivity {
 	public static final String TAG = "Kindness";
-	private static final String FIRST_TIME_KEY = "FirstTime";
+	//REMOVING THE FIRST TIME RUN--> Want our users to be engaged.
+	//private static final String FIRST_TIME_KEY = "FirstTime";
 	public static final String
 			REPORTS_KEY = "reports",
 			CATEGORIES_KEY = "categories";
 
-	private Fragment fragHowTo, fragAbout, fragReport;
+	private Fragment fragHowTo, fragAbout, fragReport, fragPrivate;
 
 
 	public KindnessActivity() {
@@ -94,17 +91,10 @@ public final class KindnessActivity extends AppCompatActivity {
 			// If this is the first time that this app has
 			// been run on the current device, open the
 			// tutorial that explains how to use this app.
+			// REMOVED THE FIRST TIME
+			// NOW TO TEXT
 			SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
-			if (prefs.getBoolean(FIRST_TIME_KEY, true)) {
-				SharedPreferences.Editor editor = prefs.edit();
-				editor.putBoolean(FIRST_TIME_KEY, false);
-				editor.apply();
 
-				if (fragHowTo == null || fragHowTo.isDetached()) {
-					fragHowTo = new HowToFragment();
-				}
-				switchFragment(fragHowTo);
-			}
 		}
 	}
 
@@ -162,6 +152,11 @@ public final class KindnessActivity extends AppCompatActivity {
 				return true;
 
 			case R.id.actPrivacy:
+				if (fragPrivate == null || fragPrivate.isDetached()) {
+					fragPrivate = new PrivateFragment();
+				}
+
+				switchFragment(fragPrivate);
 				return true;
 
 			case R.id.actAbout:
