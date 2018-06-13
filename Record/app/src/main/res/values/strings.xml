@@ -59,4 +59,6 @@
     <string name="addNewGoaltxt5">Remind me at:</string>
     <string name="title_activity_view_goal">View Goal Details</string>
 
+    <string name="notification">Notification!</string>
+
 </resources>
