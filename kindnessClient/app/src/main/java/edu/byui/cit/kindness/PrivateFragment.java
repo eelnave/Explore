@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import edu.byui.cit.widget.CITFragment;
+
+
 public final class PrivateFragment extends CITFragment {
     @Override
     protected String getTitle() {

@@ -1,4 +1,4 @@
-package edu.byui.cit.kindness;
+package edu.byui.cit.widget;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+
+import edu.byui.cit.kindness.KindnessActivity;
+import edu.byui.cit.kindness.R;
 
 
 public abstract class CITFragment extends Fragment {
