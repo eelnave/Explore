@@ -20,11 +20,14 @@
 	<string name="toMap">Return to Map</string>
 
 	<string name="howTo">How to Use</string>
-	<string name="instruction1">Tap \"See Kindness\" to view acts of kindness near you, or tap \"Report Kindness\" to add to the map.</string>
+	<string name="instruction1">Tap the plus icon to report kindness near you. Or simply explore details about the /acts of kindness/ of others by zooming in on the map.</string>
 	<string name="instruction2">Tap the icon that best reflects the kindness you would like to report.</string>
-	<string name="instruction3">Tap \"Submit\" to add your kindness to the map at your location.</string>
+	<string name="instruction3">Return to the map to see your new act of kindness added at your location.</string>
 
 	<string name="privacy">Privacy</string>
+	<string name="sharingLocation">Determining and Sharing Location</string>
+	<string name="privacyTest">This application collects your approximate GPS location while the app is active. This app does not collect any data outside of your device’s GPS location. (E.G phone number, contacts, or photos)The GPS data collected is
+		                       used solely for services rendered by this application and website and is not solicited.  </string>
 
 	<string name="about">About</string>
 	<string name="appDescr">A simple way to report acts of kindness. This app is designed, written, and maintained by students at Brigham Young University - Idaho.</string>
