@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appName">Amabilidad</string>
+
+    <string name="locationError">
+        Error de ubicación</string>
+    <string name="locationErrMsg">Para informar amabilidad, debe habilitar servicios de ubicación en su dispositivo y otorgar permisos de ubicación a esta aplicación.</string>
+    <string name="unknownErrMsg">Error de servicios de ubicación desconocidos. No podrá informar amabilidad hasta que se solucione el error.</string>
+
+    <string name="reportKindness">
+        Informar amabilidad</string>
+    <string name="gifts">
+        Regalos</string>
+    <string name="service">
+        Servicio</string>
+    <string name="time">
+        Hora</string>
+    <string name="touch">Toque</string>
+    <string name="words">Palabras</string>
+
+    <string name="category">
+        categoría</string>
+    <string name="latitude">
+        latitud</string>
+    <string name="longitude">
+        longitud</string>
+    <string name="thanks">Gracias por informar un acto de bondad.</string>
+    <string name="toMap">Regresar al mapa</string>
+
+    <string name="howTo">Cómo utilizar</string>
+    <string name="instruction1">Toca el ícono más para informar amabilidad cerca de ti. O simplemente explore los detalles sobre los actos de bondad / de los demás haciendo un acercamiento al mapa.</string>
+    <string name="instruction2">
+        Toque el ícono que mejor refleje la amabilidad con la que desea informar.</string>
+    <string name="instruction3">Regrese al mapa para ver su nuevo acto de bondad agregado en su ubicación.</string>
+
+    <string name="privacy">Intimidad</string>
+    <string name="sharingLocation">
+        Determinar y compartir ubicación</string>
+    <string name="privacyTest">
+        Esta aplicación recopila su ubicación aproximada de GPS mientras la aplicación está activa. Esta aplicación no recopila datos fuera de la ubicación del GPS de su dispositivo. (E.G número de teléfono, contactos o fotos) Los datos GPS recopilados son
+        utilizado únicamente para servicios prestados por esta aplicación y sitio web y no se solicita.  </string>
+
+    <string name="about">Acerca de</string>
+    <string name="appDescr">
+        Una forma simple de informar actos de bondad. Esta aplicación está diseñada, escrita y mantenida por estudiantes de la Universidad Brigham Young - Idaho.</string>
+    <string name="eula">En la máxima medida permitida por la ley, este software viene sin garantía, ya sea expresa o implícita. Al instalar y / o utilizar este software, acepta eximir de responsabilidad a la Universidad Brigham Young de Idaho y sus patrocinadores, empleados y estudiantes.</string>
+    <string name="feedback">¡Gracias por usar bondad! Agradecemos sus comentarios, preguntas y recomendaciones para ayudarnos a mejorar esta aplicación. Puede contactarnos a través de <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.kindness">Google Play Store</a>.</string>
+    <string name="contribs">Colaboradores</string>
+    <string name="winter2018">Invierno 2018</string>
+    <string name="spring2018">
+        Primavera 2018</string>
+    <string name="logoCredit">Creamos el logo y los íconos para Kindness usando las herramientas gratuitas en <a href="https://logomakr.com">logomakr.com</a></string>
+
+    <string name="mistake">Bueno, esto es vergonzoso. Algo está mal con esta página, y no está funcionando. Pedimos disculpas.</string>
+</resources>
