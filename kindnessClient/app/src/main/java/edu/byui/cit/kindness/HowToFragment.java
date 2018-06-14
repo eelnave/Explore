@@ -5,6 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import edu.byui.cit.widget.CITFragment;
+
 
 public final class HowToFragment extends CITFragment {
 	@Override

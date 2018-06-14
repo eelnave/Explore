@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import edu.byui.cit.widget.CITFragment;
+
 
 public final class AboutFragment extends CITFragment {
 	@Override
