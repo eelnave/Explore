@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/timeSpinner" android:layout_weight="1"/>
-        <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/typeSpinner" android:layout_weight="1"/>
-    </LinearLayout>
-    <fragment
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:name="edu.byui.cit.kindness.MapFragment"
-            android:id="@+id/fragment"/>
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="horizontal">
+
+		<Spinner
+			android:id="@+id/timeSpinner"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"/>
+
+		<Spinner
+			android:id="@+id/typeSpinner"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"/>
+	</LinearLayout>
+
+	<fragment
+		android:id="@+id/fragment"
+		android:name="edu.byui.cit.kindness.MapFragment"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"/>
 </LinearLayout>

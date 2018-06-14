@@ -16,6 +16,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
 
 import com.google.firebase.FirebaseApp;
 
@@ -29,7 +33,9 @@ import edu.byui.cit.exception.ServiceException;
  * 		-Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
  */
 
-public final class KindnessActivity extends AppCompatActivity {
+public final class KindnessActivity extends AppCompatActivity
+		implements AdapterView.OnItemSelectedListener {
+
 	public static final String TAG = "Kindness";
 	//REMOVING THE FIRST TIME RUN--> Want our users to be engaged.
 	//private static final String FIRST_TIME_KEY = "FirstTime";
@@ -76,14 +82,15 @@ public final class KindnessActivity extends AppCompatActivity {
 		FloatingActionButton fab = findViewById(R.id.fabAdd);
 		fab.setOnClickListener(new ReportHandler());
 
+
 		if (savedInstState == null) {
 			// Create a fragment the map fragment and place
 			// it as the first fragment in this activity.
 			//change this to the DisplayFragment.java instead of MapFragment once we finish the filters so it'll load first
-			MapFragment fragMap = new MapFragment();
+			Fragment frag = new DisplayFragment();
 			FragmentTransaction trans =
 					getSupportFragmentManager().beginTransaction();
-			trans.add(R.id.fragContainer, fragMap);
+			trans.add(R.id.fragContainer, frag);
 			trans.commit();
 
 			// If this is the first time that this app has
@@ -166,6 +173,17 @@ public final class KindnessActivity extends AppCompatActivity {
 		}
 
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onItemSelected(AdapterView<?> parent, View view, int position,
+			long id) {
+
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> parent) {
+
 	}
 
 
