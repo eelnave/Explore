@@ -4,7 +4,6 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,7 +29,8 @@ public class MainActivity extends AppCompatActivity {
 				@Override
 				public void onClick(View view) {
 					//make the jump to the new goal screen
-					Intent intent = new Intent(MainActivity.this, add_customgoal.class);
+					Intent intent = new Intent(MainActivity.this,
+							add_customgoal.class);
 					startActivity(intent);
 				}
 			});
@@ -40,11 +40,17 @@ public class MainActivity extends AppCompatActivity {
 //    calendar.set(Calendar.MINUTE, 30);
 			calendar.add(Calendar.SECOND, 5);
 
-			Intent intent = new Intent(getApplicationContext(), NotificationReceiver.class);
-			PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 100, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+			Intent intent = new Intent(getApplicationContext(),
+					NotificationReceiver.class);
+			PendingIntent pendingIntent = PendingIntent.getBroadcast(
+					getApplicationContext(), 100, intent,
+					PendingIntent.FLAG_UPDATE_CURRENT);
 
-			AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-			alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+			AlarmManager alarmManager = (AlarmManager)getSystemService(
+					ALARM_SERVICE);
+			alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
+					calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,
+					pendingIntent);
 
 			//populate the main screen area with current goals
 
@@ -57,14 +63,14 @@ public class MainActivity extends AppCompatActivity {
 			theGoals.add("Help Old Man Jenkins with his lawn");
 
 			//this object represents the listView on the screen
-			ListView mainListView = (ListView) findViewById(R.id.toDoList);
-			ArrayAdapter<String> theAdapter = new ArrayAdapter<String>(this, R.layout.simplerow, theGoals);
-//      TODO: THIS IS THE THING THAT IS CAUSING THE CRASH
-//			mainListView.setAdapter(theAdapter);
+			ListView mainListView = findViewById(R.id.toDoList);
+			ArrayAdapter<String> theAdapter = new ArrayAdapter<>(
+					this, R.layout.simplerow, theGoals);
+			// TODO: THIS IS THE THING THAT IS CAUSING THE CRASH
+			mainListView.setAdapter(theAdapter);
 		}
-		catch (Exception ex){
+		catch (Exception ex) {
 			Log.e("Record", ex.toString());
 		}
-
 	}
 }
