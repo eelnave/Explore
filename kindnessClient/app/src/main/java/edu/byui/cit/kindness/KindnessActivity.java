@@ -27,14 +27,16 @@ import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
 import edu.byui.cit.exception.ServiceException;
+import edu.byui.cit.widget.ItemSelectedListener;
+import edu.byui.cit.widget.SpinString;
+import edu.byui.cit.widget.SpinWrapper;
 
 /* TODO:
  * 7. Add dropdown lists at the top of the map to filter by category and date
  * 		-Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
  */
 
-public final class KindnessActivity extends AppCompatActivity
-		implements AdapterView.OnItemSelectedListener {
+public final class KindnessActivity extends AppCompatActivity {
 
 	public static final String TAG = "Kindness";
 	//REMOVING THE FIRST TIME RUN--> Want our users to be engaged.
@@ -101,7 +103,23 @@ public final class KindnessActivity extends AppCompatActivity
 			SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
 
 		}
+
 	}
+
+
+	/*private final class spinnerChange implements AdapterView.OnItemSelectedListener {
+		@Override
+		public void onItemSelected(AdapterView<?> adapter, View view,
+		int position, long id) {
+			String lstime = adapter.getItemAtPosition(position).toString();
+
+		}
+
+		@Override
+		public void onNothingSelected(AdapterView<?> parent) {
+
+		}
+	}*/
 
 
 	@Override
@@ -173,17 +191,6 @@ public final class KindnessActivity extends AppCompatActivity
 		}
 
 		return super.onOptionsItemSelected(item);
-	}
-
-	@Override
-	public void onItemSelected(AdapterView<?> parent, View view, int position,
-			long id) {
-
-	}
-
-	@Override
-	public void onNothingSelected(AdapterView<?> parent) {
-
 	}
 
 

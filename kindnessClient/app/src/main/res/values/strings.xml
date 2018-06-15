@@ -39,4 +39,23 @@
 	<string name="logoCredit">We created the logo and icons for Kindness using the free tools at <a href="https://logomakr.com">logomakr.com</a></string>
 
 	<string name="mistake">Well, this is embarrassing. Something is wrong with this page, and it isn\'t working. We apologize.</string>
+
+	<string-array name="TimePeriod" translatable="false">
+		<item>Time Period</item>
+		<item>last hour</item>
+		<item>last 24 hours</item>
+		<item>last week</item>
+		<item>last month</item>
+		<item>last year</item>
+		<item>all time</item>
+	</string-array>
+
+	<string-array name="category" translatable="false">
+		<item>Category</item>
+		<item>Gifts</item>
+		<item>Service</item>
+		<item>Time</item>
+		<item>Touch</item>
+		<item>Words</item>
+	</string-array>
 </resources>
