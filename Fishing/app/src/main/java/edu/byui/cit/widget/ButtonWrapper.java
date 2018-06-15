@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import edu.byui.cit.record.MainActivity;
+import edu.byui.cit.fishing.MainActivity;
 
 
 public final class ButtonWrapper extends WidgetWrapper
