@@ -49,4 +49,23 @@
 
     <string name="mistake">
         Nun, das ist peinlich. Etwas stimmt nicht mit dieser Seite und es funktioniert nicht. Wir entschuldigen uns.</string>
+
+    <string-array name="TimePeriod" translatable="false">
+        <item>Zeitperiode</item>
+        <item>letzte Stunde</item>
+        <item>letzten 24 Stunden</item>
+        <item>letzte Woche</item>
+        <item>Im vergangenen Monat</item>
+        <item>letztes Jahr</item>
+        <item>die ganze Zeit</item>
+    </string-array>
+
+    <string-array name="category" translatable="false">
+        <item>Kategorie</item>
+        <item>Geschenke</item>
+        <item>Bedienung</item>
+        <item>Zeit</item>
+        <item>Berühren</item>
+        <item>Wörter</item>
+    </string-array>
 </resources>
