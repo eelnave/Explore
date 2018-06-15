@@ -3,8 +3,14 @@
     <string name="app_name">East Idaho Anglers</string>
     <string name="appDescr">Giving fisherman the best chance.</string>
     <string name="about">About</string>
-    <string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
+    <string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or
+        implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho
+        and its sponsors, employees, and students.
+    </string>
     <string name="contribs">Contributors</string>
 
-    <string name="mistake">Well, this is embarrassing. Something is wrong with this part of the app, and it isn\'t working. We apologize.</string>
+    <string name="mistake">Well, this is embarrassing. Something is wrong with this part of the app, and it isn\'t
+        working. We apologize.
+    </string>
+    <string name="title_activity_maps">Map</string>
 </resources>

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="contribsSpring2018A" translatable="false">
+	<string name="contribsWinter2018A" translatable="false">
 		Jose Abarca Suarez</string>
-	<string name="contribsSpring2018B" translatable="false">
+	<string name="contribsWinter2018B" translatable="false">
 		Jordan Murray</string>
+	<string name="contribsSpring2018A" translatable="false">
+		Eric Mlynar</string>
+	<string name="contribsSpring2018B" translatable="false">
+		Harry Vashisht</string>
+	<string name="contribsSpring2018C" translatable="false">
+		Theron Dowdle</string>
+	<string name="contribsSpring2018D" translatable="false">
+		Jeanina Lao</string>
 </resources>
