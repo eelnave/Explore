@@ -1,6 +1,7 @@
 
+
 /* Kindness Css */
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato|Poller+One');
 html{
     background: linear-gradient(to right,black, navy, #2e86c1);
     width: 100%;
@@ -34,7 +35,7 @@ button{
     width: 500px;
 }
 
-select { 
+select {
     width: 500px;
     font-size: 1.2em;
     background-color: black;
@@ -55,4 +56,14 @@ form input{
 
 label{
     color: white;
+}
+
+#how-to {
+    width: 80%;
+    text-align: center;
+    margin-left: 10%;
+}
+
+#how-to h1{
+    font-family: 'Poller One', cursive;
 }
