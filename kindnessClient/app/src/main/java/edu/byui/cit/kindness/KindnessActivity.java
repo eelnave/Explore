@@ -16,6 +16,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
 
 import com.google.firebase.FirebaseApp;
 
@@ -23,16 +27,17 @@ import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
 import edu.byui.cit.exception.ServiceException;
+import edu.byui.cit.widget.ItemSelectedListener;
+import edu.byui.cit.widget.SpinString;
+import edu.byui.cit.widget.SpinWrapper;
 
 /* TODO:
- * 4. Create and add a different map icon for each category
- * 5. Change MapFragment.onMapReady to draw the correct map icon for each report instead of the heart icon.
- * 6. Modify ReportedFragment, ReportFragment, or MapFragment so that the app draws an icon for a report immediately after the user submits a report.
  * 7. Add dropdown lists at the top of the map to filter by category and date
  * 		-Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
  */
 
 public final class KindnessActivity extends AppCompatActivity {
+
 	public static final String TAG = "Kindness";
 	//REMOVING THE FIRST TIME RUN--> Want our users to be engaged.
 	//private static final String FIRST_TIME_KEY = "FirstTime";
@@ -79,13 +84,15 @@ public final class KindnessActivity extends AppCompatActivity {
 		FloatingActionButton fab = findViewById(R.id.fabAdd);
 		fab.setOnClickListener(new ReportHandler());
 
+
 		if (savedInstState == null) {
 			// Create a fragment the map fragment and place
 			// it as the first fragment in this activity.
-			MapFragment fragMap = new MapFragment();
+			//change this to the DisplayFragment.java instead of MapFragment once we finish the filters so it'll load first
+			Fragment frag = new DisplayFragment();
 			FragmentTransaction trans =
 					getSupportFragmentManager().beginTransaction();
-			trans.add(R.id.fragContainer, fragMap);
+			trans.add(R.id.fragContainer, frag);
 			trans.commit();
 
 			// If this is the first time that this app has
@@ -96,7 +103,23 @@ public final class KindnessActivity extends AppCompatActivity {
 			SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
 
 		}
+
 	}
+
+
+	/*private final class spinnerChange implements AdapterView.OnItemSelectedListener {
+		@Override
+		public void onItemSelected(AdapterView<?> adapter, View view,
+		int position, long id) {
+			String lstime = adapter.getItemAtPosition(position).toString();
+
+		}
+
+		@Override
+		public void onNothingSelected(AdapterView<?> parent) {
+
+		}
+	}*/
 
 
 	@Override
