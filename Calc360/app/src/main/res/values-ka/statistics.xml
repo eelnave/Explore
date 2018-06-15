@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="meanEtc">ნიშნავს და ა.შ.</string>
+	<string name="data">მონაცემები</string>
 	<string name="count">ითვლიან</string>
 	<string name="min">მინიმალური</string>
 	<string name="first">1 კვარტილი</string>

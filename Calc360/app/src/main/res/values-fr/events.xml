@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="counter">Compteur</string>
-	<string name="plusOne" translatable="false">+1</string>
-	<string name="plusTwo" translatable="false">+2</string>
-	<string name="plusThree" translatable="false">+3</string>
-	<string name="plusFive" translatable="false">+5</string>
 
 	<string name="queueTime">Temps d’attente</string>
 	<string name="people">Nombre de personnes</string>

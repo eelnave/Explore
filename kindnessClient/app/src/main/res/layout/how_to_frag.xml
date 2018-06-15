@@ -20,13 +20,9 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="8dp"
 			android:text="@string/instruction1"
-			android:textAlignment="center"
-			android:textAllCaps="false"
-			android:textAppearance="@style/TextAppearance.AppCompat"
-			android:textSize="24sp"
-			android:textStyle="bold"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body2"
 			app:layout_constraintTop_toTopOf="parent"
-			tools:layout_editor_absoluteX="15dp"/>
+			tools:layout_editor_absoluteX="15dp" />
 
 		<ImageView
 			android:id="@+id/tutorialimage1"
@@ -42,13 +38,9 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="8dp"
 			android:text="@string/instruction2"
-			android:textAlignment="center"
-			android:textAllCaps="false"
-			android:textAppearance="@style/TextAppearance.AppCompat"
-			android:textSize="24sp"
-			android:textStyle="bold"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body2"
 			app:layout_constraintTop_toTopOf="parent"
-			tools:layout_editor_absoluteX="15dp"/>
+			tools:layout_editor_absoluteX="15dp" />
 
 		<ImageView
 			android:id="@+id/tutorialimage2"
@@ -63,14 +55,10 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="8dp"
 			android:text="@string/instruction3"
-			android:textAlignment="center"
-			android:textAllCaps="false"
-			android:textAppearance="@style/TextAppearance.AppCompat"
-			android:textSize="24sp"
-			android:textStyle="bold"
+			android:textAppearance="@style/TextAppearance.AppCompat.Body2"
 			app:layout_constraintTop_toTopOf="parent"
-			tools:layout_editor_absoluteX="15dp"/>
-
+			tools:layout_editor_absoluteX="15dp" />
+		<!-- the last tutorial image needs to display the map, NEXT WEEK -->
 		<ImageView
 			android:id="@+id/tutorialimage3"
 			android:layout_width="match_parent"

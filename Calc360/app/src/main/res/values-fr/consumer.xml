@@ -23,21 +23,9 @@
 	<string name="prod2">Produit 2</string>
 	<string name="prod3">Produit 3</string>
 
-	<!-- Properties used in the Compare Prices Calculator -->
-	<string-array name="cmpPricesProps" translatable="false">
-		<!--suppress CheckTagEmptyBody -->
-		<item></item>
-		<item>length</item>
-		<item>mass</item>
-		<item>time</item>
-		<item>area</item>
-		<item>volume</item>
-	</string-array>
-
 	<string name="gratuity">Pourboire</string>
 	<string name="costBeforeTax">Coût avant impôt</string>
 	<string name="taxAmt">Montant de la taxe</string>
-	<integer name="standardTip" translatable="false">15</integer>
 
 	<string name="usa">É.-U.</string>
 	<string name="euro">L’Europe</string>

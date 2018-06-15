@@ -1,103 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:compat="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/Quadratic"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:orientation="vertical">
+	android:layout_height="match_parent">
 
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="15dp"
 		android:orientation="vertical">
 
-		<TextView
-			style="@style/TextLabel"
-			android:text="@string/quadExplain1"/>
-
-		<TextView
-			style="@style/TextLabelCenter"
-			android:text="@string/quadExplain2"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:text="@string/quadExplain3"/>
-
-		<ImageView
-			android:layout_width="200dp"
+		<LinearLayout
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
-			android:adjustViewBounds="true"
-			android:contentDescription="@string/quadExplain4"
-			android:src="@drawable/formula_quadratic"/>
+			android:layout_marginBottom="15dp"
+			android:orientation="vertical">
+
+			<TextView
+				style="@style/TextLabel"
+				android:text="@string/quadExplain1"/>
+
+			<TextView
+				style="@style/TextLabelCenter"
+				android:text="@string/quadExplain2"/>
+
+			<TextView
+				style="@style/TextLabel"
+				android:text="@string/quadExplain3"/>
+
+			<ImageView
+				android:layout_width="200dp"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:adjustViewBounds="true"
+				android:contentDescription="@string/quadExplain4"
+				android:src="@drawable/formula_quadratic"/>
+		</LinearLayout>
+
+		<android.support.v7.widget.GridLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			compat:columnCount="2">
+
+			<TextView
+				style="@style/TextLabelEnd"
+				android:layout_marginEnd="10dp"
+				android:labelFor="@id/decA"
+				android:text="@string/quadA"/>
+
+			<EditText
+				android:id="@+id/decA"
+				style="@style/SignedDecimal"
+				android:ems="5">
+
+				<requestFocus/>
+			</EditText>
+
+			<TextView
+				style="@style/TextLabelEnd"
+				android:layout_marginEnd="10dp"
+				android:labelFor="@id/decB"
+				android:text="@string/quadB"/>
+
+			<EditText
+				android:id="@+id/decB"
+				style="@style/SignedDecimal"
+				android:ems="5"/>
+
+			<TextView
+				style="@style/TextLabelEnd"
+				android:layout_marginEnd="10dp"
+				android:labelFor="@id/decC"
+				android:text="@string/quadC"/>
+
+			<EditText
+				android:id="@+id/decC"
+				style="@style/SignedDecimal"
+				android:ems="5"
+				android:imeOptions="actionDone"/>
+
+			<TextView
+				style="@style/TextLabel"
+				android:layout_marginEnd="10dp"
+				android:layout_marginTop="10dp"
+				android:text="@string/roots"/>
+
+			<TextView
+				android:id="@+id/decRoot1"
+				style="@style/TextLabel"
+				android:layout_marginTop="10dp"
+				compat:layout_columnSpan="2"/>
+
+			<TextView
+				android:id="@+id/decRoot2"
+				style="@style/TextLabel"
+				compat:layout_columnSpan="2"/>
+		</android.support.v7.widget.GridLayout>
+
+		<Button
+			android:id="@+id/btnClear"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:text="@string/clear"/>
 	</LinearLayout>
-
-	<android.support.v7.widget.GridLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		compat:columnCount="2">
-
-		<TextView
-			style="@style/TextLabelEnd"
-			android:layout_marginEnd="10dp"
-			android:labelFor="@id/decA"
-			android:text="@string/quadA"/>
-
-		<EditText
-			android:id="@+id/decA"
-			style="@style/SignedDecimal"
-			android:ems="5">
-
-			<requestFocus/>
-		</EditText>
-
-		<TextView
-			style="@style/TextLabelEnd"
-			android:layout_marginEnd="10dp"
-			android:labelFor="@id/decB"
-			android:text="@string/quadB"/>
-
-		<EditText
-			android:id="@+id/decB"
-			style="@style/SignedDecimal"
-			android:ems="5"/>
-
-		<TextView
-			style="@style/TextLabelEnd"
-			android:layout_marginEnd="10dp"
-			android:labelFor="@id/decC"
-			android:text="@string/quadC"/>
-
-		<EditText
-			android:id="@+id/decC"
-			style="@style/SignedDecimal"
-			android:ems="5"
-			android:imeOptions="actionDone"/>
-
-		<TextView
-			style="@style/TextLabel"
-			android:layout_marginEnd="10dp"
-			android:layout_marginTop="10dp"
-			android:text="@string/roots"/>
-
-		<TextView
-			android:id="@+id/decRoot1"
-			style="@style/TextLabel"
-			android:layout_marginTop="10dp"
-			compat:layout_columnSpan="2"/>
-
-		<TextView
-			android:id="@+id/decRoot2"
-			style="@style/TextLabel"
-			compat:layout_columnSpan="2"/>
-	</android.support.v7.widget.GridLayout>
-
-	<Button
-		android:id="@+id/btnClear"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_marginTop="15dp"
-		android:text="@string/clear"/>
-</LinearLayout>
+</ScrollView>

@@ -21,6 +21,7 @@ public final class Binary extends CalcFragment {
 	private EditDecimal decimal;
 	private EditInteger binary;
 	private EditInteger hexadecimal;
+	private EditInteger base8;
 
 
 	@Override
@@ -32,8 +33,9 @@ public final class Binary extends CalcFragment {
 		decimal = new EditDecimal(view, R.id.decimal, this);
 		binary = new EditInteger(view, R.id.binary, this);
 		hexadecimal = new EditInteger(view, R.id.hexadecimal, this);
+		base8 = new EditInteger(view, R.id.octal, this);
 
-		EditWrapper[] inputs = { decimal, binary, hexadecimal };
+		EditWrapper[] inputs = { decimal, binary, hexadecimal, base8 };
 		initialize(view, inputs, R.id.btnClear, inputs);
 		return view;
 	}
@@ -43,35 +45,52 @@ public final class Binary extends CalcFragment {
 	protected void compute(WidgetWrapper source) {
 		clearOutput();
 
-		if (decimal.hasUserInput()) {
+		if (decimal.hasFocus()) {
 			double num = decimal.getDec();
-			String binStr, hexStr;
+			String binStr, hexStr, base8Str;
 			if (isInteger(num)) {
 				long intNum = (long)num;
 				binStr = Long.toBinaryString(intNum);
 				hexStr = Long.toHexString(intNum);
+				base8Str = Long.toOctalString(intNum);
 			}
 			else {
 				long longBits = Double.doubleToLongBits(num);
 				binStr = Long.toBinaryString(longBits);
 				hexStr = Long.toHexString(longBits);
+				base8Str = Long.toOctalString(longBits);
 			}
 			binary.setText(binStr);
 			hexadecimal.setText(hexStr);
+			base8.setText(base8Str);
 		}
-		else if (binary.hasUserInput()) {
+		else if (binary.hasFocus()) {
 			long num = binary.getBin();
 			String decStr = fmtrInt.format(num);
 			String hexStr = Long.toHexString(num);
+			String base8Str = Long.toOctalString(num);
 			decimal.setText(decStr);
 			hexadecimal.setText(hexStr);
+			base8.setText(base8Str);
 		}
-		else if (hexadecimal.hasUserInput()) {
+		else if (hexadecimal.hasFocus()) {
 			long num = hexadecimal.getHex();
 			String decStr = fmtrInt.format(num);
 			String binStr = Long.toBinaryString(num);
+			String base8Str = Long.toOctalString(num);
 			decimal.setText(decStr);
 			binary.setText(binStr);
+			base8.setText(base8Str);
+
+		}
+		else if (base8.hasFocus()) {
+			long num = base8.getBase8();
+			String decStr = fmtrInt.format(num);
+			String binStr = Long.toBinaryString(num);
+			String hexStr = Long.toHexString(num);
+			decimal.setText(decStr);
+			binary.setText(binStr);
+			hexadecimal.setText(hexStr);
 		}
 	}
 
