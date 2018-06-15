@@ -10,13 +10,13 @@ public class enumChart {
         TetonRiver,
         WarmRiver,
         FallRiver,
-        AshtonRes,
+       /* AshtonRes,
         IslandParkRes,
         HenrysLake,
         RirieRes,
         WakesideLake,
         MudLake,
-        PalisadesRes
+        PalisadesRes */
     }
 
     public enum month{
