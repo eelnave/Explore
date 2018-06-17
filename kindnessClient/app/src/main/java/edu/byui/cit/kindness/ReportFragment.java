@@ -14,6 +14,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import edu.byui.cit.widget.CITFragment;
+
 
 public final class ReportFragment extends CITFragment {
 	private static final int[] views = {
