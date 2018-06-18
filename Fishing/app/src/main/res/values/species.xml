@@ -6,10 +6,10 @@
         <item>Cutthroat Trout</item>
         <item>Brown Trout</item>
         <item>Brook trout</item>
-        <item>Lake Trout</item>
-        <item>Kokanee Salmon</item>
-        <item>Smallmouth Bass</item>
-        <item>Largemouth Bass</item>
-    </string-array>
+        <!-- <item>Lake Trout</item>
+         <item>Kokanee Salmon</item>
+         <item>Smallmouth Bass</item>
+         <item>Largemouth Bass</item> -->
+     </string-array>
 
-</resources>
+ </resources>

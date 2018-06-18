@@ -2,10 +2,10 @@ package edu.byui.cit.fishing;
 
 public class enumChart {
 
-    public enum bodysOfWater
+    public enum water
     {
-        UpperHenrysFork,
-        LowerHenrysFork,
+        UpperHenry,
+        LowerHenry,
         SnakeRiver,
         TetonRiver,
         WarmRiver,
@@ -37,11 +37,11 @@ public class enumChart {
         rainbow,
         cutthroat,
         brown,
-        brook,
-        lakeTrout,
+        brook
+        /* lakeTrout,
         kokanee,
         smallMouth,
-        largeMouth
+        largeMouth */
 
     }
 }

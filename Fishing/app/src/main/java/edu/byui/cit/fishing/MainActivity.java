@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        // Listview Group collasped listener
+        // Listview Group collapsed listener
         expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
 
             @Override
