@@ -96,5 +96,6 @@ public class enumChart {
             default:        System.out.println("What month are you fishing?");
         }
     }
+
 }
 

@@ -17,6 +17,12 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+    public String checkedSpecies;
+    public String checkedMonth;
+    public String checkedWater;
+
+
+
     public static final String TAG = "Fishing";
 
     ExpandableListAdapter listAdapter;
@@ -91,6 +97,29 @@ public class MainActivity extends Activity {
                                 listDataHeader.get(groupPosition)).get(
                                 childPosition), Toast.LENGTH_SHORT)
                         .show();
+
+
+                //get checked species and store in global variable
+                if (listDataHeader.get(groupPosition).equals(listDataHeader.get(0))){
+                    checkedSpecies = listDataChild.get(
+                            listDataHeader.get(groupPosition)).get(
+                            childPosition);
+
+                    ///get checked month and store in global variable
+                } else if (listDataHeader.get(groupPosition).equals(listDataHeader.get(1))){
+                    checkedMonth = listDataChild.get(
+                            listDataHeader.get(groupPosition)).get(
+                            childPosition);
+
+                    ///get checked water and store in global variable
+                } else if (listDataHeader.get(groupPosition).equals(listDataHeader.get(2))) {
+                    checkedWater = listDataChild.get(
+                            listDataHeader.get(groupPosition)).get(
+                            childPosition);
+                } else {
+                    // do nothing
+                }
+
                 return true;
             }
         });
@@ -119,5 +148,15 @@ public class MainActivity extends Activity {
                 listDataChild.put(listDataHeader.get(1), month);
                 listDataChild.put(listDataHeader.get(2), water); // Header, Child data
 
+               }
+
+               private void checkCategoriesNotNull(String checkedSpecies, String checkedMonth, String checkedWater){
+                if(checkedSpecies != null && checkedMonth != null && checkedWater != null){
+                    // Create instance of choices class and set values.
+
+
+                } else {
+                    // do nothing because not all categories have values
+                }
                }
 }
