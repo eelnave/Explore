@@ -8,140 +8,130 @@
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
     <script>
 function initFbRtDb() {
-	// Set the configuration for your app
-	// TODO: Replace with your project's config object
-	var config = {
-		apiKey: "AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s",
-		authDomain: "projectId.firebaseapp.com",
-		databaseURL: "https://kindness-360.firebaseio.com",
-		storageBucket: "kindness-360.appspot.com"
-	};
-	firebase.initializeApp(config);
+    // Set the configuration for your app
+    // TODO: Replace with your project's config object
+    var config = {
+        apiKey: "AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s",
+        authDomain: "projectId.firebaseapp.com",
+        databaseURL: "https://kindness-360.firebaseio.com",
+        storageBucket: "kindness-360.appspot.com"
+    };
+    firebase.initializeApp(config);
 }
+// put a marker on the map of the users location
+window.onload = startMap();
 
-// place geolocation functions outside of append function to get the info upon load.
-// the window onload doesn't seem to be working with the map. Is there a better way?
-window.onload = getLocation; 
-// the permissions
-	var geo = navigator.geolocation;     /*     Here we will check if the browser supports the Geolocation API; if exists, then we will display the location     */    
-// the get location function
-function getLocation() {       
-    if( geo ) {    
-        geo.getCurrentPosition( displayLocation );       
+function startMap(){
+var geo = navigator.geolocation;     /*     Here we will check if the browser supports the Geolocation API; if exists, then we will display the location     */     
+if( geo ) {    
+geo.getCurrentPosition( initMap );       
            } 
            else  { alert( "Oops, Geolocation API is not supported");        
            }     
 }
-
-/*     This function displays the latitude and longitude when the browser has a location. 
-	Should we just try to collect the lat and long outside of this display function???     */   
-
-    function displayLocation(position) {         
-        var lati = position.coords.latitude;        
-        var longi = position.coords.longitude; 
-		// check to see if these are holding values
-		    var div = document.getElementById( 'location' );     
-        div.innerHTML = "You are at Latitude: " + latitude + ", Longitude: " + longitude; 
+function initMap(position) {
+  // The location of Uluru
+  var lati = position.coords.latitude;  
+  var longi = position.coords.longitude;
+  var currentLocation = {lat: lati, lng: longi};
+  // The map, centered at rexburg
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: currentLocation});
+  // The marker, positioned at rexburg
+  var marker = new google.maps.Marker({position: currentLocation, map: map});
 }
 
-
 function readFbRtDb() {
-	// Get a reference to the database service
-	var db = firebase.database();
+    // Get a reference to the database service
+    var db = firebase.database();
 
-	write('output', '');
+    write('output', '');
 
-	var cats = db.ref('/categories');
-	cats.once('value', function(snapshot) {
-		var categories = snapshot.val();
-		for (var i = 1;  i < categories.length;  ++i) {
-			var category = categories[i];
-			if (category) {
-				append('output', stringFromCategory(category));
-			}
-		}
-	});
+    var cats = db.ref('/categories');
+    cats.once('value', function(snapshot) {
+        var categories = snapshot.val();
+        for (var i = 1;  i < categories.length;  ++i) {
+            var category = categories[i];
+            if (category) {
+                append('output', stringFromCategory(category));
+            }
+        }
+    });
 
-	var reports = db.ref('/reports');
-	//reps.once('value', function(snapshot) {
-	//	var reports = snapshot.val();
-	//	for (var key in reports) {
-	//		var report = reports[key];
-	//		append('output', stringFromReport(report));
-	//	}
-	//
-	//});
-	reports.on(child_added, readOneReport());
+    var reports = db.ref('/reports');
+
+    reports.on(child_added, readOneReport());
 }
 
 function readOneReport(snapshot){
-	var report = snapshot.val();
-	console.log(JSON.stringify(report));
+    var report = snapshot.val();
+    console.log(JSON.stringify(report));
 }
 
 // theoretically pass in lati and longi from the geolocation function
-function appendFbRtDb(lati, longi) {
-	// Get a reference to the database service
-	var db = firebase.database();
-// take away the hardcoded values and get the actual ones.
-	var cat = document.getElementById("cat").value;
-	
-	var now = new Date().getTime();       
-// tried placing lati and long in place of numbers, but that broke it. For now will do some more R&D
-	var report = {category:cat, latitude:-111, longitude:43.82, timestamp:now};
-	var reps = db.ref('/reports');
-	var node = reps.push();
-	var key = node.key;
-	node.set(report, function(error) {
-		if (error) {
-			alert('' + error);
-		}
-	});
+function appendFbRtDb() {    
+    var geo = navigator.geolocation;     /*     Here we will check if the browser supports the Geolocation API; if exists, then we will display the location     */     
+    if( geo ) {    
+        geo.getCurrentPosition( add );       
+           } 
+           else  { alert( "Oops, Geolocation API is not supported");        
+           }     
+}
+// function to request location when adding
+function add(position) {
 
-	var cats = db.ref('/categories/' + cat + '/reports/' + key);
-	cats.set(true, function(error) {
-		if (error) {
-			alert('' + error);
-		}
-	});
+    var lati = position.coords.latitude;  
+    var longi = position.coords.longitude;
+    // Get a reference to the database service
+    var db = firebase.database();
+// take away the hardcoded values and get the actual ones.
+    var cat = document.getElementById("cat").value;
+    
+    var now = new Date().getTime();       
+// tried placing lati and long in place of numbers, but that broke it. For now will do some more R&D
+    var report = {category:cat, latitude:lati, longitude:longi, timestamp:now};
+    var reps = db.ref('/reports');
+    var node = reps.push();
+    var key = node.key;
+    node.set(report, function(error) {
+        if (error) {
+            alert('' + error);
+        }
+    });
+
+    var cats = db.ref('/categories/' + cat + '/reports/' + key);
+    cats.set(true, function(error) {
+        if (error) {
+            alert('' + error);
+        }
+    });
 }
 
 
 function stringFromCategory(category) {
-	return category.name + ' ' + Object.keys(category.reports).length;
+    return category.name + ' ' + Object.keys(category.reports).length;
 }
 
 
 function stringFromReport(report) {
-	return JSON.stringify(report);
+    return JSON.stringify(report);
 }
 
 
 function write(id, msg) {
-	document.getElementById(id).innerHTML = msg + '<br>';
+    document.getElementById(id).innerHTML = msg + '<br>';
 }
 
 function append(id, msg) {
-	document.getElementById(id).innerHTML += msg + '<br>';
+    document.getElementById(id).innerHTML += msg + '<br>';
 }
-	</script>
+    </script>
 
 </head>
 
 <body onload="initFbRtDb()">
 <div id="map"></div>
-<script>
-		 // Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var rexburg = {lat: 43.82  , lng: -111.742};
-  // The map, centered at rexburg
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: rexburg});
-  // The marker, positioned at rexburg
-  var marker = new google.maps.Marker({position: rexburg, map: map});
-}
-    </script>
+
 <!--Load the API from the specified URL
 * The async attribute allows the browser to render the page while the API loads
 * The key parameter will contain your own API key (which is not needed for this tutorial)
@@ -166,8 +156,5 @@ function initMap() {
 <button type="button" onclick="readFbRtDb()">Read</button>
 <div id="output"></div>
 <hr>
-<div id="location">
-You are at Latitude: _________, Longitude: _________    
-</div>
 </body>
 </html>
