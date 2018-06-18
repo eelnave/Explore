@@ -16,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".add_customgoal"
+            android:label="Add New Goal" />
+        <activity
+            android:name=".ViewGoal"
+            android:label="@string/title_activity_view_goal"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
