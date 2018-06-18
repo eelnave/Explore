@@ -43,51 +43,51 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(LowerHenry));
 
         LatLng UpperHenry = new LatLng(43.950704, -111.708949);
-        mMap.addMarker(new MarkerOptions().position(UpperHenry).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(UpperHenry).title("Marker in UpperHenry"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(UpperHenry));
 
         LatLng SnakeRiver = new LatLng(43.596371, -111.478234);
-        mMap.addMarker(new MarkerOptions().position(SnakeRiver).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(SnakeRiver).title("Marker in SnakeRiver"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(SnakeRiver));
 
         LatLng TetonRiver = new LatLng(43.883224, -111.792983);
-        mMap.addMarker(new MarkerOptions().position(TetonRiver).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(TetonRiver).title("Marker in TetonRiver"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(TetonRiver));
 
         LatLng WarmRiver = new LatLng(44.114769, -111.323809);
-        mMap.addMarker(new MarkerOptions().position(WarmRiver).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(WarmRiver).title("Marker in WarmRiver"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(WarmRiver));
 
         LatLng FallRiver = new LatLng(44.065085, -111.210307);
-        mMap.addMarker(new MarkerOptions().position(FallRiver).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(FallRiver).title("Marker in FallRiver"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(FallRiver));
 
         LatLng AshtonReservoir = new LatLng(44.097611, -111.492876);
-        mMap.addMarker(new MarkerOptions().position(AshtonReservoir).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(AshtonReservoir).title("Marker in AshtonReservoir"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(AshtonReservoir));
 
         LatLng IslandParkReservoir = new LatLng(44.405883, -111.513958);
-        mMap.addMarker(new MarkerOptions().position(IslandParkReservoir).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(IslandParkReservoir).title("Marker in IslandParkReservoir"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(IslandParkReservoir));
 
         LatLng Henry = new LatLng(42.896009, -111.578617);
-        mMap.addMarker(new MarkerOptions().position(Henry).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(Henry).title("Marker in Henry"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Henry));
 
         LatLng RirieReservoir = new LatLng(43.523364, -111.721685);
-        mMap.addMarker(new MarkerOptions().position(RirieReservoir).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(RirieReservoir).title("Marker in RirieReservoir"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(RirieReservoir));
 
         LatLng WakesideLake = new LatLng(43.791687, -111.822812);
-        mMap.addMarker(new MarkerOptions().position(WakesideLake).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(WakesideLake).title("Marker in WakesideLake"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(WakesideLake));
 
         LatLng MudLake = new LatLng(43.885739, -112.385579);
-        mMap.addMarker(new MarkerOptions().position(MudLake).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(MudLake).title("Marker in MudLake"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(MudLake));
 
         LatLng PalisadesReservoir = new LatLng(43.202393, -111.081865);
-        mMap.addMarker(new MarkerOptions().position(PalisadesReservoir).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(PalisadesReservoir).title("Marker in PalisadesReservoir"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(PalisadesReservoir));
     }
 }
