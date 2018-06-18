@@ -21,7 +21,7 @@ import edu.byui.cit.widget.WidgetWrapper;
 
 public class AddVehicle extends CITFragment {
 	private EditDecimal decYear;
-	private EditString strMake, strModel, strVin;
+	private EditString strMake, strModel, strVin, strColor;
 	private AppDatabase db;
 	private VehicleDAO vehicleDAO;
 
@@ -36,6 +36,7 @@ public class AddVehicle extends CITFragment {
 		strMake = new EditString(view, R.id.make);
 		strModel = new EditString(view, R.id.model);
 		strVin = new EditString(view, R.id.vin);
+        strColor = new EditString(view, R.id.color);
 
 		new ButtonWrapper(view, R.id.btnAdd, new AddHandler());
 		new ButtonWrapper(view, R.id.btnReset, new ResetHandler());
@@ -88,13 +89,14 @@ public class AddVehicle extends CITFragment {
 			String make = strMake.getText();
 			String model = strModel.getText();
 			String vin = strVin.getText();
+            String color = strColor.getText();
 
 			Vehicle newVehicle = new Vehicle();
 			newVehicle.setVin(vin);
 			newVehicle.setYear((int)year);
 			newVehicle.setMake(make);
 			newVehicle.setModel(model);
-			newVehicle.setColor("Red");
+			newVehicle.setColor(color);
 
 			//Context context = InstrumentationRegistry.getTargetContext();
 
