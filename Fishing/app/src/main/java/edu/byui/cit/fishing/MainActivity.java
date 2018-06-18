@@ -112,8 +112,8 @@ public class MainActivity extends Activity {
 
                 // Stores array values from strings.xml into string list.
                 List<String> species = Arrays.asList(getResources().getStringArray(R.array.species));
-                List<String> month = Arrays.asList(getResources().getStringArray(R.array.month));
-                List<String> water = Arrays.asList(getResources().getStringArray(R.array.water));
+                List<String> month   = Arrays.asList(getResources().getStringArray(R.array.month));
+                List<String> water   = Arrays.asList(getResources().getStringArray(R.array.water));
 
                 listDataChild.put(listDataHeader.get(0), species);
                 listDataChild.put(listDataHeader.get(1), month);
