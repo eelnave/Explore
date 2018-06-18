@@ -19,6 +19,7 @@ public class Help extends CITFragment {
         View view = inflater.inflate(R.layout.help, container,  false);
         String helpTitle = "How to use the Maintenance App";
         TextView title = view.findViewById(R.id.textTitle);
+        title.setText(helpTitle);
         return null;
     }
 }
