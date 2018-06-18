@@ -8,8 +8,9 @@
 	app:columnCount="3">
 
 	<Button
+		android:id="@+id/v1"
 		style="@style/VehicleButton"
-		android:text="2001 Mazda 626"/>
+		android:text="2001 Mazda 626" />
 
 	<Button
 		style="@style/VehicleButton"

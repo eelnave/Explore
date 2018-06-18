@@ -1,7 +1,6 @@
 package edu.byui.cit.maintenance;
 
 import android.app.FragmentTransaction;
-//import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -13,6 +12,8 @@ import android.view.inputmethod.InputMethodManager;
 
 import edu.byui.cit.widget.CITFragment;
 
+//import android.arch.persistence.room.Room;
+
 
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Maintenance";
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 	private ChooseVehicle fragChoose;
 	private AddVehicle fragAdd;
 	private About fragAbout;
+	private MaintenanceFrag fragAct;
 
 	@Override
 	protected void onCreate(Bundle savedInstState) {
@@ -32,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
 		if (savedInstState == null) {
 			// Create a fragment that contains all the vehicles
-			// and place it as the first fragment in this activity.
+			// and place it as the first fragment in this maintenance_activity.
 			fragChoose = new ChooseVehicle();
 			FragmentTransaction trans =
 					getFragmentManager().beginTransaction();
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
+		// as you specify a parent maintenance_activity in AndroidManifest.xml.
 		switch (item.getItemId()) {
 			case android.R.id.home:
 				// Respond to the user pressing the "back/up" button on the
