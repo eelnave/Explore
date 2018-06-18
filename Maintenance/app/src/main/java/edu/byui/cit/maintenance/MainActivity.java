@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 	private ChooseVehicle fragChoose;
 	private AddVehicle fragAdd;
 	private About fragAbout;
+	private Help fragHelp;
 
 	@Override
 	protected void onCreate(Bundle savedInstState) {
@@ -75,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
 				return true;
 
 			case R.id.actHelp:
+                if (fragHelp == null || fragHelp.isDetached()) {
+                    fragHelp = new Help();
+                }
+                switchFragment(fragHelp);
+
 				return true;
 
 			case R.id.actAbout:
