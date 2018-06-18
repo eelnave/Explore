@@ -1,11 +1,46 @@
 <resources>
+	<string name="appName">доброжелательность</string>
 
-	<string name="longitude">Долгота</string>
-	<string name="latitude">Широта</string>
+	<string name="locationError">Ошибка местоположения</string>
+	<string name="locationErrMsg">Чтобы сообщить о своей доброте, вы должны включить службы определения местоположения на своем устройстве и предоставить разрешения на доступ к этому приложению.</string>
+	<string name="unknownErrMsg">Неизвестная ошибка служб местоположения. Вы не сможете сообщить о доброте, пока ошибка не будет исправлена.</string>
 
-	<string name="about">Около</string>
-	<string name="appDescr">
-Простой способ сообщить о доброжелательности, разработанной, написанной и поддерживаемой студентами в Университете Brigham Young University - Idaho</string>
+	<string name="reportKindness">Отчетность Доброта</string>
+	<string name="gifts">Дары</string>
+	<string name="service">
+		обслуживание</string>
+	<string name="time">Время</string>
+	<string name="touch">потрогать</string>
+	<string name="words">слова</string>
+
+	<string name="category">категория</string>
+	<string name="latitude">широта</string>
+	<string name="longitude">долгота</string>
+	<string name="thanks">Спасибо, что сообщили о доброте.</string>
+	<string name="toMap">Вернуться к карте</string>
+
+	<string name="howTo">Как использовать</string>
+	<string name="instruction1">Нажмите значок «плюс», чтобы сообщить о своей доброте рядом с вами. Или просто изучите детали о / добродетели / других, увеличив масштаб на карте.</string>
+	<string name="instruction2">Нажмите значок, который лучше всего отражает доброту, которую вы хотели бы сообщить.</string>
+	<string name="instruction3">
+		Вернитесь на карту, чтобы увидеть ваш новый акт доброты, добавленный в вашем местоположении.</string>
+
+	<string name="privacy">Конфиденциальность</string>
+	<string name="sharingLocation">Определение местоположения и совместного использования</string>
+	<string name="privacyTest">
+		Это приложение собирает приблизительное местоположение GPS, пока приложение активно. Это приложение не собирает данные вне местоположения GPS вашего устройства. (Номер телефона E.G, контакты или фотографии) Собранные данные GPS
+		используется исключительно для услуг, предоставляемых этим приложением и веб-сайтом, и не запрашивается.  </string>
+
+	<string name="about">About</string>
+	<string name="appDescr">Простой способ сообщить о доброжелательности. Это приложение разработано, написано и поддерживается студентами в Университете Бригама Янга - Айдахо.</string>
+	<string name="eula">
+		В полном объеме, разрешенном законом, это программное обеспечение не содержит никаких гарантий, явных или подразумеваемых. Установив и / или используя это программное обеспечение, вы соглашаетесь на то, чтобы обезопасить университет Бригама Янга - Айдахо и его спонсоров, сотрудников и студентов.</string>
+	<string name="feedback">Спасибо, что использовали Доброта! Мы ценим ваши комментарии, вопросы и рекомендации, чтобы помочь нам улучшить это приложение. Вы можете связаться с нами через<a href="https://play.google.com/store/apps/details?id=edu.byui.cit.kindness">Google Play Store</a>.</string>
 	<string name="contribs">Авторы</string>
-	<string name="winter2018">Зима 2018</string>
+	<string name="winter2018">
+		зима 2018</string>
+	<string name="spring2018">весна 2018</string>
+	<string name="logoCredit">Мы создали логотип и значки для Kindness, используя бесплатные инструменты на <a href="https://logomakr.com">logomakr.com</a></string>
+
+	<string name="mistake">Ну, это неудобно. Что-то не так с этой страницей, и это не работает. Мы приносим свои извинения.</string>
 </resources>

@@ -1,12 +1,9 @@
 package edu.byui.cit.maintenance;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
-//import android.support.test.InstrumentationRegistry;
 
 import edu.byui.cit.model.AppDatabase;
 import edu.byui.cit.model.Vehicle;
@@ -17,6 +14,8 @@ import edu.byui.cit.widget.ClickListener;
 import edu.byui.cit.widget.EditDecimal;
 import edu.byui.cit.widget.EditString;
 import edu.byui.cit.widget.WidgetWrapper;
+
+//import android.support.test.InstrumentationRegistry;
 
 
 public class AddVehicle extends CITFragment {
@@ -41,6 +40,8 @@ public class AddVehicle extends CITFragment {
 		new ButtonWrapper(view, R.id.btnReset, new ResetHandler());
 		return view;
 	}
+
+
 
 
 	@Override

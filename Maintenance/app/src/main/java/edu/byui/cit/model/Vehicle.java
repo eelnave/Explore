@@ -4,6 +4,9 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
+import android.widget.LinearLayout;
+
+import edu.byui.cit.maintenance.R;
 
 
 @Entity(
@@ -77,6 +80,12 @@ public class Vehicle {
 
 	public void setImage(byte[] image) {
 		this.image = image;
+	}
+
+	public void setButton() {
+		LinearLayout layout = null;;
+		layout.findViewById(R.id.ChooseVehicle);
+
 	}
 
 	@Override

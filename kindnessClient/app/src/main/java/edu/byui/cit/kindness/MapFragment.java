@@ -33,7 +33,7 @@ public final class MapFragment extends SupportMapFragment
 	private final HashMap<String, TreeMap<String, Report>> indexes;
 
 	private GoogleMap mMap;
-	private BitmapDescriptor heart;
+	private BitmapDescriptor heart, gifts, service, time, touch, words;
 	private DatabaseReference dbReports;
 
 
@@ -43,7 +43,8 @@ public final class MapFragment extends SupportMapFragment
 		// Create the list (TreeMap) that will hold all reports.
 		allReports = new TreeMap<>();
 
-		// Create the category indexes that will hold references to the reports.
+		// Create the category indexes that will hold references to the
+        // reports.
 		indexes = new HashMap<>();
 		for (Report.Category cat : Report.Category.values()) {
 			indexes.put(cat.name(), new TreeMap<String, Report>());
@@ -83,16 +84,39 @@ public final class MapFragment extends SupportMapFragment
 
 			// Load the icons to put on the map.
 			if (heart == null) {
-				heart = BitmapDescriptorFactory.fromResource(R.drawable.mapicon);
+				heart = BitmapDescriptorFactory.fromResource(
+						R.drawable.mapicon);
+			}
+			if (gifts == null) {
+				gifts = BitmapDescriptorFactory.fromResource(
+						R.drawable.gift_icon);
+			}
+			if (service == null) {
+				service = BitmapDescriptorFactory.fromResource(
+						R.drawable.service_icon);
+			}
+			if (time == null) {
+				time = BitmapDescriptorFactory.fromResource(
+						R.drawable.time_icon);
+			}
+			if (touch == null) {
+				touch = BitmapDescriptorFactory.fromResource(
+						R.drawable.touch_icon);
+			}
+			if (words == null) {
+				words = BitmapDescriptorFactory.fromResource(
+						R.drawable.words_icon);
 			}
 
 			if (dbReports == null) {
 				// Get a reference to the /reports node in the database.
 				FirebaseDatabase database = FirebaseDatabase.getInstance();
-				dbReports = database.getReference(KindnessActivity.REPORTS_KEY);
+				dbReports = database.getReference(KindnessActivity
+                        .REPORTS_KEY);
 
 				// Read from the database asynchronously
-//				dbReports.addListenerForSingleValueEvent(new SingleReadHandler());
+//				dbReports.addListenerForSingleValueEvent(new SingleReadHandler
+// ());
 				dbReports.addChildEventListener(new ReportAddedHandler());
 			}
 
@@ -150,7 +174,8 @@ public final class MapFragment extends SupportMapFragment
 
 	private final class ReportAddedHandler implements ChildEventListener {
 		@Override
-		public void onChildAdded(DataSnapshot dataSnapshot, String prevChildKey) {
+		public void onChildAdded(DataSnapshot dataSnapshot,
+				String prevChildKey) {
 			try {
 				// Get the report that was added.
 				String key = dataSnapshot.getKey();
@@ -159,13 +184,36 @@ public final class MapFragment extends SupportMapFragment
 				// Add this report to the list of all reports and to the
 				// category index that corresponds to this report's category.
 				allReports.put(key, report);
+				// use the indexes to do the filtering
+				// report of the data and the index
 				indexes.get(report.category().name()).put(key, report);
 
 				// Draw a marker for this report on the map.
 				MarkerOptions opts = new MarkerOptions();
 				opts.position(
-						new LatLng(report.getLatitude(), report.getLongitude()));
-				opts.icon(heart);
+						new LatLng(report.getLatitude(),
+								report.getLongitude()));
+				//check to see which act was reported and return correct icon
+				//to improve, report.category().icon enum instead of if
+                // statements
+				if (report.category().equals(Report.Category.Gifts)) {
+					opts.icon(gifts);
+				}
+				else if (report.category().equals(Report.Category.Service)) {
+					opts.icon(service);
+				}
+				else if (report.category().equals(Report.Category.Time)) {
+					opts.icon(time);
+				}
+				else if (report.category().equals(Report.Category.Touch)) {
+					opts.icon(touch);
+				}
+				else if (report.category().equals(Report.Category.Words)) {
+					opts.icon(words);
+				}
+				else {
+					opts.icon(heart);
+				}
 				mMap.addMarker(opts);
 			}
 			catch (DatabaseException ex) {
