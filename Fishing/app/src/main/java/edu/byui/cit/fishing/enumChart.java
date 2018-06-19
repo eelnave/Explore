@@ -2,6 +2,18 @@ package edu.byui.cit.fishing;
 
 public class enumChart {
 
+    public enum species {
+        Rainbow,
+        Cutthroat,
+        Brown,
+        Brook
+        /* LakeTrout,
+        Kokanee,
+        SmallMouth,
+        LargeMouth */
+
+    }
+
     public enum water
     {
         UpperHenry,
@@ -33,17 +45,7 @@ public class enumChart {
         November,
         December
     }
-    public enum species {
-        Rainbow,
-        Cutthroat,
-        Brown,
-        Brook
-        /* LakeTrout,
-        Kokanee,
-        SmallMouth,
-        LargeMouth */
 
-    }
 
 
     // a method that prints a String corresponding to the day value

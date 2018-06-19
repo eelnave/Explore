@@ -143,8 +143,8 @@ public class MainActivity extends Activity {
 
                             // Adding child data
                 listDataHeader.add("Species");
-                listDataHeader.add("Month");
                 listDataHeader.add("Body of Water");
+                listDataHeader.add("Month");
 
                             // Adding child data
 
@@ -154,8 +154,9 @@ public class MainActivity extends Activity {
                 List<String> water   = Arrays.asList(getResources().getStringArray(R.array.water));
 
                 listDataChild.put(listDataHeader.get(0), species);
-                listDataChild.put(listDataHeader.get(1), month);
-                listDataChild.put(listDataHeader.get(2), water); // Header, Child data
+                listDataChild.put(listDataHeader.get(1), water);
+                listDataChild.put(listDataHeader.get(2), month);
+                 // Header, Child data
 
                }
 
