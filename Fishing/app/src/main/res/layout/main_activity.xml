@@ -34,6 +34,15 @@
             android:paddingTop="5dp"
             android:clickable="true"/>
 
-
+    <TextView
+            android:text=" Display Output here"
+            android:padding="20px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvTestOutput"
+            android:textAppearance="@style/EditText"
+            android:textSize="40dp"
+            android:textColor="#6495ED"
+            android:textStyle="bold" />
 
 </LinearLayout>

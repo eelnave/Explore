@@ -13,6 +13,7 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
@@ -27,6 +28,7 @@ public class MainActivity extends Activity {
 
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
+    TextView tvTest;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
 
@@ -112,7 +114,7 @@ public class MainActivity extends Activity {
                 } else if (listDataHeader.get(groupPosition).equals(listDataHeader.get(1))){
                     checkedMonth = listDataChild.get(
                             listDataHeader.get(groupPosition)).get(
-                            childPosition) ; ;
+                            childPosition);
 
                     // Call method that checks if all categories have values
                     checkCategoriesNotNull(checkedSpecies,checkedMonth,checkedWater);
@@ -167,6 +169,9 @@ public class MainActivity extends Activity {
                     // Create instance of choices class and set values.
                     Choices selectedChoices = new Choices(checkedSpecies,checkedMonth,checkedWater);
                     selectedChoices.computeFly(checkedSpecies,checkedMonth,checkedWater);
+                    tvTest = (TextView) findViewById(R.id.tvTestOutput);
+                    tvTest.setText(checkedSpecies);
+
 
                 } else {
                     // do nothing because not all categories have values
