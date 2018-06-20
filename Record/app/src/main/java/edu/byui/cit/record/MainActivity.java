@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 					startActivity(intent);
 				}
 			});
+
 			//Daily notification time, intent, and alarm manager
 			Calendar calendar = Calendar.getInstance();
 //    calendar.set(Calendar.HOUR_OF_DAY, 18);

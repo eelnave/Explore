@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.byui.cit.record">
 
+	<uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,6 +25,12 @@
             android:name=".ViewGoal"
             android:label="@string/title_activity_view_goal"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+		<activity
+			android:name=".RepeatingNotification"
+			android:label="Notification" />
+		<receiver android:name=".NotificationReceiver" />
+
     </application>
 
 </manifest>
