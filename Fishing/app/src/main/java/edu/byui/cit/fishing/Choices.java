@@ -1,5 +1,7 @@
 package edu.byui.cit.fishing;
 
+import android.widget.TextView;
+
 public class Choices {
     private String SelectedSpecies;
     private String SelectedMonth;
@@ -183,6 +185,8 @@ public class Choices {
 
     // compute fly output based on water,species, and month
     public void computeFly(String selectedSpecies,String selectedMonth,String selectedWater){
+        //var to hold fly?
+        String reccomendedFly = "none";
 
         // Convert Strings to enums.
         Choices.species speciesToCheck = speciesStringToEnum(selectedSpecies);
@@ -190,7 +194,6 @@ public class Choices {
         Choices.water waterToCheck = waterStringToEnum(selectedWater);
 
     // sample case
-
 
 
 
