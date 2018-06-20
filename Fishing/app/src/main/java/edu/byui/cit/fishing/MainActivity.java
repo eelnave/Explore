@@ -169,8 +169,8 @@ public class MainActivity extends Activity {
                     // Create instance of choices class and set values.
                     Choices selectedChoices = new Choices(checkedSpecies,checkedMonth,checkedWater);
                     selectedChoices.computeFly(checkedSpecies,checkedMonth,checkedWater);
-                    tvTest = (TextView) findViewById(R.id.tvTestOutput);
-                    tvTest.setText(checkedSpecies);
+                    tvTest  = (TextView) findViewById(R.id.tvTestOutput);
+                    tvTest.setText(checkedSpecies + " " + checkedMonth + " " + checkedWater);
 
 
                 } else {
