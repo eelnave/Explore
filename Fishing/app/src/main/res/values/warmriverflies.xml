@@ -1,183 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="fallJanWetFlies">
+    <string name="warmJanWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
         Midges: Zebra Midge, Smoke Jumper.
         Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallJanDryFlies">
+    <string name="warmJanDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="fallFebWetFlies">
+    <string name="warmFebWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
         Midges: Zebra Midge, Smoke Jumper.
         Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallFebDryFlies">
+    <string name="warmFebDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="fallMarWetFlies">
+    <string name="warmMarWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
         Midges: Zebra Midge, Smoke Jumper.
         Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallMarDryFlies">
+    <string name="warmMarDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="fallAprWetFlies">
+    <string name="warmAprWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
         Midges: Zebra Midge, Smoke Jumper.
         Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallAprDryFlies">
+    <string name="warmAprDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="fallMayWetFlies">
+    <string name="warmMayWetFlies">
+        Salmon Flies: Black or Brown Rubberlegs Nymph
         March Brown: Brown Drake Nymph, Brown Drake Soft Hackle, Brown Drake Emerger
         Midges: Zebra Midge, Smoke Jumper.
         Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallMayDryFlies">
+    <string name="warmMayDryFlies">
+        Salmon Flies: Henry\’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
         March Brown: Cripple, Paradrake, Mike’s Brown Drake, Brown Drake Partridge Spinner
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="fallJunWetFlies">
+    <string name="warmJunWetFlies">
         Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
         Guides Choice Hares Ear
         Yellow Sallies: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
-        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
         Salmon Flies: Black or Brown Rubberlegs Nymph
-        March Brown: Brown Drake Nymph, Brown Drake Soft Hackle, Brown Drake Emerger
+        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
         Brown Drake: Quigley Cripple
         Green Drake: Hares Ear, Poxyback Green Drake
+        March Brown: Cripple, Paradrake, Mike’s Brown Drake, Brown Drake Partridge Spinner
         Midges: Zebra Midge, Smoke Jumper.
         Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallJunDryFlies">
+    <string name="warmJunDryFlies">
         Caddis: Elk Hair Caddis, X Caddis
         Yellow Sallies: Henry\'s Fork Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
-        Golden Stones: Henry\’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
         Salmon Flies: Henry\’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
-        March Brown: Cripple, Paradrake, Mike’s Brown Drake, Brown Drake Partridge Spinner
+        Golden Stones: Henry\’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
         Brown Drake: Paradrake
         Green Drake: Green Drake Paradrake, Green Drake Cripple
+        March Brown: Cripple, Paradrake, Mike’s Brown Drake, Brown Drake Partridge Spinner
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="fallJulWetFlies">
+    <string name="warmJulWetFlies">
         Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
         Guides Choice Hares Ear
         Yellow Sallies: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
         Golden Stones: Tan Rubberlegs, Golden Stone Nymph
-        Salmon Flies: Black or Brown Rubberlegs Nymph
         Brown Drake: Quigley Cripple
         Callibaetis: Pheasant Tail
+        Flavs: Poxyback Green Drake, Hares Ear, Pheasant Tail. Light Olive Body, Dark Wing
         Ants: Sinking Ant
         Midges: Zebra Midge, Smoke Jumper
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallJulDryFlies">
+    <string name="warmJulDryFlies">
         Caddis: Elk Hair Caddis, X Caddis
         Yellow Sallies: Henry\'s Fork Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
         Golden Stones: Henry\’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
-        Salmon Flies: Henry\’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
         Brown Drake: Paradrake
         Callibaetis: Parachute Adams, Rusty Spinner, Comparadun
+        Flavs: Green Drake Cripple, Sparkle Dun, Green Drake Paradrake, Hairwing Dun
         Ants: Bionic Ant, Pine Ant
         Hoppers: Madam X, Daves Hopper, Morrish Hopper
         Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="fallAugWetFlies">
+    <string name="warmAugWetFlies">
         Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
         Guides Choice Hares Ear
         Yellow Sallies: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
-        Callibaetis: Pheasant Tail
+        Callibaetis: Pheasant TailAnts: Sinking Ant
         Ants: Sinking Ant
         Midges: Zebra Midge, Smoke Jumper
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallAugDryFlies">
+    <string name="warmAugDryFlies">
         Caddis: Elk Hair Caddis, X Caddis
         Yellow Sallies: Henry\'s Fork Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
         Callibaetis: Parachute Adams, Rusty Spinner, Comparadun
+        Tricos: Hairwing Dun, Sparkle Dun, Rusty Spinner
         Ants: Bionic Ant, Pine Ant
         Hoppers: Madam X, Daves Hopper, Morrish Hopper
         Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="fallSepWetFlies">
+    <string name="warmSepWetFlies">
+        Mahogany Dun: Hares Ear, Pheasant Tail
         Ants: Sinking Ant
         Midges: Zebra Midge, Smoke Jumper
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallSepDryFlies">
+    <string name="warmSepDryFlies">
+        Mahogany Dun: Hairwing Dun, Sparkle Dun, Comparadun
         Ants: Bionic Ant, Pine Ant
         Hoppers: Madam X, Daves Hopper, Morrish Hopper
         Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="fallOctWetFlies">
+    <string name="warmOctWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
+        Midges: Zebra Midge, Smoke Jumper
         Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallOctDryFlies">
+    <string name="warmOctDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
-    <string name="fallNovWetFlies">
+
+    <string name="warmNovWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
+        Midges: Zebra Midge, Smoke Jumper
         Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallNovDryFlies">
+    <string name="warmNovDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
-    <string name="fallDecWetFlies">
+
+    <string name="warmDecWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
+        Midges: Zebra Midge, Smoke Jumper
         Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
         Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
     </string>
 
-    <string name="fallDecDryFlies">
+    <string name="warmDecDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
