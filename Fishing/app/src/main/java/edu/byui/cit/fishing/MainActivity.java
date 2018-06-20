@@ -17,6 +17,12 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+    public String checkedSpecies;
+    public String checkedMonth;
+    public String checkedWater;
+
+
+
     public static final String TAG = "Fishing";
 
     ExpandableListAdapter listAdapter;
@@ -53,28 +59,28 @@ public class MainActivity extends Activity {
             }
         });
 
-        // Listview Group expanded listener
-        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
+//        // Listview Group expanded listener
+//        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
+//
+//            @Override
+//            public void onGroupExpand(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        listDataHeader.get(groupPosition) + " Expanded",
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getApplicationContext(),
-                        listDataHeader.get(groupPosition) + " Expanded",
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        // Listview Group collasped listener
-        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
-
-            @Override
-            public void onGroupCollapse(int groupPosition) {
-                 Toast.makeText(getApplicationContext(),
-                        listDataHeader.get(groupPosition) + " Collapsed",
-                        Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//        // Listview Group collapsed listener
+//        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
+//
+//            @Override
+//            public void onGroupCollapse(int groupPosition) {
+//                 Toast.makeText(getApplicationContext(),
+//                        listDataHeader.get(groupPosition) + " Collapsed",
+//                        Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
         // Listview on child click listener
         expListView.setOnChildClickListener(new OnChildClickListener() {
@@ -83,7 +89,7 @@ public class MainActivity extends Activity {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
                 // TODO Auto-generated method stub
-                Toast.makeText(
+                /* Toast.makeText(
                         getApplicationContext(),
                         listDataHeader.get(groupPosition)
                                 + " : "
@@ -91,6 +97,39 @@ public class MainActivity extends Activity {
                                 listDataHeader.get(groupPosition)).get(
                                 childPosition), Toast.LENGTH_SHORT)
                         .show();
+                        */
+
+
+                //get checked species and store in global variable
+                if (listDataHeader.get(groupPosition).equals(listDataHeader.get(0))){
+                    checkedSpecies =  listDataChild.get(
+                            listDataHeader.get(groupPosition)).get(
+                            childPosition) ;
+                    // Call method that checks if all categories have values
+                    checkCategoriesNotNull(checkedSpecies,checkedMonth,checkedWater);
+
+                    ///get checked month and store in global variable
+                } else if (listDataHeader.get(groupPosition).equals(listDataHeader.get(1))){
+                    checkedMonth = listDataChild.get(
+                            listDataHeader.get(groupPosition)).get(
+                            childPosition) ; ;
+
+                    // Call method that checks if all categories have values
+                    checkCategoriesNotNull(checkedSpecies,checkedMonth,checkedWater);
+
+                    ///get checked water and store in global variable
+                } else if (listDataHeader.get(groupPosition).equals(listDataHeader.get(2))) {
+                    checkedWater = listDataChild.get(
+                            listDataHeader.get(groupPosition)).get(
+                            childPosition) ;
+
+                    // Call method that checks if all categories have values
+                    checkCategoriesNotNull(checkedSpecies,checkedMonth,checkedWater);
+
+                } else {
+                    // do nothing
+                }
+
                 return true;
             }
         });
@@ -105,8 +144,8 @@ public class MainActivity extends Activity {
 
                             // Adding child data
                 listDataHeader.add("Species");
-                listDataHeader.add("Month");
                 listDataHeader.add("Body of Water");
+                listDataHeader.add("Month");
 
                             // Adding child data
 
@@ -116,8 +155,21 @@ public class MainActivity extends Activity {
                 List<String> water   = Arrays.asList(getResources().getStringArray(R.array.water));
 
                 listDataChild.put(listDataHeader.get(0), species);
-                listDataChild.put(listDataHeader.get(1), month);
-                listDataChild.put(listDataHeader.get(2), water); // Header, Child data
+                listDataChild.put(listDataHeader.get(1), water);
+                listDataChild.put(listDataHeader.get(2), month);
+                 // Header, Child data
 
+               }
+
+               // Call the method to compute fly.
+               private void checkCategoriesNotNull(String checkedSpecies, String checkedMonth, String checkedWater){
+                if(checkedSpecies != null && checkedMonth != null && checkedWater != null){
+                    // Create instance of choices class and set values.
+                    Choices selectedChoices = new Choices(checkedSpecies,checkedMonth,checkedWater);
+                    selectedChoices.computeFly(checkedSpecies,checkedMonth,checkedWater);
+
+                } else {
+                    // do nothing because not all categories have values
+                }
                }
 }
