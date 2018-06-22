@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snakeRiverJanWetFlies">
+        Midge: Zebra Midge, Smoke Jumper,
+        leaches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Other Nymphs: Rubber Legs, Pheasant tail, Hares ears, Frenchies
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+    </string>
+
+    <string name="snakeRiverJanDryFlies">
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+    </string>
+
+    <string name="snakeRiverFebWetFlies">
+        Midge: Zebra Midge, Smoke Jumper,
+        leaches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Other Nymphs: Rubber Legs, Pheasant tail, Hares ears, Frenchies
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+    </string>
+
+    <string name="snakeRiverFebDryFlies">
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+    </string>
+
+    <string name="snakeRiverMarWetFlies">
+        Midge: Zebra Midge, Smoke Jumper,
+        leaches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Other Nymphs: Pig Stickers, San Juan Worm, Rubber Legs, Hares ears, Frenchies
+        Blue Wing Olive: Pheasant tail
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+    </string>
+
+    <string name="snakeRiverMarDryFlies">
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
+
+    </string>
+
+    <string name="snakeRiverAprWetFlies">
+        Midge: Zebra Midge, Smoke Jumper,
+        leaches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Other Nymphs: Pig Stickers, San Juan Worm, Rubber Legs, Hares ears, Frenchies
+        Blue Wing Olive: Pheasant tail
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+    </string>
+
+    <string name="snakeRiverAprDryFlies">
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
+    </string>
+
+    <string name="snakeRiverMayWetFlies">
+        Midge: Zebra Midge, Smoke Jumper
+        Stoneflies: Black, Brown, or coffee Rubber Legs
+        leaches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Other Nymphs: Pig Stickers, San Juan Worm, Hares ears, Frenchies
+        Blue Wing Olive: Pheasant tail
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+    </string>
+
+    <string name="snakeRiverMayDryFlies">
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
+    </string>
+
+    <string name="snakeRiverJunWetFlies">
+        Stoneflies: 20-Incher,
+        Salmon Flies: Black or Brown Rubberlegs Nymph
+        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
+        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
+        Guides Choice Hares Ear
+        Pale Morning Dun: Pheasant Tail Nymph, PMD Nymph, Halfback Emerger, CDC Emerger,
+        Green Drake: Hares Ear, Poxyback Green Drake
+        Midges: Zebra Midge, Smoke Jumper
+        Ants: Sinking Ant
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+
+    </string>
+
+    <string name="snakeRiverJunDryFlies">
+        Stoneflies: Bullethead Skwala, J-Slam
+        Salmon Flies: Henry’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
+        Golden Stones:  Henry’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
+        Caddis: Elk Hair Caddis, X Caddis
+        Pale Morning Dun: PMD Paracripple, PMD Thorax, PMD Parachute, Grey Yellow Nohackle
+        Green Drake: Green Drake Paradrake, Green Drake Cripple
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+        Ants: Bionic Ant, Pine Ant
+        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
+        Hoppers: Madam X, Daves Hopper, Morrish Hopper
+
+    </string>
+
+    <string name="snakeRiverJulWetFlies">
+        Stoneflies: 20-Incher,
+        Salmon Flies: Black or Brown Rubberlegs Nymph
+        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
+        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
+        Guides Choice Hares Ear
+        Pale Morning Dun: Pheasant Tail Nymph, PMD Nymph, Halfback Emerger, CDC Emerger,
+        Green Drake: Hares Ear, Poxyback Green Drake
+        Midges: Zebra Midge, Smoke Jumper
+        Ants: Sinking Ant
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+
+    </string>
+
+    <string name="snakeRiverJulDryFlies">
+        Stoneflies: Bullethead Skwala, J-Slam
+        Salmon Flies: Henry’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
+        Golden Stones:  Henry’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
+        Caddis: Elk Hair Caddis, X Caddis
+        Pale Morning Dun: PMD Paracripple, PMD Thorax, PMD Parachute, Grey Yellow Nohackle
+        Pink Albert: Sparkle Dun, Rusty Spinner
+        Green Drake: Green Drake Paradrake, Green Drake Cripple
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+        Ants: Bionic Ant, Pine Ant
+        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
+        Hoppers: Madam X, Daves Hopper, Morrish Hopper
+    </string>
+
+    <string name="snakeRiverAugWetFlies">
+        Stoneflies: 20-Incher,
+        Salmon Flies: Black or Brown Rubberlegs Nymph
+        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
+        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
+        Guides Choice Hares Ear
+        Pale Morning Dun: Pheasant Tail Nymph, PMD Nymph, Halfback Emerger, CDC Emerger,
+        Mahogany Dun:Hares Ear, Pheasant Tail
+        Green Drake: Hares Ear, Poxyback Green Drake
+        Midges: Zebra Midge, Smoke Jumper
+        Ants: Sinking Ant
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+    </string>
+
+    <string name="snakeRiverAugDryFlies">
+        Stoneflies: Bullethead Skwala, J-Slam
+        Salmon Flies: Henry’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
+        Golden Stones:  Henry’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
+        Caddis: Elk Hair Caddis, X Caddis
+        Pale Morning Dun: PMD Paracripple, PMD Thorax, PMD Parachute, Grey Yellow Nohackle
+        Pink Albert: Sparkle Dun, Rusty Spinner
+        Mahogany Dun: Hairwing Dun, Sparkle Dun, Comparadun
+        Green Drake: Green Drake Paradrake, Green Drake Cripple
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+        Ants: Bionic Ant, Pine Ant
+        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
+        Hoppers: Madam X, Daves Hopper, Morrish Hopper
+    </string>
+
+    <string name="snakeRiverSepWetFlies">
+        Stoneflies: 20-Incher,
+        Salmon Flies: Black or Brown Rubberlegs Nymph
+        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
+        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
+        Guides Choice Hares Ear
+        Pale Morning Dun: Pheasant Tail Nymph, PMD Nymph, Halfback Emerger, CDC Emerger,
+        Mahogany Dun:Hares Ear, Pheasant Tail
+        Blue Wing Olive: Pheasant Tail, Hares Ear, Soft Hackle
+        Green Drake: Hares Ear, Poxyback Green Drake
+        Midges: Zebra Midge, Smoke Jumper
+        Ants: Sinking Ant
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+    </string>
+
+    <string name="snakeRiverSepDryFlies">
+        Stoneflies: Bullethead Skwala, J-Slam
+        Salmon Flies: Henry’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
+        Golden Stones:  Henry’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
+        Caddis: Elk Hair Caddis, X Caddis
+        Pale Morning Dun: PMD Paracripple, PMD Thorax, PMD Parachute, Grey Yellow Nohackle
+        Pink Albert: Sparkle Dun, Rusty Spinner
+        Mahogany Dun: Hairwing Dun, Sparkle Dun, Comparadun
+        Blue Wing Olive: Hairwing Dun, Comparadun, Sparkle Dun
+        Green Drake: Green Drake Paradrake, Green Drake Cripple
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+        Ants: Bionic Ant, Pine Ant
+        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
+        Hoppers: Madam X, Daves Hopper, Morrish Hopper
+    </string>
+
+    <string name="snakeRiverOctWetFlies">
+        Mahogany Dun:Hares Ear, Pheasant Tail
+        Blue Wing Olive: Pheasant Tail, Hares Ear, Soft Hackle
+        Midges: Zebra Midge, Smoke Jumper
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+
+    </string>
+
+    <string name="snakeRiverOctDryFlies">
+        Mahogany Dun: Hairwing Dun, Sparkle Dun, Comparadun
+        Blue Wing Olive: Hairwing Dun, Comparadun, Sparkle Dun
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+    </string>
+
+    <string name="snakeRiverNovWetFlies">
+        Midge: Zebra Midge, Smoke Jumper,
+        leaches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Other Nymphs: Rubber Legs, Pheasant tail, Hares ears, Frenchies
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+    </string>
+
+    <string name="snakeRiverNovDryFlies">
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+    </string>
+
+    <string name="snakeRiverDecWetFlies">
+        Midge: Zebra Midge, Smoke Jumper,
+        leaches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Other Nymphs: Rubber Legs, Pheasant tail, Hares ears, Frenchies
+        Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
+        Streamers: Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+    </string>
+
+    <string name="snakeRiverDecDryFlies">
+        Midges: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+    </string>
+</resources>
