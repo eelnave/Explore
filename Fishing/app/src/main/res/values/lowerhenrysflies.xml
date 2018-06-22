@@ -6,7 +6,6 @@
         <b>Midges:</b> Zebra Midge, Smoke Jumper,
         <b>Leeches:</b> Mohair Leeach, Woolly Bugger, Simiseal Leech
         <b>Streamers:</b> Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-
     </string>
 
     <string name="lowerHenrysJanDryFlies">
@@ -19,8 +18,6 @@
         <b>Midges:</b> Zebra Midge, Smoke Jumper,
         <b>Leeches:</b> Mohair Leeach, Woolly Bugger, Simiseal Leech
         <b>Streamers:</b> Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-
-
     </string>
 
     <string name="lowerHenrysFebDryFlies">
@@ -33,7 +30,6 @@
         <b>Midges:</b> Zebra Midge, Smoke Jumper,
         <b>Leeches:</b> Mohair Leeach, Woolly Bugger, Simiseal Leech
         <b>Streamers:</b> Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-
     </string>
 
     <string name="lowerHenrysMarDryFlies">
@@ -60,7 +56,6 @@
         Midges: Zebra Midge, Smoke Jumper,
         Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-
     </string>
 
     <string name="lowerHenrysMayDryFlies">
@@ -82,7 +77,6 @@
         Midges: Zebra Midge, Smoke Jumper,
         Leeches: Mohair Leach, Woolly Bugger, Simiseal Leech
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-
     </string>
 
     <string name="lowerHenrysJunDryFlies">
@@ -127,7 +121,6 @@
         Ants: Bionic Ant, Pine Ant
         Hoppers: Madam X, Daves Hopper, Morrish Hopper
         Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-
     </string>
 
     <string name="lowerHenrysAugWetFlies">
@@ -163,7 +156,6 @@
         Ants: Bionic Ant, Pine Ant
         Hoppers: Madam X, Daves Hopper, Morrish Hopper
         Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-
     </string>
 
     <string name="lowerHenrysOctWetFlies">
