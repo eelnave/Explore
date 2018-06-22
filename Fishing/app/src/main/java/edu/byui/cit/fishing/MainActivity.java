@@ -110,6 +110,9 @@ public class MainActivity extends Activity {
                     // Call method that checks if all categories have values
                     checkCategoriesNotNull(checkedSpecies,checkedMonth,checkedWater);
 
+                    //Collapse Group on click
+                    expListView.collapseGroup(0);
+
                     ///get checked month and store in global variable
                 } else if (listDataHeader.get(groupPosition).equals(listDataHeader.get(1))){
                     checkedMonth = listDataChild.get(
@@ -119,11 +122,16 @@ public class MainActivity extends Activity {
                     // Call method that checks if all categories have values
                     checkCategoriesNotNull(checkedSpecies,checkedMonth,checkedWater);
 
+                    //Collapse Group on click
+                    expListView.collapseGroup(1);
+
                     ///get checked water and store in global variable
                 } else if (listDataHeader.get(groupPosition).equals(listDataHeader.get(2))) {
                     checkedWater = listDataChild.get(
                             listDataHeader.get(groupPosition)).get(
                             childPosition) ;
+                    //Collapse Group on click
+                    expListView.collapseGroup(2);
 
                     // Call method that checks if all categories have values
                     checkCategoriesNotNull(checkedSpecies,checkedMonth,checkedWater);
@@ -170,7 +178,7 @@ public class MainActivity extends Activity {
                     Choices selectedChoices = new Choices(checkedSpecies,checkedMonth,checkedWater);
                     selectedChoices.computeFly(checkedSpecies,checkedMonth,checkedWater);
                     tvTest = (TextView) findViewById(R.id.tvTestOutput);
-                    tvTest.setText(checkedSpecies);
+                    tvTest.setText(checkedSpecies + checkedMonth + checkedWater);
 
 
                 } else {

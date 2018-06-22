@@ -26,14 +26,6 @@
             android:textSize="40dp"
             android:textColor="#6495ED"
             android:textStyle="bold" />
-
-    <ExpandableListView
-            android:id="@+id/lvExp"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:paddingTop="5dp"
-            android:clickable="true"/>
-
     <TextView
             android:text=" Display Output here"
             android:padding="20px"
@@ -44,5 +36,14 @@
             android:textSize="40dp"
             android:textColor="#6495ED"
             android:textStyle="bold" />
+
+    <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:paddingTop="5dp"
+            android:clickable="true"/>
+
+
 
 </LinearLayout>
