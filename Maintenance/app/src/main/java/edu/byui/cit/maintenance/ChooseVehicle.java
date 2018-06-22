@@ -21,7 +21,7 @@ public class ChooseVehicle extends CITFragment {
 	protected View createView(LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstState) {
 
-		View view = inflater.inflate(R.layout.maintenance_frag, container, false);
+		View view = inflater.inflate(R.layout.choose_vehicle, container, false);
 		new ButtonWrapper(view, R.id.v1, new selectVehicle());
 
 		return view;
