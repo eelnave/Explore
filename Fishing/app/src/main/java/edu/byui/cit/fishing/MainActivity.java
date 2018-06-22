@@ -163,14 +163,14 @@ public class MainActivity extends Activity {
 
                }
 
-               // Call the method to compute fly.
+               // Call the method to compute flies.
                private void checkCategoriesNotNull(String checkedSpecies, String checkedMonth, String checkedWater){
                 if(checkedSpecies != null && checkedMonth != null && checkedWater != null){
                     // Create instance of choices class and set values.
                     Choices selectedChoices = new Choices(checkedSpecies,checkedMonth,checkedWater);
                     selectedChoices.computeFly(checkedSpecies,checkedMonth,checkedWater);
                     tvTest  = (TextView) findViewById(R.id.tvTestOutput);
-                    tvTest.setText(checkedSpecies + " , " + checkedMonth + " , " + checkedWater);
+                    tvTest.setText(checkedSpecies + ", " + checkedMonth + ", " + checkedWater);
 
 
                 } else {
