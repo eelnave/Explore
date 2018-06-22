@@ -1,9 +1,13 @@
 <!DOCTYPE Html>
+
 <html lang="en-us">
 <head>
+	
 	<meta charset="utf-8">
-	<title>Kindness Map :test:</title>
-	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+	<title>Kindness Map</title>
+</head>
+
+	<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
 
 	<script>
 		//Firebase init
@@ -20,43 +24,51 @@
 //			storageBucket:"kindness-360.appspot.com",
 //			messagingSenderId: null //unknown
 		};
-		firebase.initializeApp(config);
+	
 
 
-		function loadDatafromFireBase(myMap) {
-			var marker = {};
-			var database = firebase.database();
-			db.ref('clicks').ones('value', points => {
-				points.forEach(point=>{
-					marker = new google.maps.Marker({
-						map:map,
-						position: {
-							lat: point.val().lat,
-							lng: point.val().lng
-						}
-					});
-					marker.setMap(map)
-				});
-			});
-		}
+var myMap = new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
+window.onload = myMap(google.maps.Map);
 
 		function myMap() {
 			var mapOptions = {
-				center: new google.maps.LatLng(0, 0),
-				zoom: 10,
+				//center: new google.maps.Map,
+				zoom: 3,
 				maptypeID: google.maps.MapTypeId.HYBRID
 			}
-			var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-		}
-	</script>
+			Map = new google.maps.Map(document.getElementById("Map"));}
+			
+			firebase.initializeApp(config);
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDy4w22B8dV8OFyZ7Kru0bN6iEPWzZcaDM&callback=myMap"></script>
-</head>
+
+function loadDatafromFireBase(myMap) {
+	var marker = {};
+	var database = firebase.database();
+	db.ref('reports').on("child_added", function(snapshot) {
+		var dataReport = snapshot.val();
+			marker = new google.maps.Marker(
+				map, map(),
+				position, {
+
+					lat: dataReport.latitude,
+					lng: dataReport.longitude}
+			);
+			marker.setMap(map);
+	});
+}
+			</script>
+			
+			<div id="Map" style="width:900px;height:500px;background:blue"></div>
+
+	
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s&callback=myMap"></script>
+	
+
 
 <body>
-    <h1>Kindness Map :test:</h1>
+    <h1>Kindness Map</h1>
 
-    <div id="map" style="width:900px;height:500px;background:yellow"></div>
 </body>
 </Html>
