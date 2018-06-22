@@ -3,18 +3,20 @@ package edu.byui.cit.maintenance;
 import android.app.FragmentTransaction;
 //import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
 import edu.byui.cit.widget.CITFragment;
 
 //import android.arch.persistence.room.Room;
-
 
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Maintenance";
@@ -24,6 +26,11 @@ public class MainActivity extends AppCompatActivity {
 	private About fragAbout;
 	private Help fragHelp;
 	private MaintenanceFrag fragAct;
+
+
+// create variable FloatingActionButton
+	private FloatingActionButton fab;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstState) {
@@ -43,6 +50,17 @@ public class MainActivity extends AppCompatActivity {
 			trans.add(R.id.fragContainer, fragChoose);
 			trans.commit();
 		}
+
+		//create floating action button and set on click listener
+		fab = (FloatingActionButton) findViewById(R.id.fab);
+		fab.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent intent = new Intent(MainActivity.this, AddVehicle.class);
+				startActivity(intent);
+			}
+		});
+
 	}
 
 	@Override
@@ -120,4 +138,9 @@ public class MainActivity extends AppCompatActivity {
 
 		super.onBackPressed();
 	}
+
+
+
+
+
 }
