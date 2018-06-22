@@ -91,7 +91,7 @@ public class MainActivity extends Activity {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
                 // TODO Auto-generated method stub
-                /* Toast.makeText(
+                 Toast.makeText(
                         getApplicationContext(),
                         listDataHeader.get(groupPosition)
                                 + " : "
@@ -99,7 +99,7 @@ public class MainActivity extends Activity {
                                 listDataHeader.get(groupPosition)).get(
                                 childPosition), Toast.LENGTH_SHORT)
                         .show();
-                        */
+
 
 
                 //get checked species and store in global variable
