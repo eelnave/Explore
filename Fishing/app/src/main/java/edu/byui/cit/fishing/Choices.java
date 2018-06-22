@@ -2,6 +2,7 @@ package edu.byui.cit.fishing;
 
 import android.widget.TextView;
 
+
 public class Choices {
     private String SelectedSpecies;
     private String SelectedMonth;
