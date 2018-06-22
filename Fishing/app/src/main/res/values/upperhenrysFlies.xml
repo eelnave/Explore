@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="lowerHenrysJanWetflies">
+    <string name="upperHenrysJanWetFlies">
         <b>Blue Wing Olives:</b> Pheasant Tail, Hares Ear, Soft Hackle
         <b>Midges:</b> Zebra Midge, Smoke Jumper,
         <b>Leeches:</b> Mohair Leeach, Woolly Bugger, Simiseal Leech
@@ -9,12 +9,12 @@
 
     </string>
 
-    <string name="lowerHenrysJanDryFlies">
+    <string name="upperHenrysJanDryFlies">
         <b>Blue Wing Olives:</b> Hairwing Dun, Comparadun, Sparkle Dun
         <b>Midges:</b> Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysFebWetFlies">
+    <string name="upperHenrysFebWetFlies">
         <b>Blue Wing Olives:</b> Pheasant Tail, Hares Ear, Soft Hackle
         <b>Midges:</b> Zebra Midge, Smoke Jumper,
         <b>Leeches:</b> Mohair Leeach, Woolly Bugger, Simiseal Leech
@@ -23,12 +23,12 @@
 
     </string>
 
-    <string name="lowerHenrysFebDryFlies">
+    <string name="upperHenrysFebDryFlies">
         <b>Blue Wing Olives:</b> Hairwing Dun, Comparadun, Sparkle Dun
         <b>Midges:</b> Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysMarWetFlies">
+    <string name="upperHenrysMarWetFlies">
         <b>Blue Wing Olives:</b> Pheasant Tail, Hares Ear, Soft Hackle
         <b>Midges:</b> Zebra Midge, Smoke Jumper,
         <b>Leeches:</b> Mohair Leeach, Woolly Bugger, Simiseal Leech
@@ -36,25 +36,25 @@
 
     </string>
 
-    <string name="lowerHenrysMarDryFlies">
+    <string name="upperHenrysMarDryFlies">
         <b>Blue Wing Olives:</b> Hairwing Dun, Comparadun, Sparkle Dun
         <b>Midges:</b> Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysAprWetFlies">
+    <string name="upperHenrysAprWetFlies">
         <b>Blue Wing Olives:</b> Pheasant Tail, Hares Ear, Soft Hackle
         <b>Midges:</b> Zebra Midge, Smoke Jumper,
         <b>Leeches:</b> Mohair Leeach, Woolly Bugger, Simiseal Leech
         <b>Streamers:</b> Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
     </string>
 
-    <string name="lowerHenrysAprDryFlies">
+    <string name="upperHenrysAprDryFlies">
         <b>Blue Wing Olives:</b> Hairwing Dun, Comparadun, Sparkle Dun
         <b>Midges:</b> Renegade, Twilight Midge
 
     </string>
 
-    <string name="lowerHenrysMayWetFlies">
+    <string name="upperHenrysMayWetFlies">
         Salmonfly: Black or Brown Rubberlegs
         March Brown: Brown Drake Nymph, Brown Drake Soft Hackle, Brown Drake Emerger
         Midges: Zebra Midge, Smoke Jumper,
@@ -63,13 +63,13 @@
 
     </string>
 
-    <string name="lowerHenrysMayDryFlies">
+    <string name="upperHenrysMayDryFlies">
         Salmonfly: Henry’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
         March Browns: Cripple, Paradrake, Mike’s Brown Drake, Brown Drake Partridge Spinner
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysJunWetFlies">
+    <string name="upperHenrysJunWetFlies">
         SalmonFly: Black or Brown Rubberlegs Nymph
         Golden Stone: Tan Rubberlegs, Golden Stone Nymph
         Yellow Sally: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
@@ -85,7 +85,7 @@
 
     </string>
 
-    <string name="lowerHenrysJunDryFlies">
+    <string name="upperHenrysJunDryFlies">
         SalmonFly: Henry’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
         Golden Stone:  Henry’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
         Yellow Sally: Henrys Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
@@ -97,7 +97,7 @@
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysJulWetFlies">
+    <string name="upperHenrysJulWetFlies">
         SalmonFly: Black or Brown Rubberlegs Nymph
         Golden Stone: Tan Rubberlegs, Golden Stone Nymph
         Yellow Sally: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
@@ -113,7 +113,7 @@
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
     </string>
 
-    <string name="lowerHenrysJulDryFlies">
+    <string name="upperHenrysJulDryFlies">
         SalmonFly: Henry’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
         Golden Stone:  Henry’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
         Yellow Sally: Henrys Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
@@ -130,7 +130,7 @@
 
     </string>
 
-    <string name="lowerHenrysAugWetFlies">
+    <string name="upperHenrysAugWetFlies">
         Yellow Sally: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
         Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
         Guides Choice Hares Ear
@@ -140,7 +140,7 @@
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
     </string>
 
-    <string name="lowerHenrysAugDryFlies">
+    <string name="upperHenrysAugDryFlies">
         Yellow Sally: Henrys Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
         Caddis: Elk Hair Caddis, X Caddis
         Callibaetis: Parachute Adams, Rusty Spinner, Comparadun
@@ -151,14 +151,14 @@
         Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
     </string>
 
-    <string name="lowerHenrysSepWetFlies">
+    <string name="upperHenrysSepWetFlies">
         Mahogany Dun: Hares Ear, Pheasant Tail
         Midges: Zebra Midge, Smoke Jumper,
         Leeches: Mohair Leach, Woolly Bugger, Simiseal Leech
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
     </string>
 
-    <string name="lowerHenrysSepDryFlies">
+    <string name="upperHenrysSepDryFlies">
         Mahogany Dun: Hairwing Dun, Sparkle Dun, Comparadun
         Ants: Bionic Ant, Pine Ant
         Hoppers: Madam X, Daves Hopper, Morrish Hopper
@@ -166,38 +166,38 @@
 
     </string>
 
-    <string name="lowerHenrysOctWetFlies">
+    <string name="upperHenrysOctWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
         Midges: Zebra Midge, Smoke Jumper,
         Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
     </string>
 
-    <string name="lowerHenrysOctDryFlies">
+    <string name="upperHenrysOctDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysNovWetFlies">
+    <string name="upperHenrysNovWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
         Midges: Zebra Midge, Smoke Jumper,
         Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
     </string>
 
-    <string name="lowerHenrysNovDryFlies">
+    <string name="upperHenrysNovDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysDecWetFlies">
+    <string name="upperHenrysDecWetFlies">
         Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
         Midges: Zebra Midge, Smoke Jumper,
         Leeches: Mohair Leeach, Woolly Bugger, Simiseal Leech
         Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
     </string>
 
-    <string name="lowerHenrysDecDryFlies">
+    <string name="upperHenrysDecDryFlies">
         Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
         Midges: Renegade, Twilight Midge
     </string>
