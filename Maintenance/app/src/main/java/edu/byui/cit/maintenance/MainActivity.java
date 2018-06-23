@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 // create variable FloatingActionButton
 	private FloatingActionButton fab;
 
-
 	@Override
 	protected void onCreate(Bundle savedInstState) {
 		super.onCreate(savedInstState);
@@ -40,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 		setSupportActionBar(toolbar);
 		ActionBar actBar = getSupportActionBar();
 		actBar.setDisplayHomeAsUpEnabled(true);
+
 
 		if (savedInstState == null) {
 			// Create a fragment that contains all the vehicles
@@ -51,15 +51,25 @@ public class MainActivity extends AppCompatActivity {
 			trans.commit();
 		}
 
+
 		//create floating action button and set on click listener
-		fab = (FloatingActionButton) findViewById(R.id.fab);
+		fab = findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				Intent intent = new Intent(MainActivity.this, AddVehicle.class);
-				startActivity(intent);
+				if (fragAdd == null || fragAdd.isDetached()) {
+					fragAdd = new AddVehicle();
+				}
+				// hide FAB on fragment fragAdd
+				fab.hide();
+				//switch to fragment fragAdd (for adding a new vehicle)
+				switchFragment(fragAdd);
 			}
 		});
+
+
+
+
 
 	}
 
@@ -78,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
 		// as you specify a parent maintenance_activity in AndroidManifest.xml.
 		switch (item.getItemId()) {
 			case android.R.id.home:
+				fab.show();
 				// Respond to the user pressing the "back/up" button on the
 				// action bar in the same way as if the user pressed the
 				// left-facing triangle icon on the main android toolbar.
@@ -94,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
 
 				// Return true to indicate that this
 				// method handled the item selected event.
+				// hide FAB
+				fab.hide();
 				return true;
 
 			case R.id.actHelp:
@@ -101,7 +114,8 @@ public class MainActivity extends AppCompatActivity {
                     fragHelp = new Help();
                 }
                 switchFragment(fragHelp);
-
+				// hide FAB
+				fab.hide();
 				return true;
 
 			case R.id.actAbout:
@@ -109,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
 					fragAbout = new About();
 				}
 				switchFragment(fragAbout);
+				// hide FAB
+				fab.hide();
 				return true;
 		}
 
@@ -138,8 +154,6 @@ public class MainActivity extends AppCompatActivity {
 
 		super.onBackPressed();
 	}
-
-
 
 
 
