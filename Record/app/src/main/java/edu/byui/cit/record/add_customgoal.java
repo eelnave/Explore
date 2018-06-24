@@ -7,11 +7,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 public class add_customgoal extends AppCompatActivity {
 
@@ -23,7 +22,7 @@ public class add_customgoal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_customgoal);
+        setContentView(R.layout.frag_add_newgoal);
 
         //populate the spinner with the frequency choices
         Spinner spinner = (Spinner) findViewById(R.id.spinner);

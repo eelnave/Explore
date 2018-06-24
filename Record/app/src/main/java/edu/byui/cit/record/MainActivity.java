@@ -1,6 +1,7 @@
 package edu.byui.cit.record;
 
 import android.app.AlarmManager;
+import android.app.FragmentTransaction;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -9,10 +10,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import edu.byui.cit.widget.CITFragment;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +38,31 @@ public class MainActivity extends AppCompatActivity {
 					startActivity(intent);
 				}
 			});
+
+//			This is our experiment in using a fragment.
+//			Button deleteJunk = findViewById(R.id.deleteGoal);
+//			deleteJunk.setOnClickListener(new View.OnClickListener() {
+//				@Override
+//				public void onClick(View view) {
+//					//make the jump to the new goal screen
+//					//start the fragment
+//// Create a new Fragment to be placed in the activity layout
+//					addNewGoal addNewGoalFragment = new addNewGoal();
+//
+//					// In case this activity was started with special instructions from an
+//					// Intent, pass the Intent's extras to the fragment as arguments
+//					addNewGoalFragment.setArguments(getIntent().getExtras());
+//
+//					// Add the fragment to the 'fragment_container' FrameLayout
+//					getSupportFragmentManager().beginTransaction()
+//							.add(R.id.headlines_fragment, addNewGoalFragment).commit();
+//
+//
+////					Intent testIntent = new Intent(MainActivity.this,
+////							addNewGoal.class);
+////					startActivity(testIntent);
+//				}
+//			});
 			//Daily notification time, intent, and alarm manager
 			Calendar calendar = Calendar.getInstance();
 //    calendar.set(Calendar.HOUR_OF_DAY, 18);
@@ -72,5 +101,13 @@ public class MainActivity extends AppCompatActivity {
 		catch (Exception ex) {
 			Log.e("Record", ex.toString());
 		}
+	}
+
+	//code to handle our fragments
+	public void switchFragment(CITFragment fragment){
+		FragmentTransaction trans = getFragmentManager().beginTransaction();
+		trans.replace(R.id.fragContainer, fragment, "thing");
+		trans.addToBackStack(null);
+		trans.commit();
 	}
 }

@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="edu.byui.cit.record">
+<manifest
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	package="edu.byui.cit.record">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/appName"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+	<!-- To access Google+ APIs: -->
+	<uses-permission android:name="android.permission.INTERNET"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".add_customgoal"
-            android:label="Add New Goal" />
-        <activity
-            android:name=".ViewGoal"
-            android:label="@string/title_activity_view_goal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-    </application>
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/appName"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/AppTheme">
+		<activity android:name=".MainActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
+		<activity
+			android:name=".add_customgoal"
+			android:label="Add New Goal"/>
+		<activity
+			android:name=".ViewGoal"
+			android:label="@string/title_activity_view_goal"
+			android:theme="@style/AppTheme.NoActionBar"/>
+	</application>
 
 </manifest>

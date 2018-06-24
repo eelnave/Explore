@@ -1,60 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:id="@+id/main_content"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+	android:orientation="vertical"
 	tools:context=".MainActivity">
 
-	<LinearLayout
+	<ScrollView
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="vertical">
+		android:layout_height="match_parent"
+		android:layout_marginEnd="3dp"
+		android:layout_marginStart="3dp">
 
-		<TextView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:text="@string/Textbox1"/>
-
-		<LinearLayout
+		<FrameLayout
+			android:id="@+id/fragContainer"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal">
+			android:layout_height="wrap_content"></FrameLayout>
+	</ScrollView>
 
-			<Button
-				android:id="@+id/button"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginStart="52dp"
-				android:layout_marginTop="52dp"
-				android:text="@string/Button1"/>
+	<!--<fragment android:name="edu.byui.cit.record.addNewGoal"-->
+		<!--android:id="@+id/headlines_fragment"-->
+		<!--android:layout_weight="1"-->
+		<!--android:layout_width="0dp"-->
+		<!--android:layout_height="match_parent" />-->
 
-			<Button
-				android:id="@+id/button2"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_marginEnd="52dp"
-				android:layout_marginTop="52dp"
-				android:text="@string/Button2"/>
-		</LinearLayout>
+	<!--<LinearLayout-->
+		<!--android:layout_width="match_parent"-->
+		<!--android:layout_height="wrap_content"-->
+		<!--android:orientation="vertical">-->
 
-		<ListView
-			android:id="@+id/toDoList"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
-	</LinearLayout>
+		<!--<TextView-->
+			<!--android:layout_width="wrap_content"-->
+			<!--android:layout_height="wrap_content"-->
+			<!--android:text="@string/Textbox1"/>-->
 
-	<android.support.design.widget.FloatingActionButton
-		android:id="@+id/newGoalFAB"
-		android:layout_width="wrap_content"
-		android:layout_height="126dp"
-		android:layout_gravity="bottom|right"
-		android:layout_margin="16dp"
-		android:src="@drawable/plus_circle"
-		android:tint="?android:attr/colorAccent"
-		app:backgroundTint="?android:attr/colorBackground"
-		app:layout_anchor="@id/toDoList"
-		app:layout_anchorGravity="bottom|right|end"/>
-</android.support.design.widget.CoordinatorLayout>
+		<!--<LinearLayout-->
+			<!--android:layout_width="match_parent"-->
+			<!--android:layout_height="wrap_content"-->
+			<!--android:orientation="horizontal">-->
+
+			<!--<Button-->
+				<!--android:id="@+id/button"-->
+				<!--android:layout_width="wrap_content"-->
+				<!--android:layout_height="wrap_content"-->
+				<!--android:layout_marginStart="52dp"-->
+				<!--android:layout_marginTop="52dp"-->
+				<!--android:text="@string/Button1"/>-->
+
+			<!--<Button-->
+				<!--android:id="@+id/deleteGoal"-->
+				<!--android:layout_width="wrap_content"-->
+				<!--android:layout_height="wrap_content"-->
+				<!--android:layout_marginEnd="52dp"-->
+				<!--android:layout_marginTop="52dp"-->
+				<!--android:text="@string/Button2"/>-->
+		<!--</LinearLayout>-->
+
+		<!--<ListView-->
+			<!--android:id="@+id/toDoList"-->
+			<!--android:layout_width="match_parent"-->
+			<!--android:layout_height="wrap_content"/>-->
+	<!--</LinearLayout>-->
+
+	<!--<android.support.design.widget.FloatingActionButton-->
+		<!--android:id="@+id/newGoalFAB"-->
+		<!--android:layout_width="wrap_content"-->
+		<!--android:layout_height="126dp"-->
+		<!--android:layout_gravity="bottom|right"-->
+		<!--android:layout_margin="16dp"-->
+		<!--android:src="@drawable/plus_circle"-->
+		<!--android:tint="?android:attr/colorAccent"-->
+		<!--app:backgroundTint="?android:attr/colorBackground"-->
+		<!--app:layout_anchor="@id/toDoList"-->
+		<!--app:layout_anchorGravity="bottom|right|end"/>-->
+</LinearLayout>

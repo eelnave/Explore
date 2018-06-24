@@ -82,7 +82,7 @@
 		app:layout_constraintTop_toBottomOf="@+id/simpleTimePicker"/>
 
 	<Spinner
-		android:id="@+id/spinner"
+		android:id="@+id/1234"
 		android:layout_width="265dp"
 		android:layout_height="27dp"
 		android:layout_marginStart="24dp"
