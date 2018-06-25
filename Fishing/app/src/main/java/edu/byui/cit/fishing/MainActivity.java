@@ -183,6 +183,7 @@ public class MainActivity extends Activity {
 
                 } else {
                     // do nothing because not all categories have values
+
                 }
                }
 }
