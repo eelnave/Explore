@@ -1,5 +1,7 @@
 package edu.byui.cit.fishing;
 
+import android.content.res.Resources;
+import android.widget.Switch;
 import android.widget.TextView;
 import com.google.android.gms.common.util.Strings;
 
@@ -13,7 +15,7 @@ public class Choices extends MainActivity {
     private String SelectedWater;
 
 
-    public Choices(String selectedSpecies, String selectedMonth, String selectedWater) {
+    public Choices(String selectedSpecies, String selectedWater, String selectedMonth) {
         SelectedSpecies = selectedSpecies;
         SelectedMonth = selectedMonth;
         SelectedWater = selectedWater;
@@ -86,120 +88,133 @@ public class Choices extends MainActivity {
 
     }
 
-    //convert species strings to enums
-//    public Choices.species speciesStringToEnum(String selectedSpecies){
-//
-//        Choices.species speciesEnum = species.Rainbow;
-//        switch (selectedSpecies) {
-//            case "Rainbow Trout":
-//                speciesEnum = species.Rainbow;
-//                break;
-//            case "Cutthroat Trout":
-//                speciesEnum = species.Cutthroat;
-//                break;
-//            case "Brown Trout":
-//                speciesEnum = species.Brown;
-//                break;
-//            case "Brook trout":
-//                speciesEnum = species.Brook;
-//                break;
-//            default:
-//                break;
-//        }
-//        return speciesEnum;
-//    }
-//
-//    //convert water strings to enums
-//    public Choices.water waterStringToEnum(String selectedWater){
-//
-//        Choices.water waterEnum = water.UpperHenry;
-//        switch (selectedWater) {
-//            case "Upper Henry's Fork":
-//                waterEnum = water.UpperHenry;
-//                break;
-//            case "Lower Henry's Fork":
-//                waterEnum = water.LowerHenry;
-//                break;
-//            case "Snake River":
-//                waterEnum = water.SnakeRiver;
-//                break;
-//            case "Teton River":
-//                waterEnum = water.TetonRiver;
-//                break;
-//            case "Warm River":
-//                waterEnum = water.WarmRiver;
-//                break;
-//            case "Fall River":
-//                waterEnum = water.FallRiver;
-//                break;
-//            default:
-//
-//                break;
-//        }
-//        return waterEnum;
-//    }
-//
-//    //convert water strings to enums
-//    public Choices.month monthStringToEnum(String selectedMonth){
-//
-//        Choices.month monthEnum = month.January;
-//        switch (selectedMonth) {
-//            case "January":
-//                monthEnum = month.January;
-//                break;
-//            case "February":
-//                monthEnum = month.February;
-//                break;
-//            case "March":
-//                monthEnum = month.March;
-//                break;
-//            case "April":
-//                monthEnum = month.April;
-//                break;
-//            case "May":
-//                monthEnum = month.May;
-//                break;
-//            case "June":
-//                monthEnum = month.June;
-//                break;
-//            case "July":
-//                monthEnum = month.July;
-//                break;
-//            case "August":
-//                monthEnum = month.August;
-//                break;
-//            case "September":
-//                monthEnum = month.September;
-//                break;
-//            case "October":
-//                monthEnum = month.October;
-//                break;
-//            case "November":
-//                monthEnum = month.November;
-//                break;
-//            case "December":
-//                monthEnum = month.December;
-//                break;
-//            default:
-//
-//                break;
-//        }
-//        return monthEnum;
-//    }
+   // convert species strings to enums
+    public Choices.species speciesStringToEnum(String selectedSpecies){
+
+        Choices.species speciesEnum = species.Rainbow;
+        switch (selectedSpecies) {
+            case "Rainbow Trout":
+                speciesEnum = species.Rainbow;
+                break;
+            case "Cutthroat Trout":
+                speciesEnum = species.Cutthroat;
+                break;
+            case "Brown Trout":
+                speciesEnum = species.Brown;
+                break;
+            case "Brook trout":
+                speciesEnum = species.Brook;
+                break;
+            default:
+                break;
+        }
+        return speciesEnum;
+    }
+
+    //convert water strings to enums
+    public Choices.water waterStringToEnum(String selectedWater){
+
+        Choices.water waterEnum = water.UpperHenry;
+        switch (selectedWater) {
+            case "Upper Henry's Fork":
+                waterEnum = water.UpperHenry;
+                break;
+            case "Lower Henry's Fork":
+                waterEnum = water.LowerHenry;
+                break;
+            case "Snake River":
+                waterEnum = water.SnakeRiver;
+                break;
+            case "Teton River":
+                waterEnum = water.TetonRiver;
+                break;
+            case "Warm River":
+                waterEnum = water.WarmRiver;
+                break;
+            case "Fall River":
+                waterEnum = water.FallRiver;
+                break;
+            default:
+
+                break;
+        }
+        return waterEnum;
+    }
+
+    //convert water strings to enums
+    public Choices.month monthStringToEnum(String selectedMonth){
+
+        Choices.month monthEnum = month.January;
+        switch (selectedMonth) {
+            case "January":
+                monthEnum = month.January;
+                break;
+            case "February":
+                monthEnum = month.February;
+                break;
+            case "March":
+                monthEnum = month.March;
+                break;
+            case "April":
+                monthEnum = month.April;
+                break;
+            case "May":
+                monthEnum = month.May;
+                break;
+            case "June":
+                monthEnum = month.June;
+                break;
+            case "July":
+                monthEnum = month.July;
+                break;
+            case "August":
+                monthEnum = month.August;
+                break;
+            case "September":
+                monthEnum = month.September;
+                break;
+            case "October":
+                monthEnum = month.October;
+                break;
+            case "November":
+                monthEnum = month.November;
+                break;
+            case "December":
+                monthEnum = month.December;
+                break;
+            default:
+
+                break;
+        }
+        return monthEnum;
+    }
 
 
     // compute fly output based on water,species, and month
-    public void computeFly(String selectedSpecies,String selectedMonth,String selectedWater){
+    // String selectedSpecies taken out as parameter temp
+    public String computeFly(Resources res, String selectedWater, String selectedMonth){
         //var to hold fly?
-        String reccomendedFly = "none";
+        String reccomendedFly = " holder";
 
-        // Convert Strings to enums.
-//        Choices.species speciesToCheck = speciesStringToEnum(selectedSpecies);
-//        Choices.month monthToCheck = monthStringToEnum(selectedMonth);
-//        Choices.water waterToCheck = waterStringToEnum(selectedWater);
 
     // sample case
+        switch(selectedWater){
+            case "Upper Henry's Fork":
 
+            switch (selectedMonth){
+                case "January":
+                    reccomendedFly = res.getString(R.string.upperHenrysJan);
+                    System.out.println(reccomendedFly);
+                    break;
+
+
+
+            }
+            default: break;
+            }
+            return reccomendedFly;
+
+        }
 
 
 
@@ -208,4 +223,4 @@ public class Choices extends MainActivity {
 
     }
 
-}
+

@@ -2,8 +2,8 @@
 <resources>
 
     <string-array name="water">
-        <item>Upper Henry's Fork</item>
-        <item>Lower Henry's Fork</item>
+        <item>Upper Henry\'s Fork</item>
+        <item>Lower Henry\'s Fork</item>
         <item>Snake River</item>
         <item>Teton River</item>
         <item>Warm River</item>
