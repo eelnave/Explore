@@ -18,7 +18,7 @@ public class home_lander extends CITFragment {
 	protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstState){
 		View view = inflater.inflate(R.layout.home_lander, container, false);
 //		FloatingActionButton fab = findViewById(R.id.newGoalFAB);
-		new ButtonWrapper(view, R.id.newGoalFAB, newGoalClickHandler());
+		new ButtonWrapper(view, R.id.newGoalButton, new newGoalClickHandler());
 //		fab.setOnClickListener(new View.OnClickListener() {
 //			@Override
 //			public void onClick(View view) {
@@ -40,7 +40,7 @@ public class home_lander extends CITFragment {
 		@Override
 		public void clicked(WidgetWrapper source) {
 			//calling parent method switchFragment
-			((MainActivity) getActivity()).switchFragment(new add_customgoal());
+			((MainActivity) getActivity()).switchFragment(new add_newGoal());
 		}
 	}
 }

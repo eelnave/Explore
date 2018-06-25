@@ -21,6 +21,7 @@ import edu.byui.cit.widget.CITFragment;
 
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Record";
+	public static final CITFragment homeFrag = new home_lander();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +29,19 @@ public class MainActivity extends AppCompatActivity {
 		try {
 			setContentView(R.layout.main_activity);
 
-			FloatingActionButton fab = findViewById(R.id.newGoalFAB);
-			fab.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View view) {
-					//make the jump to the new goal screen
-					Intent intent = new Intent(MainActivity.this,
-							add_customgoal.class);
-					startActivity(intent);
-				}
-			});
+//			FloatingActionButton fab = findViewById(R.id.newGoalFAB);
+//			fab.setOnClickListener(new View.OnClickListener() {
+//				@Override
+//				public void onClick(View view) {
+//					//make the jump to the new goal screen
+//					//switching to fragments
+//					CITFragment frag = new add_newGoal();
+//					switchFragment(frag);
+////					Intent intent = new Intent(MainActivity.this,
+////							add_customgoal.class);
+////					startActivity(intent);
+//				}
+//			});
 
 //			This is our experiment in using a fragment.
 //			Button deleteJunk = findViewById(R.id.deleteGoal);
@@ -83,8 +87,11 @@ public class MainActivity extends AppCompatActivity {
 
 			//populate the main screen area with current goals
 
-			//test with filler data
+			//go ahead and launch the main lander fragment
+			CITFragment frag = new home_lander();
+			switchFragment(frag);
 
+			//test with filler data
 			ArrayList<String> theGoals = new ArrayList<>();
 			theGoals.add("Read Scriptures");
 			theGoals.add("Teach my kid to read");

@@ -10,7 +10,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.text.SimpleDateFormat;
-
+//****************************************************************************************
+//THIS FILE IS NOT LONGER BEING USED - WE HAVE SWITCHED TO FRAGMENTS INSTEAD OF ACTIVITIES
+//****************************************************************************************
 
 public class add_customgoal extends AppCompatActivity {
 
