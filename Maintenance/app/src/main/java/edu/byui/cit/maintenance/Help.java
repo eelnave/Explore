@@ -20,6 +20,8 @@ public class Help extends CITFragment {
         String helpTitle = "How to use the Maintenance App";
         TextView title = view.findViewById(R.id.textTitle);
         title.setText(helpTitle);
-        return null;
+
+        
+        return view;
     }
 }
