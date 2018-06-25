@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="contribsWinter2018A" translatable="false">
-		Jose Abarca Suarez</string>
-	<string name="contribsWinter2018B" translatable="false">
-		Jordan Murray</string>
 	<string name="contribsSpring2018A" translatable="false">
 		Eric Mlynar</string>
 	<string name="contribsSpring2018B" translatable="false">
