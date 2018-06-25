@@ -28,6 +28,10 @@ public class NotificationReceiver extends BroadcastReceiver {
 
 		NotificationCompat.Builder builder = new NotificationCompat.Builder(
 				context, "NotificationID")
+				.setVisibility(Notification.VISIBILITY_PUBLIC)
+				.addAction(android.R.drawable.arrow_down_float, "Yes", pendingIntent)
+				.addAction(android.R.drawable.arrow_up_float, "No", pendingIntent)
+				//.addAction("Ignore")
 				.setSmallIcon(android.R.drawable.arrow_up_float)
 				.setContentTitle("Your Goal")
 				.setContentText("Did you complete it?")

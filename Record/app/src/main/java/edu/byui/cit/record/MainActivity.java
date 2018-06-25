@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
 			switchFragment(frag);
 
 			//test with filler data
+
 			ArrayList<String> theGoals = new ArrayList<>();
 			theGoals.add("Read Scriptures");
 			theGoals.add("Teach my kid to read");
