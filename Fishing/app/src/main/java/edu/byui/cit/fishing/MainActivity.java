@@ -113,6 +113,9 @@ public class MainActivity extends Activity {
                     //Collapse Group on click
                     expListView.collapseGroup(0);
 
+                    //Expand Next Group on click
+                    expListView.expandGroup(1);
+
                     ///get checked month and store in global variable
                 } else if (listDataHeader.get(groupPosition).equals(listDataHeader.get(1))){
                     checkedMonth = listDataChild.get(
@@ -124,6 +127,9 @@ public class MainActivity extends Activity {
 
                     //Collapse Group on click
                     expListView.collapseGroup(1);
+
+                    //Expand Next Group on click
+                    expListView.expandGroup(2);
 
                     ///get checked water and store in global variable
                 } else if (listDataHeader.get(groupPosition).equals(listDataHeader.get(2))) {
@@ -178,7 +184,7 @@ public class MainActivity extends Activity {
                     Choices selectedChoices = new Choices(checkedSpecies,checkedMonth,checkedWater);
                     selectedChoices.computeFly(checkedSpecies,checkedMonth,checkedWater);
                     tvTest = (TextView) findViewById(R.id.tvTestOutput);
-                    tvTest.setText(checkedSpecies + checkedMonth + checkedWater);
+                    tvTest.setText(checkedSpecies + " / " + checkedMonth + " / " + checkedWater);
 
 
                 } else {

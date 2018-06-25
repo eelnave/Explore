@@ -1,192 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="warmJanWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="warmJan">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanute Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="warmJanDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
+    <string name="warmFeb">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanute Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="warmFebWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="warmMar">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanute Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="warmFebDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="warmMarWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="warmMarDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="warmAprWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="warmAprDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
+    <string name="warmApr">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanute Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
     <string name="warmMayWetFlies">
-        Salmon Flies: Black or Brown Rubberlegs Nymph
-        March Brown: Brown Drake Nymph, Brown Drake Soft Hackle, Brown Drake Emerger
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+        Wet: Rubberlegs, Brown Drake Nymph, Soft Hackle, Brown Drake Emerger, Zebra Midge, Smoke Jumper, Sparkle Minnow,
+        Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Foam Salmonfly, Chubby Chernobyl, Cripple, Paradrake, Brown Drake, Renegade, Twilight Midge
     </string>
 
-    <string name="warmMayDryFlies">
-        Salmon Flies: Henry\’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
-        March Brown: Cripple, Paradrake, Mike’s Brown Drake, Brown Drake Partridge Spinner
-        Midges: Renegade, Twilight Midge
+    <string name="warmJun">
+        Wet: Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear, Little Yellow Sloan, Yellow Sally, Rubberlegs,
+        Golden Stone, Quigley Cripple, Green Drake, Paradrake, Brown Drake, Zebra Midge, Smoke Jumper, Sparkle Minnow,
+        Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: EH Caddis, X Caddis, Yellow Sally, Paralyzer, Chubby Yellow Sally, Foam Salmonfly, Chubby Chernobyl,
+        Golden Stone, Madam-X, Elden's Ant, Renegade, Twilight Midge
     </string>
 
-    <string name="warmJunWetFlies">
-        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
-        Guides Choice Hares Ear
-        Yellow Sallies: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
-        Salmon Flies: Black or Brown Rubberlegs Nymph
-        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
-        Brown Drake: Quigley Cripple
-        Green Drake: Hares Ear, Poxyback Green Drake
-        March Brown: Cripple, Paradrake, Mike’s Brown Drake, Brown Drake Partridge Spinner
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="warmJul">
+        Wet: Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear, Little Yellow Sloan, Yellow Sally, Golden Stone,
+        Rubberlegs, Quigley Cripple, Pheasant Tail, Green Drake, Light Olive Body, Dark Wing, Sinking Ant, Zebra Midge,
+        Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger
+        Dry: EH Caddis, X Caddis, Yellow Sally, Paralyzer, Chubby Yellow Sally, Golden Stone, Madam-X, Elden's Ant,
+        Paradrake, Parachute Adams, Rusty Spinner, Comparadun, Green Drake Cripple, Sparkle Dun, Hairwing Dun, Bionic Ant,
+        Morrish Hopper, Foam Beetle, Renegade, Twilight Midge
     </string>
 
-    <string name="warmJunDryFlies">
-        Caddis: Elk Hair Caddis, X Caddis
-        Yellow Sallies: Henry\'s Fork Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
-        Salmon Flies: Henry\’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
-        Golden Stones: Henry\’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
-        Brown Drake: Paradrake
-        Green Drake: Green Drake Paradrake, Green Drake Cripple
-        March Brown: Cripple, Paradrake, Mike’s Brown Drake, Brown Drake Partridge Spinner
-        Midges: Renegade, Twilight Midge
+    <string name="warmAug">
+        Wet: Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear, Little Yellow Sloan, Yellow Sall, Pheasant Tail,
+        Sinking Ant, Zebra Midge, Smoke Jumper, Peanut Envy, Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger
+        Dry: EH Caddis, X Caddis, Yellow Sally, Paralyzer, Chubby Yellow Sally, Parachute Adams, Rusty Spinner,
+        Comaparadun, Hairwing Dun, Sparkle Dun, Bionic Ant, Madam-X, Morrish Hopper, Foam Beetle, Renegade, Twilight Midge
     </string>
 
-    <string name="warmJulWetFlies">
-        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
-        Guides Choice Hares Ear
-        Yellow Sallies: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
-        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
-        Brown Drake: Quigley Cripple
-        Callibaetis: Pheasant Tail
-        Flavs: Poxyback Green Drake, Hares Ear, Pheasant Tail. Light Olive Body, Dark Wing
-        Ants: Sinking Ant
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="warmSep">
+        Wet: Hares Ear, Pheasant Tail, Sinking Ant, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Sparkle Dun, Comparadun, Bionic Ant, Pine Ant, Madam-X, Daves Hopper, Morrish Hopper,
+        Foam Beetle, Beefcake Beetle, Renegade, Twilight Midge
     </string>
 
-    <string name="warmJulDryFlies">
-        Caddis: Elk Hair Caddis, X Caddis
-        Yellow Sallies: Henry\'s Fork Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
-        Golden Stones: Henry\’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
-        Brown Drake: Paradrake
-        Callibaetis: Parachute Adams, Rusty Spinner, Comparadun
-        Flavs: Green Drake Cripple, Sparkle Dun, Green Drake Paradrake, Hairwing Dun
-        Ants: Bionic Ant, Pine Ant
-        Hoppers: Madam X, Daves Hopper, Morrish Hopper
-        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-        Midges: Renegade, Twilight Midge
+    <string name="warmOct">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="warmAugWetFlies">
-        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
-        Guides Choice Hares Ear
-        Yellow Sallies: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
-        Callibaetis: Pheasant TailAnts: Sinking Ant
-        Ants: Sinking Ant
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="warmNov">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="warmAugDryFlies">
-        Caddis: Elk Hair Caddis, X Caddis
-        Yellow Sallies: Henry\'s Fork Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
-        Callibaetis: Parachute Adams, Rusty Spinner, Comparadun
-        Tricos: Hairwing Dun, Sparkle Dun, Rusty Spinner
-        Ants: Bionic Ant, Pine Ant
-        Hoppers: Madam X, Daves Hopper, Morrish Hopper
-        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="warmSepWetFlies">
-        Mahogany Dun: Hares Ear, Pheasant Tail
-        Ants: Sinking Ant
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="warmSepDryFlies">
-        Mahogany Dun: Hairwing Dun, Sparkle Dun, Comparadun
-        Ants: Bionic Ant, Pine Ant
-        Hoppers: Madam X, Daves Hopper, Morrish Hopper
-        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="warmOctWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="warmOctDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="warmNovWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="warmNovDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="warmDecWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="warmDecDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
+    <string name="warmDec">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
 </resources>
