@@ -1,209 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="tetonJanWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="tetonJan">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut envy,
+        Barely Legal, Sex dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonJanDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
+    <string name="tetonFeb">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut envy,
+        Barely Legal, Sex dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonFebWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="tetonMar">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut envy,
+        Barely Legal, Sex dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonFebDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
+    <string name="tetonApr">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut envy,
+        Barely Legal, Sex dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonMarWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="tetonMay">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut envy,
+        Barely Legal, Sex dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech, Sinking Ant
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge, Bionic Ant, Pine Ant
     </string>
 
-    <string name="tetonMarDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
+    <string name="tetonJun">
+        Wet: Pheasant Tail, PMD Nymph, Halfback Emerger, Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear,
+        Rubberlegs, Golden Stone, Sinking Ant, Sinking Ant, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster,
+        Peanut Envy, Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: PMD Paracripple, PMD Parachute, EH Caddis, Madam-X, Golden Stone, Foam Salmonfly, Bionic Ant, Pine Ant,
+        Morrish Hopper, Foam Beetle, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonAprWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="tetonJul">
+        Wet: Pheasant Tail, PMD Nymph, Halfback Emerger, Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear,
+        Little Yellow Sloan, Rubberlegs, Golden Stone, Sinking Ant, Zebra Midge, Smoke Jumper, Sparkle Minnow,
+        Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger
+        Dry: PMD Paracripple, PMD Parachute, EH Caddis, Yellow Sally, Paralyzer, Chubby Yellow Sally, Golden Stone,
+        Foam Salmonfly, Chubby Chernobyl, Bionic Ant, Morrish Hopper, Foam Beetle, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonAprDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
+    <string name="tetonAug">
+        Wet: Pheasant Tail, PMD Nymph, Halfback Emerger, Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear,
+        Little Yellow Sloan, Yellow Sally, Sinking Ant, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster,
+        Peanut Envy, Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger
+        Dry: PMD Paracripple, PMD Thorax, PMD Parachute, EH Caddis, Hairwing Dun, Sparkle Dun, Yellow Sally, Paralyzer,
+        Chubby Yellow Sally, Bionic Ant, Foam Beetle, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonMayWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Ants: Sinking Ant
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="tetonSep">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, PMD Nymph, Halfback Emerger, Nitro Caddis Pupa, Holy Grail,
+        Little Yellow Sloan, Yellow Sally, Sinking Ant, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster,
+        Peanut Envy, Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing DUn, Comparadun, Sparkle DUn, PMD Paracripple, PMD Thorax, PMD Parachute, EH Caddis, Hairwing Dun,
+        Sparkle Dun, Comparadun, Yellow Sally, Paralyzer, Chubby Yellow Sally, Bionic Ant, Morrish Hopper, Foam Beetle,
+        Renegade, Twilight Midge
     </string>
 
-    <string name="tetonMayDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
-        Ant: Bionic Ant, Pine Ant
+    <string name="tetonOct">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Sinking Ant, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster,
+        Peanut Envy, Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Bionic Ant, Pine Ant, Madam X, Daves Hopper, Morrish Hopper,
+        Foam Beetle, Beefcake Beetle, Unsinkable Beetle, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonJunWetFlies">
-        Pale Morning Dun: Pheasant Tail Nymph, PMD Nymph, Halfback Emerger, CDC Emerger
-        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
-        Guides Choice Hares Ear
-        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
-        Salmon Flies: Black or Brown Rubberlegs Nymph
-        Ants: Sinking Ant
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
+    <string name="tetonNov">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonJunDryFlies">
-        Pale Morning Dun: PMD Paracripple, PMD Thorax, PMD Parachute, Grey Yellow Nohackle
-        Caddis: Elk Hair Caddis, X Caddis
-        Golden Stones: Henry\’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
-        Salmon Flies: Henry\’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
-        Ants: Bionic Ant, Pine Ant
-        Hoppers: Madam X, Daves Hopper, Morrish Hopper
-        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-        Midges: Renegade, Twilight Midge
+    <string name="tetonDec">
+        Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Sparkle Minnow, Slumpbuster, Peanut Envy,
+        Barely Legal, Sex Dungeon, Mohair Leech, Woolly Bugger, Simiseal Leech
+        Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="tetonJulWetFlies">
-        Pale Morning Dun: Pheasant Tail Nymph, PMD Nymph, Halfback Emerger, CDC Emerger
-        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
-        Guides Choice Hares Ear
-        Yellow Sallies: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
-        Golden Stones: Tan Rubberlegs, Golden Stone Nymph
-        Salmon Flies: Black or Brown Rubberlegs Nymph
-        Ants: Sinking Ant
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="tetonJulDryFlies">
-        Pale Morning Dun: PMD Paracripple, PMD Thorax, PMD Parachute, Grey Yellow Nohackle
-        Caddis: Elk Hair Caddis, X Caddis
-        Yellow Sallies: Henry\'s Fork Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
-        Golden Stones: Henry\’s Fork Golden Stone, Madam-X, Golden Stone Hedge Hog, Elden’s Ant
-        Salmon Flies: Henry\’s Fork Salmonfly, Foam Salmonfly, Chubby Chernobyl
-        Ants: Bionic Ant, Pine Ant
-        Hoppers: Madam X, Daves Hopper, Morrish Hopper
-        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="tetonAugWetFlies">
-        Pale Morning Dun: Pheasant Tail Nymph, PMD Nymph, Halfback Emerger, CDC Emerger
-        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
-        Guides Choice Hares Ear
-        Grey Drake:
-        Mahogany Dun: Hares Ear, Pheasant Tail
-        Yellow Sallies: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
-        Ants: Sinking Ant
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="tetonAugDryFlies">
-        Pale Morning Dun: PMD Paracripple, PMD Thorax, PMD Parachute, Grey Yellow Nohackle
-        Caddis: Elk Hair Caddis, X Caddis
-        Grey Drake:
-        Mahogany Dun: Hairwing Dun, Sparkle Dun, Comparadun
-        Yellow Sallies: Henry\'s Fork Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
-        Ants: Bionic Ant, Pine Ant
-        Hoppers: Madam X, Daves Hopper, Morrish Hopper
-        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="tetonSepWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Pale Morning Dun: Pheasant Tail Nymph, PMD Nymph, Halfback Emerger, CDC Emerger
-        Caddis: Nitro Caddis Pupa, Holy Grail, Soft Hackle Peacock,
-        Guides Choice Hares Ear
-        Grey Drake:
-        Mahogany Dun: Hares Ear, Pheasant Tail
-        Yellow Sallies: Little Yellow Sloan, Kyles BH Yellow Sally, Silverman’s BH Epoxy-Back Red Tag Sally
-        Ants: Sinking Ant
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="tetonSepDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Pale Morning Dun: PMD Paracripple, PMD Thorax, PMD Parachute, Grey Yellow Nohackle
-        Caddis: Elk Hair Caddis, X Caddis
-        Grey Drake:
-        Mahogany Dun: Hairwing Dun, Sparkle Dun, Comparadun
-        Yellow Sallies: Henry\'s Fork Yellow Sally, Paralyzer, Chubby Yellow Sally, Outrigger Yellow Sally
-        Ants: Bionic Ant, Pine Ant
-        Hoppers: Madam X, Daves Hopper, Morrish Hopper
-        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="tetonOctWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Grey Drake:
-        Mahogany Dun: Hares Ear, Pheasant Tail
-        Ants: Sinking Ant
-        Midges: Zebra Midge, Smoke Jumper
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="tetonOctDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Grey Drake:
-        Mahogany Dun: Hairwing Dun, Sparkle Dun, Comparadun
-        Ants: Bionic Ant, Pine Ant
-        Hoppers: Madam X, Daves Hopper, Morrish Hopper
-        Beetles: Foam Beetle, Beefcake Beetle, Unsinkable Beetle
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="tetonNovWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="tetonNovDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
-    </string>
-
-    <string name="tetonDecWetFlies">
-        Blue Wing Olives: Pheasant Tail, Hares Ear, Soft Hackle
-        Midges: Zebra Midge, Smoke Jumper.
-        Streamers: Sparkle Minnow, Slumpbuster, Peanut envy, Barely Legal, Sex dungeon
-        Leeches: Mohair Leech, Woolly Bugger, Simiseal Leech
-    </string>
-
-    <string name="tetonDecDryFlies">
-        Blue Wing Olives: Hairwing Dun, Comparadun, Sparkle Dun
-        Midges: Renegade, Twilight Midge
-    </string>
 </resources>
