@@ -188,10 +188,7 @@ public class Choices {
         //var to hold fly?
         String reccomendedFly = "none";
 
-        // Convert Strings to enums.
-        Choices.species speciesToCheck = speciesStringToEnum(selectedSpecies);
-        Choices.month monthToCheck = monthStringToEnum(selectedMonth);
-        Choices.water waterToCheck = waterStringToEnum(selectedWater);
+
 
     // sample case
 
