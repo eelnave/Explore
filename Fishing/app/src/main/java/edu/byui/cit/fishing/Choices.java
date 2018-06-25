@@ -129,7 +129,6 @@ public class Choices {
                 waterEnum = water.FallRiver;
                 break;
             default:
-
                 break;
         }
         return waterEnum;
@@ -193,6 +192,7 @@ public class Choices {
         Choices.species speciesToCheck = speciesStringToEnum(selectedSpecies);
         Choices.month monthToCheck = monthStringToEnum(selectedMonth);
         Choices.water waterToCheck = waterStringToEnum(selectedWater);
+
 
     // sample case
 
