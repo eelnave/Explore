@@ -1,7 +1,9 @@
 package edu.byui.cit.record;
 
 import java.util.Calendar;
+import java.util.Random;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import edu.byui.cit.model.AppDatabase;
+import edu.byui.cit.model.Goal;
+import edu.byui.cit.model.GoalDAO;
 import edu.byui.cit.widget.ButtonWrapper;
 import edu.byui.cit.widget.CITFragment;
 import edu.byui.cit.widget.ClickListener;
@@ -104,6 +109,14 @@ public class add_newGoal extends CITFragment {
 		@Override
 		public void clicked(WidgetWrapper source) {
 			//TODO: here we need to save the goal before moving back to the home screen
+
+			Random rand = new Random();
+			int n =rand.nextInt(200) + 1;
+            edu.byui.cit.model.Goal test1 = new Goal();
+			test1.setGoalID(n);
+			Context ctx = getActivity().getApplicationContext();
+			GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
+			dao.insert(test1);
 
 			//once the goal is saved, go back to the main lander fragment
 			((MainActivity) getActivity()).switchFragment(MainActivity.homeFrag);
