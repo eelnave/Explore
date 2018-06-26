@@ -1,5 +1,6 @@
 package edu.byui.cit.record;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,11 @@ import android.widget.Spinner;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import edu.byui.cit.model.AppDatabase;
+import edu.byui.cit.model.Goal;
+import edu.byui.cit.model.GoalDAO;
+
 
 public class add_customgoal extends AppCompatActivity {
 
@@ -87,10 +93,22 @@ public class add_customgoal extends AppCompatActivity {
             String parseDate = txtCompletiondate.toString();
             SimpleDateFormat finishDate = new SimpleDateFormat(parseDate);
 
+
+
             //--state of check boxes and radio buttons are stored in global variables already defined.--
 
             //make a new row in the goal database with the data.
             //TODO: once database objects are ready, insert all of this data into a new row.
+
+            Goal test1 = new Goal();
+            test1.setGoalID(1);
+
+            Context ctx = getApplicationContext();
+            GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
+            dao.insert(test1);
+            dao.getByID(1);
+
+            System.out.println(test1);
         }
     }
 }
