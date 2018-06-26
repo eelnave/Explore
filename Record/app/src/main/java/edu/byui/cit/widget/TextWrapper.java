@@ -4,7 +4,8 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public final class TextWrapper extends WidgetWrapper {
+public final class
+TextWrapper extends WidgetWrapper {
 	private final TextView view;
 
 	public TextWrapper(View parent, int resID) {
