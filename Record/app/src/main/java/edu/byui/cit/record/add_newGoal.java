@@ -96,8 +96,6 @@ public class add_newGoal extends CITFragment {
 		new ButtonWrapper(view, R.id.submitFormButton, new submitNewGoalListener());
 
 		return view;
-
-
 	}
 
 	@Override
@@ -119,7 +117,9 @@ public class add_newGoal extends CITFragment {
 			dao.insert(test1);
 
 			//once the goal is saved, go back to the main lander fragment
-			((MainActivity) getActivity()).switchFragment(MainActivity.homeFrag);
+			//we need to pop the fragment off the fragment stack, similar to pressing the back button.
+			getActivity().getFragmentManager().popBackStack();
+			//((MainActivity) getActivity()).switchFragment(MainActivity.homeFrag);
 		}
 	}
 }
