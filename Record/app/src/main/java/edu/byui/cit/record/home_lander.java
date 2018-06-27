@@ -52,10 +52,6 @@ public class home_lander extends CITFragment {
 		//testWrapper.setText(dataTestID);
 
 
-
-
-
-
 		return view;
 	}
 
