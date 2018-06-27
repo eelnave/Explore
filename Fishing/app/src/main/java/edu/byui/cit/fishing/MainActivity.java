@@ -176,18 +176,20 @@ public class MainActivity extends Activity {
 
                }
 
-               // Call the method to compute fly.
+               // Check that 3 variables are not null. If not null, call the method to compute fly.
                private void checkCategoriesNotNull(String checkedSpecies, String checkedMonth, String checkedWater){
                 if(checkedSpecies != null && checkedMonth != null && checkedWater != null){
                     // Create instance of choices class and set values.
-                    Choices selectedChoices = new Choices(checkedSpecies,checkedMonth,checkedWater);
-                    selectedChoices.computeFly(checkedSpecies,checkedMonth,checkedWater);
-                    tvTest = (TextView) findViewById(R.id.tvTestOutput);
-                    tvTest.setText(checkedSpecies + " / " + checkedMonth + " / " + checkedWater);
+                    Choices selectedChoices = new Choices(checkedSpecies,checkedWater,checkedMonth);
+                    String flyOutput = selectedChoices.computeFly(getResources(),checkedMonth,checkedWater);
 
+
+                   tvTest = (TextView) findViewById(R.id.tvTestOutput);
+                    tvTest.setText(flyOutput);
 
                 } else {
                     // do nothing because not all categories have values
+
                 }
                }
 }
