@@ -11,8 +11,6 @@ import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.ExpandableListView.OnGroupCollapseListener;
-import android.widget.ExpandableListView.OnGroupExpandListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,10 +42,9 @@ public class MainActivity extends Activity {
         prepareListData();
 
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
-
         // setting list adapter
         expListView.setAdapter(listAdapter);
-
+        expListView.expandGroup(0);
         // Listview Group click listener
         expListView.setOnGroupClickListener(new OnGroupClickListener() {
 
@@ -61,30 +58,6 @@ public class MainActivity extends Activity {
             }
         });
 
-//        // Listview Group expanded listener
-//        expListView.setOnGroupExpandListener(new OnGroupExpandListener() {
-//
-//            @Override
-//            public void onGroupExpand(int groupPosition) {
-//                Toast.makeText(getApplicationContext(),
-//                        listDataHeader.get(groupPosition) + " Expanded",
-//                        Toast.LENGTH_SHORT).show();
-//            }
-//        });
-
-//        // Listview Group collapsed listener
-//        expListView.setOnGroupCollapseListener(new OnGroupCollapseListener() {
-//
-//            @Override
-//            public void onGroupCollapse(int groupPosition) {
-//                 Toast.makeText(getApplicationContext(),
-//                        listDataHeader.get(groupPosition) + " Collapsed",
-//                        Toast.LENGTH_SHORT).show();
-//
-//            }
-//        });
-
-        // Listview on child click listener
         expListView.setOnChildClickListener(new OnChildClickListener() {
 
             @Override
