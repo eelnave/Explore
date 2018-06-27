@@ -31,4 +31,9 @@
 	<string name="brakes">Brakes</string>
 
 	<string name="color">Color</string>
+
+	<string name="help_description">Click the Add button either on top or the bottom to add your vehicle.</string>
+	<string name="help_description2">When you choose one of your vehicles, a menu of maintenance options will appear. </string>
+	<string name="help_description3">Select an option (oil, brakes, etc.), record the last time you performed maintenance on that item, and the app will inform you
+	when it's time to check your vehicle in for maintenance.</string>
 </resources>

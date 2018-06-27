@@ -21,7 +21,6 @@ public class Help extends CITFragment {
         TextView title = view.findViewById(R.id.textTitle);
         title.setText(helpTitle);
 
-        
         return view;
     }
 }
