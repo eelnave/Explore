@@ -523,18 +523,11 @@ public class Choices extends MainActivity {
                     default: throw new IllegalArgumentException("Invalid Combination");
                 }
 
-
-
             default: break;
             }
             return recommendedFly;
 
         }
-
-
-
-
-
 
     }
 
