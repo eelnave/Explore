@@ -299,7 +299,7 @@ public class Choices extends MainActivity {
 
                     case "November":
                         // WET vs regular ???
-                        recommendedFly = res.getString(R.string.lowerHenrysNovWet);
+                        recommendedFly = res.getString(R.string.lowerHenrysNov);
                         return recommendedFly;
 
                     case "December":
@@ -435,7 +435,7 @@ public class Choices extends MainActivity {
 
                     case "May":
                         // WET FLIES VS NOT?
-                        recommendedFly = res.getString(R.string.warmMayWetFlies);
+                        recommendedFly = res.getString(R.string.warmMay);
                         return recommendedFly;
 
                     case "June":
@@ -493,7 +493,7 @@ public class Choices extends MainActivity {
                         return recommendedFly;
 
                     case "June":
-                        recommendedFly = res.getString(R.string.fallJunWetFlies);
+                        recommendedFly = res.getString(R.string.fallJun);
                         return recommendedFly;
 
                     case "July":
