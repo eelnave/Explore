@@ -194,7 +194,7 @@ public class Choices extends MainActivity {
     // String selectedSpecies taken out as parameter temp
     public String computeFly(Resources res, String selectedWater, String selectedMonth){
         //var to hold fly?
-        String reccomendedFly = " holder";
+        String recommendedFly = " holder";
 
 
     // Upper Henry's selected
@@ -204,52 +204,52 @@ public class Choices extends MainActivity {
                 //Filter by month
             switch (selectedMonth){
                 case "January":
-                    reccomendedFly = res.getString(R.string.upperHenrysJan);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysJan);
+                    return recommendedFly;
 
                 case "February":
-                    reccomendedFly = res.getString(R.string.upperHenrysFeb);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysFeb);
+                    return recommendedFly;
 
                 case "March":
-                    reccomendedFly = res.getString(R.string.upperHenrysMar);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysMar);
+                    return recommendedFly;
 
                 case "April":
-                    reccomendedFly = res.getString(R.string.upperHenrysApr);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysApr);
+                    return recommendedFly;
 
                 case "May":
-                    reccomendedFly = res.getString(R.string.upperHenrysMay);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysMay);
+                    return recommendedFly;
 
                 case "June":
-                    reccomendedFly = res.getString(R.string.upperHenrysJun);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysJun);
+                    return recommendedFly;
 
                 case "July":
-                    reccomendedFly = res.getString(R.string.upperHenrysJul);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysJul);
+                    return recommendedFly;
 
                 case "August":
-                    reccomendedFly = res.getString(R.string.upperHenrysAug);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysAug);
+                    return recommendedFly;
 
                 case "September":
-                    reccomendedFly = res.getString(R.string.upperHenrysSep);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysSep);
+                    return recommendedFly;
 
                 case "October":
-                    reccomendedFly = res.getString(R.string.upperHenrysOct);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysOct);
+                    return recommendedFly;
 
                 case "November":
-                    reccomendedFly = res.getString(R.string.upperHenrysNov);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysNov);
+                    return recommendedFly;
 
                 case "December":
-                    reccomendedFly = res.getString(R.string.upperHenrysDec);
-                    return reccomendedFly;
+                    recommendedFly = res.getString(R.string.upperHenrysDec);
+                    return recommendedFly;
 
                 default: throw new IllegalArgumentException("Invalid Combination");
             }
@@ -258,53 +258,53 @@ public class Choices extends MainActivity {
 
                 switch (selectedMonth){
                     case "January":
-                        reccomendedFly = res.getString(R.string.lowerHenrysJan);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysJan);
+                        return recommendedFly;
 
                     case "February":
-                        reccomendedFly = res.getString(R.string.lowerHenrysFeb);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysFeb);
+                        return recommendedFly;
 
                     case "March":
-                        reccomendedFly = res.getString(R.string.lowerHenrysMar);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysMar);
+                        return recommendedFly;
 
                     case "April":
-                        reccomendedFly = res.getString(R.string.lowerHenrysApr);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysApr);
+                        return recommendedFly;
 
                     case "May":
-                        reccomendedFly = res.getString(R.string.lowerHenrysMay);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysMay);
+                        return recommendedFly;
 
                     case "June":
-                        reccomendedFly = res.getString(R.string.lowerHenrysJun);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysJun);
+                        return recommendedFly;
 
                     case "July":
-                        reccomendedFly = res.getString(R.string.lowerHenrysJul);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysJul);
+                        return recommendedFly;
 
                     case "August":
-                        reccomendedFly = res.getString(R.string.lowerHenrysAug);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysAug);
+                        return recommendedFly;
 
                     case "September":
-                        reccomendedFly = res.getString(R.string.lowerHenrysSep);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysSep);
+                        return recommendedFly;
 
                     case "October":
-                        reccomendedFly = res.getString(R.string.lowerHenrysOct);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysOct);
+                        return recommendedFly;
 
                     case "November":
                         // WET vs regular ???
-                        reccomendedFly = res.getString(R.string.lowerHenrysNovWet);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysNovWet);
+                        return recommendedFly;
 
                     case "December":
-                        reccomendedFly = res.getString(R.string.lowerHenrysDec);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.lowerHenrysDec);
+                        return recommendedFly;
 
                     default: throw new IllegalArgumentException("Invalid Combination");
                 }
@@ -312,52 +312,52 @@ public class Choices extends MainActivity {
 
                 switch (selectedMonth){
                     case "January":
-                        reccomendedFly = res.getString(R.string.snakeRiverJan);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverJan);
+                        return recommendedFly;
 
                     case "February":
-                        reccomendedFly = res.getString(R.string.snakeRiverFeb);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverFeb);
+                        return recommendedFly;
 
                     case "March":
-                        reccomendedFly = res.getString(R.string.snakeRiverMar);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverMar);
+                        return recommendedFly;
 
                     case "April":
-                        reccomendedFly = res.getString(R.string.snakeRiverApr);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverApr);
+                        return recommendedFly;
 
                     case "May":
-                        reccomendedFly = res.getString(R.string.snakeRiverMay);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverMay);
+                        return recommendedFly;
 
                     case "June":
-                        reccomendedFly = res.getString(R.string.snakeRiverJun);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverJun);
+                        return recommendedFly;
 
                     case "July":
-                        reccomendedFly = res.getString(R.string.snakeRiverJul);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverJul);
+                        return recommendedFly;
 
                     case "August":
-                        reccomendedFly = res.getString(R.string.snakeRiverAug);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverAug);
+                        return recommendedFly;
 
                     case "September":
-                        reccomendedFly = res.getString(R.string.snakeRiverSep);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverSep);
+                        return recommendedFly;
 
                     case "October":
-                        reccomendedFly = res.getString(R.string.snakeRiverOct);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverOct);
+                        return recommendedFly;
 
                     case "November":
-                        reccomendedFly = res.getString(R.string.snakeRiverNov);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverNov);
+                        return recommendedFly;
 
                     case "December":
-                        reccomendedFly = res.getString(R.string.snakeRiverDec);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.snakeRiverDec);
+                        return recommendedFly;
 
                     default: throw new IllegalArgumentException("Invalid Combination");
                 }
@@ -365,52 +365,52 @@ public class Choices extends MainActivity {
 
                 switch (selectedMonth){
                     case "January":
-                        reccomendedFly = res.getString(R.string.tetonJan);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonJan);
+                        return recommendedFly;
 
                     case "February":
-                        reccomendedFly = res.getString(R.string.tetonFeb);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonFeb);
+                        return recommendedFly;
 
                     case "March":
-                        reccomendedFly = res.getString(R.string.tetonMar);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonMar);
+                        return recommendedFly;
 
                     case "April":
-                        reccomendedFly = res.getString(R.string.tetonApr);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonApr);
+                        return recommendedFly;
 
                     case "May":
-                        reccomendedFly = res.getString(R.string.tetonMay);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonMay);
+                        return recommendedFly;
 
                     case "June":
-                        reccomendedFly = res.getString(R.string.tetonJun);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonJun);
+                        return recommendedFly;
 
                     case "July":
-                        reccomendedFly = res.getString(R.string.tetonJul);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonJul);
+                        return recommendedFly;
 
                     case "August":
-                        reccomendedFly = res.getString(R.string.tetonAug);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonAug);
+                        return recommendedFly;
 
                     case "September":
-                        reccomendedFly = res.getString(R.string.tetonSep);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonSep);
+                        return recommendedFly;
 
                     case "October":
-                        reccomendedFly = res.getString(R.string.tetonOct);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonOct);
+                        return recommendedFly;
 
                     case "November":
-                        reccomendedFly = res.getString(R.string.tetonNov);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonNov);
+                        return recommendedFly;
 
                     case "December":
-                        reccomendedFly = res.getString(R.string.tetonDec);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.tetonDec);
+                        return recommendedFly;
 
                     default: throw new IllegalArgumentException("Invalid Combination");
                 }
@@ -418,53 +418,53 @@ public class Choices extends MainActivity {
 
                 switch (selectedMonth){
                     case "January":
-                        reccomendedFly = res.getString(R.string.warmJan);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmJan);
+                        return recommendedFly;
 
                     case "February":
-                        reccomendedFly = res.getString(R.string.warmFeb);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmFeb);
+                        return recommendedFly;
 
                     case "March":
-                        reccomendedFly = res.getString(R.string.warmMar);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmMar);
+                        return recommendedFly;
 
                     case "April":
-                        reccomendedFly = res.getString(R.string.warmApr);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmApr);
+                        return recommendedFly;
 
                     case "May":
                         // WET FLIES VS NOT?
-                        reccomendedFly = res.getString(R.string.warmMayWetFlies);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmMayWetFlies);
+                        return recommendedFly;
 
                     case "June":
-                        reccomendedFly = res.getString(R.string.warmJun);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmJun);
+                        return recommendedFly;
 
                     case "July":
-                        reccomendedFly = res.getString(R.string.warmJul);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmJul);
+                        return recommendedFly;
 
                     case "August":
-                        reccomendedFly = res.getString(R.string.warmAug);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmAug);
+                        return recommendedFly;
 
                     case "September":
-                        reccomendedFly = res.getString(R.string.warmSep);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmSep);
+                        return recommendedFly;
 
                     case "October":
-                        reccomendedFly = res.getString(R.string.warmOct);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmOct);
+                        return recommendedFly;
 
                     case "November":
-                        reccomendedFly = res.getString(R.string.warmNov);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmNov);
+                        return recommendedFly;
 
                     case "December":
-                        reccomendedFly = res.getString(R.string.warmDec);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.warmDec);
+                        return recommendedFly;
 
                     default: throw new IllegalArgumentException("Invalid Combination");
                 }
@@ -473,52 +473,52 @@ public class Choices extends MainActivity {
 
                 switch (selectedMonth){
                     case "January":
-                        reccomendedFly = res.getString(R.string.fallJan);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallJan);
+                        return recommendedFly;
 
                     case "February":
-                        reccomendedFly = res.getString(R.string.fallFeb);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallFeb);
+                        return recommendedFly;
 
                     case "March":
-                        reccomendedFly = res.getString(R.string.fallMar);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallMar);
+                        return recommendedFly;
 
                     case "April":
-                        reccomendedFly = res.getString(R.string.fallApr);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallApr);
+                        return recommendedFly;
 
                     case "May":
-                        reccomendedFly = res.getString(R.string.fallMay);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallMay);
+                        return recommendedFly;
 
                     case "June":
-                        reccomendedFly = res.getString(R.string.fallJunWetFlies);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallJunWetFlies);
+                        return recommendedFly;
 
                     case "July":
-                        reccomendedFly = res.getString(R.string.fallJul);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallJul);
+                        return recommendedFly;
 
                     case "August":
-                        reccomendedFly = res.getString(R.string.fallAug);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallAug);
+                        return recommendedFly;
 
                     case "September":
-                        reccomendedFly = res.getString(R.string.fallSep);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallSep);
+                        return recommendedFly;
 
                     case "October":
-                        reccomendedFly = res.getString(R.string.fallOct);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallOct);
+                        return recommendedFly;
 
                     case "November":
-                        reccomendedFly = res.getString(R.string.fallNov);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallNov);
+                        return recommendedFly;
 
                     case "December":
-                        reccomendedFly = res.getString(R.string.fallDec);
-                        return reccomendedFly;
+                        recommendedFly = res.getString(R.string.fallDec);
+                        return recommendedFly;
 
                     default: throw new IllegalArgumentException("Invalid Combination");
                 }
@@ -527,7 +527,7 @@ public class Choices extends MainActivity {
 
             default: break;
             }
-            return reccomendedFly;
+            return recommendedFly;
 
         }
 
