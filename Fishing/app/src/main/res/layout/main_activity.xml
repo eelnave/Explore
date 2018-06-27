@@ -27,7 +27,7 @@
             android:textColor="#6495ED"
             android:textStyle="bold" />
     <TextView
-            android:text=" Display Output here"
+            android:text=""
             android:padding="20px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
