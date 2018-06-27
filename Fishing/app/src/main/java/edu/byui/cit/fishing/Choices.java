@@ -1,15 +1,21 @@
 package edu.byui.cit.fishing;
 
+import android.content.res.Resources;
+import android.widget.Switch;
 import android.widget.TextView;
+import com.google.android.gms.common.util.Strings;
+
+import java.util.Arrays;
+import java.util.List;
 
 
-public class Choices {
+public class Choices extends MainActivity {
     private String SelectedSpecies;
     private String SelectedMonth;
     private String SelectedWater;
 
 
-    public Choices(String selectedSpecies, String selectedMonth, String selectedWater) {
+    public Choices(String selectedSpecies, String selectedWater, String selectedMonth) {
         SelectedSpecies = selectedSpecies;
         SelectedMonth = selectedMonth;
         SelectedWater = selectedWater;
@@ -82,7 +88,7 @@ public class Choices {
 
     }
 
-    //convert species strings to enums
+   // convert species strings to enums
     public Choices.species speciesStringToEnum(String selectedSpecies){
 
         Choices.species speciesEnum = species.Rainbow;
@@ -129,6 +135,7 @@ public class Choices {
                 waterEnum = water.FallRiver;
                 break;
             default:
+
                 break;
         }
         return waterEnum;
@@ -184,18 +191,30 @@ public class Choices {
 
 
     // compute fly output based on water,species, and month
-    public void computeFly(String selectedSpecies,String selectedMonth,String selectedWater){
+    // String selectedSpecies taken out as parameter temp
+    public String computeFly(Resources res, String selectedWater, String selectedMonth){
         //var to hold fly?
-        String reccomendedFly = "none";
-
-        // Convert Strings to enums.
-        Choices.species speciesToCheck = speciesStringToEnum(selectedSpecies);
-        Choices.month monthToCheck = monthStringToEnum(selectedMonth);
-        Choices.water waterToCheck = waterStringToEnum(selectedWater);
+        String reccomendedFly = " holder";
 
 
     // sample case
+        switch(selectedWater){
+            case "Upper Henry's Fork":
 
+            switch (selectedMonth){
+                case "January":
+                    reccomendedFly = res.getString(R.string.upperHenrysJan);
+                    System.out.println(reccomendedFly);
+                    break;
+
+
+
+            }
+            default: break;
+            }
+            return reccomendedFly;
+
+        }
 
 
 
@@ -204,4 +223,4 @@ public class Choices {
 
     }
 
-}
+
