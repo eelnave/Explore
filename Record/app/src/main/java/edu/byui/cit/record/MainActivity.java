@@ -21,7 +21,6 @@ import edu.byui.cit.widget.CITFragment;
 
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Record";
-	public static final CITFragment homeFrag = new home_lander();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -88,8 +87,12 @@ public class MainActivity extends AppCompatActivity {
 			//populate the main screen area with current goals
 
 			//go ahead and launch the main lander fragment
-			CITFragment frag = new home_lander();
-			switchFragment(frag);
+			if (savedInstanceState == null){
+				CITFragment frag = new home_lander();
+				FragmentTransaction trans = getFragmentManager().beginTransaction();
+				trans.add(R.id.fragContainer, frag);
+				trans.commit();
+			}
 
 			//test with filler data
 
