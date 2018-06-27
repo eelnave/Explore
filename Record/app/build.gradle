@@ -43,5 +43,6 @@ dependencies {
 
 
     //will add a url to logcat which will allow you to access your database so you can see what is inside and even edit it
+    // Just search D/DebugDB in the logcat and follow the link
     debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
 }
