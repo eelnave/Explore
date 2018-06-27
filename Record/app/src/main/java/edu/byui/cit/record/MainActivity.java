@@ -1,6 +1,8 @@
 package edu.byui.cit.record;
 
 import android.app.AlarmManager;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
 					startActivity(intent);
 				}
 			});
+
 
 			//Daily notification time, intent, and alarm manager
 			Calendar calendar = Calendar.getInstance();

@@ -1,64 +1,64 @@
 <resources>
-    <string name="appName">Record</string>
+	<string name="appName">Record</string>
 
-    <string name="about">About</string>
-    <string name="appDescr">An app to help you record recurring events such as exercise, training, instrument practice, reading, and study.</string>
-    <string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
+	<string name="about">About</string>
+	<string name="appDescr">An app to help you record recurring events such as exercise, training, instrument practice, reading, and study.</string>
+	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
 
-    <string name="contribs">Contributors: Brandon Sommer, Parker Goldsberry, Kameron Snell, Benjamin Poore, Daniel Chase</string>
+	<string name="contribs">Contributors: Brandon Sommer, Parker Goldsberry, Kameron Snell, Benjamin Poore, Daniel Chase</string>
 
-    <string name="mistake">Well, this is embarrassing. Something is wrong with this part of the app, and it isn\'t working. We apologize.</string>
-    <string name="addNewGoaltxt1">(What Do You Want To Accomplish?)</string>
-    <string name="addNewGoalDate">every </string>
-    <string name="addNewGoaltxt0">1. I Want To...</string>
-    <string name="addNewGoaldate2">(date)</string>
-    <string name="addNewGoaltxt3">3. Accountability Frequency:</string>
-    <string name="addNewGoalOngoing">Onngoing?</string>
-    <string name="addNewGoalradio1">Weekly</string>
-    <string name="addNewGoalradio2">Daily</string>
-    <string name="addNewGoalradio3">Morning and Night</string>
-    <string name="addNewGoalBtn">Record!</string>
-    <string name="Button1">New Goal</string>
-    <string name="Button2">Delete Goal</string>
-    <string name="Textbox1">Current Goals:</string>
-    <string name="title_activity_add_eatinggoal">add_eatinggoal</string>
-    <string name="title_activity_add_excercisegoal">add_excercisegoal</string>
-    <string name="title_activity_add_readinggoal">add_readinggoal</string>
-    <string name="eatingGoalCreate">Create</string>
-    <string name="eatingGoalHeader">Daily Goals:</string>
-    <string name="caloriesLabel">Calories:</string>
-    <string name="fatLabel">Fat:</string>
-    <string name="cholesterolLabel">Cholesterol:</string>
-    <string name="sodiumLabel">Sodium:</string>
-    <string name="carbLabel">Carboydrates:</string>
-    <string name="proteinLabel">Protein:</string>
-    <string name="eatingGoalCancel">Cancel</string>
-    <string name="frequencyLabel">Frequency:</string>
-    <string name="everydayLabel">Everyday</string>
-    <string name="weekdaysLabel">M-F</string>
-    <string name="weekendLabel">Weekends</string>
-    <string name="mondayLabel">M</string>
-    <string name="tuesdayLabel">T</string>
-    <string name="wednesdayLabel">W</string>
-    <string name="thursdayLabel">Th</string>
-    <string name="fridayLabel">F</string>
-    <string name="saturdayLabel">Sat</string>
-    <string name="sundayLabel">Sun</string>
-    <string name="intensityLabel">Intensity:</string>
-    <string name="durationLabel">Duration:</string>
+	<string name="mistake">Well, this is embarrassing. Something is wrong with this part of the app, and it isn\'t working. We apologize.</string>
+	<string name="addNewGoaltxt1">(What Do You Want To Accomplish?)</string>
+	<string name="addNewGoalDate">every </string>
+	<string name="addNewGoaltxt0">1. I Want To...</string>
+	<string name="addNewGoaldate2">(date)</string>
+	<string name="addNewGoaltxt3">3. Accountability Frequency:</string>
+	<string name="addNewGoalOngoing">Onngoing?</string>
+	<string name="addNewGoalradio1">Weekly</string>
+	<string name="addNewGoalradio2">Daily</string>
+	<string name="addNewGoalradio3">Morning and Night</string>
+	<string name="addNewGoalBtn">Record!</string>
+	<string name="Button1">New Goal</string>
+	<string name="Button2">Delete Goal</string>
+	<string name="Textbox1">Current Goals:</string>
+	<string name="title_activity_add_eatinggoal">add_eatinggoal</string>
+	<string name="title_activity_add_excercisegoal">add_excercisegoal</string>
+	<string name="title_activity_add_readinggoal">add_readinggoal</string>
+	<string name="eatingGoalCreate">Create</string>
+	<string name="eatingGoalHeader">Daily Goals:</string>
+	<string name="caloriesLabel">Calories:</string>
+	<string name="fatLabel">Fat:</string>
+	<string name="cholesterolLabel">Cholesterol:</string>
+	<string name="sodiumLabel">Sodium:</string>
+	<string name="carbLabel">Carboydrates:</string>
+	<string name="proteinLabel">Protein:</string>
+	<string name="eatingGoalCancel">Cancel</string>
+	<string name="frequencyLabel">Frequency:</string>
+	<string name="everydayLabel">Everyday</string>
+	<string name="weekdaysLabel">M-F</string>
+	<string name="weekendLabel">Weekends</string>
+	<string name="mondayLabel">M</string>
+	<string name="tuesdayLabel">T</string>
+	<string name="wednesdayLabel">W</string>
+	<string name="thursdayLabel">Th</string>
+	<string name="fridayLabel">F</string>
+	<string name="saturdayLabel">Sat</string>
+	<string name="sundayLabel">Sun</string>
+	<string name="intensityLabel">Intensity:</string>
+	<string name="durationLabel">Duration:</string>
 
-    <string-array name="frequencyChoices">
-        <item>Day</item>
-        <item>Week</item>
-        <item>Month</item>
-    </string-array>
+	<string-array name="frequencyChoices">
+		<item>Day</item>
+		<item>Week</item>
+		<item>Month</item>
+	</string-array>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="addNewGoaltxt4">Until...</string>
-    <string name="addNewGoaltxt5">Remind me at:</string>
-    <string name="title_activity_view_goal">View Goal Details</string>
+	<!-- TODO: Remove or change this placeholder text -->
+	<string name="hello_blank_fragment">Hello blank fragment</string>
+	<string name="addNewGoaltxt4">Until...</string>
+	<string name="addNewGoaltxt5">Remind me at:</string>
+	<string name="title_activity_view_goal">View Goal Details</string>
 
-    <string name="notification">Notification!</string>
+	<string name="notification">Notification!</string>
 
 </resources>
