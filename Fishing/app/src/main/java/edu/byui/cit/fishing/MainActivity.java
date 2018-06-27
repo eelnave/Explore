@@ -37,6 +37,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
 
+
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
 
