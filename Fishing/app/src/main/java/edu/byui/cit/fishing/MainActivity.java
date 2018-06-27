@@ -181,14 +181,15 @@ public class MainActivity extends Activity {
                private void checkCategoriesNotNull(String checkedSpecies, String checkedMonth, String checkedWater){
                 if(checkedSpecies != null && checkedMonth != null && checkedWater != null){
                     // Create instance of choices class and set values.
-                    Choices selectedChoices = new Choices(checkedSpecies,checkedMonth,checkedWater);
-                    selectedChoices.computeFly(checkedSpecies,checkedMonth,checkedWater);
+                    Choices selectedChoices = new Choices(checkedSpecies,checkedWater,checkedMonth);
+                    selectedChoices.computeFly(getResources(),checkedMonth,checkedWater);
                     tvTest = (TextView) findViewById(R.id.tvTestOutput);
-                    tvTest.setText(checkedSpecies + " / " + checkedMonth + " / " + checkedWater);
+                    tvTest.setText(selectedChoices.computeFly(getResources(),checkedWater,checkedMonth));
 
 
                 } else {
                     // do nothing because not all categories have values
+
                 }
                }
 }
