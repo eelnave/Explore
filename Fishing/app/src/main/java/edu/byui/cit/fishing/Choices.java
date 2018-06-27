@@ -192,33 +192,34 @@ public class Choices extends MainActivity {
 
     // compute fly output based on water,species, and month
     // String selectedSpecies taken out as parameter temp
-    public String computeFly(Resources res, String selectedWater, String selectedMonth){
+    public String computeFly(Resources res, String selectedSpecies, String selectedWater, String selectedMonth){
         //var to hold fly?
-        String reccomendedFly = " holder";
+        String recommendedFly = "holder";
 
 
     // sample case
-        switch(selectedWater){
-            case "Upper Henry's Fork":
+        switch(selectedSpecies) {
+            case "Rainbow Trout":
 
-            switch (selectedMonth){
-                case "January":
-                    reccomendedFly = res.getString(R.string.upperHenrysJan);
-                    System.out.println(reccomendedFly);
-                    break;
+            switch (selectedWater) {
+                case "Upper Henry's Fork":
+
+                    switch (selectedMonth) {
+                        case "January":
+                            recommendedFly = res.getString(R.string.upperHenrysJan);
+                            System.out.println(recommendedFly);
+                            break;
 
 
+                    }
+                default: break;
 
             }
-            default: break;
-            }
-            return reccomendedFly;
-
         }
 
+            return recommendedFly;
 
-
-
+        }
 
 
     }

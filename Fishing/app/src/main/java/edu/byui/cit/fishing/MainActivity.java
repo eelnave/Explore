@@ -182,9 +182,9 @@ public class MainActivity extends Activity {
                 if(checkedSpecies != null && checkedMonth != null && checkedWater != null){
                     // Create instance of choices class and set values.
                     Choices selectedChoices = new Choices(checkedSpecies,checkedWater,checkedMonth);
-                    selectedChoices.computeFly(getResources(),checkedMonth,checkedWater);
+                    selectedChoices.computeFly(getResources(), checkedSpecies, checkedMonth,checkedWater);
                     tvTest = (TextView) findViewById(R.id.tvTestOutput);
-                    tvTest.setText(selectedChoices.computeFly(getResources(),checkedWater,checkedMonth));
+                    tvTest.setText(selectedChoices.computeFly(getResources(), checkedSpecies, checkedWater,checkedMonth));
 
 
                 } else {
