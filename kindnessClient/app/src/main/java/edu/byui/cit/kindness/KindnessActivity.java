@@ -78,6 +78,7 @@ public final class KindnessActivity extends AppCompatActivity {
 
 		FirebaseApp.initializeApp(ctx);
 
+		//when run independently it comes up, when run with displayFragment code below it's overwritten
 		setContentView(R.layout.kindness_activity);
 		Toolbar toolbar = findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
@@ -88,38 +89,15 @@ public final class KindnessActivity extends AppCompatActivity {
 		if (savedInstState == null) {
 			// Create a fragment the map fragment and place
 			// it as the first fragment in this activity.
-			//change this to the DisplayFragment.java instead of MapFragment once we finish the filters so it'll load first
+
+			//supposed to go inside of the fragContainer in kindness_activity.xml but I think it overwrites it instead
 			Fragment frag = new DisplayFragment();
-			FragmentTransaction trans =
-					getSupportFragmentManager().beginTransaction();
+			FragmentTransaction trans = getSupportFragmentManager()
+					.beginTransaction();
 			trans.add(R.id.fragContainer, frag);
 			trans.commit();
-
-			// If this is the first time that this app has
-			// been run on the current device, open the
-			// tutorial that explains how to use this app.
-			// REMOVED THE FIRST TIME
-			// NOW TO TEXT
-			SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
-
 		}
-
 	}
-
-
-	/*private final class spinnerChange implements AdapterView.OnItemSelectedListener {
-		@Override
-		public void onItemSelected(AdapterView<?> adapter, View view,
-		int position, long id) {
-			String lstime = adapter.getItemAtPosition(position).toString();
-
-		}
-
-		@Override
-		public void onNothingSelected(AdapterView<?> parent) {
-
-		}
-	}*/
 
 
 	@Override

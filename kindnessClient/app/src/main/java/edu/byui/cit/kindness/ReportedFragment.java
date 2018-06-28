@@ -8,10 +8,7 @@ import android.view.ViewGroup;
 import edu.byui.cit.widget.CITFragment;
 
 
-public class ReportedFragment extends CITFragment {
-	//private TextView txtCategory, txtLatitude, txtLongitude;
-	//private Report report;
-
+public class ReportedFragment extends ChildFragment {
 
 	@Override
 	protected String getTitle() {
@@ -24,10 +21,6 @@ public class ReportedFragment extends CITFragment {
 			Bundle savedInstState) {
 		View view = inflater.inflate(R.layout.reported_frag, container,
 				false);
-
-		//txtCategory = view.findViewById(R.id.category);
-		//txtLatitude = view.findViewById(R.id.latitude);
-		//txtLongitude = view.findViewById(R.id.longitude);
 
 		view.findViewById(R.id.btnToMap).setOnClickListener(
 				new View.OnClickListener() {

@@ -24,7 +24,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 
+import java.sql.Time;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -33,7 +35,6 @@ import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.widget.ItemSelectedListener;
 import edu.byui.cit.widget.SpinString;
 import edu.byui.cit.widget.SpinWrapper;
-
 
 public final class DisplayFragment extends CITFragment
 		implements OnMapReadyCallback {
@@ -67,11 +68,11 @@ public final class DisplayFragment extends CITFragment
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		Log.i(KindnessActivity.TAG, "createView()");
 		View view = inflater.inflate(R.layout.display_frag, container, false);
 		timeSpin = new SpinString(view, R.id.timeSpinner, new spinnerChange());
 		typeSpin = new SpinString(view, R.id.typeSpinner, new spinnerChange());
 
-//		FragmentManager fm = getChildFragmentManager();
 		SupportMapFragment mapFrag = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.mapFrag);
 
 		if (mMap == null) {
@@ -80,23 +81,6 @@ public final class DisplayFragment extends CITFragment
 		return view;
 	}
 
-	private class spinnerChange implements ItemSelectedListener {
-
-		@Override
-		public void itemSelected(SpinWrapper source, int pos, long id) {
-			// Clear the map of all markers
-
-			// Get the current time
-			Calendar calendar = Calendar.getInstance();
-			int month = calendar.get(Calendar.MONTH);
-
-			//Log.i("Kailen's awesome debugging");
-
-			// Based on the use's choice put markers whose corresonding reports fit within the time.
-
-
-		}
-	}
 	/**
 	 * Manipulates the map once available.
 	 * This callback is triggered when the map is ready to be used.
@@ -274,4 +258,50 @@ public final class DisplayFragment extends CITFragment
 			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
 		}
 	}
+
+	private class spinnerChange implements ItemSelectedListener {
+
+		@Override
+		public void itemSelected(SpinWrapper source, int pos, long id) {
+			// Clear the map of all markers
+			mMap.clear();
+			// Get the current time of machine
+			Calendar calendar = Calendar.getInstance();
+
+			long millis = calendar.getTimeInMillis();
+			//should I just use milliseconds? easier to convert and compare
+			int hour = calendar.get(Calendar.HOUR_OF_DAY);
+			//DAY_OF_YEAR day number within current year, can count for a week
+			int week = calendar.get(Calendar.DAY_OF_YEAR);
+			int month = calendar.get(Calendar.MONTH);
+			int year = calendar.get(Calendar.YEAR);
+
+			//timezone differences?
+
+			//server time of reports
+			TreeMap serverTime = indexes.get(allReports.get(ServerValue.TIMESTAMP));
+
+
+			// Based on the user's choice put markers whose corresponding reports fit within the time.
+			//last hour = 3600000 ms
+
+			//last 24 hours = 86400000 ms
+
+			//last week = 604800016.56 ms
+
+			//last month = 2629800000 ms
+
+			//last year = 31557600000 ms
+
+			//all time
+
+			//category
+			if(indexes.get(allReports).equals(Report.Category.Time)){
+
+			}
+			//Log.i("debug");
+
+		}
+	}
 }
+

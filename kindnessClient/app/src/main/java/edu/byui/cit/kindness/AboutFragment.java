@@ -9,7 +9,7 @@ import android.widget.TextView;
 import edu.byui.cit.widget.CITFragment;
 
 
-public final class AboutFragment extends CITFragment {
+public final class AboutFragment extends ChildFragment {
 	@Override
 	protected String getTitle() {
 		return getString(R.string.about);
