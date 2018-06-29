@@ -13,6 +13,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.ImageButton;
 
 import edu.byui.cit.widget.CITFragment;
 
@@ -28,8 +30,11 @@ public class MainActivity extends AppCompatActivity {
 	private MaintenanceFrag fragAct;
 
 
-// create variable FloatingActionButton
+	/* create variable FloatingActionButton */
 	private FloatingActionButton fab;
+
+	/* create button variable v1 */
+	private Button v1;
 
 	@Override
 	protected void onCreate(Bundle savedInstState) {
@@ -68,7 +73,28 @@ public class MainActivity extends AppCompatActivity {
 		});
 
 
+		//create v1 onClickListener
+		//v1 = findViewById(R.id.v1);
+		//v1.setOnClickListener(new View.OnClickListener() {
+		//	@Override
+		//	public void onClick(View view) {
+		//		if (fragAct == null || fragAct.isDetached()) {
+		//			fragAct = new MaintenanceFrag();
+		//		}
+		//		// hide FAB on fragment fragAct
+		//		fab.hide();
+		//		//switch to fragment fragAct (for viewing vehicle details)
+		//		switchFragment(fragAct);
+		//	}
+		//});
 
+		// v1 onClickListener
+		//v1 = findViewById(R.id.v1);
+		//v1.setOnClickListener(new View.OnClickListener(){
+		//	public void onClick(View v) {
+		// code executes upon click
+		//	}
+		//	});
 
 
 	}
