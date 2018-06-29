@@ -72,31 +72,6 @@ public class MainActivity extends AppCompatActivity {
 			}
 		});
 
-
-		//create v1 onClickListener
-		//v1 = findViewById(R.id.v1);
-		//v1.setOnClickListener(new View.OnClickListener() {
-		//	@Override
-		//	public void onClick(View view) {
-		//		if (fragAct == null || fragAct.isDetached()) {
-		//			fragAct = new MaintenanceFrag();
-		//		}
-		//		// hide FAB on fragment fragAct
-		//		fab.hide();
-		//		//switch to fragment fragAct (for viewing vehicle details)
-		//		switchFragment(fragAct);
-		//	}
-		//});
-
-		// v1 onClickListener
-		//v1 = findViewById(R.id.v1);
-		//v1.setOnClickListener(new View.OnClickListener(){
-		//	public void onClick(View v) {
-		// code executes upon click
-		//	}
-		//	});
-
-
 	}
 
 	@Override

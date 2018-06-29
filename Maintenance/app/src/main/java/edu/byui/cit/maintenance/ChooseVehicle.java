@@ -6,12 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
 import edu.byui.cit.model.Vehicle;
-import edu.byui.cit.widget.ButtonWrapper;
 import edu.byui.cit.widget.CITFragment;
-import edu.byui.cit.widget.ClickListener;
-import edu.byui.cit.widget.WidgetWrapper;
 
 
 public class ChooseVehicle extends CITFragment {
@@ -25,7 +21,6 @@ public class ChooseVehicle extends CITFragment {
 			ViewGroup container, Bundle savedInstState) {
 
 		View view = inflater.inflate(R.layout.choose_vehicle, container, false);
-		new ButtonWrapper(view, R.id.v1, new selectVehicle());
 
 		// create v1 onClickListener
 		// prepend "view" to view.findViewById(R.id.v1); because you are outside of MainActivity
@@ -46,7 +41,7 @@ public class ChooseVehicle extends CITFragment {
 		return view;
 	}
 
-	//added switchFragment for v1 onClickListener test
+	//added switchFragment for v1 onClickListener
 	public void switchFragment(CITFragment fragment) {
 		// Replace whatever is in the fragContainer view with
 		// fragment, and add the transaction to the back stack so
@@ -56,7 +51,6 @@ public class ChooseVehicle extends CITFragment {
 		trans.addToBackStack(null);
 		trans.commit();
 	}
-
 
 
 	@Override
@@ -72,19 +66,4 @@ public class ChooseVehicle extends CITFragment {
 	}
 
 
-
-	private class selectVehicle implements ClickListener {
-
-        @Override
-        public void clicked(WidgetWrapper source) {
-            if (fragAct == null || fragAct.isDetached()) {
-                fragAct = new MaintenanceFrag();
-            }
-            // I forgot what I can put here to make it work.
-            // I think everything else should be correct for now though.
-//			(MainActivity) <Something?>.switchFragment(v1);
-
-
-        }
-    }
 }
