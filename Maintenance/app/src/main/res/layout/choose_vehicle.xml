@@ -13,10 +13,12 @@
 		android:text="2001 Mazda 626" />
 
 	<Button
+		android:id="@+id/v2"
 		style="@style/VehicleButton"
 		android:text="2004 Jeep Liberty"/>
 
 	<Button
+		android:id="@+id/v3"
 		style="@style/VehicleButton"
 		android:text="2011 Toyota 4 Runner"/>
 
