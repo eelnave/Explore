@@ -42,6 +42,13 @@
 	<string name="last_oil_change">Miles at Last Oil Change</string>
 	<string name="next_oil_change">Miles at Next Oil Change</string>
 
+	<string-array name="oil_change_frequency">
+
+		<item>Shop Recommendation (3,000 miles)</item>
+		<item>Owner's Manual Recommendation for Severe Conditions (5,000 miles)</item>
+		<item>Owner's Manual Recommendation for Mild Conditions (10,000 miles)</item>
+
+	</string-array>
 
 
 </resources>
