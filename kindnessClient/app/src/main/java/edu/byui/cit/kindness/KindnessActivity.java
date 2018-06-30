@@ -78,7 +78,6 @@ public final class KindnessActivity extends AppCompatActivity {
 
 		FirebaseApp.initializeApp(ctx);
 
-		//when run independently it comes up, when run with displayFragment code below it's overwritten
 		setContentView(R.layout.kindness_activity);
 		Toolbar toolbar = findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
@@ -90,7 +89,6 @@ public final class KindnessActivity extends AppCompatActivity {
 			// Create a fragment the map fragment and place
 			// it as the first fragment in this activity.
 
-			//supposed to go inside of the fragContainer in kindness_activity.xml but I think it overwrites it instead
 			Fragment frag = new DisplayFragment();
 			FragmentTransaction trans = getSupportFragmentManager()
 					.beginTransaction();

@@ -41,6 +41,9 @@ public final class DisplayFragment extends CITFragment
 	private SpinString timeSpin, typeSpin;
 	private final TreeMap<String, Report> allReports;
 	private final HashMap<String, TreeMap<String, Report>> indexes;
+	private String key;
+	private Report report;
+	private MarkerOptions opts;
 
 	private GoogleMap mMap;
 	private BitmapDescriptor heart, gifts, service, time, touch, words;
@@ -130,9 +133,6 @@ public final class DisplayFragment extends CITFragment
 				dbReports = database.getReference(KindnessActivity
 						.REPORTS_KEY);
 
-				// Read from the database asynchronously
-//				dbReports.addListenerForSingleValueEvent(new SingleReadHandler
-// ());
 				dbReports.addChildEventListener(new ReportAddedHandler());
 			}
 
@@ -194,8 +194,8 @@ public final class DisplayFragment extends CITFragment
 				String prevChildKey) {
 			try {
 				// Get the report that was added.
-				String key = dataSnapshot.getKey();
-				Report report = dataSnapshot.getValue(Report.class);
+				key = dataSnapshot.getKey();
+				report = dataSnapshot.getValue(Report.class);
 
 				// Add this report to the list of all reports and to the
 				// category index that corresponds to this report's category.
@@ -205,7 +205,7 @@ public final class DisplayFragment extends CITFragment
 				indexes.get(report.category().name()).put(key, report);
 
 				// Draw a marker for this report on the map.
-				MarkerOptions opts = new MarkerOptions();
+				opts = new MarkerOptions();
 				opts.position(
 						new LatLng(report.getLatitude(),
 								report.getLongitude()));
@@ -279,7 +279,6 @@ public final class DisplayFragment extends CITFragment
 			//timezone differences?
 
 			//server time of reports
-			TreeMap serverTime = indexes.get(allReports.get(ServerValue.TIMESTAMP));
 
 
 			// Based on the user's choice put markers whose corresponding reports fit within the time.
@@ -295,10 +294,35 @@ public final class DisplayFragment extends CITFragment
 
 			//all time
 
-			//category
-			if(indexes.get(allReports).equals(Report.Category.Time)){
+			//return selected reports
 
+			//get selected item in spinner
+			String selected = typeSpin.getSelectedItem();
+			//pull all reports
+			indexes.get(report.category().name()).put(key, report);
+			//if selected item is gift, return only gift reports
+			if(selected.equals("Gifts")){
+				//display only Gifts reports
+				report.category().equals(Report.Category.Gifts);
+				opts.icon(gifts);
+			} else if(selected.equals("Service")){
+				report.category().equals(Report.Category.Service);
+				opts.icon(service);
+			}else if(selected.equals("Time")) {
+				report.category().equals(Report.Category.Time);
+				opts.icon(time);
+			}else if(selected.equals("Touch")) {
+				report.category().equals(Report.Category.Touch);
+				opts.icon(touch);
+			}else if(selected.equals("Words")) {
+				report.category().equals(Report.Category.Words);
+				opts.icon(words);
+			}else{
+				indexes.get(report.category().name()).put(key, report);
+				opts.getIcon();
 			}
+			//populate map with reports for category selected
+
 			//Log.i("debug");
 
 		}
