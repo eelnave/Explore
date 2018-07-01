@@ -12,10 +12,11 @@
 		style="@style/VehicleButton"
 		android:text="2001 Mazda 626" />
 
-	<Button
+	<edu.byui.cit.maintenance.CarButton
 		android:id="@+id/v2"
 		style="@style/VehicleButton"
-		android:text="2004 Jeep Liberty"/>
+		android:text="2004 Jeep Liberty"
+		android:src = "@drawable/carLogo"/>
 
 	<Button
 		android:id="@+id/v3"
