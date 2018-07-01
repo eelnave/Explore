@@ -16,7 +16,7 @@
 		android:id="@+id/v2"
 		style="@style/VehicleButton"
 		android:text="2004 Jeep Liberty"
-		android:src = "@drawable/carLogo"/>
+		android:src = "@drawable/car_logo"/>
 
 	<Button
 		android:id="@+id/v3"
