@@ -52,7 +52,6 @@ public class ChooseVehicle extends CITFragment {
 		trans.commit();
 	}
 
-
 	@Override
 	protected String getTitle() {
 		return getActivity().getString(R.string.appName);
