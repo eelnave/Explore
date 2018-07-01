@@ -14,6 +14,7 @@ public class ChooseVehicle extends CITFragment {
 
 	private MaintenanceFrag fragAct;
 	private Button v1;
+	private CarButton v2;
 
 
 	@Override
@@ -37,6 +38,21 @@ public class ChooseVehicle extends CITFragment {
 				switchFragment(fragAct);
 			}
 		});
+
+		v2 = view.findViewById(R.id.v2);
+		v2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if (fragAct == null || fragAct.isDetached()) {
+					fragAct = new MaintenanceFrag();
+				}
+				// hide FAB on fragment fragAct
+				//fab.hide();
+				//switch to fragment fragAct (for viewing vehicle details)
+				switchFragment(fragAct);
+			}
+		});
+
 
 		return view;
 	}
