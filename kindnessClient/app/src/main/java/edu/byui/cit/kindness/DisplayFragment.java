@@ -16,6 +16,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.google.firebase.database.ChildEventListener;
@@ -318,10 +319,10 @@ public final class DisplayFragment extends CITFragment
 				report.category().equals(Report.Category.Words);
 				opts.icon(words);
 			}else{
-				indexes.get(report.category().name()).put(key, report);
-				opts.getIcon();
+				opts.icon(heart);
 			}
 			//populate map with reports for category selected
+			opts.getIcon();
 
 			//Log.i("debug");
 
