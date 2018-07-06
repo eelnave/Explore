@@ -42,9 +42,9 @@
         android:text="@string/air_filter"/>
 
     <Button
-        android:id="@+id/b_air_filter2"
+        android:id="@+id/b_other_maintenance"
         style="@style/Button"
         android:layout_width="120dp"
         android:layout_height="150dp"
-        android:text="@string/air_filter"/>
+        android:text="@string/other_maintenance"/>
 </android.support.v7.widget.GridLayout>

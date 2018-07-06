@@ -11,10 +11,10 @@ import edu.byui.cit.widget.CITFragment;
 
 public class MaintenanceFrag extends CITFragment{
 
-    private OilFrag fragAct;
+    private OilFrag oilFrag;
     private Button oil;
-    private Button brakes;
-
+    private BrakesFrag brakesFrag;
+    private Button Brakes;
 
 
     @Override
@@ -29,33 +29,33 @@ public class MaintenanceFrag extends CITFragment{
         oil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (fragAct == null || fragAct.isDetached()) {
-                    fragAct = new OilFrag();
+                if (oilFrag == null || oilFrag.isDetached()) {
+                    oilFrag = new OilFrag();
                 }
                 // hide FAB on fragment fragAct
                 //fab.hide();
                 //switch to fragment fragAct (for viewing vehicle details)
-                switchFragment(fragAct);
+                switchFragment(oilFrag);
             }
         });
 
 
         // create brakes onClickListener
         // prepend "view" to view.findViewById(R.id.oil); because you are outside of MainActivity
-        /*
-         brakes = view.findViewById(R.id.);
-         brakes.setOnClickListener(new View.OnClickListener() {
+        Brakes = view.findViewById(R.id.b_brakes);
+        Brakes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (fragAct == null || fragAct.isDetached()) {
-                    fragAct = new BrakesFrag();
+                if (brakesFrag == null || brakesFrag.isDetached()) {
+                    brakesFrag = new BrakesFrag();
                 }
                 // hide FAB on fragment fragAct
                 //fab.hide();
                 //switch to fragment fragAct (for viewing vehicle details)
-                switchFragment(fragAct);
+                switchFragment(brakesFrag);
             }
-        }); */
+        });
+
 
 
         return view;
