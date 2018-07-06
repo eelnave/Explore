@@ -13,7 +13,7 @@ public class MaintenanceFrag extends CITFragment{
 
     private OilFrag fragAct;
     private Button oil;
-    private Button Brakes;
+    private Button brakes;
 
 
 
@@ -42,8 +42,9 @@ public class MaintenanceFrag extends CITFragment{
 
         // create brakes onClickListener
         // prepend "view" to view.findViewById(R.id.oil); because you are outside of MainActivity
-        brakes = view.findViewById(R.id.Brakes);
-        brakes.setOnClickListener(new View.OnClickListener() {
+        /*
+         brakes = view.findViewById(R.id.);
+         brakes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (fragAct == null || fragAct.isDetached()) {
@@ -54,8 +55,7 @@ public class MaintenanceFrag extends CITFragment{
                 //switch to fragment fragAct (for viewing vehicle details)
                 switchFragment(fragAct);
             }
-        });
-
+        }); */
 
 
         return view;
