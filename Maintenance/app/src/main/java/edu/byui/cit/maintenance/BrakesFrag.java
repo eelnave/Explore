@@ -16,7 +16,7 @@ import java.text.NumberFormat;
 import edu.byui.cit.widget.CITFragment;
 
 
-public class OilFrag extends CITFragment {
+public class BrakesFrag extends CITFragment {
 
 	private EditText editText_LOC, editText_NOC;
 

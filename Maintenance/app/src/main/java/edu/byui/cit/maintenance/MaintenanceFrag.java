@@ -39,6 +39,25 @@ public class MaintenanceFrag extends CITFragment{
             }
         });
 
+
+        // create brakes onClickListener
+        // prepend "view" to view.findViewById(R.id.oil); because you are outside of MainActivity
+        brakes = view.findViewById(R.id.Brakes);
+        brakes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (fragAct == null || fragAct.isDetached()) {
+                    fragAct = new BrakesFrag();
+                }
+                // hide FAB on fragment fragAct
+                //fab.hide();
+                //switch to fragment fragAct (for viewing vehicle details)
+                switchFragment(fragAct);
+            }
+        });
+
+
+
         return view;
     }
 

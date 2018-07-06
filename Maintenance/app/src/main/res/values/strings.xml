@@ -29,6 +29,9 @@
 	<string name="activity">Activity</string>
 	<string name="oil">Oil</string>
 	<string name="brakes">Brakes</string>
+	<string name="tires">Tires</string>
+	<string name="battery">Battery</string>
+	<string name="air_filter">Air Filter</string>
 
 	<string name="color">Color</string>
 
