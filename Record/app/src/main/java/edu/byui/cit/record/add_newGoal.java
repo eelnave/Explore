@@ -112,9 +112,11 @@ public class add_newGoal extends CITFragment {
 			int n =rand.nextInt(200) + 1;
             edu.byui.cit.model.Goal test1 = new Goal();
 			test1.setGoalID(n);
+
 			Context ctx = getActivity().getApplicationContext();
 			GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
 			dao.insert(test1);
+
 
 			//once the goal is saved, go back to the main lander fragment
 			//we need to pop the fragment off the fragment stack, similar to pressing the back button.

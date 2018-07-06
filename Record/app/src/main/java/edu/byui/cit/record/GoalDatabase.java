@@ -9,3 +9,5 @@ public abstract class GoalDatabase extends RoomDatabase {
 
 	public abstract GoalDAO getGoalDAO();
 }
+
+

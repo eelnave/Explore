@@ -8,6 +8,8 @@ import java.util.Date;
 
 @Entity
 public class Goal {
+
+
 	public enum Type {
 		none,
 		bool,
@@ -73,6 +75,7 @@ public class Goal {
 	public void setEnd(Date end) {
 		this.end = new Date(end.getTime());
 	}
+
 
 	@Override
 	public boolean equals(Object obj2) {
