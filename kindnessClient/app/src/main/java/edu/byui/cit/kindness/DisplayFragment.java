@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -45,6 +46,7 @@ public final class DisplayFragment extends CITFragment
 	private String key;
 	private Report report;
 	private MarkerOptions opts;
+	private Object selRep;
 
 	private GoogleMap mMap;
 	private BitmapDescriptor heart, gifts, service, time, touch, words;
@@ -299,33 +301,28 @@ public final class DisplayFragment extends CITFragment
 
 			//get selected item in spinner
 			String selected = typeSpin.getSelectedItem();
-			//pull all reports
-			indexes.get(report.category().name()).put(key, report);
+			//get gift reports
+			indexes.get(report.category());
+
 			//if selected item is gift, return only gift reports
 			if(selected.equals("Gifts")){
-				//display only Gifts reports
-				report.category().equals(Report.Category.Gifts);
-				opts.icon(gifts);
+				//get category from indexes
+				selRep = indexes.get("Gifts");
+				//selRep = 5 reports
+				//show extracted reports
 			} else if(selected.equals("Service")){
-				report.category().equals(Report.Category.Service);
-				opts.icon(service);
+				selRep = indexes.get("Service");
 			}else if(selected.equals("Time")) {
-				report.category().equals(Report.Category.Time);
-				opts.icon(time);
+				selRep = indexes.get("Time");
 			}else if(selected.equals("Touch")) {
-				report.category().equals(Report.Category.Touch);
-				opts.icon(touch);
+				selRep = indexes.get("Touch");
 			}else if(selected.equals("Words")) {
-				report.category().equals(Report.Category.Words);
-				opts.icon(words);
+				selRep = indexes.get("Words");
 			}else{
-				opts.icon(heart);
+				selRep = indexes.get("Category");
 			}
 			//populate map with reports for category selected
-			opts.getIcon();
-
-			//Log.i("debug");
-
+			//opts.position(report.getCategory(selRep));
 		}
 	}
 }
