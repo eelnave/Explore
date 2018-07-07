@@ -26,13 +26,23 @@
 	<string name="enter_current_mileage">Enter Current Mileage</string>
     <string name="submit_mileage">Submit Mileage</string>
 
+
+
+	<string name="v1_mazda">2001 Mazda 626</string>
+	<string name="v2_jeep">2004 Jeep Liberty</string>
+	<string name="v3_toyota">2011 Toyota 4 Runner</string>
+
+
+
 	<string name="activity">Activity</string>
+	<string name="compute">COMPUTE</string>
+	<string name="blank"> </string>
 	<string name="oil">Oil</string>
 	<string name="brakes">Brakes</string>
 	<string name="tires">Tires</string>
 	<string name="battery">Battery</string>
 	<string name="air_filter">Air Filter</string>
-	<string name="other_maintenance">Other Maintenance</string>
+	<string name="other_maintenance">Other</string>
 
 	<string name="color">Color</string>
 
@@ -43,15 +53,38 @@
 
 
 
-	<string name="last_oil_change">Miles at Last Oil Change</string>
-	<string name="next_oil_change">Miles at Next Oil Change</string>
+	<string name="last_oil_change">Miles at Last Oil Change:</string>
+	<string name="next_oil_change">Miles at Next Oil Change:</string>
+	<string name="frequency_of_oil">How often would you like an oil change? (default 3,000 (5,000, 7,500, 10,000))</string>
+	<string name="what_oil_maintenance">What Maintenance is Needed? \n 1) Oil change \n 2) New oil filter \n 3) Topping off fluids</string>
+	<string name="last_brake_inspection">Miles at Last Brake Inspection:</string>
+	<string name="next_brake_inspection">Miles at Next Brake Inspection:</string>
+	<string name="frequency_of_brakes">How often would you like a brake inspection? (default 25,000 (50,000, 75,000))</string>
+	<string name="what_brake_maintenance">What Maintenance is Needed? \n 1) New brake pads \n 2) Resurfacing (or replacing) rotars \n 3) Servicing calipers</string>
 
-	<string-array name="oil_change_frequency">
+	<string name="last_tire_inspection">Miles at Last Tire Inspection:</string>
+	<string name="next_tire_inspection">Miles at Next Tire Inspection:</string>
+	<string name="frequency_of_tires">How often would you like an tire inspection? (default 3,000 (5,000, 6,000))</string>
+	<string name="last_tire_new">Miles at Last New Tires:</string>
+	<string name="next_tire_new">Miles at Next New Tires:</string>
+	<string name="frequency_of_new_tires">What brand of tires do you have? (default 25,000 (BRANDS: 50,000, 75,000))</string>
+	<string name="what_tire_maintenance">What Maintenance is Needed? \n 1) Tire rotation, balancing, alignment \n 2) New tires</string>
+	<string name="_2015_ford_f150">2015 Ford F150</string>
+	<string name="todo">TODO</string>
+	<string name="text">text</string>
 
+	<string name="last_new_battery">Miles at Last New Battery:</string>
+	<string name="next_new_battery">Miles at Next New Battery:</string>
+	<string name="what_battery_maintenance">What Maintenance is Needed? \n 1) Service battery \n 2) Replace battery</string>
+
+
+
+
+
+	<string-array name="oil_frequency_array">
 		<item>Shop Recommendation (3,000 miles)</item>
 		<item>Owner's Manual Recommendation for Severe Conditions (5,000 miles)</item>
 		<item>Owner's Manual Recommendation for Mild Conditions (10,000 miles)</item>
-
 	</string-array>
 
 

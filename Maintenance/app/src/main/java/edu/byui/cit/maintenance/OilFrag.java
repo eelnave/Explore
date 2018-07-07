@@ -1,28 +1,22 @@
 package edu.byui.cit.maintenance;
 
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.text.NumberFormat;
-
 import edu.byui.cit.widget.CITFragment;
 
 
 public class OilFrag extends CITFragment {
 
 	private EditText editText_LOC, editText_NOC;
-
 	// create Spinner object
-	// Spinner spinner;
-	// ArrayAdapter<CharSequence> adapter;
+	Spinner spinner;
 
 
 	@Override
@@ -33,7 +27,7 @@ public class OilFrag extends CITFragment {
 
 		// find editTexts by ID
 		editText_LOC = view.findViewById(R.id.editText_LOC);
-		editText_NOC = view.findViewById(R.id.editText_NOC);
+		editText_NOC = view.findViewById(R.id.editText_NOC1);
 		// find button by id
 		Button b_compute = view.findViewById(R.id.b_compute);
 		// setOnClickListener
@@ -43,6 +37,14 @@ public class OilFrag extends CITFragment {
 		//spinner = view.findViewById(R.id.spinner);
 		//adapter = ArrayAdapter.createFromResource(this,R.array.oil_change_frequency,android.R.layout.simple_spinner_item);
 
+
+		//ArrayAdapter<CharSequence> adapter;
+		//ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+		//		R.array.oil_frequency_array edu.byui.cit.widget.SpinWrapper);
+// Specify the layout to use when the list of choices appears
+		//adapter.setDropDownViewResource(edu.byui.cit.widget.SpinWrapper);
+// Apply the adapter to the spinner
+	//	spinner.setAdapter(adapter);
 
 		return view;
 	}

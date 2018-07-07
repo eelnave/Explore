@@ -2,6 +2,7 @@ package edu.byui.cit.maintenance;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,6 @@ public class ChooseVehicle extends CITFragment {
 	private MaintenanceFrag fragAct;
 	private Button v1;
 	private CarButton v2;
-
 
 	@Override
 	protected View createView(LayoutInflater inflater,
