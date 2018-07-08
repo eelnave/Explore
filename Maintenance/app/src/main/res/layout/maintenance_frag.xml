@@ -7,7 +7,7 @@
     app:columnCount="3">
 
     <Button
-        android:id="@+id/Oil"
+        android:id="@+id/b_oil"
         style="@style/Button"
         android:layout_width="120dp"
         android:layout_height="150dp"

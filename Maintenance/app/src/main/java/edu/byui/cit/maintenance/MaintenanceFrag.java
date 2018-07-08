@@ -15,6 +15,10 @@ public class MaintenanceFrag extends CITFragment{
     private Button oil;
     private BrakesFrag brakesFrag;
     private Button Brakes;
+    private TiresFrag tiresFrag;
+    private Button Tires;
+    private BatteryFrag batteryFrag;
+    private Button Battery;
 
 
     @Override
@@ -25,7 +29,7 @@ public class MaintenanceFrag extends CITFragment{
 
         // create oil onClickListener
         // prepend "view" to view.findViewById(R.id.oil); because you are outside of MainActivity
-        oil = view.findViewById(R.id.Oil);
+        oil = view.findViewById(R.id.b_oil);
         oil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +57,38 @@ public class MaintenanceFrag extends CITFragment{
                 //fab.hide();
                 //switch to fragment fragAct (for viewing vehicle details)
                 switchFragment(brakesFrag);
+            }
+        });
+
+        // create tires onClickListener
+        // prepend "view" to view.findViewById(R.id.oil); because you are outside of MainActivity
+        Tires = view.findViewById(R.id.b_tires);
+        Tires.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (tiresFrag == null || tiresFrag.isDetached()) {
+                    tiresFrag = new TiresFrag();
+                }
+                // hide FAB on fragment fragAct
+                //fab.hide();
+                //switch to fragment fragAct (for viewing vehicle details)
+                switchFragment(tiresFrag);
+            }
+        });
+
+        // create battery onClickListener
+        // prepend "view" to view.findViewById(R.id.oil); because you are outside of MainActivity
+        Battery = view.findViewById(R.id.b_battery);
+        Battery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (batteryFrag == null || batteryFrag.isDetached()) {
+                    batteryFrag = new BatteryFrag();
+                }
+                // hide FAB on fragment fragAct
+                //fab.hide();
+                //switch to fragment fragAct (for viewing vehicle details)
+                switchFragment(batteryFrag);
             }
         });
 
