@@ -110,6 +110,8 @@ public class add_newGoal extends CITFragment {
 		public void clicked(WidgetWrapper source) {
 			//TODO: here we need to save the goal before moving back to the home screen
 
+
+
 			Random rand = new Random();
 			int n =rand.nextInt(200) + 1;
             edu.byui.cit.model.Goal test1 = new Goal();
@@ -119,7 +121,7 @@ public class add_newGoal extends CITFragment {
 			dao.insert(test1);
 
 			//once the goal is saved, go back to the main lander fragment
-			((MainActivity) getActivity()).switchFragment(MainActivity.homeFrag);
+			((MainActivity) getActivity()).switchFragment(MainActivity.homeFrag, new Bundle());
 		}
 	}
 }

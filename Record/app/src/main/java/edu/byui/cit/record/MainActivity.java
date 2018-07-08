@@ -11,7 +11,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -85,26 +87,12 @@ public class MainActivity extends AppCompatActivity {
 					calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,
 					pendingIntent);
 
-			//populate the main screen area with current goals
 
 			//go ahead and launch the main lander fragment
 			CITFragment frag = new home_lander();
-			switchFragment(frag);
+			Bundle emptyBundle = new Bundle();
+			switchFragment(frag, emptyBundle);
 
-			//test with filler data
-
-			ArrayList<String> theGoals = new ArrayList<>();
-			theGoals.add("Read Scriptures");
-			theGoals.add("Teach my kid to read");
-			theGoals.add("Work on android apps");
-			theGoals.add("Help Old Man Jenkins with his lawn");
-
-			//this object represents the listView on the screen
-			ListView mainListView = findViewById(R.id.toDoList);
-			ArrayAdapter<String> theAdapter = new ArrayAdapter<>(
-					this, R.layout.simplerow, theGoals);
-			// TODO: THIS IS THE THING THAT IS CAUSING THE CRASH
-			mainListView.setAdapter(theAdapter);
 		}
 		catch (Exception ex) {
 			Log.e("Record", ex.toString());
@@ -112,7 +100,8 @@ public class MainActivity extends AppCompatActivity {
 	}
 
 	//code to handle our fragments
-	public void switchFragment(CITFragment fragment){
+	public void switchFragment(CITFragment fragment, Bundle bundle){
+		fragment.setArguments(bundle);
 		FragmentTransaction trans = getFragmentManager().beginTransaction();
 		trans.replace(R.id.fragContainer, fragment, "thing");
 		trans.addToBackStack(null);

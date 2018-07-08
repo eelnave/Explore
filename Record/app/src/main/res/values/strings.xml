@@ -60,5 +60,6 @@
 	<string name="title_activity_view_goal">View Goal Details</string>
 
 	<string name="notification">Notification!</string>
+	<string name="viewGoalTitle">My Goal</string>
 
 </resources>

@@ -33,7 +33,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 				.setSmallIcon(android.R.drawable.arrow_up_float)
 				.setContentTitle("Your Goal")
 				.setContentText("Did you complete it?")
-				.setAutoCancel(true)
+//				.setAutoCancel(true)
 				.setContentIntent(pendingIntent);
 
 		notificationManager.notify(100, builder.build());
