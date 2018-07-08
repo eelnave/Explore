@@ -40,4 +40,9 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
+    //will add a url to logcat which will allow you to access your database so you can see what is inside and even edit it
+    // Just search D/DebugDB in the logcat and follow the link
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.4'
 }

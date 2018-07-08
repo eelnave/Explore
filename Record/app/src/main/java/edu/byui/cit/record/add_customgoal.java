@@ -103,7 +103,6 @@ public class add_customgoal extends AppCompatActivity {
 
             Goal test1 = new Goal();
             test1.setGoalID(1);
-
             Context ctx = getApplicationContext();
             GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
             dao.insert(test1);
