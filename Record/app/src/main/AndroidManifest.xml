@@ -2,8 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.byui.cit.record">
 
-	<uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,10 +19,6 @@
         <activity
             android:name=".add_customgoal"
             android:label="Add New Goal" />
-        <activity
-            android:name=".ViewGoal"
-            android:label="@string/title_activity_view_goal"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
 
 		<activity
 			android:name=".RepeatingNotification"
