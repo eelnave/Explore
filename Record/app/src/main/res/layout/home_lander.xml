@@ -40,10 +40,6 @@
 				android:text="@string/Button2"/>
 		</LinearLayout>
 
-		<ListView
-			android:id="@+id/toDoList"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
 	</LinearLayout>
 
 	<android.support.design.widget.FloatingActionButton
@@ -55,6 +51,11 @@
 		android:src="@drawable/plus_circle"
 		android:tint="?android:attr/colorAccent"
 		app:backgroundTint="?android:attr/colorBackground"
-		app:layout_anchor="@id/toDoList"
 		app:layout_anchorGravity="bottom|right|end"/>
+
+	<TextView
+		android:id="@+id/textView"
+		android:layout_width="283dp"
+		android:layout_height="371dp"
+		android:text="TextView" />
 </android.support.design.widget.CoordinatorLayout>

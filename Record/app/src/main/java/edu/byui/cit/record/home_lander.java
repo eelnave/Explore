@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -52,6 +53,12 @@ public class home_lander extends CITFragment {
 		//testWrapper.setText(dataTestID);
 
 
+		//this object represents the listView on the screen
+//		ListView mainListView = findViewById(R.id.toDoList);
+//		ArrayAdapter<String> theAdapter = new ArrayAdapter<>(
+//				this, R.layout.simplerow, theGoals);
+//		// TODO: THIS IS THE THING THAT IS CAUSING THE CRASH
+//		mainListView.setAdapter(theAdapter);
 		return view;
 	}
 

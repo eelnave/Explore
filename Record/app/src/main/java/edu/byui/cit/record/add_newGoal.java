@@ -53,8 +53,8 @@ public class add_newGoal extends CITFragment {
 		new SpinString(view, R.id.spinner, "R.array.frequencyChoices");
 
 		//set the time spinner to 6:00 PM by default
-		TimePicker pickerTime = (TimePicker)getActivity().findViewById(R.id.timePicker);
-		Calendar now = Calendar.getInstance();
+//		TimePicker pickerTime = (TimePicker)getActivity().findViewById(R.id.timePicker);
+//		Calendar now = Calendar.getInstance();
 
 		//these two setters are causing the app to not work
 		//pickerTime.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));

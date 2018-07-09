@@ -60,5 +60,9 @@
     <string name="title_activity_view_goal">View Goal Details</string>
 
     <string name="notification">Notification!</string>
+    <string name="notification_text1">Time to Record the Goal:</string>
+    <string name="notification_text2">Did You Complete It?</string>
+    <string name="yes">yes</string>
+    <string name="no">no</string>
 
 </resources>

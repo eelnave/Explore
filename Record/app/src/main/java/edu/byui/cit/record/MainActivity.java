@@ -101,13 +101,6 @@ public class MainActivity extends AppCompatActivity {
 			theGoals.add("Teach my kid to read");
 			theGoals.add("Work on android apps");
 			theGoals.add("Help Old Man Jenkins with his lawn");
-
-			//this object represents the listView on the screen
-			ListView mainListView = findViewById(R.id.toDoList);
-			ArrayAdapter<String> theAdapter = new ArrayAdapter<>(
-					this, R.layout.simplerow, theGoals);
-			// TODO: THIS IS THE THING THAT IS CAUSING THE CRASH
-			mainListView.setAdapter(theAdapter);
 		}
 		catch (Exception ex) {
 			Log.e("Record", ex.toString());
