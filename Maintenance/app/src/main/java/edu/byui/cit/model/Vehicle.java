@@ -15,7 +15,7 @@ import edu.byui.cit.maintenance.R;
 public class Vehicle {
 	@PrimaryKey(autoGenerate = true)
 	private int vehicleID;
-
+	private String name;
 	private String vin;
 	private int year;
 	private String make;
@@ -33,6 +33,10 @@ public class Vehicle {
 	public void setVehicleID(int vehicleID) {
 		this.vehicleID = vehicleID;
 	}
+
+	public String getName() {return name;}
+
+	public void setName( String name) {this.name = name;}
 
 	public String getVin() {
 		return vin;

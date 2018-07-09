@@ -1,13 +1,20 @@
 package edu.byui.cit.maintenance;
 
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.support.v7.widget.GridLayout;
+
+import java.util.List;
+
+import edu.byui.cit.model.AppDatabase;
 import edu.byui.cit.model.Vehicle;
+import edu.byui.cit.model.VehicleDAO;
 import edu.byui.cit.widget.CITFragment;
 
 
@@ -22,7 +29,20 @@ public class ChooseVehicle extends CITFragment {
 			ViewGroup container, Bundle savedInstState) {
 
 		View view = inflater.inflate(R.layout.choose_vehicle, container, false);
+		//list of vehicles
+		AppDatabase db = AppDatabase.getInstance(getActivity().getApplicationContext());
+		VehicleDAO vehicleDAO = db.getVehicleDAO();
+		List<Vehicle> list =  vehicleDAO.getAll();
+		Context context = getActivity();
+		GridLayout grid = view.findViewById(R.id.ChooseVehicle);
 
+		for (Vehicle v : list) {
+			CarButton button = new CarButton(context);
+			button.setText(v.getMake());
+			grid.addView(button);
+		}
+
+		// create button for each vehicle
 		// create v1 onClickListener
 		// prepend "view" to view.findViewById(R.id.v1); because you are outside of MainActivity
 		v1 = view.findViewById(R.id.v1);
