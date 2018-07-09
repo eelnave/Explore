@@ -107,11 +107,8 @@ public class AddVehicle extends CITFragment {
 
 /**
 			Vehicle found = vehicleDAO.getByVIN("111-222-3333");
-
 			System.out.println(found.getColor());
-
 			Toast.makeText(getActivity().getApplicationContext(),found.getColor(), Toast.LENGTH_LONG).show();
-
 **/
 
 		}
