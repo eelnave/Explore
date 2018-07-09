@@ -28,6 +28,6 @@ public interface VehicleDAO {
 	@Insert
 	void insertAll(Vehicle... vehicles);
 
-	@Delete
-	int delete(Vehicle vehicle);
+	@Query("DELETE FROM vehicle")
+	void deleteVehicles();
 }

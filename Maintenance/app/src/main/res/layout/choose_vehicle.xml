@@ -7,32 +7,10 @@
 	android:layout_height="wrap_content"
 	app:columnCount="3">
 
-	<Button
-		android:id="@+id/v1"
-		style="@style/VehicleButton"
-		android:text="@string/v1_mazda"/>
-
-	<edu.byui.cit.maintenance.CarButton
-		android:id="@+id/v2"
-		style="@style/VehicleButton"
-		android:src="@drawable/car_logo"
-		android:text="@string/v2_jeep"/>
 
 	<Button
-		android:id="@+id/v3"
-		style="@style/VehicleButton"
-		android:text="@string/v3_toyota"/>
-
-	<ImageButton
-		android:layout_width="0dp"
-		android:layout_height="150dp"
-		android:gravity="bottom|center_horizontal"
-		android:src="@drawable/f150"
-		android:text="@string/_2015_ford_f150"
-		android:textSize="20sp"
-		app:layout_columnWeight="1"
-		app:layout_rowWeight="1"
-		android:contentDescription="@string/todo"/>
-
-
+		android:id="@+id/deleteButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/delete"/>
 </android.support.v7.widget.GridLayout>

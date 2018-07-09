@@ -30,7 +30,7 @@ public class ChooseVehicle extends CITFragment {
 		View view = inflater.inflate(R.layout.choose_vehicle, container, false);
 		//list of vehicles
 		AppDatabase db = AppDatabase.getInstance(getActivity().getApplicationContext());
-		VehicleDAO vehicleDAO = db.getVehicleDAO();
+		final VehicleDAO vehicleDAO = db.getVehicleDAO();
 		List<Vehicle> list =  vehicleDAO.getAll();
 		Context context = getActivity();
 		GridLayout grid = view.findViewById(R.id.ChooseVehicle);
@@ -44,35 +44,41 @@ public class ChooseVehicle extends CITFragment {
 		// create button for each vehicle
 		// create v1 onClickListener
 		// prepend "view" to view.findViewById(R.id.v1); because you are outside of MainActivity
-		v1 = view.findViewById(R.id.v1);
-		v1.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				if (fragAct == null || fragAct.isDetached()) {
-					fragAct = new MaintenanceFrag();
-				}
+		//v1 = view.findViewById(R.id.v1);
+		//v1.setOnClickListener(new View.OnClickListener() {
+		//	@Override
+		//	public void onClick(View view) {
+		//		if (fragAct == null || fragAct.isDetached()) {
+		//			fragAct = new MaintenanceFrag();
+		//		}
+		//		// hide FAB on fragment fragAct
+		//		//fab.hide();
+		//		//switch to fragment fragAct (for viewing vehicle details)
+		//		switchFragment(fragAct);
+		//	}
+		//});
+
+		//v2 = view.findViewById(R.id.v2);
+		//v2.setOnClickListener(new View.OnClickListener() {
+		//	@Override
+		//	public void onClick(View view) {
+		//		if (fragAct == null || fragAct.isDetached()) {
+		//			fragAct = new MaintenanceFrag();
+		//		}
 				// hide FAB on fragment fragAct
 				//fab.hide();
 				//switch to fragment fragAct (for viewing vehicle details)
-				switchFragment(fragAct);
-			}
-		});
+		//		switchFragment(fragAct);
+		//	}
+		//});
 
-		v2 = view.findViewById(R.id.v2);
-		v2.setOnClickListener(new View.OnClickListener() {
+		Button deleteButton = view.findViewById(R.id.deleteButton);
+		deleteButton.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View view) {
-				if (fragAct == null || fragAct.isDetached()) {
-					fragAct = new MaintenanceFrag();
-				}
-				// hide FAB on fragment fragAct
-				//fab.hide();
-				//switch to fragment fragAct (for viewing vehicle details)
-				switchFragment(fragAct);
+				vehicleDAO.deleteVehicles();
 			}
 		});
-
-
 		return view;
 	}
 

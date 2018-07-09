@@ -26,7 +26,7 @@
 	<string name="enter_current_mileage">Enter Current Mileage</string>
     <string name="submit_mileage">Submit Mileage</string>
 
-
+	<string name="delete">Delete all vehicles</string>
 
 	<string name="v1_mazda">2001 Mazda 626</string>
 	<string name="v2_jeep">2004 Jeep Liberty</string>
