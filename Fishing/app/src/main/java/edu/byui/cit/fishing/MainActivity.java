@@ -114,6 +114,9 @@ public class MainActivity extends Activity {
                     // Call method that checks if all categories have values
                     checkCategoriesNotNull(checkedSpecies,checkedMonth,checkedWater);
 
+                    // Clear expandableListView
+                    listDataHeader.clear();
+
                 } else {
                     // do nothing
                 }
