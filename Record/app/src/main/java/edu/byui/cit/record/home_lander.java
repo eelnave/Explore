@@ -7,12 +7,14 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.byui.cit.model.AppDatabase;
@@ -29,6 +31,33 @@ public class home_lander extends CITFragment {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstState){
 		View view = inflater.inflate(R.layout.home_lander, container, false);
+
+
+		//populate the main screen area with current goals
+		//test with filler data
+		final ArrayList<String> myGoals = new ArrayList<>();
+		myGoals.add("Read Scriptures");
+		myGoals.add("Teach My Kid to Read");
+		myGoals.add("Work on Android Apps");
+		myGoals.add("Help Old Man Jenkins with His Lawn");
+//
+//		//this object represents the listView on the screen
+//		ListView goalListView = (ListView) view.findViewById(R.id.goalList);
+//		ArrayAdapter<String> goalListAdapter = new ArrayAdapter<>(getActivity(), R.layout.simplerow, myGoals);
+//		goalListView.setAdapter(goalListAdapter);
+
+//		myGoals.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//			@Override
+//			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//				Bundle bundle = new Bundle();
+//				String goalTitle = myGoals.get(i);
+//				bundle.putString("goalTitle", goalTitle);
+//				((MainActivity) getActivity()).switchFragment(new ViewGoal(), bundle);
+//			}
+//		});
+
+
+
 //		FloatingActionButton fab = findViewById(R.id.newGoalFAB);
 		new ButtonWrapper(view, R.id.newGoalButton, new newGoalClickHandler());
 //		fab.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +100,7 @@ public class home_lander extends CITFragment {
 		@Override
 		public void clicked(WidgetWrapper source) {
 			//calling parent method switchFragment
-			((MainActivity) getActivity()).switchFragment(new add_newGoal());
+			((MainActivity) getActivity()).switchFragment(new add_newGoal(), new Bundle());
 		}
 	}
 }

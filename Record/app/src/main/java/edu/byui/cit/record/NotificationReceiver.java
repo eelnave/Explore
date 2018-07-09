@@ -1,13 +1,11 @@
 package edu.byui.cit.record;
 
 import android.app.Notification;
-import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.support.v4.app.NotificationCompat;
 
 
@@ -35,7 +33,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 				.setSmallIcon(android.R.drawable.arrow_up_float)
 				.setContentTitle("Your Goal")
 				.setContentText("Did you complete it?")
-				.setAutoCancel(true)
+//				.setAutoCancel(true)
 				.setContentIntent(pendingIntent);
 
 		notificationManager.notify(100, builder.build());

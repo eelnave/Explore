@@ -18,6 +18,11 @@
 			android:layout_height="wrap_content"
 			android:text="@string/Textbox1"/>
 
+		<ListView
+			android:id="@+id/goalList"
+			android:layout_width="match_parent"
+			android:layout_height="250dp" />
+
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -46,11 +51,13 @@
 		android:id="@+id/newGoalFAB"
 		android:layout_width="wrap_content"
 		android:layout_height="126dp"
-		android:layout_gravity="bottom|right"
+		android:layout_gravity="bottom|end"
 		android:layout_margin="16dp"
 		android:src="@drawable/plus_circle"
 		android:tint="?android:attr/colorAccent"
 		app:backgroundTint="?android:attr/colorBackground"
+		app:layout_anchor="@id/goalList"
+		app:layout_anchorGravity="bottom|right|end" />
 		app:layout_anchorGravity="bottom|right|end"/>
 
 	<TextView
