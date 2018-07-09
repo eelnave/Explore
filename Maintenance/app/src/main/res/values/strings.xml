@@ -76,9 +76,7 @@
 	<string name="last_new_battery">Miles at Last New Battery:</string>
 	<string name="next_new_battery">Miles at Next New Battery:</string>
 	<string name="what_battery_maintenance">What Maintenance is Needed? \n 1) Service battery \n 2) Replace battery</string>
-
-
-
+	<string name="to">to</string>
 
 
 	<string-array name="oil_frequency_array">
