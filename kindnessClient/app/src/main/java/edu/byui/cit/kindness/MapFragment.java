@@ -44,7 +44,7 @@ public final class MapFragment extends SupportMapFragment
 		allReports = new TreeMap<>();
 
 		// Create the category indexes that will hold references to the
-        // reports.
+		// reports.
 		indexes = new HashMap<>();
 		for (Report.Category cat : Report.Category.values()) {
 			indexes.put(cat.name(), new TreeMap<String, Report>());
@@ -112,7 +112,7 @@ public final class MapFragment extends SupportMapFragment
 				// Get a reference to the /reports node in the database.
 				FirebaseDatabase database = FirebaseDatabase.getInstance();
 				dbReports = database.getReference(KindnessActivity
-                        .REPORTS_KEY);
+						.REPORTS_KEY);
 
 				// Read from the database asynchronously
 //				dbReports.addListenerForSingleValueEvent(new SingleReadHandler
@@ -195,7 +195,7 @@ public final class MapFragment extends SupportMapFragment
 								report.getLongitude()));
 				//check to see which act was reported and return correct icon
 				//to improve, report.category().icon enum instead of if
-                // statements
+				// statements
 				if (report.category().equals(Report.Category.Gifts)) {
 					opts.icon(gifts);
 				}

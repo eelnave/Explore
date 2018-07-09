@@ -1,6 +1,7 @@
 package edu.byui.cit.kindness;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,7 @@ import android.view.ViewGroup;
 import edu.byui.cit.widget.CITFragment;
 
 
-public final class HowToFragment extends CITFragment {
+public final class HowToFragment extends ChildFragment {
 	@Override
 	protected String getTitle() {
 		return getActivity().getString(R.string.howTo);
@@ -30,4 +31,5 @@ public final class HowToFragment extends CITFragment {
 
 		return view;
 	}
+
 }

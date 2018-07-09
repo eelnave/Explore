@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import edu.byui.cit.widget.CITFragment;
 
 
-public final class PrivateFragment extends CITFragment {
+public final class PrivateFragment extends ChildFragment {
     @Override
     protected String getTitle() {
         return "Privacy";
@@ -20,7 +20,7 @@ public final class PrivateFragment extends CITFragment {
                               Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.privacy_page, container, false);
 
-        view.findViewById(R.id.btnToMap2).setOnClickListener(
+        view.findViewById(R.id.btnToMap).setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

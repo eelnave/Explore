@@ -22,12 +22,15 @@
 			android:id="@+id/typeSpinner"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"/>
+			android:layout_weight="1"
+			android:entries="@array/category"/>
 	</LinearLayout>
 
 	<fragment
-		android:id="@+id/fragment"
-		android:name="edu.byui.cit.kindness.MapFragment"
+		android:id="@+id/mapFrag"
+		android:name="com.google.android.gms.maps.SupportMapFragment"
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"/>
+		android:layout_height="match_parent">
+	</fragment>
+
 </LinearLayout>
