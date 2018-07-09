@@ -7,37 +7,44 @@
     app:columnCount="3">
 
     <Button
-        android:id="@+id/Oil"
+        android:id="@+id/b_oil"
         style="@style/Button"
         android:layout_width="120dp"
         android:layout_height="150dp"
-        android:text="@string/oil" />
+        android:text="@string/oil"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/b_brakes"
         style="@style/Button"
         android:layout_width="120dp"
         android:layout_height="150dp"
-        android:text="Button" />
+        android:text="@string/brakes"/>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/b_tires"
         style="@style/Button"
         android:layout_width="120dp"
         android:layout_height="150dp"
-        android:text="Button" />
+        android:text="@string/tires"/>
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/b_battery"
         style="@style/Button"
         android:layout_width="120dp"
         android:layout_height="150dp"
-        android:text="Button" />
+        android:text="@string/battery"/>
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/b_air_filter"
         style="@style/Button"
         android:layout_width="120dp"
         android:layout_height="150dp"
-        android:text="Button" />
+        android:text="@string/air_filter"/>
+
+    <Button
+        android:id="@+id/b_other_maintenance"
+        style="@style/Button"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:text="@string/other_maintenance"/>
 </android.support.v7.widget.GridLayout>

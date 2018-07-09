@@ -19,4 +19,5 @@ public abstract class AppDatabase extends RoomDatabase {
 	}
 
 	public abstract VehicleDAO getVehicleDAO();
+	public abstract MaintenanceDAO getMaintenanceDAO();
 }

@@ -17,15 +17,26 @@
 		android:minHeight="?attr/actionBarSize"
 		android:theme="?attr/actionBarTheme"/>
 
-	<ScrollView
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_marginEnd="3dp"
-		android:layout_marginStart="3dp">
-
 		<FrameLayout
 			android:id="@+id/fragContainer"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"/>
-	</ScrollView>
+			android:layout_height="match_parent">
+
+			<android.support.design.widget.FloatingActionButton
+				android:id="@+id/fab"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="bottom|end"
+				android:layout_margin="16dp"
+				android:clickable="true"
+				android:focusable="true"
+				app:backgroundTint="@color/colorPrimaryDark"
+				app:rippleColor="@android:color/background_light"
+				app:srcCompat="@drawable/act_bar_add"/>
+
+		</FrameLayout>
+
+
+
 </LinearLayout>
+

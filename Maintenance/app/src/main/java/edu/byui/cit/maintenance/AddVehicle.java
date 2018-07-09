@@ -36,6 +36,8 @@ public class AddVehicle extends CITFragment {
 		strModel = new EditString(view, R.id.model);
 		strVin = new EditString(view, R.id.vin);
         strColor = new EditString(view, R.id.color);
+		decYear.requestFocus();
+
 
 		new ButtonWrapper(view, R.id.btnAdd, new AddHandler());
 		new ButtonWrapper(view, R.id.btnReset, new ResetHandler());
@@ -120,6 +122,8 @@ public class AddVehicle extends CITFragment {
 			decYear.clear();
 			strMake.clear();
 			strModel.clear();
+			strVin.clear();
+			strColor.clear();
 			decYear.requestFocus();
 		}
 	}

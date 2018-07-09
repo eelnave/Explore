@@ -1,30 +1,71 @@
 package edu.byui.cit.maintenance;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Button;
 import edu.byui.cit.model.Vehicle;
-import edu.byui.cit.widget.ButtonWrapper;
 import edu.byui.cit.widget.CITFragment;
-import edu.byui.cit.widget.ClickListener;
-import edu.byui.cit.widget.WidgetWrapper;
 
 
 public class ChooseVehicle extends CITFragment {
 
-	private MaintenanceFrag v1;
-
+	private MaintenanceFrag fragAct;
+	private Button v1;
+	private CarButton v2;
 
 	@Override
 	protected View createView(LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstState) {
 
-		View view = inflater.inflate(R.layout.maintenance_frag, container, false);
-		new ButtonWrapper(view, R.id.v1, new selectVehicle());
+		View view = inflater.inflate(R.layout.choose_vehicle, container, false);
+
+		// create v1 onClickListener
+		// prepend "view" to view.findViewById(R.id.v1); because you are outside of MainActivity
+		v1 = view.findViewById(R.id.v1);
+		v1.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if (fragAct == null || fragAct.isDetached()) {
+					fragAct = new MaintenanceFrag();
+				}
+				// hide FAB on fragment fragAct
+				//fab.hide();
+				//switch to fragment fragAct (for viewing vehicle details)
+				switchFragment(fragAct);
+			}
+		});
+
+		v2 = view.findViewById(R.id.v2);
+		v2.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if (fragAct == null || fragAct.isDetached()) {
+					fragAct = new MaintenanceFrag();
+				}
+				// hide FAB on fragment fragAct
+				//fab.hide();
+				//switch to fragment fragAct (for viewing vehicle details)
+				switchFragment(fragAct);
+			}
+		});
+
 
 		return view;
+	}
+
+	//added switchFragment for v1 onClickListener
+	public void switchFragment(CITFragment fragment) {
+		// Replace whatever is in the fragContainer view with
+		// fragment, and add the transaction to the back stack so
+		// that the user can navigate back.
+		FragmentTransaction trans = getFragmentManager().beginTransaction();
+		trans.replace(R.id.fragContainer, fragment, "thing");
+		trans.addToBackStack(null);
+		trans.commit();
 	}
 
 	@Override
@@ -39,17 +80,5 @@ public class ChooseVehicle extends CITFragment {
 		return vehicle;
 	}
 
-	private class selectVehicle implements ClickListener {
 
-
-        @Override
-        public void clicked(WidgetWrapper source) {
-            if (v1 == null || v1.isDetached()) {
-                v1 = new MaintenanceFrag();
-            }
-            // I forgot what I can put here to make it work.
-            // I think everything else should be correct for now though.
-//			(MainActivity) <Something?>.switchFragment(v1);
-        }
-    }
 }

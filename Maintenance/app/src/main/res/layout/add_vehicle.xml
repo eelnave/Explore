@@ -57,7 +57,6 @@
 			style="@style/UnsignedDecimal"
 			android:layout_width="215dp"
 			android:ems="5">
-
 			<requestFocus />
 		</EditText>
 
@@ -68,10 +67,9 @@
 
 		<EditText
 			android:id="@+id/color"
-			style="@style/UnsignedDecimal"
+			style="@style/EditText"
 			android:layout_width="215dp"
 			android:ems="5">
-
 			<requestFocus />
 		</EditText>
 
