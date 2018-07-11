@@ -22,6 +22,7 @@ public class ChooseVehicle extends CITFragment {
 	private MaintenanceFrag fragAct;
 	private Button v1;
 	private CarButton v2;
+	private Button deleteButton;
 
 	@Override
 	protected View createView(LayoutInflater inflater,
@@ -37,7 +38,7 @@ public class ChooseVehicle extends CITFragment {
 
 		for (Vehicle v : list) {
 			CarButton button = new CarButton(context);
-			button.setText(v.getMake());
+			button.setText(v.getName());
 			grid.addView(button);
 		}
 
@@ -72,7 +73,7 @@ public class ChooseVehicle extends CITFragment {
 		//	}
 		//});
 
-		Button deleteButton = view.findViewById(R.id.deleteButton);
+		deleteButton = view.findViewById(R.id.deleteButton);
 		deleteButton.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View view) {

@@ -16,6 +16,7 @@
 
 	<string name="addVehicle">Add Vehicle</string>
 	<string name="year">Year</string>
+	<string name="name">Name</string>
 	<string name="make">Make</string>
 	<string name="model">Model</string>
 	<string name="vin">VIN</string>

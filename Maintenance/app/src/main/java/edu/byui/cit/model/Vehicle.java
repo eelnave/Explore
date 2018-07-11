@@ -10,7 +10,7 @@ import edu.byui.cit.maintenance.R;
 
 
 @Entity(
-		indices = {@Index(value = {"vin"}, unique = true)}
+		indices = {@Index(value = {"name"}, unique = true)}
 )
 public class Vehicle {
 	@PrimaryKey(autoGenerate = true)

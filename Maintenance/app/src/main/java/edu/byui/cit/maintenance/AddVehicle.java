@@ -20,7 +20,7 @@ import edu.byui.cit.widget.WidgetWrapper;
 
 public class AddVehicle extends CITFragment {
 	private EditDecimal decYear;
-	private EditString strMake, strModel, strVin, strColor;
+	private EditString strName,strMake, strModel, strVin, strColor;
 	private AppDatabase db;
 	private VehicleDAO vehicleDAO;
 
@@ -32,6 +32,7 @@ public class AddVehicle extends CITFragment {
 				false);
 
 		decYear = new EditDecimal(view, R.id.year);
+		strName = new EditString(view, R.id.name);
 		strMake = new EditString(view, R.id.make);
 		strModel = new EditString(view, R.id.model);
 		strVin = new EditString(view, R.id.vin);
@@ -93,8 +94,10 @@ public class AddVehicle extends CITFragment {
 			String model = strModel.getText();
 			String vin = strVin.getText();
             String color = strColor.getText();
+            String name = strName.getText();
 
 			Vehicle newVehicle = new Vehicle();
+			newVehicle.setName(name);
 			newVehicle.setVin(vin);
 			newVehicle.setYear((int)year);
 			newVehicle.setMake(make);
