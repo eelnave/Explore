@@ -34,6 +34,9 @@ import edu.byui.cit.widget.WidgetWrapper;
 
 
 public class add_newGoal extends CITFragment {
+	private SpinString spinner;
+	private EditString goalNameBox;
+
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstState) {
@@ -49,8 +52,8 @@ public class add_newGoal extends CITFragment {
 //		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //		spinner.setAdapter(adapter);
 
-		//TODO: This spinner is not being populated with the frequency choices.
-		new SpinString(view, R.id.spinner, "R.array.frequencyChoices");
+		goalNameBox = new EditString(view, R.id.goalName);
+		spinner = new SpinString(view, R.id.spinner);
 
 		//set the time spinner to 6:00 PM by default
 //		TimePicker pickerTime = (TimePicker)getActivity().findViewById(R.id.timePicker);
@@ -125,7 +128,12 @@ public class add_newGoal extends CITFragment {
 		@Override
 		public void clicked(WidgetWrapper source) {
 			//TODO: extract data from the form
-			String goalName = getActivity().findViewById(R.id.goalName).toString();
+			// goalName holds the name of the goal as a string
+			String goalName = goalNameBox.getText();
+
+			// frequencyChoice stores the user's choice as an integer based on position
+			int frequencyChoice = spinner.getSelectedItemPosition();
+
 			String tempDateHolder = getActivity().findViewById(R.id.finishDate).toString();
 			String[] dateSplitter = tempDateHolder.split("/");
 			//how do we convert this string to a date object?
@@ -149,7 +157,7 @@ public class add_newGoal extends CITFragment {
 			//((MainActivity) getActivity()).switchFragment(MainActivity.homeFrag);
 
 			//output message to user that the goal was saved
-			Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Goal Recorded!", Toast.LENGTH_LONG);
+			Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Recorded Goal: \""+ goalName +"\", with fequency choice of " + frequencyChoice + "!", Toast.LENGTH_LONG);
 			toast.show();
 		}
 	}
