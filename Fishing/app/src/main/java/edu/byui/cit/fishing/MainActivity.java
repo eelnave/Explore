@@ -39,9 +39,9 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
         // get the listview
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
+        expListView = findViewById(R.id.lvExp);
 
-        bt_restart=(Button)findViewById(R.id.restart);
+        bt_restart=findViewById(R.id.restart);
         bt_restart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,8 +175,9 @@ public class MainActivity extends Activity {
                     String flyOutput = selectedChoices.computeFly(getResources(),checkedMonth,checkedWater);
 
 
-                   tvTest = (TextView) findViewById(R.id.tvTestOutput);
+                   tvTest = findViewById(R.id.tvTestOutput);
                     tvTest.setText(flyOutput);
+                    bt_restart.setVisibility(View.VISIBLE);
 
                 } else {
                     // do nothing because not all categories have values
