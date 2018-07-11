@@ -6,8 +6,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
@@ -22,6 +24,7 @@ public class MainActivity extends Activity {
 
 
 
+
     public static final String TAG = "Fishing";
 
     ExpandableListAdapter listAdapter;
@@ -29,6 +32,7 @@ public class MainActivity extends Activity {
     TextView tvTest;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
+    Button bt_restart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,17 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main_activity);
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
+
+        bt_restart=(Button)findViewById(R.id.restart);
+        bt_restart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent restartIntent = getBaseContext().getPackageManager()
+                        .getLaunchIntentForPackage(getBaseContext().getPackageName());
+                restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(restartIntent);
+            }
+        });
 
         // preparing list data
         prepareListData();
