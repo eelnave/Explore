@@ -56,11 +56,11 @@ public class add_newGoal extends CITFragment {
 		spinner = new SpinString(view, R.id.spinner);
 
 		//set the time spinner to 6:00 PM by default
-//		TimePicker pickerTime = (TimePicker)getActivity().findViewById(R.id.timePicker);
-//		Calendar now = Calendar.getInstance();
+		TimePicker pickerTime = (TimePicker)getActivity().findViewById(R.id.timePicker);
+		Calendar now = Calendar.getInstance();
 
 		//these two setters are causing the app to not work
-		//pickerTime.setCurrentHour(now.get(Calendar.HOUR_OF_DAY));
+//		pickerTime.setCurrentHour(6);
 		//pickerTime.setCurrentMinute(0);
 
 
@@ -134,10 +134,16 @@ public class add_newGoal extends CITFragment {
 			// frequencyChoice stores the user's choice as an integer based on position
 			int frequencyChoice = spinner.getSelectedItemPosition();
 
+			//TODO: to extract a date, maybe use the DateWrapper instead?
 			String tempDateHolder = getActivity().findViewById(R.id.finishDate).toString();
 			String[] dateSplitter = tempDateHolder.split("/");
 			//how do we convert this string to a date object?
 //			Date finishDate = new Date(dateSplitter[])
+
+			//extracting time from the form
+			TimePicker pickerTime = (TimePicker)getActivity().findViewById(R.id.timePicker);
+			int hour = pickerTime.getHour();
+			int minute = pickerTime.getMinute();
 
 
 
@@ -157,7 +163,8 @@ public class add_newGoal extends CITFragment {
 			//((MainActivity) getActivity()).switchFragment(MainActivity.homeFrag);
 
 			//output message to user that the goal was saved
-			Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Recorded Goal: \""+ goalName +"\", with fequency choice of " + frequencyChoice + "!", Toast.LENGTH_LONG);
+			Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Recorded Goal: \""+ goalName +"\", with fequency choice of "
+					+ frequencyChoice + ". Remind at: " + hour + ":" + minute + "!", Toast.LENGTH_LONG);
 			toast.show();
 		}
 	}
