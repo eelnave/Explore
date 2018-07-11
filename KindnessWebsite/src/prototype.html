@@ -135,7 +135,25 @@
                     var latlng = new google.maps.LatLng(report.latitude, report.longitude);
 
                     var marker = new google.maps.Marker();
-
+                    
+                    var iconBase = 'http://maps.google.com/mapfiles/kml/shapes/';
+                    var icons = {
+                        service: {
+                            icon: iconBase + 'serviceicon.png'
+                        },
+                        gift: {
+                            icon: iconBase + 'gifticon.png'
+                        },
+                        time: {
+                            icon: iconBase + 'timeicon.png'
+                        },
+                        touch: {
+                            icon: iconBase + 'touchicon.png'
+                        },
+                        words:{
+                            icon: iconBase + 'wordsicon.png'
+                        }
+                    }
                     marker.setPosition(latlng);
 
                     marker.setMap(map);
