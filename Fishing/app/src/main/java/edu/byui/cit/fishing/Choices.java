@@ -3,11 +3,10 @@ package edu.byui.cit.fishing;
 import android.content.res.Resources;
 
 
-
 public class Choices extends MainActivity {
-    String SelectedSpecies;
-    String SelectedMonth;
-    String SelectedWater;
+    private String SelectedSpecies;
+    private String SelectedMonth;
+    private String SelectedWater;
 
 
     public Choices(String selectedSpecies, String selectedWater, String selectedMonth) {
@@ -16,30 +15,27 @@ public class Choices extends MainActivity {
         SelectedWater = selectedWater;
     }
 
-//    public String getSelectedSpecies() {
-//        return SelectedSpecies;
-//    }
-//
-//    public void setSelectedSpecies(String selectedSpecies) {
-//        SelectedSpecies = selectedSpecies;
-//    }
-//
-//    public String getSelectedMonth() {
-//        return SelectedMonth;
-//    }
-//
-//    public void setSelectedMonth(String selectedMonth) {
-//        SelectedMonth = selectedMonth;
-//    }
-//
-//    public String getSelectedWater() {
-//        return SelectedWater;
-//    }
-//
-//    public void setSelectedWater(String selectedWater) {
-//        SelectedWater = selectedWater;
-//    }
 
+
+    public void setSelectedSpecies(String selectedSpecies) {
+        SelectedSpecies = selectedSpecies;
+    }
+
+    public String getSelectedMonth() {
+        return SelectedMonth;
+    }
+
+    public void setSelectedMonth(String selectedMonth) {
+        SelectedMonth = selectedMonth;
+    }
+
+    public String getSelectedWater() {
+        return SelectedWater;
+    }
+
+    public void setSelectedWater(String selectedWater) {
+        SelectedWater = selectedWater;
+    }
     // compute fly output based on water,species, and month
     // String selectedSpecies taken out as parameter temp
     public String computeFly(Resources res, String selectedWater, String selectedMonth){
