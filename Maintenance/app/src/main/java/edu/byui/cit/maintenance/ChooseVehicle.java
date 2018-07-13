@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.support.v7.widget.GridLayout;
+import android.widget.RelativeLayout;
 
 import java.util.List;
 
@@ -40,6 +41,20 @@ public class ChooseVehicle extends CITFragment {
 			CarButton button = new CarButton(context);
 			button.setText(v.getName());
 			grid.addView(button);
+
+			button.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					if (fragAct == null || fragAct.isDetached()) {
+						fragAct = new MaintenanceFrag();
+						}
+						//hide FAB on fragment fragAct
+						//fab.hide();
+						//switch to fragment fragAct (for viewing vehicle details)
+					switchFragment(fragAct);
+				}
+			});
+
 		}
 
 		// create button for each vehicle
