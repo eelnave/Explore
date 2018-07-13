@@ -1,9 +1,11 @@
 package edu.byui.cit.maintenance;
 
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import edu.byui.cit.model.AppDatabase;
 import edu.byui.cit.model.Vehicle;
@@ -23,7 +25,8 @@ public class AddVehicle extends CITFragment {
 	private EditString strName,strMake, strModel, strVin, strColor;
 	private AppDatabase db;
 	private VehicleDAO vehicleDAO;
-
+	private ChooseVehicle chooseVehicle;
+	private Button btnAdd;
 
 	@Override
 	protected View createView(LayoutInflater inflater,
@@ -31,28 +34,25 @@ public class AddVehicle extends CITFragment {
 		View view = inflater.inflate(R.layout.add_vehicle, container,
 				false);
 
-		decYear = new EditDecimal(view, R.id.year);
 		strName = new EditString(view, R.id.name);
+		decYear = new EditDecimal(view, R.id.year);
 		strMake = new EditString(view, R.id.make);
 		strModel = new EditString(view, R.id.model);
 		strVin = new EditString(view, R.id.vin);
         strColor = new EditString(view, R.id.color);
-		decYear.requestFocus();
-
+		strName.requestFocus();
 
 		new ButtonWrapper(view, R.id.btnAdd, new AddHandler());
 		new ButtonWrapper(view, R.id.btnReset, new ResetHandler());
+
 		return view;
 	}
-
-
 
 
 	@Override
 	protected String getTitle() {
 		return getActivity().getString(R.string.addVehicle);
 	}
-
 
 	private final class AddHandler implements ClickListener {
 		@Override
@@ -89,12 +89,12 @@ public class AddVehicle extends CITFragment {
 			}.execute();
 
  **/
+			String name = strName.getText();
 			float year = (float)decYear.getDec();
 			String make = strMake.getText();
 			String model = strModel.getText();
 			String vin = strVin.getText();
             String color = strColor.getText();
-            String name = strName.getText();
 
 			Vehicle newVehicle = new Vehicle();
 			newVehicle.setName(name);
@@ -110,18 +110,50 @@ public class AddVehicle extends CITFragment {
 			vehicleDAO = db.getVehicleDAO();
             vehicleDAO.insert(newVehicle);
 
+
+			// prepend "view" to view.findViewById(R.id.v1); because you are outside of MainActivity
+			//btnAdd = view.findViewById(R.id.btnAdd);
+			//btnAdd.setOnClickListener(new View.OnClickListener() {
+				//@Override
+				//public void onClick(View view) {
+					if (chooseVehicle == null || chooseVehicle.isDetached()) {
+						chooseVehicle = new ChooseVehicle();
+					}
+
+					//switch to fragment fragAct (for viewing vehicle details)
+					switchFragment(chooseVehicle);
+				}
+			//});
+
+
+	//added switchFragment for Add onClickListener
+	public void switchFragment(CITFragment fragment) {
+		// Replace whatever is in the fragContainer view with
+		// fragment, and add the transaction to the back stack so
+		// that the user can navigate back.
+		FragmentTransaction trans = getFragmentManager().beginTransaction();
+		trans.replace(R.id.fragContainer, fragment, "thing");
+		trans.addToBackStack(null);
+		trans.commit();
+	}
+
+	// call ResetHandler to reset all fields
+	//	ResetHandler resetHandler = new ResetHandler();
+	//	resetHandler.
+
 /**
 			Vehicle found = vehicleDAO.getByVIN("111-222-3333");
 			System.out.println(found.getColor());
 			Toast.makeText(getActivity().getApplicationContext(),found.getColor(), Toast.LENGTH_LONG).show();
 **/
-
 		}
-	}
 
-	private final class ResetHandler implements ClickListener {
+
+
+	public final class ResetHandler implements ClickListener {
 		@Override
 		public void clicked(WidgetWrapper source) {
+			strName.clear();
 			decYear.clear();
 			strMake.clear();
 			strModel.clear();
@@ -130,4 +162,5 @@ public class AddVehicle extends CITFragment {
 			decYear.requestFocus();
 		}
 	}
+
 }
