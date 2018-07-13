@@ -43,10 +43,7 @@ public final class DisplayFragment extends CITFragment
 	private SpinString timeSpin, typeSpin;
 	private final TreeMap<String, Report> allReports;
 	private final HashMap<String, TreeMap<String, Report>> indexes;
-	private String key;
 	private Report report;
-	private MarkerOptions opts;
-	private Object selRep;
 
 	private GoogleMap mMap;
 	private BitmapDescriptor heart, gifts, service, time, touch, words;
@@ -197,7 +194,7 @@ public final class DisplayFragment extends CITFragment
 				String prevChildKey) {
 			try {
 				// Get the report that was added.
-				key = dataSnapshot.getKey();
+				String key = dataSnapshot.getKey();
 				report = dataSnapshot.getValue(Report.class);
 
 				// Add this report to the list of all reports and to the
@@ -208,7 +205,7 @@ public final class DisplayFragment extends CITFragment
 				indexes.get(report.category().name()).put(key, report);
 
 				// Draw a marker for this report on the map.
-				opts = new MarkerOptions();
+				MarkerOptions opts = new MarkerOptions();
 				opts.position(
 						new LatLng(report.getLatitude(),
 								report.getLongitude()));
@@ -266,8 +263,14 @@ public final class DisplayFragment extends CITFragment
 
 		@Override
 		public void itemSelected(SpinWrapper source, int pos, long id) {
+			MarkerOptions opts = new MarkerOptions();
+			TreeMap<String, Report> selRep;
+
 			// Clear the map of all markers
 			mMap.clear();
+
+			//time spinner
+			String selectedTime = timeSpin.getSelectedItem();
 			// Get the current time of machine
 			Calendar calendar = Calendar.getInstance();
 
@@ -278,51 +281,47 @@ public final class DisplayFragment extends CITFragment
 			int week = calendar.get(Calendar.DAY_OF_YEAR);
 			int month = calendar.get(Calendar.MONTH);
 			int year = calendar.get(Calendar.YEAR);
-
 			//timezone differences?
-
 			//server time of reports
-
-
-			// Based on the user's choice put markers whose corresponding reports fit within the time.
-			//last hour = 3600000 ms
-
-			//last 24 hours = 86400000 ms
-
-			//last week = 604800016.56 ms
-
-			//last month = 2629800000 ms
-
-			//last year = 31557600000 ms
-
-			//all time
-
+			//Based on the user's choice put markers whose corresponding reports fit within the time.
+			//last hour = 3600000 ms, last 24 hours = 86400000 ms,
+			//last week = 604800016.56 ms, last month = 2629800000 ms
+			//last year = 31557600000 ms, all time
 			//return selected reports
 
 			//get selected item in spinner
-			String selected = typeSpin.getSelectedItem();
-			//get gift reports
+			String selectedType = typeSpin.getSelectedItem();
+			//get reports
 			indexes.get(report.category());
 
 			//if selected item is gift, return only gift reports
-			if(selected.equals("Gifts")){
-				//get category from indexes
+			if(selectedType.equals("Gifts")){
 				selRep = indexes.get("Gifts");
-				//selRep = 5 reports
-				//show extracted reports
-			} else if(selected.equals("Service")){
+				opts.icon(gifts);
+			} else if(selectedType.equals("Service")){
 				selRep = indexes.get("Service");
-			}else if(selected.equals("Time")) {
+				opts.icon(service);
+			}else if(selectedType.equals("Time")) {
 				selRep = indexes.get("Time");
-			}else if(selected.equals("Touch")) {
+				opts.icon(time);
+			}else if(selectedType.equals("Touch")) {
 				selRep = indexes.get("Touch");
-			}else if(selected.equals("Words")) {
+				opts.icon(touch);
+			}else if(selectedType.equals("Words")) {
 				selRep = indexes.get("Words");
+				opts.icon(words);
 			}else{
 				selRep = indexes.get("Category");
 			}
+
 			//populate map with reports for category selected
-			//opts.position(report.getCategory(selRep));
+			for (String key : selRep.keySet()) {
+				Report report = selRep.get(key);
+				opts.position(
+						new LatLng(report.getLatitude(),
+								report.getLongitude()));
+				mMap.addMarker(opts);
+			}
 		}
 	}
 }

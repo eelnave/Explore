@@ -32,15 +32,16 @@ import edu.byui.cit.widget.SpinString;
 import edu.byui.cit.widget.SpinWrapper;
 
 /* TODO:
- * 7. Add dropdown lists at the top of the map to filter by category and date
+ * 1. Add dropdown lists at the top of the map to filter by date
  * 		-Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
+ * 2. change icons to enum category in Report.java
+ * 3. fix ChildFragment so when we return to map reports are still there
  */
 
 public final class KindnessActivity extends AppCompatActivity {
 
 	public static final String TAG = "Kindness";
-	//REMOVING THE FIRST TIME RUN--> Want our users to be engaged.
-	//private static final String FIRST_TIME_KEY = "FirstTime";
+
 	public static final String
 			REPORTS_KEY = "reports",
 			CATEGORIES_KEY = "categories";
