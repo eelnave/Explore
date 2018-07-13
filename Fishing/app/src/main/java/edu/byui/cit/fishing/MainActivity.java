@@ -47,7 +47,6 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent restartIntent = getBaseContext().getPackageManager()
                         .getLaunchIntentForPackage(getBaseContext().getPackageName());
-                restartIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(restartIntent);
             }
         });
