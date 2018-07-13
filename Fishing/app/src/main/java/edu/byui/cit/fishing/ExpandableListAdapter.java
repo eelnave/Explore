@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import static edu.byui.cit.fishing.R.layout.list_item;
+
+
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
             private Context _context;
@@ -46,7 +49,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
                                 assert infalInflater != null;
-                                convertView = infalInflater.inflate(R.layout.list_item, null);
+                                // this resolves the warning
+                                final ViewGroup nullParent =null;
+                                convertView = infalInflater.inflate(list_item, nullParent);
                         }
 
                             TextView txtListChild = convertView
@@ -86,7 +91,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                                             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 						assert infalInflater != null;
-						convertView = infalInflater.inflate(R.layout.list_group, null);
+						final ViewGroup nullParent =null;
+						convertView = infalInflater.inflate(R.layout.list_group, nullParent);
                         }
 
                             TextView lblListHeader = convertView
