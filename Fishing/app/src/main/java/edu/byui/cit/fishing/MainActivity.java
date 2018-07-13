@@ -133,6 +133,9 @@ public class MainActivity extends Activity {
 
                 } else {
                     // do nothing
+                    // this is already true, added to clear warning
+                    bt_restart.setVisibility(View.GONE);
+
                 }
 
                 return true;
@@ -144,8 +147,8 @@ public class MainActivity extends Activity {
      * Preparing the list data
      */
             private void prepareListData() {
-                    listDataHeader = new ArrayList<String>();
-                    listDataChild = new HashMap<String, List<String>>();
+                    listDataHeader = new ArrayList<>();
+                    listDataChild = new HashMap<>();
 
                             // Adding child data
                 listDataHeader.add("Species");
@@ -180,6 +183,8 @@ public class MainActivity extends Activity {
 
                 } else {
                     // do nothing because not all categories have values
+                    // this is already true, added to clear warning
+                    bt_restart.setVisibility(View.GONE);
 
                 }
                }
