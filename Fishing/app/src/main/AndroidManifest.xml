@@ -39,6 +39,7 @@
                 android:name=".Maps"
                 android:label="@string/title_activity_maps">
         </activity>
-    </application>
+		<activity android:name=".Choices"/>
+	</application>
 
 </manifest>
