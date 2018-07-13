@@ -13,12 +13,12 @@ import android.widget.TextView;
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
             private Context _context;
-    private List<String> _listDataHeader; // header titles
-    // child data in format of header title, child title
+    		private List<String> _listDataHeader; // header titles
+    		// child data in format of header title, child title
             private HashMap<String, List<String>> _listDataChild;
 
-            public ExpandableListAdapter(Context context, List<String> listDataHeader,
-                                 HashMap<String, List<String>> listChildData) {
+            ExpandableListAdapter(Context context, List<String> listDataHeader,
+					HashMap<String, List<String>> listChildData) {
                     this._context = context;
                     this._listDataHeader = listDataHeader;
                     this._listDataChild = listChildData;
@@ -44,7 +44,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                             if (convertView == null) {
                             LayoutInflater infalInflater = (LayoutInflater) this._context
                                             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                            convertView = infalInflater.inflate(R.layout.list_item, null);
+
+                                assert infalInflater != null;
+                                convertView = infalInflater.inflate(R.layout.list_item, null);
                         }
 
                             TextView txtListChild = convertView
@@ -82,7 +84,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                     if (convertView == null) {
                             LayoutInflater infalInflater = (LayoutInflater) this._context
                                             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                            convertView = infalInflater.inflate(R.layout.list_group, null);
+
+						assert infalInflater != null;
+						convertView = infalInflater.inflate(R.layout.list_group, null);
                         }
 
                             TextView lblListHeader = convertView
