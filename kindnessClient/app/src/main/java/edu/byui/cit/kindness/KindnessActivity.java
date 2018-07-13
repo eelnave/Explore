@@ -3,7 +3,6 @@ package edu.byui.cit.kindness;
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -16,10 +15,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-
 
 import com.google.firebase.FirebaseApp;
 
@@ -27,9 +22,7 @@ import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
 import edu.byui.cit.exception.ServiceException;
-import edu.byui.cit.widget.ItemSelectedListener;
-import edu.byui.cit.widget.SpinString;
-import edu.byui.cit.widget.SpinWrapper;
+
 
 /* TODO:
  * 1. Add dropdown lists at the top of the map to filter by date
