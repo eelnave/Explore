@@ -1,12 +1,6 @@
 package edu.byui.cit.fishing;
 
 import android.content.res.Resources;
-import android.widget.Switch;
-import android.widget.TextView;
-import com.google.android.gms.common.util.Strings;
-
-import java.util.Arrays;
-import java.util.List;
 
 
 public class Choices extends MainActivity {
@@ -21,9 +15,7 @@ public class Choices extends MainActivity {
         SelectedWater = selectedWater;
     }
 
-    public String getSelectedSpecies() {
-        return SelectedSpecies;
-    }
+
 
     public void setSelectedSpecies(String selectedSpecies) {
         SelectedSpecies = selectedSpecies;
