@@ -110,11 +110,12 @@ public class add_newGoal extends CITFragment {
 		calendar.set(Calendar.MONTH, (calendar.get(Calendar.MONTH) + 2));
 		// TODO: This line of code is causing an issue with linking the calendar
 //		new DateWrapper(view, R.id.finishDate, calendar);
-		new EditString(view, R.id.goalName, new onDateTextChangeListener());
-
+		new EditString(view, R.id.goalName);
+//		new ButtonWrapper(view, R.id.finishDate, new onDateClickListener());
 		//set up submit button to be clicked
 		new ButtonWrapper(view, R.id.submitFormButton, new submitNewGoalListener());
-		new DateWrapper(view, R.id.completionDate, calendar, new selectCompletionDateListener());
+		//this line is causing a crash
+		new ButtonWrapper(view, R.id.dateButton, new onDateClickListener());
 
 		return view;
 	}
@@ -135,8 +136,8 @@ public class add_newGoal extends CITFragment {
 			int frequencyChoice = spinner.getSelectedItemPosition();
 
 			//TODO: to extract a date, maybe use the DateWrapper instead?
-			String tempDateHolder = getActivity().findViewById(R.id.finishDate).toString();
-			String[] dateSplitter = tempDateHolder.split("/");
+//			String tempDateHolder = getActivity().findViewById(R.id.finishDate).toString();
+//			String[] dateSplitter = tempDateHolder.split("/");
 			//how do we convert this string to a date object?
 //			Date finishDate = new Date(dateSplitter[])
 
@@ -158,9 +159,9 @@ public class add_newGoal extends CITFragment {
 			dao.insert(test1);
 
 			//once the goal is saved, go back to the main lander fragment
-			//we need to pop the fragment off the fragment stack, similar to pressing the back button.
+			//we need to pop the fragment off the fragment stack, taking us back to the main screen
+			// -- similar to pressing the back button.
 			getActivity().getFragmentManager().popBackStack();
-			//((MainActivity) getActivity()).switchFragment(MainActivity.homeFrag);
 
 			//output message to user that the goal was saved
 			Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Recorded Goal: \""+ goalName +"\", with fequency choice of "
@@ -173,17 +174,20 @@ public class add_newGoal extends CITFragment {
 		@Override
 		public void afterChanged(DateWrapper source, int year, int month, int dayOfMonth) {
 			//TODO: Insert updated date into the text box here
+//			DateWrapper thePicker = source;
+//
+//			Calendar calendar = Calendar.getInstance();
+//			int junk = calendar.MONTH;
 
+//			Toast toast = Toast.makeText(getActivity().getApplicationContext(), "working with " + junk, Toast.LENGTH_LONG);
 		}
 	}
 
-	private class onDateTextChangeListener implements TextChangeListener {
-		@Override
-		public void textChanged(EditWrapper source) {
-			//Change DatePicker from invisible to visible on click.
-//			DatePicker picker = new DatePicker(R.id.completionDate);
-//			picker.setVisibility(View.VISIBLE);
 
+	private class onDateClickListener implements ClickListener {
+		@Override
+		public void clicked(WidgetWrapper source) {
+			((MainActivity) getActivity()).switchFragment(new frag_calendarChoose(), new Bundle());
 		}
 	}
 }

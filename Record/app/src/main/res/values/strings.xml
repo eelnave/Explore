@@ -64,5 +64,6 @@
     <string name="notification_text2">Did You Complete It?</string>
     <string name="yes">yes</string>
     <string name="no">no</string>
+    <string name="dateButton_text">(click to select date)</string>
 
 </resources>

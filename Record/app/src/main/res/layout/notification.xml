@@ -27,7 +27,7 @@
 		android:layout_height="67dp"
 		android:layout_marginEnd="8dp"
 		android:layout_marginStart="8dp"
-		android:layout_marginTop="8dp"
+		android:textAlignment="center"
 		android:textColor="#000000"
 		android:textSize="35sp"
 		app:layout_constraintEnd_toEndOf="parent"
@@ -35,20 +35,20 @@
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/notification_header" />
 
-	<TextView
-		android:id="@+id/notification_text2"
-		android:layout_width="313dp"
-		android:layout_height="73dp"
-		android:layout_marginEnd="8dp"
-		android:layout_marginStart="8dp"
-		android:layout_marginTop="28dp"
-		android:text="@string/notification_text2"
-		android:textColor="#111111"
-		android:textSize="25sp"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.145"
-		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@+id/divider" />
+    <TextView
+        android:id="@+id/notification_text2"
+        android:layout_width="313dp"
+        android:layout_height="73dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:textAlignment="center"
+        android:textColor="#111111"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
 
 	<View
 		android:id="@+id/divider"
