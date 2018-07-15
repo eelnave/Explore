@@ -65,5 +65,8 @@
     <string name="yes">yes</string>
     <string name="no">no</string>
     <string name="dateButton_text">(click to select date)</string>
+    <string name="progressLabel">Progress:</string>
+    <string name="notificationLabel">Notification Time:</string>
+    <string name="editGoal">Edit Goal</string>
 
 </resources>
