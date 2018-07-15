@@ -36,6 +36,8 @@ public class ChooseVehicle extends CITFragment {
 		List<Vehicle> list =  vehicleDAO.getAll();
 		Context context = getActivity();
 		GridLayout grid = view.findViewById(R.id.ChooseVehicle);
+		grid.setAlignmentMode(1);
+		grid.setColumnCount(3);
 
 		for (Vehicle v : list) {
 			CarButton button = new CarButton(context);
