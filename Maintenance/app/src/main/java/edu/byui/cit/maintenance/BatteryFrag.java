@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -13,12 +15,12 @@ import java.text.NumberFormat;
 import edu.byui.cit.widget.CITFragment;
 
 
-public class BatteryFrag extends CITFragment {
+public class BatteryFrag extends CITFragment implements AdapterView.OnItemSelectedListener {
+	String[] oil_change_frequency = {"3,000", "5,000", "7,500", "10,000"};
 
 	private EditText editText_LOC, editText_NOC, editText_NOC1;
 	// create Spinner object
 	Spinner spinner;
-
 
 	@Override
 	protected View createView(LayoutInflater inflater,
@@ -36,19 +38,6 @@ public class BatteryFrag extends CITFragment {
 		// setOnClickListener
 		b_compute.setOnClickListener(new computeNOC());
 
-		// find spinner by ID
-		//spinner = view.findViewById(R.id.spinner);
-		//adapter = ArrayAdapter.createFromResource(this,R.array.oil_change_frequency,android.R.layout.simple_spinner_item);
-
-
-		//ArrayAdapter<CharSequence> adapter;
-		//ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-		//		R.array.oil_frequency_array edu.byui.cit.widget.SpinWrapper);
-// Specify the layout to use when the list of choices appears
-		//adapter.setDropDownViewResource(edu.byui.cit.widget.SpinWrapper);
-// Apply the adapter to the spinner
-	//	spinner.setAdapter(adapter);
-
 		return view;
 	}
 
@@ -56,6 +45,19 @@ public class BatteryFrag extends CITFragment {
 	protected String getTitle() {
 		return null;
 	}
+
+
+	/* spinner */
+	@Override
+	public void onItemSelected(AdapterView<?> parent, View view, int position,
+			long id) {
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> parent) {
+	}
+	/* end spinner */
+
 
 	private class computeNOC implements View.OnClickListener {
 		@Override
