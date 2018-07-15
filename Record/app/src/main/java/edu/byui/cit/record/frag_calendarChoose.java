@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -40,6 +41,14 @@ public class frag_calendarChoose extends CITFragment {
     private class calendarClickListner implements ClickListener {
         @Override
         public void clicked(WidgetWrapper source) {
+            DatePicker finishDate = getActivity().findViewById(R.id.completionDate);
+            int day = finishDate.getDayOfMonth();
+            int month = finishDate.getMonth() + 1;
+            int year = finishDate.getYear();
+            Toast toast = Toast.makeText(getActivity().getApplicationContext(), "read: " + month + "-" + day + "-" + year, Toast.LENGTH_LONG);
+            toast.show();
+            //TODO: somehow, return the completion date data to the previous screen (fragment)
+
             getActivity().getFragmentManager().popBackStack();
         }
     }

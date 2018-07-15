@@ -128,45 +128,51 @@ public class add_newGoal extends CITFragment {
 	private class submitNewGoalListener implements ClickListener {
 		@Override
 		public void clicked(WidgetWrapper source) {
-			//TODO: extract data from the form
-			// goalName holds the name of the goal as a string
 			String goalName = goalNameBox.getText();
-
-			// frequencyChoice stores the user's choice as an integer based on position
-			int frequencyChoice = spinner.getSelectedItemPosition();
-
-			//TODO: to extract a date, maybe use the DateWrapper instead?
-//			String tempDateHolder = getActivity().findViewById(R.id.finishDate).toString();
-//			String[] dateSplitter = tempDateHolder.split("/");
-			//how do we convert this string to a date object?
-//			Date finishDate = new Date(dateSplitter[])
-
-			//extracting time from the form
-			TimePicker pickerTime = (TimePicker)getActivity().findViewById(R.id.timePicker);
-			int hour = pickerTime.getHour();
-			int minute = pickerTime.getMinute();
+			if (!goalName.isEmpty()) {
+				//TODO: extract data from the form
+				// goalName holds the name of the goal as a string
 
 
+				// frequencyChoice stores the user's choice as an integer based on position
+				int frequencyChoice = spinner.getSelectedItemPosition();
 
-			//TODO: here we need to save the goal before moving back to the home screen
+				//TODO: to extract a date, maybe use the DateWrapper instead?
+				//			String tempDateHolder = getActivity().findViewById(R.id.finishDate).toString();
+				//			String[] dateSplitter = tempDateHolder.split("/");
+				//how do we convert this string to a date object?
+				//			Date finishDate = new Date(dateSplitter[])
 
-			Random rand = new Random();
-			int n =rand.nextInt(200) + 1;
-            edu.byui.cit.model.Goal test1 = new Goal();
-			test1.setGoalID(n);
-			Context ctx = getActivity().getApplicationContext();
-			GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
-			dao.insert(test1);
+				//extracting time from the form
+				TimePicker pickerTime = (TimePicker) getActivity().findViewById(R.id.timePicker);
+				int hour = pickerTime.getHour();
+				int minute = pickerTime.getMinute();
 
-			//once the goal is saved, go back to the main lander fragment
-			//we need to pop the fragment off the fragment stack, taking us back to the main screen
-			// -- similar to pressing the back button.
-			getActivity().getFragmentManager().popBackStack();
 
-			//output message to user that the goal was saved
-			Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Recorded Goal: \""+ goalName +"\", with fequency choice of "
-					+ frequencyChoice + ". Remind at: " + hour + ":" + minute + "!", Toast.LENGTH_LONG);
-			toast.show();
+				//TODO: here we need to save the goal before moving back to the home screen
+
+				Random rand = new Random();
+				int n = rand.nextInt(200) + 1;
+				edu.byui.cit.model.Goal test1 = new Goal();
+				test1.setGoalID(n);
+				Context ctx = getActivity().getApplicationContext();
+				GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
+				dao.insert(test1);
+
+				//once the goal is saved, go back to the main lander fragment
+				//we need to pop the fragment off the fragment stack, taking us back to the main screen
+				// -- similar to pressing the back button.
+				getActivity().getFragmentManager().popBackStack();
+
+				//output message to user that the goal was saved
+				Toast toast = Toast.makeText(getActivity().getApplicationContext(), "Recorded Goal: \"" + goalName + "\", with fequency choice of "
+						+ frequencyChoice + ". Remind at: " + hour + ":" + minute + "!", Toast.LENGTH_LONG);
+				toast.show();
+			}
+			else{
+				Toast toast = Toast.makeText(getActivity().getApplicationContext(), "STOP: You must specify a goal name!", Toast.LENGTH_SHORT);
+				toast.show();
+			}
 		}
 	}
 
