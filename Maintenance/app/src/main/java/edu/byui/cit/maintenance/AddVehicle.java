@@ -25,7 +25,7 @@ import edu.byui.cit.widget.WidgetWrapper;
 
 public class AddVehicle extends CITFragment {
 	private EditDecimal decYear;
-	private EditString strName,strMake, strModel, strVin, strColor;
+	private EditString strName, strMake, strModel, strVin, strColor;
 	private AppDatabase db;
 	private VehicleDAO vehicleDAO;
 	private ChooseVehicle chooseVehicle;
@@ -42,43 +42,11 @@ public class AddVehicle extends CITFragment {
 		strMake = new EditString(view, R.id.make);
 		strModel = new EditString(view, R.id.model);
 		strVin = new EditString(view, R.id.vin);
-        strColor = new EditString(view, R.id.color);
+		strColor = new EditString(view, R.id.color);
 		strName.requestFocus();
 
 		new ButtonWrapper(view, R.id.btnAdd, new AddHandler());
 		new ButtonWrapper(view, R.id.btnReset, new ResetHandler());
-
-		// add OnKeyListener to EditString
-		//view = (EditString) findViewById(R.id.color);
-		view.setOnKeyListener(new OnKeyListener()
-		{
-			public boolean onKey(View v, int keyCode, KeyEvent event)
-			{
-				if (event.getAction() == KeyEvent.ACTION_DOWN)
-				{
-					switch (keyCode)
-					{
-						case KeyEvent.KEYCODE_DPAD_CENTER:
-						case KeyEvent.KEYCODE_ENTER:
-							new AddHandler();
-							return true;
-						default:
-							break;
-					}
-				}
-				return false;
-			}
-		});
-
-
-
-
-
-
-
-
-
-
 
 		return view;
 	}
@@ -89,9 +57,15 @@ public class AddVehicle extends CITFragment {
 		return getActivity().getString(R.string.addVehicle);
 	}
 
-
-
-
+	public void clearStuff() {
+		strName.clear();
+		decYear.clear();
+		strMake.clear();
+		strModel.clear();
+		strVin.clear();
+		strColor.clear();
+		strName.requestFocus();
+	}
 
 
 	private final class AddHandler implements ClickListener {
@@ -101,35 +75,35 @@ public class AddVehicle extends CITFragment {
 		public void clicked(WidgetWrapper source) {
 
 /**
-			new AsyncTask<Void, Void, Void>() {
-				@Override
-				protected Void doInBackground(Void... voids) {
-					float year = (float)decYear.getDec();
-					String make = strMake.getText();
-					String model = strModel.getText();
+ new AsyncTask<Void, Void, Void>() {
+@Override protected Void doInBackground(Void... voids) {
+float year = (float)decYear.getDec();
+String make = strMake.getText();
+String model = strModel.getText();
 
 
-					Vehicle newVehicle = new Vehicle();
-					newVehicle.setVin("111-222-3333");
-					newVehicle.setYear((int)year);
-					newVehicle.setMake(make);
-					newVehicle.setModel(model);
-					newVehicle.setColor("Red");
+Vehicle newVehicle = new Vehicle();
+newVehicle.setVin("111-222-3333");
+newVehicle.setYear((int)year);
+newVehicle.setMake(make);
+newVehicle.setModel(model);
+newVehicle.setColor("Red");
 
-					db = AppDatabase.getInstance(getActivity().getApplicationContext());
-					vehicleDAO = db.getVehicleDAO();
-					vehicleDAO.insert(newVehicle);
+db = AppDatabase.getInstance(getActivity().getApplicationContext());
+vehicleDAO = db.getVehicleDAO();
+vehicleDAO.insert(newVehicle);
 
 
-					Vehicle found = vehicleDAO.getByVIN("111-222-3333");
+Vehicle found = vehicleDAO.getByVIN("111-222-3333");
 
-					System.out.println(found.getColor());
+System.out.println(found.getColor());
 
-					Toast.makeText(getActivity().getApplicationContext(),found.getColor(), Toast.LENGTH_LONG).show();
+Toast.makeText(getActivity().getApplicationContext(),found.getColor(), Toast
+.LENGTH_LONG).show();
 
-					return null;
-				}
-			}.execute();
+return null;
+}
+}.execute();
 
  **/
 			String name = strName.getText();
@@ -137,7 +111,7 @@ public class AddVehicle extends CITFragment {
 			String make = strMake.getText();
 			String model = strModel.getText();
 			String vin = strVin.getText();
-            String color = strColor.getText();
+			String color = strColor.getText();
 
 			Vehicle newVehicle = new Vehicle();
 			newVehicle.setName(name);
@@ -149,60 +123,48 @@ public class AddVehicle extends CITFragment {
 
 			//Context context = InstrumentationRegistry.getTargetContext();
 
-			db = AppDatabase.getInstance(getActivity().getApplicationContext());
+			db = AppDatabase.getInstance(getActivity().getApplicationContext
+					());
 			vehicleDAO = db.getVehicleDAO();
-            vehicleDAO.insert(newVehicle);
+			vehicleDAO.insert(newVehicle);
 
-            //change to choose_vehicle frag
-					if (chooseVehicle == null || chooseVehicle.isDetached()) {
-						chooseVehicle = new ChooseVehicle();
-					}
+			//change to choose_vehicle frag
+			if (chooseVehicle == null || chooseVehicle.isDetached()) {
+				chooseVehicle = new ChooseVehicle();
+			}
 
-					//clear all fields
-					strName.clear();
-					decYear.clear();
-					strMake.clear();
-					strModel.clear();
-					strVin.clear();
-					strColor.clear();
-					decYear.requestFocus();
+			//clear all fields
+			clearStuff();
 
-					//switch to fragment chooseVehicle (to see newly added vehicle)
-					switchFragment(chooseVehicle);
-				}
-
-	//added switchFragment for Add onClickListener
-	public void switchFragment(CITFragment fragment) {
-		// Replace whatever is in the fragContainer view with
-		// fragment, and add the transaction to the back stack so
-		// that the user can navigate back.
-
-		FragmentTransaction trans = getFragmentManager().beginTransaction();
-		trans.replace(R.id.fragContainer, fragment, "thing");
-		trans.addToBackStack(null);
-		trans.commit();
-	}
-
-/**
-			Vehicle found = vehicleDAO.getByVIN("111-222-3333");
-			System.out.println(found.getColor());
-			Toast.makeText(getActivity().getApplicationContext(),found.getColor(), Toast.LENGTH_LONG).show();
-**/
+			//switch to fragment chooseVehicle (to see newly added vehicle)
+			switchFragment(chooseVehicle);
 		}
 
-	// create clearFields method here and then call it from ResetHandler and AddHandler
+		//added switchFragment for Add onClickListener
+		public void switchFragment(CITFragment fragment) {
+			// Replace whatever is in the fragContainer view with
+			// fragment, and add the transaction to the back stack so
+			// that the user can navigate back.
 
+			FragmentTransaction trans = getFragmentManager()
+					.beginTransaction();
+			trans.replace(R.id.fragContainer, fragment, "thing");
+			trans.addToBackStack(null);
+			trans.commit();
+		}
+
+/**
+ Vehicle found = vehicleDAO.getByVIN("111-222-3333");
+ System.out.println(found.getColor());
+ Toast.makeText(getActivity().getApplicationContext(),found.getColor(), Toast
+ .LENGTH_LONG).show();
+ **/
+	}
 
 	public final class ResetHandler implements ClickListener {
 		@Override
 		public void clicked(WidgetWrapper source) {
-			strName.clear();
-			decYear.clear();
-			strMake.clear();
-			strModel.clear();
-			strVin.clear();
-			strColor.clear();
-			decYear.requestFocus();
+			clearStuff();
 		}
 	}
 

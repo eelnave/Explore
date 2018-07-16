@@ -19,6 +19,8 @@ public class MaintenanceFrag extends CITFragment{
     private Button Tires;
     private BatteryFrag batteryFrag;
     private Button Battery;
+    private AirFilterFrag airFilterFrag;
+    private Button airFilter;
 
 
     @Override
@@ -92,11 +94,24 @@ public class MaintenanceFrag extends CITFragment{
             }
         });
 
-
+        // create air filter onClickListener
+        // prepend "view" to view.findViewById(R.id.oil); because you are outside of MainActivity
+        airFilter = view.findViewById(R.id.b_air_filter);
+        airFilter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (airFilterFrag == null || airFilterFrag.isDetached()) {
+                    airFilterFrag = new AirFilterFrag();
+                }
+                // hide FAB on fragment fragAct
+                //fab.hide();
+                //switch to fragment fragAct (for viewing vehicle details)
+                switchFragment(airFilterFrag);
+            }
+        });
 
         return view;
     }
-
 
     //added switchFragment for oil onClickListener
     public void switchFragment(CITFragment fragment) {

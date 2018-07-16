@@ -21,6 +21,7 @@ import edu.byui.cit.widget.CITFragment;
 public class ChooseVehicle extends CITFragment {
 
 	private MaintenanceFrag fragAct;
+	private ChooseVehicle chooseVehicle;
 	private Button v1;
 	private CarButton v2;
 	private Button deleteButton;
@@ -93,6 +94,13 @@ public class ChooseVehicle extends CITFragment {
 			@Override
 			public void onClick(View view) {
 				vehicleDAO.deleteVehicles();
+				if (chooseVehicle == null || chooseVehicle.isDetached()) {
+					chooseVehicle = new ChooseVehicle();
+				}
+				//hide FAB on fragment fragAct
+				//fab.hide();
+				//switch to fragment chooseVehicle (for viewing vehicle details)
+				switchFragment(chooseVehicle);
 			}
 		});
 		return view;

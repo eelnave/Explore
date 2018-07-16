@@ -13,7 +13,7 @@
 		android:layout_height="124dp"
 		android:layout_marginStart="8dp"
 		android:layout_marginTop="92dp"
-		android:text="@string/what_oil_maintenance"
+		android:text="@string/what_air_filter_maintenance"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/editText_NOC1"/>
 
@@ -96,7 +96,7 @@
 		android:layout_height="38dp"
 		android:layout_marginStart="8dp"
 		android:layout_marginTop="8dp"
-		android:text="How often would you like your air filter changed? ("
+		android:text="@string/how_often_would_you_like_your_air_filter_changed"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/editText_NOC1"/>
 </android.support.constraint.ConstraintLayout>
