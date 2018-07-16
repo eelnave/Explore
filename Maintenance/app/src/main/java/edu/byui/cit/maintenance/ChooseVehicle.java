@@ -2,13 +2,17 @@ package edu.byui.cit.maintenance;
 
 import android.app.FragmentTransaction;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.support.v7.widget.GridLayout;
+import android.support.v7.widget.GridLayout.LayoutParams;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -36,13 +40,14 @@ public class ChooseVehicle extends CITFragment {
 		List<Vehicle> list =  vehicleDAO.getAll();
 		Context context = getActivity();
 		GridLayout grid = view.findViewById(R.id.ChooseVehicle);
-		grid.setAlignmentMode(1);
-		grid.setColumnCount(3);
+		int columns = grid.getColumnCount();
 
 		for (Vehicle v : list) {
 			CarButton button = new CarButton(context);
 			button.setText(v.getName());
 			grid.addView(button);
+			button.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
+			button.setLayoutParams(makeLayoutParams());
 
 			button.setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -56,6 +61,12 @@ public class ChooseVehicle extends CITFragment {
 					switchFragment(fragAct);
 				}
 			});
+
+		}
+
+		for (int i = columns - list.size(); i > 0; --i ) {
+			TextView text = makeEmpty(context);
+			grid.addView(text);
 
 		}
 
@@ -110,6 +121,23 @@ public class ChooseVehicle extends CITFragment {
 		trans.addToBackStack(null);
 		trans.commit();
 	}
+
+	private static TextView makeEmpty(Context ctx) {
+		TextView text = new TextView(ctx);
+		text.setLayoutParams(makeLayoutParams());
+		return text;
+	}
+
+	private static LayoutParams makeLayoutParams() {
+		LayoutParams params = new LayoutParams();
+		params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1F);
+		params.rowSpec = GridLayout.spec(GridLayout.UNDEFINED, 1F);
+		params.setMargins(0, 0, 0, 0);
+		params.width = 0;
+		params.height = 0;
+		return params;
+	}
+
 
 	@Override
 	protected String getTitle() {

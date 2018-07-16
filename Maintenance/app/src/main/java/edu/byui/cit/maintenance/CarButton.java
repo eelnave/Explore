@@ -24,8 +24,8 @@ public class CarButton extends AppCompatButton {
 
 	public void onMeasure (int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-		int width = MeasureSpec.getSize(widthMeasureSpec / 4 );
-		int height = (int)Math.round(width * 0.75);
+		int width = MeasureSpec.getSize(widthMeasureSpec);
+		int height = (int)Math.round(width * 1.05);
 		setMeasuredDimension(width, height);
 	}
 
