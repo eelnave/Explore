@@ -133,16 +133,36 @@
                     var report = snapshot.val();
 
                     var latlng = new google.maps.LatLng(report.latitude, report.longitude);
+                    var icon;
 
-                    var marker = new google.maps.Marker();
+                    console.log(report.category);
 
-                    marker.setPosition(latlng);
+                    // I think we need to loop through the report.category
 
-                    marker.setMap(map);
+                    if (report.category == 1) {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/giftIcon.png'
+                    } else if (report.category == 2) {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/serviceIcon.png'
+                    } else if (report.category == 3) {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/timeIcon.png'
+                    } else if (report.category == 4) {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/touchIcon.png'
+                    } else {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/wordsIcon.png'
+                    }
+
+
+
+                    var marker = new google.maps.Marker({
+                        position: latlng,
+                        icon: icon,
+                        map: map
+                    });
 
                 });
 
         }
+
 
 
         //This will start our website with the startMap function.

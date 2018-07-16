@@ -10,6 +10,7 @@
                -> Maps JavaScript API
                -> Credentials
 -->
+    <script scr= "https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf6WBFZa5ic_Ikl997ox4nd6I2wT_aTqo"></script>
     <script>
         function initMap() {
@@ -32,7 +33,9 @@
 
         window.onload = initMap;
 
-        function firebaseImport() {
+        function firebaseImport(firebase) {
+            
+
             var reports = getElementByTagName('Reports');
 
             //reference to reports section of database
@@ -47,17 +50,17 @@
                 tr.appendChild(tr);
             });
         };
-        var FBconfig = {
+        var config = {
             apiKey: "AIzaSyDf6WBFZa5ic_Ikl997ox4nd6I2wT_aTqo",
-            authDomain: "projectId.firebaseapp.com",
+            authDomain: "kindness-360.firebaseio.com",
             databaseURL: "https://kindness-360.firebaseio.com/",
             projectId: "kindness-360",
-            storageBucket: "kindness-360.appspot.com"
-        }
+            storageBucket: "kindness-360.appspot.com",
+            messagingSenderId: "606210075954"
+        };
+        //var firebase = new Firebase("https://console.firebase.google.com/u/4/project/kindness-360/database/kindness-360/data")
 
-       firebaseImport.initializeApp(FBconfig);
-
-
+       firebase.initializeApp(config)
     </script>
 </head>
 
