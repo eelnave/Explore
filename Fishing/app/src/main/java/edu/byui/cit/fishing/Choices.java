@@ -3,17 +3,12 @@ package edu.byui.cit.fishing;
 import android.content.res.Resources;
 
 
-public class Choices extends MainActivity {
-     String SelectedSpecies;
-     String SelectedMonth;
-     String SelectedWater;
 
 
-    public Choices(String selectedSpecies, String selectedWater, String selectedMonth) {
-        SelectedSpecies = selectedSpecies;
-        SelectedMonth = selectedMonth;
-        SelectedWater = selectedWater;
-    }
+public class Choices {
+
+
+
 
 
 

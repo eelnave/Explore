@@ -14,15 +14,15 @@
             android:src="@drawable/fishinglogo"
             android:paddingTop="20dp"
             android:id="@+id/imageView3"
-            android:contentDescription="Logo"/>
+            android:contentDescription="@string/logo"/>
     <TextView
-            android:text="   East Idaho Anglers"
-            android:padding="20px"
+            android:text="@string/eia"
+            android:padding="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView"
             android:textAppearance="@style/EditText"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:textColor="#6495ED"
             android:textStyle="bold" />
 
@@ -30,10 +30,8 @@
         android:id="@+id/restart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:background="@drawable/layout_bg"
-        android:text="Back"
+        android:text="@string/back"
         android:visibility="gone"/>
 
     <TextView
@@ -41,19 +39,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="casual"
-        android:padding="20px"
+        android:padding="20dp"
         android:text=""
         android:textAppearance="@style/EditText"
         android:textColor="#000000"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"/>
 
     <ExpandableListView
             android:id="@+id/lvExp"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:paddingTop="5dp"
-            android:clickable="true"/>
+            android:paddingTop="5dp" />
 
 
 

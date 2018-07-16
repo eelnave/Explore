@@ -173,7 +173,7 @@ public class MainActivity extends Activity {
                private void checkCategoriesNotNull(String checkedSpecies, String checkedMonth, String checkedWater){
                 if(checkedSpecies != null && checkedMonth != null && checkedWater != null){
                     // Create instance of choices class and set values.
-                    Choices selectedChoices = new Choices(checkedSpecies,checkedWater,checkedMonth);
+                    Choices selectedChoices = new Choices();
                     String flyOutput = selectedChoices.computeFly(getResources(),checkedMonth,checkedWater);
 
 
