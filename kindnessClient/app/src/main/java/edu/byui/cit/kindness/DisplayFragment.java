@@ -3,7 +3,6 @@ package edu.byui.cit.kindness;
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,9 +23,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
 
-import java.sql.Time;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -41,9 +38,7 @@ public final class DisplayFragment extends CITFragment
 	private SpinString timeSpin, typeSpin;
 	private final TreeMap<String, Report> allReports;
 	private final HashMap<String, TreeMap<String, Report>> indexes;
-	private String key;
 	private Report report;
-	private MarkerOptions opts;
 
 	private GoogleMap mMap;
 	private BitmapDescriptor heart, gifts, service, time, touch, words;
@@ -194,7 +189,7 @@ public final class DisplayFragment extends CITFragment
 				String prevChildKey) {
 			try {
 				// Get the report that was added.
-				key = dataSnapshot.getKey();
+				String key = dataSnapshot.getKey();
 				report = dataSnapshot.getValue(Report.class);
 
 				// Add this report to the list of all reports and to the
@@ -205,7 +200,7 @@ public final class DisplayFragment extends CITFragment
 				indexes.get(report.category().name()).put(key, report);
 
 				// Draw a marker for this report on the map.
-				opts = new MarkerOptions();
+				MarkerOptions opts = new MarkerOptions();
 				opts.position(
 						new LatLng(report.getLatitude(),
 								report.getLongitude()));
@@ -263,8 +258,14 @@ public final class DisplayFragment extends CITFragment
 
 		@Override
 		public void itemSelected(SpinWrapper source, int pos, long id) {
+			MarkerOptions opts = new MarkerOptions();
+			TreeMap<String, Report> selRep;
+
 			// Clear the map of all markers
 			mMap.clear();
+
+			//time spinner
+			String selectedTime = timeSpin.getSelectedItem();
 			// Get the current time of machine
 			Calendar calendar = Calendar.getInstance();
 
@@ -275,56 +276,44 @@ public final class DisplayFragment extends CITFragment
 			int week = calendar.get(Calendar.DAY_OF_YEAR);
 			int month = calendar.get(Calendar.MONTH);
 			int year = calendar.get(Calendar.YEAR);
-
 			//timezone differences?
-
 			//server time of reports
-
-
-			// Based on the user's choice put markers whose corresponding reports fit within the time.
-			//last hour = 3600000 ms
-
-			//last 24 hours = 86400000 ms
-
-			//last week = 604800016.56 ms
-
-			//last month = 2629800000 ms
-
-			//last year = 31557600000 ms
-
-			//all time
-
+			//Based on the user's choice put markers whose corresponding reports fit within the time.
 			//return selected reports
 
 			//get selected item in spinner
-			String selected = typeSpin.getSelectedItem();
-			//pull all reports
-			indexes.get(report.category().name()).put(key, report);
+			String selectedType = typeSpin.getSelectedItem();
+			//get reports
+			indexes.get(report.category());
+
 			//if selected item is gift, return only gift reports
-			if(selected.equals("Gifts")){
-				//display only Gifts reports
-				report.category().equals(Report.Category.Gifts);
+			if(selectedType.equals("Gifts")){
+				selRep = indexes.get("Gifts");
 				opts.icon(gifts);
-			} else if(selected.equals("Service")){
-				report.category().equals(Report.Category.Service);
+			} else if(selectedType.equals("Service")){
+				selRep = indexes.get("Service");
 				opts.icon(service);
-			}else if(selected.equals("Time")) {
-				report.category().equals(Report.Category.Time);
+			}else if(selectedType.equals("Time")) {
+				selRep = indexes.get("Time");
 				opts.icon(time);
-			}else if(selected.equals("Touch")) {
-				report.category().equals(Report.Category.Touch);
+			}else if(selectedType.equals("Touch")) {
+				selRep = indexes.get("Touch");
 				opts.icon(touch);
-			}else if(selected.equals("Words")) {
-				report.category().equals(Report.Category.Words);
+			}else if(selectedType.equals("Words")) {
+				selRep = indexes.get("Words");
 				opts.icon(words);
 			}else{
-				indexes.get(report.category().name()).put(key, report);
-				opts.getIcon();
+				selRep = indexes.get("Category");
 			}
+
 			//populate map with reports for category selected
-
-			//Log.i("debug");
-
+			for (String key : selRep.keySet()) {
+				Report report = selRep.get(key);
+				opts.position(
+						new LatLng(report.getLatitude(),
+								report.getLongitude()));
+				mMap.addMarker(opts);
+			}
 		}
 	}
 }
