@@ -279,9 +279,6 @@ public final class DisplayFragment extends CITFragment
 			//timezone differences?
 			//server time of reports
 			//Based on the user's choice put markers whose corresponding reports fit within the time.
-			//last hour = 3600000 ms, last 24 hours = 86400000 ms,
-			//last week = 604800016.56 ms, last month = 2629800000 ms
-			//last year = 31557600000 ms, all time
 			//return selected reports
 
 			//get selected item in spinner
