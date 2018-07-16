@@ -8,8 +8,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -32,6 +33,33 @@ public class home_lander extends CITFragment {
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstState){
 		View view = inflater.inflate(R.layout.home_lander, container, false);
+
+
+		//populate the main screen area with current goals
+		//test with filler data
+		final ArrayList<String> myGoals = new ArrayList<>();
+		myGoals.add("Read Scriptures");
+		myGoals.add("Teach My Kid to Read");
+		myGoals.add("Work on Android Apps");
+		myGoals.add("Help Old Man Jenkins with His Lawn");
+//
+//		//this object represents the listView on the screen
+//		ListView goalListView = (ListView) view.findViewById(R.id.goalList);
+//		ArrayAdapter<String> goalListAdapter = new ArrayAdapter<>(getActivity(), R.layout.simplerow, myGoals);
+//		goalListView.setAdapter(goalListAdapter);
+
+//		myGoals.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//			@Override
+//			public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//				Bundle bundle = new Bundle();
+//				String goalTitle = myGoals.get(i);
+//				bundle.putString("goalTitle", goalTitle);
+//				((MainActivity) getActivity()).switchFragment(new ViewGoal(), bundle);
+//			}
+//		});
+
+
+
 //		FloatingActionButton fab = findViewById(R.id.newGoalFAB);
 		new ButtonWrapper(view, R.id.newGoalButton, new newGoalClickHandler());
 		new ButtonWrapper(view, R.id.deleteGoal, new showGoalsList());
@@ -57,6 +85,12 @@ public class home_lander extends CITFragment {
 		//testWrapper.setText(dataTestID);
 
 
+		//this object represents the listView on the screen
+//		ListView mainListView = findViewById(R.id.toDoList);
+//		ArrayAdapter<String> theAdapter = new ArrayAdapter<>(
+//				this, R.layout.simplerow, theGoals);
+//		// TODO: THIS IS THE THING THAT IS CAUSING THE CRASH
+//		mainListView.setAdapter(theAdapter);
 		return view;
 	}
 
@@ -69,7 +103,7 @@ public class home_lander extends CITFragment {
 		@Override
 		public void clicked(WidgetWrapper source) {
 			//calling parent method switchFragment
-			((MainActivity) getActivity()).switchFragment(new add_newGoal());
+			((MainActivity) getActivity()).switchFragment(new add_newGoal(), new Bundle());
 		}
 	}
 
