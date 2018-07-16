@@ -13,6 +13,8 @@
 	<string name="imaginary"><i>i</i></string>
 
 	<string name="radius">radius</string>
+	<string name="diameter">diameter</string>
+	<string name="circumference">circumference</string>
 	<string name="majorRadius">major radius</string>
 	<string name="minorRadius">minor radius</string>
 	<string name="innerRadius">inner radius</string>
@@ -25,6 +27,8 @@
 	<string name="perimeter">perimeter</string>
 	<string name="surfaceArea">surface area</string>
 
+	<string name="Diameter">Diameter</string>
+	<string name="Circumference">Circumference</string>
 	<string name="Width">Width</string>
 	<string name="Height">Height</string>
 	<string name="Diagonal">Diagonal</string>
@@ -39,6 +43,14 @@
 	<string name="x">x</string>
 	<string name="y">y</string>
 	<string name="z">z</string>
+
+	<string name="circle">Circle</string>
+	<string name="circDiamFormula" translatable="false">d = 2r</string>
+	<string name="circCircumFormula" translatable="false">C = 2\u03c0r</string>
+	<string name="circAreaFormula" translatable="false">A = \u03c0r\u00b2</string>
+	<string name="circD" translatable="false">d</string>
+	<string name="circC" translatable="false">C</string>
+	<string name="circA" translatable="false">A</string>
 
 	<string name="rightTriangle">Right Triangle</string>
 	<string name="triHyp" translatable="false">hyp</string>

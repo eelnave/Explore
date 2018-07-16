@@ -97,6 +97,7 @@ final class Descriptors {
 			}),
 			new GroupDescriptor(R.id.Geometry, R.string.geometry, R.drawable.folder_geometry, new CalcDescriptor[]{
 				new CalcDescriptor(R.id.Points, R.string.points, R.drawable.points, Points.class),
+				new CalcDescriptor(R.id.Circle, R.string.circle, R.drawable.lightning, Circle.class),
 				new CalcDescriptor(R.id.RightTriangle, R.string.rightTriangle, R.drawable.right_triangle, RightTriangle.class),
 				new CalcDescriptor(R.id.Triangle, R.string.triangle, R.drawable.triangle, Triangle.class),
 				new CalcDescriptor(R.id.Rectangle, R.string.rectangle, R.drawable.rectangle, Rectangle.class),
@@ -108,7 +109,6 @@ final class Descriptors {
 				new CalcDescriptor(R.id.Pyramid, R.string.pyramid, R.drawable.pyramid, Pyramid.class),
 				/*
 				new CalcDescriptor(R.id.Points, R.string.points, R.drawable.points, Points.class),
-				new CalcDescriptor(R.id.Circle, R.string.circle, R.drawable.circle, Circle.class),
 				new CalcDescriptor(R.id.Ellipse, R.string.ellipse, R.drawable.ellipse, Ellipse.class),
 				new CalcDescriptor(R.id.Square, R.string.square, R.drawable.square, Square.class),
 				new CalcDescriptor(R.id.Rhombus, R.string.rhombus, R.drawable.rhombus, Rhombus.class),
