@@ -43,7 +43,7 @@ public class add_customgoal extends AppCompatActivity {
 
         //set up text boxes to be read
         txtGoalName = findViewById(R.id.goalName);
-        txtCompletiondate = findViewById(R.id.finishDate);
+//        txtCompletiondate = findViewById(R.id.finishDate);
 
         //set up button to be clicked
         Button submitButton = findViewById(R.id.submitFormButton);
