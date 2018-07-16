@@ -27,4 +27,7 @@ public interface GoalDAO {
 
 	@Delete
 	int delete(Goal goal);
+
+	@Query("DELETE FROM goal")
+	void clearTable();
 }

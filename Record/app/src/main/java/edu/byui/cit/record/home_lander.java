@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -60,7 +62,8 @@ public class home_lander extends CITFragment {
 
 //		FloatingActionButton fab = findViewById(R.id.newGoalFAB);
 		new ButtonWrapper(view, R.id.newGoalButton, new newGoalClickHandler());
-//		fab.setOnClickListener(new View.OnClickListener() {
+		new ButtonWrapper(view, R.id.deleteGoal, new showGoalsList());
+		//		fab.setOnClickListener(new View.OnClickListener() {
 //			@Override
 //			public void onClick(View view) {
 //				//make the jump to the new goal screen
@@ -101,6 +104,32 @@ public class home_lander extends CITFragment {
 		public void clicked(WidgetWrapper source) {
 			//calling parent method switchFragment
 			((MainActivity) getActivity()).switchFragment(new add_newGoal(), new Bundle());
+		}
+	}
+
+	private final class showGoalsList implements ClickListener {
+		@Override
+		public void clicked(WidgetWrapper source) {
+
+			try {
+				Context ctx = getActivity().getApplicationContext();
+				GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
+				List<Goal> myGoals = dao.getAll();
+
+				ArrayList<String> stringGoals = new ArrayList<>();
+				stringGoals.add(myGoals.get(0).toString());
+				stringGoals.add(myGoals.get(0).toString());
+
+				//this object represents the listView on the screen
+				ListView mainListView = getActivity().findViewById(R.id.toDoList);
+				ArrayAdapter<String> theAdapter = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.simplerow, stringGoals);
+				// TODO: THIS IS THE THING THAT IS CAUSING THE CRASH
+				mainListView.setAdapter(theAdapter);
+
+			}
+			catch (Exception ex) {
+				Log.e("Record", ex.toString());
+			}
 		}
 	}
 }

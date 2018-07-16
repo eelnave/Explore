@@ -1,5 +1,7 @@
 package edu.byui.cit.record;
 
+import java.time.Clock;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -151,13 +153,21 @@ public class add_newGoal extends CITFragment {
 
 				//TODO: here we need to save the goal before moving back to the home screen
 
-				Random rand = new Random();
-				int n = rand.nextInt(200) + 1;
-				edu.byui.cit.model.Goal test1 = new Goal();
-				test1.setGoalID(n);
-				Context ctx = getActivity().getApplicationContext();
-				GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
-				dao.insert(test1);
+			Random rand = new Random();
+			int n =rand.nextInt(200) + 1;
+            edu.byui.cit.model.Goal test1 = new Goal();
+			test1.setGoalID(n);
+			test1.setType(Goal.Type.text);
+			test1.setFrequency(Goal.Frequency.daily);
+
+			Date startDate = new Date();
+			test1.setStart(startDate);
+			test1.setEnd(startDate);
+
+			Context ctx = getActivity().getApplicationContext();
+			GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
+			dao.clearTable();
+			dao.insert(test1);
 
 				//once the goal is saved, go back to the main lander fragment
 				//we need to pop the fragment off the fragment stack, taking us back to the main screen
