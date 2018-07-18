@@ -44,6 +44,12 @@ public final class DisplayFragment extends CITFragment
 	private BitmapDescriptor heart, gifts, service, time, touch, words;
 	private DatabaseReference dbReports;
 
+	//This is a fragment within the main activity (kindness_activity.xml)
+	//we had to do it this way because the spinners were showing up behind
+	//the map and now they have their own spot and can be used. This fragment
+	//is different than the other fragments because it uses the same toolbar as
+	//kindness_activity.xml and the FAB.
+	
 	public DisplayFragment() {
 		super();
 
@@ -265,20 +271,26 @@ public final class DisplayFragment extends CITFragment
 			mMap.clear();
 
 			//time spinner
+			//I couldn't get this one completed but my idea was to compare the millisecond
+			//timestamp from the firebase reports to the user's machine current time in milliseconds
+			//I think this will be an easy way to compare the reports and the user's machine
+			//and will also be easy to convert into days, hours, weeks, etc. Need to take into
+			//account timezone differences between firebase and user device as well.
 			String selectedTime = timeSpin.getSelectedItem();
 			// Get the current time of machine
 			Calendar calendar = Calendar.getInstance();
 
 			long millis = calendar.getTimeInMillis();
-			//should I just use milliseconds? easier to convert and compare
+
 			int hour = calendar.get(Calendar.HOUR_OF_DAY);
 			//DAY_OF_YEAR day number within current year, can count for a week
 			int week = calendar.get(Calendar.DAY_OF_YEAR);
 			int month = calendar.get(Calendar.MONTH);
 			int year = calendar.get(Calendar.YEAR);
-			//timezone differences?
 			//server time of reports
+
 			//Based on the user's choice put markers whose corresponding reports fit within the time.
+
 			//return selected reports
 
 			//get selected item in spinner

@@ -31,9 +31,13 @@ import edu.byui.cit.exception.ServiceException;
  * 3. fix ChildFragment so when we return to map reports are still there
  */
 
+//known issue: when you open a fragment (ReportedFragment, HowTo, Privacy)
+//and return to DisplayFragment, the reports are no longer on the map. Something
+//is wrong in the fragment lifecycle and with the indexes have a null pointer exception
+
 public final class KindnessActivity extends AppCompatActivity {
 
-	public static final String TAG = "Kindness";
+	public static final String TAG = "KindnessTag";
 
 	public static final String
 			REPORTS_KEY = "reports",
