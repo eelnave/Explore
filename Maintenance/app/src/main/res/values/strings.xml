@@ -82,6 +82,10 @@
 	<string name="miles_at_next_air_filter_change">Miles at next air filter change</string>
 	<string name="what_air_filter_maintenance">What Maintenance is Needed? \n 1) Replace air filter</string>
 	<string name="how_often_would_you_like_your_air_filter_changed">How often would you like your air filter changed? (Toyota 15,000 | Ford: 30,000 | Chevrolet: 45,000) </string>
+	<string name="miles_at_next_maintenance">Miles at Next Maintenance</string>
+	<string name="miles_at_last_maintenance">Miles at Last Maintenance</string>
+	<string name="how_often_would_you_like_maintenance">How often would you like maintenance?</string>
+	<string name="what_maintenance_is_needed">What Maintenance is Needed?</string>
 
 
 	<string-array name="oil_frequency_array">
