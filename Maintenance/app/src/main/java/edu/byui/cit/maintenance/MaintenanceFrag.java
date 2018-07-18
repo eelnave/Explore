@@ -43,8 +43,6 @@ public class MaintenanceFrag extends CITFragment {
 				if (oilFrag == null || oilFrag.isDetached()) {
 					oilFrag = new OilFrag();
 				}
-				// hide FAB on fragment fragAct
-				//fab.hide();
 				//switch to fragment fragAct (for viewing vehicle details)
 				switchFragment(oilFrag);
 			}
@@ -61,8 +59,7 @@ public class MaintenanceFrag extends CITFragment {
 				if (brakesFrag == null || brakesFrag.isDetached()) {
 					brakesFrag = new BrakesFrag();
 				}
-				// hide FAB on fragment fragAct
-				//fab.hide();
+
 				//switch to fragment fragAct (for viewing vehicle details)
 				switchFragment(brakesFrag);
 			}
@@ -78,8 +75,7 @@ public class MaintenanceFrag extends CITFragment {
 				if (tiresFrag == null || tiresFrag.isDetached()) {
 					tiresFrag = new TiresFrag();
 				}
-				// hide FAB on fragment fragAct
-				//fab.hide();
+
 				//switch to fragment fragAct (for viewing vehicle details)
 				switchFragment(tiresFrag);
 			}
@@ -95,8 +91,7 @@ public class MaintenanceFrag extends CITFragment {
 				if (batteryFrag == null || batteryFrag.isDetached()) {
 					batteryFrag = new BatteryFrag();
 				}
-				// hide FAB on fragment fragAct
-				//fab.hide();
+
 				//switch to fragment fragAct (for viewing vehicle details)
 				switchFragment(batteryFrag);
 			}
@@ -112,8 +107,7 @@ public class MaintenanceFrag extends CITFragment {
 				if (airFilterFrag == null || airFilterFrag.isDetached()) {
 					airFilterFrag = new AirFilterFrag();
 				}
-				// hide FAB on fragment fragAct
-				//fab.hide();
+
 				//switch to fragment fragAct (for viewing vehicle details)
 				switchFragment(airFilterFrag);
 			}
@@ -129,8 +123,7 @@ public class MaintenanceFrag extends CITFragment {
 				if (otherFrag == null || otherFrag.isDetached()) {
 					otherFrag = new OtherFrag();
 				}
-				// hide FAB on fragment fragAct
-				//fab.hide();
+
 				//switch to fragment fragAct (for viewing vehicle details)
 				switchFragment(otherFrag);
 			}

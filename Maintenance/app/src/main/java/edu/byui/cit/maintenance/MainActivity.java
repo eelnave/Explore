@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 					fragAdd = new AddVehicle();
 				}
 				// hide FAB on fragment fragAdd
-				fab.hide();
+				//fab.hide();
 				//switch to fragment fragAdd (for adding a new vehicle)
 				switchFragment(fragAdd);
 			}
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 				// Return true to indicate that this
 				// method handled the item selected event.
 				// hide FAB
-				fab.hide();
+				//fab.hide();
 				return true;
 
 			case R.id.actHelp:
