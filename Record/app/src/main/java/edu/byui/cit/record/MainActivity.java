@@ -28,44 +28,7 @@ public class MainActivity extends AppCompatActivity {
 		try {
 			setContentView(R.layout.main_activity);
 
-//			FloatingActionButton fab = findViewById(R.id.newGoalFAB);
-//			fab.setOnClickListener(new View.OnClickListener() {
-//				@Override
-//				public void onClick(View view) {
-//					//make the jump to the new goal screen
-//					//switching to fragments
-//					CITFragment frag = new add_newGoal();
-//					switchFragment(frag);
-////					Intent intent = new Intent(MainActivity.this,
-////							add_customgoal.class);
-////					startActivity(intent);
-//				}
-//			});
 
-//			This is our experiment in using a fragment.
-//			Button deleteJunk = findViewById(R.id.deleteGoal);
-//			deleteJunk.setOnClickListener(new View.OnClickListener() {
-//				@Override
-//				public void onClick(View view) {
-//					//make the jump to the new goal screen
-//					//start the fragment
-//// Create a new Fragment to be placed in the activity layout
-//					addNewGoal addNewGoalFragment = new addNewGoal();
-//
-//					// In case this activity was started with special instructions from an
-//					// Intent, pass the Intent's extras to the fragment as arguments
-//					addNewGoalFragment.setArguments(getIntent().getExtras());
-//
-//					// Add the fragment to the 'fragment_container' FrameLayout
-//					getSupportFragmentManager().beginTransaction()
-//							.add(R.id.headlines_fragment, addNewGoalFragment).commit();
-//
-//
-////					Intent testIntent = new Intent(MainActivity.this,
-////							addNewGoal.class);
-////					startActivity(testIntent);
-//				}
-//			});
 			//Daily notification time, intent, and alarm manager
 			Calendar calendar = Calendar.getInstance();
 //    calendar.set(Calendar.HOUR_OF_DAY, 18);
@@ -87,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 			//populate the main screen area with current goals
 
 			//go ahead and launch the main lander fragment
+			// VERY IMPORTANT!!! THis is how we switch to the main fragment
 			if (savedInstanceState == null){
 				CITFragment frag = new home_lander();
 				FragmentTransaction trans = getFragmentManager().beginTransaction();

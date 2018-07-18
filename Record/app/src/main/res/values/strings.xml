@@ -1,7 +1,22 @@
 <resources>
     <string name="appName">Record</string>
 
-    <string name="about">About</string>
+    <string name="about">About:
+        The idea behind this app is to give the user a simple way of creating a goal and then to track it. Some features we
+        envisioned are to send the user a notification that reminds them to work on that goal and an easy way to hold themselves accountable.
+        Another feature we intended to add was a graph/chart that the user can use to visually see their progress.
+
+        This is what is in the app:
+        Homelander is the main page that is where app starts at. Functioning room database, the app is run with fragments, a fucntional UI,
+        Toasts that show the user what they recorded,
+        and user input.
+        Whats next:
+        Figure out notifications, figure out how to add user input to database(not hardcoded values), figure out graphing data.
+
+    </string>
+
+
+
     <string name="appDescr">An app to help you record recurring events such as exercise, training, instrument practice, reading, and study.</string>
     <string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
 

@@ -44,16 +44,6 @@ public class add_newGoal extends CITFragment {
 			Bundle savedInstState) {
 		View view = inflater.inflate(R.layout.frag_add_newgoal, container, false);
 
-
-		//THIS IS OLD CODE THAT APPLIED THE ADAPTER TO THE SPINNER
-		//Spinner spinner = (Spinner) findViewById(R.id.spinner);
-//		new SpinString(view, R.id.spinner);
-//		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity().getApplicationContext(),
-//				R.array.frequencyChoices, android.R.layout.simple_spinner_item);
-//		// Specify the layout to use when the list of choices appears
-//		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//		spinner.setAdapter(adapter);
-
 		goalNameBox = new EditString(view, R.id.goalName);
 		spinner = new SpinString(view, R.id.spinner);
 
@@ -153,6 +143,7 @@ public class add_newGoal extends CITFragment {
 
 				//TODO: here we need to save the goal before moving back to the home screen
 
+				// creating a test object for the database. VERY IMPORTANT!!! Inserting incomplete rows will break the database call
 			Random rand = new Random();
 			int n =rand.nextInt(200) + 1;
             edu.byui.cit.model.Goal test1 = new Goal();
@@ -161,12 +152,11 @@ public class add_newGoal extends CITFragment {
 			test1.setDescription("literally go milk the cow");
 			test1.setType(Goal.Type.text);
 			test1.setFrequency(Goal.Frequency.daily);
-
-
 			Date startDate = new Date();
 			test1.setStart(startDate);
 			test1.setEnd(startDate);
-
+			// database call to clear table and then insert proper data. If table not cleared during testing, it won't work
+			// remove clear table function when ready for production
 			Context ctx = getActivity().getApplicationContext();
 			GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
 			dao.clearTable();
