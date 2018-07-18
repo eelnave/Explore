@@ -121,7 +121,7 @@ public class home_lander extends CITFragment {
 				stringGoals.add(myGoals.get(0).toString());
 
 				//this object represents the listView on the screen
-				ListView mainListView = getActivity().findViewById(R.id.toDoList);
+				ListView mainListView = getActivity().findViewById(R.id.goalList);
 				ArrayAdapter<String> theAdapter = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.simplerow, stringGoals);
 				// TODO: THIS IS THE THING THAT IS CAUSING THE CRASH
 				mainListView.setAdapter(theAdapter);

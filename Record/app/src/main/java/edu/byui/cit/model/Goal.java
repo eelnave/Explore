@@ -30,6 +30,9 @@ public class Goal {
 	@PrimaryKey(autoGenerate = true)
 	private int goalID;
 
+
+	private String title;
+	private String description;
 	private Type type;
 	private Frequency frequency;
 
@@ -43,6 +46,14 @@ public class Goal {
 	public void setGoalID(int goalID) {
 		this.goalID = goalID;
 	}
+
+	public String getTitle() { return title; }
+
+	public void setTitle(String title) { this.title = title; }
+
+	public String getDescription() { return description; }
+
+	public void setDescription(String description) { this.description = description; }
 
 	public Type getType() {
 		return type;
@@ -83,6 +94,8 @@ public class Goal {
 		if (obj2 instanceof Goal) {
 			Goal other = (Goal)obj2;
 			equ = goalID == other.goalID &&
+					title == other.title &&
+					description == other.description &&
 					type == other.type &&
 					frequency == other.frequency &&
 					compareObjects(start, other.start) &&
@@ -99,7 +112,9 @@ public class Goal {
 	public String toString() {
 		return "Goal: " +
 				goalID + ", " +
-				type + ", " +
+				title + ", " +
+				description + ", " +
+ 				type + ", " +
 				frequency + ", " +
 				start + ", " +
 				end;

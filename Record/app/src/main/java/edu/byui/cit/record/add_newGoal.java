@@ -157,8 +157,11 @@ public class add_newGoal extends CITFragment {
 			int n =rand.nextInt(200) + 1;
             edu.byui.cit.model.Goal test1 = new Goal();
 			test1.setGoalID(n);
+			test1.setTitle("milk the cow");
+			test1.setDescription("literally go milk the cow");
 			test1.setType(Goal.Type.text);
 			test1.setFrequency(Goal.Frequency.daily);
+
 
 			Date startDate = new Date();
 			test1.setStart(startDate);
