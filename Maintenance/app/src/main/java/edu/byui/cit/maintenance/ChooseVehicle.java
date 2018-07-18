@@ -13,9 +13,8 @@ import android.support.v7.widget.GridLayout;
 import android.support.v7.widget.GridLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import java.util.List;
-
+import android.content.res.Resources;
 import edu.byui.cit.model.AppDatabase;
 import edu.byui.cit.model.Vehicle;
 import edu.byui.cit.model.VehicleDAO;
@@ -30,6 +29,8 @@ public class ChooseVehicle extends CITFragment {
 	private CarButton v2;
 	private Button deleteButton;
 
+
+
 	@Override
 	protected View createView(LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstState) {
@@ -42,11 +43,14 @@ public class ChooseVehicle extends CITFragment {
 		Context context = getActivity();
 		GridLayout grid = view.findViewById(R.id.ChooseVehicle);
 		int columns = grid.getColumnCount();
+		Resources res = grid.getResources();
+		Resources.Theme theme = context.getTheme();
 
 		for (Vehicle v : list) {
 			CarButton button = new CarButton(context);
 			button.setText(v.getName());
 			grid.addView(button);
+			button.setBackground(res.getDrawable(R.drawable.car_logo, theme));
 			button.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
 			button.setLayoutParams(makeLayoutParams());
 
