@@ -60,8 +60,7 @@ public class ChooseVehicle extends CITFragment {
 					if (fragAct == null || fragAct.isDetached()) {
 						fragAct = new MaintenanceFrag();
 						}
-						//hide FAB on fragment fragAct
-						//fab.hide();
+
 						//switch to fragment fragAct (for viewing vehicle details)
 					switchFragment(fragAct);
 				}
@@ -85,8 +84,7 @@ public class ChooseVehicle extends CITFragment {
 		//		if (fragAct == null || fragAct.isDetached()) {
 		//			fragAct = new MaintenanceFrag();
 		//		}
-		//		// hide FAB on fragment fragAct
-		//		//fab.hide();
+
 		//		//switch to fragment fragAct (for viewing vehicle details)
 		//		switchFragment(fragAct);
 		//	}
@@ -99,8 +97,7 @@ public class ChooseVehicle extends CITFragment {
 		//		if (fragAct == null || fragAct.isDetached()) {
 		//			fragAct = new MaintenanceFrag();
 		//		}
-				// hide FAB on fragment fragAct
-				//fab.hide();
+
 				//switch to fragment fragAct (for viewing vehicle details)
 		//		switchFragment(fragAct);
 		//	}
@@ -114,8 +111,7 @@ public class ChooseVehicle extends CITFragment {
 				if (chooseVehicle == null || chooseVehicle.isDetached()) {
 					chooseVehicle = new ChooseVehicle();
 				}
-				//hide FAB on fragment fragAct
-				//fab.hide();
+
 				//switch to fragment chooseVehicle (for viewing vehicle details)
 				switchFragment(chooseVehicle);
 			}
