@@ -50,7 +50,7 @@ public class ChooseVehicle extends CITFragment {
 			CarButton button = new CarButton(context);
 			button.setText(v.getName());
 			grid.addView(button);
-			button.setBackground(res.getDrawable(R.drawable.car_logo, theme));
+			button.setBackground(res.getDrawable(R.drawable.car_logo2));
 			button.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL);
 			button.setLayoutParams(makeLayoutParams());
 
