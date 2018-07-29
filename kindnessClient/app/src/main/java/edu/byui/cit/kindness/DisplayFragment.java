@@ -49,7 +49,7 @@ public final class DisplayFragment extends CITFragment
 	//the map and now they have their own spot and can be used. This fragment
 	//is different than the other fragments because it uses the same toolbar as
 	//kindness_activity.xml and the FAB.
-	
+
 	public DisplayFragment() {
 		super();
 
@@ -72,7 +72,7 @@ public final class DisplayFragment extends CITFragment
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		Log.i(KindnessActivity.TAG, "createView()");
+		Log.i(MainActivity.TAG, "createView()");
 		View view = inflater.inflate(R.layout.display_frag, container, false);
 		timeSpin = new SpinString(view, R.id.timeSpinner, new spinnerChange());
 		typeSpin = new SpinString(view, R.id.typeSpinner, new spinnerChange());
@@ -131,7 +131,7 @@ public final class DisplayFragment extends CITFragment
 			if (dbReports == null) {
 				// Get a reference to the /reports node in the database.
 				FirebaseDatabase database = FirebaseDatabase.getInstance();
-				dbReports = database.getReference(KindnessActivity
+				dbReports = database.getReference(MainActivity
 						.REPORTS_KEY);
 
 				dbReports.addChildEventListener(new ReportAddedHandler());
@@ -144,13 +144,13 @@ public final class DisplayFragment extends CITFragment
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 		}
 		catch (DatabaseException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (LocationException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 	}
 
@@ -174,17 +174,17 @@ public final class DisplayFragment extends CITFragment
 //				}
 //			}
 //			catch (DatabaseException ex) {
-//				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+//				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 //			}
 //			catch (Exception ex) {
-//				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+//				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 //			}
 //		}
 //
 //		@Override
 //		public void onCancelled(DatabaseError error) {
 //			// Failed to read value
-//			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
+//			Log.e(MainActivity.TAG, "DB error: " + error.toString());
 //		}
 //	}
 
@@ -234,10 +234,10 @@ public final class DisplayFragment extends CITFragment
 				mMap.addMarker(opts);
 			}
 			catch (DatabaseException ex) {
-				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 			}
 			catch (Exception ex) {
-				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 			}
 		}
 
@@ -256,7 +256,7 @@ public final class DisplayFragment extends CITFragment
 		@Override
 		public void onCancelled(DatabaseError error) {
 			// Failed to read value
-			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
+			Log.e(MainActivity.TAG, "DB error: " + error.toString());
 		}
 	}
 

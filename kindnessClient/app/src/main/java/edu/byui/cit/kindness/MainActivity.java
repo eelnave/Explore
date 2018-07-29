@@ -35,7 +35,7 @@ import edu.byui.cit.exception.ServiceException;
 //and return to DisplayFragment, the reports are no longer on the map. Something
 //is wrong in the fragment lifecycle and with the indexes have a null pointer exception
 
-public final class KindnessActivity extends AppCompatActivity {
+public final class MainActivity extends AppCompatActivity {
 
 	public static final String TAG = "KindnessTag";
 
@@ -46,7 +46,7 @@ public final class KindnessActivity extends AppCompatActivity {
 	private Fragment fragHowTo, fragAbout, fragReport, fragPrivate;
 
 
-	public KindnessActivity() {
+	public MainActivity() {
 		super();
 	}
 
@@ -68,15 +68,15 @@ public final class KindnessActivity extends AppCompatActivity {
 		}
 		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
 			// Do nothing
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 
 		FirebaseApp.initializeApp(ctx);
 
-		setContentView(R.layout.kindness_activity);
+		setContentView(R.layout.main_activity);
 		Toolbar toolbar = findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		FloatingActionButton fab = findViewById(R.id.fabAdd);
@@ -117,10 +117,10 @@ public final class KindnessActivity extends AppCompatActivity {
 		}
 		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
 			// Do nothing
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 	}
 
@@ -150,7 +150,7 @@ public final class KindnessActivity extends AppCompatActivity {
 
 			case R.id.actPrivacy:
 				if (fragPrivate == null || fragPrivate.isDetached()) {
-					fragPrivate = new PrivateFragment();
+					fragPrivate = new PrivacyFragment();
 				}
 
 				switchFragment(fragPrivate);
@@ -185,11 +185,11 @@ public final class KindnessActivity extends AppCompatActivity {
 				switchFragment(fragReport);
 			}
 			catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
-				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 				showAlertDialog(R.string.locationError, R.string.locationErrMsg);
 			}
 			catch (Exception ex) {
-				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 				showAlertDialog(R.string.locationError, R.string.unknownErrMsg);
 			}
 		}
@@ -197,7 +197,7 @@ public final class KindnessActivity extends AppCompatActivity {
 
 	private void showAlertDialog(int titleID, int messageID) {
 		AlertDialog.Builder builder =
-				new AlertDialog.Builder(KindnessActivity.this,
+				new AlertDialog.Builder(MainActivity.this,
 						android.R.style.Theme_Material_Dialog_Alert);
 		builder.setTitle(titleID)
 				.setIcon(android.R.drawable.ic_dialog_alert)

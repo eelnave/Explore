@@ -89,7 +89,7 @@ public final class ReportFragment extends CITFragment {
 				button.postDelayed(this, buttonAnimate.getDuration());
 			}
 			catch (Exception ex) {
-				Log.e(KindnessActivity.TAG, "cannot submit report", ex);
+				Log.e(MainActivity.TAG, "cannot submit report", ex);
 				getCompatActivity().onBackPressed();
 			}
 		}
@@ -110,10 +110,10 @@ public final class ReportFragment extends CITFragment {
 				fragReported.setReport(report);
 				FragmentManager mgr = act.getSupportFragmentManager();
 				mgr.popBackStack();
-				((KindnessActivity)act).switchFragment(fragReported);
+				((MainActivity)act).switchFragment(fragReported);
 			}
 			catch (Exception ex) {
-				Log.e(KindnessActivity.TAG, "cannot submit report", ex);
+				Log.e(MainActivity.TAG, "cannot submit report", ex);
 				getCompatActivity().onBackPressed();
 			}
 		}

@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-import edu.byui.cit.kindness.KindnessActivity;
+import edu.byui.cit.kindness.MainActivity;
 import edu.byui.cit.kindness.R;
 
 
@@ -33,7 +33,7 @@ public abstract class CITFragment extends Fragment {
 			}
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, "exception", ex);
+			Log.e(MainActivity.TAG, "exception", ex);
 			view = inflater.inflate(R.layout.mistake, container, false);
 		}
 		return view;
@@ -84,7 +84,7 @@ public abstract class CITFragment extends Fragment {
 			}
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, "exception", ex);
+			Log.e(MainActivity.TAG, "exception", ex);
 		}
 	}
 
@@ -113,7 +113,7 @@ public abstract class CITFragment extends Fragment {
 			editor.apply();
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, "exception", ex);
+			Log.e(MainActivity.TAG, "exception", ex);
 		}
 		finally {
 			super.onStop();

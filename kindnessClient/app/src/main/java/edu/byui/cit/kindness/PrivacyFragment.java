@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public final class PrivateFragment extends ChildFragment {
+public final class PrivacyFragment extends ChildFragment {
     @Override
     protected String getTitle() {
         return "Privacy";
@@ -15,7 +15,7 @@ public final class PrivateFragment extends ChildFragment {
 
     protected View createView(LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.privacy_page, container, false);
+        View view = inflater.inflate(R.layout.privacy_frag, container, false);
 
         view.findViewById(R.id.btnToMap).setOnClickListener(
                 new View.OnClickListener() {
