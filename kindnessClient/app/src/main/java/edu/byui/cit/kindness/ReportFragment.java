@@ -14,10 +14,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
-import edu.byui.cit.widget.CITFragment;
 
-
-public final class ReportFragment extends CITFragment {
+public final class ReportFragment extends ChildFragment {
 	private static final int[] views = {
 			R.id.gifts,
 			R.id.service,
@@ -89,7 +87,7 @@ public final class ReportFragment extends CITFragment {
 				button.postDelayed(this, buttonAnimate.getDuration());
 			}
 			catch (Exception ex) {
-				Log.e(MainActivity.TAG, "cannot submit report", ex);
+				Log.e(KindnessActivity.TAG, "cannot submit report", ex);
 				getCompatActivity().onBackPressed();
 			}
 		}
@@ -107,13 +105,12 @@ public final class ReportFragment extends CITFragment {
 				if (fragReported == null || fragReported.isDetached()) {
 					fragReported = new ReportedFragment();
 				}
-				fragReported.setReport(report);
 				FragmentManager mgr = act.getSupportFragmentManager();
 				mgr.popBackStack();
-				((MainActivity)act).switchFragment(fragReported);
+				((KindnessActivity)act).switchFragment(fragReported);
 			}
 			catch (Exception ex) {
-				Log.e(MainActivity.TAG, "cannot submit report", ex);
+				Log.e(KindnessActivity.TAG, "cannot submit report", ex);
 				getCompatActivity().onBackPressed();
 			}
 		}

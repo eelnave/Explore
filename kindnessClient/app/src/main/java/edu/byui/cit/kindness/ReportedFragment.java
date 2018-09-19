@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+
 public class ReportedFragment extends ChildFragment {
 
 	@Override
@@ -28,18 +29,5 @@ public class ReportedFragment extends ChildFragment {
 				});
 
 		return view;
-	}
-
-
-	public void setReport(Report report) {
-		//this.report = report;
-	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-		//txtCategory.setText(report.category().toString());
-		//txtLatitude.setText(Double.toString(report.getLatitude()));
-		//txtLongitude.setText(Double.toString(report.getLongitude()));
 	}
 }

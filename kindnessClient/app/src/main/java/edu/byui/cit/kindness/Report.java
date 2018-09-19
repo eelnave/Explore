@@ -98,13 +98,13 @@ public final class Report {
 	@Exclude
 	void submit() {
 		FirebaseDatabase database = FirebaseDatabase.getInstance();
-		DatabaseReference reports = database.getReference(MainActivity.REPORTS_KEY);
+		DatabaseReference reports = database.getReference(KindnessActivity.REPORTS_KEY);
 //		reports.push().setValue(this);
 		String key = reports.push().getKey();
 		HashMap<String, Object> updates = new HashMap<>();
-		updates.put("/" + MainActivity.REPORTS_KEY + "/" + key, this);
-		updates.put("/" + MainActivity.CATEGORIES_KEY + "/" + getCategory() + "/" + MainActivity.REPORTS_KEY + "/" + key, true);
+		updates.put("/" + KindnessActivity.REPORTS_KEY + "/" + key, this);
+		updates.put("/" + KindnessActivity.CATEGORIES_KEY + "/" + getCategory() + "/" + KindnessActivity.REPORTS_KEY + "/" + key, true);
 		database.getReference().updateChildren(updates);
-		Log.i(MainActivity.TAG, toString());
+		Log.i(KindnessActivity.TAG, toString());
 	}
 }

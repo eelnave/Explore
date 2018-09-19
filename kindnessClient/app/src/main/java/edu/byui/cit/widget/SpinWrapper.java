@@ -7,7 +7,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
-import edu.byui.cit.kindness.MainActivity;
+import edu.byui.cit.kindness.KindnessActivity;
 
 
 public abstract class SpinWrapper extends InputWrapper
@@ -76,7 +76,7 @@ public abstract class SpinWrapper extends InputWrapper
 				// Do nothing.
 			}
 			catch (Exception ex) {
-				Log.e(MainActivity.TAG, "exception", ex);
+				Log.e(KindnessActivity.TAG, "exception", ex);
 			}
 		}
 	}

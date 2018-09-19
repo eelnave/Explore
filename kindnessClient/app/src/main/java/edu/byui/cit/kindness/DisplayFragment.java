@@ -33,6 +33,7 @@ import edu.byui.cit.widget.ItemSelectedListener;
 import edu.byui.cit.widget.SpinString;
 import edu.byui.cit.widget.SpinWrapper;
 
+
 public final class DisplayFragment extends CITFragment
 		implements OnMapReadyCallback {
 	private SpinString timeSpin, typeSpin;
@@ -67,17 +68,19 @@ public final class DisplayFragment extends CITFragment
 	@Override
 	protected String getTitle() {
 		return "Kindness";
-}
+	}
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		Log.i(MainActivity.TAG, "createView()");
+		Log.i(KindnessActivity.TAG, "createView()");
 		View view = inflater.inflate(R.layout.display_frag, container, false);
 		timeSpin = new SpinString(view, R.id.timeSpinner, new spinnerChange());
 		typeSpin = new SpinString(view, R.id.typeSpinner, new spinnerChange());
 
-		SupportMapFragment mapFrag = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.mapFrag);
+		SupportMapFragment mapFrag = (SupportMapFragment)
+				getChildFragmentManager().findFragmentById(
+						R.id.mapFrag);
 
 		if (mMap == null) {
 			mapFrag.getMapAsync(this);
@@ -131,8 +134,7 @@ public final class DisplayFragment extends CITFragment
 			if (dbReports == null) {
 				// Get a reference to the /reports node in the database.
 				FirebaseDatabase database = FirebaseDatabase.getInstance();
-				dbReports = database.getReference(MainActivity
-						.REPORTS_KEY);
+				dbReports = database.getReference("/reports");
 
 				dbReports.addChildEventListener(new ReportAddedHandler());
 			}
@@ -144,13 +146,13 @@ public final class DisplayFragment extends CITFragment
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 		}
 		catch (DatabaseException ex) {
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (LocationException ex) {
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
 		}
 	}
 
@@ -174,17 +176,17 @@ public final class DisplayFragment extends CITFragment
 //				}
 //			}
 //			catch (DatabaseException ex) {
-//				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+//				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
 //			}
 //			catch (Exception ex) {
-//				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+//				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
 //			}
 //		}
 //
 //		@Override
 //		public void onCancelled(DatabaseError error) {
 //			// Failed to read value
-//			Log.e(MainActivity.TAG, "DB error: " + error.toString());
+//			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
 //		}
 //	}
 
@@ -234,10 +236,10 @@ public final class DisplayFragment extends CITFragment
 				mMap.addMarker(opts);
 			}
 			catch (DatabaseException ex) {
-				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
 			}
 			catch (Exception ex) {
-				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
 			}
 		}
 
@@ -256,7 +258,7 @@ public final class DisplayFragment extends CITFragment
 		@Override
 		public void onCancelled(DatabaseError error) {
 			// Failed to read value
-			Log.e(MainActivity.TAG, "DB error: " + error.toString());
+			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
 		}
 	}
 
@@ -271,11 +273,16 @@ public final class DisplayFragment extends CITFragment
 			mMap.clear();
 
 			//time spinner
-			//I couldn't get this one completed but my idea was to compare the millisecond
-			//timestamp from the firebase reports to the user's machine current time in milliseconds
-			//I think this will be an easy way to compare the reports and the user's machine
-			//and will also be easy to convert into days, hours, weeks, etc. Need to take into
-			//account timezone differences between firebase and user device as well.
+			//I couldn't get this one completed but my idea was to compare the
+			// millisecond
+			//timestamp from the firebase reports to the user's machine
+			// current time in milliseconds
+			//I think this will be an easy way to compare the reports and the
+			// user's machine
+			//and will also be easy to convert into days, hours, weeks, etc.
+			// Need to take into
+			//account timezone differences between firebase and user device as
+			// well.
 			String selectedTime = timeSpin.getSelectedItem();
 			// Get the current time of machine
 			Calendar calendar = Calendar.getInstance();
@@ -289,7 +296,8 @@ public final class DisplayFragment extends CITFragment
 			int year = calendar.get(Calendar.YEAR);
 			//server time of reports
 
-			//Based on the user's choice put markers whose corresponding reports fit within the time.
+			//Based on the user's choice put markers whose corresponding
+			// reports fit within the time.
 
 			//return selected reports
 
@@ -299,22 +307,27 @@ public final class DisplayFragment extends CITFragment
 			indexes.get(report.category());
 
 			//if selected item is gift, return only gift reports
-			if(selectedType.equals("Gifts")){
+			if (selectedType.equals("Gifts")) {
 				selRep = indexes.get("Gifts");
 				opts.icon(gifts);
-			} else if(selectedType.equals("Service")){
+			}
+			else if (selectedType.equals("Service")) {
 				selRep = indexes.get("Service");
 				opts.icon(service);
-			}else if(selectedType.equals("Time")) {
+			}
+			else if (selectedType.equals("Time")) {
 				selRep = indexes.get("Time");
 				opts.icon(time);
-			}else if(selectedType.equals("Touch")) {
+			}
+			else if (selectedType.equals("Touch")) {
 				selRep = indexes.get("Touch");
 				opts.icon(touch);
-			}else if(selectedType.equals("Words")) {
+			}
+			else if (selectedType.equals("Words")) {
 				selRep = indexes.get("Words");
 				opts.icon(words);
-			}else{
+			}
+			else {
 				selRep = indexes.get("Category");
 			}
 
