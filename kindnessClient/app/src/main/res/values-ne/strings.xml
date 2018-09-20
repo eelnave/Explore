@@ -49,4 +49,23 @@
 
     <string name="mistake">
         खैर, यो शर्मिला छ। यस पृष्ठको साथ केहि गलत छ, र यो काम गरिरहेको छैन। हामी माफी माग्छौं।</string>
+
+    <string-array name="TimePeriod" translatable="false">
+        <item>समय सीमा</item>
+        <item>अंतिम घंटा</item>
+        <item>पअन्तिम 24 घण्टा</item>
+        <item>पगएको हप्ता</item>
+        <item>पिअघिल्लो महिना</item>
+        <item>पिगत वर्ष</item>
+        <item>पूरा समय</item>
+    </string-array>
+
+    <string-array name="category" translatable="false">
+        <item>वर्ग</item>
+        <item>उपहार</item>
+        <item>सर्विस</item>
+        <item>पहर</item>
+        <item>स्पर्श</item>
+        <item>शब्द</item>
+    </string-array>
 </resources>

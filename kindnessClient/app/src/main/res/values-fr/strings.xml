@@ -55,4 +55,23 @@
     <string name="logoCredit">Nous avons créé le logo et les icônes de Kindness en utilisant les outils gratuits <a href="https://logomakr.com">logomakr.com</a></string>
 
     <string name="mistake">Hum, ceci est embarrassant. Quelque chose ne va pas avec cette page, et cela ne fonctionne pas. Nous nous excusons.</string>
+
+    <string-array name="TimePeriod" translatable="false">
+        <item>Période de temps</item>
+        <item>dernière heure</item>
+        <item>dernières 24 heures</item>
+        <item>la semaine dernière</item>
+        <item>le mois dernier</item>
+        <item>l'année dernière</item>
+        <item>  tout le temps</item>
+    </string-array>
+
+    <string-array name="category" translatable="false">
+        <item>Catégorie</item>
+        <item>Cadeaux</item>
+        <item>Un service</item>
+        <item>Temps</item>
+        <item>Toucher</item>
+        <item>Mots</item>
+    </string-array>
 </resources>

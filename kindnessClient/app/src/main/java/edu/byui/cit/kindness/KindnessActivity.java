@@ -3,7 +3,6 @@ package edu.byui.cit.kindness;
 import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -24,18 +23,22 @@ import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
 import edu.byui.cit.exception.ServiceException;
 
+
 /* TODO:
- * 4. Create and add a different map icon for each category
- * 5. Change MapFragment.onMapReady to draw the correct map icon for each report instead of the heart icon.
- * 6. Modify ReportedFragment, ReportFragment, or MapFragment so that the app draws an icon for a report immediately after the user submits a report.
- * 7. Add dropdown lists at the top of the map to filter by category and date
+ * 1. Add dropdown lists at the top of the map to filter by date
  * 		-Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
+ * 2. change icons to enum category in Report.java
+ * 3. fix ChildFragment so when we return to map reports are still there
  */
 
+//known issue: when you open a fragment (ReportedFragment, HowTo, Privacy)
+//and return to DisplayFragment, the reports are no longer on the map. Something
+//is wrong in the fragment lifecycle and with the indexes have a null pointer exception
+
 public final class KindnessActivity extends AppCompatActivity {
-	public static final String TAG = "Kindness";
-	//REMOVING THE FIRST TIME RUN--> Want our users to be engaged.
-	//private static final String FIRST_TIME_KEY = "FirstTime";
+
+	public static final String TAG = "KindnessTag";
+
 	public static final String
 			REPORTS_KEY = "reports",
 			CATEGORIES_KEY = "categories";
@@ -73,28 +76,22 @@ public final class KindnessActivity extends AppCompatActivity {
 
 		FirebaseApp.initializeApp(ctx);
 
-		setContentView(R.layout.kindness_activity);
+		setContentView(R.layout.main_activity);
 		Toolbar toolbar = findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 		FloatingActionButton fab = findViewById(R.id.fabAdd);
 		fab.setOnClickListener(new ReportHandler());
 
+
 		if (savedInstState == null) {
 			// Create a fragment the map fragment and place
 			// it as the first fragment in this activity.
-			MapFragment fragMap = new MapFragment();
-			FragmentTransaction trans =
-					getSupportFragmentManager().beginTransaction();
-			trans.add(R.id.fragContainer, fragMap);
+
+			Fragment frag = new DisplayFragment();
+			FragmentTransaction trans = getSupportFragmentManager()
+					.beginTransaction();
+			trans.add(R.id.fragContainer, frag);
 			trans.commit();
-
-			// If this is the first time that this app has
-			// been run on the current device, open the
-			// tutorial that explains how to use this app.
-			// REMOVED THE FIRST TIME
-			// NOW TO TEXT
-			SharedPreferences prefs = getPreferences(Context.MODE_PRIVATE);
-
 		}
 	}
 
@@ -153,7 +150,7 @@ public final class KindnessActivity extends AppCompatActivity {
 
 			case R.id.actPrivacy:
 				if (fragPrivate == null || fragPrivate.isDetached()) {
-					fragPrivate = new PrivateFragment();
+					fragPrivate = new PrivacyFragment();
 				}
 
 				switchFragment(fragPrivate);

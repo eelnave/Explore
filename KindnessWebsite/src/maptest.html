@@ -1,0 +1,68 @@
+<!DOCTYPE Html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Kindness Map :test:</title>
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+	<script>
+		//Firebase init
+		var config = {
+			apiKey: "AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s",
+			authDomain: "projectId.firebaseapp.com",
+			databaseURL: "https://kindness-360.firebaseio.com",
+			storageBucket: "kindness-360.appspot.com"
+
+//			apiKey: "AIzaSyDy4w22B8dV8OFyZ7Kru0bN6iEPWzZcaDM",
+//			authDomain: "kindess-360.firebaseapp.com",
+//			databaseURL: "https://kindness-360.firebaseio.com/",
+//			projectId: "kindness-360",
+//			storageBucket:"kindness-360.appspot.com",
+//			messagingSenderId: null //unknown
+		};
+		firebase.initializeApp(config);
+
+
+		function loadDatafromFireBase(myMap) {
+			var marker = {};
+			var database = firebase.database();
+			db.ref('reports').on("child_added", function(snapshot) {
+				var dataReport = snapshot.val();
+					marker = new google.maps.Marker({
+						map:map,
+						position: {
+							lat: dataReport.latitude,
+							lng: dataReport.longitude
+
+
+						}
+					});
+					marker.setMap(map);
+			});
+		}
+
+
+var myMap;
+
+		function myMap() {
+			var mapOptions = {
+				center: new google.maps.LatLng(39.305, -76.617),
+				zoom: 10,
+				maptypeID: google.maps.MapTypeId.HYBRID
+			}
+			map = new google.maps.Map(document.getElementById("map")), {
+				center: LatLng,
+				zoom: 10
+				}
+		}
+	</script>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s&callback=myMap"></script>
+</head>
+
+<body>
+    <h1>Kindness Map :test:</h1>
+
+    <div id="Map" style="width:900px;height:500px;background:blue"></div>
+</body>
+</Html>

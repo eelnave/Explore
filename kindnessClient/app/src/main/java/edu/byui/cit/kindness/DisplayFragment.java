@@ -1,10 +1,12 @@
 package edu.byui.cit.kindness;
 
-import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -14,6 +16,7 @@ import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,49 +24,69 @@ import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.TreeMap;
 
 import edu.byui.cit.exception.LocationException;
+import edu.byui.cit.widget.ItemSelectedListener;
+import edu.byui.cit.widget.SpinString;
+import edu.byui.cit.widget.SpinWrapper;
 
 
-public final class MapFragment extends SupportMapFragment
+public final class DisplayFragment extends CITFragment
 		implements OnMapReadyCallback {
+	private SpinString timeSpin, typeSpin;
 	private final TreeMap<String, Report> allReports;
 	private final HashMap<String, TreeMap<String, Report>> indexes;
+	private Report report;
 
 	private GoogleMap mMap;
 	private BitmapDescriptor heart, gifts, service, time, touch, words;
 	private DatabaseReference dbReports;
 
+	//This is a fragment within the main activity (kindness_activity.xml)
+	//we had to do it this way because the spinners were showing up behind
+	//the map and now they have their own spot and can be used. This fragment
+	//is different than the other fragments because it uses the same toolbar as
+	//kindness_activity.xml and the FAB.
 
-	public MapFragment() {
+	public DisplayFragment() {
 		super();
 
 		// Create the list (TreeMap) that will hold all reports.
 		allReports = new TreeMap<>();
 
 		// Create the category indexes that will hold references to the
-        // reports.
+		// reports.
 		indexes = new HashMap<>();
 		for (Report.Category cat : Report.Category.values()) {
 			indexes.put(cat.name(), new TreeMap<String, Report>());
 		}
 	}
 
-
 	@Override
-	public void onStart() {
-		super.onStart();
-		Activity act = getActivity();
-		act.setTitle(getString(R.string.appName));
-
-		if (mMap == null) {
-			// Get notified when the map is ready to be used.
-			this.getMapAsync(this);
-		}
+	protected String getTitle() {
+		return "Kindness";
 	}
 
+	@Override
+	protected View createView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		Log.i(KindnessActivity.TAG, "createView()");
+		View view = inflater.inflate(R.layout.display_frag, container, false);
+		timeSpin = new SpinString(view, R.id.timeSpinner, new spinnerChange());
+		typeSpin = new SpinString(view, R.id.typeSpinner, new spinnerChange());
+
+		SupportMapFragment mapFrag = (SupportMapFragment)
+				getChildFragmentManager().findFragmentById(
+						R.id.mapFrag);
+
+		if (mMap == null) {
+			mapFrag.getMapAsync(this);
+		}
+		return view;
+	}
 
 	/**
 	 * Manipulates the map once available.
@@ -111,12 +134,8 @@ public final class MapFragment extends SupportMapFragment
 			if (dbReports == null) {
 				// Get a reference to the /reports node in the database.
 				FirebaseDatabase database = FirebaseDatabase.getInstance();
-				dbReports = database.getReference(KindnessActivity
-                        .REPORTS_KEY);
+				dbReports = database.getReference("/reports");
 
-				// Read from the database asynchronously
-//				dbReports.addListenerForSingleValueEvent(new SingleReadHandler
-// ());
 				dbReports.addChildEventListener(new ReportAddedHandler());
 			}
 
@@ -179,7 +198,7 @@ public final class MapFragment extends SupportMapFragment
 			try {
 				// Get the report that was added.
 				String key = dataSnapshot.getKey();
-				Report report = dataSnapshot.getValue(Report.class);
+				report = dataSnapshot.getValue(Report.class);
 
 				// Add this report to the list of all reports and to the
 				// category index that corresponds to this report's category.
@@ -195,7 +214,7 @@ public final class MapFragment extends SupportMapFragment
 								report.getLongitude()));
 				//check to see which act was reported and return correct icon
 				//to improve, report.category().icon enum instead of if
-                // statements
+				// statements
 				if (report.category().equals(Report.Category.Gifts)) {
 					opts.icon(gifts);
 				}
@@ -242,4 +261,85 @@ public final class MapFragment extends SupportMapFragment
 			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
 		}
 	}
+
+	private class spinnerChange implements ItemSelectedListener {
+
+		@Override
+		public void itemSelected(SpinWrapper source, int pos, long id) {
+			MarkerOptions opts = new MarkerOptions();
+			TreeMap<String, Report> selRep;
+
+			// Clear the map of all markers
+			mMap.clear();
+
+			//time spinner
+			//I couldn't get this one completed but my idea was to compare the
+			// millisecond
+			//timestamp from the firebase reports to the user's machine
+			// current time in milliseconds
+			//I think this will be an easy way to compare the reports and the
+			// user's machine
+			//and will also be easy to convert into days, hours, weeks, etc.
+			// Need to take into
+			//account timezone differences between firebase and user device as
+			// well.
+			String selectedTime = timeSpin.getSelectedItem();
+			// Get the current time of machine
+			Calendar calendar = Calendar.getInstance();
+
+			long millis = calendar.getTimeInMillis();
+
+			int hour = calendar.get(Calendar.HOUR_OF_DAY);
+			//DAY_OF_YEAR day number within current year, can count for a week
+			int week = calendar.get(Calendar.DAY_OF_YEAR);
+			int month = calendar.get(Calendar.MONTH);
+			int year = calendar.get(Calendar.YEAR);
+			//server time of reports
+
+			//Based on the user's choice put markers whose corresponding
+			// reports fit within the time.
+
+			//return selected reports
+
+			//get selected item in spinner
+			String selectedType = typeSpin.getSelectedItem();
+			//get reports
+			indexes.get(report.category());
+
+			//if selected item is gift, return only gift reports
+			if (selectedType.equals("Gifts")) {
+				selRep = indexes.get("Gifts");
+				opts.icon(gifts);
+			}
+			else if (selectedType.equals("Service")) {
+				selRep = indexes.get("Service");
+				opts.icon(service);
+			}
+			else if (selectedType.equals("Time")) {
+				selRep = indexes.get("Time");
+				opts.icon(time);
+			}
+			else if (selectedType.equals("Touch")) {
+				selRep = indexes.get("Touch");
+				opts.icon(touch);
+			}
+			else if (selectedType.equals("Words")) {
+				selRep = indexes.get("Words");
+				opts.icon(words);
+			}
+			else {
+				selRep = indexes.get("Category");
+			}
+
+			//populate map with reports for category selected
+			for (String key : selRep.keySet()) {
+				Report report = selRep.get(key);
+				opts.position(
+						new LatLng(report.getLatitude(),
+								report.getLongitude()));
+				mMap.addMarker(opts);
+			}
+		}
+	}
 }
+

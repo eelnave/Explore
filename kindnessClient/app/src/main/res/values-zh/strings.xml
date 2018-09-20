@@ -44,4 +44,23 @@
 	<string name="logoCredit">我们使用免费工具创建了善良的徽标和图标 <a href="https://logomakr.com">logomakr.com</a></string>
 
 	<string name="mistake">好吧，这很尴尬。这个页面有什么问题，并且它没有工作。我们抱歉。</string>
+
+	<string-array name="TimePeriod" translatable="false">
+		<item>时间段</item>
+		<item>上一个小时</item>
+		<item>最近24小时</item>
+		<item>上个星期</item>
+		<item>上个月</item>
+		<item>去年</item>
+		<item>整天</item>
+	</string-array>
+
+	<string-array name="category" translatable="false">
+		<item>类别</item>
+		<item>礼品</item>
+		<item>服务</item>
+		<item>时间</item>
+		<item>触摸</item>
+		<item>话</item>
+	</string-array>
 </resources>

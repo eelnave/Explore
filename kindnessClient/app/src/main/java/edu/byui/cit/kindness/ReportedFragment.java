@@ -5,13 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import edu.byui.cit.widget.CITFragment;
 
-
-public class ReportedFragment extends CITFragment {
-	//private TextView txtCategory, txtLatitude, txtLongitude;
-	//private Report report;
-
+public class ReportedFragment extends ChildFragment {
 
 	@Override
 	protected String getTitle() {
@@ -25,10 +20,6 @@ public class ReportedFragment extends CITFragment {
 		View view = inflater.inflate(R.layout.reported_frag, container,
 				false);
 
-		//txtCategory = view.findViewById(R.id.category);
-		//txtLatitude = view.findViewById(R.id.latitude);
-		//txtLongitude = view.findViewById(R.id.longitude);
-
 		view.findViewById(R.id.btnToMap).setOnClickListener(
 				new View.OnClickListener() {
 					@Override
@@ -38,18 +29,5 @@ public class ReportedFragment extends CITFragment {
 				});
 
 		return view;
-	}
-
-
-	public void setReport(Report report) {
-		//this.report = report;
-	}
-
-	@Override
-	public void onStart() {
-		super.onStart();
-		//txtCategory.setText(report.category().toString());
-		//txtLatitude.setText(Double.toString(report.getLatitude()));
-		//txtLongitude.setText(Double.toString(report.getLongitude()));
 	}
 }

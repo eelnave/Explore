@@ -57,9 +57,7 @@ public abstract class CITFragment extends Fragment {
 		super.onStart();
 		try {
 			AppCompatActivity act = getCompatActivity();
-			act.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 			act.setTitle(getTitle());
-			getActivity().findViewById(R.id.fabAdd).setVisibility(View.GONE);
 
 			InputMethodManager imm = (InputMethodManager)
 					act.getSystemService(Context.INPUT_METHOD_SERVICE);

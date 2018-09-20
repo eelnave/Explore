@@ -43,4 +43,23 @@
 	<string name="logoCredit">Мы создали логотип и значки для Kindness, используя бесплатные инструменты на <a href="https://logomakr.com">logomakr.com</a></string>
 
 	<string name="mistake">Ну, это неудобно. Что-то не так с этой страницей, и это не работает. Мы приносим свои извинения.</string>
+
+	<string-array name="TimePeriod" translatable="false">
+		<item>Временной период</item>
+		<item>последний час</item>
+		<item>последние 24 часа</item>
+		<item>на прошлой неделе</item>
+		<item>прошлый месяц</item>
+		<item>в прошлом году</item>
+		<item>все время</item>
+	</string-array>
+
+	<string-array name="category" translatable="false">
+		<item>Category</item>
+		<item>Gifts</item>
+		<item>Service</item>
+		<item>Time</item>
+		<item>потрогать</item>
+		<item>слова</item>
+	</string-array>
 </resources>

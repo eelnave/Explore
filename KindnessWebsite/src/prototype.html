@@ -1,173 +1,312 @@
-<!DOCTYPE HTML>
-<html lang="en-us">
+<!DOCTYPE html>
+
+<html>
+
 <head>
+
     <meta charset="utf-8">
-    <title>Kindness</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+    <title>Google Map Demo</title>
+
     <link rel="stylesheet" href="kindness.css" media="screen">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf6WBFZa5ic_Ikl997ox4nd6I2wT_aTqo"></script>
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+
     <script>
-function initFbRtDb() {
-	// Set the configuration for your app
-	// TODO: Replace with your project's config object
-	var config = {
-		apiKey: "AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s",
-		authDomain: "projectId.firebaseapp.com",
-		databaseURL: "https://kindness-360.firebaseio.com",
-		storageBucket: "kindness-360.appspot.com"
-	};
-	firebase.initializeApp(config);
-}
 
-// place geolocation functions outside of append function to get the info upon load.
-// the window onload doesn't seem to be working with the map. Is there a better way?
-window.onload = getLocation; 
-// the permissions
-	var geo = navigator.geolocation;     /*     Here we will check if the browser supports the Geolocation API; if exists, then we will display the location     */    
-// the get location function
-function getLocation() {       
-    if( geo ) {    
-        geo.getCurrentPosition( displayLocation );       
-           } 
-           else  { alert( "Oops, Geolocation API is not supported");        
-           }     
-}
+        /***************************************************************************************
+         * initMap():
+         *
+         * This function will be called if we can get the users geolocation to then start the map
+         ********************************************************************************************/
 
-/*     This function displays the latitude and longitude when the browser has a location. 
-	Should we just try to collect the lat and long outside of this display function???     */   
+        function initMap() {
 
-    function displayLocation(position) {         
-        var lati = position.coords.latitude;        
-        var longi = position.coords.longitude; 
-		// check to see if these are holding values
-		    var div = document.getElementById( 'location' );     
-        div.innerHTML = "You are at Latitude: " + latitude + ", Longitude: " + longitude; 
-}
+            var div = document.getElementById('map');
 
 
-function readFbRtDb() {
-	// Get a reference to the database service
-	var db = firebase.database();
 
-	write('output', '');
+            var malad = new google.maps.LatLng(42.191586, -112.250801);
 
-	var cats = db.ref('/categories');
-	cats.once('value', function(snapshot) {
-		var categories = snapshot.val();
-		for (var i = 1;  i < categories.length;  ++i) {
-			var category = categories[i];
-			if (category) {
-				append('output', stringFromCategory(category));
-			}
-		}
-	});
+            var config = {
 
-	var reports = db.ref('/reports');
-	//reps.once('value', function(snapshot) {
-	//	var reports = snapshot.val();
-	//	for (var key in reports) {
-	//		var report = reports[key];
-	//		append('output', stringFromReport(report));
-	//	}
-	//
-	//});
-	reports.on(child_added, readOneReport());
-}
+                center: malad,
 
-function readOneReport(snapshot){
-	var report = snapshot.val();
-	console.log(JSON.stringify(report));
-}
+                zoom: 7
 
-// theoretically pass in lati and longi from the geolocation function
-function appendFbRtDb(lati, longi) {
-	// Get a reference to the database service
-	var db = firebase.database();
-// take away the hardcoded values and get the actual ones.
-	var cat = document.getElementById("cat").value;
-	
-	var now = new Date().getTime();       
-// tried placing lati and long in place of numbers, but that broke it. For now will do some more R&D
-	var report = {category:cat, latitude:-111, longitude:43.82, timestamp:now};
-	var reps = db.ref('/reports');
-	var node = reps.push();
-	var key = node.key;
-	node.set(report, function(error) {
-		if (error) {
-			alert('' + error);
-		}
-	});
+            };
 
-	var cats = db.ref('/categories/' + cat + '/reports/' + key);
-	cats.set(true, function(error) {
-		if (error) {
-			alert('' + error);
-		}
-	});
-}
+            var map = new google.maps.Map(div, config);
 
 
-function stringFromCategory(category) {
-	return category.name + ' ' + Object.keys(category.reports).length;
-}
+            if (navigator.geolocation) {
+
+                navigator.geolocation.getCurrentPosition(
+
+                    // Executed when the user's location is determined.
+
+                    function (position) {
+
+                        var center = new google.maps.LatLng(
+
+                            position.coords.latitude, position.coords.longitude);
+
+                        map.setCenter(center);
+
+                    },
 
 
-function stringFromReport(report) {
-	return JSON.stringify(report);
-}
+
+                    // Executed when geolocation has an error.
+
+                    function () {
+
+                        var infoWin = new google.maps.InfoWindow;
+
+                        var center = map.getCenter();
+
+                        infoWin.setPosition(center);
+
+                        infoWin.setContent('The geolocation service failed.');
+
+                        infoWin.open(map);
+
+                    });
+
+            }
+
+            else {
+
+                var infoWin = new google.maps.InfoWindow;
+
+                var center = map.getCenter();
+
+                infoWin.setPosition(center);
+
+                infoWin.setContent('Your browser doesn\'t support geolocation.');
+
+                infoWin.open(map);
+
+            }
 
 
-function write(id, msg) {
-	document.getElementById(id).innerHTML = msg + '<br>';
-}
 
-function append(id, msg) {
-	document.getElementById(id).innerHTML += msg + '<br>';
-}
-	</script>
+            return map;
+
+        }
+
+
+        /****************************************************************************************
+         * InitDb():
+         *
+         * This function connects our fireBase with our website. #Important.
+         ****************************************************************************************/
+
+        function initDB(map) {
+
+            var config = {
+
+                apiKey: 'AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s',
+
+                authDomain: 'projectId.firebaseapp.com',
+
+                databaseURL: 'https://kindness-360.firebaseio.com',
+
+                storageBucket: 'kindness-360.appspot.com'
+
+            };
+
+            firebase.initializeApp(config);
+
+            var db = firebase.database();
+
+            db.ref('/reports').on('child_added',
+
+                // Called once for each report in the
+
+                // database, including future reports.
+
+                function (snapshot) {
+
+                    var report = snapshot.val();
+
+                    var latlng = new google.maps.LatLng(report.latitude, report.longitude);
+                    var icon;
+
+                    console.log(report.category);
+
+                    // I think we need to loop through the report.category
+
+                    if (report.category == 1) {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/giftIcon.png'
+                    } else if (report.category == 2) {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/serviceIcon.png'
+                    } else if (report.category == 3) {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/timeIcon.png'
+                    } else if (report.category == 4) {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/touchIcon.png'
+                    } else {
+                        icon = 'https://bytebucket.org/cit360byui/apps/raw/f411e7b2f482e26affb756ae4d3e09f1956aa673/KindnessWebsite/src/IconImages/IconFolder/wordsIcon.png'
+                    }
+
+
+
+                    var marker = new google.maps.Marker({
+                        position: latlng,
+                        icon: icon,
+                        map: map
+                    });
+
+                });
+
+        }
+
+
+
+        //This will start our website with the startMap function.
+
+        window.onload = function () {
+
+            var map = initMap();
+
+            initDB(map);
+
+        }
+
+
+        /********************************************************************************************
+         * readFbRtDb():
+         *
+         * This function will be called when the read button is clicked. This function reads objects from 
+         * the data base and will post it to a div on the web page
+         ***********************************************************************************************/
+        function readFbRtDb() {
+            // Get a reference to the database service
+            var db = firebase.database();
+
+            write('output', '');
+
+            var cats = db.ref('/categories');
+            cats.once('value', function (snapshot) {
+                var categories = snapshot.val();
+                for (var i = 1; i < categories.length; ++i) {
+                    var category = categories[i];
+                    if (category) {
+                        append('output', stringFromCategory(category));
+                    }
+                }
+            });
+
+            var reports = db.ref('/reports');
+            reports.once('value', function (snapshot) {
+                var reports = snapshot.val();
+                for (var key in reports) {
+                    var report = reports[key];
+
+                }
+            });
+        }
+
+        /********************************************************************************************************
+         * appendFbRtDb():
+         *
+         * This function is called to get the users location to add a position.
+         ********************************************************************************************************/
+        function appendFbRtDb() {
+            var geo = navigator.geolocation;
+            if (geo) {
+                geo.getCurrentPosition(add);
+            }
+            else {
+                alert("Oops, Geolocation API is not supported");
+            }
+        }
+
+        /*****************************************************************************************************
+         * add(position)
+         *
+         * This function creates an object containing the coords as well as the type that it refers to.
+         ******************************************************************************************************/
+        function add(position) {
+
+            var lati = position.coords.latitude;
+            var longi = position.coords.longitude;
+            // Get a reference to the database service
+            var db = firebase.database();
+            // take away the hardcoded values and get the actual ones.
+            var cat = document.getElementById("cat").value;
+
+            var now = new Date().getTime();
+            // tried placing lati and long in place of numbers, but that broke it. For now will do some more R&D
+            var report = { category: cat, latitude: lati, longitude: longi, timestamp: now };
+            var reps = db.ref('/reports');
+            var node = reps.push();
+            var key = node.key;
+            node.set(report, function (error) {
+                if (error) {
+                    alert('' + error);
+                }
+            });
+
+            var cats = db.ref('/categories/' + cat + '/reports/' + key);
+            cats.set(true, function (error) {
+                if (error) {
+                    alert('' + error);
+                }
+            });
+        }
+
+
+        /******************************************************************************************************
+         * write():
+         *
+         * This function just writes objects from the databse from the read function.
+         *******************************************************************************************************/
+        function write(id, msg) {
+            document.getElementById(id).innerHTML = msg + '<br>';
+        }
+
+        function append(id, msg) {
+            document.getElementById(id).innerHTML += msg + '<br>';
+        }
+
+        function stringFromCategory(category) {
+            return category.name + ' ' + Object.keys(category.reports).length;
+        }
+
+
+
+
+    </script>
 
 </head>
 
-<body onload="initFbRtDb()">
-<div id="map"></div>
-<script>
-		 // Initialize and add the map
-function initMap() {
-  // The location of Uluru
-  var rexburg = {lat: 43.82  , lng: -111.742};
-  // The map, centered at rexburg
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 4, center: rexburg});
-  // The marker, positioned at rexburg
-  var marker = new google.maps.Marker({position: rexburg, map: map});
-}
-    </script>
-<!--Load the API from the specified URL
-* The async attribute allows the browser to render the page while the API loads
-* The key parameter will contain your own API key (which is not needed for this tutorial)
-* The callback parameter executes the initMap() function
--->
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgYxcjWxlCvEAKFxAVPTn_6aNfisn_h7s&callback=initMap">
-</script>
-<h2>Kindness Map</h2>
-<form>
-        <label>Report the Act of kindness that you saw</label><br>
+
+
+<body>
+    <div id="map"></div>
+    <h2>Kindness Map</h2>
+    <form>
+        <label>Report the Act of kindness that you saw</label>
+        <br>
         <select id="cat">
             <option value="1">Gifts</option>
             <option value="2">Service</option>
             <option value="3">Time</option>
             <option value="4">Touch</option>
             <option value="5">Words</option>
-        </select><br>
-<button type="button" onclick="appendFbRtDb()">Add</button>
-</form>
-<hr>
-<button type="button" onclick="readFbRtDb()">Read</button>
-<div id="output"></div>
-<hr>
-<div id="location">
-You are at Latitude: _________, Longitude: _________    
-</div>
+        </select>
+        <br>
+        <button type="button" onclick="appendFbRtDb()">Add</button>
+    </form>
+    <hr>
+    <button type="button" onclick="readFbRtDb()">Read</button>
+    <div id="output"></div>
+    <hr>
 </body>
+
+</body>
+
 </html>

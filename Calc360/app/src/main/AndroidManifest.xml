@@ -9,8 +9,8 @@
 	<application
 		android:allowBackup="true"
 		android:description="@string/appDescr"
-		android:label="@string/appName"
 		android:icon="@mipmap/calc360"
+		android:label="@string/appName"
 		android:roundIcon="@mipmap/calc360"
 		android:supportsRtl="true"
 		android:theme="@style/CalcTheme">
