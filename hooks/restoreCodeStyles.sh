@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PROJECTS="Calc360 Collections DateApp Fishing kindnessClient Maintenance Mammals Record Simple"
+PROJECTS="Calc360 DateApp Fishing kindnessClient Maintenance Record Simple"
 for proj in ${PROJECTS} ; do
 	cp hooks/codeStyles/* ${proj}/.idea/codeStyles
 	git add -f ${proj}/.idea/codeStyles/*
