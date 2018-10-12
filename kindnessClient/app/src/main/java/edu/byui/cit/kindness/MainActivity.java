@@ -35,7 +35,7 @@ import edu.byui.cit.exception.ServiceException;
 //and return to DisplayFragment, the reports are no longer on the map. Something
 //is wrong in the fragment lifecycle and with the indexes have a null pointer exception
 
-public final class KindnessActivity extends AppCompatActivity {
+public final class MainActivity extends AppCompatActivity {
 
 	public static final String TAG = "KindnessTag";
 
@@ -43,10 +43,10 @@ public final class KindnessActivity extends AppCompatActivity {
 			REPORTS_KEY = "reports",
 			CATEGORIES_KEY = "categories";
 
-	private Fragment fragHowTo, fragAbout, fragReport, fragPrivate;
+	private Fragment fragHowTo, fragPrivacy, fragAbout, fragReport;
 
 
-	public KindnessActivity() {
+	public MainActivity() {
 		super();
 	}
 
@@ -67,11 +67,10 @@ public final class KindnessActivity extends AppCompatActivity {
 			tracker.start(ctx);
 		}
 		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
-			// Do nothing
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 
 		FirebaseApp.initializeApp(ctx);
@@ -82,11 +81,9 @@ public final class KindnessActivity extends AppCompatActivity {
 		FloatingActionButton fab = findViewById(R.id.fabAdd);
 		fab.setOnClickListener(new ReportHandler());
 
-
 		if (savedInstState == null) {
-			// Create a fragment the map fragment and place
-			// it as the first fragment in this activity.
-
+			// Create the map fragment and place it
+			// as the first fragment in this activity.
 			Fragment frag = new DisplayFragment();
 			FragmentTransaction trans = getSupportFragmentManager()
 					.beginTransaction();
@@ -117,10 +114,10 @@ public final class KindnessActivity extends AppCompatActivity {
 		}
 		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
 			// Do nothing
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 	}
 
@@ -135,6 +132,7 @@ public final class KindnessActivity extends AppCompatActivity {
 				// left-facing triangle icon on the main android toolbar.
 				onBackPressed();
 				return true;
+
 			case R.id.actHowTo:
 				if (fragHowTo == null || fragHowTo.isDetached()) {
 					fragHowTo = new HowToFragment();
@@ -149,11 +147,10 @@ public final class KindnessActivity extends AppCompatActivity {
 				return true;
 
 			case R.id.actPrivacy:
-				if (fragPrivate == null || fragPrivate.isDetached()) {
-					fragPrivate = new PrivacyFragment();
+				if (fragPrivacy == null || fragPrivacy.isDetached()) {
+					fragPrivacy = new PrivacyFragment();
 				}
-
-				switchFragment(fragPrivate);
+				switchFragment(fragPrivacy);
 				return true;
 
 			case R.id.actAbout:
@@ -179,17 +176,18 @@ public final class KindnessActivity extends AppCompatActivity {
 				// AlertDialog and don't switch to the ReportFragment.
 				LocationTracker tracker = LocationTracker.getInstance();
 				tracker.start(getApplicationContext());
+
 				if (fragReport == null || fragReport.isDetached()) {
 					fragReport = new ReportFragment();
 				}
 				switchFragment(fragReport);
 			}
 			catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
-				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 				showAlertDialog(R.string.locationError, R.string.locationErrMsg);
 			}
 			catch (Exception ex) {
-				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 				showAlertDialog(R.string.locationError, R.string.unknownErrMsg);
 			}
 		}
@@ -197,7 +195,7 @@ public final class KindnessActivity extends AppCompatActivity {
 
 	private void showAlertDialog(int titleID, int messageID) {
 		AlertDialog.Builder builder =
-				new AlertDialog.Builder(KindnessActivity.this,
+				new AlertDialog.Builder(MainActivity.this,
 						android.R.style.Theme_Material_Dialog_Alert);
 		builder.setTitle(titleID)
 				.setIcon(android.R.drawable.ic_dialog_alert)
@@ -230,7 +228,7 @@ public final class KindnessActivity extends AppCompatActivity {
 
 
 	final void switchFragment(Fragment fragment) {
-		// Replace whatever is in the fragment_container view with
+		// Replace whatever is in the fragContainer view with
 		// fragment, and add the transaction to the back stack so
 		// that the user can navigate back.
 		FragmentTransaction trans =

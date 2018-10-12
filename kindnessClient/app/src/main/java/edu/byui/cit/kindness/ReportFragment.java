@@ -30,12 +30,12 @@ public final class ReportFragment extends ChildFragment {
 			R.anim.touch_animate,
 			R.anim.words_animate
 	};
-	private static final Report.Category[] categories = {
-			Report.Category.Gifts,
-			Report.Category.Service,
-			Report.Category.Time,
-			Report.Category.Touch,
-			Report.Category.Words
+	private static final Category[] categories = {
+			Category.Gifts,
+			Category.Service,
+			Category.Time,
+			Category.Touch,
+			Category.Words
 	};
 
 
@@ -44,7 +44,7 @@ public final class ReportFragment extends ChildFragment {
 
 	@Override
 	protected String getTitle() {
-		return getActivity().getString(R.string.reportKindness);
+		return getString(R.string.reportKindness);
 	}
 
 
@@ -63,8 +63,6 @@ public final class ReportFragment extends ChildFragment {
 			button.startAnimation(anim);
 		}
 
-//		btnLogo = view.findViewById(R.id.logo);
-//		btnLogo.setOnClickListener(new SeeListener());
 		return view;
 	}
 
@@ -72,9 +70,9 @@ public final class ReportFragment extends ChildFragment {
 	// Handles a click on one of the category buttons.
 	private final class CategoryClickHandler
 			implements View.OnClickListener, Runnable {
-		private final Report.Category category;
+		private final Category category;
 
-		CategoryClickHandler(Report.Category category) {
+		CategoryClickHandler(Category category) {
 			this.category = category;
 		}
 
@@ -87,7 +85,7 @@ public final class ReportFragment extends ChildFragment {
 				button.postDelayed(this, buttonAnimate.getDuration());
 			}
 			catch (Exception ex) {
-				Log.e(KindnessActivity.TAG, "cannot submit report", ex);
+				Log.e(MainActivity.TAG, "cannot submit report", ex);
 				getCompatActivity().onBackPressed();
 			}
 		}
@@ -107,10 +105,10 @@ public final class ReportFragment extends ChildFragment {
 				}
 				FragmentManager mgr = act.getSupportFragmentManager();
 				mgr.popBackStack();
-				((KindnessActivity)act).switchFragment(fragReported);
+				((MainActivity)act).switchFragment(fragReported);
 			}
 			catch (Exception ex) {
-				Log.e(KindnessActivity.TAG, "cannot submit report", ex);
+				Log.e(MainActivity.TAG, "cannot submit report", ex);
 				getCompatActivity().onBackPressed();
 			}
 		}

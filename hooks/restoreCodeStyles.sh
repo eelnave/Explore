@@ -1,8 +1,10 @@
 #!/bin/sh
 
-PROJECTS="Calc360 DateApp Fishing kindnessClient Maintenance Record Simple"
+PROJECTS="Calc360 DateApp Fishing kindnessClient Maintenance Record"
+# PROJECTS="BasicJava Classes Collections Console Exceptions FileIO Simple"
+
 for proj in ${PROJECTS} ; do
-	cp hooks/codeStyles/* ${proj}/.idea/codeStyles
+	cp ../apps/hooks/codeStyles/* ${proj}/.idea/codeStyles
 	git add -f ${proj}/.idea/codeStyles/*
 done
 

@@ -26,8 +26,10 @@
 
 	<string name="privacy">Privacy</string>
 	<string name="sharingLocation">Determining and Sharing Location</string>
-	<string name="privacyTest">This application collects your approximate GPS location while the app is active. This app does not collect any data outside of your device’s GPS location. (E.G phone number, contacts, or photos)The GPS data collected is
-		                       used solely for services rendered by this application and website and is not solicited.  </string>
+	<string name="privacyTest">This app collects your approximate GPS location while the app is active.
+		This app does not collect any other data about you or your device.
+		For example, this app does not collect your name, birth date, gender, phone number, contacts, photos, or device type.
+		The GPS data is used solely for services rendered by this app and its corresponding website and is not sold or transferred to any other entity.</string>
 
 	<string name="about">About</string>
 	<string name="appDescr">A simple way to report acts of kindness. This app is designed, written, and maintained by students at Brigham Young University - Idaho.</string>
@@ -39,9 +41,8 @@
 	<string name="logoCredit">We created the logo and icons for Kindness using the free tools at <a href="https://logomakr.com">logomakr.com</a></string>
 
 	<string name="mistake">Well, this is embarrassing. Something is wrong with this page, and it isn\'t working. We apologize.</string>
-	<string name="Gifts">Gifts</string>
 
-	<string-array name="TimePeriod" translatable="false">
+	<string-array name="timePeriod">
 		<item>Time Period</item>
 		<item>last hour</item>
 		<item>last 24 hours</item>
@@ -51,12 +52,12 @@
 		<item>all time</item>
 	</string-array>
 
-	<string-array name="category" translatable="false">
+	<string-array name="category">
 		<item>Category</item>
-		<item>Gifts</item>
-		<item>Service</item>
-		<item>Time</item>
-		<item>Touch</item>
-		<item>Words</item>
+		<item>gifts</item>
+		<item>service</item>
+		<item>time</item>
+		<item>touch</item>
+		<item>words</item>
 	</string-array>
 </resources>

@@ -3,10 +3,8 @@
     <string name="appName">Freundlichkeit</string>
 
     <string name="locationError">Standortfehler</string>
-    <string name="locationErrMsg">
-        Um Freundlichkeit zu melden, müssen Sie die Standortdienste auf Ihrem Gerät aktivieren und Standortberechtigungen für diese App erteilen.</string>
-    <string name="unknownErrMsg">
-        Unbekannter Standort-Dienstfehler Sie können keine Freundlichkeit melden, bis der Fehler behoben ist.</string>
+    <string name="locationErrMsg">Um Freundlichkeit zu melden, müssen Sie die Standortdienste auf Ihrem Gerät aktivieren und Standortberechtigungen für diese App erteilen.</string>
+    <string name="unknownErrMsg">Unbekannter Standort-Dienstfehler Sie können keine Freundlichkeit melden, bis der Fehler behoben ist.</string>
 
     <string name="reportKindness">Bericht Freundlichkeit</string>
     <string name="gifts">Geschenke</string>
@@ -17,29 +15,22 @@
 
     <string name="category">Kategorie</string>
     <string name="latitude">Breite</string>
-    <string name="longitude">
-        Längengrad</string>
-    <string name="thanks">
-        Danke, dass Sie einen Akt der Freundlichkeit gemeldet haben.</string>
+    <string name="longitude">Längengrad</string>
+    <string name="thanks">Danke, dass Sie einen Akt der Freundlichkeit gemeldet haben.</string>
     <string name="toMap">Zurück zur Karte</string>
 
     <string name="howTo">Wie benutzt man</string>
     <string name="instruction1">Tippe auf das Plus-Symbol, um Freundlichkeit in deiner Nähe zu melden. Oder erkunden Sie einfach Details über die / Taten der Freundlichkeit / anderer, indem Sie auf die Karte zoomen.</string>
     <string name="instruction2">Tippen Sie auf das Symbol, das die Güte, die Sie melden möchten, am besten widerspiegelt.</string>
-    <string name="instruction3">
-        Kehre zur Karte zurück, um zu sehen, wie dein neuer Freundschaftsakt an deinem Standort hinzugefügt wurde.</string>
+    <string name="instruction3">Kehre zur Karte zurück, um zu sehen, wie dein neuer Freundschaftsakt an deinem Standort hinzugefügt wurde.</string>
 
     <string name="privacy">Privatsphäre</string>
-    <string name="sharingLocation">
-        Standort ermitteln und teilen</string>
-    <string name="privacyTest">
-        Diese Anwendung sammelt Ihren ungefähren GPS-Standort, während die App aktiv ist. Diese App sammelt keine Daten außerhalb des GPS-Standorts Ihres Geräts. (E.G Telefonnummer, Kontakte oder Fotos) Die gesammelten GPS-Daten sind
-        wird ausschließlich für die von dieser Anwendung und Website erbrachten Dienstleistungen verwendet und wird nicht angefragt.  </string>
+    <string name="sharingLocation">Standort ermitteln und teilen</string>
+    <string name="privacyTest">Diese Anwendung sammelt Ihren ungefähren GPS-Standort, während die App aktiv ist. Diese App sammelt keine Daten außerhalb des GPS-Standorts Ihres Geräts. (E.G Telefonnummer, Kontakte oder Fotos) Die gesammelten GPS-Daten sind
+        wird ausschließlich für die von dieser Anwendung und Website erbrachten Dienstleistungen verwendet und wird nicht angefragt.</string>
 
-    <string name="about">
-        Über</string>
-    <string name="appDescr">
-        Eine einfache Möglichkeit, um Freundlichkeit zu melden. Diese App wurde von Studenten der Brigham Young University - Idaho entworfen, geschrieben und gewartet.</string>
+    <string name="about">Über</string>
+    <string name="appDescr">Eine einfache Möglichkeit, um Freundlichkeit zu melden. Diese App wurde von Studenten der Brigham Young University - Idaho entworfen, geschrieben und gewartet.</string>
     <string name="eula">Im gesetzlich zulässigen Umfang wird für diese Software keine ausdrückliche oder stillschweigende Gewährleistung übernommen. Mit der Installation und / oder Verwendung dieser Software erklären Sie sich einverstanden, die Brigham Young University - Idaho und ihre Sponsoren, Angestellten und Studenten schadlos zu halten.</string>
     <string name="feedback">Danke für die Verwendung von Freundlichkeit! Wir freuen uns über Ihre Kommentare, Fragen und Empfehlungen, die uns helfen, diese App zu verbessern. Sie können uns über die <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.kindness">Google Play Store</a>.</string>
     <string name="contribs">Mitwirkende</string>
@@ -47,10 +38,9 @@
     <string name="spring2018">Frühling 2018</string>
     <string name="logoCredit">Wir haben das Logo und die Icons für Kindness mit den kostenlosen Tools erstellt <a href="https://logomakr.com">logomakr.com</a></string>
 
-    <string name="mistake">
-        Nun, das ist peinlich. Etwas stimmt nicht mit dieser Seite und es funktioniert nicht. Wir entschuldigen uns.</string>
+    <string name="mistake">Nun, das ist peinlich. Etwas stimmt nicht mit dieser Seite und es funktioniert nicht. Wir entschuldigen uns.</string>
 
-    <string-array name="TimePeriod" translatable="false">
+    <string-array name="timePeriod">
         <item>Zeitperiode</item>
         <item>letzte Stunde</item>
         <item>letzten 24 Stunden</item>
@@ -60,7 +50,7 @@
         <item>die ganze Zeit</item>
     </string-array>
 
-    <string-array name="category" translatable="false">
+    <string-array name="category">
         <item>Kategorie</item>
         <item>Geschenke</item>
         <item>Bedienung</item>

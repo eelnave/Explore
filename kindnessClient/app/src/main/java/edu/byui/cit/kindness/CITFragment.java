@@ -30,8 +30,8 @@ public abstract class CITFragment extends Fragment {
 			}
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, "exception", ex);
-			view = inflater.inflate(R.layout.mistake, container, false);
+			Log.e(MainActivity.TAG, "exception", ex);
+			view = inflater.inflate(R.layout.mistake_frag, container, false);
 		}
 		return view;
 	}
@@ -79,7 +79,7 @@ public abstract class CITFragment extends Fragment {
 			}
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, "exception", ex);
+			Log.e(MainActivity.TAG, "exception", ex);
 		}
 	}
 
@@ -91,7 +91,8 @@ public abstract class CITFragment extends Fragment {
 		try {
 			AppCompatActivity act = getCompatActivity();
 			act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-			getActivity().findViewById(R.id.fabAdd).setVisibility(View.VISIBLE);
+			getActivity().findViewById(R.id.fabAdd).setVisibility(View
+					.VISIBLE);
 
 			// Open the Android system preferences file for Calc360.
 			SharedPreferences prefs = act.getPreferences(Context.MODE_PRIVATE);
@@ -108,7 +109,7 @@ public abstract class CITFragment extends Fragment {
 			editor.apply();
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, "exception", ex);
+			Log.e(MainActivity.TAG, "exception", ex);
 		}
 		finally {
 			super.onStop();

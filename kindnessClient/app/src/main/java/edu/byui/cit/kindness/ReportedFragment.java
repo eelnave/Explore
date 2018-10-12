@@ -10,7 +10,7 @@ public class ReportedFragment extends ChildFragment {
 
 	@Override
 	protected String getTitle() {
-		return getActivity().getString(R.string.reportKindness);
+		return getString(R.string.reportKindness);
 	}
 
 

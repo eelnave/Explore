@@ -16,8 +16,7 @@
 	<string name="category">categoria</string>
 	<string name="latitude">latitude</string>
 	<string name="longitude">longitude</string>
-	<string name="thanks">
-		Obrigado por denunciar um ato de bondade.</string>
+	<string name="thanks">Obrigado por denunciar um ato de bondade.</string>
 	<string name="toMap">Regressar ao mapa</string>
 
 	<string name="howTo">Como usar</string>
@@ -26,8 +25,7 @@
 	<string name="instruction3">Volte ao mapa para ver seu novo ato de bondade adicionado ao seu local.</string>
 
 	<string name="privacy">Privacidade</string>
-	<string name="sharingLocation">
-		Determinando e compartilhando local</string>
+	<string name="sharingLocation">Determinando e compartilhando local</string>
 	<string name="privacyTest">
 		Este aplicativo coleta sua localização GPS aproximada enquanto o aplicativo está ativo. Este aplicativo não coleta dados fora da localização do GPS do seu dispositivo. (Número de telefone E.G, contatos ou fotos) Os dados de GPS coletados são
 		usado exclusivamente para serviços prestados por este aplicativo e site e não é solicitado.  </string>
@@ -43,7 +41,7 @@
 
 	<string name="mistake">Bem, isso é embaraçoso. Algo está errado nesta página e não está funcionando. Nós pedimos desculpas.</string>
 
-	<string-array name="TimePeriod" translatable="false">
+	<string-array name="timePeriod">
 		<item>Período de tempo</item>
 		<item>última hora</item>
 		<item>semana passada</item>
@@ -53,7 +51,7 @@
 		<item>tempo todo</item>
 	</string-array>
 
-	<string-array name="category" translatable="false">
+	<string-array name="category">
 		<item>Categoria</item>
 		<item>Presentes</item>
 		<item>Serviço</item>

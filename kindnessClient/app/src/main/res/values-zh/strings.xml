@@ -21,20 +21,15 @@
 
 	<string name="howTo">如何使用</string>
 	<string name="instruction1">点击加号图标报告你身边的善意。或者通过放大地图来简单地探索关于他/友善行为的细节。</string>
-	<string name="instruction2">
-		点击最能反映您想报告的善意的图标</string>
-	<string name="instruction3">
-		返回地图查看您的位置添加的新善举。</string>
+	<string name="instruction2">点击最能反映您想报告的善意的图标</string>
+	<string name="instruction3">返回地图查看您的位置添加的新善举。</string>
 
-	<string name="privacy">
-		隐私</string>
-	<string name="sharingLocation">
-		确定和共享位置</string>
+	<string name="privacy">隐私</string>
+	<string name="sharingLocation">确定和共享位置</string>
 	<string name="privacyTest">此应用程序在应用程序处于活动状态时收集您的近似GPS位置。此应用不会收集设备GPS位置以外的任何数据。 （E.G电话号码，联系人或照片）收集的GPS数据为
-		仅用于本应用程序和网站提供的服务，并不征求您的意见。  </string>
+		仅用于本应用程序和网站提供的服务，并不征求您的意见。</string>
 
-	<string name="about">
-		关于</string>
+	<string name="about">关于</string>
 	<string name="appDescr">报告善意行为的简单方法。这个应用程序是由杨百翰大学 - 爱达荷州的学生设计，编写和维护的。</string>
 	<string name="eula">在法律允许的最大范围内，本软件不附带任何明示或暗示的担保。通过安装和/或使用此软件，您同意让无害的杨百翰大学 - 爱达荷州及其赞助商，员工和学生。</string>
 	<string name="feedback">感谢您使用善良！感谢您的意见，问题和建议，以帮助我们改进此应用程序。你可以通过联系我们 <a href="https://play.google.com/store/apps/details?id=edu.byui.cit.kindness">Google Play Store</a>.</string>
@@ -45,7 +40,7 @@
 
 	<string name="mistake">好吧，这很尴尬。这个页面有什么问题，并且它没有工作。我们抱歉。</string>
 
-	<string-array name="TimePeriod" translatable="false">
+	<string-array name="timePeriod">
 		<item>时间段</item>
 		<item>上一个小时</item>
 		<item>最近24小时</item>
@@ -55,7 +50,7 @@
 		<item>整天</item>
 	</string-array>
 
-	<string-array name="category" translatable="false">
+	<string-array name="category">
 		<item>类别</item>
 		<item>礼品</item>
 		<item>服务</item>

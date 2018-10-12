@@ -3,6 +3,7 @@ package edu.byui.cit.kindness;
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +13,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -36,20 +35,19 @@ import edu.byui.cit.widget.SpinWrapper;
 
 public final class DisplayFragment extends CITFragment
 		implements OnMapReadyCallback {
-	private SpinString timeSpin, typeSpin;
+
+	// This is a fragment within the main activity (main_activity.xml).
+	// We had to do it this way because the spinners were showing up behind
+	// the map, and now they have their own spot and can be used. This
+	// fragment is different than the other fragments because it uses the
+	// same toolbar as main_activity.xml and the floating action button (FAB).
+
+	private SpinString spinTime, spinType;
 	private final TreeMap<String, Report> allReports;
-	private final HashMap<String, TreeMap<String, Report>> indexes;
-	private Report report;
+	private final HashMap<Category, TreeMap<String, Report>> indexes;
 
 	private GoogleMap mMap;
-	private BitmapDescriptor heart, gifts, service, time, touch, words;
 	private DatabaseReference dbReports;
-
-	//This is a fragment within the main activity (kindness_activity.xml)
-	//we had to do it this way because the spinners were showing up behind
-	//the map and now they have their own spot and can be used. This fragment
-	//is different than the other fragments because it uses the same toolbar as
-	//kindness_activity.xml and the FAB.
 
 	public DisplayFragment() {
 		super();
@@ -60,27 +58,26 @@ public final class DisplayFragment extends CITFragment
 		// Create the category indexes that will hold references to the
 		// reports.
 		indexes = new HashMap<>();
-		for (Report.Category cat : Report.Category.values()) {
-			indexes.put(cat.name(), new TreeMap<String, Report>());
+		for (Category cat : Category.values()) {
+			indexes.put(cat, new TreeMap<String, Report>());
 		}
 	}
 
 	@Override
 	protected String getTitle() {
-		return "Kindness";
+		return getString(R.string.appName);
 	}
 
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		Log.i(KindnessActivity.TAG, "createView()");
+//		Log.i(MainActivity.TAG, "createView()");
 		View view = inflater.inflate(R.layout.display_frag, container, false);
-		timeSpin = new SpinString(view, R.id.timeSpinner, new spinnerChange());
-		typeSpin = new SpinString(view, R.id.typeSpinner, new spinnerChange());
+		spinTime = new SpinString(view, R.id.timeSpinner, new SpinnerChange());
+		spinType = new SpinString(view, R.id.typeSpinner, new SpinnerChange());
 
 		SupportMapFragment mapFrag = (SupportMapFragment)
-				getChildFragmentManager().findFragmentById(
-						R.id.mapFrag);
+				getChildFragmentManager().findFragmentById(R.id.mapFrag);
 
 		if (mMap == null) {
 			mapFrag.getMapAsync(this);
@@ -106,30 +103,7 @@ public final class DisplayFragment extends CITFragment
 			mMap = googleMap;
 
 			// Load the icons to put on the map.
-			if (heart == null) {
-				heart = BitmapDescriptorFactory.fromResource(
-						R.drawable.mapicon);
-			}
-			if (gifts == null) {
-				gifts = BitmapDescriptorFactory.fromResource(
-						R.drawable.gift_icon);
-			}
-			if (service == null) {
-				service = BitmapDescriptorFactory.fromResource(
-						R.drawable.service_icon);
-			}
-			if (time == null) {
-				time = BitmapDescriptorFactory.fromResource(
-						R.drawable.time_icon);
-			}
-			if (touch == null) {
-				touch = BitmapDescriptorFactory.fromResource(
-						R.drawable.touch_icon);
-			}
-			if (words == null) {
-				words = BitmapDescriptorFactory.fromResource(
-						R.drawable.words_icon);
-			}
+			Category.loadIcons(getResources());
 
 			if (dbReports == null) {
 				// Get a reference to the /reports node in the database.
@@ -146,13 +120,13 @@ public final class DisplayFragment extends CITFragment
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 		}
 		catch (DatabaseException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (LocationException ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 		catch (Exception ex) {
-			Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 		}
 	}
 
@@ -176,164 +150,118 @@ public final class DisplayFragment extends CITFragment
 //				}
 //			}
 //			catch (DatabaseException ex) {
-//				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+//				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 //			}
 //			catch (Exception ex) {
-//				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+//				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 //			}
 //		}
 //
 //		@Override
 //		public void onCancelled(DatabaseError error) {
 //			// Failed to read value
-//			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
+//			Log.e(MainActivity.TAG, "DB error: " + error.toString());
 //		}
 //	}
 
 
 	private final class ReportAddedHandler implements ChildEventListener {
 		@Override
-		public void onChildAdded(DataSnapshot dataSnapshot,
+		public void onChildAdded(@NonNull DataSnapshot dataSnapshot,
 				String prevChildKey) {
 			try {
 				// Get the report that was added.
 				String key = dataSnapshot.getKey();
-				report = dataSnapshot.getValue(Report.class);
+				Report report = dataSnapshot.getValue(Report.class);
 
 				// Add this report to the list of all reports and to the
 				// category index that corresponds to this report's category.
 				allReports.put(key, report);
-				// use the indexes to do the filtering
-				// report of the data and the index
-				indexes.get(report.category().name()).put(key, report);
+				indexes.get(report.category()).put(key, report);
 
 				// Draw a marker for this report on the map.
 				MarkerOptions opts = new MarkerOptions();
 				opts.position(
 						new LatLng(report.getLatitude(),
 								report.getLongitude()));
-				//check to see which act was reported and return correct icon
-				//to improve, report.category().icon enum instead of if
-				// statements
-				if (report.category().equals(Report.Category.Gifts)) {
-					opts.icon(gifts);
-				}
-				else if (report.category().equals(Report.Category.Service)) {
-					opts.icon(service);
-				}
-				else if (report.category().equals(Report.Category.Time)) {
-					opts.icon(time);
-				}
-				else if (report.category().equals(Report.Category.Touch)) {
-					opts.icon(touch);
-				}
-				else if (report.category().equals(Report.Category.Words)) {
-					opts.icon(words);
-				}
-				else {
-					opts.icon(heart);
-				}
+				opts.icon(report.category().getIcon());
 				mMap.addMarker(opts);
 			}
 			catch (DatabaseException ex) {
-				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 			}
 			catch (Exception ex) {
-				Log.e(KindnessActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
 			}
 		}
 
 		@Override
-		public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+		public void onChildChanged(@NonNull DataSnapshot dataSnapshot,
+				String s) {
 		}
 
 		@Override
-		public void onChildRemoved(DataSnapshot dataSnapshot) {
+		public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
 		}
 
 		@Override
-		public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+		public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String
+				s) {
 		}
 
 		@Override
 		public void onCancelled(DatabaseError error) {
 			// Failed to read value
-			Log.e(KindnessActivity.TAG, "DB error: " + error.toString());
+			Log.e(MainActivity.TAG, "DB error: " + error.toString());
 		}
 	}
 
-	private class spinnerChange implements ItemSelectedListener {
 
+	private class SpinnerChange implements ItemSelectedListener {
 		@Override
 		public void itemSelected(SpinWrapper source, int pos, long id) {
-			MarkerOptions opts = new MarkerOptions();
-			TreeMap<String, Report> selRep;
+			showIcons();
+		}
+	}
 
-			// Clear the map of all markers
-			mMap.clear();
 
-			//time spinner
-			//I couldn't get this one completed but my idea was to compare the
-			// millisecond
-			//timestamp from the firebase reports to the user's machine
-			// current time in milliseconds
-			//I think this will be an easy way to compare the reports and the
-			// user's machine
-			//and will also be easy to convert into days, hours, weeks, etc.
-			// Need to take into
-			//account timezone differences between firebase and user device as
-			// well.
-			String selectedTime = timeSpin.getSelectedItem();
-			// Get the current time of machine
-			Calendar calendar = Calendar.getInstance();
+	private void showIcons() {
+		// Clear the map of all markers
+		mMap.clear();
 
-			long millis = calendar.getTimeInMillis();
+		// Get the user selected category to filter the reports.
+		int which = spinType.getSelectedItemPosition();
+		TreeMap<String, Report> index;
+		if (which == 0) {
+			index = allReports;
+		}
+		else {
+			Category cat = Category.get(which);
+			index = indexes.get(cat);
+		}
 
-			int hour = calendar.get(Calendar.HOUR_OF_DAY);
-			//DAY_OF_YEAR day number within current year, can count for a week
-			int week = calendar.get(Calendar.DAY_OF_YEAR);
-			int month = calendar.get(Calendar.MONTH);
-			int year = calendar.get(Calendar.YEAR);
-			//server time of reports
+		// Get the user selected duration to filter the reports.
+		which = spinTime.getSelectedItemPosition();
+		Duration durat;
+		if (which == 0) {
+			durat = Duration.AllTime;
+		}
+		else {
+			durat = Duration.get(which);
+		}
 
-			//Based on the user's choice put markers whose corresponding
-			// reports fit within the time.
+		// Get the current time in number of
+		// milliseconds elapsed since the Epoch.
+		Calendar calendar = Calendar.getInstance();
+		long now = calendar.getTimeInMillis();
 
-			//return selected reports
-
-			//get selected item in spinner
-			String selectedType = typeSpin.getSelectedItem();
-			//get reports
-			indexes.get(report.category());
-
-			//if selected item is gift, return only gift reports
-			if (selectedType.equals("Gifts")) {
-				selRep = indexes.get("Gifts");
-				opts.icon(gifts);
-			}
-			else if (selectedType.equals("Service")) {
-				selRep = indexes.get("Service");
-				opts.icon(service);
-			}
-			else if (selectedType.equals("Time")) {
-				selRep = indexes.get("Time");
-				opts.icon(time);
-			}
-			else if (selectedType.equals("Touch")) {
-				selRep = indexes.get("Touch");
-				opts.icon(touch);
-			}
-			else if (selectedType.equals("Words")) {
-				selRep = indexes.get("Words");
-				opts.icon(words);
-			}
-			else {
-				selRep = indexes.get("Category");
-			}
-
-			//populate map with reports for category selected
-			for (String key : selRep.keySet()) {
-				Report report = selRep.get(key);
+		// Populate the map with reports from the user selected category.
+		MarkerOptions opts = new MarkerOptions();
+		for (String key : index.keySet()) {
+			Report report = index.get(key);
+			long when = report.timestamp();
+			if (durat.isWithin(when, now)) {
+				opts.icon(report.category().getIcon());
 				opts.position(
 						new LatLng(report.getLatitude(),
 								report.getLongitude()));
@@ -342,4 +270,3 @@ public final class DisplayFragment extends CITFragment
 		}
 	}
 }
-
