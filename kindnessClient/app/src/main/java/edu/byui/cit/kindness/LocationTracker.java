@@ -32,7 +32,6 @@ final class LocationTracker implements LocationListener {
 
 	private final Criteria criteria;
 	private LocationManager locMgr;
-	private String provider;
 	private boolean started;
 	private Location location;
 
@@ -72,7 +71,7 @@ final class LocationTracker implements LocationListener {
 			//		if (!enabled) {
 			//			throw new ProviderException(provider + " is not enabled");
 			//		}
-			provider = locMgr.getBestProvider(criteria, true);
+			String provider = locMgr.getBestProvider(criteria, true);
 			if (provider == null || provider.isEmpty()) {
 				locMgr = null;
 				throw new ProviderException("Location provider is not enabled");

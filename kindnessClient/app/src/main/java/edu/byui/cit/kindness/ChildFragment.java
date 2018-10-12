@@ -18,15 +18,13 @@ public abstract class ChildFragment extends CITFragment {
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 
-	//instead of destroy, should we use stop and then resume previous view?
 	@Override
 	public void onDestroyView() {
 		super.onDestroyView();
-		//close fragment, show FAB
 		AppCompatActivity act = getCompatActivity();
 		act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 		act.findViewById(R.id.fabAdd).setVisibility(View.VISIBLE);
 
-		//need to get the reports back on the map after accessing a fragment
+		// TODO: need to get the reports back on the map after accessing a fragment
 	}
 }
