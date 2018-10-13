@@ -6,8 +6,8 @@ android {
         applicationId "edu.byui.cit.kindness"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 5
-        versionName "1.0"
+        versionCode 6
+        versionName "1.1"
         resValue "integer", "versionCode", "${defaultConfig.versionCode}"
         resValue "string", "versionName", "${defaultConfig.versionName}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

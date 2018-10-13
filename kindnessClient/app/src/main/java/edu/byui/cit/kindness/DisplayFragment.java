@@ -23,9 +23,9 @@ import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
-import java.util.TreeMap;
 
 import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.widget.ItemSelectedListener;
@@ -43,8 +43,8 @@ public final class DisplayFragment extends CITFragment
 	// same toolbar as main_activity.xml and the floating action button (FAB).
 
 	private SpinString spinTime, spinType;
-	private final TreeMap<String, Report> allReports;
-	private final HashMap<Category, TreeMap<String, Report>> indexes;
+//	private final ArrayList<Report> allReports;
+	private final HashMap<Category, ArrayList<Report>> indexes;
 
 	private GoogleMap mMap;
 	private DatabaseReference dbReports;
@@ -53,13 +53,13 @@ public final class DisplayFragment extends CITFragment
 		super();
 
 		// Create the list (TreeMap) that will hold all reports.
-		allReports = new TreeMap<>();
+//		allReports = new ArrayList<>();
 
 		// Create the category indexes that will hold references to the
 		// reports.
 		indexes = new HashMap<>();
 		for (Category cat : Category.values()) {
-			indexes.put(cat, new TreeMap<String, Report>());
+			indexes.put(cat, new ArrayList<Report>());
 		}
 	}
 
@@ -71,7 +71,6 @@ public final class DisplayFragment extends CITFragment
 	@Override
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-//		Log.i(MainActivity.TAG, "createView()");
 		View view = inflater.inflate(R.layout.display_frag, container, false);
 		spinTime = new SpinString(view, R.id.timeSpinner, new SpinnerChange());
 		spinType = new SpinString(view, R.id.typeSpinner, new SpinnerChange());
@@ -103,7 +102,7 @@ public final class DisplayFragment extends CITFragment
 			mMap = googleMap;
 
 			// Load the icons to put on the map.
-			Category.loadIcons(getResources());
+			Category.loadIcons();
 
 			if (dbReports == null) {
 				// Get a reference to the /reports node in the database.
@@ -120,13 +119,13 @@ public final class DisplayFragment extends CITFragment
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 		}
 		catch (DatabaseException ex) {
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
 		}
 		catch (LocationException ex) {
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
 		}
 	}
 
@@ -150,10 +149,10 @@ public final class DisplayFragment extends CITFragment
 //				}
 //			}
 //			catch (DatabaseException ex) {
-//				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+//				Log.e(MainActivity.TAG, ex.getMessage());
 //			}
 //			catch (Exception ex) {
-//				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+//				Log.e(MainActivity.TAG, ex.getMessage());
 //			}
 //		}
 //
@@ -171,33 +170,37 @@ public final class DisplayFragment extends CITFragment
 				String prevChildKey) {
 			try {
 				// Get the report that was added.
-				String key = dataSnapshot.getKey();
+//				String key = dataSnapshot.getKey();
 				Report report = dataSnapshot.getValue(Report.class);
 
-				// Add this report to the list of all reports and to the
-				// category index that corresponds to this report's category.
-				allReports.put(key, report);
-				indexes.get(report.category()).put(key, report);
+				if (report != null) {
+					// Add this report to the list of all reports and to the
+					// category index that corresponds to this report's
+					// category.
+					ArrayList<Report> allReports = indexes.get(Category.None);
+					allReports.add(report);
+					indexes.get(report.category()).add(report);
 
-				// Draw a marker for this report on the map.
-				MarkerOptions opts = new MarkerOptions();
-				opts.position(
-						new LatLng(report.getLatitude(),
-								report.getLongitude()));
-				opts.icon(report.category().getIcon());
-				mMap.addMarker(opts);
+					// Draw a marker for this report on the map.
+					MarkerOptions opts = new MarkerOptions();
+					opts.position(
+							new LatLng(report.getLatitude(),
+									report.getLongitude()));
+					opts.icon(report.category().getIcon());
+					mMap.addMarker(opts);
+				}
 			}
 			catch (DatabaseException ex) {
-				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, "5: " + ex.getMessage());
 			}
 			catch (Exception ex) {
-				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, "5: " + ex.getMessage());
 			}
 		}
 
 		@Override
-		public void onChildChanged(@NonNull DataSnapshot dataSnapshot,
-				String s) {
+		public void onChildChanged(
+				@NonNull DataSnapshot dataSnapshot, String s) {
 		}
 
 		@Override
@@ -205,14 +208,13 @@ public final class DisplayFragment extends CITFragment
 		}
 
 		@Override
-		public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String
-				s) {
+		public void onChildMoved(@NonNull DataSnapshot dataSnapshot, String s) {
 		}
 
 		@Override
 		public void onCancelled(DatabaseError error) {
 			// Failed to read value
-			Log.e(MainActivity.TAG, "DB error: " + error.toString());
+			Log.e(MainActivity.TAG, "6: DB error: " + error.toString());
 		}
 	}
 
@@ -229,16 +231,10 @@ public final class DisplayFragment extends CITFragment
 		// Clear the map of all markers
 		mMap.clear();
 
-		// Get the user selected category to filter the reports.
+		// Get the list of reports that
+		// corresponds to the user selected category.
 		int which = spinType.getSelectedItemPosition();
-		TreeMap<String, Report> index;
-		if (which == 0) {
-			index = allReports;
-		}
-		else {
-			Category cat = Category.get(which);
-			index = indexes.get(cat);
-		}
+		ArrayList<Report> reports = indexes.get(Category.get(which));
 
 		// Get the user selected duration to filter the reports.
 		which = spinTime.getSelectedItemPosition();
@@ -250,23 +246,29 @@ public final class DisplayFragment extends CITFragment
 			durat = Duration.get(which);
 		}
 
-		// Get the current time in number of
-		// milliseconds elapsed since the Epoch.
-		Calendar calendar = Calendar.getInstance();
-		long now = calendar.getTimeInMillis();
+		// Create a sample report that has as its timestamp
+		// the beginning of the user selected duration.
+		long now = System.currentTimeMillis();
+		Report key = new Report(durat.beginning(now));
+
+		// The list of reports from firebase is always stored in chronological
+		// order, so find the position within the list where the sample report
+		// should be located. This position is where the reports that are
+		// within the user selected duration begin.
+		int pos = Collections.binarySearch(reports, key, Report.compareTimestamps);
+		if (pos < 0) {
+			pos = -(pos + 1);
+		}
+//		Log.i(MainActivity.TAG, "Position within list of reports: " + pos);
 
 		// Populate the map with reports from the user selected category.
 		MarkerOptions opts = new MarkerOptions();
-		for (String key : index.keySet()) {
-			Report report = index.get(key);
-			long when = report.timestamp();
-			if (durat.isWithin(when, now)) {
-				opts.icon(report.category().getIcon());
-				opts.position(
-						new LatLng(report.getLatitude(),
-								report.getLongitude()));
-				mMap.addMarker(opts);
-			}
+		for (int len = reports.size();  pos < len;  ++pos) {
+			Report report = reports.get(pos);
+			opts.icon(report.category().getIcon());
+			opts.position(
+					new LatLng(report.getLatitude(), report.getLongitude()));
+			mMap.addMarker(opts);
 		}
 	}
 }

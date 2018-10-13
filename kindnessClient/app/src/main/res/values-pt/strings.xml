@@ -42,17 +42,16 @@
 	<string name="mistake">Bem, isso é embaraçoso. Algo está errado nesta página e não está funcionando. Nós pedimos desculpas.</string>
 
 	<string-array name="timePeriod">
-		<item>Período de tempo</item>
-		<item>última hora</item>
-		<item>semana passada</item>
-		<item>semana passada</item>
-		<item>mês passado</item>
-		<item>ano passado</item>
-		<item>tempo todo</item>
+		<item>Tempo Todo</item>
+		<item>Ano Anterior</item>
+		<item>Mês Anterior</item>
+		<item>Semana Anterior</item>
+		<item>24 Horas Anteriores</item>
+		<item>Hora Anterior</item>
 	</string-array>
 
 	<string-array name="category">
-		<item>Categoria</item>
+		<item>Todas As Categorias</item>
 		<item>Presentes</item>
 		<item>Serviço</item>
 		<item>Tempo</item>

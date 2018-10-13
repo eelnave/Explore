@@ -8,13 +8,14 @@ import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ServerValue;
 
+import java.text.DateFormat;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 
 
-public final class Report {
-
-
-	private Object timestamp = ServerValue.TIMESTAMP;
+final class Report {
+	private Object timestamp;
 	private Category category;
 	private double latitude;
 	private double longitude;
@@ -22,12 +23,23 @@ public final class Report {
 
 	@SuppressWarnings("unused")  // Used by firebase
 	public Report() {
+		this.timestamp = ServerValue.TIMESTAMP;
 		this.category = Category.None;
 		this.latitude = 0;
 		this.longitude = 0;
 	}
 
+	// Used for searching a list of reports.
+	Report(long timestamp) {
+		this.timestamp = timestamp;
+		this.category = Category.None;
+		this.latitude = 0;
+		this.longitude = 0;
+	}
+
+	// Used for creating a report that will be sent to firebase.
 	Report(Category category, Location loc) {
+		this.timestamp = ServerValue.TIMESTAMP;
 		this.category = category;
 		this.latitude = loc.getLatitude();
 		this.longitude = loc.getLongitude();
@@ -65,22 +77,13 @@ public final class Report {
 
 
 	@Exclude
-	long timestamp() {
+	private long timestamp() {
 		return timestamp instanceof Long ? ((Long)timestamp) : Long.MIN_VALUE;
 	}
 
 	@Exclude
 	Category category() {
 		return category;
-	}
-
-	@Exclude
-	@Override
-	public String toString() {
-		return "Report: " + timestamp() +
-				" cat " + category.name() +
-				" lat " + latitude +
-				" long " + longitude;
 	}
 
 	@Exclude
@@ -99,4 +102,28 @@ public final class Report {
 		database.getReference().updateChildren(updates);
 		Log.i(MainActivity.TAG, toString());
 	}
+
+	@Exclude
+	private static final DateFormat fmtr =
+			DateFormat.getDateInstance(DateFormat.MEDIUM);
+
+	@Exclude
+	@Override
+	public String toString() {
+		Date date = new Date(timestamp());
+		return "Report: " + fmtr.format(date) +
+				" " + category.name() +
+				" " + latitude +
+				" " + longitude;
+	}
+
+
+	@Exclude
+	static final Comparator<Report> compareTimestamps =
+			new Comparator<Report>() {
+				@Override
+				public int compare(Report r1, Report r2) {
+					return Long.signum(r1.timestamp() - r2.timestamp());
+				}
+			};
 }

@@ -41,17 +41,16 @@
     <string name="mistake">Nun, das ist peinlich. Etwas stimmt nicht mit dieser Seite und es funktioniert nicht. Wir entschuldigen uns.</string>
 
     <string-array name="timePeriod">
-        <item>Zeitperiode</item>
-        <item>letzte Stunde</item>
-        <item>letzten 24 Stunden</item>
-        <item>letzte Woche</item>
-        <item>Im vergangenen Monat</item>
-        <item>letztes Jahr</item>
-        <item>die ganze Zeit</item>
+        <item>Die Ganze Zeit</item>
+        <item>Vorheriges Jahr</item>
+        <item>Vorheriger Monat</item>
+        <item>Letzte Woche</item>
+        <item>Vorherige 24 Stunden</item>
+        <item>Vorherige Stunde</item>
     </string-array>
 
     <string-array name="category">
-        <item>Kategorie</item>
+        <item>Alle Kategorien</item>
         <item>Geschenke</item>
         <item>Bedienung</item>
         <item>Zeit</item>

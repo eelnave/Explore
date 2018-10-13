@@ -41,21 +41,20 @@
     <string name="mistake">खैर, यो शर्मिला छ। यस पृष्ठको साथ केहि गलत छ, र यो काम गरिरहेको छैन। हामी माफी माग्छौं।</string>
 
     <string-array name="timePeriod">
-        <item>समय सीमा</item>
-        <item>अंतिम घंटा</item>
-        <item>पअन्तिम 24 घण्टा</item>
-        <item>पगएको हप्ता</item>
-        <item>पिअघिल्लो महिना</item>
-        <item>पिगत वर्ष</item>
-        <item>पूरा समय</item>
+		<item>सँधै भरि</item>
+		<item>अघिल्लो वर्ष</item>
+		<item>अघिल्लो महिना</item>
+		<item>अघिल्लो हप्ता</item>
+		<item>पछिल्लो 24 घण्टा</item>
+		<item>अघिल्लो घण्टा</item>
     </string-array>
 
     <string-array name="category">
-        <item>वर्ग</item>
-        <item>उपहार</item>
-        <item>सर्विस</item>
-        <item>पहर</item>
-        <item>स्पर्श</item>
-        <item>शब्द</item>
+		<item>सबै कोटीहरू</item>
+		<item>उपहार</item>
+		<item>सेवा</item>
+		<item>समय</item>
+		<item>छुनुहोस्</item>
+		<item>शब्दहरू</item>
     </string-array>
 </resources>

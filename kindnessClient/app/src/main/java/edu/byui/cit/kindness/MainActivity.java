@@ -23,32 +23,29 @@ import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
 import edu.byui.cit.exception.ServiceException;
 
-
-/* TODO:
- * 1. Add dropdown lists at the top of the map to filter by date
- * 		-Date filters should be: last hour, last 24 hours, last week, last month, last year, all time
- * 2. change icons to enum category in Report.java
- * 3. fix ChildFragment so when we return to map reports are still there
+/* TODO
+ * 1. Make icons smaller and possibly of different colors.
+ * 2. Change the app drawer icon from a heart to the world held in hands.
+ * 3. Fix the fragments so that the icons are repainted after closing a
+ *    child fragment.
+ * 4. Update store presence, including app name (should it be Kindness or
+ *    World Kindness or something else) and screen shots
+ * 5. Store user selections from the two drop down lists into preferences.
+ * 6. Change drop down list of categories into a drop down list of check
+ *    boxes, so that a user can select more than one category at a time.
+ * 7. Update the How To Use screen.
+ * 8. Change the database and Report.submit so that the database no longer
+ *    stores the category indexes because they are not being used.
+ * 9. Possibly add a date label above each icon
  */
-
-//known issue: when you open a fragment (ReportedFragment, HowTo, Privacy)
-//and return to DisplayFragment, the reports are no longer on the map. Something
-//is wrong in the fragment lifecycle and with the indexes have a null pointer exception
-
 public final class MainActivity extends AppCompatActivity {
-
-	public static final String TAG = "KindnessTag";
+	public static final String TAG = "Kindness";
 
 	public static final String
 			REPORTS_KEY = "reports",
 			CATEGORIES_KEY = "categories";
 
 	private Fragment fragHowTo, fragPrivacy, fragAbout, fragReport;
-
-
-	public MainActivity() {
-		super();
-	}
 
 
 	@Override
@@ -67,10 +64,10 @@ public final class MainActivity extends AppCompatActivity {
 			tracker.start(ctx);
 		}
 		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, "1: " + ex.getMessage());
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, "1: " + ex.getMessage());
 		}
 
 		FirebaseApp.initializeApp(ctx);
@@ -114,10 +111,10 @@ public final class MainActivity extends AppCompatActivity {
 		}
 		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
 			// Do nothing
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
 		}
 	}
 
@@ -183,15 +180,16 @@ public final class MainActivity extends AppCompatActivity {
 				switchFragment(fragReport);
 			}
 			catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
-				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, "3: " + ex.getMessage());
 				showAlertDialog(R.string.locationError, R.string.locationErrMsg);
 			}
 			catch (Exception ex) {
-				Log.e(MainActivity.TAG, ex.getLocalizedMessage());
+				Log.e(MainActivity.TAG, "3: " + ex.getMessage());
 				showAlertDialog(R.string.locationError, R.string.unknownErrMsg);
 			}
 		}
 	}
+
 
 	private void showAlertDialog(int titleID, int messageID) {
 		AlertDialog.Builder builder =

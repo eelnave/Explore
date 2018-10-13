@@ -40,21 +40,20 @@
     <string name="mistake">Beh, questo è imbarazzante. C\'è qualcosa di sbagliato in questa pagina e non funziona. Ci scusiamo.</string>
 
     <string-array name="timePeriod">
-        <item>Periodo di tempo</item>
-        <item>ultima ora</item>
-        <item>ultime 24 ore</item>
-        <item>last week</item>
-        <item>lo scorso mese</item>
-        <item>l\'anno scorso</item>
-        <item>sempre</item>
+		<item>Sempre</item>
+		<item>L\'anno Scorso</item>
+		<item>Il Mese Scorso</item>
+		<item>La Settimana Precedente</item>
+		<item>Precedenti 24 Ore</item>
+		<item>Ora Precedente</item>
     </string-array>
 
     <string-array name="category">
-        <item>Categoria</item>
-        <item>I regali</item>
-        <item>Servizio</item>
-        <item>Tempo</item>
-        <item>Toccare</item>
-        <item>Parole</item>
+		<item>Tutte Le Categorie</item>
+		<item>I Regali</item>
+		<item>Servizio</item>
+		<item>Tempo</item>
+		<item>Toccare</item>
+		<item>Parole</item>
     </string-array>
 </resources>

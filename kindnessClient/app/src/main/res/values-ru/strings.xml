@@ -41,21 +41,20 @@
 	<string name="mistake">Ну, это неудобно. Что-то не так с этой страницей, и это не работает. Мы приносим свои извинения.</string>
 
 	<string-array name="timePeriod">
-		<item>Временной период</item>
-		<item>последний час</item>
-		<item>последние 24 часа</item>
-		<item>на прошлой неделе</item>
-		<item>прошлый месяц</item>
-		<item>в прошлом году</item>
-		<item>все время</item>
+		<item>Все время</item>
+		<item>Предыдущий год</item>
+		<item>Прошлый месяц</item>
+		<item>Предыдущая неделя</item>
+		<item>Предыдущие 24 часа</item>
+		<item>Предыдущий час</item>
 	</string-array>
 
 	<string-array name="category">
-		<item>Category</item>
-		<item>Gifts</item>
-		<item>Service</item>
-		<item>Time</item>
-		<item>потрогать</item>
-		<item>слова</item>
+		<item>Все категории</item>
+		<item>Дары</item>
+		<item>Обслуживание</item>
+		<item>Время</item>
+		<item>Touch</item>
+		<item>Слова</item>
 	</string-array>
 </resources>

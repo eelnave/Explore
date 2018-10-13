@@ -41,17 +41,16 @@
 	<string name="mistake">好吧，这很尴尬。这个页面有什么问题，并且它没有工作。我们抱歉。</string>
 
 	<string-array name="timePeriod">
-		<item>时间段</item>
-		<item>上一个小时</item>
-		<item>最近24小时</item>
-		<item>上个星期</item>
-		<item>上个月</item>
-		<item>去年</item>
 		<item>整天</item>
+		<item>上一年</item>
+		<item>前一个月</item>
+		<item>上个礼拜</item>
+		<item>前24小时</item>
+		<item>上一个小时</item>
 	</string-array>
 
 	<string-array name="category">
-		<item>类别</item>
+		<item>所有类别</item>
 		<item>礼品</item>
 		<item>服务</item>
 		<item>时间</item>

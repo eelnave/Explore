@@ -43,21 +43,20 @@
 	<string name="mistake">Well, this is embarrassing. Something is wrong with this page, and it isn\'t working. We apologize.</string>
 
 	<string-array name="timePeriod">
-		<item>Time Period</item>
-		<item>last hour</item>
-		<item>last 24 hours</item>
-		<item>last week</item>
-		<item>last month</item>
-		<item>last year</item>
-		<item>all time</item>
+		<item>All Time</item>
+		<item>Last Year</item>
+		<item>Last Month</item>
+		<item>Last Week</item>
+		<item>Last 24 Hours</item>
+		<item>Last Hour</item>
 	</string-array>
 
 	<string-array name="category">
-		<item>Category</item>
-		<item>gifts</item>
-		<item>service</item>
-		<item>time</item>
-		<item>touch</item>
-		<item>words</item>
+		<item>All Categories</item>
+		<item>Gifts</item>
+		<item>Service</item>
+		<item>Time</item>
+		<item>Touch</item>
+		<item>Words</item>
 	</string-array>
 </resources>
