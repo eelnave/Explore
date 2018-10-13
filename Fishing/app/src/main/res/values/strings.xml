@@ -12,4 +12,8 @@
     <string name="mistake">Well, this is embarrassing. Something is wrong with this part of the app, and it isn\'t working. We apologize.</string>
 
     <string name="title_activity_maps">Map</string>
+
+    <string name="back">Back</string>
+    <string name="logo">Logo</string>
+    <string name="eia">East Idaho Anglers</string>
 </resources>

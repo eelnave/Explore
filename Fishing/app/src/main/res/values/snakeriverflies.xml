@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="snakeRiverJan">
+        Wet: Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger, Simiseal Leech,Rubber Legs, Pheasant tail,
+        Hares Ear, Frenchies, Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \n Dry: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+    </string>
+
+    <string name="snakeRiverFeb">
+        Wet: Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger, Simiseal Leech,Rubber Legs, Pheasant tail,
+        Hares Ear, Frenchies, Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+    </string>
+
+    <string name="snakeRiverMar">
+        Wet: Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger, Simiseal Leech,Rubber Legs, Pheasant tail,
+        Hares Ear, Frenchies, Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger,
+        Hairwing Dun, Comparadun, Sparkle Dun
+    </string>
+
+    <string name="snakeRiverApr">
+        Wet: Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger, Simiseal Leech,Rubber Legs, Pheasant tail,
+        Hares Ear, Frenchies, Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger,
+        Hairwing Dun, Comparadun, Sparkle Dun
+    </string>
+
+    <string name="snakeRiverMay">
+        Wet: Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger, Simiseal Leech,Rubber Legs, Pheasant tail,
+        Hares Ear, Frenchies, Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger,
+        Hairwing Dun, Comparadun, Sparkle Dun
+    </string>
+
+    <string name="snakeRiverJun">
+        Wet: 20-Incher, Rubberlegs, Goldan Stone, Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear, Pheasant Tail,
+        PMD Nymph, Halfback Emerger, Green Drake, Zebra Midge, Smoke Jumper, Sinking Ant, Mohair leech, Woolly Bugger,
+        Sculpin Patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Bullethead Skwala, J-Slam, Foam Salmonfly, Chubby Chernobyl, Golden Stone, Madam-X, EH Caddis,
+        PMD Paracripple, Green Paradrake, Renegade, Twilight Midge, Griffiths Gnat, Bionic Ant, Foam Beetle, Morrish Hopper
+    </string>
+
+    <string name="snakeRiverJul">
+        Wet: 20-Incher, Rubberlegs, Goldan Stone, Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear, Pheasant Tail,
+        PMD Nymph, Halfback Emerger, Green Drake, Zebra Midge, Smoke Jumper, Sinking Ant, Mohair leech, Woolly Bugger,
+        Sculpin Patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Bullethead Skwala, J-Slam, Foam Salmonfly, Chubby Chernobyl, Golden Stone, Madam-X, EH Caddis,
+        PMD Paracripple, Green Paradrake, Renegade, Twilight Midge, Griffiths Gnat, Bionic Ant, Foam Beetle,
+        Morrish Hopper, Rusty Spinner, Sparkle Dun
+    </string>
+
+    <string name="snakeRiverAug">
+        Wet: 20-Incher, Rubberlegs, Goldan Stone, Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear, Pheasant Tail,
+        PMD Nymph, Halfback Emerger, Zebra Midge, Smoke Jumper, Sinking Ant, Mohair leech, Woolly Bugger,
+        Sculpin Patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Bullethead Skwala, J-Slam, Foam Salmonfly, Chubby Chernobyl, Golden Stone, Madam-X, EH Caddis,
+        PMD Paracripple, Renegade, Twilight Midge, Griffiths Gnat, Bionic Ant, Foam Beetle,
+        Morrish Hopper, Rusty Spinner, Sparkle Dun
+    </string>
+
+    <string name="snakeRiverSep">
+        Wet: 20-Incher, Rubberlegs, Goldan Stone, Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear, Pheasant Tail,
+        PMD Nymph, Halfback Emerger, Zebra Midge, Smoke Jumper, Sinking Ant, Mohair leech, Woolly Bugger,
+        Sculpin Patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Bullethead Skwala, J-Slam, Foam Salmonfly, Chubby Chernobyl, Golden Stone, Madam-X, EH Caddis,
+        PMD Paracripple, Renegade, Twilight Midge, Griffiths Gnat, Bionic Ant, Foam Beetle,
+        Morrish Hopper, Rusty Spinner, Sparkle Dun, Hairwing Dun
+    </string>
+
+    <string name="snakeRiverOct">
+        Wet: Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger, Simiseal Leech,Rubber Legs, Pheasant tail,
+        Hares Ear, Frenchies, Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger,
+        Hairwing Dun, Comparadun, Sparkle Dun
+    </string>
+
+    <string name="snakeRiverNov">
+        Wet: Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger, Simiseal Leech,Rubber Legs, Pheasant tail,
+        Hares Ear, Frenchies, Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+        \n \nDry: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+    </string>
+
+    <string name="snakeRiverDec">
+        Wet: Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger, Simiseal Leech,Rubber Legs, Pheasant tail,
+        Hares Ear, Frenchies, Sculpin patterns, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
+       \n \nDry: Renegade, Twilight Midge, Griffiths Gnat, Cannons Snowshoe Hare BWO Emerger, RS2 Foam Wing Emerger
+    </string>
+
+</resources>

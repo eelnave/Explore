@@ -10,15 +10,18 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import static edu.byui.cit.fishing.R.layout.list_item;
+
+
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
             private Context _context;
-    private List<String> _listDataHeader; // header titles
-    // child data in format of header title, child title
+    		private List<String> _listDataHeader; // header titles
+    		// child data in format of header title, child title
             private HashMap<String, List<String>> _listDataChild;
 
-            public ExpandableListAdapter(Context context, List<String> listDataHeader,
-                                 HashMap<String, List<String>> listChildData) {
+            ExpandableListAdapter(Context context, List<String> listDataHeader,
+					HashMap<String, List<String>> listChildData) {
                     this._context = context;
                     this._listDataHeader = listDataHeader;
                     this._listDataChild = listChildData;
@@ -44,10 +47,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                             if (convertView == null) {
                             LayoutInflater infalInflater = (LayoutInflater) this._context
                                             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                            convertView = infalInflater.inflate(R.layout.list_item, null);
+
+                                assert infalInflater != null;
+                                // this resolves the warning
+                                final ViewGroup nullParent =null;
+                                convertView = infalInflater.inflate(list_item, nullParent);
                         }
 
-                            TextView txtListChild = (TextView) convertView
+                            TextView txtListChild = convertView
                                     .findViewById(R.id.lblListItem);
 
                             txtListChild.setText(childText);
@@ -82,10 +89,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                     if (convertView == null) {
                             LayoutInflater infalInflater = (LayoutInflater) this._context
                                             .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                            convertView = infalInflater.inflate(R.layout.list_group, null);
+
+						assert infalInflater != null;
+						final ViewGroup nullParent =null;
+						convertView = infalInflater.inflate(R.layout.list_group, nullParent);
                         }
 
-                            TextView lblListHeader = (TextView) convertView
+                            TextView lblListHeader = convertView
                                     .findViewById(R.id.lblListHeader);
                     lblListHeader.setTypeface(null, Typeface.BOLD);
                     lblListHeader.setText(headerTitle);
