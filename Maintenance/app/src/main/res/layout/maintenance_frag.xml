@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ChooseVehicle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:columnCount="3">
+
+    <Button
+        android:id="@+id/b_oil"
+        style="@style/Button"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:background="@drawable/oil_change"
+        android:text="@string/oil"
+        android:textAlignment="gravity"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/b_brakes"
+        style="@style/Button"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:background="@drawable/brakes"
+        android:text="@string/brakes"
+        android:textAlignment="gravity"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/b_tires"
+        style="@style/Button"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:background="@drawable/tires"
+        android:text="@string/tires"
+        android:textAlignment="gravity"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/b_battery"
+        style="@style/Button"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:background="@drawable/battery"
+        android:text="@string/battery"
+        android:textAlignment="gravity"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/b_air_filter"
+        style="@style/Button"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:background="@drawable/air_filter"
+        android:text="@string/air_filter"
+        android:textAlignment="gravity"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/b_other_maintenance"
+        style="@style/Button"
+        android:layout_width="120dp"
+        android:layout_height="150dp"
+        android:background="@drawable/other_option"
+        android:text="@string/other_maintenance"
+        android:textAlignment="gravity"
+        android:textStyle="bold"/>
+</android.support.v7.widget.GridLayout>

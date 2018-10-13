@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.GridLayout
+
+
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
-	android:id="@+id/ChooseVehicle"
 	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	app:columnCount="3">
+	android:layout_height="match_parent"
+	android:gravity="bottom|start"
+	android:orientation="vertical">
+
+
+	<android.support.v7.widget.GridLayout
+		android:id="@+id/ChooseVehicle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:columnCount="3">
+
+
+	</android.support.v7.widget.GridLayout>
 
 	<Button
-		style="@style/VehicleButton"
-		android:text="2001 Mazda 626"/>
+		android:id="@+id/deleteButton"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:text="@string/delete"
+		app:layout_column="2"
+		app:layout_row="6"/>
 
-	<Button
-		style="@style/VehicleButton"
-		android:text="2004 Jeep Liberty"/>
+</LinearLayout>
 
-	<Button
-		style="@style/VehicleButton"
-		android:text="2011 Toyota 4 Runner"/>
 
-	<ImageButton
-		android:layout_width="0dp"
-		android:layout_height="150dp"
-		android:gravity="bottom|center_horizontal"
-		android:src="@drawable/f150"
-		android:text="2015 Ford F150"
-		android:textSize="20sp"
-		app:layout_columnWeight="1"
-		app:layout_rowWeight="1"/>
-</android.support.v7.widget.GridLayout>
+
+

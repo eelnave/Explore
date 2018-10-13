@@ -4,15 +4,18 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
+import android.widget.LinearLayout;
+
+import edu.byui.cit.maintenance.R;
 
 
 @Entity(
-		indices = {@Index(value = {"vin"}, unique = true)}
+		indices = {@Index(value = {"name"}, unique = true)}
 )
 public class Vehicle {
 	@PrimaryKey(autoGenerate = true)
 	private int vehicleID;
-
+	private String name;
 	private String vin;
 	private int year;
 	private String make;
@@ -30,6 +33,10 @@ public class Vehicle {
 	public void setVehicleID(int vehicleID) {
 		this.vehicleID = vehicleID;
 	}
+
+	public String getName() {return name;}
+
+	public void setName( String name) {this.name = name;}
 
 	public String getVin() {
 		return vin;
@@ -77,6 +84,12 @@ public class Vehicle {
 
 	public void setImage(byte[] image) {
 		this.image = image;
+	}
+
+	public void setButton() {
+		LinearLayout layout = null;;
+		layout.findViewById(R.id.ChooseVehicle);
+
 	}
 
 	@Override

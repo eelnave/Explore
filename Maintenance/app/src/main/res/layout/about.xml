@@ -98,5 +98,22 @@
 		style="@style/Contributors"
 		android:text="@string/contribsSpring2018D" />
 
+	<TextView
+		android:id="@+id/springContribs5"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="8dp"
+		android:layout_marginStart="8dp"
+		style="@style/Contributors"
+		android:text="@string/contribsSpring2018E" />
+
+	<TextView
+		android:id="@+id/logocontrib"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginBottom="8dp"
+		android:layout_marginStart="8dp"
+		android:text="@string/logo"/>
+
 
 </LinearLayout>

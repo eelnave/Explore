@@ -8,8 +8,9 @@ import android.arch.persistence.room.Query;
 import java.util.List;
 
 
+
 @Dao
-public interface VehicleDAO {
+public interface MaintenanceDAO {
 	@Query("SELECT * FROM vehicle")
 	List<Vehicle> getAll();
 
@@ -28,6 +29,8 @@ public interface VehicleDAO {
 	@Insert
 	void insertAll(Vehicle... vehicles);
 
-	@Query("DELETE FROM vehicle")
-	void deleteVehicles();
+	@Delete
+	int delete(Vehicle vehicle);
+
 }
+

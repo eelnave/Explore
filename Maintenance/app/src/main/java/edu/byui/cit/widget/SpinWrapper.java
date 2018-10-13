@@ -10,7 +10,7 @@ import android.widget.SpinnerAdapter;
 import edu.byui.cit.maintenance.MainActivity;
 
 
-abstract class SpinWrapper extends InputWrapper
+public abstract class SpinWrapper extends InputWrapper
 		implements OnItemSelectedListener {
 	private final Handler handler;
 	final Spinner spinner;
