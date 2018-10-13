@@ -7,32 +7,32 @@
         \n \n Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysFeb">
+	<string name="lowerHenrysFeb">
         Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger,
         Simiseal Leech, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         \n \n Dry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysMar">
+	<string name="lowerHenrysMar">
         Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger,
         Simiseal Leech, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         \n \nDry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysApr">
+	<string name="lowerHenrysApr">
         Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger,
         Simiseal Leech, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         \n \nDry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysMay">
+	<string name="lowerHenrysMay">
         Wet: Rubberlegs, Brown Drake, Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Mohair Leeach,
         Woolly Bugger, Simiseal Leech, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         \n \nDry: Foam Salmonfly, Chubby Chernobyl, Paradrake, Cripple, Hairwing Dun, Comparadun, Sparkle Dun, Renegade,
         Twilight Midge
     </string>
 
-    <string name="lowerHenrysJun">
+	<string name="lowerHenrysJun">
         Wet Flies: Rubberlegs, Golden Stone, Little Yellow Sloan, Yellow Sally, Nitro Caddis Pupa, Holy Grail,
         Soft Hackle, Hares Ear, Pheasant Tail, PMD Nymph, Halfback Emerger, Brown Drake, Quigley Cripple, Green Drake,
         Zebra Midge, Smoke Jumper, Mohair Leech, Woolly Bugger, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal,
@@ -41,7 +41,7 @@
         EH Caddis, PMD Paracripple, Paradrake, Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysJul">
+	<string name="lowerHenrysJul">
         Wet: Rubberlegs, Golden Stone, Little Yellow Sloan, Yellow Sally, Nitro Caddis Pupa, Holy Grail, Soft Hackle,
         Hares Ear, Pheasant Tail, PMD Nymph, Halfback Emerger, Brown Drake, Quigley Cripple, Zebra Midge, Smoke Jumper,
         Mohair Leech, Woolly Bugger, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
@@ -50,7 +50,7 @@
         Rusty Spinner, Bionic Ant, Morrish Hopper, Foam Beetle Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysAug">
+	<string name="lowerHenrysAug">
         Wet: Rubberlegs, Little Yellow Sloan, Yellow Sally, Nitro Caddis Pupa, Holy Grail, Soft Hackle, Hares Ear,
         Pheasant Tail, Zebra Midge, Smoke Jumper, Mohair Leech Wooly Bugger, Sparkle Minnow, Slumpbuster, Peanut Envy,
         Barely Legal, Sex Dungeon
@@ -58,26 +58,26 @@
         Sparkle Dun, Bionic Ant, Morrish Hopper, Foam Beetle
     </string>
 
-    <string name="lowerHenrysSep">
+	<string name="lowerHenrysSep">
         Wet: Hares Ear, Pheasant Tail, Zebra Midge, Smoke Jumper, Mohair Leach, Woolly Bugger, Simiseal Leech,
         Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         \n \nDry: Hairwing Dun, Sparkle Dun, Comparadun, Bionic Ant, Pine Ant, Madam X, Daves Hopper, Morrish Hopper,
         Foam Beetle
     </string>
 
-    <string name="lowerHenrysOct">
+	<string name="lowerHenrysOct">
         Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger,
         Simiseal Leech, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         \n \nDry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysNov">
+	<string name="lowerHenrysNov">
         Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger,
         Simiseal Leech, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         \n \nDry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge
     </string>
 
-    <string name="lowerHenrysDec">
+	<string name="lowerHenrysDec">
         Wet: Pheasant Tail, Hares Ear, Soft Hackle, Zebra Midge, Smoke Jumper, Mohair Leeach, Woolly Bugger,
         Simiseal Leech, Sparkle Minnow, Slumpbuster, Peanut Envy, Barely Legal, Sex Dungeon
         \n \nDry: Hairwing Dun, Comparadun, Sparkle Dun, Renegade, Twilight Midge

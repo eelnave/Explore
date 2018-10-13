@@ -22,6 +22,7 @@ import android.widget.Toast;
  * 2. Rewrite fly Choices.java to use a map instead of sets of switch
  *    statements.
  * 3. Add species into the choice map.
+ * 4. Remove unused files starting with unused files in the widget package.
  */
 
 public class MainActivity extends Activity {
