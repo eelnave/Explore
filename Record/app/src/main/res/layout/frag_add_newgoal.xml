@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".add_customgoal"
+	tools:layout_editor_absoluteY="81dp">
+
+	<EditText
+		android:id="@+id/goalName"
+		android:layout_width="353dp"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginStart="28dp"
+		android:layout_marginTop="24dp"
+		android:ems="10"
+		android:hint="@string/addNewGoaltxt1"
+		android:inputType="textPersonName"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+	<TextView
+		android:id="@+id/textView2"
+		android:layout_width="63dp"
+		android:layout_height="0dp"
+		android:layout_marginStart="28dp"
+		android:layout_marginTop="12dp"
+		android:text="@string/addNewGoalDate"
+		android:textAppearance="@android:style/TextAppearance.Holo.Large"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/goalName"/>
+
+	<TextView
+		android:id="@+id/textView3"
+		android:layout_width="wrap_content"
+		android:layout_height="27dp"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="16dp"
+		android:text="@string/addNewGoaltxt0"
+		android:textAppearance="@android:style/TextAppearance.Holo.Large"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"/>
+
+	<CheckBox
+		android:id="@+id/checkBoxOngoing"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="28dp"
+		android:buttonTint="@android:color/holo_blue_bright"
+		android:onClick="onCheckBoxClicked"
+		android:text="@string/addNewGoalOngoing"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+	<Button
+		android:id="@+id/submitFormButton"
+		android:layout_width="wrap_content"
+		android:layout_height="48dp"
+		android:layout_marginEnd="52dp"
+		android:layout_marginTop="16dp"
+		android:background="@android:color/holo_green_light"
+		android:text="@string/addNewGoalBtn"
+		android:textStyle="italic"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/timePicker"/>
+
+	<Spinner
+		android:id="@+id/spinner"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginEnd="8dp"
+		android:layout_marginStart="24dp"
+		android:entries="@array/frequencyChoices"
+		app:layout_constraintBottom_toBottomOf="@+id/textView2"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+	<TextView
+		android:id="@+id/textView4"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="16dp"
+		android:layout_marginTop="32dp"
+		android:text="@string/addNewGoaltxt4"
+		android:textAppearance="@android:style/TextAppearance.Holo.Large"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+
+	<TextView
+		android:id="@+id/textView12"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="64dp"
+		android:text="@string/addNewGoaltxt5"
+		android:textAppearance="@android:style/TextAppearance.Holo.Large"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="@+id/timePicker" />
+
+	<TimePicker
+		android:id="@+id/timePicker"
+		android:layout_width="231dp"
+		android:layout_height="160dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginTop="28dp"
+		android:timePickerMode="spinner"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toEndOf="@+id/textView12"
+		app:layout_constraintTop_toBottomOf="@+id/dateButton" />
+
+	<Button
+		android:id="@+id/dateButton"
+		android:layout_width="232dp"
+		android:layout_height="63dp"
+		android:layout_marginEnd="8dp"
+		android:layout_marginStart="8dp"
+		android:layout_marginTop="28dp"
+		android:background="@android:color/holo_blue_bright"
+		android:text="@string/dateButton_text"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.859"
+		app:layout_constraintStart_toEndOf="@+id/textView4"
+		app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+</android.support.constraint.ConstraintLayout>

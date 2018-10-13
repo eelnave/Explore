@@ -16,6 +16,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".add_customgoal"
+            android:label="Add New Goal" />
+
+		<activity
+			android:name=".RepeatingNotification"
+			android:label="Notification" />
+		<receiver android:name=".NotificationReceiver" />
+
     </application>
 
 </manifest>
