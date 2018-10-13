@@ -4,20 +4,36 @@ import android.app.AlarmManager;
 import android.app.FragmentTransaction;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 
 import edu.byui.cit.widget.CITFragment;
 
+
+/*
+	The idea behind this app is to give the user a simple way of creating a
+	goal and then to track it. Some features we envisioned are to send the
+	user a notification that reminds them to work on that goal and an easy
+	way to hold themselves accountable. Another feature we intended to add
+	was a graph/chart that the user can use to visually see their progress.
+
+	This is what is in the app:
+		Homelander is the main page that is where app starts at.
+		Functioning room database,
+		the app is split using fragments,
+		a functional UI,
+		Toasts that show the user what they recorded,
+		and user input.
+
+	TODO
+		Add a table to record user progress towards goals,
+		Figure out notifications,
+		figure out how to add user input to database(not hardcoded values),
+		figure out graphing data.
+ */
 
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Record";
@@ -27,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		try {
 			setContentView(R.layout.main_activity);
-
 
 			//Daily notification time, intent, and alarm manager
 			Calendar calendar = Calendar.getInstance();
@@ -51,9 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
 			//go ahead and launch the main lander fragment
 			// VERY IMPORTANT!!! THis is how we switch to the main fragment
-			if (savedInstanceState == null){
+			if (savedInstanceState == null) {
 				CITFragment frag = new home_lander();
-				FragmentTransaction trans = getFragmentManager().beginTransaction();
+				FragmentTransaction trans = getFragmentManager()
+						.beginTransaction();
 				trans.add(R.id.fragContainer, frag);
 				trans.commit();
 			}
@@ -62,12 +78,13 @@ public class MainActivity extends AppCompatActivity {
 
 		}
 		catch (Exception ex) {
-			Log.e("Record", ex.toString());
+			Log.e(TAG, ex.toString());
 		}
 	}
 
+
 	//code to handle our fragments
-	public void switchFragment(CITFragment fragment, Bundle bundle){
+	void switchFragment(CITFragment fragment, Bundle bundle) {
 		fragment.setArguments(bundle);
 		FragmentTransaction trans = getFragmentManager().beginTransaction();
 		trans.replace(R.id.fragContainer, fragment, "thing");

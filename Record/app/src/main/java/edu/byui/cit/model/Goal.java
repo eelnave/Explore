@@ -8,8 +8,6 @@ import java.util.Date;
 
 @Entity
 public class Goal {
-
-
 	public enum Type {
 		none,
 		bool,
@@ -30,12 +28,10 @@ public class Goal {
 	@PrimaryKey(autoGenerate = true)
 	private int goalID;
 
-
 	private String title;
 	private String description;
 	private Type type;
 	private Frequency frequency;
-
 	private Date start;
 	private Date end;
 
