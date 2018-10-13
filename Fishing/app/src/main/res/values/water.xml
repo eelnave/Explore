@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="water">
-        <item>Upper Henry's Fork</item>
-        <item>Lower Henry's Fork</item>
-        <item>Snake River</item>
-        <item>Teton River</item>
-        <item>Warm River</item>
-        <item>Fall River</item>
-        <!-- <item>Ashton Reservoir</item>
-         <item>Island Park Reservoir</item>
-         <item>Henry's Lake</item>
-         <item>Ririe Reservoir</item>
-         <item>Wakeside Lake</item>
-         <item>Mud Lake</item>
-         <item>Palisades Reservoir</item> -->
-     </string-array>
-
- </resources>
+	<string-array name="water">
+		<item>Upper Henry\'s Fork</item>
+		<item>Lower Henry\'s Fork</item>
+		<item>Snake River</item>
+		<item>Teton River</item>
+		<item>Warm River</item>
+		<item>Fall River</item>
+		<!-- <item>Ashton Reservoir</item>
+		 <item>Island Park Reservoir</item>
+		 <item>Henry\'s Lake</item>
+		 <item>Ririe Reservoir</item>
+		 <item>Wakeside Lake</item>
+		 <item>Mud Lake</item>
+		 <item>Palisades Reservoir</item> -->
+	</string-array>
+</resources>

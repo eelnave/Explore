@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="species">
-        <item>Rainbow Trout</item>
-        <item>Cutthroat Trout</item>
-        <item>Brown Trout</item>
-        <item>Brook trout</item>
-        <item>Lake Trout</item>
-        <item>Kokanee Salmon</item>
-        <item>Smallmouth Bass</item>
-        <item>Largemouth Bass</item>
-    </string-array>
-
+	<string-array name="species">
+		<item>Rainbow Trout</item>
+		<item>Cutthroat Trout</item>
+		<item>Brown Trout</item>
+		<item>Brook trout</item>
+		<item>Lake Trout</item>
+		<item>Kokanee Salmon</item>
+		<item>Smallmouth Bass</item>
+		<item>Largemouth Bass</item>
+	</string-array>
 </resources>

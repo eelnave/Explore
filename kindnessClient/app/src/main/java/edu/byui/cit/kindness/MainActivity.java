@@ -30,7 +30,8 @@ import edu.byui.cit.exception.ServiceException;
  *    child fragment.
  * 4. Update store presence, including app name (should it be Kindness or
  *    World Kindness or something else) and screen shots
- * 5. Store user selections from the two drop down lists into preferences.
+ * 5. Store user selections from the two drop down lists and the most recent
+ *    map zoom and center of the map into preferences.
  * 6. Change drop down list of categories into a drop down list of check
  *    boxes, so that a user can select more than one category at a time.
  * 7. Update the How To Use screen.

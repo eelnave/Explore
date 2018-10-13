@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PROJECTS="Calc360 DateApp Fishing kindnessClient Maintenance Record"
+PROJECTS="Calc360 DateApp Explore Fishing kindnessClient Maintenance Record"
 # PROJECTS="BasicJava Classes Collections Console Exceptions FileIO Simple"
 
 for proj in ${PROJECTS} ; do
