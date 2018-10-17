@@ -1,5 +1,6 @@
 package edu.byui.cit.explore;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -26,6 +27,8 @@ import android.os.Bundle;
  */
 
 public class MainActivity extends AppCompatActivity {
+	public static final String TAG = "Explore";
+	private Fragment fragHowTo, fragPrivacy, fragAbout, fragReport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

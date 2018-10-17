@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_marginEnd="5dp"
+	android:layout_marginStart="5dp">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/txtVersion"
+			style="@style/Heading2"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:text="@string/appDescr"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:text="@string/eula"/>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp">
+
+			<TextView
+				android:id="@+id/lblContribs"
+				style="@style/Heading2"
+				android:layout_alignParentStart="true"
+				android:text="@string/contribs"/>
+
+
+			<TextView
+				android:id="@+id/lblWinter2018B"
+				style="@style/Contributors"
+				android:layout_alignBottom="@+id/lblWinter2018A"
+				android:layout_alignTop="@+id/lblWinter2018A"
+				android:layout_marginStart="10dp"
+				android:layout_toEndOf="@+id/lblWinter2018A"
+				android:text="@string/contribsFall2018"/>
+		</RelativeLayout>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:text="@string/logoCredit"/>
+	</LinearLayout>
+</ScrollView>
