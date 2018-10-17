@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:compat="http://schemas.android.com/apk/res-auto">
+
+	<item
+		android:id="@+id/actHowTo"
+		android:title="@string/howTo"
+		compat:showAsAction="never"/>
+
+
+	<item
+		android:id="@+id/actAbout"
+		android:title="@string/about"
+		compat:showAsAction="never"/>
+</menu>
