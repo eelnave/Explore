@@ -8,8 +8,7 @@
 		android:title="@string/howTo"
 		compat:showAsAction="never"/>
 
-
-	<item
+    <item
 		android:id="@+id/actAbout"
 		android:title="@string/about"
 		compat:showAsAction="never"/>
