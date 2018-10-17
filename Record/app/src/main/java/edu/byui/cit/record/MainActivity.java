@@ -29,10 +29,15 @@ import edu.byui.cit.widget.CITFragment;
 		and user input.
 
 	TODO
+		comment code to make it readable
 		Add a table to record user progress towards goals,
 		Figure out notifications,
 		figure out how to add user input to database(not hardcoded values),
 		figure out graphing data.
+		fix bug: on ititial boot all words are overlapping in the upper left
+		fix bug: app crashes when "ongoing" checkbox is ticked when making a new goal
+		finish about page
+
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		try {
+
 			setContentView(R.layout.main_activity);
 
 			//Daily notification time, intent, and alarm manager
@@ -62,10 +68,17 @@ public class MainActivity extends AppCompatActivity {
 					calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,
 					pendingIntent);
 
+			//testing for noticifations
+
+			//manually make a notification
+			sendBroadcast(intent);
+
+			//end testing for notifications
+
 			//populate the main screen area with current goals
 
 			//go ahead and launch the main lander fragment
-			// VERY IMPORTANT!!! THis is how we switch to the main fragment
+			// VERY IMPORTANT! This is how we switch to the main fragment
 			if (savedInstanceState == null) {
 				CITFragment frag = new home_lander();
 				FragmentTransaction trans = getFragmentManager()
