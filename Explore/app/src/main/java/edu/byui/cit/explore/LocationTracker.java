@@ -38,7 +38,7 @@ final class LocationTracker implements LocationListener {
 
 	private LocationTracker() {
 		criteria = new Criteria();
-		criteria.setAccuracy(Criteria.ACCURACY_COARSE);
+		criteria.setAccuracy(Criteria.ACCURACY_FINE);
 		criteria.setAltitudeRequired(false);
 		criteria.setBearingRequired(false);
 		criteria.setSpeedRequired(false);
@@ -48,8 +48,8 @@ final class LocationTracker implements LocationListener {
 
 
 	void start(Context context) {
-		String permission = Manifest.permission.ACCESS_COARSE_LOCATION;
-		//		String permission = Manifest.permission.ACCESS_FINE_LOCATION;
+		//String permission = Manifest.permission.ACCESS_COARSE_LOCATION;
+		String permission = Manifest.permission.ACCESS_FINE_LOCATION;
 		if (ContextCompat.checkSelfPermission(context, permission) !=
 				PackageManager.PERMISSION_GRANTED) {
 			throw new PermissionException(
