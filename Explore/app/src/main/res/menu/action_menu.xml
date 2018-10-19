@@ -5,7 +5,7 @@
 
 	<item
 		android:id="@+id/actHowTo"
-		android:title="@string/howTo"
+		android:title=""
 		compat:showAsAction="never"/>
 
     <item
