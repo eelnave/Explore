@@ -40,12 +40,12 @@
 
 
 			<TextView
-				android:id="@+id/lblWinter2018B"
+				android:id="@+id/lblWinter2018A"
 				style="@style/Contributors"
-				android:layout_alignBottom="@+id/lblWinter2018A"
-				android:layout_alignTop="@+id/lblWinter2018A"
+				android:layout_alignBottom="@+id/lblFounders"
+				android:layout_alignTop="@+id/lblFounders"
 				android:layout_marginStart="10dp"
-				android:layout_toEndOf="@+id/lblWinter2018A"
+				android:layout_toEndOf="@+id/lblFounders"
 				android:text="@string/contribsFall2018"/>
 		</RelativeLayout>
 

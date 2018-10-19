@@ -83,60 +83,6 @@ public final class DisplayFragment extends CITFragment
 	 * once the user has
 	 * installed Google Play services and returned to the app.
 	 */
-	@Override
-	public void onMapReady(GoogleMap googleMap) {
-		try {
-			mMap = googleMap;
-
-			// Load the icons to put on the map.
-			Category.loadIcons();
-
-			// Move the camera to the user's location.
-			Context ctx = getActivity().getApplicationContext();
-			Location loc = LocationTracker.getInstance().getLocation(ctx);
-			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
-			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
-		}finally {
-
-		}
-	}
-
-
-//	private final class SingleReadHandler implements ValueEventListener {
-//		@Override
-//		public void onDataChange(DataSnapshot dataSnapshot) {
-//			try {
-//				GenericTypeIndicator<HashMap<String, Report>> type =
-//						new GenericTypeIndicator<HashMap<String, Report>>() {
-//						};
-//				HashMap<String, Report> reports = dataSnapshot.getValue(type);
-//				if (reports != null) {
-//					for (Report value : reports.values()) {
-//						MarkerOptions opts = new MarkerOptions();
-//						opts.position(new LatLng(
-//								value.getLatitude(), value.getLongitude()));
-//						opts.icon(heart);
-//						mMap.addMarker(opts);
-//					}
-//				}
-//			}
-//			catch (DatabaseException ex) {
-//				Log.e(MainActivity.TAG, ex.getMessage());
-//			}
-//			catch (Exception ex) {
-//				Log.e(MainActivity.TAG, ex.getMessage());
-//			}
-//		}
-//
-//		@Override
-//		public void onCancelled(DatabaseError error) {
-//			// Failed to read value
-//			Log.e(MainActivity.TAG, "DB error: " + error.toString());
-//		}
-//	}
-
-
-
 
 	private class SpinnerChange implements ItemSelectedListener {
 		@Override
@@ -145,8 +91,25 @@ public final class DisplayFragment extends CITFragment
 		}
 	}
 
+	@Override
+	public void onMapReady(GoogleMap googleMap) {
+		try {
+			mMap = googleMap;
+			Category.loadIcons();
+			Context ctx = getActivity().getApplicationContext();
+			Location loc = LocationTracker.getInstance().getLocation(ctx);
+			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
+			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+		}
+		catch (LocationException ex) {
+			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
+		}
+		catch (Exception ex) {
+			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
+		}
+	}
 
-	private void showIcons() {
+			private void showIcons() {
 		// Clear the map of all markers
 		mMap.clear();
 
