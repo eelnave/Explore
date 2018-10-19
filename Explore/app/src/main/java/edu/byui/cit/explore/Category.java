@@ -9,7 +9,7 @@ enum Category {
 	Bathroom(R.drawable.icon_bathroom),
 	Firewood(R.drawable.icon_firewood),
 	Lookout(R.drawable.icon_lookout),
-	MoutainBike(R.drawable.icon_mountainbike),
+	MountainBike(R.drawable.icon_mountainbike),
 	RockClimb(R.drawable.icon_rockclimb),
 	SleddingHill(R.drawable.icon_sleddinghill),
 	ChristmasTree(R.drawable.icon_christmastree),
