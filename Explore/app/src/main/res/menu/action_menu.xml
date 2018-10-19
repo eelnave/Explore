@@ -13,3 +13,4 @@
 		android:title="@string/about"
 		compat:showAsAction="never"/>
 </menu>
+ 
