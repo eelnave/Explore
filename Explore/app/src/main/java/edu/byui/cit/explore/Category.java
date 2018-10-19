@@ -6,11 +6,14 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 
 enum Category {
 	None(0),
-	Gifts(1);
-//	Service(R.drawable.service_icon),
-//	Time(R.drawable.time_icon),
-//	Touch(R.drawable.touch_icon),
-//	Words(R.drawable.words_icon)
+	Bathroom(R.drawable.icon_bathroom),
+	Firewood(R.drawable.icon_firewood),
+	Lookout(R.drawable.icon_lookout),
+	MoutainBike(R.drawable.icon_mountainbike),
+	RockClimb(R.drawable.icon_rockclimb),
+	SleddingHill(R.drawable.icon_sleddinghill),
+	ChristmasTree(R.drawable.icon_christmastree),
+	Wildfire(R.drawable.icon_wildfire);
 
 	private final int iconID;
 	private BitmapDescriptor icon;
