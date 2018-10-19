@@ -1,11 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="appName">Explore</string>
 
-	<string name="about">About</string>
-	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or
-        implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho
-        and its sponsors, employees, and students.</string>
-	<string name="contribs">Contributors</string>
+	<string name="locationError">Location Error</string>
+	<string name="locationErrMsg">In order to save location, you must enable location services on your device and grant location permissions to this app.</string>
+	<string name="unknownErrMsg">Unknown location services error. You will not be able to save location until the error is fixed.</string>
 
-	<string name="mistake">Well, this is embarrassing. Something is wrong with this part of the app, and it isn\'t working. We apologize.</string>
+	<string name="saveLocation">Save Find</string>
+	<string name="camping"></string>
+	<string name="service"></string>
+	<string name="time"></string>
+	<string name="touch"></string>
+	<string name="words"></string>
+
+	<string name="category">category</string>
+	<string name="latitude">latitude</string>
+	<string name="longitude">longitude</string>
+	<string name="thanks">Thank you for saving a discovery.</string>
+	<string name="toMap">Return to Map</string>
+
+	<string name="howTo">How to Use</string>
+	<string name="instruction1">Tap the plus icon to save a discovery near you. Or simply explore details about the discoveries of others by zooming in on the map.</string>
+	<string name="instruction2">Tap the icon that best reflects the kindness you would like to report.</string>
+	<string name="instruction3">Return to the map to see your new act of kindness added at your location.</string>
+
+	<string name="privacy">Privacy</string>
+	<string name="sharingLocation">Determining and Sharing Location</string>
+	<string name="privacyTest">This app collects your approximate GPS location while the app is active.
+		This app does not collect any other data about you or your device.
+		For example, this app does not collect your name, birth date, gender, phone number, contacts, photos, or device type.
+		The GPS data is used solely for services rendered by this app and its corresponding website and is not sold or transferred to any other entity.</string>
+
+	<string name="about">About</string>
+	<string name="appDescr">An app that allows you to save your discoveries while you explore the world. This app is designed, written, and maintained by students at Brigham Young University - Idaho.</string>
+	<string name="eula">To the fullest extent allowed by law, this software comes with no warranty, either express or implied. By installing and/or using this software you agree to hold harmless Brigham Young University - Idaho and its sponsors, employees, and students.</string>
+	<string name="feedback">Thank you for using Explore! We appreciate your comments, questions, and recommendations to help us improve this app. You can contact us through the <a>Google Play Store</a>.</string>
+	<string name="founders">Founders</string>
+	<string name="contribs">Contributors</string>
+	<string name="winter2018">Fall 2018</string>
+	<string name="logoCredit">We created the logo and icons for Explore using the free tools at <a href="https://logomakr.com">logomakr.com</a></string>
+
+	<string name="mistake">Well, this is embarrassing. Something is wrong with this page, and it isn\'t working. We apologize.</string>
+
+	<string-array name="timePeriod">
+		<item>All Time</item>
+		<item>Last Year</item>
+		<item>Last Month</item>
+		<item>Last Week</item>
+		<item>Last 24 Hours</item>
+		<item>Last Hour</item>
+	</string-array>
+
+	<string-array name="category">
+		<item>All Categories</item>
+		<item>Gifts</item>
+		<item>Service</item>
+		<item>Time</item>
+		<item>Touch</item>
+		<item>Words</item>
+	</string-array>
+	<string name="title_activity_maps">Map</string>
 </resources>
+
