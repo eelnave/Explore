@@ -29,12 +29,13 @@ import edu.byui.cit.widget.CITFragment;
 		and user input.
 
 	TODO
+		implement basic functionality for minimum viable product
 		comment code to make it readable
 		Add a table to record user progress towards goals,
 		Figure out notifications,
 		figure out how to add user input to database(not hardcoded values),
 		figure out graphing data.
-		fix bug: on ititial boot all words are overlapping in the upper left
+		fix bug: on main activity lots of words are overlapping in the upper left
 		fix bug: app crashes when "ongoing" checkbox is ticked when making a new goal
 		finish about page
 
@@ -52,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
 			//Daily notification time, intent, and alarm manager
 			Calendar calendar = Calendar.getInstance();
-//    calendar.set(Calendar.HOUR_OF_DAY, 18);
-//    calendar.set(Calendar.MINUTE, 30);
+			//    calendar.set(Calendar.HOUR_OF_DAY, 18);
+			//    calendar.set(Calendar.MINUTE, 30);
 			calendar.add(Calendar.SECOND, 5);
 
 			Intent intent = new Intent(getApplicationContext(),
@@ -62,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 					getApplicationContext(), 100, intent,
 					PendingIntent.FLAG_UPDATE_CURRENT);
 
+			//the alarm manager is used to run code while app is closed
 			AlarmManager alarmManager = (AlarmManager)getSystemService(
 					ALARM_SERVICE);
 			alarmManager.setRepeating(AlarmManager.RTC_WAKEUP,
@@ -70,10 +72,11 @@ public class MainActivity extends AppCompatActivity {
 
 			//testing for noticifations
 
-			//manually make a notification
-			sendBroadcast(intent);
+				//manually make a notification when app is opened
+				sendBroadcast(intent);
 
 			//end testing for notifications
+
 
 			//populate the main screen area with current goals
 

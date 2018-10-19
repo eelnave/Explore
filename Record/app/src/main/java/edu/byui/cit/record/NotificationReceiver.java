@@ -23,6 +23,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 				RepeatingNotification.class);
 		repeating_intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
+		//if the intent already exists, simply update it
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 100,
 				repeating_intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
@@ -39,10 +40,11 @@ public class NotificationReceiver extends BroadcastReceiver {
 				.setContentTitle("Your Goal")
 				//set the content text of notification
 				.setContentText("Did you complete it?")
-//				.setAutoCancel(true)
+				//remove when clicked
+				.setAutoCancel(true)
 				//set what happens when you click
 				.setContentIntent(pendingIntent);
-
+		//place constructed notification in status bar
 		notificationManager.notify(100, builder.build());
 	}
 }

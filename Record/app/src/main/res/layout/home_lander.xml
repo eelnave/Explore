@@ -21,11 +21,11 @@
 		<ListView
 			android:id="@+id/goalList"
 			android:layout_width="match_parent"
-			android:layout_height="250dp" />
+			android:layout_height="250dp"/>
 
 		<LinearLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
+			android:layout_height="206dp"
 			android:orientation="horizontal">
 
 			<Button
@@ -34,7 +34,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginStart="52dp"
 				android:layout_marginTop="52dp"
-				android:text="@string/Button1"/>
+				android:text="@string/newGoal"/>
 
 			<Button
 				android:id="@+id/deleteGoal"
@@ -42,7 +42,7 @@
 				android:layout_height="wrap_content"
 				android:layout_marginEnd="52dp"
 				android:layout_marginTop="52dp"
-				android:text="@string/Button2"/>
+				android:text="@string/deleteGoal"/>
 		</LinearLayout>
 
 	</LinearLayout>
@@ -57,12 +57,8 @@
 		android:tint="?android:attr/colorAccent"
 		app:backgroundTint="?android:attr/colorBackground"
 		app:layout_anchor="@id/goalList"
-		app:layout_anchorGravity="bottom|right|end" />
+		app:layout_anchorGravity="bottom|right|end" /><![CDATA[
 		app:layout_anchorGravity="bottom|right|end"/>
 
-	<TextView
-		android:id="@+id/textView"
-		android:layout_width="283dp"
-		android:layout_height="371dp"
-		android:text="TextView" />
+	]]>
 </android.support.design.widget.CoordinatorLayout>

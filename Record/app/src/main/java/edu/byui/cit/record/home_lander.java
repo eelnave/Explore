@@ -61,6 +61,7 @@ public class home_lander extends CITFragment {
 				// local copy
 				Context ctx = getActivity().getApplicationContext();
 				GoalDAO dao = AppDatabase.getInstance(ctx).getGoalDAO();
+				//this gets a list of goals from the database
 				List<Goal> myGoals = dao.getAll();
 
 				// adding hardcoded goals to app for testing purposes
