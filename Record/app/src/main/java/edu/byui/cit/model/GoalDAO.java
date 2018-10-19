@@ -7,7 +7,7 @@ import android.arch.persistence.room.Query;
 
 import java.util.List;
 
-
+//interface to interact with database
 @Dao
 public interface GoalDAO {
 	@Query("SELECT * FROM goal")

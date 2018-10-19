@@ -28,8 +28,8 @@
 	<string name="addNewGoalradio2">Daily</string>
 	<string name="addNewGoalradio3">Morning and Night</string>
 	<string name="addNewGoalBtn">Record!</string>
-	<string name="Button1">New Goal</string>
-	<string name="Button2">Delete Goal</string>
+	<string name="newGoal">New Goal</string>
+	<string name="deleteGoal">Delete Goal</string>
 
 	<string name="Textbox1">Current Goals:</string>
 	<string name="title_activity_add_eatinggoal">add_eatinggoal</string>
