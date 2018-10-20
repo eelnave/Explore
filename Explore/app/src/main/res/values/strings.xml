@@ -53,11 +53,31 @@
 
 	<string-array name="category">
 		<item>All Categories</item>
-		<item>Gifts</item>
-		<item>Service</item>
-		<item>Time</item>
-		<item>Touch</item>
-		<item>Words</item>
+		<item>Bathroom</item>
+
+		<item>Mountainbike</item>
+		<item>Rock Climbing</item>
+		<item>Sledding Hill</item>
+		<item>Camping Spot</item>
+		<item>Fishing Spot</item>
+		<item>Hiking Trail</item>
+		<item>Horseback trail</item>
+
+		<item>Berries</item>
+		<item>Christmas Tree</item>
+		<item>Firewood</item>
+
+		<item>Wildfire</item>
+		<item>Body Of Water</item>
+		<item>WaterFall</item>
+		<item>Lookout</item>
+
+		<item>Antelope</item>
+		<item>Deer</item>
+		<item>Elk</item>
+		<item>Moose</item>
+		<item>Bear</item>
+		<item>Wolf</item>
 	</string-array>
 	<string name="title_activity_maps">Map</string>
 </resources>
