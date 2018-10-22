@@ -5,7 +5,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity
+@Entity(tableName = "pin")
 public class Pin {
 
     @ColumnInfo
