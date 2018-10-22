@@ -5,7 +5,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;
 
-
+//model of a user made goal
 @Entity
 public class Goal {
 	public enum Type {
