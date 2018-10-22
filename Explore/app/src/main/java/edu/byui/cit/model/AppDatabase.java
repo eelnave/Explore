@@ -19,5 +19,5 @@ public abstract class AppDatabase extends RoomDatabase {
 		return singleton;
 	}
 
-	public abstract PinDAO getGoalDAO();
+	public abstract PinDAO getPinDAO();
 }

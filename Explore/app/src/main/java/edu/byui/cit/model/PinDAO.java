@@ -12,22 +12,6 @@ import java.util.List;
 public interface PinDAO {
 	@Query("SELECT * FROM Pin")
 	List<Pin> getAll();
-
-	@Query("SELECT * FROM Pin WHERE PinID IN (:PinIDs)")
-	List<Pin> getAllByID(int[] PinIDs);
-
-	@Query("SELECT * FROM Pin WHERE PinID = :id")
-    Pin getByID(int id);
-
+	}
 	@Insert
-	long insert(Pin Pin);
-
-	@Insert
-	void insertAll(Pin... Pins);
-
-	@Delete
-	int delete(Pin Pin);
-
-	@Query("DELETE FROM Pin")
-	void clearTable();
-}
+	public void insert

@@ -10,22 +10,22 @@ public class Pin {
 
     @ColumnInfo
     @PrimaryKey(autoGenerate=true)
-    long pinId;
+    private long pinId;
 
-    @ColumnInfo
-    String iconName;
+    @ColumnInfo(name = "icon_name")
+    private String iconName;
 
-    @ColumnInfo
-    Double latitude;
+    @ColumnInfo(name = "latitude")
+    private Double latitude;
 
-    @ColumnInfo
-    Double longitude;
+    @ColumnInfo(name = "longitude")
+    private Double longitude;
 
-    @ColumnInfo
-    Date timestamp;
+    @ColumnInfo(name = "timestamp")
+    private Date timestamp;
 
-    @ColumnInfo
-    String notes;
+    @ColumnInfo(name = "notes")
+    private String notes;
 
     public long getPinId() {
         return pinId;
