@@ -19,12 +19,15 @@ import edu.byui.cit.exception.ServiceException;
  * 1. Copy the following xml layout files and their corresponding Java
  *    files from the kindnessClient app into this app:
  *    about_frag, display_frag, main_activity, mistake_frag
+ *
  * 2. Copy the action_menu xml file from kindnessClient into this app.
  *    Remove the privacy item from the menu in this app but don't remove it
  *    from the kindnessClient.
+ *
  * 3. Look at the Room database in the Record app. Implement a Room database
  *    with one table named Pin with these columns:
  *        iconName, latitude, longitude, timestamp, notes
+ *
  * 4. Brainstorm and review a list of icons that users will choose from,
  *    including Christmas tree, firewood, bathroom, lookout, boulders,
  *    berries, fish, moose, antelope, elk, deer, wolf, bear, tent,
