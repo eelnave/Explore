@@ -47,7 +47,9 @@ public class add_customgoal extends AppCompatActivity {
 
         //set up button to be clicked
         Button submitButton = findViewById(R.id.submitFormButton);
-        submitButton.setOnClickListener(new NewGenericGoal());
+
+        //this might not be the best way to run our button
+        submitButton.setOnClickListener(new newGenericGoal());
     }
     //this code is commented out because we got rid of the radio buttons.
 //    public void onRadioButtonClicked(View view) {
@@ -84,7 +86,7 @@ public class add_customgoal extends AppCompatActivity {
         }
     }
 
-    private class NewGenericGoal implements View.OnClickListener {
+    private class newGenericGoal implements View.OnClickListener {
         @Override
         public void onClick(View submitButton){
             //put what happens when the RECORD! button is clicked.
