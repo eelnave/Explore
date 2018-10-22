@@ -59,8 +59,6 @@ public final class DisplayFragment extends CITFragment
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.display_frag, container, false);
-		spinTime = new SpinString(view, R.id.timeSpinner, new SpinnerChange());
-		spinType = new SpinString(view, R.id.typeSpinner, new SpinnerChange());
 
 		SupportMapFragment mapFrag = (SupportMapFragment)
 				getChildFragmentManager().findFragmentById(R.id.mapFrag);
@@ -84,18 +82,14 @@ public final class DisplayFragment extends CITFragment
 	 * installed Google Play services and returned to the app.
 	 */
 
-	private class SpinnerChange implements ItemSelectedListener {
-		@Override
-		public void itemSelected(SpinWrapper source, int pos, long id) {
-			showIcons();
-		}
-	}
-
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
 		try {
 			mMap = googleMap;
+			mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+
 			Category.loadIcons();
+
 			Context ctx = getActivity().getApplicationContext();
 			Location loc = LocationTracker.getInstance().getLocation(ctx);
 			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
