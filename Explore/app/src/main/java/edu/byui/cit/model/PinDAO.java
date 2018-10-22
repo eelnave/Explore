@@ -13,5 +13,4 @@ public interface PinDAO {
 	@Query("SELECT * FROM Pin")
 	List<Pin> getAll();
 	}
-	@Insert
-	public void insert
+
