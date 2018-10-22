@@ -11,8 +11,6 @@ import android.util.Log;
 import java.util.Calendar;
 
 import edu.byui.cit.widget.CITFragment;
-
-
 /*
 	The idea behind this app is to give the user a simple way of creating a
 	goal and then to track it. Some features we envisioned are to send the
@@ -38,11 +36,10 @@ import edu.byui.cit.widget.CITFragment;
 		fix bug: on main activity lots of words are overlapping in the upper left
 		fix bug: app crashes when "ongoing" checkbox is ticked when making a new goal
 		finish about page
-
  */
 
 public class MainActivity extends AppCompatActivity {
-	public static final String TAG = "Record";
+	public static final String TAG = "Goaled";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
