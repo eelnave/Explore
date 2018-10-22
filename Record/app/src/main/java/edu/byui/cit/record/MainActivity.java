@@ -35,8 +35,6 @@ import edu.byui.cit.widget.CITFragment;
 		Figure out notifications,
 		figure out how to add user input to database(not hardcoded values),
 		figure out graphing data.
-		fix bug: on main activity lots of words are overlapping in the upper left
-		fix bug: app crashes when "ongoing" checkbox is ticked when making a new goal
 		finish about page
 
  */
