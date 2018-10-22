@@ -3,10 +3,10 @@
 
 .idea/
 !.idea/gradle.xml
-!.idea/misc.xml
 !.idea/modules.xml
-!.idea/runConfigurations.xml
 !.idea/vcs.xml
+
+*.iml
 
 .externalNativeBuild
 .gradle/
@@ -23,11 +23,15 @@ local.properties
 .classpath
 .project
 
-# Windows thumbnail DB
+# Java class files
+*.class
+
+# Windows files
 Thumbs.db
 
 # OSX files
 .DS_Store
+.Spotlight-V100
 
-# Java class files
-*.class
+# Linux files
+.Trashes
