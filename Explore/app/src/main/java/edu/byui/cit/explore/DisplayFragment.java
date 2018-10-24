@@ -94,6 +94,7 @@ public final class DisplayFragment extends CITFragment
 			Location loc = LocationTracker.getInstance().getLocation(ctx);
 			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
+			mMap.moveCamera(CameraUpdateFactory.zoomTo(5));
 		}
 		catch (LocationException ex) {
 			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
@@ -113,7 +114,7 @@ public final class DisplayFragment extends CITFragment
 
 
 		// Get the user selected duration to filter the reports.
-		which = spinTime.getSelectedItemPosition();
+		// which = spinTime.getSelectedItemPosition();
 //		Duration durat;
 //		if (which == 0) {
 //			durat = Duration.AllTime;
@@ -133,4 +134,8 @@ public final class DisplayFragment extends CITFragment
 
 		}
 	}
-
+/*
+ * When we get to it this is how we will send users to get directions.
+ * we will have to send in the
+ * https://www.google.com/maps/dir/?api=1&destination=43.12345,-76.12345
+ */
