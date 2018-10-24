@@ -23,18 +23,19 @@
 			android:id="@+id/thumbnail_view"
 			android:layout_width="402dp"
 			android:layout_height="121dp"
-			android:src="@mipmap/logo"/>
+			android:src="@mipmap/logo"
+			android:contentDescription="@string/todo"/>
 
 
-		<!--<TextView-->
-			<!--android:id="@+id/About"-->
-			<!--style="@style/TitleAbout"-->
-			<!--android:layout_width="match_parent"-->
-			<!--android:layout_height="35dp"-->
-			<!--android:layout_marginBottum="10dp"-->
-			<!--android:layout_marginTop="0dp"-->
-			<!--android:src="@mipmap/logo"-->
-			<!--android:text="@string/about"/>-->
+		<TextView
+			android:id="@+id/About"
+			style="@style/TitleAbout"
+			android:layout_width="match_parent"
+			android:layout_height="35dp"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="0dp"
+			android:src="@mipmap/logo"
+			android:text="@string/about"/>
 
 		<TextView
 			android:layout_width="match_parent"
