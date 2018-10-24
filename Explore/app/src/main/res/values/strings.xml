@@ -38,7 +38,7 @@
 	<string name="founders">Founders</string>
 	<string name="contribs">Contributors</string>
 	<string name="winter2018">Fall 2018</string>
-	<string name="logoCredit">We created the logo and icons for Explore using the free tools at <a href="https://logomakr.com">logomakr.com</a></string>
+	<string name="logoCredit">Created my free logo at <a href="https://logomakr.com">LogoMakr.com</a></string>//to give proper credit must be this way in text.//
 
 	<string name="mistake">Well, this is embarrassing. Something is wrong with this page, and it isn\'t working. We apologize.</string>
 

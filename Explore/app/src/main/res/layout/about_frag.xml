@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
-	android:layout_marginEnd="5dp"
-	android:layout_marginStart="5dp">
+	android:layout_marginEnd="0dp"
+	android:layout_marginStart="0dp">
 
 	<LinearLayout
-		android:layout_width="match_parent"
+		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
 
@@ -15,11 +18,23 @@
 			android:id="@+id/txtVersion"
 			style="@style/Heading2"/>
 
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp"
-			android:text="@string/appDescr"/>
+
+		<ImageView
+			android:id="@+id/thumbnail_view"
+			android:layout_width="402dp"
+			android:layout_height="121dp"
+			android:src="@mipmap/logo"/>
+
+
+		<!--<TextView-->
+			<!--android:id="@+id/About"-->
+			<!--style="@style/TitleAbout"-->
+			<!--android:layout_width="match_parent"-->
+			<!--android:layout_height="35dp"-->
+			<!--android:layout_marginBottum="10dp"-->
+			<!--android:layout_marginTop="0dp"-->
+			<!--android:src="@mipmap/logo"-->
+			<!--android:text="@string/about"/>-->
 
 		<TextView
 			android:layout_width="match_parent"
@@ -36,14 +51,17 @@
 				android:id="@+id/lblFounders"
 				style="@style/Heading2"
 				android:layout_alignParentStart="true"
+				android:layout_alignParentTop="true"
+				android:layout_marginStart="0dp"
+				android:layout_marginTop="0dp"
 				android:text="@string/founders"/>
 
 
 			<TextView
 				android:id="@+id/lblWinter2018A"
 				style="@style/Contributors"
-				android:layout_alignBottom="@+id/lblFounders"
-				android:layout_alignTop="@+id/lblFounders"
+				android:layout_alignParentBottom="true"
+				android:layout_marginBottom="0dp"
 				android:layout_marginStart="10dp"
 				android:layout_toEndOf="@+id/lblFounders"
 				android:text="@string/contribsFall2018"/>
@@ -52,7 +70,14 @@
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/appDescr"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
 			android:layout_marginTop="10dp"
 			android:text="@string/logoCredit"/>
+
 	</LinearLayout>
 </ScrollView>
