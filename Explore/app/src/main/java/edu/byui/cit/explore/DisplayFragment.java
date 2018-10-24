@@ -86,7 +86,7 @@ public final class DisplayFragment extends CITFragment
 	public void onMapReady(GoogleMap googleMap) {
 		try {
 			mMap = googleMap;
-			mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+			mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
 			Category.loadIcons();
 
