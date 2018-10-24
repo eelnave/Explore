@@ -22,7 +22,7 @@
 		<ImageView
 			android:id="@+id/thumbnail_view"
 			android:layout_width="402dp"
-			android:layout_height="123dp"
+			android:layout_height="121dp"
 			android:src="@mipmap/logo"/>
 
 
@@ -41,12 +41,6 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="10dp"
 			android:text="@string/eula"/>
-
-		<TextView
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginTop="10dp"
-			android:text="@string/logoCredit"/>
 
 		<RelativeLayout
 			android:layout_width="match_parent"
@@ -78,6 +72,12 @@
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
 			android:text="@string/appDescr"/>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
+			android:text="@string/logoCredit"/>
 
 	</LinearLayout>
 </ScrollView>
