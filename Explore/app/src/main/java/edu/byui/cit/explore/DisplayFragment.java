@@ -59,8 +59,6 @@ public final class DisplayFragment extends CITFragment
 	protected View createView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.display_frag, container, false);
-		spinTime = new SpinString(view, R.id.timeSpinner, new SpinnerChange());
-		spinType = new SpinString(view, R.id.typeSpinner, new SpinnerChange());
 
 		SupportMapFragment mapFrag = (SupportMapFragment)
 				getChildFragmentManager().findFragmentById(R.id.mapFrag);
@@ -83,70 +81,30 @@ public final class DisplayFragment extends CITFragment
 	 * once the user has
 	 * installed Google Play services and returned to the app.
 	 */
+
 	@Override
 	public void onMapReady(GoogleMap googleMap) {
 		try {
 			mMap = googleMap;
+			mMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
 
-			// Load the icons to put on the map.
 			Category.loadIcons();
 
-			// Move the camera to the user's location.
 			Context ctx = getActivity().getApplicationContext();
 			Location loc = LocationTracker.getInstance().getLocation(ctx);
 			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
-		}finally {
-
+			mMap.moveCamera(CameraUpdateFactory.zoomTo(5));
+		}
+		catch (LocationException ex) {
+			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
+		}
+		catch (Exception ex) {
+			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
 		}
 	}
 
-
-//	private final class SingleReadHandler implements ValueEventListener {
-//		@Override
-//		public void onDataChange(DataSnapshot dataSnapshot) {
-//			try {
-//				GenericTypeIndicator<HashMap<String, Report>> type =
-//						new GenericTypeIndicator<HashMap<String, Report>>() {
-//						};
-//				HashMap<String, Report> reports = dataSnapshot.getValue(type);
-//				if (reports != null) {
-//					for (Report value : reports.values()) {
-//						MarkerOptions opts = new MarkerOptions();
-//						opts.position(new LatLng(
-//								value.getLatitude(), value.getLongitude()));
-//						opts.icon(heart);
-//						mMap.addMarker(opts);
-//					}
-//				}
-//			}
-//			catch (DatabaseException ex) {
-//				Log.e(MainActivity.TAG, ex.getMessage());
-//			}
-//			catch (Exception ex) {
-//				Log.e(MainActivity.TAG, ex.getMessage());
-//			}
-//		}
-//
-//		@Override
-//		public void onCancelled(DatabaseError error) {
-//			// Failed to read value
-//			Log.e(MainActivity.TAG, "DB error: " + error.toString());
-//		}
-//	}
-
-
-
-
-	private class SpinnerChange implements ItemSelectedListener {
-		@Override
-		public void itemSelected(SpinWrapper source, int pos, long id) {
-			showIcons();
-		}
-	}
-
-
-	private void showIcons() {
+			private void showIcons() {
 		// Clear the map of all markers
 		mMap.clear();
 
@@ -156,7 +114,7 @@ public final class DisplayFragment extends CITFragment
 
 
 		// Get the user selected duration to filter the reports.
-		which = spinTime.getSelectedItemPosition();
+		// which = spinTime.getSelectedItemPosition();
 //		Duration durat;
 //		if (which == 0) {
 //			durat = Duration.AllTime;
@@ -176,4 +134,8 @@ public final class DisplayFragment extends CITFragment
 
 		}
 	}
-
+/*
+ * When we get to it this is how we will send users to get directions.
+ * we will have to send in the
+ * https://www.google.com/maps/dir/?api=1&destination=43.12345,-76.12345
+ */

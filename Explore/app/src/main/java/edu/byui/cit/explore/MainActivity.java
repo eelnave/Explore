@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.main_activity);
 		ActivityCompat.requestPermissions(this,
-				new String[] { Manifest.permission.ACCESS_COARSE_LOCATION },
+				new String[] { Manifest.permission.ACCESS_FINE_LOCATION },
 				1);
 		Context ctx = getApplicationContext();
 		try {
@@ -81,5 +82,12 @@ public class MainActivity extends AppCompatActivity {
 		catch (Exception ex) {
 			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
 		}
+			// Create the map fragment and place it
+			// as the first fragment in this activity.
+			Fragment frag = new DisplayFragment();
+			FragmentTransaction trans = getSupportFragmentManager()
+					.beginTransaction();
+		trans.add(R.id.fragContainer, frag);
+		trans.commit();
 	}
 }

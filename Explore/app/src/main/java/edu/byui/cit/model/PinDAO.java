@@ -8,12 +8,9 @@ import android.arch.persistence.room.Query;
 import java.util.List;
 
 
-@Dao
-public interface PinDAO {
-
-	@Query("SELECT * FROM Pin")
-	List<Pin> getAll();
-	@Insert
-	public void addPin(Pin pin);
-	}
-
+//@Dao
+//public interface PinDAO {
+//	@Query("SELECT * FROM Pin")
+//	List<Pin> getAll();
+//	}
+//
