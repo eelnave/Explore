@@ -12,5 +12,14 @@ import java.util.List;
 public interface PinDAO {
 	@Query("SELECT * FROM Pin")
 	List<Pin> getAll();
+
+	@Insert
+	void insert(Pin pin);
+
+	@Delete
+	void delete(Pin pin);
+
+	@Query("DELETE FROM Pin")
+	void clearTable();
 	}
 
