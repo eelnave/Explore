@@ -13,6 +13,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -90,11 +92,21 @@ public final class DisplayFragment extends CITFragment
 
 			Category.loadIcons();
 
+
+
+			 LatLng sydney = new LatLng(-33.852, 151.211);
+			 googleMap.addMarker(new MarkerOptions().position(sydney)
+					.title("Marker in Sydney").icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_antelope)));
+
+
 			Context ctx = getActivity().getApplicationContext();
 			Location loc = LocationTracker.getInstance().getLocation(ctx);
 			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
+			googleMap.addMarker(new MarkerOptions().position(latlng).icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_person)));
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 			mMap.moveCamera(CameraUpdateFactory.zoomTo(5));
+
+
 		}
 		catch (LocationException ex) {
 			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
