@@ -2,7 +2,6 @@ package edu.byui.cit.model;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
-
 import java.util.Date;
 //begin database
 @Entity
@@ -21,13 +20,23 @@ public class Pin {
     @ColumnInfo(name = "longitude")
     private Double longitude;
 
-    @ColumnInfo(name = "timestamp")
-    private Date timestamp;
+	@ColumnInfo(name = "timestamp")
+    private Date date;
 
     @ColumnInfo(name = "notes")
     private String notes;
 
-    public long getPinId() {
+	public Pin(long pinId, String iconName, Double latitude,
+			Double longitude, Date date, String notes) {
+		this.pinId = pinId;
+		this.iconName = iconName;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.date = date;
+		this.notes = notes;
+	}
+
+	public long getPinId() {
         return pinId;
     }
 
@@ -59,14 +68,6 @@ public class Pin {
         this.longitude = longitude;
     }
 
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
     public String getNotes() {
         return notes;
     }
@@ -74,4 +75,8 @@ public class Pin {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+	public Date getDate() { return date; }
+
+	public void setDate(Date date) { this.date = date; }
 }
