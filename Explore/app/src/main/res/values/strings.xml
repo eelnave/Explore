@@ -2,6 +2,14 @@
 <resources>
 	<string name="appName">Explore</string>
 
+	//Filter Fragment
+	<string name="dialog_title">Select Locations</string>
+	<string name="ok_label">OK</string>
+	<string name="dismiss_label">Dismiss</string>
+	<string name="clear_all_label">Clear all</string>
+	<string name="set_all_label"> Select all</string>
+	//-----------------
+
 	<string name="locationError">Location Error</string>
 	<string name="locationErrMsg">In order to save location, you must enable location services on your device and grant location permissions to this app.</string>
 	<string name="unknownErrMsg">Unknown location services error. You will not be able to save location until the error is fixed.</string>
@@ -52,7 +60,6 @@
 	</string-array>
 
 	<string-array name="category">
-		<item>All Categories</item>
 		<item>Bathroom</item>
 
 		<item>Mountainbike</item>
