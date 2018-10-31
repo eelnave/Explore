@@ -103,6 +103,7 @@ public final class DisplayFragment extends CITFragment
 			Location loc = LocationTracker.getInstance().getLocation(ctx);
 			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
 			googleMap.addMarker(new MarkerOptions().position(latlng).icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_person)));
+
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 			mMap.moveCamera(CameraUpdateFactory.zoomTo(5));
 
@@ -145,9 +146,6 @@ public final class DisplayFragment extends CITFragment
 		// Populate the map with reports from the user selected category.
 
 		}
+
 	}
-/*
- * When we get to it this is how we will send users to get directions.
- * we will have to send in the
- * https://www.google.com/maps/dir/?api=1&destination=43.12345,-76.12345
- */
+

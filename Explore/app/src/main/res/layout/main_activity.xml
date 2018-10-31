@@ -11,4 +11,16 @@
 			android:layout_width="match_parent"
 			android:layout_height="match_parent"/>
 
+	<android.support.design.widget.FloatingActionButton
+		android:id="@+id/addFab"
+		android:layout_width="70dp"
+		android:layout_height="70dp"
+		android:layout_gravity="end|bottom"
+		android:layout_margin="16dp"
+		android:layout_weight="1"
+		android:clickable="true"
+		android:focusable="true"
+		app:backgroundTint="@color/fabBackground"
+		app:srcCompat="@android:drawable/ic_input_add"/>
+
 </android.support.design.widget.CoordinatorLayout>

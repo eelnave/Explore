@@ -17,7 +17,7 @@ import edu.byui.cit.exception.ServiceException;
 
 
 final class LocationTracker implements LocationListener {
-	private static final int INTERVAL = 15 * 60 * 1000;  // 15 minutes
+	private static final int INTERVAL =  15 * 60 * 1000;  // 15 minutes
 	private static final float DISTANCE = 500;  // 500 meters
 
 	private static LocationTracker singleton;

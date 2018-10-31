@@ -3,4 +3,5 @@
 	<color name="colorPrimary">#61a789</color>
 	<color name="colorPrimaryDark">#395e4e</color>
 	<color name="colorAccent">#8de99d</color>
+	<color name="fabBackground">#ff0000</color>
 </resources>
