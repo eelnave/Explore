@@ -85,7 +85,7 @@ public final class DisplayFragment extends CITFragment
 	 */
 
 	@Override
-	public void onMapReady(GoogleMap googleMap) {
+	public void onMapReady(final GoogleMap googleMap) {
 		try {
 			mMap = googleMap;
 			mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
@@ -101,12 +101,30 @@ public final class DisplayFragment extends CITFragment
 
 			Context ctx = getActivity().getApplicationContext();
 			Location loc = LocationTracker.getInstance().getLocation(ctx);
-			LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
+			final LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
 			googleMap.addMarker(new MarkerOptions().position(latlng).icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_person)));
 
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 			mMap.moveCamera(CameraUpdateFactory.zoomTo(5));
-
+			//Makes map clickable
+			mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+				@Override
+				//This function creates a clickable class
+				public void onMapClick(LatLng latLng) {
+					//creates pin options
+					MarkerOptions markerOptions = new MarkerOptions();
+					//selects the pin's location from the click
+					markerOptions.position(latLng);
+					//creates a 'title' for the pin using latitude and longitude
+					markerOptions.title(latLng.latitude + " : " + latLng.longitude);
+					//clears the map of all other pins... for some reason.
+					mMap.clear();
+					//moves camera center to pin
+					mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+					//adds pin using the options listed above
+					mMap.addMarker(markerOptions);
+				}
+			});
 
 		}
 		catch (LocationException ex) {

@@ -50,7 +50,4 @@ public class PinDAOTest{
 		assertEquals(1, all.size());
 
 	}
-
-
-
 }
