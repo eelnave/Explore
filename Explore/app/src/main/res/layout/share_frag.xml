@@ -27,16 +27,6 @@
                 android:contentDescription="@string/todo"/>
 
 
-        <TextView
-                android:id="@+id/Share"
-                style="@style/TitleAbout"
-                android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="0dp"
-                android:src="@mipmap/logo"
-                android:text="@string/share"/>
-
         <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
