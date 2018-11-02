@@ -13,16 +13,16 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 
 import edu.byui.cit.exception.LocationException;
+import edu.byui.cit.model.Pin;
+import edu.byui.cit.model.PinDAO;
 import edu.byui.cit.widget.ItemSelectedListener;
 import edu.byui.cit.widget.SpinString;
 import edu.byui.cit.widget.SpinWrapper;
@@ -83,7 +83,7 @@ public final class DisplayFragment extends CITFragment
 	 * once the user has
 	 * installed Google Play services and returned to the app.
 	 */
-
+	final Date date = new Date();
 	@Override
 	public void onMapReady(final GoogleMap googleMap) {
 		try {
@@ -92,10 +92,8 @@ public final class DisplayFragment extends CITFragment
 
 			Category.loadIcons();
 
-
-
-			 LatLng sydney = new LatLng(-33.852, 151.211);
-			 googleMap.addMarker(new MarkerOptions().position(sydney)
+			LatLng sydney = new LatLng(-33.852, 151.211);
+			googleMap.addMarker(new MarkerOptions().position(sydney)
 					.title("Marker in Sydney").icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_antelope)));
 
 
@@ -106,23 +104,32 @@ public final class DisplayFragment extends CITFragment
 
 			mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
 			mMap.moveCamera(CameraUpdateFactory.zoomTo(5));
-			//Makes map clickable
 			mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 				@Override
-				//This function creates a clickable class
 				public void onMapClick(LatLng latLng) {
-					//creates pin options
-					MarkerOptions markerOptions = new MarkerOptions();
-					//selects the pin's location from the click
-					markerOptions.position(latLng);
-					//creates a 'title' for the pin using latitude and longitude
-					markerOptions.title(latLng.latitude + " : " + latLng.longitude);
-					//clears the map of all other pins... for some reason.
-					mMap.clear();
-					//moves camera center to pin
-					mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-					//adds pin using the options listed above
-					mMap.addMarker(markerOptions);
+					clickable();
+				}
+
+				public void clickable(){
+					mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+						@Override
+						//This function creates a clickable class
+						public void onMapClick(LatLng latLng) {
+							//creates pin options
+							MarkerOptions markerOptions = new MarkerOptions();
+							markerOptions.draggable(true);
+							//selects the pin's location from the click
+							markerOptions.position(latLng);
+							//creates a 'title' for the pin using latitude and longitude
+							markerOptions.title(latLng.latitude + " : " + latLng.longitude);
+							//moves camera center to pin
+							mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+							//adds pin using the options listed above
+							mMap.addMarker(markerOptions);
+							Marker marker = mMap.addMarker(markerOptions);
+						}
+					});
+
 				}
 			});
 
@@ -134,7 +141,6 @@ public final class DisplayFragment extends CITFragment
 			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
 		}
 	}
-
 			private void showIcons() {
 		// Clear the map of all markers
 		mMap.clear();
@@ -164,6 +170,11 @@ public final class DisplayFragment extends CITFragment
 		// Populate the map with reports from the user selected category.
 
 		}
+//	public void insertPin{
+//
+//		Pin newPin = new Pin(0,"icon_antelope",clickable(marker);,latLng.longitude,date,"notes");
+//		PinDAO.insert(newPin);
+//	}
 
 	}
 
