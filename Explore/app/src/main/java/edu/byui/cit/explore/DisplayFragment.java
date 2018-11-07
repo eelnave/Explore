@@ -157,23 +157,25 @@ public final class DisplayFragment extends CITFragment
 
             });
 
-        } catch (LocationException ex) {
-            Log.e(MainActivity.TAG, "4: " + ex.getMessage());
-        } catch (Exception ex) {
-            Log.e(MainActivity.TAG, "4: " + ex.getMessage());
-        }
-    }
-    private void showIcons() {
-        // Clear the map of all markers
-        mMap.clear();
+		}
+		catch (LocationException ex) {
+			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
+		}
+		catch (Exception ex) {
+			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
+		}
+	}
+			private void showIcons() {
+		// Clear the map of all markers
+		mMap.clear();
 
-        // Get the list of reports that
-        // corresponds to the user selected category.
-        int which = spinType.getSelectedItemPosition();
+		// Get the list of reports that
+		// corresponds to the user selected category.
+		int which = spinType.getSelectedItemPosition();
 
 
-        // Get the user selected duration to filter the reports.
-        // which = spinTime.getSelectedItemPosition();
+		// Get the user selected duration to filter the reports.
+		// which = spinTime.getSelectedItemPosition();
 //		Duration durat;
 //		if (which == 0) {
 //			durat = Duration.AllTime;
@@ -182,9 +184,9 @@ public final class DisplayFragment extends CITFragment
 //			durat = Duration.get(which);
 //		}
 
-        // Create a sample report that has as its timestamp
-        // the beginning of the user selected duration.
-        long now = System.currentTimeMillis();
+		// Create a sample report that has as its timestamp
+		// the beginning of the user selected duration.
+		long now = System.currentTimeMillis();
 
 
 //		Log.i(MainActivity.TAG, "Position within list of reports: " + pos);

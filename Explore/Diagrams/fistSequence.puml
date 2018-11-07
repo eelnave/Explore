@@ -1,0 +1,9 @@
+@startuml
+User -> Display: Click plus button
+DisplayFragment -> ReportFragment
+User -> ReportFragment: Press a category button
+ReportFragment -> Report
+ReportFragment -> Firebase: Report
+ReportFragment -> ReportedFragment
+User -> ReportedFragment: Press "Return to map" button
+@enduml

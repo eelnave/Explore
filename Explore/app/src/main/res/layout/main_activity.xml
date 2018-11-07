@@ -10,7 +10,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/fragFrame">
 
         <fragment
             android:id="@+id/fragContainer"
@@ -24,17 +25,6 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/addFab"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:backgroundTint="@color/fabBackground"
-            app:srcCompat="@android:drawable/ic_input_add" />
 
     </FrameLayout>
 
