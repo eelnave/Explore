@@ -63,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
 				1);
 		Context ctx = getApplicationContext();
 
-		TextView textView = findViewById(R.id.text_view);
+//		TextView textView = findViewById(R.id.text_view);
 
-		registerForContextMenu(textView);
+//		registerForContextMenu(textView);
 
 		try {
 			// Try to start the LocationTracker early so that the
@@ -103,35 +103,35 @@ public class MainActivity extends AppCompatActivity {
 
 	// this method are the case statements of what will happen when an option is selected
 	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-    	switch (item.getItemId()) {
-			case R.id.Edit:
-				Toast.makeText(this, "Edit selected", Toast.LENGTH_SHORT).show();
-				// add edit stuff here
-				return true;
-			case R.id.Delete:
-				Toast.makeText(this, "Delete selected", Toast.LENGTH_SHORT).show();
-				// add delete stuff here
-				return true;
-			case R.id.Share:
-				Toast.makeText(this, "Share selected", Toast.LENGTH_SHORT).show();
-				// add share stuff here
-				return true;
-				default:
-					return super.onContextItemSelected(item);
-		}
-		return super.onContextItemSelected(item);
-	}
+//	public boolean onContextItemSelected(MenuItem item) {
+//    	switch (item.getItemId()) {
+//			case R.id.Edit:
+//				Toast.makeText(this, "Edit selected", Toast.LENGTH_SHORT).show();
+//				// add edit stuff here
+//				return true;
+//			case R.id.Delete:
+//				Toast.makeText(this, "Delete selected", Toast.LENGTH_SHORT).show();
+//				// add delete stuff here
+//				return true;
+//			case R.id.Share:
+//				Toast.makeText(this, "Share selected", Toast.LENGTH_SHORT).show();
+//				// add share stuff here
+//				return true;
+//				default:
+//					return super.onContextItemSelected(item);
+//		}
+//		return super.onContextItemSelected(item);
+//	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case android.R.id.home:
-				mDrawerLayout.openDrawer(GravityCompat.START);
-				return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		switch (item.getItemId()) {
+//			case android.R.id.home:
+//				mDrawerLayout.openDrawer(GravityCompat.START);
+//				return true;
+//		}
+//		return super.onOptionsItemSelected(item);
+//	}
 
 	public void onStart() {
 		super.onStart();
