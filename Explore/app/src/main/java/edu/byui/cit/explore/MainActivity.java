@@ -2,6 +2,8 @@ package edu.byui.cit.explore;
 
 import android.Manifest;
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -88,6 +90,27 @@ public class MainActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        // set item as selected to persist highlight
+                        menuItem.setChecked(true);
+                        // close drawer when item is tapped
+                        mDrawerLayout.closeDrawers();
+
+                        AboutFragment newFrag = new AboutFragment();
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                        transaction.replace(R.id.fragContainer, newFrag);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+
+                        return true;
+                    }
+                });
     }
 
     // this creates the context menu with a title

@@ -1,0 +1,87 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+(Add a Pin) as (Add)
+(Delete a Pin) as (Delete)
+(Filter Existing Pins) as (Filter)
+(Edit a Pin) as (Edit)
+(Share a Pin) as (Share)
+actor :Mrs. User: as User
+
+User --> (Start)
+
+note "Display Map/Home Screen" as SN
+(Start) -- SN
+SN --> (Add)
+SN --> (Delete)
+SN --> (Filter)
+SN --> (Edit)
+SN --> (Share)
+
+note right of (Add)
+1. User presses "+" button
+--
+2. Gray pin drops at current
+    location
+--
+3. User drags to adjust pin
+--
+4. User presses "Place Pin"
+    button
+--
+5. User is redirected to info
+    form
+--
+6. User presses "Confirm"
+    button after filling
+    out all information
+--
+7. User is redirected to
+    map at the location
+    of the pin
+end note
+
+note right of (Delete)
+1. User does a long press on
+    the pin they want to delete
+--
+2. A context menu is displayed
+    to the user
+--
+3. User selects "Delete"
+--
+4. Dialog displays asking user to
+    confirm their deletion
+--
+5. User presses "Confirm Delete"
+--
+6. Dialog disappears showing map
+    at the same location without a
+    pin
+end note
+
+note right of (Edit)
+1. User does a long press on
+    the pin they want to edit
+--
+2. A context menu is displayed
+    to the user
+--
+3. User selects "Edit"
+--
+4. User is redirected to a form
+    where they can change the
+    current data associated
+    with a pin
+--
+5. User presses "Confirm Changes"
+    button
+--
+6. User is redirected to the map
+    at the location of the edited
+    pin
+end note
+
+
+
+@enduml
