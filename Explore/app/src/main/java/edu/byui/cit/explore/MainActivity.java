@@ -2,6 +2,8 @@ package edu.byui.cit.explore;
 
 import android.Manifest;
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -63,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
 				1);
 		Context ctx = getApplicationContext();
 
-		TextView textView = findViewById(R.id.text_view);
+//		TextView textView = findViewById(R.id.text_view);
 
-		registerForContextMenu(textView);
+//		registerForContextMenu(textView);
 
 		try {
 			// Try to start the LocationTracker early so that the
@@ -88,6 +90,27 @@ public class MainActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                        // set item as selected to persist highlight
+                        menuItem.setChecked(true);
+                        // close drawer when item is tapped
+                        mDrawerLayout.closeDrawers();
+
+                        AboutFragment newFrag = new AboutFragment();
+                        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                        transaction.replace(R.id.fragContainer, newFrag);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+
+                        return true;
+                    }
+                });
     }
 
     // this creates the context menu with a title
@@ -103,35 +126,35 @@ public class MainActivity extends AppCompatActivity {
 
 	// this method are the case statements of what will happen when an option is selected
 	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-    	switch (item.getItemId()) {
-			case R.id.Edit:
-				Toast.makeText(this, "Edit selected", Toast.LENGTH_SHORT).show();
-				// add edit stuff here
-				return true;
-			case R.id.Delete:
-				Toast.makeText(this, "Delete selected", Toast.LENGTH_SHORT).show();
-				// add delete stuff here
-				return true;
-			case R.id.Share:
-				Toast.makeText(this, "Share selected", Toast.LENGTH_SHORT).show();
-				// add share stuff here
-				return true;
-				default:
-					return super.onContextItemSelected(item);
-		}
-		return super.onContextItemSelected(item);
-	}
+//	public boolean onContextItemSelected(MenuItem item) {
+//    	switch (item.getItemId()) {
+//			case R.id.Edit:
+//				Toast.makeText(this, "Edit selected", Toast.LENGTH_SHORT).show();
+//				// add edit stuff here
+//				return true;
+//			case R.id.Delete:
+//				Toast.makeText(this, "Delete selected", Toast.LENGTH_SHORT).show();
+//				// add delete stuff here
+//				return true;
+//			case R.id.Share:
+//				Toast.makeText(this, "Share selected", Toast.LENGTH_SHORT).show();
+//				// add share stuff here
+//				return true;
+//				default:
+//					return super.onContextItemSelected(item);
+//		}
+//		return super.onContextItemSelected(item);
+//	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case android.R.id.home:
-				mDrawerLayout.openDrawer(GravityCompat.START);
-				return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+//	@Override
+//	public boolean onOptionsItemSelected(MenuItem item) {
+//		switch (item.getItemId()) {
+//			case android.R.id.home:
+//				mDrawerLayout.openDrawer(GravityCompat.START);
+//				return true;
+//		}
+//		return super.onOptionsItemSelected(item);
+//	}
 
 	public void onStart() {
 		super.onStart();

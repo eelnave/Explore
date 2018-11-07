@@ -116,6 +116,7 @@ public final class DisplayFragment extends CITFragment
 						//This function creates a clickable class
 						public void onMapClick(LatLng latLng) {
 							//creates pin options
+							mMap.clear();
 							MarkerOptions markerOptions = new MarkerOptions();
 							markerOptions.draggable(true);
 							//selects the pin's location from the click
