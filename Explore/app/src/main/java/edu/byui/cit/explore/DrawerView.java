@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link drawer_view.OnFragmentInteractionListener} interface
+ * {@link DrawerView.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link drawer_view#newInstance} factory method to
+ * Use the {@link DrawerView#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class drawer_view extends Fragment {
+public class DrawerView extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +29,7 @@ public class drawer_view extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public drawer_view() {
+    public DrawerView() {
         // Required empty public constructor
     }
 
@@ -39,11 +39,11 @@ public class drawer_view extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment drawer_view.
+     * @return A new instance of fragment DrawerView.
      */
     // TODO: Rename and change types and number of parameters
-    public static drawer_view newInstance(String param1, String param2) {
-        drawer_view fragment = new drawer_view();
+    public static DrawerView newInstance(String param1, String param2) {
+        DrawerView fragment = new DrawerView();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
