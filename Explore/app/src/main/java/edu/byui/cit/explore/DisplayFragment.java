@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.PopupMenu;
+import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -108,7 +111,7 @@ public final class DisplayFragment extends CITFragment
     public void onMapReady(final GoogleMap googleMap) {
         try {
             mMap = googleMap;
-            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
             Category.loadIcons();
 
@@ -150,6 +153,8 @@ public final class DisplayFragment extends CITFragment
                             Marker marker = mMap.addMarker(markerOptions);
                             setLatitude(latLng.latitude);
                             setLongitude(latLng.longitude);
+
+
                         }
                     });
                 }
