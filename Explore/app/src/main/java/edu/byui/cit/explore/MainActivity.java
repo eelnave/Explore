@@ -18,6 +18,8 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 
 import android.view.View;
+import android.widget.Button;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 import edu.byui.cit.exception.LocationException;
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Explore";
 	private Fragment fragHowTo, fragPrivacy, fragAbout, fragReport;
     private DrawerLayout mDrawerLayout;
-
+	Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,6 +92,20 @@ public class MainActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
+
+        //create context menu to add pin
+//		button = (Button) findViewById(R.id.button);
+//        public void contextMenu{
+//            final PopupMenu popupMenu = new PopupMenu(MainActivity.this, button);
+//            popupMenu.getMenuInflater().inflate(R.menu.create_pin, popupMenu.getMenu());
+//            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//                @Override
+//                public boolean onMenuItemClick(MenuItem item) {
+//                    Toast.makeText(MainActivity.this,"" + item.getTitle(),Toast.LENGTH_SHORT).show();
+//                    return true;
+//                }
+//            });
+//        }
     }
 
     // this creates the context menu with a title
