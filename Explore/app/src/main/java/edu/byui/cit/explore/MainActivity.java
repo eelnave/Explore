@@ -95,17 +95,17 @@ public class MainActivity extends AppCompatActivity {
 
         //create context menu to add pin
 //		button = (Button) findViewById(R.id.button);
-        public void contextMenu{
-            final PopupMenu popupMenu = new PopupMenu(MainActivity.this, button);
-            popupMenu.getMenuInflater().inflate(R.menu.create_pin, popupMenu.getMenu());
-            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    Toast.makeText(MainActivity.this,"" + item.getTitle(),Toast.LENGTH_SHORT).show();
-                    return true;
-                }
-            });
-        }
+//        public void contextMenu{
+//            final PopupMenu popupMenu = new PopupMenu(MainActivity.this, button);
+//            popupMenu.getMenuInflater().inflate(R.menu.create_pin, popupMenu.getMenu());
+//            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//                @Override
+//                public boolean onMenuItemClick(MenuItem item) {
+//                    Toast.makeText(MainActivity.this,"" + item.getTitle(),Toast.LENGTH_SHORT).show();
+//                    return true;
+//                }
+//            });
+//        }
     }
 
     // this creates the context menu with a title

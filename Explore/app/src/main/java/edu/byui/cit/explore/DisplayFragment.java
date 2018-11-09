@@ -155,10 +155,10 @@ public final class DisplayFragment extends CITFragment
                             setLongitude(latLng.longitude);
 
 
+
                         }
                     });
                 }
-
 
             });
 
