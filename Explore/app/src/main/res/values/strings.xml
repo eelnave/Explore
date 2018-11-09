@@ -2,6 +2,39 @@
 <resources>
     <string name="appName">Explore</string>
 
+    // Pin Fragment ------------------------------
+    <string name="title">Title</string>
+    <string name="desc">Description</string>
+    <string name="lat">Latitude</string>
+    <string name="longit">Longitude</string>
+    <string name="date">Date</string>
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    // pin strings for images
+    <string name="antelope">Antelope</string>
+    <string name="bathroom">Bathroom</string>
+    <string name="bear">Bear</string>
+    <string name="berry">Berry</string>
+    <string name="bodyofwater">Body of Water</string>
+    <string name="camping1">Camping</string>
+    <string name="christmastree">Christmas Tree</string>
+    <string name="deer">Deer</string>
+    <string name="elk">Elk</string>
+    <string name="firewood">Firewood</string>
+    <string name="fish">Fish</string>
+    <string name="hiking">Hiking</string>
+    <string name="horse">Horse</string>
+    <string name="lookout">Lookout</string>
+    <string name="moose">Moose</string>
+    <string name="mountainbike">Mountain Bike</string>
+    <string name="person">Person</string>
+    <string name="rockclimb">Rock Climb</string>
+    <string name="sleddinghill">Sledding Hill</string>
+    <string name="waterfall2">Waterfall</string>
+    <string name="wildfire">Wild Fire</string>
+    <string name="wolf">Wolf</string>
+
+
     //Filter Fragment
     <string name="dialog_title">Select Locations</string>
     <string name="ok_label">OK</string>
