@@ -30,6 +30,8 @@ import edu.byui.cit.widget.ItemSelectedListener;
 import edu.byui.cit.widget.SpinString;
 import edu.byui.cit.widget.SpinWrapper;
 
+import static edu.byui.cit.explore.MainActivity.TAG;
+
 
 public final class DisplayFragment extends CITFragment
         implements OnMapReadyCallback {
@@ -111,7 +113,7 @@ public final class DisplayFragment extends CITFragment
     public void onMapReady(final GoogleMap googleMap) {
         try {
             mMap = googleMap;
-            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
             Category.loadIcons();
 
@@ -124,15 +126,20 @@ public final class DisplayFragment extends CITFragment
             Location loc = LocationTracker.getInstance().getLocation(ctx);
             final LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
             googleMap.addMarker(new MarkerOptions().position(latlng).icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_person)));
-
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
             mMap.moveCamera(CameraUpdateFactory.zoomTo(5));
+            mMap.setBuildingsEnabled(true);
+            mMap.setOnCameraIdleListener(new GoogleMap.OnCameraIdleListener() {
+                @Override
+                public void onCameraIdle() {
+                    Log.e(TAG,"==camera idle=="+ googleMap.getCameraPosition().target);
+                }
+            });
             mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng latLng) {
                     clickable();
                 }
-
                 public void clickable() {
                     mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                         @Override
@@ -158,16 +165,16 @@ public final class DisplayFragment extends CITFragment
 
                         }
                     });
-                }
 
+                }
             });
 
 		}
 		catch (LocationException ex) {
-			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
+			Log.e(TAG, "4: " + ex.getMessage());
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
+			Log.e(TAG, "4: " + ex.getMessage());
 		}
 	}
 			private void showIcons() {
