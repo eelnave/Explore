@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
     	super.onCreateContextMenu(menu, v, menuInfo);
 		menu.setHeaderTitle("Choose your option");
-    	getMenuInflater().inflate(R.menu.context_menu, menu);
+    	getMenuInflater().inflate(R.menu.drawer_view, menu);
 
 //		can create context mnu options based on the id of what was selected
 //		switch (v.getId)
