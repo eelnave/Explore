@@ -6,7 +6,7 @@
               android:background="@color/colorPrimary"
               android:clickable="true"
               android:focusable="true"
-              android:foreground="?attr/selectableItemBackgroundBorderless"
+              android:foreground="@drawable/nav_header"
               android:gravity="bottom"
               android:orientation="vertical"
               android:padding="16dp"
