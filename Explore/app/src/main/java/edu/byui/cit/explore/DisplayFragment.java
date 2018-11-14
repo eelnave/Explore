@@ -18,10 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.*;
 
 import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.model.Pin;
@@ -108,13 +105,34 @@ public final class DisplayFragment extends CITFragment
      * installed Google Play services and returned to the app.
      */
     final Date date = new Date();
+    Pin pin = new Pin(0,"icon_person",latitude,longitude,date,"notes");
+    PinDAO pinDAO = new PinDAO() {
+        @Override
+        public List<Pin> getAll() {
+            return null;
+        }
 
+        @Override
+        public void insert(Pin pin) {
+
+        }
+
+        @Override
+        public void delete(Pin pin) {
+
+        }
+
+        @Override
+        public void clearTable() {
+
+        }
+    };
     @Override
     public void onMapReady(final GoogleMap googleMap) {
         try {
             mMap = googleMap;
             mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-
+            pinDAO.getAll();
             Category.loadIcons();
 
             LatLng sydney = new LatLng(-33.852, 151.211);
@@ -160,7 +178,7 @@ public final class DisplayFragment extends CITFragment
                             Marker marker = mMap.addMarker(markerOptions);
                             setLatitude(latLng.latitude);
                             setLongitude(latLng.longitude);
-
+                            pinDAO.insert(pin);
 
 
                         }
@@ -199,7 +217,6 @@ public final class DisplayFragment extends CITFragment
 		// Create a sample report that has as its timestamp
 		// the beginning of the user selected duration.
 		long now = System.currentTimeMillis();
-
 
 //		Log.i(MainActivity.TAG, "Position within list of reports: " + pos);
 
