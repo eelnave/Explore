@@ -21,7 +21,7 @@
     <menu>
     <item
     android:id="@+id/nav_share"
-    android:icon="@drawable/icon_share_24"
+    android:icon="@drawable/icon_share_480"
     android:title="Share"/>
     </menu>
     </item>
