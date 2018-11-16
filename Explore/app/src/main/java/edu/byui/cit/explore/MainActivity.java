@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Explore";
 	private Fragment fragHowTo, fragPrivacy, fragAbout, fragReport;
     private DrawerLayout mDrawerLayout;
+    private Fragment aboutFragment;
 	Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 			Log.e(MainActivity.TAG, "1: " + ex.getMessage());
 		}
 
+		//Code for setting a custom toolbar with menu icon and working drawer
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
@@ -169,10 +171,35 @@ public class MainActivity extends AppCompatActivity {
 		}
 			// Create the map fragment and place it
 			// as the first fragment in this activity.
-			Fragment frag = new DisplayFragment();
-			FragmentTransaction trans = getSupportFragmentManager()
+			final Fragment frag = new DisplayFragment();
+			final FragmentTransaction trans = getSupportFragmentManager()
 					.beginTransaction();
-		trans.add(R.id.fragContainer, frag);
+		trans.add(R.id.fragFrame, frag);
 		trans.commit();
+
+		aboutFragment = new AboutFragment();
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        // set item as selected to persist highlight
+                        menuItem.setChecked(true);
+                        // close drawer when item is tapped
+                        mDrawerLayout.closeDrawers();
+
+						FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+                        switch (menuItem.getItemId()){
+							case (R.id.nav_about):{
+                        		ft.replace(R.id.fragFrame, aboutFragment);
+                        		ft.addToBackStack(null);
+								ft.commit();
+							}
+						}
+                        return true;
+                    }
+                });
 	}
 }

@@ -3,6 +3,7 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/AboutFragment"
 
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -16,15 +17,15 @@
 
 		<TextView
 			android:id="@+id/txtVersion"
-			style="@style/Heading2"/>
+			style="@style/Heading2" />
 
 
 		<ImageView
 			android:id="@+id/thumbnail_view"
 			android:layout_width="402dp"
 			android:layout_height="121dp"
-			android:src="@mipmap/logo"
-			android:contentDescription="@string/todo"/>
+			android:contentDescription="@string/todo"
+			android:src="@mipmap/logo" />
 
 
 		<TextView
@@ -32,16 +33,16 @@
 			style="@style/TitleAbout"
 			android:layout_width="match_parent"
 			android:layout_height="35dp"
-			android:layout_marginBottom="10dp"
 			android:layout_marginTop="0dp"
+			android:layout_marginBottom="10dp"
 			android:src="@mipmap/logo"
-			android:text="@string/about"/>
+			android:text="@string/about" />
 
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="10dp"
-			android:text="@string/eula"/>
+			android:text="@string/eula" />
 
 		<RelativeLayout
 			android:layout_width="match_parent"
@@ -55,36 +56,36 @@
 				android:layout_alignParentTop="true"
 				android:layout_marginStart="0dp"
 				android:layout_marginTop="0dp"
-				android:text="@string/founders"/>
+				android:text="@string/founders" />
 
 
 			<TextView
 				android:id="@+id/lblWinter2018A"
 				style="@style/Contributors"
 				android:layout_alignParentBottom="true"
-				android:layout_marginBottom="0dp"
 				android:layout_marginStart="10dp"
+				android:layout_marginBottom="0dp"
 				android:layout_toEndOf="@+id/lblFounders"
-				android:text="@string/contribsFall2018"/>
+				android:text="@string/contribsFall2018" />
 		</RelativeLayout>
 
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="5dp"
-			android:text="@string/appDescr"/>
+			android:text="@string/appDescr" />
 
 		<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:layout_marginTop="5dp"
-				android:text="@string/icons8"/>
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:text="@string/icons8" />
 
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="10dp"
-			android:text="@string/logoCredit"/>
+			android:text="@string/logoCredit" />
 
 	</LinearLayout>
 </ScrollView>
