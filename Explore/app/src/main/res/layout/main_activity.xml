@@ -23,7 +23,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#39D4B5"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
     </FrameLayout>
@@ -34,6 +34,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@layout/fragment_drawer_view" />
+		app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/drawer_view" />
 
 </android.support.v4.widget.DrawerLayout>

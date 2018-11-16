@@ -18,10 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
+import java.util.*;
 
 import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.model.Pin;
@@ -29,6 +26,8 @@ import edu.byui.cit.model.PinDAO;
 import edu.byui.cit.widget.ItemSelectedListener;
 import edu.byui.cit.widget.SpinString;
 import edu.byui.cit.widget.SpinWrapper;
+
+import static edu.byui.cit.explore.MainActivity.TAG;
 
 
 public final class DisplayFragment extends CITFragment
@@ -106,13 +105,34 @@ public final class DisplayFragment extends CITFragment
      * installed Google Play services and returned to the app.
      */
     final Date date = new Date();
+    Pin pin = new Pin(0,"icon_person",latitude,longitude,date,"notes");
+    PinDAO pinDAO = new PinDAO() {
+        @Override
+        public List<Pin> getAll() {
+            return null;
+        }
 
+        @Override
+        public void insert(Pin pin) {
+
+        }
+
+        @Override
+        public void delete(Pin pin) {
+
+        }
+
+        @Override
+        public void clearTable() {
+
+        }
+    };
     @Override
     public void onMapReady(final GoogleMap googleMap) {
         try {
             mMap = googleMap;
-            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-
+            mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            pinDAO.getAll();
             Category.loadIcons();
 
             LatLng sydney = new LatLng(-33.852, 151.211);
@@ -124,15 +144,20 @@ public final class DisplayFragment extends CITFragment
             Location loc = LocationTracker.getInstance().getLocation(ctx);
             final LatLng latlng = new LatLng(loc.getLatitude(), loc.getLongitude());
             googleMap.addMarker(new MarkerOptions().position(latlng).icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_person)));
-
             mMap.moveCamera(CameraUpdateFactory.newLatLng(latlng));
             mMap.moveCamera(CameraUpdateFactory.zoomTo(5));
+            mMap.setBuildingsEnabled(true);
+            mMap.setOnCameraIdleListener(new GoogleMap.OnCameraIdleListener() {
+                @Override
+                public void onCameraIdle() {
+                    Log.e(TAG,"==camera idle=="+ googleMap.getCameraPosition().target);
+                }
+            });
             mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng latLng) {
                     clickable();
                 }
-
                 public void clickable() {
                     mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                         @Override
@@ -153,21 +178,21 @@ public final class DisplayFragment extends CITFragment
                             Marker marker = mMap.addMarker(markerOptions);
                             setLatitude(latLng.latitude);
                             setLongitude(latLng.longitude);
-
+                            pinDAO.insert(pin);
 
 
                         }
                     });
-                }
 
+                }
             });
 
 		}
 		catch (LocationException ex) {
-			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
+			Log.e(TAG, "4: " + ex.getMessage());
 		}
 		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "4: " + ex.getMessage());
+			Log.e(TAG, "4: " + ex.getMessage());
 		}
 	}
 			private void showIcons() {
@@ -192,7 +217,6 @@ public final class DisplayFragment extends CITFragment
 		// Create a sample report that has as its timestamp
 		// the beginning of the user selected duration.
 		long now = System.currentTimeMillis();
-
 
 //		Log.i(MainActivity.TAG, "Position within list of reports: " + pos);
 
