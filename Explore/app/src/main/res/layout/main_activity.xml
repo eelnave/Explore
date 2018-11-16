@@ -8,25 +8,26 @@
     android:id="@+id/drawer_layout"
 	tools:context=".MainActivity">
 
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/fragFrame">
 
-        <fragment
+		<fragment
             android:id="@+id/fragContainer"
             android:name="edu.byui.cit.explore.DisplayFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <android.support.v7.widget.Toolbar
+		<android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="#39D4B5"
             android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
-    </FrameLayout>
+	</FrameLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
@@ -35,6 +36,8 @@
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
 		app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/drawer_view" />
+        app:menu="@menu/drawer_view" >
+
+	</android.support.design.widget.NavigationView>
 
 </android.support.v4.widget.DrawerLayout>

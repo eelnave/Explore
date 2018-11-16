@@ -2,7 +2,7 @@
 <resources>
     <string name="appName">Explore</string>
 
-    // Pin Fragment ------------------------------
+    <!-- Pin Fragment  _________________________________________________-->
     <string name="title">Title</string>
     <string name="desc">Description</string>
     <string name="lat">Latitude</string>
@@ -35,13 +35,13 @@
     <string name="wolf">Wolf</string>
 
 
-    //Filter Fragment
+    <!-- Filter Fragment ________________________________________-->
     <string name="dialog_title">Select Locations</string>
     <string name="ok_label">OK</string>
     <string name="dismiss_label">Dismiss</string>
     <string name="clear_all_label">Clear all</string>
     <string name="set_all_label"> Select all</string>
-    //-----------------
+    <!-- ____________________________________________ -->
 
     <string name="locationError">Location Error</string>
     <string name="locationErrMsg">In order to save location, you must enable location services on your device and grant location permissions to this app.</string>
@@ -106,7 +106,7 @@
         <item>Camping Spot</item>
         <item>Fishing Spot</item>
         <item>Hiking Trail</item>
-        <item>Horseback trail</item>
+        <item>Horseback Trail</item>
 
         <item>Berries</item>
         <item>Christmas Tree</item>
