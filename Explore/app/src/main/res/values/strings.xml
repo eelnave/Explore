@@ -3,6 +3,7 @@
     <string name="appName">Explore</string>
 
     <!-- Pin Fragment  _________________________________________________-->
+    <string name="pinInfo">Pin Info</string>
     <string name="title">Title</string>
     <string name="desc">Description</string>
     <string name="lat">Latitude</string>

@@ -11,12 +11,15 @@
                 android:id="@+id/nav_filter"
                 android:icon="@drawable/icon_filter_480"
                 android:title="Filter"/>
-                //android:onClick="showPopup"
+                <!-- android:onClick="showPopup" -->
         <item
                 android:id="@+id/nav_about"
                 android:icon="@drawable/icon_about_480"
-                android:title="About"
-        />
+                android:title="About" />
+        <item
+            android:id="@+id/nav_pin"
+            android:title="Pin Info" />
+        
     </group>
     <item android:title="Communication">
     <menu>

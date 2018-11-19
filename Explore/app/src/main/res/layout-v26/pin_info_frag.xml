@@ -10,23 +10,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <!-- Title ______________________________________________-->
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/title" />
 
+    <EditText
+        android:id="@+id/title1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/title" />
+
+    <!-- Description _________________________________________________-->
     <TextView
         android:id="@+id/desc"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="@string/desc" />
 
-    <Spinner
-        android:id="@+id/category"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/desc1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/category" />
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/desc" />
+
+    <!-- SPINNER pins___________________________________________________-->
+
+    <Spinner
+        android:id="@+id/pins"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:entries="@array/category"/>
 
     <TextView
         android:id="@+id/lat"
