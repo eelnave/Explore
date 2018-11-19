@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
 	private Fragment fragHowTo, fragPrivacy, fragAbout, fragReport;
     private DrawerLayout mDrawerLayout;
     private Fragment aboutFragment;
+    private Fragment pinInfoFragment;
 	Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -178,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
 		trans.commit();
 
 		aboutFragment = new AboutFragment();
+		pinInfoFragment = new PinInfoFragment();
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(
@@ -197,6 +199,12 @@ public class MainActivity extends AppCompatActivity {
                         		ft.addToBackStack(null);
 								ft.commit();
 							}
+							case (R.id.nav_pin):{
+								ft.replace(R.id.fragFrame, pinInfoFragment);
+								ft.addToBackStack(null);
+								ft.commit();
+							}
+
 						}
                         return true;
                     }
