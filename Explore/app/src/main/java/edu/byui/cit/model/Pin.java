@@ -3,7 +3,8 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 import java.util.Date;
-//begin database
+
+
 @Entity
 public class Pin {
 
@@ -15,10 +16,10 @@ public class Pin {
     private String iconName;
 
     @ColumnInfo(name = "latitude")
-    private Double latitude;
+    private double latitude;
 
     @ColumnInfo(name = "longitude")
-    private Double longitude;
+    private double longitude;
 
 	@ColumnInfo(name = "timestamp")
     private Date date;
@@ -26,8 +27,8 @@ public class Pin {
     @ColumnInfo(name = "notes")
     private String notes;
 
-	public Pin(long pinId, String iconName, Double latitude,
-			Double longitude, Date date, String notes) {
+	public Pin(String iconName, double latitude,
+			double longitude, Date date, String notes) {
 		this.pinId = pinId;
 		this.iconName = iconName;
 		this.latitude = latitude;

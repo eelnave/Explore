@@ -30,7 +30,6 @@ enum Category {
 	Wolf(R.drawable.icon_wolf);
 
 
-
 	private final int iconID;
 	private BitmapDescriptor icon;
 

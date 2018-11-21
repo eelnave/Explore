@@ -19,6 +19,7 @@ import android.view.MenuItem;
 
 import android.view.View;
 import android.widget.*;
+
 import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
@@ -51,23 +52,21 @@ import edu.byui.cit.exception.ServiceException;
 
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Explore";
-	private Fragment fragHowTo, fragPrivacy, fragAbout, fragReport;
-    private DrawerLayout mDrawerLayout;
-    private Fragment aboutFragment;
-    private Fragment pinInfoFragment;
-	Button button;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	private DrawerLayout mDrawerLayout;
+	private Fragment fragAbout, fragPinInfo;
 
-        setContentView(R.layout.main_activity);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.main_activity);
 		ActivityCompat.requestPermissions(this,
-				new String[] { Manifest.permission.ACCESS_FINE_LOCATION },
+				new String[]{ Manifest.permission.ACCESS_FINE_LOCATION },
 				1);
 		Context ctx = getApplicationContext();
 
-		FrameLayout stuff = findViewById(R.id.fragContainer);
-		registerForContextMenu(stuff);
+//		FrameLayout stuff = findViewById(R.id.fragContainer);
+//		registerForContextMenu(stuff);
 
 		try {
 			// Try to start the LocationTracker early so that the
@@ -76,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
 			LocationTracker tracker = LocationTracker.getInstance();
 			tracker.start(ctx);
 		}
-		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
+		catch (PermissionException | ServiceException | ProviderException |
+				LocationException ex) {
 			Log.e(MainActivity.TAG, "1: " + ex.getMessage());
 		}
 		catch (Exception ex) {
@@ -84,57 +84,71 @@ public class MainActivity extends AppCompatActivity {
 		}
 
 		//Code for setting a custom toolbar with menu icon and working drawer
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        ActionBar actionbar = getSupportActionBar();
-        actionbar.setDisplayHomeAsUpEnabled(true);
-        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+		Toolbar toolbar = findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+		ActionBar actionbar = getSupportActionBar();
+		actionbar.setDisplayHomeAsUpEnabled(true);
+		actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
 
-        mDrawerLayout = findViewById(R.id.drawer_layout);
+		mDrawerLayout = findViewById(R.id.drawer_layout);
 
-        //create context menu to add pin
+		//create context menu to add pin
 //		button = (Button) findViewById(R.id.button);
 //        public void contextMenu{
-//            final PopupMenu popupMenu = new PopupMenu(MainActivity.this, button);
-//            popupMenu.getMenuInflater().inflate(R.menu.create_pin, popupMenu.getMenu());
-//            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+//            final PopupMenu popupMenu = new PopupMenu(MainActivity.this,
+// button);
+//            popupMenu.getMenuInflater().inflate(R.menu.create_pin,
+// popupMenu.getMenu());
+//            popupMenu.setOnMenuItemClickListener(new PopupMenu
+// .OnMenuItemClickListener() {
 //                @Override
 //                public boolean onMenuItemClick(MenuItem item) {
-//                    Toast.makeText(MainActivity.this,"" + item.getTitle(),Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(MainActivity.this,"" + item.getTitle(),
+// Toast.LENGTH_SHORT).show();
 //                    return true;
 //                }
 //            });
 //        }
-    }
-
-    // this creates the context menu with a title
-	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-    	super.onCreateContextMenu(menu, v, menuInfo);
-		menu.setHeaderTitle("Choose your option");
-    	//getMenuInflater().inflate(R.menu.drawer_view, menu);
-    	getMenuInflater().inflate(R.menu.context_menu, menu);
 	}
 
-	// this method are the case statements of what will happen when an option is selected
+	// this creates the context menu with a title
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,
+			ContextMenu.ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		menu.setHeaderTitle("Choose your option");
+		//getMenuInflater().inflate(R.menu.drawer_view, menu);
+		getMenuInflater().inflate(R.menu.context_menu, menu);
+	}
+
+	// this method are the case statements of what will happen when an option
+	// is selected
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
-    	switch (item.getItemId()) {
+		boolean result = true;
+		switch (item.getItemId()) {
 			case R.id.edit:
-				Toast.makeText(this, "Edit selected", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "Edit selected",
+						Toast.LENGTH_SHORT).show();
 				// add edit stuff here
-				return true;
+				break;
 			case R.id.delete:
-				Toast.makeText(this, "Delete selected", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "Delete selected",
+						Toast.LENGTH_SHORT).show();
 				// add delete stuff here
-				return true;
+				break;
 			case R.id.share:
-				Toast.makeText(this, "Share selected", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "Share selected",
+						Toast.LENGTH_SHORT).show();
 				// add share stuff here
-				return true;
-				default:
-					return super.onContextItemSelected(item);
+				break;
+			default:
+				result = super.onContextItemSelected(item);
+				break;
 		}
+		View container = findViewById(R.id.fragContainer);
+		unregisterForContextMenu(container);
+		return result;
 	}
 
 	@Override
@@ -155,52 +169,55 @@ public class MainActivity extends AppCompatActivity {
 			// started in onCreate, this call will have not effect.
 			LocationTracker tracker = LocationTracker.getInstance();
 			tracker.start(getApplicationContext());
-		}
-		catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
-			// Do nothing
-			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
-		}
-		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
-		}
+
 			// Create the map fragment and place it
 			// as the first fragment in this activity.
 			final Fragment frag = new DisplayFragment();
 			final FragmentTransaction trans = getSupportFragmentManager()
 					.beginTransaction();
-		trans.add(R.id.fragFrame, frag);
-		trans.commit();
+			trans.add(R.id.fragContainer, frag);
+			trans.commit();
 
-		aboutFragment = new AboutFragment();
-		pinInfoFragment = new PinInfoFragment();
+			fragAbout = new AboutFragment();
+			fragPinInfo = new PinInfoFragment();
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(
-                new NavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        // set item as selected to persist highlight
-                        menuItem.setChecked(true);
-                        // close drawer when item is tapped
-                        mDrawerLayout.closeDrawers();
+			NavigationView navigationView = findViewById(R.id.nav_view);
+			navigationView.setNavigationItemSelectedListener(
+					new NavigationView.OnNavigationItemSelectedListener() {
+						@Override
+						public boolean onNavigationItemSelected(
+								MenuItem menuItem) {
+							// set item as selected to persist highlight
+							menuItem.setChecked(true);
+							// close drawer when item is tapped
+							mDrawerLayout.closeDrawers();
 
-						FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+							FragmentTransaction ft = getSupportFragmentManager()
+									.beginTransaction();
 
-                        switch (menuItem.getItemId()){
-							case (R.id.nav_about):{
-                        		ft.replace(R.id.fragFrame, aboutFragment);
-                        		ft.addToBackStack(null);
-								ft.commit();
+							switch (menuItem.getItemId()) {
+								case (R.id.nav_about): {
+									ft.replace(R.id.fragContainer, fragAbout);
+									ft.addToBackStack(null);
+									ft.commit();
+								}
+								case (R.id.nav_pin): {
+									ft.replace(R.id.fragContainer,
+											fragPinInfo);
+									ft.addToBackStack(null);
+									ft.commit();
+								}
 							}
-							case (R.id.nav_pin):{
-								ft.replace(R.id.fragFrame, pinInfoFragment);
-								ft.addToBackStack(null);
-								ft.commit();
-							}
-
+							return true;
 						}
-                        return true;
-                    }
-                });
+					});
+		}
+		catch (PermissionException | ServiceException | ProviderException |
+				LocationException ex) {
+			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
+		}
+		catch (Exception ex) {
+			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
+		}
 	}
 }
