@@ -153,6 +153,17 @@ public final class DisplayFragment extends CITFragment
                     Log.e(TAG,"==camera idle=="+ googleMap.getCameraPosition().target);
                 }
             });
+
+            // my stuff
+//            mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+//                @Override
+//                public boolean onMarkerClick(LatLng latLng) {
+//                    MarkerOptions markerOptions = new MarkerOptions();
+//                    markerOptions.position(latLng);
+//                    markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_person));
+//                }
+//            });
+
             mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng latLng) {
@@ -179,12 +190,21 @@ public final class DisplayFragment extends CITFragment
                             setLatitude(latLng.latitude);
                             setLongitude(latLng.longitude);
                             pinDAO.insert(pin);
-
-
                         }
+
+                        // my stuff
+//                        public void onMapLongClick(LatLng latLng) {
+//                            // this is where i need to call my onCreateContextMenu
+//                            // marker listener instead of set on map click listener
+//                            MarkerOptions markerSelect = new MarkerOptions();
+//                            markerSelect.position(latLng);
+//                        }
+
                     });
 
                 }
+
+
             });
 
 		}

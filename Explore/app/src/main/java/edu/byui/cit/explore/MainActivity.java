@@ -18,10 +18,7 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.*;
 import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
@@ -69,9 +66,8 @@ public class MainActivity extends AppCompatActivity {
 				1);
 		Context ctx = getApplicationContext();
 
-//		TextView textView = findViewById(R.id.text_view);
-
-//		registerForContextMenu(textView);
+		FrameLayout stuff = findViewById(R.id.fragContainer);
+		registerForContextMenu(stuff);
 
 		try {
 			// Try to start the LocationTracker early so that the
@@ -116,33 +112,30 @@ public class MainActivity extends AppCompatActivity {
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
     	super.onCreateContextMenu(menu, v, menuInfo);
 		menu.setHeaderTitle("Choose your option");
-    	getMenuInflater().inflate(R.menu.drawer_view, menu);
-
-//		can create context mnu options based on the id of what was selected
-//		switch (v.getId)
+    	//getMenuInflater().inflate(R.menu.drawer_view, menu);
+    	getMenuInflater().inflate(R.menu.context_menu, menu);
 	}
 
 	// this method are the case statements of what will happen when an option is selected
-//	@Override
-//	public boolean onContextItemSelected(MenuItem item) {
-//    	switch (item.getItemId()) {
-//			case R.id.Edit:
-//				Toast.makeText(this, "Edit selected", Toast.LENGTH_SHORT).show();
-//				// add edit stuff here
-//				return true;
-//			case R.id.Delete:
-//				Toast.makeText(this, "Delete selected", Toast.LENGTH_SHORT).show();
-//				// add delete stuff here
-//				return true;
-//			case R.id.Share:
-//				Toast.makeText(this, "Share selected", Toast.LENGTH_SHORT).show();
-//				// add share stuff here
-//				return true;
-//				default:
-//					return super.onContextItemSelected(item);
-//		}
-//		return super.onContextItemSelected(item);
-//	}
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+    	switch (item.getItemId()) {
+			case R.id.edit:
+				Toast.makeText(this, "Edit selected", Toast.LENGTH_SHORT).show();
+				// add edit stuff here
+				return true;
+			case R.id.delete:
+				Toast.makeText(this, "Delete selected", Toast.LENGTH_SHORT).show();
+				// add delete stuff here
+				return true;
+			case R.id.share:
+				Toast.makeText(this, "Share selected", Toast.LENGTH_SHORT).show();
+				// add share stuff here
+				return true;
+				default:
+					return super.onContextItemSelected(item);
+		}
+	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
