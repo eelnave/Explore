@@ -21,5 +21,4 @@ public interface PinDAO {
 
 	@Query("DELETE FROM Pin")
 	void clearTable();
-	}
-
+}

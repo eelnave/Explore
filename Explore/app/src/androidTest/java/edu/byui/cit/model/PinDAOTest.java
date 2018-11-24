@@ -32,7 +32,6 @@ public class PinDAOTest{
 	Double delta = 0.00001;
 	@Test
 	public void getAll() {
-		pinDAO.insert(pin0);
 		// check pin0 assertions
 		assertTrue(pin0.getPinId() > 0);
 		assertEquals(1,pin0.getPinId());
@@ -45,9 +44,24 @@ public class PinDAOTest{
 		assertEquals(date,pin0.getDate());
 		assertTrue(pin0.getNotes() == "notes");
 		// test database assertions
+		pinDAO.insert(pin0);
 
 		List<Pin> all = pinDAO.getAll();
 		assertEquals(1, all.size());
+		Pin stored = all.get(0);
+
+		//testing to see if the values got stored in pin
+		assertTrue(pin0.getPinId() > 0);
+		assertEquals(1,pin0.getPinId());
+		assertTrue(pin0.getIconName() == "pin");
+		assertEquals("pin", pin0.getIconName());
+		assertTrue(pin0.getLatitude() == 10.0);
+		assertEquals(10.0, (double)pin0.getLatitude(), delta);
+		assertTrue(pin0.getLongitude() == 15.0);
+		assertEquals(15.0, (double)pin0.getLongitude(), delta);
+		assertEquals(date,pin0.getDate());
+		assertTrue(pin0.getNotes() == "notes");
+
 
 	}
 }
