@@ -22,9 +22,6 @@ import android.view.MenuItem;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
 import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
@@ -57,10 +54,8 @@ import edu.byui.cit.exception.ServiceException;
 
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Explore";
-	private Fragment fragHowTo, fragPrivacy, fragAbout, fragReport;
+	private Fragment aboutFragment, fragReport, pinInfoFragment;
     private DrawerLayout mDrawerLayout;
-    private Fragment aboutFragment;
-    private Fragment pinInfoFragment;
 	Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
+					@NonNull
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         // set item as selected to persist highlight
                         menuItem.setChecked(true);
