@@ -2,7 +2,9 @@ package edu.byui.cit.explore;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -10,6 +12,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -93,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+		FloatingActionButton fab = findViewById(R.id.addFab);
+		fab.setOnClickListener(new ReportHandler());
 
         mDrawerLayout = findViewById(R.id.drawer_layout);
 
@@ -209,5 +214,62 @@ public class MainActivity extends AppCompatActivity {
                         return true;
                     }
                 });
+	}
+	private final class ReportHandler implements View.OnClickListener {
+		@Override
+		public void onClick(View view) {
+			try {
+				// Try to start the LocationTracker again. If it was
+				// successfully started in onCreate, this call will
+				// have no effect. If it wasn't successfully started
+				// in onCreate and can't be started here, show an
+				// AlertDialog and don't switch to the ReportFragment.
+				LocationTracker tracker = LocationTracker.getInstance();
+				tracker.start(getApplicationContext());
+
+				if (fragReport == null || fragReport.isDetached()) {
+					fragReport = new PinInfoFragment();
+				}
+				switchFragment(fragReport);
+			}
+			catch (PermissionException | ServiceException | ProviderException | LocationException ex) {
+				Log.e(MainActivity.TAG, "3: " + ex.getMessage());
+				showAlertDialog(R.string.locationError, R.string.locationErrMsg);
+			}
+			catch (Exception ex) {
+				Log.e(MainActivity.TAG, "3: " + ex.getMessage());
+				showAlertDialog(R.string.locationError, R.string.unknownErrMsg);
+			}
+		}
+	}
+	private void showAlertDialog(int titleID, int messageID) {
+		AlertDialog.Builder builder =
+				new AlertDialog.Builder(MainActivity.this,
+						android.R.style.Theme_Material_Dialog_Alert);
+		builder.setTitle(titleID)
+				.setIcon(android.R.drawable.ic_dialog_alert)
+				.setMessage(messageID)
+				.setCancelable(false)
+				.setPositiveButton(android.R.string.ok,
+						new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// When this button is clicked,
+								// just close the dialog box.
+								dialog.cancel();
+							}
+						});
+		AlertDialog alert = builder.create();
+		alert.show();
+	}
+	final void switchFragment(Fragment fragment) {
+		// Replace whatever is in the fragContainer view with
+		// fragment, and add the transaction to the back stack so
+		// that the user can navigate back.
+		FragmentTransaction trans =
+				getSupportFragmentManager().beginTransaction();
+		trans.replace(R.id.fragContainer, fragment);
+		trans.addToBackStack(null);
+		trans.commit();
 	}
 }
