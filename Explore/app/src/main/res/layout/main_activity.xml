@@ -3,10 +3,12 @@
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:id="@+id/drawer_layout"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
 	tools:context=".MainActivity">
+
+
 
 	<LinearLayout
 		android:layout_width="match_parent"
@@ -18,20 +20,43 @@
 			android:layout_width="match_parent"
 			android:layout_height="?attr/actionBarSize"
 			android:background="#39D4B5"
-			android:theme="@style/ThemeOverlay.AppCompat.ActionBar"/>
+			android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
+
 
 		<FrameLayout
-			android:id="@+id/fragContainer"
+			android:id="@+id/fragFrame"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"/>
+			android:layout_height="wrap_content">
+
+		</FrameLayout>
 	</LinearLayout>
 
-	<android.support.design.widget.NavigationView
-		android:id="@+id/nav_view"
+	<FrameLayout
+		android:id="@+id/fragContainer"
 		android:layout_width="wrap_content"
-		android:layout_height="match_parent"
-		android:layout_gravity="start"
-		android:fitsSystemWindows="true"
+		android:layout_height="wrap_content">
+
+		<android.support.design.widget.FloatingActionButton
+			android:id="@+id/addFab"
+			android:layout_width="70dp"
+			android:layout_height="70dp"
+			android:layout_gravity="end|bottom"
+			android:layout_marginEnd="16dp"
+			android:layout_marginBottom="60dp"
+			android:clickable="true"
+			android:focusable="true"
+			android:src="@drawable/plus"
+			app:backgroundTint="#39D4B5" />
+
+	</FrameLayout>
+	<android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
 		app:headerLayout="@layout/nav_header_main"
-		app:menu="@menu/drawer_view"/>
+        app:menu="@menu/drawer_view" />
+
+
 </android.support.v4.widget.DrawerLayout>
