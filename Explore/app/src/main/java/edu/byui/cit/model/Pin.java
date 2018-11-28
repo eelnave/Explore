@@ -8,24 +8,24 @@ import java.util.Date;
 @Entity
 public class Pin {
 
-    @ColumnInfo
-    @PrimaryKey(autoGenerate=true)
-    private long pinId;
+	@ColumnInfo
+	@PrimaryKey(autoGenerate=true)
+	private long pinId;
 
-    @ColumnInfo(name = "icon_name")
-    private String iconName;
+	@ColumnInfo(name = "icon_name")
+	private String iconName;
 
-    @ColumnInfo(name = "latitude")
-    private double latitude;
+	@ColumnInfo(name = "latitude")
+	private double latitude;
 
-    @ColumnInfo(name = "longitude")
-    private double longitude;
+	@ColumnInfo(name = "longitude")
+	private double longitude;
 
 	@ColumnInfo(name = "timestamp")
-    private Date date;
+	private Date date;
 
-    @ColumnInfo(name = "notes")
-    private String notes;
+	@ColumnInfo(name = "notes")
+	private String notes;
 
 	public Pin(String iconName, double latitude,
 			double longitude, Date date, String notes) {
@@ -38,44 +38,44 @@ public class Pin {
 	}
 
 	public long getPinId() {
-        return pinId;
-    }
+		return pinId;
+	}
 
-    public void setPinId(long pinId) {
-        this.pinId = pinId;
-    }
+	public void setPinId(long pinId) {
+		this.pinId = pinId;
+	}
 
-    public String getIconName() {
-        return iconName;
-    }
+	public String getIconName() {
+		return iconName;
+	}
 
-    public void setIconName(String iconName) {
-        this.iconName = iconName;
-    }
+	public void setIconName(String iconName) {
+		this.iconName = iconName;
+	}
 
-    public Double getLatitude() {
-        return latitude;
-    }
+	public Double getLatitude() {
+		return latitude;
+	}
 
-    public void setLatitude(Double latitude) {
-        this.latitude = latitude;
-    }
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
 
-    public Double getLongitude() {
-        return longitude;
-    }
+	public Double getLongitude() {
+		return longitude;
+	}
 
-    public void setLongitude(Double longitude) {
-        this.longitude = longitude;
-    }
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
 
-    public String getNotes() {
-        return notes;
-    }
+	public String getNotes() {
+		return notes;
+	}
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
 
 	public Date getDate() { return date; }
 
