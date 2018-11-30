@@ -153,8 +153,23 @@ public final class DisplayFragment extends CITFragment
 			implements GoogleMap.OnMapClickListener {
 		@Override
 		public void onMapClick(LatLng latLng) {
+			mMap.clear();
+
+			List<Pin> allPins = db().getAll();
+
+
 			MarkerOptions options = new MarkerOptions();
 //			options.draggable(true);
+			for (Pin pin : allPins) {
+				BitmapDescriptor bitmap =
+						BitmapDescriptorFactory.fromResource(R.drawable.icon_antelope);
+				options.icon(bitmap);
+				LatLng allLatLng = new LatLng(pin.getLatitude(), pin.getLongitude());
+				options.position(allLatLng);
+				options.title(allLatLng.latitude + " : " + allLatLng.longitude);
+				mMap.addMarker(options);
+			}
+
 			BitmapDescriptor bitmap =
 					BitmapDescriptorFactory.fromResource(R.drawable.icon_person);
 			options.icon(bitmap);
