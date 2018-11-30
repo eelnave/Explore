@@ -131,17 +131,22 @@ public class MainActivity extends AppCompatActivity {
 			case R.id.edit:
 				Toast.makeText(this, "Edit selected",
 						Toast.LENGTH_SHORT).show();
-				// add edit stuff here
+				// add edit stuff here. link to pin info fragment
 				break;
 			case R.id.delete:
 				Toast.makeText(this, "Delete selected",
 						Toast.LENGTH_SHORT).show();
 				// add delete stuff here
 				break;
-			case R.id.share:
-				Toast.makeText(this, "Share selected",
+//			case R.id.share:
+//				Toast.makeText(this, "Share selected",
+//						Toast.LENGTH_SHORT).show();
+//				// add share stuff here
+//				break;
+			case R.id.directions:
+				Toast.makeText(this, "Delete selected",
 						Toast.LENGTH_SHORT).show();
-				// add share stuff here
+				//  link to google direction
 				break;
 			default:
 				result = super.onContextItemSelected(item);
