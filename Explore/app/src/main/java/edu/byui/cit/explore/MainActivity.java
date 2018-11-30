@@ -179,43 +179,8 @@ public class MainActivity extends AppCompatActivity {
 			trans.add(R.id.fragContainer, frag);
 			trans.commit();
 
-			fragAbout = new AboutFragment();
-			fragPinInfo = new PinInfoFragment();
-
 			NavigationView navigationView = findViewById(R.id.nav_view);
-			navigationView.setNavigationItemSelectedListener(
-					new NavigationView.OnNavigationItemSelectedListener() {
-						@Override
-						public boolean onNavigationItemSelected(
-								MenuItem menuItem) {
-							// set item as selected to persist highlight
-							menuItem.setChecked(true);
-							// close drawer when item is tapped
-							mDrawerLayout.closeDrawers();
-
-							FragmentTransaction ft = getSupportFragmentManager()
-									.beginTransaction();
-
-							switch (menuItem.getItemId()) {
-								case (R.id.nav_about): {
-									ft.replace(R.id.fragContainer, fragAbout);
-									ft.addToBackStack(null);
-									ft.commit();
-								}
-								case (R.id.nav_pin): {
-									ft.replace(R.id.fragContainer,
-											fragPinInfo);
-									ft.addToBackStack(null);
-									ft.commit();
-								}
-								case (R.id.delete_all):{
-									DisplayFragment displayFragment = new DisplayFragment();
-									displayFragment.DeleteAllPins();
-								}
-							}
-							return true;
-						}
-					});
+			navigationView.setNavigationItemSelectedListener(new HandleNavClick());
 		}
 		catch (PermissionException | ServiceException | ProviderException |
 				LocationException ex) {
@@ -225,4 +190,43 @@ public class MainActivity extends AppCompatActivity {
 			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
 		}
 	}
+
+	private final class HandleNavClick
+			implements NavigationView.OnNavigationItemSelectedListener {
+
+	    Fragment fragAbout, fragPinInfo;
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                // set item as selected to persist highlight
+                menuItem.setChecked(true);
+                // close drawer when item is tapped
+                mDrawerLayout.closeDrawers();
+
+                FragmentTransaction ft = getSupportFragmentManager()
+                        .beginTransaction();
+
+                switch (menuItem.getItemId()) {
+                    case (R.id.nav_about): {
+                        fragAbout =  new AboutFragment();
+                        ft.replace(R.id.fragContainer, fragAbout);
+                        ft.addToBackStack(null);
+                        ft.commit();
+                        break;
+                    }
+                    case (R.id.nav_pin): {
+                        fragPinInfo = new PinInfoFragment();
+                        ft.replace(R.id.fragContainer, fragPinInfo);
+                        ft.addToBackStack(null);
+                        ft.commit();
+                        break;
+                    }
+					case (R.id.delete_all):{
+						DisplayFragment displayFragment = new DisplayFragment();
+						displayFragment.DeleteAllPins();
+					}
+                }
+                return true;
+        }
+    }
 }
