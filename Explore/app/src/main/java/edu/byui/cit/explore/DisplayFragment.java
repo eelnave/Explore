@@ -102,18 +102,29 @@ public final class DisplayFragment extends CITFragment
 			Log.e(TAG, "4: " + ex.getMessage());
 		}
 	}
+	private PinDAO db(){
+		Activity act = getActivity();
+		Context ctx = act.getApplicationContext();
+		AppDatabase db = AppDatabase.getInstance(ctx);
+		PinDAO dao = db.getPinDAO();
+		return dao;
+	}
 
+	public void DeleteAllPins(){
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				db().clearTable();
+			}
+		});
+	}
 
 	private void showAllPins() {
 		// Clear the map of all markers.
 		mMap.clear();
 
 		// Get the list of all pins that are stored currently in the database.
-		Activity act = getActivity();
-		Context ctx = act.getApplicationContext();
-		AppDatabase db = AppDatabase.getInstance(ctx);
-		PinDAO dao = db.getPinDAO();
-		List<Pin> allPins = dao.getAll();
+		List<Pin> allPins = db().getAll();
 
 		// For each pin, place a marker on the map.
 		MarkerOptions options = new MarkerOptions();
@@ -160,11 +171,7 @@ public final class DisplayFragment extends CITFragment
 			Date now = new Date();
 			Pin pin = new Pin("person",
 					latLng.latitude, latLng.longitude, now, "");
-			Activity act = getActivity();
-			Context ctx = act.getApplicationContext();
-			AppDatabase db = AppDatabase.getInstance(ctx);
-			PinDAO dao = db.getPinDAO();
-			dao.insert(pin);
+			db().insert(pin);
 		}
 	}
 

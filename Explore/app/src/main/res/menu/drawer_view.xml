@@ -19,6 +19,9 @@
         <item
             android:id="@+id/nav_pin"
             android:title="Pin Info" />
+		<item
+			android:id="@+id/delete_all"
+			android:title="@string/delete_all" />
         
     </group>
     <item android:title="Communication">
