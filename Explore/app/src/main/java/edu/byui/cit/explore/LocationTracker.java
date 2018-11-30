@@ -81,6 +81,10 @@ final class LocationTracker implements LocationListener {
 			started = true;
 
 			location = locMgr.getLastKnownLocation(provider);
+			// Currently this code only checks that the app has permission for location but doesn't check if location is actually on
+			// Write an if statement, something like if location == null then send a message
+			// Bro. Barzee doesn't think we can send a message at this part of the code, has to be displayed when the app is actually
+			// loaded.  He recommends we don't use toast.
 		}
 	}
 
