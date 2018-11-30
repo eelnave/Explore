@@ -24,6 +24,7 @@ import edu.byui.cit.exception.LocationException;
 import edu.byui.cit.exception.PermissionException;
 import edu.byui.cit.exception.ProviderException;
 import edu.byui.cit.exception.ServiceException;
+import edu.byui.cit.explore.DisplayFragment;
 
 
 /* TODO
@@ -206,6 +207,10 @@ public class MainActivity extends AppCompatActivity {
 											fragPinInfo);
 									ft.addToBackStack(null);
 									ft.commit();
+								}
+								case (R.id.delete_all):{
+									DisplayFragment displayFragment = new DisplayFragment();
+									displayFragment.DeleteAllPins();
 								}
 							}
 							return true;

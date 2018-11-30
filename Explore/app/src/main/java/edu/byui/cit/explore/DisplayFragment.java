@@ -110,6 +110,15 @@ public final class DisplayFragment extends CITFragment
 		return dao;
 	}
 
+	public void DeleteAllPins(){
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				db().clearTable();
+			}
+		});
+	}
+
 	private void showAllPins() {
 		// Clear the map of all markers.
 		mMap.clear();

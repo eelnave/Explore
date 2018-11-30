@@ -60,6 +60,7 @@
     <string name="longitude">longitude</string>
     <string name="thanks">Thank you for saving a discovery.</string>
     <string name="toMap">Return to Map</string>
+	<string name="delete_all">Delete All Pins</string>
 
     <string name="howTo">How to Use</string>
     <string name="instruction1">Tap the plus icon to save a discovery near you. Or simply explore details about the discoveries of others by zooming in on the map.</string>
