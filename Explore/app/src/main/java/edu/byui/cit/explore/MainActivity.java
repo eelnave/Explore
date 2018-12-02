@@ -13,6 +13,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -61,13 +62,12 @@ public class MainActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.main_activity);
+
+		//This is the code that asks the user to allow location services for our application
 		ActivityCompat.requestPermissions(this,
 				new String[]{ Manifest.permission.ACCESS_FINE_LOCATION },
 				1);
 		Context ctx = getApplicationContext();
-
-//		FrameLayout stuff = findViewById(R.id.fragContainer);
-//		registerForContextMenu(stuff);
 
 		try {
 			// Try to start the LocationTracker early so that the
@@ -84,33 +84,37 @@ public class MainActivity extends AppCompatActivity {
 			Log.e(MainActivity.TAG, "1: " + ex.getMessage());
 		}
 
-		//Code for setting a custom toolbar with menu icon and working drawer
-		Toolbar toolbar = findViewById(R.id.toolbar);
-		setSupportActionBar(toolbar);
-		ActionBar actionbar = getSupportActionBar();
-		actionbar.setDisplayHomeAsUpEnabled(true);
-		actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
+		//This Method is declared below and contains the code necessary for adding a custom toolbar.
+        //A custom toolbar is required for adding a hamburger icon to access the drawer.
+		CreateToolbar();
 
 		mDrawerLayout = findViewById(R.id.drawer_layout);
-
-		//create context menu to add pin
-//		button = (Button) findViewById(R.id.button);
-//        public void contextMenu{
-//            final PopupMenu popupMenu = new PopupMenu(MainActivity.this,
-// button);
-//            popupMenu.getMenuInflater().inflate(R.menu.create_pin,
-// popupMenu.getMenu());
-//            popupMenu.setOnMenuItemClickListener(new PopupMenu
-// .OnMenuItemClickListener() {
-//                @Override
-//                public boolean onMenuItemClick(MenuItem item) {
-//                    Toast.makeText(MainActivity.this,"" + item.getTitle(),
-// Toast.LENGTH_SHORT).show();
-//                    return true;
-//                }
-//            });
-//        }
 	}
+
+    public void onStart() {
+        super.onStart();
+        try {
+            // In case the LocationTracker was stopped in onStop, try to
+            // start it again. If the LocationTracker was successfully
+            // started in onCreate, this call will have not effect.
+            LocationTracker tracker = LocationTracker.getInstance();
+            tracker.start(getApplicationContext());
+
+            // Create the map fragment and place it
+            // as the first fragment in this activity.
+            final Fragment frag = new DisplayFragment();
+            final FragmentTransaction trans = getSupportFragmentManager()
+                    .beginTransaction();
+            trans.add(R.id.fragContainer, frag);
+            trans.commit();
+
+            NavigationView navigationView = findViewById(R.id.nav_view);
+            navigationView.setNavigationItemSelectedListener(new HandleNavClick());
+        }
+        catch (Exception ex) {
+            Log.e(MainActivity.TAG, "2: " + ex.getMessage());
+        }
+    }
 
 	// this creates the context menu with a title
 	@Override
@@ -167,39 +171,10 @@ public class MainActivity extends AppCompatActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void onStart() {
-		super.onStart();
-		try {
-			// In case the LocationTracker was stopped in onStop, try to
-			// start it again. If the LocationTracker was successfully
-			// started in onCreate, this call will have not effect.
-			LocationTracker tracker = LocationTracker.getInstance();
-			tracker.start(getApplicationContext());
-
-			// Create the map fragment and place it
-			// as the first fragment in this activity.
-			final Fragment frag = new DisplayFragment();
-			final FragmentTransaction trans = getSupportFragmentManager()
-					.beginTransaction();
-			trans.add(R.id.fragContainer, frag);
-			trans.commit();
-
-			NavigationView navigationView = findViewById(R.id.nav_view);
-			navigationView.setNavigationItemSelectedListener(new HandleNavClick());
-		}
-		catch (PermissionException | ServiceException | ProviderException |
-				LocationException ex) {
-			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
-		}
-		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "2: " + ex.getMessage());
-		}
-	}
-
-	private final class HandleNavClick
+    private final class HandleNavClick
 			implements NavigationView.OnNavigationItemSelectedListener {
 
-	    Fragment fragAbout, fragPinInfo;
+	    Fragment fragAbout, fragPinInfo, fragDisplay;
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -230,8 +205,23 @@ public class MainActivity extends AppCompatActivity {
 						DisplayFragment displayFragment = new DisplayFragment();
 						displayFragment.DeleteAllPins();
 					}
+                    case (R.id.return_home): {
+                        fragDisplay = new DisplayFragment();
+                        ft.replace(R.id.fragContainer, fragDisplay);
+                        ft.addToBackStack(null);
+                        ft.commit();
+                        break;
+                    }
                 }
                 return true;
         }
+    }
+
+    private void CreateToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+        actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
     }
 }
