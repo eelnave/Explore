@@ -5,12 +5,18 @@
     <!-- Pin Fragment  _________________________________________________-->
     <string name="pinInfo">Pin Info</string>
     <string name="title">Title</string>
+    <string name="title1">Enter a Title for Your Pin.</string>
     <string name="desc">Description</string>
+    <string name="desc1">Enter a Description for Your Pin. </string>
     <string name="lat">Latitude</string>
+    <string name="latExample">43.8231° N</string>
     <string name="longit">Longitude</string>
+    <string name="longitExample">111.7924° W</string>111.7924°
     <string name="date">Date</string>
+    <string name="dateExample">11/30/2018</string>
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>
+    <string name="pin">Select A Pin</string>
     // pin strings for images
     <string name="antelope">Antelope</string>
     <string name="bathroom">Bathroom</string>

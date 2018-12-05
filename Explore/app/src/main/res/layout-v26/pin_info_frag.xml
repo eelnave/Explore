@@ -5,90 +5,117 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <!-- Title ______________________________________________-->
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/title" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="@string/title"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
 
     <EditText
-        android:id="@+id/title1"
-        android:layout_width="match_parent"
+        android:id="@+id/titleEdit"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/title"
-        android:inputType="" />
+        android:ems="20"
+        android:textSize="18sp"
+        android:hint="@string/title1"
+        android:inputType=""/>
 
-    <!-- Description _________________________________________________-->
     <TextView
         android:id="@+id/desc"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/desc" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="@string/desc"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
 
     <EditText
         android:id="@+id/desc1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="12dp"
         android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/desc"
+        android:ems="20"
+        android:textSize="18sp"
+        android:hint="@string/desc1"
         android:inputType="" />
 
-    <!-- SPINNER pins___________________________________________________-->
+    <TextView
+        android:id="@+id/pin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="@string/pin"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
 
     <Spinner
         android:id="@+id/pins"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:entries="@array/category"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/category" />
 
     <TextView
         android:id="@+id/lat"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="@string/lat" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="@string/lat"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
+
+    <TextView
+        android:id="@+id/latExample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="@string/latExample"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/longit"
-        android:layout_width="match_parent"
-        android:layout_height="29dp"
-        android:text="@string/longit" />
-
-    <EditText
-        android:id="@+id/date"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/date"
-        android:inputType="date" />
+        android:layout_margin="12dp"
+        android:text="@string/longit"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+    <TextView
+        android:id="@+id/longitExample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="@string/longitExample"
+        android:textSize="18sp" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="190dp"
-            android:layout_height="wrap_content"
-            android:text="@string/confirm"
-            tools:ignore="ButtonStyle" />
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="@string/date"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="193dp"
-            android:layout_height="match_parent"
-            android:text="@string/cancel"
-            tools:ignore="ButtonStyle" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/dateExample"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:text="@string/dateExample"
+        android:textSize="18sp" />
 
 </LinearLayout>
