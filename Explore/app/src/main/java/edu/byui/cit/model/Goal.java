@@ -6,6 +6,8 @@ import android.arch.persistence.room.PrimaryKey;
 import java.util.Date;
 
 
+//we used this class to figure out our Pin.java class.  This class does not
+// get used and is only here for information.
 @Entity
 public class Goal {
 	public enum Type {
