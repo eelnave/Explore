@@ -105,51 +105,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-	// this creates the context menu with a title
-	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenu.ContextMenuInfo menuInfo) {
-		super.onCreateContextMenu(menu, v, menuInfo);
-		menu.setHeaderTitle("Choose your option");
-		//getMenuInflater().inflate(R.menu.drawer_view, menu);
-		getMenuInflater().inflate(R.menu.context_menu, menu);
-	}
-
-	// this method are the case statements of what will happen when an option
-	// is selected
-	@Override
-	public boolean onContextItemSelected(MenuItem item) {
-		boolean result = true;
-		switch (item.getItemId()) {
-			case R.id.edit:
-				Toast.makeText(this, "Edit selected",
-						Toast.LENGTH_SHORT).show();
-				// add edit stuff here. link to pin info fragment
-				break;
-			case R.id.delete:
-				Toast.makeText(this, "Delete selected",
-						Toast.LENGTH_SHORT).show();
-				// add delete stuff here
-				break;
-//			case R.id.share:
-//				Toast.makeText(this, "Share selected",
-//						Toast.LENGTH_SHORT).show();
-//				// add share stuff here
-//				break;
-			case R.id.directions:
-				Toast.makeText(this, "Delete selected",
-						Toast.LENGTH_SHORT).show();
-				//  link to google direction
-				break;
-			default:
-				result = super.onContextItemSelected(item);
-				break;
-		}
-		View container = findViewById(R.id.fragContainer);
-		unregisterForContextMenu(container);
-		return result;
-	}
-
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -159,6 +114,51 @@ public class MainActivity extends AppCompatActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+    // this creates the context menu with a title
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.setHeaderTitle("Choose your option");
+        //getMenuInflater().inflate(R.menu.drawer_view, menu);
+        getMenuInflater().inflate(R.menu.context_menu, menu);
+    }
+
+    // this method are the case statements of what will happen when an option
+    // is selected
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        boolean result = true;
+        switch (item.getItemId()) {
+            case R.id.edit:
+                Toast.makeText(this, "Edit selected",
+                        Toast.LENGTH_SHORT).show();
+                // add edit stuff here. link to pin info fragment
+                break;
+            case R.id.delete:
+                Toast.makeText(this, "Delete selected",
+                        Toast.LENGTH_SHORT).show();
+                // add delete stuff here
+                break;
+//			case R.id.share:
+//				Toast.makeText(this, "Share selected",
+//						Toast.LENGTH_SHORT).show();
+//				// add share stuff here
+//				break;
+            case R.id.directions:
+                Toast.makeText(this, "Delete selected",
+                        Toast.LENGTH_SHORT).show();
+                //  link to google direction
+                break;
+            default:
+                result = super.onContextItemSelected(item);
+                break;
+        }
+        View container = findViewById(R.id.fragContainer);
+        unregisterForContextMenu(container);
+        return result;
+    }
 
     private final class HandleNavClick
 			implements NavigationView.OnNavigationItemSelectedListener {
@@ -216,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
     //the user back to the very top. Setting it as "up" enabled allows the user to go one page at a time
     //using the back button. We use this method so we can hijack the back button, turn it into
     //hamburger icon and add our drawer menu. The fifth line is what changes the icon.
+
     private void createToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
