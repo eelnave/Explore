@@ -1,6 +1,7 @@
 package edu.byui.cit.explore;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -19,6 +20,11 @@ import android.view.MenuItem;
 
 import android.view.View;
 import android.widget.*;
+
+import com.google.android.gms.maps.model.Marker;
+
+import edu.byui.cit.model.AppDatabase;
+import edu.byui.cit.model.PinDAO;
 
 
 /* TODO
@@ -48,9 +54,15 @@ import android.widget.*;
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Explore";
 	private DrawerLayout mDrawerLayout;
-	private Fragment fragDisplay, fragAbout, fragPinInfo;
+	private DisplayFragment fragDisplay;
+	private Fragment fragAbout, fragPinInfo;
+	private Marker clickedMarker;
 
-	@Override
+    public void setClickedMarker(Marker clickedMarker) {
+        this.clickedMarker = clickedMarker;
+    }
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -129,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
     // is selected
     @Override
     public boolean onContextItemSelected(MenuItem item) {
+
         boolean result = true;
         switch (item.getItemId()) {
             case R.id.edit:
@@ -137,15 +150,9 @@ public class MainActivity extends AppCompatActivity {
                 // add edit stuff here. link to pin info fragment
                 break;
             case R.id.delete:
-                Toast.makeText(this, "Delete selected",
-                        Toast.LENGTH_SHORT).show();
-                // add delete stuff here
+                db().deletePin(clickedMarker.getPosition().latitude, clickedMarker.getPosition().longitude);
+                fragDisplay.showAllPins();
                 break;
-//			case R.id.share:
-//				Toast.makeText(this, "Share selected",
-//						Toast.LENGTH_SHORT).show();
-//				// add share stuff here
-//				break;
             case R.id.directions:
                 Toast.makeText(this, "Delete selected",
                         Toast.LENGTH_SHORT).show();
@@ -158,6 +165,13 @@ public class MainActivity extends AppCompatActivity {
         View container = findViewById(R.id.fragContainer);
         unregisterForContextMenu(container);
         return result;
+    }
+
+    private PinDAO db(){
+        Context ctx = getApplicationContext();
+        AppDatabase db = AppDatabase.getInstance(ctx);
+        PinDAO dao = db.getPinDAO();
+        return dao;
     }
 
     private final class HandleNavClick
@@ -230,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
 	//in and out of a single FrameLayout is much less computing power than many entirely new
 	//activities being loaded each time. There's a tutorial that goes through the details of what
 	//each line of this method does at https://developer.android.com/guide/components/fragments#java
+
 	private void replaceCurrentFragmentWith(Fragment fragment){
 		final FragmentTransaction swapper = getSupportFragmentManager()
 				.beginTransaction();

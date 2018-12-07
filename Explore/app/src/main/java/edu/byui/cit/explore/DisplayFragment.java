@@ -1,13 +1,17 @@
 package edu.byui.cit.explore;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.content.Context;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -119,7 +123,7 @@ public final class DisplayFragment extends CITFragment
 		});
 	}
 
-	private void showAllPins() {
+	void showAllPins() {
 		// Clear the map of all markers.
 		mMap.clear();
 
@@ -139,7 +143,6 @@ public final class DisplayFragment extends CITFragment
 		}
 	}
 
-
 	private final class HandleCameraIdle
 			implements GoogleMap.OnCameraIdleListener {
 		@Override
@@ -147,7 +150,6 @@ public final class DisplayFragment extends CITFragment
 			Log.e(TAG, "==camera idle==" + mMap.getCameraPosition().target);
 		}
 	}
-
 
 	private final class HandleMapClick
 			implements GoogleMap.OnMapClickListener {
@@ -190,13 +192,13 @@ public final class DisplayFragment extends CITFragment
 		}
 	}
 
-
 	private final class HandleMarkerClick
 			implements GoogleMap.OnMarkerClickListener {
 		@Override
 		public boolean onMarkerClick(Marker marker) {
-			Activity act = getActivity();
+			MainActivity act = (MainActivity) getActivity();
 			View container = act.findViewById(R.id.fragContainer);
+			act.setClickedMarker(marker);
 			act.registerForContextMenu(container);
 			act.openContextMenu(container);
 			return true;

@@ -5,6 +5,8 @@ import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.List;
 
 
@@ -37,6 +39,9 @@ public interface PinDAO {
 	//By now, you should probably understand what delete means.  You're in CIT 360.  Figure it out.
 	@Delete
 	void delete(Pin pin);
+
+	@Query("DELETE FROM Pin WHERE latitude = :latitude AND longitude = :longitude")
+	void deletePin(double latitude, double longitude);
 
 	//This is the delete all query.  It takes everything from the Pin table and deletes it all.
 	@Query("DELETE FROM Pin")
