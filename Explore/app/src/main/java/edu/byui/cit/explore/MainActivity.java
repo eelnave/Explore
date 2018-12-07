@@ -132,23 +132,18 @@ public class MainActivity extends AppCompatActivity {
         boolean result = true;
         switch (item.getItemId()) {
             case R.id.edit:
-                Toast.makeText(this, "Edit selected",
-                        Toast.LENGTH_SHORT).show();
-                // add edit stuff here. link to pin info fragment
+                Toast.makeText(this, "Edit selected", Toast.LENGTH_SHORT).show();
+                if (fragPinInfo == null) {
+                    fragPinInfo = new PinInfoFragment();
+                }
+                replaceCurrentFragmentWith(fragPinInfo);
                 break;
             case R.id.delete:
-                Toast.makeText(this, "Delete selected",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Delete selected", Toast.LENGTH_SHORT).show();
                 // add delete stuff here
                 break;
-//			case R.id.share:
-//				Toast.makeText(this, "Share selected",
-//						Toast.LENGTH_SHORT).show();
-//				// add share stuff here
-//				break;
             case R.id.directions:
-                Toast.makeText(this, "Delete selected",
-                        Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Get Directions selected", Toast.LENGTH_SHORT).show();
                 //  link to google direction
                 break;
             default:
