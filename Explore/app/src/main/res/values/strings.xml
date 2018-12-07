@@ -90,6 +90,7 @@
     <string name="logoCredit">Created my free logo at <a href="https://logomakr.com">LogoMakr.com</a></string>
     //to give proper credit must be this way in text.(logoCredit)//
     <string name="icons8">Free drawer icons at <a href="https://icons8.com/icon/new-icons/all">Icons8.com</a></string>
+	<string name="drawerHeaderImage">Drawer Header Image created by Yannik Wenk, <a href="http://yannikwenk.com">Yannikwenk.com</a></string>
 
 
     https://icons8.com/icon/new-icons/all
