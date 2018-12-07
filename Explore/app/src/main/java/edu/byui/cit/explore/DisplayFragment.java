@@ -35,6 +35,7 @@ public final class DisplayFragment extends CITFragment
 
 	private GoogleMap mMap;
 
+	
 	public DisplayFragment() {
 		super();
 	}
