@@ -3,6 +3,9 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:showIn="navigation_view"
       android:id="@+id/drawer_view">
+
+	//This page lets you add new sections in the drawer menu.
+	//Looking at the code should be self explanatory.
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_recent_activity"
               android:icon="@drawable/icon_recents_480"
@@ -27,12 +30,13 @@
             android:title="Main Map" />
         
     </group>
-    <item android:title="Communication">
-    <menu>
-    <item
-    android:id="@+id/nav_share"
-    android:icon="@drawable/icon_share_480"
-    android:title="Share"/>
-    </menu>
-    </item>
+	//example of adding new section in drawer
+    <!--<item android:title="Communication">-->
+    <!--<menu>-->
+    <!--<item-->
+    <!--android:id="@+id/nav_share"-->
+    <!--android:icon="@drawable/icon_share_480"-->
+    <!--android:title="Share"/>-->
+    <!--</menu>-->
+    <!--</item>-->
 </menu>
