@@ -90,7 +90,7 @@ public abstract class CITFragment extends Fragment {
 	public void onStop() {
 		try {
 			AppCompatActivity act = getCompatActivity();
-			act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+//			act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 //			getActivity().findViewById(R.id.fabAdd).setVisibility(View
 //					.VISIBLE);
 

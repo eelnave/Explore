@@ -13,19 +13,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 
 import android.view.View;
 import android.widget.*;
-
-import edu.byui.cit.exception.LocationException;
-import edu.byui.cit.exception.PermissionException;
-import edu.byui.cit.exception.ProviderException;
-import edu.byui.cit.exception.ServiceException;
-import edu.byui.cit.explore.DisplayFragment;
 
 
 /* TODO
@@ -55,7 +48,7 @@ import edu.byui.cit.explore.DisplayFragment;
 public class MainActivity extends AppCompatActivity {
 	public static final String TAG = "Explore";
 	private DrawerLayout mDrawerLayout;
-	private Fragment fragAbout, fragPinInfo;
+	private Fragment fragDisplay, fragAbout, fragPinInfo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,17 +69,13 @@ public class MainActivity extends AppCompatActivity {
 			LocationTracker tracker = LocationTracker.getInstance();
 			tracker.start(ctx);
 		}
-		catch (PermissionException | ServiceException | ProviderException |
-				LocationException ex) {
-			Log.e(MainActivity.TAG, "1: " + ex.getMessage());
-		}
 		catch (Exception ex) {
 			Log.e(MainActivity.TAG, "1: " + ex.getMessage());
 		}
 
 		//This Method is declared below and contains the code necessary for adding a custom toolbar.
         //A custom toolbar is required for adding a hamburger icon to access the drawer.
-		CreateToolbar();
+		createToolbar();
 
 		mDrawerLayout = findViewById(R.id.drawer_layout);
 	}
@@ -102,10 +91,10 @@ public class MainActivity extends AppCompatActivity {
 
             // Create the map fragment and place it
             // as the first fragment in this activity.
-            final Fragment frag = new DisplayFragment();
+            fragDisplay = new DisplayFragment();
             final FragmentTransaction trans = getSupportFragmentManager()
                     .beginTransaction();
-            trans.add(R.id.fragContainer, frag);
+            trans.add(R.id.fragContainer, fragDisplay);
             trans.commit();
 
             NavigationView navigationView = findViewById(R.id.nav_view);
@@ -174,8 +163,6 @@ public class MainActivity extends AppCompatActivity {
     private final class HandleNavClick
 			implements NavigationView.OnNavigationItemSelectedListener {
 
-	    Fragment fragAbout, fragPinInfo, fragDisplay;
-
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 // set item as selected to persist highlight
@@ -183,22 +170,19 @@ public class MainActivity extends AppCompatActivity {
                 // close drawer when item is tapped
                 mDrawerLayout.closeDrawers();
 
-                FragmentTransaction ft = getSupportFragmentManager()
-                        .beginTransaction();
-
                 switch (menuItem.getItemId()) {
                     case (R.id.nav_about): {
-                        fragAbout =  new AboutFragment();
-                        ft.replace(R.id.fragContainer, fragAbout);
-                        ft.addToBackStack(null);
-                        ft.commit();
+                        if (fragAbout == null) {
+                            fragAbout = new AboutFragment();
+                        }
+                        replaceCurrentFragmentWith(fragAbout);
                         break;
                     }
                     case (R.id.nav_pin): {
-                        fragPinInfo = new PinInfoFragment();
-                        ft.replace(R.id.fragContainer, fragPinInfo);
-                        ft.addToBackStack(null);
-                        ft.commit();
+                        if (fragPinInfo == null) {
+                            fragPinInfo = new PinInfoFragment();
+                        }
+                        replaceCurrentFragmentWith(fragPinInfo);
                         break;
                     }
 					case (R.id.delete_all):{
@@ -206,10 +190,10 @@ public class MainActivity extends AppCompatActivity {
 						displayFragment.DeleteAllPins();
 					}
                     case (R.id.return_home): {
-                        fragDisplay = new DisplayFragment();
-                        ft.replace(R.id.fragContainer, fragDisplay);
-                        ft.addToBackStack(null);
-                        ft.commit();
+                        if (fragDisplay == null) {
+                            fragDisplay = new DisplayFragment();
+                        }
+                        replaceCurrentFragmentWith(fragDisplay);
                         break;
                     }
                 }
@@ -217,11 +201,39 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void CreateToolbar() {
+    //Toolbars are a tricky thing in android and I'll do my best to explain what I know.
+    //The first line of this method finds the XML Element with the id of "toolbar" in our app
+    //this happens to be in our main_activity.xml file. The second line sets that toolbar as
+    //the toolbar in our app. This was only possible after we changed our app theme to a theme
+    //that didn't contain a predetermined toolbar. This change is located at line 4 of styles.xml
+    //The third line creates a new ActionBar object using the support action bar we just set.
+    //If you're wondering what the difference between an ActionBar and a Toolbar is well so was I
+    //this StackOverflow link should prove useful: https://stackoverflow.com/questions/44516512/what-is-exact-difference-between-appbar-toolbar-actionbar-and-when-to-use-th/44516767
+    //The fourth line calls the ludicrously named method "setDisplayHomeAsUpEnabled." This method
+    //takes a boolean and when set to true it adds a back button at the far left of the toolbar.
+    //The idea is that if the user navigates from one page to another and another then this creates
+    //a "tree" of visited pages. The default behavior of android is to have a home button that takes
+    //the user back to the very top. Setting it as "up" enabled allows the user to go one page at a time
+    //using the back button. We use this method so we can hijack the back button, turn it into
+    //hamburger icon and add our drawer menu. The fifth line is what changes the icon.
+    private void createToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ActionBar actionbar = getSupportActionBar();
         actionbar.setDisplayHomeAsUpEnabled(true);
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
     }
+
+    //This class handles all fragment transactions for the app. Fragment transactions are what
+	//allow us to dynamically swap views in and out of our main FrameLayout. Moving fragments
+	//in and out of a single FrameLayout is much less computing power than many entirely new
+	//activities being loaded each time. There's a tutorial that goes through the details of what
+	//each line of this method does at https://developer.android.com/guide/components/fragments#java
+	private void replaceCurrentFragmentWith(Fragment fragment){
+		final FragmentTransaction swapper = getSupportFragmentManager()
+				.beginTransaction();
+		swapper.replace(R.id.fragContainer, fragment);
+		swapper.addToBackStack(null);
+		swapper.commit();
+	}
 }

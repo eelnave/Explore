@@ -24,7 +24,7 @@ public abstract class ChildFragment extends CITFragment {
 	public void onDestroyView() {
 		super.onDestroyView();
 		AppCompatActivity act = getCompatActivity();
-		act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+//		act.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 //		act.findViewById(R.id.fabAdd).setVisibility(View.VISIBLE);
 	}
 }
