@@ -3,7 +3,11 @@ package edu.byui.cit.explore;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 
-
+/*this enum holds all of the icons we created that can be used as pins on the map.
+If you want to add or remove icons make sure that you change them here as well as in the
+drawable folder.  To size the icons you can use the Batch Drawable Import plugin,
+or sometimes it's a good idea to just use paint to resize the icons.
+ */
 enum Category {
 	None(0),
 	Bathroom(R.drawable.icon_bathroom),
