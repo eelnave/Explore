@@ -201,8 +201,8 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
 					case (R.id.delete_all):{
-						DisplayFragment displayFragment = new DisplayFragment();
-						displayFragment.DeleteAllPins();
+						db().clearTable();
+						fragDisplay.showAllPins();
 					}
                     case (R.id.return_home): {
                         if (fragDisplay == null) {
