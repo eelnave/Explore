@@ -165,7 +165,8 @@ public final class DisplayFragment extends CITFragment
 //			options.draggable(true);
 			for (Pin pin : allPins) {
 				BitmapDescriptor bitmap =
-						BitmapDescriptorFactory.fromResource(R.drawable.icon_antelope);
+						BitmapDescriptorFactory.fromResource(
+								R.drawable.gray_pin);
 				options.icon(bitmap);
 				LatLng allLatLng = new LatLng(pin.getLatitude(), pin.getLongitude());
 				options.position(allLatLng);
@@ -174,7 +175,7 @@ public final class DisplayFragment extends CITFragment
 			}
 
 			BitmapDescriptor bitmap =
-					BitmapDescriptorFactory.fromResource(R.drawable.icon_person);
+					BitmapDescriptorFactory.fromResource(R.drawable.new_pin);
 			options.icon(bitmap);
 			//sets the marker's location from the click
 			options.position(latLng);
