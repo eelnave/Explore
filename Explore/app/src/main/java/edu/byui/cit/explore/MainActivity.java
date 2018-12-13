@@ -3,6 +3,8 @@ package edu.byui.cit.explore;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
@@ -21,6 +23,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
 import edu.byui.cit.model.AppDatabase;
@@ -52,45 +56,44 @@ import edu.byui.cit.model.PinDAO;
  */
 
 public class MainActivity extends AppCompatActivity {
-	public static final String TAG = "Explore";
-	private DrawerLayout mDrawerLayout;
-	private DisplayFragment fragDisplay;
-	private Fragment fragAbout, fragPinInfo;
-	private Marker clickedMarker;
+    public static final String TAG = "Explore";
+    private DrawerLayout mDrawerLayout;
+    private DisplayFragment fragDisplay;
+    private Fragment fragAbout, fragPinInfo;
+    private Marker clickedMarker;
 
     public void setClickedMarker(Marker clickedMarker) {
         this.clickedMarker = clickedMarker;
     }
 
     @Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-		setContentView(R.layout.main_activity);
+        setContentView(R.layout.main_activity);
 
-		//This is the code that asks the user to allow location services for our application
-		ActivityCompat.requestPermissions(this,
-				new String[]{ Manifest.permission.ACCESS_FINE_LOCATION },
-				1);
-		Context ctx = getApplicationContext();
+        //This is the code that asks the user to allow location services for our application
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                1);
+        Context ctx = getApplicationContext();
 
-		try {
-			// Try to start the LocationTracker early so that the
-			// current location will be ready for the MapFragment
-			// to move the camera to the current location.
-			LocationTracker tracker = LocationTracker.getInstance();
-			tracker.start(ctx);
-		}
-		catch (Exception ex) {
-			Log.e(MainActivity.TAG, "1: " + ex.getMessage());
-		}
+        try {
+            // Try to start the LocationTracker early so that the
+            // current location will be ready for the MapFragment
+            // to move the camera to the current location.
+            LocationTracker tracker = LocationTracker.getInstance();
+            tracker.start(ctx);
+        } catch (Exception ex) {
+            Log.e(MainActivity.TAG, "1: " + ex.getMessage());
+        }
 
-		//This Method is declared below and contains the code necessary for adding a custom toolbar.
+        //This Method is declared below and contains the code necessary for adding a custom toolbar.
         //A custom toolbar is required for adding a hamburger icon to access the drawer.
-		createToolbar();
+        createToolbar();
 
-		mDrawerLayout = findViewById(R.id.drawer_layout);
-	}
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+    }
 
     public void onStart() {
         super.onStart();
@@ -111,21 +114,20 @@ public class MainActivity extends AppCompatActivity {
 
             NavigationView navigationView = findViewById(R.id.nav_view);
             navigationView.setNavigationItemSelectedListener(new HandleNavClick());
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             Log.e(MainActivity.TAG, "2: " + ex.getMessage());
         }
     }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-			case android.R.id.home:
-				mDrawerLayout.openDrawer(GravityCompat.START);
-				return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                mDrawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     // this creates the context menu with a title
     @Override
@@ -152,12 +154,21 @@ public class MainActivity extends AppCompatActivity {
                 replaceCurrentFragmentWith(fragPinInfo);
                 break;
             case R.id.delete:
+                Toast.makeText(this, "Deleted", Toast.LENGTH_SHORT).show();
                 db().deletePin(clickedMarker.getPosition().latitude, clickedMarker.getPosition().longitude);
                 fragDisplay.showAllPins();
                 break;
             case R.id.directions:
                 Toast.makeText(this, "Get Directions selected", Toast.LENGTH_SHORT).show();
-                //  link to google direction
+                //  create activity intent to open up google maps
+                // this passes the data to latLong
+                LatLng latLng = clickedMarker.getPosition();
+                //creates uri from an intent string. it references google map API and then concats it
+                String url = "https://www.google.com/maps/dir/?api=1&destination=" + latLng.latitude + "," + latLng.longitude + "&travelmode=driving";
+                // this creates the intent and sets the action
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                // attempt to start an activity that handles the intent
+                startActivity(intent);
                 break;
             default:
                 result = super.onContextItemSelected(item);
@@ -168,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
         return result;
     }
 
-    private PinDAO db(){
+    private PinDAO db() {
         Context ctx = getApplicationContext();
         AppDatabase db = AppDatabase.getInstance(ctx);
         PinDAO dao = db.getPinDAO();
@@ -176,43 +187,43 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private final class HandleNavClick
-			implements NavigationView.OnNavigationItemSelectedListener {
+            implements NavigationView.OnNavigationItemSelectedListener {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                // set item as selected to persist highlight
-                menuItem.setChecked(true);
-                // close drawer when item is tapped
-                mDrawerLayout.closeDrawers();
+            // set item as selected to persist highlight
+            menuItem.setChecked(true);
+            // close drawer when item is tapped
+            mDrawerLayout.closeDrawers();
 
-                switch (menuItem.getItemId()) {
-                    case (R.id.nav_about): {
-                        if (fragAbout == null) {
-                            fragAbout = new AboutFragment();
-                        }
-                        replaceCurrentFragmentWith(fragAbout);
-                        break;
+            switch (menuItem.getItemId()) {
+                case (R.id.nav_about): {
+                    if (fragAbout == null) {
+                        fragAbout = new AboutFragment();
                     }
-                    case (R.id.nav_pin): {
-                        if (fragPinInfo == null) {
-                            fragPinInfo = new PinInfoFragment();
-                        }
-                        replaceCurrentFragmentWith(fragPinInfo);
-                        break;
-                    }
-					case (R.id.delete_all):{
-						db().clearTable();
-						fragDisplay.showAllPins();
-					}
-                    case (R.id.return_home): {
-                        if (fragDisplay == null) {
-                            fragDisplay = new DisplayFragment();
-                        }
-                        replaceCurrentFragmentWith(fragDisplay);
-                        break;
-                    }
+                    replaceCurrentFragmentWith(fragAbout);
+                    break;
                 }
-                return true;
+                case (R.id.nav_pin): {
+                    if (fragPinInfo == null) {
+                        fragPinInfo = new PinInfoFragment();
+                    }
+                    replaceCurrentFragmentWith(fragPinInfo);
+                    break;
+                }
+                case (R.id.delete_all): {
+                    db().clearTable();
+                    fragDisplay.showAllPins();
+                }
+                case (R.id.return_home): {
+                    if (fragDisplay == null) {
+                        fragDisplay = new DisplayFragment();
+                    }
+                    replaceCurrentFragmentWith(fragDisplay);
+                    break;
+                }
+            }
+            return true;
         }
     }
 
@@ -241,16 +252,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //This class handles all fragment transactions for the app. Fragment transactions are what
-	//allow us to dynamically swap views in and out of our main FrameLayout. Moving fragments
-	//in and out of a single FrameLayout is much less computing power than many entirely new
-	//activities being loaded each time. There's a tutorial that goes through the details of what
-	//each line of this method does at https://developer.android.com/guide/components/fragments#java
+    //allow us to dynamically swap views in and out of our main FrameLayout. Moving fragments
+    //in and out of a single FrameLayout is much less computing power than many entirely new
+    //activities being loaded each time. There's a tutorial that goes through the details of what
+    //each line of this method does at https://developer.android.com/guide/components/fragments#java
 
-	private void replaceCurrentFragmentWith(Fragment fragment){
-		final FragmentTransaction swapper = getSupportFragmentManager()
-				.beginTransaction();
-		swapper.replace(R.id.fragContainer, fragment);
-		swapper.addToBackStack(null);
-		swapper.commit();
-	}
+    private void replaceCurrentFragmentWith(Fragment fragment) {
+        final FragmentTransaction swapper = getSupportFragmentManager()
+                .beginTransaction();
+        swapper.replace(R.id.fragContainer, fragment);
+        swapper.addToBackStack(null);
+        swapper.commit();
+    }
 }
