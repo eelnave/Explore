@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.context_menu, menu);
     }
 
-    // this method are the case statements of what will happen when an option
+    // this method contains the case statement for what will happen when an option
     // is selected
     @Override
     public boolean onContextItemSelected(MenuItem item) {
@@ -251,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
         actionbar.setHomeAsUpIndicator(R.drawable.ic_menu);
     }
 
-    //This class handles all fragment transactions for the app. Fragment transactions are what
+    //This method handles all fragment transactions for the app. Fragment transactions are what
     //allow us to dynamically swap views in and out of our main FrameLayout. Moving fragments
     //in and out of a single FrameLayout is much less computing power than many entirely new
     //activities being loaded each time. There's a tutorial that goes through the details of what
