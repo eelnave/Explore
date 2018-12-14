@@ -144,7 +144,7 @@ public final class DisplayFragment extends CITFragment
 		MarkerOptions options = new MarkerOptions();
 		for (Pin pin : allPins) {
 			BitmapDescriptor bitmap =
-					BitmapDescriptorFactory.fromResource(R.drawable.icon_person);
+                    BitmapDescriptorFactory.fromResource(pin.getIconName());
 			options.icon(bitmap);
 			LatLng latLng = new LatLng(pin.getLatitude(), pin.getLongitude());
 			options.position(latLng);
@@ -185,7 +185,7 @@ public final class DisplayFragment extends CITFragment
 
 			// Insert a pin into the Pin table of the database.
 			Date now = new Date();
-			Pin pin = new Pin("person",
+            Pin pin = new Pin(R.drawable.icon_person,
 					latLng.latitude, latLng.longitude, now, "");
 			db().insert(pin);
 
