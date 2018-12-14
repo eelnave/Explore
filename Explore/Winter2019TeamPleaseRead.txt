@@ -1,0 +1,11 @@
+Welcome to the Explore App!
+We've really fallen in love with the idea of this app and hope you do too as you continue to develop it this semester.
+We started this app from scratch and some of us felt a little overwhelmed jumping into the world of Android. There's a lot
+of new concepts and ideas. We were trying to work with other people's code and online tutorials while simultaneously trying
+to make this app amazing. We decided that we wanted to help you get off to a more succesful start. That's why we spent our
+last two weeks refactoring our codebase to make it more understandable and adding in comments that hopefully provide helpful
+tutorials on how each line of code is working. Before jumping into these comments I'd recommend spending some time working
+with and understanding XML so that you can better understand how the views created there are interacting with the Java code
+we've created. This app is yours now so feel free to inject your own creativity and to change and fiddle with any of the code
+we've written. We're excited to see what you turn this app into!
+- Fall 2018 Explore Team

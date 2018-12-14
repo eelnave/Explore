@@ -108,7 +108,7 @@ public final class DisplayFragment extends CITFragment
 		}
 	}
 
-    /*
+    /**
       This method creates an object that is used to gain access to our database.
       For more info about which methods this PinDAO contains go to edu.byui.cit.model.PinDAO
      */
@@ -153,8 +153,8 @@ public final class DisplayFragment extends CITFragment
 		}
 	}
 
-	/*
-	For handling events we need to implement different listeners provided for us
+    /**
+    For handling events we need to implement different listeners provided for us
 	by Google. Those listeners are set up as interfaces meaning we need to use an
 	inner class to implement those interfaces. If you're confused about interfaces
 	and inner classes ask Brother Barzee. He explains it very well. Once we have our
@@ -164,7 +164,7 @@ public final class DisplayFragment extends CITFragment
 	the interface method onMapClick. The code inside of this method is the code that
 	creates a new marker on the map and then uses that data to create a database object
 	representing that marker.
-	 */
+	*/
 
 	private final class HandleMapClick
 			implements GoogleMap.OnMapClickListener {
@@ -194,7 +194,7 @@ public final class DisplayFragment extends CITFragment
 		}
 	}
 
-	/*
+	/**
 	This is another listener class. This one is a little special though. It has to
 	pass data to the MainActivity. So first we have to make a MainActivity object.
 	For this we use the getActivity method. getActivity returns the parent activity
