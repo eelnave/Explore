@@ -71,6 +71,7 @@ public final class DisplayFragment extends CITFragment
 	 * once the user has
 	 * installed Google Play services and returned to the app.
 	 */
+
 	@Override
 	public void onMapReady(final GoogleMap googleMap) {
 		try {
@@ -96,7 +97,6 @@ public final class DisplayFragment extends CITFragment
 
 			mMap.setBuildingsEnabled(true);
 
-			mMap.setOnCameraIdleListener(new HandleCameraIdle());
 			mMap.setOnMapClickListener(new HandleMapClick());
 			mMap.setOnMarkerClickListener(new HandleMarkerClick());
 		}
@@ -107,6 +107,12 @@ public final class DisplayFragment extends CITFragment
 			Log.e(TAG, "4: " + ex.getMessage());
 		}
 	}
+
+    /*
+      This method creates an object that is used to gain access to our database.
+      For more info about which methods this PinDAO contains go to edu.byui.cit.model.PinDAO
+     */
+
 	private PinDAO db(){
 		Activity act = getActivity();
 		Context ctx = act.getApplicationContext();
@@ -115,14 +121,17 @@ public final class DisplayFragment extends CITFragment
 		return dao;
 	}
 
-	public void DeleteAllPins(){
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				db().clearTable();
-			}
-		});
-	}
+    /**
+     * This method clears the map of all markers. It then pulls all pins out of the database
+     * and stores them into a list collection. It then creates a MarkerOptions object which is
+     * a class used when working with Google Maps. It defines the data behind a marker
+     * on the map. We then loop through the list and define the options for each pin in the
+     * list and place it on the map. One line that may cause confusion is our BitmapDescriptor.
+	 * In order to understand what this is doing we have to understand what R.drawable.icon_person
+	 * is. It may seem like a simple path to our image file. What this returns is actually an int.
+	 * We can't display an int on the map. What the BitmapDescriptor object does is turn our
+	 * path into an actual image that's displayable on the map.
+     */
 
 	void showAllPins() {
 		// Clear the map of all markers.
@@ -144,36 +153,24 @@ public final class DisplayFragment extends CITFragment
 		}
 	}
 
-	private final class HandleCameraIdle
-			implements GoogleMap.OnCameraIdleListener {
-		@Override
-		public void onCameraIdle() {
-			Log.e(TAG, "==camera idle==" + mMap.getCameraPosition().target);
-		}
-	}
+	/*
+	For handling events we need to implement different listeners provided for us
+	by Google. Those listeners are set up as interfaces meaning we need to use an
+	inner class to implement those interfaces. If you're confused about interfaces
+	and inner classes ask Brother Barzee. He explains it very well. Once we have our
+	class created we have to implement the methods that are defined in the interface.
+	That's where we put our code. So if we take the code below line by line this is
+	what happens: We declare our class, we implement the listener interface, we override
+	the interface method onMapClick. The code inside of this method is the code that
+	creates a new marker on the map and then uses that data to create a database object
+	representing that marker.
+	 */
 
 	private final class HandleMapClick
 			implements GoogleMap.OnMapClickListener {
 		@Override
 		public void onMapClick(LatLng latLng) {
-			mMap.clear();
-
-			List<Pin> allPins = db().getAll();
-
-
 			MarkerOptions options = new MarkerOptions();
-//			options.draggable(true);
-			for (Pin pin : allPins) {
-				BitmapDescriptor bitmap =
-						BitmapDescriptorFactory.fromResource(
-								R.drawable.gray_pin);
-				options.icon(bitmap);
-				LatLng allLatLng = new LatLng(pin.getLatitude(), pin.getLongitude());
-				options.position(allLatLng);
-				options.title(allLatLng.latitude + " : " + allLatLng.longitude);
-				mMap.addMarker(options);
-			}
-
 			BitmapDescriptor bitmap =
 					BitmapDescriptorFactory.fromResource(R.drawable.new_pin);
 			options.icon(bitmap);
@@ -191,8 +188,25 @@ public final class DisplayFragment extends CITFragment
 			Pin pin = new Pin("person",
 					latLng.latitude, latLng.longitude, now, "");
 			db().insert(pin);
+
+			//Show the pin alongside the other pins
+            showAllPins();
 		}
 	}
+
+	/*
+	This is another listener class. This one is a little special though. It has to
+	pass data to the MainActivity. So first we have to make a MainActivity object.
+	For this we use the getActivity method. getActivity returns the parent activity
+	that is running when the method is called. For us this is always the MainActivity.
+	The only problem is that this method returns an Activity object. Not a MainActivity
+	object. It's important to know that those are different things. All activities extend
+	the Activity class. Meaning that we have to take what it returns and cast it down into
+	a MainActivity object that we can work with. After this is done we use that object to
+	capture the currently displayed fragment, we pass some data into the MainActivity via
+	a method we wrote, and then we call the two methods necessary to create a context
+	menu. These methods require that we pass in the view that we want them to display within.
+	 */
 
 	private final class HandleMarkerClick
 			implements GoogleMap.OnMarkerClickListener {
