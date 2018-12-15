@@ -32,7 +32,7 @@ public class Pin {
 	//the rest is self-explanatory.
 
 	@ColumnInfo(name = "icon_name")
-	private String iconName;
+	private int iconName;
 
 	@ColumnInfo(name = "latitude")
 	private double latitude;
@@ -47,8 +47,8 @@ public class Pin {
 	private String notes;
 
 	//we have a constructor in here, because why not?
-	public Pin(String iconName, double latitude,
-			double longitude, Date date, String notes) {
+	public Pin(int iconName, double latitude,
+			   double longitude, Date date, String notes) {
 		this.pinId = pinId;
 		this.iconName = iconName;
 		this.latitude = latitude;
@@ -66,11 +66,11 @@ public class Pin {
 		this.pinId = pinId;
 	}
 
-	public String getIconName() {
+	public int getIconName() {
 		return iconName;
 	}
 
-	public void setIconName(String iconName) {
+	public void setIconName(int iconName) {
 		this.iconName = iconName;
 	}
 

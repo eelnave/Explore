@@ -4,6 +4,7 @@ import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.runner.AndroidJUnit4;
+import edu.byui.cit.explore.R;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,14 +29,14 @@ public class PinDAOTest{
 	}
 
 	Date date = new Date();
-	Pin pin0 = new Pin(1,"pin",10.0,15.0,date,"notes");
+    Pin pin0 = new Pin(R.drawable.icon_person, 10.0, 10.0, date, "notes");
 	Double delta = 0.00001;
 	@Test
 	public void getAll() {
 		// check pin0 assertions
 		assertTrue(pin0.getPinId() > 0);
 		assertEquals(1,pin0.getPinId());
-		assertTrue(pin0.getIconName() == "pin");
+        assertTrue(pin0.getIconName() == R.drawable.icon_person);
 		assertEquals("pin", pin0.getIconName());
 		assertTrue(pin0.getLatitude() == 10.0);
 		assertEquals(10.0, (double)pin0.getLatitude(), delta);
@@ -53,7 +54,7 @@ public class PinDAOTest{
 		//testing to see if the values got stored in pin
 		assertTrue(pin0.getPinId() > 0);
 		assertEquals(1,pin0.getPinId());
-		assertTrue(pin0.getIconName() == "pin");
+        assertTrue(pin0.getIconName() == R.drawable.icon_person);
 		assertEquals("pin", pin0.getIconName());
 		assertTrue(pin0.getLatitude() == 10.0);
 		assertEquals(10.0, (double)pin0.getLatitude(), delta);
