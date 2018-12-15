@@ -112,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
             trans.add(R.id.fragContainer, fragDisplay);
             trans.commit();
 
+             //This is the code that creates an object to handle when a user clicks on
+             //one of the options in our drawer menu.
+
             NavigationView navigationView = findViewById(R.id.nav_view);
             navigationView.setNavigationItemSelectedListener(new HandleNavClick());
         } catch (Exception ex) {
@@ -160,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.directions:
                 Toast.makeText(this, "Get Directions selected", Toast.LENGTH_SHORT).show();
-                //  create activity intent to open up google maps
+                // create activity intent to open up google maps
                 // this passes the data to latLong
                 LatLng latLng = clickedMarker.getPosition();
                 //creates uri from an intent string. it references google map API and then concats it
@@ -182,8 +185,7 @@ public class MainActivity extends AppCompatActivity {
     private PinDAO db() {
         Context ctx = getApplicationContext();
         AppDatabase db = AppDatabase.getInstance(ctx);
-        PinDAO dao = db.getPinDAO();
-        return dao;
+        return db.getPinDAO();
     }
 
     private final class HandleNavClick
