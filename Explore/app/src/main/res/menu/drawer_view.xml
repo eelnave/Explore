@@ -4,8 +4,8 @@
       tools:showIn="navigation_view"
       android:id="@+id/drawer_view">
 
-	//This page lets you add new sections in the drawer menu.
-	//Looking at the code should be self explanatory.
+<!--	This page lets you add new sections in the drawer menu.
+	Looking at the code should be self explanatory.-->
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_recent_activity"
               android:icon="@drawable/icon_recents_480"
