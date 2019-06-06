@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-	<string name="idealGas">Vitesse des gaz parfaits</string>
-
-	<string name="gasEnergy">énergie dez Gaz</string>
-
-	<string name="gasVelocity">Vélocité dez Gaz</string>
-</resources>

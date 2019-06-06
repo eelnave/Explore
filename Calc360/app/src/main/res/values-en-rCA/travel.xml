@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-	<string name="FuelEconomy">Fuel Economy</string>
-	<string name="FuelEcon">Fuel Economy</string>
-	<string name="vehicleEfficiency">Fuel\nEconomy</string>
-</resources>

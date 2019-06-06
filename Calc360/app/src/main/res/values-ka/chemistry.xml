@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-	<string name="idealGas">იდეალური გაზი</string>
-
-	<string name="gasEnergy">გაზის ენერგია</string>
-
-	<string name="gasVelocity">გაზის სიჩქარე</string>
-</resources>
